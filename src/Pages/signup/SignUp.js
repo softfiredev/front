@@ -28,7 +28,7 @@ const SignUp = () => {
 <p class="continue-avec-6AIlOd" data-id="3:53">Continue avec</p>
 <p class="ou-avec-votre-adresse-e-mail-6AIlOd" data-id="3:54">Ou avec votre adresse e-mail</p>
 
-<p class="avez-vous-déjà-un-compte-connexion-6AIlOd" data-id="3:59">Avez vous déjà un compte! Connexion</p>
+<p class="avez-vous-déjà-un-compte-connexion-6AIlOd" data-id="3:59">Avez vous déjà un compte! <a href='/Login'>Connexion</a></p>
 <div class="group-611-6AIlOd" data-id="3:60">
 <button onClick={jarib} class="rectangle-955-swKQv0" data-id="3:61">
 

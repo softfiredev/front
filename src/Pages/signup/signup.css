@@ -1,0 +1,355 @@
+
+body, html{
+    padding: 0;
+    margin:0 ;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* make sure to set some focus styles for accessibility */
+:focus {
+    outline: 0;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+    resize: vertical;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    max-width: 100%;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    font-size: 100%; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {
+    outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+.sign-up-Zg3mej{ overflow: hidden;opacity: 1;width: 1440px;height: 1434px;position: relative;overflow: hidden;background-color:rgba(255,255,255,1); }
+.rectangle-950-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 552px;left: 783px;width: 416px; height: 52px;background-color:rgba(255,255,255,1);border-width: 1px;border-width:1px;border-style: solid;border-color: rgba(226.0000017285347,229.00000154972076,234.00000125169754,1); }
+.rectangle-952-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 624px;left: 783px;width: 416px; height: 52px;background-color:rgba(255,255,255,1);border-width: 1px;border-width:1px;border-style: solid;border-color: rgba(226.0000017285347,229.00000154972076,234.00000125169754,1); }
+.rectangle-953-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 696px;left: 783px;width: 416px; height: 52px;background-color:rgba(255,255,255,1);border-width: 1px;border-width:1px;border-style: solid;border-color: rgba(226.0000017285347,229.00000154972076,234.00000125169754,1); }
+.rectangle-951-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 480px;left: 783px;width: 416px; height: 52px;background-color:rgba(255,255,255,1);border-width: 1px;border-width:1px;border-style: solid;border-color: rgba(226.0000017285347,229.00000154972076,234.00000125169754,1); }
+.sinscrire-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 240px;left: 783px;width: 180px; height: 48px;color:rgba(26.000000350177288,17.00000088661909,10.000000353902578,1);white-space: pre;height: 48px;font-size: 40px;line-height: 46.8px;text-align: left; }
+.group-612-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 764px;left: 783px;width: 327px; height: 24px;display: flex;flex-direction: row; }
+.vuesax-bold-tick-square-H0LNIy{ opacity: 1;z-index: 2; position: absolute;left: 0px;top: 0px;width: 24px; height: 24px; }
+.vuesax-bold-tick-square-uXDjwz{ opacity: 1;z-index: 3; position: absolute;top: 0px;left: 0px;width: 24px; height: 24px;display: flex;flex-direction: row; }
+.tick-square-AEmqbd{ opacity: 1;z-index: 4; position: absolute;left: 0px;top: 0px;width: 24px; height: 24px;display: flex;flex-direction: row; }
+.jai-lu-et-jaccepte-les-conditions-générales-H0LNIy{ opacity: 1;z-index: 2; position: absolute;left: 37px;top: 1px;width: 290px; height: 22px;white-space: pre;height: 22px;font-size: 14px;line-height: 22px;text-align: left;font-weight: 500; }
+.continue-avec-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 320px;left: 783px;width: 110px; height: 22px;color:rgba(26.000000350177288,17.00000088661909,10.000000353902578,1);white-space: pre;height: 22px;font-size: 16px;line-height: 22px;text-align: left;font-weight: 500; }
+.ou-avec-votre-adresse-e-mail-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 442px;left: 783px;width: 224px; height: 22px;color:rgba(26.000000350177288,17.00000088661909,10.000000353902578,1);white-space: pre;height: 22px;font-size: 16px;line-height: 22px;text-align: left;font-weight: 500; }
+.nom-et-prénom-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 495px;left: 799px;width: 119px; height: 22px;color:rgba(208.0000028014183,210.00000268220901,212.00000256299973,1);white-space: pre;height: 22px;font-size: 16px;line-height: 22px;text-align: left;font-weight: 500; }
+.email-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 567px;left: 799px;width: 41px; height: 22px;color:rgba(208.0000028014183,210.00000268220901,212.00000256299973,1);white-space: pre;height: 22px;font-size: 16px;line-height: 22px;text-align: left;font-weight: 500; }
+.mot-de-passe-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 639px;left: 799px;width: 104px; height: 22px;color:rgba(208.0000028014183,210.00000268220901,212.00000256299973,1);white-space: pre;height: 22px;font-size: 16px;line-height: 22px;text-align: left;font-weight: 500; }
+.confirmer-mot-de-passe-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 711px;left: 799px;width: 185px; height: 22px;color:rgba(208.0000028014183,210.00000268220901,212.00000256299973,1);white-space: pre;height: 22px;font-size: 16px;line-height: 22px;text-align: left;font-weight: 500; }
+.avez-vous-déjà-un-compte-connexion-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 900px;left: 784px;width: 290px; height: 22px;color:rgba(26.000000350177288,17.00000088661909,10.000000353902578,1);white-space: pre;height: 22px;font-size: 16px;line-height: 22px;text-align: left; }
+.group-611-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 812px;left: 783px;width: 416px; height: 56px;display: flex;flex-direction: row; }
+.rectangle-955-swKQv0{ opacity: 1;z-index: 2; position: absolute;left: 0px;top: 0px;width: 416px; height: 56px;background-color:rgba(26.000000350177288,17.00000088661909,10.000000353902578,1); }
+.sinscrire-swKQv0{ opacity: 1;z-index: 2; position: absolute;left: 168px;top: 14px;width: 80px; height: 28px;color:rgba(255,255,255,1);white-space: pre;height: 28px;font-size: 18px;line-height: 28px;text-align: center;font-weight: 500; }
+.group-615-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 358px;left: 783px;width: 150px; height: 52px;display: flex;flex-direction: row; }
+.rectangle-953-qNyFR6{ opacity: 1;z-index: 2; position: absolute;left: 0px;top: 0px;width: 150px; height: 52px;background-color:rgba(255,255,255,1);border-width: 1px;border-width:1px;border-style: solid;border-color: rgba(226.0000017285347,229.00000154972076,234.00000125169754,1); }
+.group-614-qNyFR6{ opacity: 1;z-index: 2; position: absolute;left: 37px;top: 13px;width: 76px; height: 26px;display: flex;flex-direction: row; }
+.google__g__logo-2-BMdyMi{ overflow: hidden;opacity: 1;z-index: 3; position: absolute;left: 0px;top: 0px;width: 26px; height: 26px;overflow: hidden; }
+.gmail-BMdyMi{ opacity: 1;z-index: 3; position: absolute;left: 38px;top: 2px;width: 38px; height: 22px;color:rgba(26.000000350177288,17.00000088661909,10.000000353902578,1);white-space: pre;height: 22px;font-size: 14px;line-height: 22px;text-align: left;font-weight: 500; }
+.group-616-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 358px;left: 949px;width: 150px; height: 52px;display: flex;flex-direction: row; }
+.rectangle-952-tMLdd3{ opacity: 1;z-index: 2; position: absolute;left: 0px;top: 0px;width: 150px; height: 52px;background-color:rgba(255,255,255,1);border-width: 1px;border-width:1px;border-style: solid;border-color: rgba(226.0000017285347,229.00000154972076,234.00000125169754,1); }
+.group-613-tMLdd3{ opacity: 1;z-index: 2; position: absolute;left: 27px;top: 15px;width: 96px; height: 22px;display: flex;flex-direction: row; }
+.group-610-vNvGum{ opacity: 1;z-index: 3; position: absolute;left: 0px;top: 2px;width: 18px; height: 18px;display: flex;flex-direction: row; }
+.rectangle-957-jQdYQB{ border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;border-top-left-radius: 4px;border-top-right-radius: 4px;opacity: 1;z-index: 4; position: absolute;left: 0px;top: 0px;width: 18px; height: 18px;background-color:rgba(5.000000176951289,112.000000923872,230.00000149011612,1); }
+.vector-jQdYQB{ opacity: 1;z-index: 4; position: absolute;left: 7px;top: 3px;width: 7.414975643157959px; height: 15px; }
+.facebook-vNvGum{ opacity: 1;z-index: 3; position: absolute;left: 30px;top: 0px;width: 66px; height: 22px;color:rgba(26.000000350177288,17.00000088661909,10.000000353902578,1);white-space: pre;height: 22px;font-size: 14px;line-height: 22px;text-align: left;font-weight: 500; }
+.image-1-6AIlOd{ opacity: 1;z-index: 1; position: absolute;top: 246px;left: 101px;width: 600px; height: 675px; }
+
+.overflow{overflow: hidden;}.overlay-window--open{display: block!important;}
+.overlay-window{position: fixed;display:none; top:0; left: 0; right: 0; bottom: 0; z-index: 9999;}
+.overlay-window__item{top: 0; left: 0; right: 0; bottom: 0; position: absolute;}
+.overlay-window__item--open{ display: flex!important; justify-content: center; align-items: center;}

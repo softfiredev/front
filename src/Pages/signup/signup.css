@@ -65,7 +65,8 @@ table {
 }
 .log{
     position: absolute;
-    left: 5%;
+    left: 6%;
+    top:-4%;
 
 }
 textarea {

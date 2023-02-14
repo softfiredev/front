@@ -1,7 +1,7 @@
 import React from 'react'
 import "./signup.css"
-import Imge from "./assest/image1.png"
-import Icon from "./assest/gmail.png"
+import Imge from "../assest/image1.png"
+import Icon from "../assest/gmail.png"
 const SignUp = () => {
     const jarib=()=>{
         alert("button activ!!!")

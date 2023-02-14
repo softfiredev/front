@@ -31,7 +31,7 @@ function NavBar() {
  </div>
  
  </div>
- <a href="#" class="buttons---primary-6wNjKN" data-id="0:82">
+ <a href="/Login" class="buttons---primary-6wNjKN" data-id="0:82">
  <div class="button---primary-XFsEyK" data-id="I0:82;0:4712">
  <div class="btn-j3hFuD" data-id="I0:82;0:4713">
  </div>

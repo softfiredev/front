@@ -1,0 +1,39 @@
+
+.nav{
+  opacity: 1;z-index: 2; position: absolute;top: 0px;left: 0px;width: 11000000%; height: 90px;background-color:rgba(26.000000350177288,17.00000088661909,10.000000353902578,1);
+
+}
+.loaded{
+    position: absolute;
+    left: 80%;
+    top: 20%;
+}
+.group{
+  position: absolute;
+  left: 85px;
+}
+.navbar-GM8rhO{ overflow: hidden;opacity: 1;z-index: 1; position: absolute;top: 0px;left: 0px;width: 1440px; height: 90px;overflow: hidden;align-self: center; }
+.icons---cart-6wNjKN{ opacity: 1;z-index: 2; position: absolute;top: 33px;left: 1088px;width: 23px; height: 23px;align-self: center; }
+.cart-fDFr3t{ opacity: 1;z-index: 3; position: absolute;top: 0px;left: 0px;width: 22.574073791503906px; height: 22.574073791503906px;display: flex;flex-direction: row;align-self: center; }
+.shape-2jeRo8{ opacity: 1;z-index: 4; position: absolute;left: 0px;top: 0px;width: 22.574073791503906px; height: 22.574073791503906px;display: flex;flex-direction: row; }
+.logo-6wNjKN{ opacity: 1;z-index: 2; position: absolute;top: 193px;left: 124px;width: 627px; height: 266px; }
+.group-618-6wNjKN{ opacity: 1;z-index: 2; position: absolute;top: 39px;left: 350px;width: 582px; height: 19px;display: flex;flex-direction: row; }
+.pricing-01ne91{ opacity: 1;z-index: 3; position: absolute;left: 213px;top: 0px;width: 69px; height: 19px;color:rgba(255,255,255,1);white-space: pre;height: 19px;font-size: 16px;line-height: 18.72px;line-height: 19.72px;text-align: center;font-weight: 500; }
+.pricing-87LWd3{ opacity: 1;z-index: 3; position: absolute;left: 330px;top: 0px;width: 142px; height: 19px;color:rgba(255,255,255,1);white-space: pre;height: 19px;font-size: 16px;line-height: 18.72px;line-height: 19.72px;text-align: center;font-weight: 500; }
+.pricing-VURckE{ opacity: 1;z-index: 3; position: absolute;left: 520px;top: 0px;width: 62px; height: 19px;color:rgba(255,255,255,1);white-space: pre;height: 19px;font-size: 16px;line-height: 18.72px;line-height: 19.72px;text-align: center;font-weight: 500; }
+.home-01ne91{ opacity: 1;z-index: 3; position: absolute;left: 0px;top: 0px;width: 57px; height: 19px;color:rgba(255,255,255,1);white-space: pre;height: 19px;font-size: 16px;line-height: 18.72px;line-height: 19.72px;text-align: center;font-weight: 500; }
+.group-617-01ne91{ opacity: 1;z-index: 3; position: absolute;left: 105px;top: 0px;width: 60px; height: 19px;display: flex;flex-direction: row; }
+.about-us-H2XtHD{ opacity: 1;z-index: 4; position: absolute;left: 0px;top: 0px;width: 40px; height: 19px;color:rgba(255,255,255,1);white-space: pre;height: 19px;font-size: 16px;line-height: 18.72px;line-height: 19.72px;text-align: center;font-weight: 500; }
+.vuesax-linear-arrow-down-H2XtHD{ opacity: 1;z-index: 4; position: absolute;left: 44px;top: 3px;width: 16px; height: 16px; }
+.vuesax-linear-arrow-down-RxsLXJ{ opacity: 1;z-index: 5; position: absolute;top: 0px;left: 0px;width: 16px; height: 16px;display: flex;flex-direction: row; }
+.arrow-down-iqE0zD{ opacity: 1;z-index: 6; position: absolute;left: 0px;top: 0px;width: 16px; height: 16px;display: flex;flex-direction: row; }
+.buttons---primary-6wNjKN{ opacity: 1;z-index: 2; position: absolute;top: 23px;left: 1140px;width: 162px; height: 44px;align-self: center; }
+.button---primary-XFsEyK{ overflow: hidden;opacity: 1;z-index: 3; position: absolute;top: 0px;left: 0px;width: 162px; height: 44px;overflow: hidden;align-self: center; }
+.btn-j3hFuD{ opacity: 1;z-index: 4; position: absolute;top: 0px;left: 0px;width: 162px; height: 44px;background-color:rgba(212.00000256299973,175.00000476837158,55.00000052154064,1);box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1024366244673729); }
+.primary-j3hFuD{ opacity: 1;z-index: 4; position: absolute;top: 12px;left: 39.5px;width: 82px; height: 19px;color:rgba(26.000000350177288,17.00000088661909,10.000000353902578,1);white-space: pre;height: 19px;font-size: 16px;line-height: 18.72px;line-height: 19.72px;text-align: center;font-weight: 500; }
+.logo-tJE4Af{ opacity: 1;z-index: 2; position: absolute;top: 24px;left: 90px;width: 99px; height: 42px; }
+.overflow{overflow: hidden;}
+.overlay-window--open{display: block!important;}
+.overlay-window{position: fixed;display:none; top:0; left: 0; right: 0; bottom: 0; z-index: 9999;}
+.overlay-window__item{top: 0; left: 0; right: 0; bottom: 0; position: absolute;}
+.overlay-window__item--open{ display: flex!important; justify-content: center; align-items: center;}

@@ -63,7 +63,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.log{
+    position: absolute;
+    left: 5%;
 
+}
 textarea {
     overflow: auto;
     vertical-align: top;

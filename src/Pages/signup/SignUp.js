@@ -1,14 +1,15 @@
 import React from 'react'
 import "./signup.css"
-import Imge from "./se.png"
-import Icon from "./gmail.png"
+import Imge from "./assest/image1.png"
+import Icon from "./assest/gmail.png"
 const SignUp = () => {
     const jarib=()=>{
         alert("button activ!!!")
     }
   return (
     <div>
-       <div><div class="sign-up-Zg3mej" data-id="3:44">
+       <div className='log'>
+    <div class="sign-up-Zg3mej" data-id="3:44">
 <input type="email" div class="rectangle-950-6AIlOd" data-id="3:45" placeholder='Email'/>/
 
 <input type="password" div class="rectangle-952-6AIlOd" data-id="3:46" placeholder='Mot de passe'/>

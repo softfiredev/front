@@ -40,7 +40,7 @@ const Login = () => {
               <button className='facebook' onClick={test}>
                 <div className="grid-container2">
                   <div><Facebook className='icon' /></div>
-                  <div className="textfacebook">Facebook</div>
+                  <span className="textfacebook">Facebook</span>
 
                 </div>
               </button>

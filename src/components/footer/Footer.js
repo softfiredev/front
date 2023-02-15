@@ -1,64 +1,93 @@
 import React from 'react'
 import "./footer.css"
+import { Link } from 'react-router-dom';
+import Imge from "../../assest/logo.png"
+import { Facebook } from '@material-ui/icons';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const Footer = () => {
   return (
     <div className='footer'>
-   <div ><div class="login-LTJ7qq" data-id="0:43">
-<div class="group-2-Fwe9gt" data-id="0:44">
-<div class="bg-AOfeZs" data-id="0:45">
+    <section className="ft-main">
+      <div className="ft-main-item">
+        <div className="ft-title"><Link to="#"><img src={Imge} alt="logo"/></Link></div>
+        <p className='text1'>
+        Maktaba.tn est une plateforme de commerce <br/>
+        électronique innovante reliant les réseaux de<br/>
+         librairies, 
+        fournisseurs, écoles et espaces<br/>
+         étudiants en Tunisie, 
+        offrant une solution<br/>
+         tout-en-un pour tous leurs besoins.
+        </p>
+        <div className='iconn'>
+<Link to="#"><Facebook/></Link>
+<Link to="#"><TwitterIcon/></Link>
+<Link to="#"><InstagramIcon/></Link>
+<Link to="#"><LinkedInIcon/></Link>
 </div>
-<div class="icons-phone-AOfeZs" data-id="0:46">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE0LjczNjggMTAuNTM0N0MxMy43NDk5IDEwLjUzNDcgMTIuNzgzMiAxMC4zODA2IDExLjg2NjkgMTAuMDc4M0MxMS40MTk4IDkuOTI0MjEgMTAuOTEyIDEwLjA0MjkgMTAuNjE4MSAxMC4zNDI3TDguODAxNjggMTEuNzE0NUM2LjcxNzQ3IDEwLjYwMjEgNS4zODM1OCA5LjI2OTA1IDQuMjg2MzIgNy4yTDUuNjIxMDUgNS40MjY1M0M1Ljk1NzA1IDUuMDkwNTMgNi4wNzc0NyA0LjU5ODc0IDUuOTMzNDcgNC4xMzgxMUM1LjYyODYzIDMuMjE2IDUuNDczNjggMi4yNDg0MiA1LjQ3MzY4IDEuMjYzMTZDNS40NzM2OCAwLjU2NjczNyA0LjkwNjk1IDAgNC4yMTA1MyAwSDEuMjYzMTZDMC41NjY3MzcgMCAwIDAuNTY2NzM3IDAgMS4yNjMxNkMwIDkuMzg4NjMgNi42MTEzNyAxNiAxNC43MzY4IDE2QzE1LjQzMzMgMTYgMTYgMTUuNDMzMyAxNiAxNC43MzY4VjExLjc5NzlDMTYgMTEuMTAxNSAxNS40MzMzIDEwLjUzNDcgMTQuNzM2OCAxMC41MzQ3WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" class="phone-LY7boN decoded loaded" data-id="I0:46;0:4709" />
-</div>
-<div class="icons---email-AOfeZs" data-id="0:47">
-<div class="icons---email-ErFhtS" data-id="I0:47;0:5409">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxNyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xLjY0NDEyIDBIMTQuNzk3MUMxNS43MDU0IDAgMTYuNDQxMiAwLjcyNzE4OCAxNi40NDEyIDEuNjI1VjExLjM3NUMxNi40NDEyIDEyLjI3MjggMTUuNzA1NCAxMyAxNC43OTcxIDEzSDEuNjQ0MTJDMC43MzU3NDMgMTMgMCAxMi4yNzI4IDAgMTEuMzc1TDAuMDA4MjIwNTkgMS42MjVDMC4wMDgyMjA1OSAwLjcyNzE4OCAwLjczNTc0MyAwIDEuNjQ0MTIgMFpNOC4yMjA1OSA3LjMxMjVMMTQuNzk3MSAzLjI1VjEuNjI1TDguMjIwNTkgNS42ODc1TDEuNjQ0MTIgMS42MjVWMy4yNUw4LjIyMDU5IDcuMzEyNVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=" class="shape-z5szZo decoded loaded" data-id="I0:47;0:5412" />
-</div>
-</div>
-<div class="icons---location-AOfeZs" data-id="0:48">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTkiIHZpZXdCb3g9IjAgMCAxNCAxOSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDYuNzI5MTdDMCAzLjAxODYyIDMuMTMzNTIgMCA2Ljk4NTI5IDBDMTAuODM3MSAwIDEzLjk3MDYgMy4wMTg2MiAxMy45NzA2IDYuNzI5MTdDMTMuOTcwNiAxMy4yMzQzIDcuNTI4NSAxOC42NzQ2IDcuMjU0MDIgMTguOTAzNEM3LjE3Njc3IDE4Ljk2NzUgNy4wODA2MiAxOSA2Ljk4NTI5IDE5QzYuODg5OTYgMTkgNi43OTM4MSAxOC45Njc1IDYuNzE2NTcgMTguOTAzNEM2LjQ0MjA4IDE4LjY3NTQgMCAxMy4yMzUxIDAgNi43MjkxN1pNMy4yODY5NiA2LjU5MTY4QzMuMjg2OTYgOC41MTg4MiA0Ljk0Mjg5IDEwLjA4MTUgNi45ODUwNiAxMC4wODE1QzkuMDI3MjMgMTAuMDgxNSAxMC42ODMyIDguNTE4ODIgMTAuNjgzMiA2LjU5MTY4QzEwLjY4MzIgNC42NjQ1MyA5LjAyNzIzIDMuMTAxODggNi45ODUwNiAzLjEwMTg4QzQuOTQyODkgMy4xMDE4OCAzLjI4Njk2IDQuNjY0NTMgMy4yODY5NiA2LjU5MTY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" class="shape-dh2O8l decoded loaded" data-id="0:49" />
-</div>
-<div class="social-AOfeZs" data-id="0:52">
-<div class="icons---social---linkedin-VrdQ7r" data-id="0:53">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIuNSA1QzMuODgwNzEgNSA1IDMuODgwNzEgNSAyLjVDNSAxLjExOTI5IDMuODgwNzEgMCAyLjUgMEMxLjExOTI5IDAgMCAxLjExOTI5IDAgMi41QzAgMy44ODA3MSAxLjExOTI5IDUgMi41IDVaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNC41ODMzMyA2LjY2NjY5SDAuNDE2NjY3QzAuMTg2NjY3IDYuNjY2NjkgMCA2Ljg1MzM1IDAgNy4wODMzNVYxOS41ODM0QzAgMTkuODEzNCAwLjE4NjY2NyAyMCAwLjQxNjY2NyAyMEg0LjU4MzMzQzQuODEzMzMgMjAgNSAxOS44MTM0IDUgMTkuNTgzNFY3LjA4MzM1QzUgNi44NTMzNSA0LjgxMzMzIDYuNjY2NjkgNC41ODMzMyA2LjY2NjY5WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTE2Ljk5NzUgNi4wOTI1M0MxNS4yMTY3IDUuNDgyNTMgMTIuOTg5MiA2LjAxODM2IDExLjY1MzMgNi45NzkyQzExLjYwNzUgNi44MDAwMyAxMS40NDQyIDYuNjY2NyAxMS4yNSA2LjY2NjdINy4wODMzMkM2Ljg1MzMyIDYuNjY2NyA2LjY2NjY2IDYuODUzMzYgNi42NjY2NiA3LjA4MzM2VjE5LjU4MzRDNi42NjY2NiAxOS44MTM0IDYuODUzMzIgMjAgNy4wODMzMiAyMEgxMS4yNUMxMS40OCAyMCAxMS42NjY3IDE5LjgxMzQgMTEuNjY2NyAxOS41ODM0VjEwLjZDMTIuMzQgMTAuMDIgMTMuMjA3NSA5LjgzNTAzIDEzLjkxNzUgMTAuMTM2N0MxNC42MDU4IDEwLjQyNzUgMTUgMTEuMTM3NSAxNSAxMi4wODM0VjE5LjU4MzRDMTUgMTkuODEzNCAxNS4xODY3IDIwIDE1LjQxNjcgMjBIMTkuNTgzM0MxOS44MTMzIDIwIDIwIDE5LjgxMzQgMjAgMTkuNTgzNFYxMS4yNDQyQzE5Ljk1MjUgNy44MjAwMyAxOC4zNDE3IDYuNTUyNTMgMTYuOTk3NSA2LjA5MjUzWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" class="linkedin-PsudNN decoded loaded" data-id="I0:53;0:4628" />
-</div>
-<div class="vuesax-linear-instagram-VrdQ7r" data-id="0:54">
-<div class="vuesax-linear-instagram-amWxB7" data-id="0:55">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguMjUwMDEgMjAuMTY2NkgxMy43NUMxOC4zMzMzIDIwLjE2NjYgMjAuMTY2NyAxOC4zMzMzIDIwLjE2NjcgMTMuNzVWOC4yNDk5OEMyMC4xNjY3IDMuNjY2NjUgMTguMzMzMyAxLjgzMzMxIDEzLjc1IDEuODMzMzFIOC4yNTAwMUMzLjY2NjY4IDEuODMzMzEgMS44MzMzNCAzLjY2NjY1IDEuODMzMzQgOC4yNDk5OFYxMy43NUMxLjgzMzM0IDE4LjMzMzMgMy42NjY2OCAyMC4xNjY2IDguMjUwMDEgMjAuMTY2NloiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTExIDE0LjIwODRDMTIuNzcxOSAxNC4yMDg0IDE0LjIwODMgMTIuNzcxOSAxNC4yMDgzIDExQzE0LjIwODMgOS4yMjgxMSAxMi43NzE5IDcuNzkxNjkgMTEgNy43OTE2OUM5LjIyODA4IDcuNzkxNjkgNy43OTE2NiA5LjIyODExIDcuNzkxNjYgMTFDNy43OTE2NiAxMi43NzE5IDkuMjI4MDggMTQuMjA4NCAxMSAxNC4yMDg0WiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTYuMTY2NSA2LjQxNjY1SDE2LjE3NyIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==" class="instagram-STsfRX decoded loaded" data-id="0:56"/>
-</div>
-</div>
-<div class="icons---social---twitter-VrdQ7r" data-id="0:61">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5LjE0MSAyLjA0NTg0QzE5LjAxNDMgMS45MDY2OCAxOC44MTAyIDEuODcxNjggMTguNjQyNyAxLjk1NzUxQzE4LjUzODUgMi4wMTA4NCAxOC4zNDI3IDIuMDgwODQgMTguMTEwMiAyLjE1MDAxQzE4LjQwMzUgMS43NjAwMSAxOC42MzkzIDEuMzIzMzQgMTguNzQzNSAwLjkzMDg0M0MxOC43ODg1IDAuNzYxNjc2IDE4LjcyMjcgMC41ODMzNDMgMTguNTc5MyAwLjQ4MjUwOUMxOC40MzYgMC4zODI1MDkgMTguMjQ1MiAwLjM4MjUwOSAxOC4xMDE4IDAuNDgyNTA5QzE3Ljg3NiAwLjY0MDAwOSAxNi43ODYgMS4xMTMzNCAxNi4wOTY4IDEuMjY2NjhDMTQuNTM5MyAtMC4wOTc0OTA2IDEyLjcyNjggLTAuMjM5MTU3IDEwLjg0MjcgMC44NjA4NDNDOS4zMTEwMSAxLjc1NTAxIDguOTc3NjcgMy41NzMzNCA5LjA0MjY3IDQuNjgxNjhDNS41MzY4NCA0LjM0NDE4IDMuMzU3NjggMi40OTI1MSAyLjEzMTAxIDAuOTYwMDA5QzIuMDQ1MTggMC44NTI1MDkgMS45MDY4NCAwLjc5NTg0MyAxLjc3Njg0IDAuODA0MTc2QzEuNjQwMTggMC44MTQxNzYgMS41MTY4NCAwLjg5MDAwOSAxLjQ0Njg0IDEuMDA3NTFDMC44NjY4NDIgMS45ODY2OCAwLjcwNjAwOSAzLjA2OTE4IDAuOTgzNTA5IDQuMTM4MzRDMS4xMzUxOCA0LjcyMTY4IDEuNDAwMTggNS4yMzU4NCAxLjcwNzY4IDUuNjUyNTFDMS41NjAxOCA1LjU4MDAxIDEuNDE3NjggNS40ODkxOCAxLjI4MzUxIDUuMzgwODRDMS4xNjAxOCA1LjI3OTE4IDAuOTg3Njc1IDUuMjYwMDEgMC44NDE4NDIgNS4zMjc1MUMwLjY5Njg0MiA1LjM5NjY4IDAuNjA0MzQyIDUuNTQzMzQgMC42MDQzNDIgNS43MDQxOEMwLjYwNDM0MiA3LjU0MDAxIDEuNzUyNjggOC43NjUwMSAyLjgyNTE4IDkuNDA1MDFDMi42NTE4NCA5LjM4NDE4IDIuNDcxMDEgOS4zNDU4NCAyLjI4ODUxIDkuMjkwMDFDMi4xMzE4NCA5LjI0MjUxIDEuOTYxODQgOS4yOTAwMSAxLjg1MzUxIDkuNDEzMzRDMS43NDUxOCA5LjUzNTg0IDEuNzE5MzQgOS43MTA4NCAxLjc4Njg0IDkuODYwMDFDMi4zODkzNCAxMS4xOTI1IDMuNTMxMDEgMTIuMTA5MiA0Ljk0MzUxIDEyLjQ0MTdDMy43MTAxOCAxMy4xNjU4IDIuMDU5MzQgMTMuNTIwOCAwLjU0NzY3NSAxMy4zNDY3QzAuMzUxODQyIDEzLjMxOTIgMC4xNjUxNzUgMTMuNDQzMyAwLjEwMzUwOSAxMy42MzE3QzAuMDQxODQyIDEzLjgyIDAuMTIyNjc1IDE0LjAyNjcgMC4yOTUxNzUgMTQuMTIzM0MyLjU4ODUxIDE1LjQxMDggNC42NjE4NCAxNS44NzA4IDYuNDUzNTEgMTUuODcwOEM5LjA2MTAxIDE1Ljg3MDggMTEuMDczNSAxNC44OTc1IDEyLjI5ODUgMTQuMDgzM0MxNS42MDEgMTEuODkxNyAxNy42NTkzIDcuOTU2NjggMTcuMzcyNyA0LjQzNTg0QzE3LjkwMTggNC4wNDUwMSAxOC42OTM1IDMuMzIzMzQgMTkuMTg0MyAyLjU0NzUxQzE5LjI4NiAyLjM5MDg0IDE5LjI2NzcgMi4xODQxOCAxOS4xNDEgMi4wNDU4NFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=" class="twitter-KXYrJg decoded loaded" data-id="I0:61;0:4599"/>
-</div>
-<div class="icons---social---facebook-VrdQ7r" data-id="0:62">
-<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxMiAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguNDk5OTggMy4zMzMzM0gxMUMxMS4yMyAzLjMzMzMzIDExLjQxNjYgMy4xNDY2NyAxMS40MTY2IDIuOTE2NjdWMC40MTY2NjdDMTEuNDE2NiAwLjE4NjY2NyAxMS4yMyAwIDExIDBIOC40OTk5OEM1Ljk3MzMxIDAgMy45MTY2NSAyLjA1NTgzIDMuOTE2NjUgNC41ODMzM1Y3LjVIMC45OTk5OEMwLjc2OTk4IDcuNSAwLjU4MzMxMyA3LjY4NjY3IDAuNTgzMzEzIDcuOTE2NjdWMTAuNDE2N0MwLjU4MzMxMyAxMC42NDY3IDAuNzY5OTggMTAuODMzMyAwLjk5OTk4IDEwLjgzMzNIMy45MTY2NVYxOS41ODMzQzMuOTE2NjUgMTkuODEzMyA0LjEwMzMxIDIwIDQuMzMzMzEgMjBINi44MzMzMUM3LjA2MzMxIDIwIDcuMjQ5OTggMTkuODEzMyA3LjI0OTk4IDE5LjU4MzNWMTAuODMzM0gxMC4xNjY2QzEwLjM0NTggMTAuODMzMyAxMC41MDUgMTAuNzE4MyAxMC41NjI1IDEwLjU0ODNMMTEuMzk1OCA4LjA0ODMzQzExLjQzODMgNy45MjE2NyAxMS40MTY2IDcuNzgxNjcgMTEuMzM4MyA3LjY3MjVDMTEuMjU5MSA3LjU2NDE3IDExLjEzNDEgNy41IDExIDcuNUg3LjI0OTk4VjQuNTgzMzNDNy4yNDk5OCAzLjg5NDE3IDcuODEwODEgMy4zMzMzMyA4LjQ5OTk4IDMuMzMzMzNaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" class="facebook-Mlq9YY decoded loaded" data-id="I0:62;0:4596" />
-</div>
-</div>
-<p class="copyright--2019-tenbris-AOfeZs" data-id="0:63">Copyright © 2022 Maktaba.tn</p><div class="line-AOfeZs" data-id="0:64">
-</div>
-<p class="x311-bradtke-junction-AOfeZs" data-id="0:65">122 Rue de Makthar</p>
-<p class="x311-bradtke-junction-73e1lY" data-id="0:66">(+216) 20 222 222</p>
-<p class="x311-bradtke-junction-UWu9Ru" data-id="0:67">contact@maktba.com</p>
-<p class="our-location-AOfeZs" data-id="0:68">Contact</p>
-<p class="marketing-AOfeZs" data-id="0:69">Outils informatiques</p>
-<p class="marketing-KsCR1t" data-id="0:70">Divers</p>
-<p class="marketing-X1ZlWU" data-id="0:71">Jeux educatifs</p>
-<p class="development-AOfeZs" data-id="0:72">Para-scolaires</p>
-<p class="design-AOfeZs" data-id="0:73">Scolaire</p>
-<p class="industries-AOfeZs" data-id="0:74">Nos Catégories</p>
-<p class="pricing-AOfeZs" data-id="0:75">Devenir partenaire</p>
-<p class="about-us-AOfeZs" data-id="0:76">Shop</p>
-<p class="home-AOfeZs" data-id="0:77">À propos</p>
-<p class="useful-links-AOfeZs" data-id="0:78">Liens Rapides</p>
-<p class="now-if-you-are-inte-AOfeZs" data-id="0:79">Maktaba.tn est une plateforme de commerce électronique innovante reliant les réseaux de librairies, fournisseurs, écoles et espaces étudiants en Tunisie, offrant une solution tout-en-un pour tous leurs besoins.</p>
+      </div>
+      <div className="ft-main-item">
+        <h2 className="ft-title">Liens Rapides</h2>
+        <ul>
+          <li><Link to="#">À propos</Link></li>
+          <li><Link to="#">Shop</Link></li>
+          <li><Link to="#">Devenir partenaire</Link></li>
+        </ul>
+      </div>
+      <div className="ft-main-item">
+        <h2 className="ft-title">Nos Catégories</h2>
+        <ul>
+          <li><Link to="#">Scolaire</Link></li>
+          <li><Link to="#">Para-scolaires</Link></li>
+          <li><Link to="#">Outils informatiques</Link></li>
+          <li><Link to="#">Divers</Link></li>
+          <li><Link to="#">Jeux educatifs</Link></li>
+        </ul>
+      </div>
+      <div className="ft-main-item">
+        <h2 className="ft-title">Contact</h2>
+       
+        <ul>
+        <div className="controle"> 
+        <li><br/>
+      
+            <div className="grid-containerr">
+  <div className="item7"> <span className="material-symbols-outlined">location_on</span>  </div>
+  <div className="item8">
+             122 Rue de Makthar
+            </div>  
+          </div>
+          </li>
+          <li><br/>
+          <div className="grid-containerr">
+  <div className="item7"> <span className="material-symbols-outlined">call</span>  </div>
+  <div className="item8">
+  (+216) 20 222 222
+            </div>  
+          </div>
+          
+          </li><br/>
+          <li>
 
-<img src="data:image/png;base64,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" class="logo-AOfeZs decoded loaded" data-id="0:80"/>
-</div>
-</div>
-<div class="overlay-window" id="overlay-main-js">
-</div>
-</div>
-    </div>
+          <div className="grid-containerr">
+  <div className="item7"> <span className="material-symbols-outlined">mail</span>  </div>
+  <div className="item8">
+  contact@maktba.com
+            </div>  
+          </div>
+          </li>
+
+          </div>
+        </ul>
+      </div>
+    </section>
+    <hr className='line'/>
+      <p className='Copyright'>Copyright © 2022 Maktaba.tn</p>
+  </div>
+ 
+
   )
 }
 

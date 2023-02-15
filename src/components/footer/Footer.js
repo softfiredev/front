@@ -20,7 +20,7 @@ const Footer = () => {
          étudiants en Tunisie, 
         offrant une solution<br/>
          tout-en-un pour tous leurs besoins.
-        </p>
+        </p><br/>
         <div className='iconn'>
 <Link to="#"><Facebook/></Link>
 <Link to="#"><TwitterIcon/></Link>

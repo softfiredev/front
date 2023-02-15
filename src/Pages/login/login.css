@@ -1,71 +1,104 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+.Connexion{
+  
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 48px;
+color: #1A110A;
+}
 
+.content {
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A110A;
+  
+}
+.adr{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A110A;
+  }
+  
 .group3
 {
   margin-top: 1%;
 }
-.input{
-
-  display: flex;
-  flex-direction: column;
-  margin-left: 5%;
-  margin-top: 2%;
-  gap: 2rem;
+.inp{
   width: 416px;
-  height: 100px;
-}
-.adresse{
-  margin-left: 3%;
-}
-.Contin{
-  margin-top: -7%;
+  height: 52px;
+  background: #FFFFFF;
+  border: 1px solid #E2E5EA;
   
 }
-.groupbutton{
-  display: flex;
-  gap: 2rem;
-  margin-top: -3%;
-}
-.icon{
-  margin-left: -70%;
-color: #0570E6;
-
-}
-.icongoogle
+.oblie
 {
-  width: 40%;
-}
-.gmail{
-  background: #FFFFFF;
-  width: 150px;
-  height: 52px;
-  border-style: none;
-}
-.facebook{
-  background: #FFFFFF;
-  width: 150px;
-  height: 52px;
-   border-style: none;
-}
-.icongoogle{
-  margin-top: -7%;
-}
-.textfacebook{
-  margin-top: 2.5%;
-  
-font-family: 'Inter';
+  font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
 font-size: 14px;
 line-height: 22px;
 /* identical to box height, or 157% */
 
+text-align: center;
+}
 
+.icon{
+color: #0570E6;
+
+}
+.gmail{
+  background: #FFFFFF;
+  border-style: none;
+}
+.facebook{
+  background: #FFFFFF;
+  border-style: none;
+}
+
+.textfacebook{
+margin-top: 2.5%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 22px;
 color: #1A110A;
 }
-.checkboox{
-  margin-top: 13%;
-  margin-left: 5%;
-  width:50%;
+
+
+
+.main{
+ padding: 5%;
+margin-left: 6%;
+}
+.im{
+  width: 620px;
+height: 724px;
+}
+
+
+.textc{
+  
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+color: #1A110A;
+
+}
+.bnt{
+background: #1A110A;
+width: 416px;
+height: 56px;
 }

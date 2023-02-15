@@ -14,12 +14,13 @@ const Login = () => {
   return (
     <div className='main'>
 
-      <Grid container direction="row" spacing={4}>
+      <Grid container direction="row" spacing={1}>
         <Grid item xs>
           <div> <img className='im' src={Imge} alt="icon" /></div>
         </Grid>
         <Grid item container direction="column" xs spacing={2}>
-          <br />
+        <br />  <br />
+        
           <Grid item xs={5} md={1}>
             <div className='Connexion'>Connexion</div>
 

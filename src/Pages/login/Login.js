@@ -75,7 +75,7 @@ const Login = () => {
           </Grid>
 
           <Grid item > <br />
-            <div  >Vous n'avez pas de compte !<Link to="/Signup" class="textc"> S'inscrire</Link></div>
+            <div  >Vous n'avez pas de compte !<Link to="/Signup" className="textc"> S'inscrire</Link></div>
           </Grid>
         </Grid>
 

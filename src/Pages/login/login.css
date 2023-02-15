@@ -79,6 +79,7 @@ color: #1A110A;
 .main{
  padding: 5%;
 margin-left: 6%;
+overflow-x: hidden;
 }
 .im{
   width: 650px;

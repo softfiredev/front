@@ -1,56 +1,41 @@
 
-  .gmail,.Facebook {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 22px;
-    color: #1A110A;
-  }
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
+ .signup{
+  padding: 7%;
+ margin-left: 3%;
+
+ overflow-x: hidden;
+ }
+.espace{
+  margin-top: 9%;
+}
+.content {
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A110A;
   
-  }
-  .grid-item {
-   
-    margin-top: 9%;
-    margin-left: -15%;
-  }
-  .grid-container2{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
-    margin-top: 4%;
-  }
-  .icon{
-    margin-left: -70%;
- color: #0570E6;
- margin-top: -7%;
-  }
-  .icongoogle
-{  margin-top: -7%;
-    width: 40%;
 }
+.Sinscrire{
 
-.gmail{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 48px;
 
-  width: 150px;
-  height: 2px;
-  border-style: none;
-  margin-left: 5%;
-  margin-top: 0.2%;
+color: #1A110A;
 }
-.facebook{
-
-  width: 150px;
-  height: 2px;
-   border-style: none;
+.fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
-
-.textfacebook{
-  margin-top: -1%;
+.textgml{
   
 font-family: 'Inter';
 font-style: normal;
@@ -58,62 +43,89 @@ font-weight: 500;
 font-size: 14px;
 line-height: 22px;
 /* identical to box height, or 157% */
-
-
+margin-top: -23%;
+margin-left:25%;
 color: #1A110A;
 }
-  .adresse{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 22px;
-/* identical to box height, or 138% */
-
-margin-top: -100%;
-color: #1A110A;
-  }
-
- .discription{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 22px;
-color: #1A110A;
- }
- .signup{
-  padding: 6%;
- margin-left: 3%;
-
- overflow-x: hidden;
- }
- .button2{
-    
-    width: 416px;
-    height: 56px;
-    background: #1A110A;
-    margin-top: 2%;
-    margin-left: 5%;
- }
-
- .discription2{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 28px;
-text-align: center;
-
-color: #FFFFFF;
-
- }
- .text3{
+.icong{
+  width: 30%;
+  
+}
+.textbntConnexion{
   font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  
+  color: #FFFFFF;
+}
+.textfbk{
+ 
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  
+  color: #1A110A;
+  margin-left:36%;
+  margin-top:-27.7%;
+  }
+  
+  .iconf {
+    color: #0570E6;
+    width: 10%;
+    margin-top:-2%;
+  }
+  .adr{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #1A110A;
+    
+    }
+    .inpu{
+      width: 416px;
+      height: 52px;
+      background: #FFFFFF;
+      border: 1px solid #E2E5EA;
+      
+    }
+
+    .text2{
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      color: #0037A3
+    }
+    .text3{
+
+      font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
 font-size: 14px;
 line-height: 22px;
-margin-top: 1;
 color: #1A110A;
- }
+    }
+    .textbntnSin{
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 28px;
+      text-align: center;
+      
+      color: #FFFFFF;
+    }
+    .bntnSin{
+      width: 416px;
+height: 56px;
+background: #1A110A;
+cursor: pointer;
+    }

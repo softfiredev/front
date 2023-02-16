@@ -9,6 +9,9 @@ body {
   overflow-x: hidden;
 }
 
+p,h1{
+  margin: auto;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

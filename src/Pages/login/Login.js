@@ -19,17 +19,18 @@ const Login = () => {
       >
         <Grid item >
           <img className='im' src={Imge} alt="icon" />
-        </Grid>
-        <Grid item >
-
+        </Grid >
+     
+        <Grid item  >
+         <div className='lo' />
           <Grid
-            container direction="column" spacing={2.7}
-          ><br/><br/><br/>
+            container direction="column" spacing={3} 
+          >
             <Grid item >
-              <div className='Connexion'>Connexion</div>
+              <h1 className='Connexion'>Connexion</h1>
             </Grid >
             <Grid item >
-              <div className='content' >Continue avec</div>
+              <p className='content' >Continue avec</p>
             </Grid>
             <Grid item >
               <Grid
@@ -38,24 +39,26 @@ const Login = () => {
                 justifyContent="flex-start"
                 alignItems="flex-start"
               >
-                <Grid item >
-                  <Button ><div className='icong'><i className="fab fa-google fa-1x" ></i></div><div className="textfbk">Gmail</div></Button>
+                <Grid item xs={4.7}>
+                <button class="btn default"><div className='icong'><i className="fab fa-google fa-1x" ></i></div><p className="textgml">Gmail</p></button>         
                 </Grid>
                 <Grid item>
-                  <Button ><div className='iconf'><Facebook style={{ width: "20px", height: "20px" }} /></div> <div className='textfbk'>Facebook</div></Button>
+
+                  
+                <button class="btn default"><div className='iconf'><Facebook style={{ width: "20px", height: "20px" }} /></div> <div className='textfbk'>Facebook</div></button>
                 </Grid>
 
               </Grid>
             </Grid>
             <Grid item>
-              <div className='adr'>Ou avec votre adresse e-mail</div>
+              <p className='adr'>Ou avec votre adresse e-mail</p>
             </Grid>
          
             <Grid item>
-              <TextField className='bnt' label="Email" />
+              <TextField className='inpu' placeholder="Email" />
             </Grid>
             <Grid item>
-              <TextField className='bnt' label="Mot de passe" type="password" />
+              <TextField className='inpu' placeholder="Mot de passe" type="password" />
             </Grid>
             <Grid item>
             <Grid
@@ -64,26 +67,27 @@ const Login = () => {
   justifyContent="flex-start"
   alignItems="baseline"
 >
-              <p className='obli'><Link to="#">Mot de passe oublié  ?</Link></p>
+              <Link to="#"><p className='obli' >Mot de passe oublié  ?</p></Link>
             </Grid>
             </Grid>
             
             <Grid item   container spacing={2}>
-              <Checkbox style={{ color: " #1A110A", }} /><span ><div className="Souviens">Souviens-toi de moi</div></span>
+              <Checkbox style={{ color: " #1A110A", }} /><span ><p className="Souviens">Souviens-toi de moi</p></span>
             </Grid>
             <Grid item>
-            <button className='bnt1' onClick={test}>
-                <div className='discription2'>Connexion</div></button>
+            <button className='bntn1' onClick={test}>
+                <div className='textbntConnexion'>Connexion</div></button>
             </Grid>
             <Grid item>
-              <div>Avez vous déjà un compte!  <Link to="/Signup" className="textc"> S'inscrire</Link></div>
+              <p>Vous n'avez pas de compte !<Link to="/Signup" className="textc"> S'inscrire</Link></p>
             </Grid>
 
           </Grid >
 
 
         </Grid >
-      </Grid>
+        </Grid>
+  
     </div>
 
 

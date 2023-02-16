@@ -13,22 +13,24 @@ const Signup = () => {
     <div>
       <div className='signup'>
 
-      <Grid
+   
+<Grid
         container spacing={8}
       >
         <Grid item >
           <img className='im' src={Imge} alt="icon" />
-        </Grid>
-        <Grid item >
-
+        </Grid >
+     
+        <Grid item  >
+         <div className='espace' />
           <Grid
-            container direction="column" spacing={2.97}
+            container direction="column" spacing={3} 
           >
-            <Grid item ><br/><br/>
-              <div className='Connexion'>S'inscrire</div>
+            <Grid item >
+              <h1 className='Sinscrire'>S'inscrire</h1>
             </Grid >
             <Grid item >
-              <div className='content' >Continue avec</div>
+              <p className='content' >Continue avec</p>
             </Grid>
             <Grid item >
               <Grid
@@ -37,49 +39,51 @@ const Signup = () => {
                 justifyContent="flex-start"
                 alignItems="flex-start"
               >
-                <Grid item >
-                  <Button ><div className='icong'><i className="fab fa-google fa-1x" ></i></div><div className="textgml">Gmail</div></Button>
+                <Grid item xs={4.7}>
+                <button class="btn default"><div className='icong'><i className="fab fa-google fa-1x" ></i></div><p className="textgml">Gmail</p></button>         
                 </Grid>
                 <Grid item>
-                  <Button ><div className='iconf'><Facebook style={{ width: "20px", height: "20px" }} /></div> <div className='textfbk'>Facebook</div></Button>
+
+                  
+                <button class="btn default"><div className='iconf'><Facebook style={{ width: "20px", height: "20px" }} /></div> <div className='textfbk'>Facebook</div></button>
                 </Grid>
 
               </Grid>
             </Grid>
             <Grid item>
-              <div className='adr'>Ou avec votre adresse e-mail</div>
+              <p className='adr'>Ou avec votre adresse e-mail</p>
             </Grid>
          
             <Grid item>
-              <TextField className='bnt' label="Nom et Prénom" />
+              <TextField className='inpu'  placeholder="Nom et Prénom" />
             </Grid>
             <Grid item>
-              <TextField className='bnt' label="Email" />
+              <TextField className='inpu'  placeholder="Email" />
             </Grid>
             <Grid item>
-                <TextField className='bnt' label="Mot de passe" type="password" />
-              </Grid>
-              <Grid item >
-                <TextField className='bnt' label="Confirmer mot de passe" type="password" />
-              </Grid>
-        
-          
-            <Grid item>
-              <Checkbox style={{ color: " #1A110A", }} /><span>j'ai lu et j'accepte <span className='text2'>les conditions générales.</span></span>
+              <TextField className='inpu' placeholder="Mot de passe" type="password" />
             </Grid>
             <Grid item>
-            <button className='bnt1' onClick={test}>
-                <div className='discription2'>S'inscrire</div></button>
+              <TextField className='inpu' placeholder="Confirmer mot de passe" type="password" />
+            </Grid>
+            
+            <Grid item>
+              <Checkbox style={{ color: " #1A110A", }} /><span className='text3'>j'ai lu et j'accepte <span className='text2'>les conditions générales.</span></span>
+            </Grid>
+         
+            <Grid item>
+            <button className='bntnSin' onClick={test}>
+                <div className='textbntnSin'>Sinscrire</div></button>
             </Grid>
             <Grid item>
-              <div>Avez vous déjà un compte!  <Link to="/login" className="textc"> Connexion</Link></div>
+              <div>Avez vous déjà un compte!  <Link to="/login" className="textc">Connexion</Link></div>
             </Grid>
 
           </Grid >
 
 
         </Grid >
-      </Grid>
+        </Grid>
       </div>
 
 

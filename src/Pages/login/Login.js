@@ -39,7 +39,7 @@ const Login = () => {
                 alignItems="flex-start"
               >
                 <Grid item >
-                  <Button ><div className='icong'><i class="fab fa-google fa-1x" ></i></div><div className="textfbk">Gmail</div></Button>
+                  <Button ><div className='icong'><i className="fab fa-google fa-1x" ></i></div><div className="textfbk">Gmail</div></Button>
                 </Grid>
                 <Grid item>
                   <Button ><div className='iconf'><Facebook style={{ width: "20px", height: "20px" }} /></div> <div className='textfbk'>Facebook</div></Button>
@@ -69,7 +69,7 @@ const Login = () => {
             </Grid>
             
             <Grid item   container spacing={2}>
-              <Checkbox style={{ color: " #1A110A", }} /><span ><div class="Souviens">Souviens-toi de moi</div></span>
+              <Checkbox style={{ color: " #1A110A", }} /><span ><div className="Souviens">Souviens-toi de moi</div></span>
             </Grid>
             <Grid item>
             <button className='bnt1' onClick={test}>

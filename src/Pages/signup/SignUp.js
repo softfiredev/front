@@ -38,7 +38,7 @@ const Signup = () => {
                 alignItems="flex-start"
               >
                 <Grid item >
-                  <Button ><div className='icong'><i class="fab fa-google fa-1x" ></i></div><div className="textgml">Gmail</div></Button>
+                  <Button ><div className='icong'><i className="fab fa-google fa-1x" ></i></div><div className="textgml">Gmail</div></Button>
                 </Grid>
                 <Grid item>
                   <Button ><div className='iconf'><Facebook style={{ width: "20px", height: "20px" }} /></div> <div className='textfbk'>Facebook</div></Button>

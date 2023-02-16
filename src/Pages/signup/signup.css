@@ -82,7 +82,12 @@ font-size: 14px;
 line-height: 22px;
 color: #1A110A;
  }
+ .signup{
+  padding: 6%;
+ margin-left: 3%;
 
+ overflow-x: hidden;
+ }
  .button2{
     
     width: 416px;
@@ -109,6 +114,6 @@ font-style: normal;
 font-weight: 500;
 font-size: 14px;
 line-height: 22px;
-
+margin-top: 1;
 color: #1A110A;
  }

@@ -1,6 +1,6 @@
 
 .Connexion{
-  
+
 font-family: 'Inter';
 font-style: normal;
 font-weight: 600;
@@ -8,7 +8,33 @@ font-size: 40px;
 line-height: 48px;
 color: #1A110A;
 }
+.fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.textgml{
+  
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 22px;
+/* identical to box height, or 157% */
 
+
+color: #1A110A;
+}
+.icong{
+  width: 30%;
+  
+}
+.iconf{
+  margin-top: 4%;
+  width: 20%;
+}
 .content {
 
   font-family: 'Inter';
@@ -19,6 +45,19 @@ color: #1A110A;
   color: #1A110A;
   
 }
+.text4
+{
+  
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+/* identical to box height, or 138% */
+margin-top: 10px;
+color: #1A110A;
+
+}
 .adr{
   font-family: 'Inter';
   font-style: normal;
@@ -26,6 +65,7 @@ color: #1A110A;
   font-size: 16px;
   line-height: 22px;
   color: #1A110A;
+  
   }
   
 .group3
@@ -39,46 +79,37 @@ color: #1A110A;
   border: 1px solid #E2E5EA;
   
 }
-.oblie
+.obli
 {
+
   font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 22px;
-/* identical to box height, or 157% */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  /* identical to box height, or 157% */
+  
+  text-align: right;
+  
+  color: #0037A3;
 
-text-align: center;
+
 }
-
-.icon{
-color: #0570E6;
-
-}
-.gmail{
-  background: #FFFFFF;
-  border-style: none;
-}
-.facebook{
-  background: #FFFFFF;
-  border-style: none;
-}
-
-.textfacebook{
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 22px;
-color: #1A110A;
+.textfbk{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+margin-left:5%;
+  color: #1A110A;
 }
 
 
 
-.main{
- padding: 5%;
-margin-left: 6%;
+.login{
+ padding: 7%;
+margin-left: 3%;
 overflow-x: hidden;
 }
 .im{
@@ -87,6 +118,15 @@ height: 724px;
 }
 
 
+.Souviens{
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+color: #1A110A;
+margin-top: 6.7%;
+}
 .textc{
   
 font-family: 'Inter';
@@ -95,10 +135,29 @@ font-weight: 500;
 font-size: 16px;
 line-height: 22px;
 color: #1A110A;
-
 }
-.bnt{
+button:hover{
+background-color: #2c2202;
+}
+.bnt1{
 background: #1A110A;
 width: 416px;
 height: 56px;
+}
+
+.bnt{
+  width: 416px;
+  height: 52px;
+  background: #FFFFFF;
+  border: 1px solid #E2E5EA;
+}
+
+.text2{
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 22px;
+
+color: #0037A3;
 }

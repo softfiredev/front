@@ -64,7 +64,7 @@ const Login = () => {
   justifyContent="flex-start"
   alignItems="baseline"
 >
-              <p className='obli'>Mot de passe oublié?</p>
+              <p className='obli'><Link to="#">Mot de passe oublié  ?</Link></p>
             </Grid>
             </Grid>
             

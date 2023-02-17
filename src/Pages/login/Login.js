@@ -2,7 +2,7 @@ import React from 'react'
 import "./login.css"
 import { Link } from 'react-router-dom';
 import Imge from "../../assest/image1.png"
-import { TextField, Grid, Button } from '@mui/material'
+import { TextField, Grid } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox';
 import { Facebook } from '@material-ui/icons';
 
@@ -67,7 +67,7 @@ const Login = () => {
   justifyContent="flex-start"
   alignItems="baseline"
 >
-              <Link to="#"><p className='obli' >Mot de passe oublié  ?</p></Link>
+              <Link to="/password"><p className='obli' >Mot de passe oublié  ?</p></Link>
             </Grid>
             </Grid>
             

@@ -13,12 +13,12 @@ const Footer = () => {
       <div className="ft-main-item">
         <div className="ft-title"><Link to="#"><img src={Imge} alt="logo"/></Link></div>
         <p className='text1'>
-        Maktaba.tn est une plateforme de commerce <br/>
-        électronique innovante reliant les réseaux de<br/>
+        Maktaba.tn est une plateforme de commerce <br/><br/>
+        électronique innovante reliant les réseaux de<br/><br/>
          librairies, 
-        fournisseurs, écoles et espaces<br/>
+        fournisseurs, écoles et espaces<br/><br/>
          étudiants en Tunisie, 
-        offrant une solution<br/>
+        offrant une solution<br/><br/>
          tout-en-un pour tous leurs besoins.
         </p><br/>
         <div className='iconn'>

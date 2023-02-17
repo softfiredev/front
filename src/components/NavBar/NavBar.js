@@ -2,7 +2,6 @@ import React from 'react'
 import './navbar.css'
 import Imge from "../../assest/logo.png"
 import { Link } from 'react-router-dom';
-import { Select, MenuItem } from '@material-ui/core';
 function NavBar() {
   return (
     <div className='nav'>

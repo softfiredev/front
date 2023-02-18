@@ -1,0 +1,83 @@
+.contact{
+    padding: 100px;
+    margin-left: 3%;
+   
+    overflow-x: hidden;
+}
+.txt2{
+    font-family: 'Merriweather';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 140%;
+
+text-align: center;
+color: #222222;
+}
+.txt1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #9E9E9E;
+}
+.box{
+    Width:    370px;
+    Height:    215px;
+    
+    background: #FCEFC7;
+    border-radius: 10px;
+}
+.contun_box{
+    margin-top: 8%;
+}
+.local{
+    margin-left: 43%;
+    
+}
+.adr_con{
+    font-family: 'Merriweather';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 25px;
+text-align: center;
+margin-top: 2%;
+color: #222222;
+
+mix-blend-mode: normal;
+}
+.txt3{
+    margin-top: 8%;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+
+color: #626262;
+
+mix-blend-mode: normal;
+opacity: 0.8;
+}
+.txt4{
+    margin-top: 16%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+
+color: #7C5E10;
+
+mix-blend-mode: normal;
+opacity: 0.8;
+}
+.arrow{
+    margin-left: 80%;
+    margin-top: -8.5%;
+}

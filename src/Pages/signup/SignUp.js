@@ -10,9 +10,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { Eye,EyeSlash} from 'iconsax-react';
 const Signup = () => {
   const [showPassword, setShowPassword] = React.useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };

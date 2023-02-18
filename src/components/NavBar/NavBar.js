@@ -23,7 +23,7 @@ function NavBar() {
 
             <li><Link to="#">À propos</Link></li>
             <li><Link to="#">Devenir partenaire</Link></li>
-            <li><Link to="#">Contact</Link></li>
+            <li><Link to="Contact">Contact</Link></li>
           </ul>
         </div>
         <div className='group'>

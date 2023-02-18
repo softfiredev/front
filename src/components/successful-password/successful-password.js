@@ -1,5 +1,5 @@
 import React from 'react'
-import './Récupérer3.css'
+import './successful-password.css'
 import { Link } from 'react-router-dom';
 import { Grid } from '@mui/material'
 import Done from "../../assest/don.jpg"

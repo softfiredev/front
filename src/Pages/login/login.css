@@ -23,9 +23,9 @@ color: #1A110A;
 .bntn1{
   width: 416px;
   height: 56px;
-
-  
-  background: #1A110A;
+  background: #E9B949;
+  border-radius: 8px;
+  border: none;
   cursor: pointer;
 }
 .fa-google {
@@ -36,21 +36,56 @@ color: #1A110A;
   -webkit-text-fill-color: transparent;
 }
 .textgml{
-  
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 22px;
-/* identical to box height, or 157% */
+  width: 66px;
+  height: 22px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #222222;
 margin-top: -23%;
 margin-left:25%;
-color: #1A110A;
+
 }
 .icong{
   width: 30%;
   
 }
+.textbntConnexionn{
+
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 28px;
+color: #222222;
+  
+}
+.textfbk{
+ 
+  width: 66px;
+  height: 22px;
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  
+  color: #222222;
+  margin-left:36%;
+  margin-top:-27.7%;
+  }
+  
+  .iconf {
+    color: #0570E6;
+    width: 10%;
+    margin-top:-2%;
+  }
+
+  
 .textbntConnexion{
   font-family: 'Inter';
   font-style: normal;
@@ -102,8 +137,8 @@ color: #1A110A;
   width: 416px;
   height: 52px;
   background: #FFFFFF;
-  border: 1px solid #E2E5EA;
-  
+  border: 1px solid #E1E1E1;
+  border-radius: 8px;
 }
 .obli
 {
@@ -114,30 +149,11 @@ color: #1A110A;
   font-size: 14px;
   line-height: 22px;
   /* identical to box height, or 157% */
-  
-
-  color: #0037A3;
+  color: #2680C2;
 
 
 }
-.textfbk{
- 
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 22px;
-  
-  color: #1A110A;
-  margin-left:36%;
-  margin-top:-27.7%;
-  }
-  
-  .iconf {
-    color: #0570E6;
-    width: 10%;
-    margin-top:-2%;
-  }
+
 
 .login{
  padding: 7%;
@@ -170,23 +186,20 @@ font-style: normal;
 font-weight: 600;
 font-size: 16px;
 line-height: 22px;
-color: #1A110A;
+color: #C99A2E;
 }
 .default {
-  border-color: #e7e7e7;
-  color: black;
+  width: 150px;
+  height: 52px;
+  background: #ffffff;
+  border: 1px solid #E1E1E1;
+  border-radius: 8px;
 }
 
 .bnt1{
 background: #1A110A;
 width: 416px;
 height: 56px;
-}
-  .bnt{
-  width: 150px;
-  height: 52px;
-  background: #FFFFFF;
-  border: 1px solid #E2E5EA;
 }
 
 .text2{

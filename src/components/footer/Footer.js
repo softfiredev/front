@@ -6,6 +6,8 @@ import { Facebook } from '@material-ui/icons';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Call,Location,Sms} from 'iconsax-react';
+
 const Footer = () => {
   return (
     <div className='footer'>
@@ -54,7 +56,7 @@ const Footer = () => {
         <li><br/>
       
             <div className="grid-containerr">
-  <div className="item7"> <span className="material-symbols-outlined">location_on</span>  </div>
+  <div className="item7"> <span className="material-symbols-outlined"><Location size="28" color="#d9e3f0" variant="Bold"/></span>  </div>
   <div className="item8">
              122 Rue de Makthar
             </div>  
@@ -62,7 +64,8 @@ const Footer = () => {
           </li>
           <li><br/>
           <div className="grid-containerr">
-  <div className="item7"> <span className="material-symbols-outlined">call</span>  </div>
+  <div className="item7"> <span className="material-symbols-outlined"><Call size="28" color="#d9e3f0" variant="Bold"
+/></span>  </div>
   <div className="item8">
   (+216) 20 222 222
             </div>  
@@ -72,7 +75,7 @@ const Footer = () => {
           <li>
 
           <div className="grid-containerr">
-  <div className="item7"> <span className="material-symbols-outlined">mail</span>  </div>
+  <div className="item7"> <span className="material-symbols-outlined"><Sms size="28" color="#d9e3f0" variant="Bold"/></span>  </div>
   <div className="item8">
   contact@maktba.com
             </div>  

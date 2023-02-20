@@ -20,13 +20,13 @@
 }
 .Sinscrire{
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 40px;
-line-height: 48px;
-
-color: #1A110A;
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  
+  color: #222222;
 }
 .fa-google {
   background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
@@ -88,7 +88,7 @@ color: #1A110A;
     color: #1A110A;
     
     }
-    .inpu{
+    .inpu2{
       width: 416px;
       height: 52px;
       background: #FFFFFF;
@@ -102,7 +102,7 @@ color: #1A110A;
       font-weight: 500;
       font-size: 14px;
       line-height: 22px;
-      color: #0037A3
+      color: #2680C2
     }
     .text3{
 
@@ -120,12 +120,22 @@ color: #1A110A;
       font-size: 18px;
       line-height: 28px;
       text-align: center;
-      
-      color: #FFFFFF;
+      color: #222222;
+
     }
     .bntnSin{
       width: 416px;
 height: 56px;
-background: #1A110A;
+background: #E9B949;
+border-radius: 8px;
+border: none;
 cursor: pointer;
+    }
+    .textc-up{
+      color :#C99A2E;
+      font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 22px;
     }

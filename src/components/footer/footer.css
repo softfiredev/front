@@ -1,4 +1,15 @@
+.ft-title{
+    
+font-family: 'Merriweather';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 23px;
+/* identical to box height */
 
+
+color: #FFFFFF;
+}
 .ft-main .ft-main-item ul li a {
     display: flex;
     flex-direction: column;
@@ -10,18 +21,19 @@
     margin-top: -10%;
 }
 .footer {
-    background: #1A110A;
+    background: #222222;
    margin-bottom: -100%;
 }
 .iconn{
     display: flex;
 	gap: 2rem;
 	margin-left: -3%;
-    color: #eee; 
+    
 }
+
 .controle{
   
-        margin-top: 10%;
+        margin-top: -6%;
         color: #eee;
       
 }
@@ -86,7 +98,7 @@ margin-top: -2%;
 .Copyright{
     color: #bbb;
     margin-top: 2%;
-margin-left: 11%;
+margin-left: 8.5%;
 height: 50px;
 
 }

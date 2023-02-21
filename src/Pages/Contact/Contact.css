@@ -1,18 +1,21 @@
 .contact{
     padding: 100px;
     margin-left: 3%;
-   
+   margin-top: 5%;
     overflow-x: hidden;
 }
 .txt2{
     font-family: 'Merriweather';
-font-style: normal;
-font-weight: 400;
-font-size: 36px;
-line-height: 140%;
-
-text-align: center;
-color: #222222;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 140%;
+    /* or 50px */
+    
+    text-align: center;
+    
+    color: #222222;
+    
 }
 .txt1{
     font-family: 'Inter';
@@ -26,7 +29,6 @@ color: #222222;
 .box{
     Width:    370px;
     Height:    215px;
-    
     background: #FCEFC7;
     border-radius: 10px;
 }
@@ -37,6 +39,10 @@ color: #222222;
     margin-left: 43%;
     
 }
+.icon-cart{
+margin-left: 8%;
+margin-top: 3%;
+}
 .adr_con{
     font-family: 'Merriweather';
 font-style: normal;
@@ -45,12 +51,13 @@ font-size: 20px;
 line-height: 25px;
 text-align: center;
 margin-top: 2%;
+margin-left: 3%;
 color: #222222;
-
 mix-blend-mode: normal;
 }
 .txt3{
-    margin-top: 8%;
+    margin-top: 4%;
+    margin-left: 3%;
     font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
@@ -64,7 +71,7 @@ mix-blend-mode: normal;
 opacity: 0.8;
 }
 .txt4{
-    margin-top: 16%;
+    margin-top: 10%;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
@@ -78,8 +85,8 @@ mix-blend-mode: normal;
 opacity: 0.8;
 }
 .arrow{
-    margin-left: 80%;
-    margin-top: -7.8%;
+    margin-left: 69%;
+    margin-top: -4.8%;
 }
 .txt3-box2{
     margin-top: 15%;
@@ -111,9 +118,172 @@ opacity: 0.8;
 }
 .arrow2{
     margin-left: 100%;
-    margin-top: -11%;
+    margin-top: -13%;
 }
 .arrow3{
     margin-left: 95%;
-    margin-top: -9.8%;
+    margin-top: -10%;
+}
+.group2-con{
+    margin-left: -2%;
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+.imgcon{
+    width: 671px;
+    height: 633px;
+
+background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), 
+url(../../assest/contact.png);
+
+}
+.con-nous{
+    
+font-family: 'Merriweather';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 45px;
+color: #1A110A;
+}
+
+.inpu-con{
+    width: 570px;
+height: 52px;
+    background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+}
+.inpu-con2{
+    width: 570px;
+height: 156px;
+
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+}
+.bnt-con2{
+    width: 570px;
+height: 56px;
+cursor: pointer;
+border: none;
+background: #E9B949;
+border-radius: 8px;
+}
+.textbnt-con2{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+
+text-align: center;
+
+color: #222222;
+
+}
+.group-con3{
+    margin-top: 14%;
+}
+.txt6-con{
+    margin-top: -17.7%;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+text-align: center;
+
+color: #F7F7F7;
+}
+.icon-con{
+    margin-left: 50%;
+}
+
+
+@media (max-width: 867px) {
+   
+    .contact{
+        margin-left: -1%;
+      padding:10%;
+    }
+    .txt2{
+        font-family: 'Merriweather';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 140%;
+        /* or 28px */
+        
+        text-align: center;
+        
+        color: #222222;
+        
+    }         
+    .box{
+        Width:328px;
+        Height:215px;
+    }
+    .imgcon{
+        width: 360px;
+        height: 291px;
+margin-left:5%;
+
+background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), 
+url(../../assest/con2.png);
+    }
+    .txt6-con{
+        margin-left: 20%;
+        margin-top: -32%;
+    }
+    .con-nous{
+margin-left: 10%;
+font-family: 'Merriweather';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 40px;
+height: 40px;
+color: #1A110A;
+    }
+ .inpu-con{
+    margin-left: 10%;
+    width: 328px;
+height: 52px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+ }   
+ .inpu-con2{
+    width: 328px;
+height: 156px;
+margin-left: 10%;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px
+ }
+ .bnt-con2{
+    width: 328px;
+height: 56px;
+
+margin-left: 10%;
+
+background: #E9B949;
+border-radius: 8px;
+ }
+
+}
+.icon-con2{
+ margin-left:38%;
+ margin-top:4%;
+}
+.ic{
+    color: #ffffff;
+    width: 24px;
+    height: 24px;
+    
+
 }

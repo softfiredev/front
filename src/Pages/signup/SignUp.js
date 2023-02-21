@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./signup.css"
 import Imge from "../../assest/image1.png"
-import { TextField, Grid} from '@mui/material'
+import { Grid} from '@mui/material'
 import Checkbox from '@mui/material/Checkbox';
 import { Facebook } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
@@ -9,11 +9,8 @@ import { OutlinedInput,IconButton } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Eye,EyeSlash} from 'iconsax-react';
 const Signup = () => {
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
   const test = () => {
     alert("button active !!")
   }
@@ -22,11 +19,8 @@ const Signup = () => {
   return (
     <div>
       <div className='signup'>
-
    
-<Grid
-        container spacing={8}
-      >
+<Grid container spacing={8}   >
         <Grid item >
           <img className='im' src={Imge} alt="icon" />
         </Grid >
@@ -75,7 +69,6 @@ const Signup = () => {
               <InputAdornment position="end">
                 <IconButton style={{color:"#222222"}}
                   onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
                   edge="end"
                 >
                   {showPassword ? <EyeSlash size="28.5" color="#222222"/> : <Eye size="28.5" color="#222222"/>}
@@ -100,9 +93,7 @@ const Signup = () => {
             <Grid item>
               <div>Avez vous déjà un compte!  <Link to="/login" className="textc-up">Connexion</Link></div>
             </Grid>
-
           </Grid >
-
 
         </Grid >
         </Grid>

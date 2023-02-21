@@ -3,23 +3,22 @@ import './add-new-password.css'
 import { TextField, Grid, OutlinedInput,IconButton  } from '@mui/material'
 import InputAdornment from '@mui/material/InputAdornment';
 import { Eye,EyeSlash} from 'iconsax-react';
-const Récupérer2 = (props) => {
+
+const Add_new_password = (props) => {
   const [password, setpassword] = useState("");
   const [Confirmerpassword, setConfirmerpassword] = useState("");
  
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  const chang=()=>{
-    if(password.length!=0 &&Confirmerpassword!=0)
+  const Chang=()=>{
+    if(password.length!==0 &&Confirmerpassword!==0)
     {
-      console.log(Confirmerpassword.length)
-
-      if(password==Confirmerpassword)
+      if(password===Confirmerpassword)
       {     
         props.onClick()
       }
@@ -61,15 +60,12 @@ const handleconformationpassword = (e) => {
             }
           placeholder="Password"
           />
-            
-            
-          
             </Grid>
             <Grid item>
               <TextField className='inpt-pass2' placeholder="Confirmer mot de passe"type="password"  onChange={handleconformationpassword} value={Confirmerpassword} />
             </Grid>
             <Grid item>
-            <button className='bntn1'onClick={chang} >
+            <button className='bntn1'onClick={Chang} >
                 <div className='bnt-pass2'>Réinitialiser</div></button>
             </Grid>
        </Grid >
@@ -78,4 +74,4 @@ const handleconformationpassword = (e) => {
   )
 }
 
-export default Récupérer2
+export default  Add_new_password 

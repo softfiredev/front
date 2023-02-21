@@ -61,26 +61,56 @@ color: #1A110A;
 }
 .header {
 	padding-top:1%;
-	padding-bottom:1%;
+	padding-bottom:2%;
 	
   height: 5000%;
   background: #222222;
 
 }
 @media (min-width: 769px) {
-	.header,.material-symbols-outlined,
+	.header,
 	.main-nav {
 		display: flex;
 	}
 }
+@media (max-width: 667px) {
+	.main-nav li a,.butto-NAV{
+		display: none;
+	}
+	.logo{
+		margin-left: 40%;
+	}
+	
+	.group .cartchop{
+		margin-left: 85%;
+		margin-top: -12%;
+	}
+	.group{
+		margin-top: -15%;
+	}
+
+}
+.icon-menu{	
+	margin-left: -55%;
+	margin-top: -23%;
+	width: 50%;
+	color: #FFFFFF;
+}
 .cartchop{
-	margin-top: 12%;
-	margin-left: -20%;
+	margin-left: -10%;
+	margin-top: 10%;
+	margin-bottom:1%;
+	font-size: 1.45em;
+	
 }
 	
+.link-page{
+	color: #222222;
+}
 
 .butto-NAV{
-	margin-top: 9%;	
+	cursor: pointer;
+	margin-top: 10%;	
 width:162px;
 Height:44px;
 background: #E9B949;

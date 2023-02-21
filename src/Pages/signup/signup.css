@@ -2,11 +2,10 @@
  .signup{
   padding: 7%;
  margin-left: 3%;
-
  overflow-x: hidden;
  }
 .espace{
-  margin-top: 9%;
+  margin-top: 13%;
 }
 .content {
 
@@ -139,3 +138,17 @@ font-weight: 400;
 font-size: 16px;
 line-height: 22px;
     }
+  
+@media (max-width: 667px) {
+.signup{
+  padding: 30%;
+  margin-left: -22%;
+  margin-top: -40%;
+
+}
+ .bntnSin{
+  width: 328px;
+height: 56px;
+ } 
+
+}

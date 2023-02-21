@@ -1,16 +1,15 @@
 import React, { useState }  from 'react'
 import './verify-email.css'
 import {  Grid, OutlinedInput} from '@mui/material'
-
-const Récupérer = (props) => {
+const Verify_email = (props) => {
   const [mail,setmail] = useState("");
   
   const chang=()=>{
-    if(mail.length!=0)
+    if(mail.length!==0)
     {
-      let reg = /^[a-z-A-Z0-9-_]+@[a-z-A-Z0-9-_]{2,}[.][a-z-A-Z]{2,3}$/
+      let reg = /^[a-z-A-Z0-9-_.]+@[a-z-A-Z0-9-_]{2,}[.][a-z-A-Z]{2,3}$/
       let result = ((reg.exec(mail)!=null));
-      if(result==true){
+      if(result===true){
         props.onClick()
       }
       else{
@@ -44,4 +43,4 @@ const Récupérer = (props) => {
   )
 }
 
-export default Récupérer
+export default Verify_email

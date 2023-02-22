@@ -3,7 +3,6 @@ import './navbar.css'
 import Imge from "../../assest/logo.png"
 import { Link } from 'react-router-dom';
 import { ShoppingCart } from 'iconsax-react';
-import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
@@ -79,8 +78,8 @@ function NavBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem onClick={handleCloseNavMenu}>
+              {pages.map((page,i) => (
+                <MenuItem onClick={handleCloseNavMenu} key={i}>
                   <Typography textAlign="center">
                     <Link to={page.link}><p className='link-page'>{page.nom}</p></Link>
                     </Typography>

@@ -33,10 +33,10 @@ const Contact = () => {
             <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start"
               >
               
-              <Grid item xs={1.2}>      <Link to="#" className='icon-con0' ><i class='fa fa-facebook-f'/></Link></Grid>
-              <Grid item xs={1.2}>  <Link to="#"  className='icon-con3'><i class='fa fa-twitter'/></Link></Grid>
-              <Grid item xs={1.2}>      <Link to="#" className='icon-con4' ><i class='fa fa-instagram'/></Link></Grid>
-              <Grid item >    <Link to="#" className='icon-con5' ><LinkedInIcon class='f fa-linkedin-in'/></Link></Grid>
+              <Grid item xs={1.2}>      <Link to="#" className='icon-con0' ><i className='fa fa-facebook-f'/></Link></Grid>
+              <Grid item xs={1.2}>  <Link to="#"  className='icon-con3'><i className='fa fa-twitter'/></Link></Grid>
+              <Grid item xs={1.2}>      <Link to="#" className='icon-con4' ><i className='fa fa-instagram'/></Link></Grid>
+              <Grid item >    <Link to="#" className='icon-con5' ><LinkedInIcon className='f fa-linkedin-in'/></Link></Grid>
             
             </Grid>
 

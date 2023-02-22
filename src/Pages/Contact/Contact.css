@@ -212,16 +212,16 @@ color: #F7F7F7;
   
    .icon-con0{
     
-    margin-left: -100%;
+    margin-left: -90%;
    }
    .icon-con3{
     margin-left: 60%;
    }
    .icon-con4{
-    margin-left: 230%;
+    margin-left: 200%;
    }
    .icon-con5{
-    margin-left:350%;
+    margin-left:260%;
    }
    .group-con3{
     margin-left: -4%;
@@ -327,19 +327,17 @@ border-radius: 8px;
 .fa-linkedin-in {
     background: #f8f6f6;
     color: #000000;
+ 
   }
   
   .f{
-    padding: 0.55em;
-    width: 20px;
-    height: 20px;
-    font-size: 5px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
+    padding: 2.5px;
+
+    border-radius: 15px;
+ 
   }
   .fa{
-    padding: 3.5px;
+    padding: 3.8px;
     width:20px;
     height: 19px;
     font-size: 18px;

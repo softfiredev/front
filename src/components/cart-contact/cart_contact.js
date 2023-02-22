@@ -24,8 +24,8 @@ const Cart_contact = () => {
       <Grid item >
         <Grid container direction="row" spacing={3.5}>
 
-          {data.map((obj) => (
-            <Grid item >
+          {data.map((obj,i) => (
+            <Grid item key={i} >
 
               <div className='box'>
                 <div className='contun_box'>

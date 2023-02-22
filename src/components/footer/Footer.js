@@ -21,10 +21,10 @@ const Footer = () => {
          tout-en-un pour tous leurs besoins.
         </p><br/>
         <div className='iconn'>
-        <Link to="#" ><i class='fa fa-facebook-f'/></Link>
-            <Link to="#"><i class='fa fa-twitter'/></Link>
-            <Link to="#" ><i class='fa fa-instagram'/></Link>
-            <Link to="#" ><LinkedInIcon class='f fa-linkedin-in'/></Link>
+        <Link to="#" ><i className='fa fa-facebook-f'/></Link>
+            <Link to="#"><i className='fa fa-twitter'/></Link>
+            <Link to="#" ><i className='fa fa-instagram'/></Link>
+            <Link to="#" ><LinkedInIcon className='f fa-linkedin-in'/></Link>
 </div><br/>
       </div>
       <div className="ft-main-item">

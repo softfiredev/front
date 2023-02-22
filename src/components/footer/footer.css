@@ -26,8 +26,8 @@ color: #FFFFFF;
 }
 .iconn{
     display: flex;
-	gap: 2rem;
-	margin-left: -3%;
+	gap: 1rem;
+	margin-left: 14%;
     
 }
 
@@ -142,7 +142,7 @@ color: #F7F7F7;
     
     color: #F7F7F7;
     }
-    .ft-main-item li{
+    .ft-main-item li a,.item8{
     
     font-family: 'Inter';
     font-style: normal;

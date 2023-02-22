@@ -25,7 +25,7 @@ const Footer = () => {
             <Link to="#"><i class='fa fa-twitter'/></Link>
             <Link to="#" ><i class='fa fa-instagram'/></Link>
             <Link to="#" ><LinkedInIcon class='f fa-linkedin-in'/></Link>
-</div>
+</div><br/>
       </div>
       <div className="ft-main-item">
         <h2 className="ft-title">Liens Rapides</h2>

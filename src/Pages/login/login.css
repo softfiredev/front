@@ -7,6 +7,9 @@
   
   color: #1A110A;
 }
+.espa{
+  margin-top: 18%;
+}
 .btn {
   border: 2px solid black;
   background-color: white;
@@ -141,18 +144,34 @@ height: 724px;
 }
 
 @media (max-width: 667px) {
+  .default {
+    background: #ffffff;
+    border: 2px solid #E1E1E1;
+    border-radius: 8px;
+  }
+  .ar{
+    margin-top: -14%;
+}
+.esp{margin-left: 10.5%;
+}
+  .espa{
+    margin-top: 0%;
+  }
 	.im{
 		display: none;
 	}
-  .inpu,.bntn1{
+  .inpu{
+    margin-top: -25;
     width: 328px;
 height: 52px;
+
   }
 .login{
   padding: 20%;
-  margin-left: -13%;
+  margin-left: -15%;
   margin-top: -23%;
 }
+
 }
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
 margin-top: -5%;

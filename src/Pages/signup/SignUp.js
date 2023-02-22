@@ -45,7 +45,7 @@ const Signup = () => {
               >
                 <Grid item xs={4.7}>
                 <button className="btn default"><div className='icong'><i className="fab fa-google fa-1x" ></i></div><p className="textgml">Gmail</p></button>         
-                </Grid>
+                </Grid>  <div className='esp'></div>
                 <Grid item>      
                 <button className="btn default"><div className='iconf'><Facebook style={{ width: "20px", height: "20px" }} /></div> <div className='textfbk'>Facebook</div></button>
                 </Grid>

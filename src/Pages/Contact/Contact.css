@@ -1,19 +1,22 @@
 .contact{
     padding: 100px;
     margin-left: 3%;
-   margin-top: 5%;
+   margin-top: 1%;
     overflow-x: hidden;
 }
 .txt2{
+
     font-family: 'Merriweather';
     font-style: normal;
     font-weight: 400;
     font-size: 36px;
     line-height: 140%;
     /* or 50px */
-    
+    Width:829px;
+    Height:100px;
     text-align: center;
     
+    color: #222222;
     color: #222222;
     
 }
@@ -29,7 +32,8 @@
 .box{
     Width:    370px;
     Height:    215px;
-    background: #FCEFC7;
+
+    background: #F7D070;
     border-radius: 10px;
 }
 .contun_box{
@@ -205,32 +209,56 @@ color: #F7F7F7;
 
 
 @media (max-width: 867px) {
-   
+  
+   .icon-con0{
+    
+    margin-left: -100%;
+   }
+   .icon-con3{
+    margin-left: 60%;
+   }
+   .icon-con4{
+    margin-left: 230%;
+   }
+   .icon-con5{
+    margin-left:350%;
+   }
+   .group-con3{
+    margin-left: -4%;
+    margin-top: -10;
+   }
     .contact{
-        margin-left: -1%;
-      padding:10%;
+        margin-left:-3%;
+      padding:5%;
+      margin-top: 15%;
     }
     .txt2{
-        font-family: 'Merriweather';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 140%;
-        /* or 28px */
+        width: 328px;
+height: 128px;
+
+font-family: 'Merriweather';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 140%;
+/* or 28px */
+
+text-align: center;
+
+color: #222222;
         
-        text-align: center;
-        
-        color: #222222;
-        
-    }         
+    }     
+ 
     .box{
         Width:328px;
         Height:215px;
+        margin-left:5%;
+
     }
     .imgcon{
         width: 360px;
         height: 291px;
-margin-left:5%;
+margin-left:4.2%;
 
 background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), 
 url(../../assest/con2.png);
@@ -240,6 +268,7 @@ url(../../assest/con2.png);
         margin-top: -32%;
     }
     .con-nous{
+margin-top: -5%;
 margin-left: 10%;
 font-family: 'Merriweather';
 font-style: normal;
@@ -251,6 +280,7 @@ color: #1A110A;
     }
  .inpu-con{
     margin-left: 10%;
+    margin-top: 5%;
     width: 328px;
 height: 52px;
 background: #FFFFFF;
@@ -278,12 +308,43 @@ border-radius: 8px;
 }
 .icon-con2{
  margin-left:38%;
- margin-top:4%;
+ margin-top:2%;
 }
-.ic{
-    color: #ffffff;
-    width: 24px;
-    height: 24px;
-    
-
-}
+.fa-facebook-f {
+    background-color: #f2eeee;
+    color: #030303;
+  }
+  .fa-twitter {
+    background: #ffffff;
+    color: #000000;
+    Width: 11.4px;
+   
+  }
+  .fa-instagram {
+    background: #fefcfc;
+    color: #040404;
+  }
+.fa-linkedin-in {
+    background: #f8f6f6;
+    color: #000000;
+  }
+  
+  .f{
+    padding: 0.55em;
+    width: 20px;
+    height: 20px;
+    font-size: 5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+  .fa{
+    padding: 3.5px;
+    width:20px;
+    height: 19px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+  }
+  

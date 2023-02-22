@@ -29,10 +29,11 @@ const Login = () => {
         <Grid item >
           <img className='im' src={Imge} alt="icon" />
         </Grid >
-
+     
         <Grid item  >
           <div />
           <Grid container direction="column" spacing={3}     >
+          <div className='espa'></div>
             <Grid item >
               <h1 className='Connexion'>Connexion</h1>
             </Grid >
@@ -45,13 +46,14 @@ const Login = () => {
                 <Grid item xs={4.7}>
                   <button className="btn default"><div className='icong'><i className="fab fa-google fa-1x" ></i></div><p className="textgml">Gmail</p></button>
                 </Grid>
+                <div className='esp'></div>
                 <Grid item>
                   <button className="btn default"><div className='iconf'><Facebook style={{ width: "20px", height: "20px" }} /></div> <div className='textfbk'>Facebook</div></button>
                 </Grid>
 
               </Grid>
             </Grid>
-            <Grid item>
+            <Grid item className='ar'>
               <p className='adr'>Ou avec votre adresse e-mail</p>
             </Grid>
 
@@ -90,7 +92,7 @@ const Login = () => {
             </Grid>
 
             <Grid item container spacing={2}>
-              <Checkbox style={{ color: " #E9B949" }} /><span ><p className="Souviens">Souviens-toi de moi</p></span>
+              <Checkbox style={{ color: " #E9B949" ,marginTop:"-2.2%"}} /><span ><p className="Souviens">Souviens-toi de moi</p></span>
             </Grid>
             <Grid item>
               <button className='bntn1' onClick={test}>

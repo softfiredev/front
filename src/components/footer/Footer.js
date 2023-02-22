@@ -13,7 +13,7 @@ const Footer = () => {
     <div className='footer'>
     <section className="ft-main">
       <div className="ft-main-item">
-        <div className="ft-title"><Link to="#"><img src={Imge} alt="logo"/></Link></div>
+        <div className="ft-logo"><Link to="#"><img src={Imge} alt="logo"/></Link></div><div className='es'></div>
         <p className='text1'>
         Maktaba.tn est une plateforme de commerce <br/><br/>
         électronique innovante reliant les réseaux de<br/><br/>
@@ -24,10 +24,10 @@ const Footer = () => {
          tout-en-un pour tous leurs besoins.
         </p><br/>
         <div className='iconn'>
-<Link to="#"><Facebook/></Link>
-<Link to="#"><TwitterIcon/></Link>
-<Link to="#"><InstagramIcon/></Link>
-<Link to="#"><LinkedInIcon/></Link>
+        <Link to="#" ><i class='fa fa-facebook-f'/></Link>
+            <Link to="#"><i class='fa fa-twitter'/></Link>
+            <Link to="#" ><i class='fa fa-instagram'/></Link>
+            <Link to="#" ><LinkedInIcon class='f fa-linkedin-in'/></Link>
 </div>
       </div>
       <div className="ft-main-item">
@@ -49,7 +49,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className="ft-main-item">
-        <h2 className="ft-title">Contact</h2>
+        <h2 className="ft-cont">Contact</h2>
        
         <ul>
         <div className="controle"> 

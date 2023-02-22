@@ -1,6 +1,8 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import './Contact.css'
+import Fbicon from "../../assest/fbicon.png"
+
 import { OutlinedInput } from '@mui/material';
 import Cartcontact from '../../components/cart-contact/cart_contact';
 import { Facebook } from '@material-ui/icons';
@@ -18,7 +20,7 @@ const Contact = () => {
             <p className='txt1'> Contactez-nous</p><br />
           </Grid>
           <Grid item >
-            <p className='txt2'>Entrez en contact avec notre équipe. Nous <br />serions ravis de vous donner un coup de main </p>
+            <p className='txt2'>Entrez en contact avec notre équipe. Nous erions ravis de vous donner un coup de main </p>
             
           </Grid> 
              <Cartcontact/>
@@ -31,12 +33,19 @@ const Contact = () => {
         <Grid container spacing={8} >
           <Grid item >  <div className="imgcon" />
             <span><p className='txt6-con'>Suivez-nous sur:</p></span>
-            <p className='icon-con2'>      <div className='iconn'>
-<Link to="#"  className='ic'><Facebook/></Link>
-<Link to="#"  className='ic'><TwitterIcon/></Link>
-<Link to="#"  className='ic'><InstagramIcon/></Link>
-<Link to="#"  className='ic'><LinkedInIcon/></Link>
-</div></p>
+            <p className='icon-con2'>      
+          
+            <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start"
+              >
+              
+              <Grid item xs={1.2}>      <Link to="#" className='icon-con0' ><i class='fa fa-facebook-f'/></Link></Grid>
+              <Grid item xs={1.2}>  <Link to="#"  className='icon-con3'><i class='fa fa-twitter'/></Link></Grid>
+              <Grid item xs={1.2}>      <Link to="#" className='icon-con4' ><i class='fa fa-instagram'/></Link></Grid>
+              <Grid item >    <Link to="#" className='icon-con5' ><LinkedInIcon class='f fa-linkedin-in'/></Link></Grid>
+            
+            </Grid>
+
+</p>
           </Grid>
           <Grid item >
             <div className='group-con3'>

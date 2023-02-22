@@ -43,10 +43,14 @@ color: #FFFFFF;
     color: #eee;
 }
 
-.ft-title {
+.ft-title ,.ft-cont,.ft-logo {
     color: #fff;
     font-size: 1.375rem;
     padding-bottom: 0.625rem;
+    
+}
+.es{
+    margin-top: 10%;
 }
 
 .grid-containerr{
@@ -102,4 +106,59 @@ margin-top: -2%;
 margin-left: 8.5%;
 height: 50px;
 
+}
+@media (max-width: 667px) {
+
+    .ft-title{
+        margin-left:20%;
+        margin-top:-15%;
+        font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    /* identical to box height */
+    
+    
+    color: #F7F7F7;
+    }
+    .ft-main-item li{
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #F7F7F7;
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    text-align: center;
+    }
+    .Copyright{
+        color: #bbb;
+        margin-top: 8%;
+    text-align: center;
+    height: 50px;
+    
+    }
+    .ft-logo{
+        margin-left: 28%;
+        margin-top: -20%;
+    }
+    .ft-cont{
+        
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    /* identical to box height */
+    
+    text-align: center;
+    color: #F7F7F7;
+    margin-top: -15%
+    }
+    .es{
+        margin-top: 15%;
+    }
 }

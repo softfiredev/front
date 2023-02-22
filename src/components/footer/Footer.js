@@ -2,9 +2,6 @@ import React from 'react'
 import "./footer.css"
 import { Link } from 'react-router-dom';
 import Imge from "../../assest/logo.png"
-import { Facebook } from '@material-ui/icons';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Call,Location,Sms} from 'iconsax-react';
 

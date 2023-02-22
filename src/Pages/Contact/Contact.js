@@ -1,13 +1,8 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import './Contact.css'
-import Fbicon from "../../assest/fbicon.png"
-
 import { OutlinedInput } from '@mui/material';
 import Cartcontact from '../../components/cart-contact/cart_contact';
-import { Facebook } from '@material-ui/icons';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Link } from 'react-router-dom';
 const Contact = () => {

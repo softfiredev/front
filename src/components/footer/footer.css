@@ -83,15 +83,21 @@ color: #FFFFFF;
 
 .text1{
 
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
-    line-height: 15px;
-    color: #FFFFFF;
-    mix-blend-mode: normal;
+    line-height: 24px;
+    /* or 200% */
+    
+    
+    color: #F7F7F7;
+    
     opacity: 0.8;
-}
+    Width:    263px;
+    Height:    120px;
+;}
 .line{
     background: #FFFFFF;
     mix-blend-mode: normal;
@@ -108,7 +114,21 @@ height: 50px;
 
 }
 @media (max-width: 667px) {
+    .text1{
+        Width:328px;
+Height:96px;
 
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 24px;
+/* or 200% */
+
+text-align: center;
+margin-left: -25%;
+color: #F7F7F7;
+    }
     .ft-title{
         margin-left:20%;
         margin-top:-15%;
@@ -159,6 +179,6 @@ height: 50px;
     margin-top: -15%
     }
     .es{
-        margin-top: 15%;
+        margin-top: 5%;
     }
 }

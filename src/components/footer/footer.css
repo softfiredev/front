@@ -27,7 +27,6 @@ color: #FFFFFF;
 .iconn{
     display: flex;
 	gap: 1rem;
-	margin-left: 14%;
     
 }
 
@@ -114,6 +113,12 @@ height: 50px;
 
 }
 @media (max-width: 667px) {
+    .iconn{
+        margin-left: 15%;
+        
+    }
+    
+
     .text1{
         Width:328px;
 Height:96px;

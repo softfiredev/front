@@ -214,9 +214,33 @@ color: #F7F7F7;
     margin-left:38%;
     margin-top:2%;
 }
-
+@media (min-width: 1280px){
+    .ex{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+     }
+}
 
 @media (max-width: 867px) {
+    .txt2{
+        font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    /* or 28px */
+    
+    text-align: center;
+    
+    color: #222222;
+    
+        width: 328px;
+        height: 84px;
+       }
+
     .icon-con2{
         margin-left:27%;
         margin-top: 5%;
@@ -323,13 +347,7 @@ border-radius: 8px;
     color: #000000;
   }
   
-  .ex{
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
- }
+
 
   .f{
     padding: 0.55em;

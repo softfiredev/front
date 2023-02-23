@@ -6,12 +6,12 @@ import Newpassword from './Pages/new-password/new-password'
 import Contact from './Pages/Contact/Contact'
 import Signup from './Pages/signup/SignUp'
 import AboutUs from './Pages/About-Us/AboutUs'
+import Become_a_Partner from './Pages/Become-a-Partner/Become_a_Partner'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
- 
  <BrowserRouter>
  <NavBar/>
    <Routes>
@@ -20,6 +20,7 @@ function App() {
    <Route path='New_password' element={ <Newpassword/>} />
    <Route path='Contact' element={ <Contact/>} />
    <Route path='AboutUs' element={ <AboutUs/>} />
+   <Route path='BecomeaPartner' element={ <Become_a_Partner/>} />
    <Route path='*' element={ <> page not !!!</>} />
    </Routes>
    <Footer/>

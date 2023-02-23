@@ -22,10 +22,7 @@ const Login = () => {
 
   return (
     <div className='login'>
-
-      <Grid
-        container spacing={6}
-      >
+<div className='logg'>
         <Grid item >
           <img className='im' src={Imge} alt="icon" />
         </Grid >
@@ -106,8 +103,8 @@ const Login = () => {
 
 
         </Grid >
-      </Grid>
-
+   
+        </div>
     </div>
 
 

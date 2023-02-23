@@ -41,7 +41,7 @@ function Minuicon() {
     nom:"Shop" , link: 'Shop'
   },
   {
-    nom:"À propos" , link: 'propos'
+    nom:"À propos" , link: 'AboutUs'
   },
   {
     nom:"Devenir partenaire" , link: '/Devenirpartenaire'

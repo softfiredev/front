@@ -24,11 +24,7 @@ const Cart_contact = () => {
       <Grid item >
         <div className='ex'>
 
-        <Grid
-  container
-  direction="row"
-  spacing={2}
->  {data.map((obj) => (
+      {data.map((obj) => (
             <Grid item  >
 
               <div className='box'>
@@ -50,8 +46,8 @@ const Cart_contact = () => {
 
 
           ))}
-        </Grid>
-        
+  
+    
         </div>
       </Grid>
     </>

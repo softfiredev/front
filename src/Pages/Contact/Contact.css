@@ -5,7 +5,9 @@
     overflow-x: hidden;
 }
 .txt2{
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Merriweather';
     font-style: normal;
     font-weight: 400;
@@ -21,6 +23,9 @@
     
 }
 .txt1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -242,22 +247,7 @@ color: #F7F7F7;
       padding:5%;
       margin-top: 15%;
     }
-    .txt2{
-        width: 328px;
-height: 128px;
-
-font-family: 'Merriweather';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 140%;
-/* or 28px */
-
-text-align: center;
-
-color: #222222;
-        
-    }     
+ 
  
     .box{
         Width:328px;
@@ -332,21 +322,15 @@ border-radius: 8px;
     background: #f8f6f6;
     color: #000000;
   }
-  @media (min-width: 1280px ) {
-    .contact{
-  width: 200%;
-     }
-     .ex{
-        margin-left: -58%;
-     }
-     .txt1{
-        
-        margin-left: -900%;
-     }
-     .txt2{
-        margin-left: -77%;
-     }
-  }
+  
+  .ex{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+ }
+
   .f{
     padding: 0.55em;
     width: 20px;

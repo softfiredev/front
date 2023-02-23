@@ -138,16 +138,21 @@ height: 28px;
 margin-left: 3%;
 
 }
+.logg{
+  flex-direction: row;
+  display: flex;
+  gap: 3em;
+}
 .im{
   width: 650px;
 height: 724px;
 }
-@media (min-width: 1280px ) {
-  .login{
-   width: 200%;
-   }
-}
-@media (max-width: 667px) {
+
+@media (max-width: 876px) {
+  .logg{
+    margin-top: 25%;
+    margin-left: -20%;
+  }
   .default {
     background: #ffffff;
     border: 2px solid #E1E1E1;

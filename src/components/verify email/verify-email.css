@@ -1,8 +1,7 @@
 
 
 .group1{
-    margin-top: 35%;
-
+    margin-top: 15%;
 }
 .email-pass{
 
@@ -45,17 +44,11 @@ color: #FFFFFF;
     color: #222222;
   }
 
-  @media  (min-width: 1280px){
 
     
-.group1{
-    margin-left: -5%;
 
-}
-  }
-    
 
-  @media (max-width: 667px) {
+  @media (max-width: 876px) {
     .email-pass{
 width: 174px;
  height: 31px;
@@ -91,9 +84,9 @@ color: #222222;
         margin-top: -35%;
     }
     .group1{
-        margin-top: -110%;
+        margin-top: -90%;
         padding: 100%;
-        margin-left: -105%;
+        margin-left: -120%;
     }
     
     }

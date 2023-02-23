@@ -10,22 +10,22 @@ const Contact = () => {
     <div>
       <div className='contact'>
         
-        <Grid container direction="column" alignItems="center" >
-          <Grid item >
+        <div className='grp1' >
+        
             <p className='txt1'> Contactez-nous</p><br />
-          </Grid>
-          <Grid item >
+      
+          
             <p className='txt2'>Entrez en contact avec notre équipe. Nous serions ravis de vous donner un coup de main </p>
             
-          </Grid> 
+         
              <Cartcontact/>
-        </Grid>
+        </div>
 
       </div>
 
       <div className='group2-con'>
 
-        <Grid container spacing={2} >
+        <Grid container spacing={5.5} >
           <Grid item >  <img src={Con2}className="imgcon" />
             <span><p className='txt6-con'>Suivez-nous sur:</p></span>
             
@@ -42,7 +42,7 @@ const Contact = () => {
           </Grid>
           <Grid item >
             <div className='group-con3'>
-              <Grid container direction="column" spacing={0.5}>
+              <Grid container direction="column" spacing={2.5}>
 
                 <Grid item > <p className='con-nous'>Contactez-nous</p> </Grid>
                 <Grid item ><OutlinedInput className='inpu-con' placeholder="Votre nom" /> </Grid>

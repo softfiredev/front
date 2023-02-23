@@ -1,0 +1,48 @@
+.AboutUs{
+    padding: 25%;
+    margin-left: -25%;
+    margin-top: -25%;
+}
+.box-a1{
+    width: 1440px;
+height: 593px;
+
+
+background: #F7D070;
+}
+.propos{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+text-align: center;
+
+color: #222222;
+}
+.txt-a1{
+    padding-top:10%;
+     
+}
+.propos2{
+    font-family: 'Merriweather';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 140%;
+/* or 50px */
+
+text-align: center;
+
+color: #222222;
+Width:829px;
+Height:150px;
+}
+.img-pro1{
+    width: 1170px;
+height: 520px;
+margin-left: 10%;
+border-radius: 20px;
+}

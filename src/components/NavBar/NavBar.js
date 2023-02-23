@@ -24,7 +24,7 @@ function NavBar() {
             <li><Link to="#">Shop</Link>
             </li>
             <span className="material-symbols-outlined">expand_more</span>
-            <li><Link to="#">À propos</Link></li>
+            <li><Link to="AboutUs">À propos</Link></li>
             <li><Link to="#">Devenir partenaire</Link></li>
             <li><Link to="Contact">Contact</Link></li>
           </ul>

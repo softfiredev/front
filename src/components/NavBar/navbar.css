@@ -81,7 +81,7 @@ color: #1A110A;
 .icon-menu{	
 display: none;
 }
-@media (max-width: 667px) {
+@media (max-width: 860px) {
 	.main-nav li a,.butto-NAV{
 		display: none;
 	}

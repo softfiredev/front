@@ -29,14 +29,14 @@ const Changepage=()=>{
 }
   return (
     <div className='password'>
-       <Grid container spacing={8} >
+       <div className='passww' >
         <Grid item  >
           <img className='im' src={Imge} alt="icon" />
         </Grid >
         <Grid item>
         <Changepage />
         </Grid>
-        </Grid>
+        </div>
     </div>
   )
 }

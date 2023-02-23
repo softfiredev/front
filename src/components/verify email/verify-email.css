@@ -1,17 +1,8 @@
 
-.recupere0{
 
-    font-family: 'Merriweather';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 50px;
-    color: #222222;
-    
-}
 .group1{
     margin-top: 35%;
-    margin-left: 0%;
+
 }
 .email-pass{
 
@@ -53,6 +44,17 @@ color: #FFFFFF;
     
     color: #222222;
   }
+
+  @media  (min-width: 1280px){
+
+    
+.group1{
+    margin-left: -5%;
+
+}
+  }
+    
+
   @media (max-width: 667px) {
     .email-pass{
 width: 174px;
@@ -68,7 +70,7 @@ line-height: 22px;
 
 color: #1A110A;
     }
-    .recupere0{
+    .recupere{
 width: 328px;
 height: 90px;
 font-family: 'Merriweather';

@@ -136,13 +136,17 @@ height: 28px;
 .login{
  padding: 7%;
 margin-left: 3%;
-overflow-x: hidden;
+
 }
 .im{
   width: 650px;
 height: 724px;
 }
-
+@media (min-width: 1280px ) {
+  .login{
+   width: 200%;
+   }
+}
 @media (max-width: 667px) {
   .default {
     background: #ffffff;
@@ -152,7 +156,7 @@ height: 724px;
   .ar{
     margin-top: -14%;
 }
-.esp{margin-left: 10.5%;
+.esp{margin-left: 10%;
 }
   .espa{
     margin-top: 0%;
@@ -168,7 +172,7 @@ height: 52px;
   }
 .login{
   padding: 20%;
-  margin-left: -15%;
+  margin-left: -12%;
   margin-top: -23%;
 }
 

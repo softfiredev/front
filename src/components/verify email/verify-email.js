@@ -25,7 +25,7 @@ const Verify_email = (props) => {
   return (
         <div className='group1' >
         <Grid container direction="column" spacing={3}  >
-        <Grid item md={10}> <p className='recupere0'> Récupérer le mot de passe</p></Grid ><br/>
+        <Grid item md={10}> <p className='recupere'> Récupérer le mot de passe</p></Grid ><br/>
         <Grid item >  <p className='email-pass'>Votre adresse e-mail </p></Grid >
         <Grid item>
         <OutlinedInput className='inpt-pass' placeholder="Email"onChange={handlemail} value={mail}   />           

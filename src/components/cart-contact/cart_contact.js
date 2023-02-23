@@ -22,10 +22,14 @@ const Cart_contact = () => {
   return (
     <>
       <Grid item >
-        <Grid container direction="row" spacing={3.5}>
+        <div className='ex'>
 
-          {data.map((obj,i) => (
-            <Grid item key={i} >
+        <Grid
+  container
+  direction="row"
+  spacing={2}
+>  {data.map((obj) => (
+            <Grid item  >
 
               <div className='box'>
                 <div className='contun_box'>
@@ -47,6 +51,8 @@ const Cart_contact = () => {
 
           ))}
         </Grid>
+        
+        </div>
       </Grid>
     </>
   )

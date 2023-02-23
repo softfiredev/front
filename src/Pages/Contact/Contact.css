@@ -203,29 +203,39 @@ text-align: center;
 
 color: #F7F7F7;
 }
-.icon-con{
-    margin-left: 50%;
+.icon-con2{
+    display: flex;
+	gap: 1rem;
+    margin-left:38%;
+    margin-top:2%;
 }
 
 
 @media (max-width: 867px) {
-  
+    .icon-con2{
+        margin-left:27%;
+        margin-top: 5%;
+       }
+    .group2-con{
+      
+        padding-bottom: 50px;
+    }
    .icon-con0{
     
-    margin-left: -90%;
+    margin-left: -100%;
    }
    .icon-con3{
     margin-left: 60%;
    }
    .icon-con4{
-    margin-left: 200%;
+    margin-left: 230%;
    }
    .icon-con5{
-    margin-left:260%;
+    margin-left:350%;
    }
    .group-con3{
-    margin-left: -4%;
-    margin-top: -10;
+    margin-left: 0.5%;
+    margin-top: 26%;
    }
     .contact{
         margin-left:-3%;
@@ -256,15 +266,13 @@ color: #222222;
 
     }
     .imgcon{
-        width: 360px;
+        width: 400px;
         height: 291px;
-margin-left:4.2%;
 
-background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), 
-url(../../assest/con2.png);
+background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
     }
     .txt6-con{
-        margin-left: 20%;
+        margin-left: 1%;
         margin-top: -32%;
     }
     .con-nous{
@@ -298,18 +306,14 @@ border-radius: 8px
  .bnt-con2{
     width: 328px;
 height: 56px;
-
 margin-left: 10%;
-
+margin-top: 7%;
 background: #E9B949;
 border-radius: 8px;
  }
 
 }
-.icon-con2{
- margin-left:38%;
- margin-top:2%;
-}
+
 .fa-facebook-f {
     background-color: #f2eeee;
     color: #030303;
@@ -327,19 +331,35 @@ border-radius: 8px;
 .fa-linkedin-in {
     background: #f8f6f6;
     color: #000000;
- 
   }
-  
+  @media (min-width: 1280px ) {
+    .contact{
+  width: 200%;
+     }
+     .ex{
+        margin-left: -58%;
+     }
+     .txt1{
+        
+        margin-left: -900%;
+     }
+     .txt2{
+        margin-left: -77%;
+     }
+  }
   .f{
-    padding: 2.5px;
-
-    border-radius: 15px;
- 
+    padding: 0.55em;
+    width: 20px;
+    height: 20px;
+    font-size: 5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
   }
   .fa{
-    padding: 3.8px;
-    width:20px;
-    height: 19px;
+    padding: 5.5px;
+    width:30px;
+    height: 30px;
     font-size: 18px;
     text-align: center;
     text-decoration: none;

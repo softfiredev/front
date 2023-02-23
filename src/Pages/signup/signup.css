@@ -4,6 +4,12 @@
  margin-left: 3%;
  overflow-x: hidden;
  }
+ @media (min-width: 1280px ) {
+  .signup{
+    width: 200%;
+   }
+   body{ overflow-x: hidden;}
+}
 .espace{
   margin-top: 13%;
 }

@@ -24,7 +24,7 @@ const Login = () => {
     <div className='login'>
 
       <Grid
-        container spacing={8}
+        container spacing={6}
       >
         <Grid item >
           <img className='im' src={Imge} alt="icon" />

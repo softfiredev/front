@@ -2,14 +2,14 @@ import React from 'react'
 import './Successful_password.css'
 import { Link } from 'react-router-dom';
 import { Grid } from '@mui/material'
-import Done from "../../assest/don.jpg"
+
 const Successful_password = () => {
   return (
     <div>
       <div className='group3' >
         <Grid container direction="column" spacing={3}  >
           <Grid item   >
-            <Grid container justifyContent="center" alignItems="center"> <img src={Done} alt='done' />
+            <Grid container justifyContent="center" alignItems="center">         <i class='bi bi-check-circle' style={{fontSize:"120px",WebkitMaskSize: "10px"}}></i>
             </Grid>
           </Grid ><br />
           <Grid item  >

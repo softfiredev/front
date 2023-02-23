@@ -26,8 +26,7 @@ color: #FFFFFF;
 }
 .iconn{
     display: flex;
-	gap: 1rem;
-    
+	gap: 1rem;   
 }
 
 .controle{
@@ -112,13 +111,14 @@ margin-left: 8.5%;
 height: 50px;
 
 }
-@media (max-width: 667px) {
+@media (max-width: 800px) {
     .iconn{
-        margin-left: 15%;
+        margin-left: 13%;
         
     }
-    
-
+.d{
+    width: 100%;
+}
     .text1{
         Width:328px;
 Height:96px;
@@ -178,7 +178,8 @@ color: #F7F7F7;
     font-size: 18px;
     line-height: 23px;
     /* identical to box height */
-    
+    margin-left: 10%;
+
     text-align: center;
     color: #F7F7F7;
     margin-top: -15%

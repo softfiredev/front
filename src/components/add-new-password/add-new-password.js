@@ -41,7 +41,7 @@ const handleconformationpassword = (e) => {
     <div>
       <div className='group2' >
         <Grid container direction="column" spacing={3}  >
-        <Grid item md={10}  > <p className='recupere2'> Récupérer le mot de passe</p></Grid ><br/>
+        <Grid item md={10}  > <p className='recupere'> Récupérer le mot de passe</p></Grid ><br/>
         <Grid item >  <p className='email-pass2'>Nouveau mot de passe</p></Grid >
         <Grid item>
 

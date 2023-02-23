@@ -20,7 +20,7 @@ const Signup = () => {
     <div>
       <div className='signup'>
    
-<Grid container spacing={8}   >
+<Grid container spacing={6}   >
         <Grid item >
           <img className='im' src={Imge} alt="icon" />
         </Grid >

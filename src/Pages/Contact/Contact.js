@@ -13,7 +13,7 @@ const Contact = () => {
     setloding(true)
     setTimeout(()=>{
       setloding(false)
-    },5000)
+    },1000)
       
    
   },[])

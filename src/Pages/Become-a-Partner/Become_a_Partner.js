@@ -1,14 +1,29 @@
-import React from 'react'
 import './Become_a_Partner.css'
 import Part from '../../assest/part.jpg'
 import { OutlinedInput, Grid } from '@mui/material'
 import Card_become from '../../components/card-become/card-become'
 import Cartcontact from '../../components/cart-contact/cart_contact';
-
+import Spiner from '../../components/spiner/spiner';
+import React, { useEffect, useState } from 'react'
 
 const Become_a_Partner = () => {
+  const [loding, setloding] = useState(true);
+
+  useEffect(()=>{
+    setloding(true)
+    setTimeout(()=>{
+      setloding(false)
+    },1000)
+      
+   
+  },[])
   const onButtonClick = () => { }
   return (
+    <div>
+    {loding?<>
+  <Spiner/> 
+    </>
+   :<>
     <Grid container direction="column" justifyContent="center" alignItems="center" spacing={6} >
 
       <Grid item>
@@ -193,7 +208,9 @@ const Become_a_Partner = () => {
         </div>
       </Grid>
 
-    </Grid>
+    </Grid></>
+}
+</div>
   )
 }
 

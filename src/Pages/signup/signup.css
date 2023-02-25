@@ -23,6 +23,20 @@
   color: #1A110A;
   
 }
+
+
+.wrapper{
+  width:200px;
+  height:60px;
+  transform: translate(-50%, -50%);
+margin-left:50%;
+margin-top:5%;
+
+}
+
+
+
+
 .Sinscrire{
 
   font-family: 'Merriweather';

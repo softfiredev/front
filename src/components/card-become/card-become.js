@@ -38,20 +38,20 @@ const Card_become = () => {
           <Grid  container  direction="column"    alignItems="center"  spacing={0.7}>
 
 <Grid item>
-  <div className='row4-car'><i class="fa fa-check-circle k"></i><p className='txt1-catb'>Caisse en ligne</p></div>  </Grid>
+  <div className='row4-car'><i className="fa fa-check-circle k"></i><p className='txt1-catb'>Caisse en ligne</p></div>  </Grid>
   <Grid item>
     
-     <div className='row4-car'><i class="fa fa-check-circle k"></i><p className='txt1-catb'>Livraison gratuit</p></div>  </Grid>
+     <div className='row4-car'><i className="fa fa-check-circle k"></i><p className='txt1-catb'>Livraison gratuit</p></div>  </Grid>
      <Grid item>
-    <div className='row4-car'><i class="fa fa-check-circle k"></i><p className='txt1-catb'>Boutique personalisée</p></div>  </Grid>
+    <div className='row4-car'><i className="fa fa-check-circle k"></i><p className='txt1-catb'>Boutique personalisée</p></div>  </Grid>
     <Grid item>
-   <div className='row4-car'><i class="fa fa-check-circle k"></i><p className='txt1-catb'> Assistance personnalisé</p></div>  </Grid>
+   <div className='row4-car'><i className="fa fa-check-circle k"></i><p className='txt1-catb'> Assistance personnalisé</p></div>  </Grid>
    <Grid item>
-  <div className='row4-car'><i class="fa fa-check-circle k"></i><p className='txt1-catb'>Participation aux foires</p></div>  </Grid>
+  <div className='row4-car'><i className="fa fa-check-circle k"></i><p className='txt1-catb'>Participation aux foires</p></div>  </Grid>
   <Grid item>
- <div className='row4-car'><i class="fa fa-check-circle k "></i><p className='txt1-catb'>Achat groupé</p></div>  </Grid>
+ <div className='row4-car'><i className="fa fa-check-circle k "></i><p className='txt1-catb'>Achat groupé</p></div>  </Grid>
  <Grid item>
-   <div className='row4-car'><i class="fa fa-check-circle k1"></i><p className='disc'>Conventions personnalisées</p></div>  </Grid>
+   <div className='row4-car'><i className="fa fa-check-circle k1"></i><p className='disc'>Conventions personnalisées</p></div>  </Grid>
           </Grid>
           </Grid>
           </Grid>
@@ -69,20 +69,20 @@ const Card_become = () => {
    <Grid  container  direction="column"    alignItems="center"  spacing={0.7}>
 
 <Grid item>
-<div className='row4-car'><i class="fa fa-check-circle "></i><p className='txt0-catb'>Caisse en ligne</p></div>  </Grid>
+<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Caisse en ligne</p></div>  </Grid>
 <Grid item>
 
-<div className='row4-car'><i class="fa fa-check-circle "></i><p className='txt0-catb'>Livraison gratuit</p></div>  </Grid>
+<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Livraison gratuit</p></div>  </Grid>
 <Grid item>
-<div className='row4-car'><i class="fa fa-check-circle "></i><p className='txt0-catb'>Boutique personalisée</p></div>  </Grid>
+<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Boutique personalisée</p></div>  </Grid>
 <Grid item>
-<div className='row4-car'><i class="fa fa-check-circle "></i><p className='txt0-catb'> Assistance personnalisé</p></div>  </Grid>
+<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'> Assistance personnalisé</p></div>  </Grid>
 <Grid item>
-<div className='row4-car'>{obj.name=="Gold"?<><i class="fa fa-check-circle "></i><p className='txt0-catb'>Participation aux foires</p></>:<><i class="fa fa-check-circle k2"></i><p className='disc1'>Participation aux foires</p></>}</div>  </Grid>
+<div className='row4-car'>{obj.name=="Gold"?<><i className="fa fa-check-circle "></i><p className='txt0-catb'>Participation aux foires</p></>:<><i className="fa fa-check-circle k2"></i><p className='disc1'>Participation aux foires</p></>}</div>  </Grid>
 <Grid item>
-<div className='row4-car'>{obj.name=="Gold"?<><i class="fa fa-check-circle "></i><p className='txt0-catb'>Achat groupé</p></>:<><i class="fa fa-check-circle k2"></i><p className='disc1'>Achat groupé</p></>}</div>  </Grid>
+<div className='row4-car'>{obj.name=="Gold"?<><i className="fa fa-check-circle "></i><p className='txt0-catb'>Achat groupé</p></>:<><i className="fa fa-check-circle k2"></i><p className='disc1'>Achat groupé</p></>}</div>  </Grid>
 <Grid item>
-<div className='row4-car'>{obj.name=="Gold"?<><i class="fa fa-check-circle "></i><p className='txt0-catb'>Conventions personnalisées</p></>:<><i class="fa fa-check-circle k2"></i><p className='disc1'>Conventions personnalisées</p></>}</div>  </Grid>
+<div className='row4-car'>{obj.name=="Gold"?<><i className="fa fa-check-circle "></i><p className='txt0-catb'>Conventions personnalisées</p></>:<><i className="fa fa-check-circle k2"></i><p className='disc1'>Conventions personnalisées</p></>}</div>  </Grid>
    </Grid>
    </Grid>
    </Grid>

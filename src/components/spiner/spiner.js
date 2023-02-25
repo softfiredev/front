@@ -6,7 +6,7 @@ const spiner = () => {
     <div className='esa'>
         <div className=' spiner'>
 
-        <div class="lds-dual-ring">        <img src={Logo} className="img-spi"/>    </div>
+        <div className="lds-dual-ring">        <img src={Logo} className="img-spi"/>    </div>
     </div>
 
     

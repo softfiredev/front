@@ -8,15 +8,10 @@ import { Facebook } from '@material-ui/icons';
 import { OutlinedInput, IconButton } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Eye, EyeSlash } from 'iconsax-react';
-import Spiner from '../../components/spiner/spiner';
 const Login = () => {
-  const [loding, setloding] = useState(true);
 
-      
   const [showPassword, setShowPassword] = useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -24,21 +19,10 @@ const Login = () => {
     alert("button active !!")
   }
 
-  useEffect(()=>{
-    setloding(true)
-    setTimeout(()=>{
-      setloding(false)
-    },1000)
-      
-   
-  },[])
+
   return (
    
-       <div>
-    {loding?<>
-  <Spiner/> 
-    </>
-   :<>
+  
     <div className='login'>
     <div className='logg'>
         <Grid item >
@@ -124,11 +108,6 @@ const Login = () => {
    
         </div>
     </div>
-   </>}
-   </div>
-
-
-
 
 
 

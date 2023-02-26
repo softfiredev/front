@@ -5,25 +5,11 @@ import { OutlinedInput } from '@mui/material';
 import Cartcontact from '../../components/cart-contact/cart_contact';
 import { Link } from 'react-router-dom';
 import Con2 from "../../assest/con2.png"
-import Spiner from '../../components/spiner/spiner';
-import { useEffect, useState } from 'react'
 const Contact = () => {
-  const [loding, setloding] = useState(true);
-  useEffect(()=>{
-    setloding(true)
-    setTimeout(()=>{
-      setloding(false)
-    },1000)
-      
-   
-  },[])
+
   return (
 
-    <div>
-    {loding?<>
-  <Spiner/> 
-    </>
-   :<>
+   
      <div>
       <div className='contact'>
         
@@ -80,10 +66,7 @@ const Contact = () => {
       </div>
       <div></div>
       </div>
-   </>
-   }
-  
-    </div>
+
   )
 }
 

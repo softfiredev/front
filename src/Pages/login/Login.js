@@ -9,16 +9,20 @@ import { OutlinedInput, IconButton } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Eye, EyeSlash } from 'iconsax-react';
 import axios from 'axios';
-import {  toast } from 'react-toastify';
-import{Path,Base_url} from '../../config/Config'
+import { toast } from 'react-toastify';
+import { Path, Base_url } from '../../config/Config'
 import { useDispatch } from 'react-redux';
-import { Loginstore } from '../../Store/user';
+import { Loginstore } from '../../Store/Loginuser';
+import Spinier from '../../components/spinier/Spinier'
+
+
 const Login = () => {
-  const Dispatch=useDispatch();
+  const Dispatch = useDispatch();
   localStorage.clear()
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const [user, setUser] = useState({ email: "", password: ""});
+  const [user, setUser] = useState({ email: "", password: "" });
   const handleInputChange = (field) => {
     return (e) => {
       setUser((prev) => ({
@@ -30,70 +34,68 @@ const Login = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
- 
 
-  const test = () => {
-    console.log(Path.LoginApi)
+  const onsubmit = () => {
 
-    //
-    if(user.email.length !==0 &&user.password.length!==0 )
-{
-  let reg = /^[a-z-A-Z0-9-_.]+@[a-z-A-Z0-9-_]{2,}[.][a-z-A-Z]{2,3}$/
-  let result = ((reg.exec(user.email)!==null));
-  if(result===true)
-  {
-    let data = {
-      email:user.email,
-      password:user.password,
-   
-    }
-    axios.post(Base_url+Path.LoginApi,data)
-    .then(response => {
- console.log(response)
- if(response.data.message==="success")
- {
-  Dispatch(Loginstore({accessToken:response.data.accessToken,refreshToken:response.data.refreshToken}))
- }
-      if(response.data.err==='password is not correct')
-      {
-        toast.error("le mot de passe n'est pas correct !!")
+    if (user.email.length !== 0 && user.password.length !== 0) {
+      let reg = /^[a-z-A-Z0-9-_.]+@[a-z-A-Z0-9-_]{2,}[.][a-z-A-Z]{2,3}$/
+      let result = ((reg.exec(user.email) !== null));
+      if (result === true) {
+        let data = {
+          email: user.email,
+          password: user.password,
+        }
+        axios.post(Base_url + Path.LoginApi, data)
+          .then(response => {
+            setLoading(true)
+            if (response.data.message === "success") {
+              Dispatch(Loginstore({ accessToken: response.data.accessToken, refreshToken: response.data.refreshToken, isLogin: true }))
+              setLoading(false)
+            }
+            if (response.data.err === 'password is not correct') {
+              toast.error("le mot de passe n'est pas correct !!")
+              setLoading(false)
+            }
+            if (response.data.success === false) {
+              toast.error("active votre compte Svp !!")
+              setLoading(false)
+            }
+            if (response.data.err === "email is not correct") {
+              toast.error("Email ne par exist !!")
+              setLoading(false)
+            }
+
+
+          })
       }
-      if(response.data.success===false)
-    {
-      toast.error("active votre compte Svp !!")
+      else {
+        toast.error("validation de Email !!")
+        setLoading(false)
+      }
+
     }
-    if(response.data.err==="email is not correct")
-       {
-  toast.error("Email ne par exist !!")
-      }    
- 
+    else {
+      toast.error("remplir Champ vide SVP !!")
+      setLoading(false)
+    }
 
-    })
-  }
-  else{
-    toast.error("validation de Email !!")
-  }
-
-}
-else{
-  toast.error("remplir Champ vide SVP !!")
-}
- 
   }
   return (
-   
-  
+
+    <>
+      {loading ? <Spinier /> :
+
     <div className='login'>
-  
-        <Grid item >
-          <img className='im' src={Imge} alt="icon" />
-        </Grid >
-     
-        <Grid item  >
-       
-          <div className='espa'>
+
+      <Grid item >
+        <img className='im' src={Imge} alt="icon" />
+      </Grid >
+
+      <Grid item  >
+
+        <div className='espa'>
           <Grid container direction="column" spacing={3}     >
-          
+
             <Grid item >
               <h1 className='Connexion'>Connexion</h1>
             </Grid >
@@ -118,7 +120,7 @@ else{
             </Grid>
 
             <Grid item>
-              <OutlinedInput className='input-login' placeholder="Email" onChange={handleInputChange("email")} value={user.email}/>
+              <OutlinedInput className='input-login' placeholder="Email" onChange={handleInputChange("email")} value={user.email} />
             </Grid>
             <Grid item>
 
@@ -138,7 +140,7 @@ else{
                   </InputAdornment>
                 }
                 onChange={handleInputChange("password")}
-               value={user.password}
+                value={user.password}
                 placeholder="Password"
               />
             </Grid>
@@ -154,10 +156,10 @@ else{
             </Grid>
 
             <Grid item container spacing={1}>
-              <Checkbox style={{ color: " #E9B949" ,marginTop:"-4.2%"}} /><span ><p className="Souviens">Souviens-toi de moi</p></span>
+              <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} /><span ><p className="Souviens">Souviens-toi de moi</p></span>
             </Grid>
             <Grid item>
-              <button className='bntn1-log' onClick={test}>
+              <button className='bntn1-log' onClick={onsubmit}>
                 <div className='textbntConnexionn'>Connexion</div></button>
             </Grid>
             <Grid item>
@@ -165,14 +167,16 @@ else{
             </Grid>
             <div />
           </Grid >
-          </div>
-          </Grid >
- 
-   
-   
+        </div>
+      </Grid >
+
+
+
     </div>
 
+}
 
+</>
 
 
   )

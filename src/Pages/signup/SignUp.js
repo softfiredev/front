@@ -53,7 +53,7 @@ if(email.length !==0 &&password.length!==0&&name_prenom.length!==0 )
     }
   axios.post('http://localhost:3000/user/register', date)
     .then(response => {
-    
+      console.log(response)
       switch(response.data.message){
 
         case 'email exist':

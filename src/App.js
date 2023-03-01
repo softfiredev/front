@@ -5,11 +5,8 @@ import Toast from './components/toast/Toast'
 import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
-import { persistStore } from 'redux-persist';
-import {Provider} from "react-redux"
-import {store} from "./Store/store"
-import { PersistGate } from 'redux-persist/integration/react';
-let persistor = persistStore(store);
+
+
 const Login = lazy(() => import('./Pages/login/Login')); 
 const Newpassword = lazy(() => import('./Pages/new-password/new-password')); 
 const Contact = lazy(() => import('./Pages/Contact/Contact')); 
@@ -22,8 +19,7 @@ function App() {
   return (
     <>
    
-   <Provider store={store}>  
-<PersistGate persistor={persistor}>
+
  <BrowserRouter>
  <NavBar/>
  <Suspense fallback={<Spinier />}>
@@ -43,8 +39,6 @@ function App() {
    <Footer/>
  </BrowserRouter>
 
- </PersistGate>
- </Provider>
 
 
     </>

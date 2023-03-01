@@ -1,18 +1,24 @@
-import useReducer from './Loginuser'
-import {configureStore} from '@reduxjs/toolkit'
+import { createStore } from 'redux';
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
-import { persistReducer} from 'redux-persist';
-
-const persistConfig = {
+import {  persistStore,persistReducer} from 'redux-persist';
+import Loginuser from './Loginuser';
+import Signupuser from './Signupuser';
+const loginPersistConfig = {
     key: 'login',
     storage,
 };
+const signupPersistConfig={
+    key: 'signup',
+    storage,
+}
 
-const reducers = combineReducers({  user:useReducer });
-const persisteReducer= persistReducer(persistConfig,reducers)
 
-export const store=configureStore({
-    reducer:persisteReducer
-    
-})
+const rootReducer = combineReducers({
+    user: persistReducer(loginPersistConfig, Loginuser),
+    cart: persistReducer(signupPersistConfig, Signupuser),
+  });
+  
+  export const store = createStore(rootReducer);
+  const persistor = persistStore(store);
+

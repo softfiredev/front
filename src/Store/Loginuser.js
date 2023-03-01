@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 export const userSlice=createSlice({
   name:"user",
-  initialState:{value:{accessToken:"",refreshToken:"",isLogin:false}},
+  initialState:{value:{accessToken:"",refreshToken:"",message:"",success:false,isLogin:false}},
   reducers:{
     Loginstore:(state,action)=>{
         state.value=action.payload;

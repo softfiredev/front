@@ -49,7 +49,8 @@ const Login = () => {
           .then(response => {
             setLoading(true)
             if (response.data.message === "success") {
-              Dispatch(Loginstore({ accessToken: response.data.accessToken, refreshToken: response.data.refreshToken, isLogin: true }))
+              let res=response.data
+              Dispatch(Loginstore({ accessToken: res.accessToken, refreshToken:res.refreshToken,message:res.message,success:res.success ,isLogin: true }))
               setLoading(false)
             }
             if (response.data.err === 'password is not correct') {

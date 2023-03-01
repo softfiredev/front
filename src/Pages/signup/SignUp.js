@@ -13,7 +13,11 @@ import { toast } from 'react-toastify';
 import Spinier from '../../components/spinier/Spinier'
 import { Path, Base_url } from '../../config/Config'
 import { useDispatch } from 'react-redux';
+import { Signustore } from '../../Store/Signupuser';
+
+
 const Signup = () => {
+  localStorage.clear()
   const Dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(true);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -43,9 +47,9 @@ const Signup = () => {
             .then(response => {
               setLoading(true)
               if (response.data.success) {
-                let res = response.data.user
+                let res = response.data
                 toast.success("Vérifiez votre email maintenant svp pour l'activation de votre  compte");
-                console.log(res.password)
+              Dispatch(Signustore({userinfo:res.user,success:res.success,message:res.message}))
                 setLoading(false)
 
               } else { toast.error("email exist deja!!"); setLoading(false) }

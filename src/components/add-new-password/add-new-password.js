@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './add-new-password.css'
-import { TextField, Grid, OutlinedInput,IconButton  } from '@mui/material'
+import {  Grid, OutlinedInput,IconButton  } from '@mui/material'
 import InputAdornment from '@mui/material/InputAdornment';
 import { Eye,EyeSlash} from 'iconsax-react';
 
@@ -40,9 +40,10 @@ const handleconformationpassword = (e) => {
   return (
     <div>
       <div className='group2' >
-        <Grid container direction="column" spacing={3}  >
+        <Grid container direction="column" spacing={2.5}  >
         <Grid item md={10}  > <p className='recupere'> Récupérer le mot de passe</p></Grid ><br/>
         <Grid item >  <p className='email-pass2'>Nouveau mot de passe</p></Grid >
+       
         <Grid item>
 
         <OutlinedInput  className='inpt-pass2'
@@ -62,7 +63,7 @@ const handleconformationpassword = (e) => {
           />
             </Grid>
             <Grid item>
-              <TextField className='inpt-pass2' placeholder="Confirmer mot de passe"type="password"  onChange={handleconformationpassword} value={Confirmerpassword} />
+              <OutlinedInput className='inpt-pass2' placeholder="Confirmer mot de passe"type="password"  onChange={handleconformationpassword} value={Confirmerpassword} />
             </Grid>
             <Grid item>
             <button className='bntn1'onClick={Chang} >
@@ -70,6 +71,7 @@ const handleconformationpassword = (e) => {
             </Grid>
        </Grid >
         </div>
+        
     </div>
   )
 }

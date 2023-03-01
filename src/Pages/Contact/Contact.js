@@ -4,7 +4,7 @@ import './Contact.css'
 import { OutlinedInput } from '@mui/material';
 import Cartcontact from '../../components/cart-contact/cart_contact';
 import { Link } from 'react-router-dom';
-import Con2 from "../../assest/con2.png"
+import Con2 from "../../assets/con2.png"
 const Contact = () => {
 
   return (
@@ -19,9 +19,7 @@ const Contact = () => {
       
           
             <p className='txt2'>Entrez en contact avec notre équipe. Nous serions ravis de vous donner un coup de main </p>
-            
-         
-             <Cartcontact/>
+             <div className='cart-conct'><Cartcontact/></div>
         </div>
 
       </div>

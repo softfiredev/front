@@ -1,10 +1,10 @@
 import React from 'react'
-import './spiner.css'
-import Logo from '../../assest/logo.png'
-const spiner = () => {
+import './Spinier.css'
+import Logo from '../../assets/logo.png'
+const Spinier = () => {
   return (
     <div className='esa'>
-        <div className=' spiner'>
+        <div className='spinier'>
 
         <div className="lds-dual-ring">        <img src={Logo} className="img-spi"/>    </div>
     </div>
@@ -14,4 +14,4 @@ const spiner = () => {
   )
 }
 
-export default spiner
+export default Spinier

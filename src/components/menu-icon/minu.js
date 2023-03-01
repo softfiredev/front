@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import {  useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -17,12 +16,9 @@ import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 const drawerWidth = 240;
 
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
-
-);
 
 
-function Minuicon() {
+function Menuicon() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -44,7 +40,7 @@ function Minuicon() {
     nom:"À propos" , link: 'AboutUs'
   },
   {
-    nom:"Devenir partenaire" , link: '/BecomeaPartner'
+    nom:"Devenir partenaire" , link: '/BecomePartner'
   },
   {
     nom:"Contact" , link: 'Contact'
@@ -92,10 +88,10 @@ function Minuicon() {
         
           
           {pages.map((page,i) => (
-              <ListItem key={page} disablePadding>
-                <MenuItem  onClick={handleDrawerClose}  key={i}>
+              <ListItem key={i} disablePadding>
+                <MenuItem  onClick={handleDrawerClose}  >
                   <Typography textAlign="center">
-                    <Link to={page.link}><p className='link-page'>{page.nom}</p></Link>
+                    <Link to={page.link}className='link-page'>{page.nom}</Link>
                     </Typography>
                 </MenuItem>
                      </ListItem>
@@ -110,4 +106,4 @@ function Minuicon() {
     </Box>
   );
 }
-export default Minuicon
+export default Menuicon

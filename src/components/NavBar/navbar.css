@@ -13,32 +13,23 @@ a{
 	margin-top: 50px;
 	color: #FFFFFF;
 }
-.main-nav li {
-
-	margin-top: 4%;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 19px;
-	text-align: center;
+.butto-NAV-link{
+	cursor: pointer;
 }
 .logo {
 	margin-left: 10%;
-	margin-top: 1%;
+	margin-top: 1.5%;
 	margin-bottom:1%;
 	font-size: 1.45em;
 }
-.material-symbols-outlined{
-margin-left: -35%;
-}
+
 .main-nav .material-symbols-outlined{
-	margin-top: 29px;
-	margin-left: -35px;
+	margin-top: 39px;
+	margin-left: -30px;
 
 	color: #FFFFFF;
 }
-.main-nav li a {
+.main-nav a li  {
 	
 	padding: 35px;
 	color: #FFFFFF;
@@ -56,12 +47,11 @@ text-align: center;
 margin-top: 8.5%;
 color: #1A110A;
 }
-.main-nav a:hover {
+.main-nav a li:hover {
 	color: #ffc125;
 }
 .header {
-	padding-top:1%;
-	padding-bottom:2%;
+
 	
   height: 5000%;
   background: #222222;
@@ -69,7 +59,7 @@ color: #1A110A;
 }
 .cartchop{
 	margin-left: -24%;
-	margin-top: 10%;
+	margin-top: 13%;
 }
 @media (min-width: 769px) {
 	.header,
@@ -82,7 +72,11 @@ color: #1A110A;
 display: none;
 }
 @media (max-width: 860px) {
-	.main-nav li a,.butto-NAV{
+	.header {
+		padding-top:1%;
+		padding-bottom:2%;
+	}	
+	.main-nav a li ,.butto-NAV{
 		display: none;
 	}
 	.logo{
@@ -92,7 +86,7 @@ display: none;
 	
 	.group ,.cartchop{
 		margin-left: 84%;
-		margin-top: -13%;
+		margin-top: -15%;
 	}
 
 	.group{
@@ -115,7 +109,7 @@ display: none;
 
 .butto-NAV{
 	cursor: pointer;
-	margin-top: 10%;	
+	margin-top: 15%;	
 width:162px;
 Height:44px;
 background: #E9B949;
@@ -138,5 +132,6 @@ border-radius: 8px;
 }
 .groupli{
 	display: flex;
+	gap: 8rem;
 	margin-left: -4%;
 }

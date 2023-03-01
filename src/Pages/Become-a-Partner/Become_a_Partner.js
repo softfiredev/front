@@ -1,7 +1,7 @@
 import './Become_a_Partner.css'
-import Part from '../../assest/part.jpg'
+import Part from '../../assets/part.jpg'
 import { OutlinedInput, Grid } from '@mui/material'
-import Card_become from '../../components/card-become/card-become'
+import Cardbecome from '../../components/card-become/card-become'
 import Cartcontact from '../../components/cart-contact/cart_contact';
 import React from 'react'
 
@@ -10,11 +10,12 @@ const Become_a_Partner = () => {
 
   const onButtonClick = () => { }
   return (
- 
+ <div className='group-partner '>
     <Grid container direction="column" justifyContent="center" alignItems="center" spacing={6} >
-
+   
       <Grid item>
         <div className='Become2'>
+        <div className='Become2-cont'>
 
           <Grid container direction="column" justifyContent="center" alignItems="center" spacing={6} >
             <Grid item>   <p className='txt1-become'>Devenir partenaire</p> </Grid>
@@ -34,7 +35,7 @@ const Become_a_Partner = () => {
             </Grid>
 
           </Grid>
-
+          </div>
         </div>
       </Grid>
 
@@ -43,7 +44,7 @@ const Become_a_Partner = () => {
 
 
           <Grid item>
-            <Grid container direction="column" justifyContent="flex-start"
+            <Grid container direction="column" 
               alignItems="flex-start" spacing={7} >
               <Grid item>   <p className='txt4-become'>Opportunités avec “Maktaba.tn”</p> </Grid>
               <Grid item>   <p className='txt44-become'>Chez Maktba.tn, nous sommes passionnés par l'amélioration de l'accès aux fournitures scolaires de qualité et par l'autonomisation des individus pour avoir un impact positif dans leurs communautés. C'est pourquoi nous avons développé une plateforme de pointe, alimentée par une technologie avancée d'IA et optimisée pour la commercialisation et la logistique dans les industries des fournitures éducatives, des livres et des jouets.<br /><br />
@@ -60,7 +61,7 @@ const Become_a_Partner = () => {
 
 
           </Grid>
-          <Grid item> <img src={Part} className="img-become" /></Grid>
+          <Grid item> <img src={Part} className="img-become" alt='img-become' /></Grid>
 
         </Grid>
       </Grid>
@@ -135,7 +136,7 @@ const Become_a_Partner = () => {
 
                 <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={8}  >
                   <Grid item>  <p className='txt8-become'>Votre choix de pack*</p></Grid>
-                  <Grid item>  <Card_become />  </Grid>
+                  <Grid item>  <Cardbecome ak />  </Grid>
                 </Grid>
               </Grid>
 
@@ -152,7 +153,7 @@ const Become_a_Partner = () => {
                 <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}  >
                   <Grid item>    <p className='txt8-become'>Soumettre un fichier</p></Grid>
                   <Grid item>  <button className='downlo' onClick={onButtonClick}>
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVR4nO2WywqCQBSGv2wTtJNatImWLmodFPUE3agk2gkp5Pu/QAwcw6SmmUGnFv7wgzCe83kuotCq1R9qAKyBK5ABKXABlkDYBDCQ5Hcg/2B1tpJ7a4NuNMCqd3XB5xbQwqpyK02AvcwulWtde3VtD5usTOeFCXRcMzSXbf+qbQPgVAdU2xfJO/ktUQIMxYkhPAI6VWgPOBsmSCrLElrAz8J6VuoKdYUHSAtMZzUsgcpQ5Mw0T4RFtcqj0lwLFfMeWeQ5YbhM71zIJTZDVt03+IaU7Rt8VIGzH4CnKrALxB7BcflT2XeAu4BjYb0okBYcDRfOFJxKzmldPwXVB/CmvAX70kHspAegq6wprKfiuQAAAABJRU5ErkJggg==" /><p className='tele'> Télécharger un fichier</p>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVR4nO2WywqCQBSGv2wTtJNatImWLmodFPUE3agk2gkp5Pu/QAwcw6SmmUGnFv7wgzCe83kuotCq1R9qAKyBK5ABKXABlkDYBDCQ5Hcg/2B1tpJ7a4NuNMCqd3XB5xbQwqpyK02AvcwulWtde3VtD5usTOeFCXRcMzSXbf+qbQPgVAdU2xfJO/ktUQIMxYkhPAI6VWgPOBsmSCrLElrAz8J6VuoKdYUHSAtMZzUsgcpQ5Mw0T4RFtcqj0lwLFfMeWeQ5YbhM71zIJTZDVt03+IaU7Rt8VIGzH4CnKrALxB7BcflT2XeAu4BjYb0okBYcDRfOFJxKzmldPwXVB/CmvAX70kHspAegq6wprKfiuQAAAABJRU5ErkJggg==" alt='ico'/><p className='tele'> Télécharger un fichier</p>
                   </button> </Grid>
                 </Grid>
               </Grid>
@@ -196,7 +197,7 @@ const Become_a_Partner = () => {
       </Grid>
 
     </Grid>
-
+    </div>
   )
 }
 

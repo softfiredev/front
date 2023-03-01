@@ -1,7 +1,7 @@
 import React from 'react'
 import { Location, ArrowRight2, Call, Sms } from 'iconsax-react';
 import { Grid } from '@mui/material'
-
+import './cart_contact.css'
 const Cart_contact = () => {
   const data = [
     {

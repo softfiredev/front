@@ -1,38 +1,99 @@
-import React, { useEffect,useState } from 'react'
+import React, { useState } from 'react'
 import "./login.css"
 import { Link } from 'react-router-dom';
-import Imge from "../../assest/image1.png"
+import Imge from "../../assets/image1.png"
 import { Grid } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox';
 import { Facebook } from '@material-ui/icons';
 import { OutlinedInput, IconButton } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Eye, EyeSlash } from 'iconsax-react';
+import axios from 'axios';
+import {  toast } from 'react-toastify';
+import{Path,Base_url} from '../../config/Config'
+import { useDispatch } from 'react-redux';
+import { Loginstore } from '../../Store/user';
 const Login = () => {
-
+  const Dispatch=useDispatch();
+  localStorage.clear()
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const [user, setUser] = useState({ email: "", password: ""});
+  const handleInputChange = (field) => {
+    return (e) => {
+      setUser((prev) => ({
+        ...prev,
+        [field]: e.target.value
+      }));
+    };
+  };
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+ 
+
   const test = () => {
-    alert("button active !!")
+    console.log(Path.LoginApi)
+
+    //
+    if(user.email.length !==0 &&user.password.length!==0 )
+{
+  let reg = /^[a-z-A-Z0-9-_.]+@[a-z-A-Z0-9-_]{2,}[.][a-z-A-Z]{2,3}$/
+  let result = ((reg.exec(user.email)!==null));
+  if(result===true)
+  {
+    let data = {
+      email:user.email,
+      password:user.password,
+   
+    }
+    axios.post(Base_url+Path.LoginApi,data)
+    .then(response => {
+ console.log(response)
+ if(response.data.message==="success")
+ {
+  Dispatch(Loginstore({accessToken:response.data.accessToken,refreshToken:response.data.refreshToken}))
+ }
+      if(response.data.err==='password is not correct')
+      {
+        toast.error("le mot de passe n'est pas correct !!")
+      }
+      if(response.data.success===false)
+    {
+      toast.error("active votre compte Svp !!")
+    }
+    if(response.data.err==="email is not correct")
+       {
+  toast.error("Email ne par exist !!")
+      }    
+ 
+
+    })
+  }
+  else{
+    toast.error("validation de Email !!")
   }
 
-
+}
+else{
+  toast.error("remplir Champ vide SVP !!")
+}
+ 
+  }
   return (
    
   
     <div className='login'>
-    <div className='logg'>
+  
         <Grid item >
           <img className='im' src={Imge} alt="icon" />
         </Grid >
      
         <Grid item  >
-          <div />
+       
+          <div className='espa'>
           <Grid container direction="column" spacing={3}     >
-          <div className='espa'></div>
+          
             <Grid item >
               <h1 className='Connexion'>Connexion</h1>
             </Grid >
@@ -57,11 +118,11 @@ const Login = () => {
             </Grid>
 
             <Grid item>
-              <OutlinedInput className='inpu' placeholder="Email" />
+              <OutlinedInput className='input-login' placeholder="Email" onChange={handleInputChange("email")} value={user.email}/>
             </Grid>
             <Grid item>
 
-              <OutlinedInput className='inpu'
+              <OutlinedInput className='input-login'
 
                 type={showPassword ? 'text' : 'password'}
                 endAdornment={
@@ -76,6 +137,8 @@ const Login = () => {
                     </IconButton>
                   </InputAdornment>
                 }
+                onChange={handleInputChange("password")}
+               value={user.password}
                 placeholder="Password"
               />
             </Grid>
@@ -90,23 +153,23 @@ const Login = () => {
               </Grid>
             </Grid>
 
-            <Grid item container spacing={2}>
-              <Checkbox style={{ color: " #E9B949" ,marginTop:"-2.2%"}} /><span ><p className="Souviens">Souviens-toi de moi</p></span>
+            <Grid item container spacing={1}>
+              <Checkbox style={{ color: " #E9B949" ,marginTop:"-4.2%"}} /><span ><p className="Souviens">Souviens-toi de moi</p></span>
             </Grid>
             <Grid item>
-              <button className='bntn1' onClick={test}>
+              <button className='bntn1-log' onClick={test}>
                 <div className='textbntConnexionn'>Connexion</div></button>
             </Grid>
             <Grid item>
               <p>Vous n'avez pas de compte !<Link to="/Signup" className="textc"> S'inscrire</Link></p>
             </Grid>
-
+            <div />
           </Grid >
-
-
-        </Grid >
+          </div>
+          </Grid >
+ 
    
-        </div>
+   
     </div>
 
 

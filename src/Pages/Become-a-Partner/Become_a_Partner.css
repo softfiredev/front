@@ -2,10 +2,12 @@
 .Become2{
     width: 1440px;
     height: 558px;
-    padding-top: 6%;
+    padding-top: 1%;
     background: #F7D070;
    }
-
+.Become2-cont{
+    padding-top:5%;
+}
   
 .box-b{
     

@@ -188,3 +188,45 @@ color: #F7F7F7;
         margin-top: 5%;
     }
 }
+
+
+.fa-facebook-f {
+    background-color: #f2eeee;
+    color: #030303;
+  }
+  .fa-twitter {
+    background: #ffffff;
+    color: #000000;
+    Width: 11.4px;
+   
+  }
+  .fa-instagram {
+    background: #fefcfc;
+    color: #040404;
+  }
+.fa-linkedin-in {
+    background: #f8f6f6;
+    color: #000000;
+  }
+  
+
+
+  .f{
+    padding: 0.55em;
+    width: 20px;
+    height: 20px;
+    font-size: 5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+  .fa{
+    padding: 5.5px;
+    width:30px;
+    height: 30px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+  }
+  

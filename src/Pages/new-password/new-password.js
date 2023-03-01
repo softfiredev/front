@@ -1,6 +1,6 @@
 import React, { useState }  from 'react'
 import './new-password.css'
-import Imge from "../../assest/image1.png"
+import Imge from "../../assets/image1.png"
 import {Grid} from '@mui/material'
 import Verifyemail from '../../components/verify email/verify-email'
 import Addnewpassword from '../../components/add-new-password/add-new-password'

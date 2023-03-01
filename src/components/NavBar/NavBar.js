@@ -1,9 +1,9 @@
 import React from 'react'
 import './navbar.css'
-import Imge from "../../assest/logo.png"
+import Imge from "../../assets/logo.png"
 import { Link } from 'react-router-dom';
 import { ShoppingCart } from 'iconsax-react';
-import Minuicon from '../minu-icon/minu';
+import Menuicon from '../menu-icon/minu';
 
 function NavBar() {
 
@@ -14,19 +14,19 @@ function NavBar() {
         <div className="logo">
           <Link to="/home"> <img src={Imge} alt="logo" /></Link>
           <div className='icon-menu'>
-            <Minuicon   />
+            <Menuicon   />
             </div>
 
           </div>
         <div className='groupli'>
           <ul className="main-nav">
-            <li><Link to="/home">Accueil</Link></li>
-            <li><Link to="#">Shop</Link>
-            </li>
+           <Link to="/home"> <li>Accueil</li></Link>
+           <Link to="/Shop"> <li>Shop </li></Link>
+           
             <span className="material-symbols-outlined">expand_more</span>
-            <li><Link to="AboutUs">À propos</Link></li>
-            <li><Link to="BecomeaPartner">Devenir partenaire</Link></li>
-            <li><Link to="Contact">Contact</Link></li>
+            <Link to="AboutUs"><li>À propos</li></Link>
+           <Link to="BecomePartner"> <li>Devenir partenaire</li></Link>
+          <Link to="Contact">  <li>Contact</li></Link>
           </ul>
         </div>
         <div className='group'>
@@ -39,7 +39,7 @@ function NavBar() {
               />
             </Link>
           </span>
-          <Link to="login"> <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
+          <Link to="login" className='butto-NAV-link' > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
         </div>
 
       </header>

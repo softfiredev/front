@@ -6,12 +6,12 @@ import { Grid } from '@mui/material'
 const Successful_password = () => {
   return (
     <div>
-      <div className='group3' >
+      <div className='group3-pass' >
         <Grid container direction="column" spacing={3}  >
           <Grid item   >
             <Grid container justifyContent="center" alignItems="center">         <i class='bi bi-check-circle' style={{fontSize:"120px",WebkitMaskSize: "10px"}}></i>
             </Grid>
-          </Grid ><br />
+          </Grid >
           <Grid item  >
             <Grid container alignItems="center" >
               <p className='email-pass3'>La réinitialisation du mot de passe a réussi</p>

@@ -4,10 +4,10 @@
   height: 80px;
 }
 @media (max-width: 876px) {
-  .spiner{
-margin-left: -60%;
-margin-top: -150%;
-  }
+  .spinier{
+    margin-top: -195%;
+    margin-left: -65%;
+    }
 .esa{
   background-color: #222222;
 padding: 40%;
@@ -15,7 +15,7 @@ padding: 40%;
 
 }
 @media (min-width: 1280px) {
-  .spiner{
+  .spinier{
     margin-top: -15%;
     margin-left: 40%;
     }

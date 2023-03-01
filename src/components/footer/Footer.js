@@ -1,7 +1,7 @@
 import React from 'react'
 import "./footer.css"
 import { Link } from 'react-router-dom';
-import Imge from "../../assest/logo.png"
+import Imge from "../../assets/logo.png"
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Call,Location,Sms} from 'iconsax-react';
 

@@ -1,25 +1,34 @@
 
 .Become2{
-    width: 1440px;
+    width: 1540px;
     height: 558px;
-    padding-top: 1%;
     background: #F7D070;
+    padding-top: 5%;
+    padding-right: 6%;
    }
 .Become2-cont{
-    padding-top:5%;
+    padding-top:2%;
 }
-  
+.trans2{
+    margin-left: -5%;
+}
+.brr{
+    margin-top: 4%;
+}
+.trans{
+    margin-left: -4.5%;
+}
 .box-b{
     
 padding-left: 8%;
 padding-top: 5%;
-width: 1440px;
+width: 1540px;
 height: 2445px;
 background: #F7D070;
     gap: 10px;
 }
 .box-b1{
-    width: 1440px;
+    width: 1540px;
 height: 558px;
 padding: 10%;
 

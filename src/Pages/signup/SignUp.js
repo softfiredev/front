@@ -12,13 +12,13 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import Spinier from '../../components/spinier/Spinier'
 import { Path, Base_url } from '../../config/Config'
-import { useDispatch } from 'react-redux';
-import { Signustore } from '../../Store/Signupuser';
-
+import { Signupuser } from "../../Store/Service/SignupService";
+import { useDispatch, useSelector } from 'react-redux';
 
 const Signup = () => {
-  localStorage.clear()
-  const Dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const total = useSelector(state => state.Signup.user);
+  console.log(total)
   const [showPassword, setShowPassword] = useState(true);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [loading, setLoading] = useState(false);
@@ -43,13 +43,10 @@ const Signup = () => {
             password: user.password,
             name_prenom: user.fullname
           }
-          axios.post(Base_url + Path.SignupApi, data)
+          dispatch(Signupuser(data))
             .then(response => {
-              setLoading(true)
-              if (response.data.success) {
-                let res = response.data
+              if (response.payload.success) {
                 toast.success("Vérifiez votre email maintenant svp pour l'activation de votre  compte");
-              Dispatch(Signustore({userinfo:res.user,success:res.success,message:res.message}))
                 setLoading(false)
 
               } else { toast.error("email exist deja!!"); setLoading(false) }

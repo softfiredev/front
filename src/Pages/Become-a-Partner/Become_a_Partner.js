@@ -11,13 +11,14 @@ const Become_a_Partner = () => {
   const onButtonClick = () => { }
   return (
  <div className='group-partner '>
-    <Grid container direction="column" justifyContent="center" alignItems="center" spacing={6} >
+    <Grid container direction="column" justifyContent="center" alignItems="center" spacing={4.5} >
    
       <Grid item>
         <div className='Become2'>
         <div className='Become2-cont'>
 
           <Grid container direction="column" justifyContent="center" alignItems="center" spacing={6} >
+            
             <Grid item>   <p className='txt1-become'>Devenir partenaire</p> </Grid>
             <Grid item>   <p className='txt2-become'>Nous sommes ravis que vous soyez intéressé par un partenariat avec notre plateforme.</p> </Grid>
             <Grid item>
@@ -38,14 +39,14 @@ const Become_a_Partner = () => {
           </div>
         </div>
       </Grid>
-
+      <div className='brr'></div>
       <Grid item>
+        <div className='trans'>
         <Grid container direction="row" alignItems="center" spacing={1}>
 
 
           <Grid item>
-            <Grid container direction="column" 
-              alignItems="flex-start" spacing={7} >
+            <Grid container direction="column"        alignItems="flex-start" spacing={7} >
               <Grid item>   <p className='txt4-become'>Opportunités avec “Maktaba.tn”</p> </Grid>
               <Grid item>   <p className='txt44-become'>Chez Maktba.tn, nous sommes passionnés par l'amélioration de l'accès aux fournitures scolaires de qualité et par l'autonomisation des individus pour avoir un impact positif dans leurs communautés. C'est pourquoi nous avons développé une plateforme de pointe, alimentée par une technologie avancée d'IA et optimisée pour la commercialisation et la logistique dans les industries des fournitures éducatives, des livres et des jouets.<br /><br />
 
@@ -62,10 +63,11 @@ const Become_a_Partner = () => {
 
           </Grid>
           <Grid item> <img src={Part} className="img-become" alt='img-become' /></Grid>
-
+         
         </Grid>
+        </div>
       </Grid>
-
+      <div className='brr'></div>
       <Grid item>
         <Grid container direction="column" justifyContent="center" alignItems="center">
           <div className='box-b'>

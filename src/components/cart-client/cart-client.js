@@ -4,6 +4,9 @@ import { Grid } from '@mui/material'
 import avt1 from '../../assets/avt1.png'
 import avt2 from '../../assets/avt2.png'
 import avt3 from '../../assets/avt3.png'
+import Cart from './cart/cart'
+import Tabs from '@mui/material/Tabs';
+import Box from '@mui/material/Box';
 const Cart_client = () => {
 
   const tab = [
@@ -23,22 +26,14 @@ const Cart_client = () => {
             justifyContent="flex-start"
             alignItems="flex-start"
           >
+   
             {tab.map((obj) =>
-              <Grid item>
-                <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={8}>
-                  <Grid item>
-                    <img src={obj.img} className='img-avt' />
-                  </Grid>
-                  <Grid item>
-                    <p className='txt10-about'>
-                      {obj.des}
-                    </p>
-                  </Grid>
-                </Grid>
-                <Grid item><p className='txt11-about'>   {obj.name}</p> </Grid>
+              <>
+               <Cart name={obj.name} des={obj.des} img={obj.img}/>
 
-              </Grid>
+               </>
             )}
+              
           </Grid>
         </Grid>
       </Grid>

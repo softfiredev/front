@@ -8,18 +8,16 @@ import { Facebook } from '@material-ui/icons';
 import { OutlinedInput, IconButton } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Eye, EyeSlash } from 'iconsax-react';
-import axios from 'axios';
 import { toast } from 'react-toastify';
-import { Path, Base_url } from '../../config/Config'
-import { useDispatch } from 'react-redux';
-import { Loginstore } from '../../Store/Loginuser';
+import { useDispatch, useSelector } from 'react-redux';
+import { Loginuser } from '../../Store/Service/LoginService'
 import Spinier from '../../components/spinier/Spinier'
-
+import { useAtoms } from '../../Store/globalState/global';
 
 const Login = () => {
-  const Dispatch = useDispatch();
-  localStorage.clear()
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+const total = useSelector(state => state.loginservice.accessToken);
+const [globalState,snap]=useAtoms()
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [user, setUser] = useState({ email: "", password: "" });
@@ -36,55 +34,51 @@ const Login = () => {
   };
 
   const onsubmit = () => {
-
+    globalState.loding=true
     if (user.email.length !== 0 && user.password.length !== 0) {
-      let reg = /^[a-z-A-Z0-9-_.]+@[a-z-A-Z0-9-_]{2,}[.][a-z-A-Z]{2,3}$/
-      let result = ((reg.exec(user.email) !== null));
-      if (result === true) {
+      let reg =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+      if (reg.test(user.email)) {
         let data = {
           email: user.email,
           password: user.password,
         }
-        axios.post(Base_url + Path.LoginApi, data)
-          .then(response => {
-            setLoading(true)
-            if (response.data.message === "success") {
-              let res=response.data
-              Dispatch(Loginstore({ accessToken: res.accessToken, refreshToken:res.refreshToken,message:res.message,success:res.success ,isLogin: true }))
-              setLoading(false)
-            }
-            if (response.data.err === 'password is not correct') {
-              toast.error("le mot de passe n'est pas correct !!")
-              setLoading(false)
-            }
-            if (response.data.success === false) {
-              toast.error("active votre compte Svp !!")
-              setLoading(false)
-            }
-            if (response.data.err === "email is not correct") {
-              toast.error("Email ne par exist !!")
-              setLoading(false)
-            }
+        dispatch(Loginuser(data)).then(response => {
+          if (response.payload.message === "success") {
+            globalState.loding=false
+          }
+          if (response.payload.message === 'password is not correct') {
+            toast.error("le mot de passe n'est pas correct !!")
+            globalState.loding=false
+          }
+          if (response.payload.success === false) {
+            toast.error("active votre compte Svp !!")
+            globalState.loding=false
+          }
+          if (response.payload.message === "email is not correct") {
+            toast.error("Email ne par exist !!")
+            globalState.loding=false
+          }
 
+        })
 
-          })
+     
       }
       else {
         toast.error("validation de Email !!")
-        setLoading(false)
+        globalState.loding=false
       }
 
     }
     else {
       toast.error("remplir Champ vide SVP !!")
-      setLoading(false)
+      globalState.loding=false
     }
-
+  
   }
   return (
 
     <>
-      {loading ? <Spinier /> :
+      { snap.loding ? <Spinier /> :
 
     <div className='login'>
 

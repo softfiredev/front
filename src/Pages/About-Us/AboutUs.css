@@ -1,5 +1,5 @@
 .box-about{
-    width: 1440px;
+    width: 1540px;
 height: 593px;
 background: #F7D070;
 padding-top: 5%;
@@ -14,17 +14,27 @@ margin-top: 48%;
     margin-top: 5%;
 
 }
+.img-tun{
+
+    width: 187.5px;
+height: 41px;
+}
 .img-aboutp2{
     width: 200px;
     height: 144px;
     margin-left: -52%;
     margin-top: -16%;
 }
+.img-aboutp3{
+    width: 256px;
+    margin-left: -20%;
+    margin-top: -10%;
+}
 .img-aboutp{
     width: 256px;
 
  margin-left: -24%;
- margin-top: -25%;
+ margin-top: -20%;
 }
 .img-about2{
     width: 544px;
@@ -158,13 +168,13 @@ color: #4B4B4B;
 .img-about4{
     width: 554px;
 height: 490px;
-
-margin-top: 32%;
+position: relative;
+margin-top: 55%;
 background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 border-radius: 20px;
 }
 
-
+.e-point{margin-top: 5%;}
 .txt12-about{
   
 margin-left:-77% ;
@@ -205,7 +215,7 @@ background: #FFFAEB;
 border-radius: 10px;
 }
 .box3-about{
-    width: 1440px;
+    width: 1540px;
 height: 358px;
 margin-top: 10%;
 background: #F7D070;

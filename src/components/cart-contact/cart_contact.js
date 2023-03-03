@@ -2,6 +2,7 @@ import React from 'react'
 import { Location, ArrowRight2, Call, Sms } from 'iconsax-react';
 import { Grid } from '@mui/material'
 import './cart_contact.css'
+import Cart from './cart_c/Cart';
 const Cart_contact = () => {
   const data = [
     {
@@ -25,26 +26,8 @@ const Cart_contact = () => {
         <div className='ex'>
 
       {data.map((obj) => (
-            <Grid item  >
-
-              <div className='box'>
-                <div className='contun_box'>
-                  <br />
-                  <Grid item > <p className='icon-cart'>{obj.icon}</p> </Grid>
-                  <Grid item  >
-                    <p className='adr_con'>{obj.name}</p>
-                  </Grid>
-                  <Grid item >
-                    <p className='txt3'>{obj.addr}</p>
-                  </Grid>
-                  <Grid item >
-                    <p className='txt4'>{obj.ero}</p><p className='arrow'><ArrowRight2 size="18" color="#7C5E10" variant="TwoTone" /></p>
-                  </Grid>
-                </div>
-              </div>
-            </Grid>
-
-
+        
+                <Cart icon={obj.icon} name={obj.name}  addr={obj.addr} ero={obj.ero}/>
           ))}
   
     

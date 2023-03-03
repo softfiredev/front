@@ -1,24 +1,25 @@
-import { createStore } from 'redux';
-import storage from 'redux-persist/lib/storage';
-import { combineReducers } from 'redux';
+
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+
+import SliceLogin from './Authentication/SliceLogin';
+import  SignupSlice  from './Authentication/SliceSignu';  
 import {  persistStore,persistReducer} from 'redux-persist';
-import Loginuser from './Loginuser';
-import Signupuser from './Signupuser';
-const loginPersistConfig = {
-    key: 'login',
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+    key: 'root',
     storage,
 };
-const signupPersistConfig={
-    key: 'signup',
-    storage,
-}
+
 
 
 const rootReducer = combineReducers({
-    user: persistReducer(loginPersistConfig, Loginuser),
-    cart: persistReducer(signupPersistConfig, Signupuser),
+  loginservice:SliceLogin,
+    Signup:SignupSlice
   });
+  const persistedReducer = persistReducer(persistConfig, rootReducer);
   
-  export const store = createStore(rootReducer);
-  const persistor = persistStore(store);
-
+  export const store = configureStore({
+    reducer: persistedReducer,
+  });
+  export const persistor = persistStore(store);

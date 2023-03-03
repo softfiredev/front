@@ -1,7 +1,8 @@
-import React from 'react'
+import * as React from 'react';
 import './AboutUs.css'
 import { OutlinedInput } from '@mui/material';
-
+import Tabs from '@mui/material/Tabs';
+import Box from '@mui/material/Box';
 import img_pro from '../../assets/apropo1.png'
 import img2_pro from '../../assets/about3.jpg'
 import img3_pro from '../../assets/about4.jpg'
@@ -12,6 +13,7 @@ import Cart from '../../components/cart-client/cart-client'
 import Imgt from '../../assets/tni.png'
 import Cart_contact from '../../components/cart-contact/cart_contact'
 const AboutUs = () => {
+
 
   return (
     <div className='about'>
@@ -93,9 +95,10 @@ const AboutUs = () => {
                   <Grid item> <p className='txt7-about'> Comment fonctionne “Maktaba” :</p>
                     <Grid item><p className='txt8-about'>
                       Notre plateforme aide les fournisseurs à optimiser leurs activités et permet aux acheteurs de rationaliser la gestion marketing et logistique. Grâce à la gestion des données en temps réel et à l'information alimentée par l'IA, la prise de décision est simplifiée sur un marché dynamique, améliorant ainsi la gestion des données pour toutes les parties prenantes.<br /> <br />Maktaba encourage l'engagement communautaire en fournissant aux individus des outils pour lancer et gérer leurs propres initiatives culturelles, sociales ou économiques grâce aux bibliothèques numériques. Chaque bibliothèque devient un projet, permettant à chacun de gérer ses propres initiatives.</p> </Grid>
-
-                    <Grid item>   <img src={img2_pro} className="img-about4" /> </Grid>
-                    <img className="img-aboutp" src={P} />
+                 
+                    <Grid item>         <img src={img2_pro} className="img-about4" /> </Grid>
+                         <img className="img-aboutp" src={P} />
+   
                   </Grid>
                 </Grid>
               </Grid>
@@ -106,13 +109,33 @@ const AboutUs = () => {
 
         <Grid item> <p className='txt12-about'>Notre Partenariats et collaborations</p></Grid>
         <Grid item>
-
-          <Grid container direction="row" spacing={10} >
-            <Grid item>  <img src={Imgt} className='img-10' />     </Grid>
-            <Grid item>  <img src={Imgt} className='img-10' />     </Grid>
-            <Grid item>  <img src={Imgt} className='img-10' />     </Grid>
-            <Grid item>  <img src={Imgt} className='img-10' />     </Grid>
-          </Grid>
+<div className='e-point'>
+          <Grid container direction="row" spacing={0} >
+          <Box sx={{ maxWidth: { xs:20, sm: 1020 }}}>
+      <Tabs    variant="scrollable"   >
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+        <img src={Imgt} className="img-tun"/>
+      </Tabs>
+    </Box>
+    </Grid>
+    </div>
+   
+ 
 
         </Grid>
 

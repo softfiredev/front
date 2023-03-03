@@ -6,7 +6,6 @@ import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
 
-
 const Login = lazy(() => import('./Pages/login/Login')); 
 const Newpassword = lazy(() => import('./Pages/new-password/new-password')); 
 const Contact = lazy(() => import('./Pages/Contact/Contact')); 

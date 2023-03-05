@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './AboutUs.css'
 import { OutlinedInput } from '@mui/material';
-import Tabs from '@mui/material/Tabs';
+import Slider from "react-slick";
 import Box from '@mui/material/Box';
 import img_pro from '../../assets/apropo1.png'
 import img2_pro from '../../assets/about3.jpg'
@@ -13,7 +13,19 @@ import Cart from '../../components/cart-client/cart-client'
 import Imgt from '../../assets/tni.png'
 import Cart_contact from '../../components/cart-contact/cart_contact'
 const AboutUs = () => {
+  const  settings = {
+    dots: true,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    slickNext: true,
+    slickPrevious: true,
+    swipe: true
 
+  }
 
   return (
     <div className='about'>
@@ -111,27 +123,17 @@ const AboutUs = () => {
         <Grid item>
 <div className='e-point'>
           <Grid container direction="row" spacing={0} >
-          <Box sx={{ maxWidth: { xs:20, sm: 1020 }}}>
-      <Tabs    variant="scrollable"   >
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-        <img src={Imgt} className="img-tun"/>
-      </Tabs>
+          <Grid container direction="row" spacing={0} >
+          <Box sx={{ maxWidth: { xs:5000, sm: 500 }}}>
+          <Slider {...settings}>
+ 
+        <img src={Imgt} alt='s'className='img-tun' />
+            
+        <img src={Imgt} alt='s'className='img-tun'  />
+                <img src={Imgt}  alt='s'  className='img-tun'  />
+</Slider>
     </Box>
+    </Grid>
     </Grid>
     </div>
    

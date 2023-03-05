@@ -2,7 +2,7 @@ import React from 'react'
 import './navbar.css'
 import Imge from "../../assets/logo.png"
 import { Link } from 'react-router-dom';
-import { ShoppingCart } from 'iconsax-react';
+import { ShoppingCart,ArrowDown2 } from 'iconsax-react';
 import Menuicon from '../menu-icon/minu';
 
 function NavBar() {
@@ -22,8 +22,8 @@ function NavBar() {
           <ul className="main-nav">
            <Link to="/home"> <li>Accueil</li></Link>
            <Link to="/Shop"> <li>Shop </li></Link>
-           
-            <span className="material-symbols-outlined">expand_more</span>
+           <ArrowDown2 size="20" color="#FFFFFF" variant="TwoTone" style={{marginTop:'5%',marginLeft:'-3.5%'}}/>
+
             <Link to="AboutUs"><li>À propos</li></Link>
            <Link to="BecomePartner"> <li>Devenir partenaire</li></Link>
           <Link to="Contact">  <li>Contact</li></Link>

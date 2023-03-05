@@ -15,9 +15,12 @@ margin-top: 48%;
 
 }
 .img-tun{
+    width: 264px;
+    height: 88px;
 
-    width: 187.5px;
-height: 41px;
+    
+    background: #F7F7F7;
+    border-radius: 10px;
 }
 .img-aboutp2{
     width: 200px;

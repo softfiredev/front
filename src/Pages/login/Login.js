@@ -50,12 +50,13 @@ const [globalState,snap]=useAtoms()
             toast.error("le mot de passe n'est pas correct !!")
             globalState.loding=false
           }
-          if (response.payload.success === false) {
+          if (response.payload.message === "verifie your email") {
             toast.error("active votre compte Svp !!")
+     
             globalState.loding=false
           }
           if (response.payload.message === "email is not correct") {
-            toast.error("Email ne par exist !!")
+            toast.error("Email ne pas exist !!")
             globalState.loding=false
           }
 

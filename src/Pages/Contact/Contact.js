@@ -1,15 +1,37 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import { Grid } from '@mui/material'
 import './Contact.css'
 import { OutlinedInput } from '@mui/material';
 import Cartcontact from '../../components/cart-contact/cart_contact';
 import { Link } from 'react-router-dom';
 import Con2 from "../../assets/con2.png"
-const Contact = () => {
+import axios from "axios"
+import { Path, Base_url } from '../../config/Config'
 
+const Contact = () => {
+  const [user, setUser] = useState({ email: "", message: "" , name: "" , sujet: "" });
+  const handleInputChange = (field) => {
+    return (e) => {
+      setUser((prev) => ({
+        ...prev,
+        [field]: e.target.value
+      }));
+    };
+  };
+const Submit=async ()=>{
+  let data = {
+    email: user.email,
+    message: user.message,
+    name: user.name,
+    sujet: user.sujet
+  }
+   await axios.post(Base_url+ Path.ContactApi,data).then((res)=>{
+    console.log(user.email)
+console.log(res.data)
+  })
+}
   return (
 
-   
      <div>
       <div className='contact'>
         
@@ -46,11 +68,11 @@ const Contact = () => {
               <Grid container direction="column" spacing={2.5}>
 
                 <Grid item > <p className='con-nous'>Contactez-nous</p> </Grid>
-                <Grid item ><OutlinedInput className='inpu-con' placeholder="Votre nom" /> </Grid>
-                <Grid item ><OutlinedInput className='inpu-con' placeholder="Email" /> </Grid>
-                <Grid item ><OutlinedInput className='inpu-con' placeholder="Sujet" /> </Grid><br/>
-                <Grid item ><OutlinedInput className='inpu-con2' placeholder="Message" multiline rows={5} maxRows={80} /> </Grid>
-                <Grid item ><button className='bnt-con2'>
+                <Grid item ><OutlinedInput className='inpu-con' placeholder="Votre nom"onChange={handleInputChange("name")} value={user.name} /> </Grid>
+                <Grid item ><OutlinedInput className='inpu-con' placeholder="Email"onChange={handleInputChange("email")} value={user.email} /> </Grid>
+                <Grid item ><OutlinedInput className='inpu-con' placeholder="Sujet"onChange={handleInputChange("sujet")} value={user.sujet} /> </Grid><br/>
+                <Grid item ><OutlinedInput className='inpu-con2' placeholder="Message" multiline rows={5} maxRows={80}onChange={handleInputChange("message")} value={user.message} /> </Grid>
+                <Grid item ><button className='bnt-con2' onClick={Submit}>
                   <div className='textbnt-con2'>Envoyer</div></button>
                 </Grid>
 

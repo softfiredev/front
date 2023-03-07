@@ -8,17 +8,13 @@ import { Link } from 'react-router-dom';
 import { OutlinedInput, IconButton } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Eye, EyeSlash } from 'iconsax-react';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import Spinier from '../../components/spinier/Spinier'
-import { Path, Base_url } from '../../config/Config'
 import { Signupuser } from "../../Store/Service/SignupService";
 import { useDispatch, useSelector } from 'react-redux';
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const total = useSelector(state => state.Signup.user);
-  console.log(total)
   const [showPassword, setShowPassword] = useState(true);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [loading, setLoading] = useState(false);
@@ -41,7 +37,7 @@ const Signup = () => {
           let data = {
             email: user.email,
             password: user.password,
-            name_prenom: user.fullname
+            fullname: user.fullname
           }
           dispatch(Signupuser(data))
             .then(response => {

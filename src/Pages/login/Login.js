@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./login.css"
 import { Link } from 'react-router-dom';
 import Imge from "../../assets/image1.png"
@@ -13,11 +13,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Loginuser } from '../../Store/Service/LoginService'
 import Spinier from '../../components/spinier/Spinier'
 import { useAtoms } from '../../Store/globalState/global';
-
+import axios from "axios"
+import { Path, Base_url } from '../../config/Config'
+import {LoginSocialGoogle} from 'reactjs-social-login';
 const Login = () => {
   const dispatch = useDispatch();
 const total = useSelector(state => state.loginservice.accessToken);
 const [globalState,snap]=useAtoms()
+const [provider, setProvider] = useState('');
+const [profile, setProfile] = useState();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [user, setUser] = useState({ email: "", password: "" });
@@ -76,6 +80,28 @@ const [globalState,snap]=useAtoms()
     }
   
   }
+  console.log(
+    )
+useEffect(()=>{
+  AuthGmail()
+},[profile])
+  const AuthGmail=async ()=>{
+    if(profile!=null)
+    {
+      let data = {
+        email: profile.email,
+        fullname: profile.name,
+      }
+    
+      await axios.post(Base_url+ Path.loginsocial,data).then(res=>{
+        console.log(res)   
+      
+      })
+    }
+
+
+
+  }
   return (
 
     <>
@@ -102,7 +128,24 @@ const [globalState,snap]=useAtoms()
               <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start"
               >
                 <Grid item xs={4.7}>
-                  <button className="btn default"><div className='icong'><i className="fab fa-google fa-1x" ></i></div><p className="textgml">Gmail</p></button>
+
+                <LoginSocialGoogle
+          client_id='337011466004-2tupsm9l5lq9k6pfujgvd83b1om684i6.apps.googleusercontent.com'
+          scope="openid profile email"
+          discoveryDocs="claims_supported"
+          access_type="offline"
+          onResolve={({ provider, data }) => {
+            setProvider(provider);
+            setProfile(data);
+     
+          }}
+          onReject={err => {
+            console.log(err);
+          }}
+        >
+                   <button className="btn default" onClick={AuthGmail}><div className='icong'><i className="fab fa-google fa-1x" ></i></div><p className="textgml">Gmail</p></button>
+
+        </LoginSocialGoogle>
                 </Grid>
                 <div className='esp'></div>
                 <Grid item>

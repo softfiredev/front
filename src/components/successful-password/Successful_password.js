@@ -3,7 +3,8 @@ import './Successful_password.css'
 import { Link } from 'react-router-dom';
 import { Grid } from '@mui/material'
 
-const Successful_password = () => {
+const Successful_password = (props) => {
+
   return (
     <div>
       <div className='group3-pass' >
@@ -25,6 +26,7 @@ const Successful_password = () => {
           </Grid>
         </Grid >
       </div>
+
     </div>
 
   )

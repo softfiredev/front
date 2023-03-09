@@ -3,29 +3,52 @@ import './add-new-password.css'
 import {  Grid, OutlinedInput,IconButton  } from '@mui/material'
 import InputAdornment from '@mui/material/InputAdornment';
 import { Eye,EyeSlash} from 'iconsax-react';
+import { Path, Base_url } from '../../config/Config'
+import { toast } from 'react-toastify';
 
+import axios from "axios"
+import { useParams } from 'react-router-dom';
 const Add_new_password = (props) => {
+
   const [password, setpassword] = useState("");
   const [Confirmerpassword, setConfirmerpassword] = useState("");
- 
+  const routeParams = useParams();
   const [showPassword, setShowPassword] = useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
-  };
+  }; 
   const Chang=()=>{
+
     if(password.length!==0 &&Confirmerpassword!==0)
     {
       if(password===Confirmerpassword)
       {     
-        props.onClick()
+        let data = {
+          token:routeParams.token,
+          password:Confirmerpassword
+        }
+        axios.post(Base_url+ Path.resetpasswordApi+routeParams.id,data).then(res=>{
+      if(res.data.message==="Invalid refresh token")
+      {
+        toast.error("Invalid refresh token");
+      }
+      if(res.data.message==="token not found")
+      {
+        toast.error("token not found");
+      }
+      if(res.data.message===" forgot password Done")
+      {
+      props.onClick()
+      }
+        })
       }
       else{
-        alert("verify Confirmer password")
+        toast.error("verify Confirmer password");
       }
-    
+    }
+    else{
+      toast.error("remplir Champ vide SVP !!")
     }
  
  } 
@@ -38,6 +61,7 @@ const handleconformationpassword = (e) => {
 
 }
   return (
+
     <div>
       <div className='group2' >
         <Grid container direction="column" spacing={2.5}  >
@@ -66,7 +90,7 @@ const handleconformationpassword = (e) => {
               <OutlinedInput className='inpt-pass2' placeholder="Confirmer mot de passe"type="password"  onChange={handleconformationpassword} value={Confirmerpassword} />
             </Grid>
             <Grid item>
-            <button className='bntn1'onClick={Chang} >
+            <button className='bntn2'onClick={Chang} >
                 <div className='bnt-pass2'>Réinitialiser</div></button>
             </Grid>
        </Grid >

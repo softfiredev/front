@@ -48,13 +48,10 @@ if(user.email.length!==0 &&user.message.length!==0 &&user.name.length!==0 &&user
         user.sujet=""
         globalState.loding=false
       }
-     
     }).catch(error => {
       console.error(error);
   
     });
-
-
   }
   else
   {
@@ -62,7 +59,6 @@ if(user.email.length!==0 &&user.message.length!==0 &&user.name.length!==0 &&user
     globalState.loding=false
   }
 
-  
 }
 else{
   toast.error("remplir Champ vide SVP !!")

@@ -5,7 +5,8 @@ import Toast from './components/toast/Toast'
 import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
-import Resetpassword from './Pages/new-password/Resetpassword';
+const Resetpassword = lazy(() => import('./Pages/new-password/Resetpassword')); 
+
 const Login = lazy(() => import('./Pages/login/Login')); 
 const Newpassword = lazy(() => import('./Pages/new-password/new-password')); 
 const Contact = lazy(() => import('./Pages/Contact/Contact')); 
@@ -32,7 +33,7 @@ function App() {
    <Route path='AboutUs' element={ <AboutUs/>} />
    <Route path='BecomePartner' element={ <BecomePartner/>} />
    <Route path='*' element={ <> page not !!!</>} />
-    <Route path='/reset-password/:id/:token' element={<><Resetpassword/></>}/>
+    <Route path='/reset-password/:id/:token' element={<Resetpassword/>}/>
    </Routes>
    </Suspense>
    <Toast/>

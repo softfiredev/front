@@ -20,8 +20,7 @@ const Verify_email = () => {
          axios.post(Base_url+ Path.forgotPasswordapi,data).then(res=>{
           if(res.data.success===true)
           {
-
-            toast.success(res.data.message)
+            toast.success("Vérifiez votre email maintenant svp pour réinitialiser votre mot de passe");
           }else{
             toast.error("error !!!")
           }
@@ -37,6 +36,8 @@ const Verify_email = () => {
 
       }
       
+    }else{
+      toast.error("remplir Champ vide SVP !!")
     }
     
   } 

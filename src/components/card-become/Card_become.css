@@ -1,17 +1,19 @@
 .colo{
-   
-  width: 347.79px;
-  height: 497px;
-  mix-blend-mode: normal;
-    padding-top: 5%;
+  width: 332px;
+  height: 514px;
+
+  
+  background: #F7F7F7;
+  border: 1px solid #B1B1B1;
+  border-radius: 16px;
 }
 .colod{
-  width: 377.79px;
+  width: 332px;
   height: 514px;
-    mix-blend-mode: normal;
-    background: #222222;
-padding-top: 5%;
-margin-top: -0.5%;
+
+  background: #F7D070;
+  border: 1px solid #222222;
+  border-radius: 16px;
 }
 .an{
     width: 27.3px;
@@ -52,6 +54,16 @@ padding-left: 1%;
     Width:1139px;
 Height:495px;
    }
+   .bntcartb0{
+    width: 294px;
+    height: 48px;
+   
+    background: #222222;
+    border: 1px solid #222222;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 7%;
+   }
    .bntcartb1{
     width: 294px;
     height: 48px;
@@ -82,7 +94,7 @@ line-height: 29px;
 text-align: center;
 text-transform: uppercase;
 
-color: #FFFFFF;
+color: #222222;
   }
 
   p.dt1{
@@ -92,7 +104,7 @@ color: #FFFFFF;
     font-size: 36px;
     line-height: 44px;
     text-align: center;
-    color: #FFFFFF;
+    color: #222222;
 }
   .row4-car{
     display: flex;
@@ -138,7 +150,7 @@ opacity: 0.5;
     width: 259.16px;
     height: 17px;
 
-    color: #FFFFFF;
+    color: #222222;
  
       }
       .k  {
@@ -166,15 +178,26 @@ color: #222222;
 width: 259.16px;
 height: 17px;
   }
+  .textbntpack0{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #FFFFFF;
+  
+  }
   .textbntpack{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 22px;
-text-align: center;
-
-color: #222222;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #222222;
     }
     
 .cat{
@@ -203,9 +226,7 @@ p.dt{
     font-size: 36px;
     line-height: 44px;
     /* identical to box height */
-
     text-align: center;
-    
     color: #222222;
 
 }

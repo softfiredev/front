@@ -1,17 +1,18 @@
 .box-about{
-    width: 1540px;
+    width: 1600px;
 height: 593px;
-background: #F7D070;
+background: url("../../assets/abut.png");
 padding-top: 5%;
 }
 .box-about2{
-margin-top: 48%;
+margin-top: 15%;
 }
 .img-about1{
     width: 1170px;
     height: 520px;
     border-radius: 20px;
     margin-top: 5%;
+    margin-left: -2.5%;
 
 }
 .img-tun{
@@ -65,17 +66,20 @@ border-radius: 20px;
     
     color: #222222;
 }
-@media (max-width: 1280px) {
 
-    .about{
-     margin-left:-5.5%;
-       
-    }  
+@media (max-width: 1280px) {
+   
+.about{
+    padding-bottom: 10%;
+   margin-left: -10%;
+}
+
+   
 
 }
 .about{
     padding-bottom: 10%;
-   
+
 }
 
 .txt1-about{
@@ -218,7 +222,7 @@ background: #FFFAEB;
 border-radius: 10px;
 }
 .box3-about{
-    width: 1540px;
+    width: 1600px;
 height: 358px;
 margin-top: 10%;
 background: #F7D070;

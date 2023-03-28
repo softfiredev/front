@@ -1,8 +1,8 @@
-import React,{ useState } from 'react'
+import React,{lazy, useState } from 'react'
 import { Grid } from '@mui/material'
 import './Contact.css'
 import { OutlinedInput } from '@mui/material';
-import Cartcontact from '../../components/cart-contact/cart_contact';
+
 import { Link } from 'react-router-dom';
 import Con2 from "../../assets/con2.png"
 import axios from "axios"
@@ -10,6 +10,7 @@ import { Path, Base_url } from '../../config/Config'
 import { toast } from 'react-toastify';
 import { useAtoms } from '../../Store/globalState/global';
 import Spinier from '../../components/spinier/Spinier'
+const Cartcontact = lazy(() => import('../../components/cart-contact/cart_contact')); 
 
 
 const Contact = () => {

@@ -9,18 +9,16 @@ import { OutlinedInput, IconButton } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Eye, EyeSlash } from 'iconsax-react';
 import { toast } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Loginuser } from '../../Store/Service/LoginService'
 import Spinier from '../../components/spinier/Spinier'
 import { useAtoms } from '../../Store/globalState/global';
-import axios from "axios"
-import { Path, Base_url } from '../../config/Config'
-import {LoginSocialGoogle} from 'reactjs-social-login';
+import {LoginSocialGoogle,  LoginSocialFacebook} from 'reactjs-social-login';
+import { GoogleService } from '../../Store/Service/GoogleService'
 const Login = () => {
   const dispatch = useDispatch();
-const total = useSelector(state => state.loginservice.accessToken);
 const [globalState,snap]=useAtoms()
-const [provider, setProvider] = useState('');
+const [Provider,setProvider] = useState('');
 const [profile, setProfile] = useState();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -55,12 +53,13 @@ const [profile, setProfile] = useState();
             globalState.loding=false
           }
           if (response.payload.message === "verifie your email") {
-            toast.error("active votre compte Svp !!")
+            toast.error("active votre compte Svp !!",)
      
             globalState.loding=false
           }
           if (response.payload.message === "email is not correct") {
-            toast.error("Email ne pas exist !!")
+                       toast.error("active votre compte Svp !!",)
+
             globalState.loding=false
           }
 
@@ -93,8 +92,8 @@ useEffect(()=>{
         fullname: profile.name,
       }
     
-      await axios.post(Base_url+ Path.loginsocial,data).then(res=>{
-        console.log(res)   
+      dispatch(GoogleService(data)).then(response => {
+        console.log(response)   
       
       })
     }
@@ -148,8 +147,13 @@ useEffect(()=>{
         </LoginSocialGoogle>
                 </Grid>
                 <div className='esp'></div>
-                <Grid item>
+                <Grid item>      <LoginSocialFacebook
+          appId={'1604717723305699'}
+          fieldsProfile={
+            'id,first_name,last_name,middle_name,name,name_format,picture,short_name,email,gender'
+          }>
                   <button className="btn default"><div className='iconf'><Facebook style={{ width: "20px", height: "20px" }} /></div> <div className='textfbk'>Facebook</div></button>
+                  </LoginSocialFacebook>
                 </Grid>
 
               </Grid>
@@ -159,6 +163,7 @@ useEffect(()=>{
             </Grid>
 
             <Grid item>
+      
               <OutlinedInput className='input-login' placeholder="Email" onChange={handleInputChange("email")} value={user.email} />
             </Grid>
             <Grid item>

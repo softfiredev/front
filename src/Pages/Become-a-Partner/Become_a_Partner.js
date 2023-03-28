@@ -17,7 +17,7 @@ const Become_a_Partner = () => {
         <div className='Become2'>
         <div className='Become2-cont'>
 
-          <Grid container direction="column" justifyContent="center" alignItems="center" spacing={6} >
+          <Grid container direction="column" justifyContent="center" alignItems="center" spacing={5} >
             
             <Grid item>   <p className='txt1-become'>Devenir partenaire</p> </Grid>
             <Grid item>   <p className='txt2-become'>Nous sommes ravis que vous soyez intéressé par un partenariat avec notre plateforme.</p> </Grid>
@@ -42,7 +42,7 @@ const Become_a_Partner = () => {
       <div className='brr'></div>
       <Grid item>
         <div className='trans'>
-        <Grid container direction="row" alignItems="center" spacing={1}>
+        <Grid container direction="row" alignItems="center" spacing={5}>
 
 
           <Grid item>
@@ -68,13 +68,23 @@ const Become_a_Partner = () => {
         </div>
       </Grid>
       <div className='brr'></div>
+      <div className='brr'></div>
       <Grid item>
-        <Grid container direction="column" justifyContent="center" alignItems="center">
-          <div className='box-b'>
+      <p className='txtp'>Envoyez-nous une demande si vous êtes intéressé. Vous serez bientôt contacté par notre équipe pour confirmer.</p>
+      </Grid>
+      <Grid item>
+        <div className='grbs' >
+         
             <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={6}  >
+             <div className='row23'>
+
+             <Grid item>
+              
+             <Grid container direction="column" justifyContent="center" alignItems="center">
+          <div className='box-b'>
+            <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={5}  >
 
 
-              <Grid item><p className='txt7-become'> Envoyez-nous une demande si vous êtes intéressé. Vous serez bientôt contacté par notre équipe pour confirmer.</p> </Grid>
               <Grid item>
                 <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}  >
                   <Grid item><div className='txt8-become'>Nom et prénom*</div>  </Grid>
@@ -129,30 +139,30 @@ const Become_a_Partner = () => {
                       <p className='txt9-become'>Association</p>
                     </Grid>
                   </Grid>
-
+                  <br/> <br/> <br/> <br/>
+                  <Grid item>  <div className='txt8-become'>Votre choix de pack*</div></Grid> 
                 </Grid>
-
-
-              </Grid>
-              <Grid item>
-
-                <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={8}  >
-                  <Grid item>  <p className='txt8-become'>Votre choix de pack*</p></Grid>
-                  <Grid item>  <Cardbecome ak />  </Grid>
                 </Grid>
-              </Grid>
+                </Grid>
+                </div>
+             </Grid>
+             </Grid>
 
-              <Grid item>
-                <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}  >
-                  <Grid item>    <p className='txt8-become'>Nom de votre travail ?*</p></Grid>
+
+
+             <Grid item>
+             <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}  >
+      
+
+
+          <Grid item>    <p className='txt8-become'>Nom de votre travail ?*</p></Grid>
                   <Grid item>  <OutlinedInput className='inpt-becom' placeholder="Nom de votre travail" /> </Grid>
-                </Grid>
-              </Grid>
+                
 
 
 
               <Grid item>
-                <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}  >
+                <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={4}><br/>
                   <Grid item>    <p className='txt8-become'>Soumettre un fichier</p></Grid>
                   <Grid item>  <button className='downlo' onClick={onButtonClick}>
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVR4nO2WywqCQBSGv2wTtJNatImWLmodFPUE3agk2gkp5Pu/QAwcw6SmmUGnFv7wgzCe83kuotCq1R9qAKyBK5ABKXABlkDYBDCQ5Hcg/2B1tpJ7a4NuNMCqd3XB5xbQwqpyK02AvcwulWtde3VtD5usTOeFCXRcMzSXbf+qbQPgVAdU2xfJO/ktUQIMxYkhPAI6VWgPOBsmSCrLElrAz8J6VuoKdYUHSAtMZzUsgcpQ5Mw0T4RFtcqj0lwLFfMeWeQ5YbhM71zIJTZDVt03+IaU7Rt8VIGzH4CnKrALxB7BcflT2XeAu4BjYb0okBYcDRfOFJxKzmldPwXVB/CmvAX70kHspAegq6wprKfiuQAAAABJRU5ErkJggg==" alt='ico'/><p className='tele'> Télécharger un fichier</p>
@@ -161,29 +171,41 @@ const Become_a_Partner = () => {
               </Grid>
 
               <Grid item>
-                <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}  >
+                <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={4}  >
                   <Grid item>    <p className='txt8-become'>Avez vous un lien? (Site Internet, Page Facebook,...)</p></Grid>
                   <Grid item>  <OutlinedInput className='inpt-becom' placeholder="Lien" /> </Grid>
                 </Grid>
               </Grid>
 
               <Grid item>
-                <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}  >
+                <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={4}  >
                   <Grid item>    <p className='txt8-become'>Vous pouvez fournir plus de détails ci-dessous.</p></Grid>
                   <Grid item> <OutlinedInput className='inpu-conn2' placeholder="Message" multiline rows={5} maxRows={80} /></Grid>
                 </Grid>
               </Grid>
-              <Grid item>  <button className='bntcom'>
-                <div className='textbntpac'>Envoyer une demande</div></button>  </Grid>
+             
 
 
+
+
+        
+             </Grid>
+             </Grid>
+
+
+
+             </div>
+            
             </Grid>
 
-          </div>
-        </Grid>
+        </div>
       </Grid>
-
-
+   
+    
+                 
+                  <Grid item>  <Cardbecome />  </Grid><br/><br/>
+                  <Grid item>    <button className='bntn20-bec' >
+             <div className='textbnt2Connexionn'>Envoyer une demande</div></button> </Grid>
       <Grid item>
         <div className='butt'>
           <div className='row32'>

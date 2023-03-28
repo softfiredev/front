@@ -44,7 +44,6 @@ const AboutUs = () => {
 
 
               </p></Grid>
-              <Grid item>  <img className='img-about1' src={img_pro} /> </Grid>
 
             </Grid>
           </div>

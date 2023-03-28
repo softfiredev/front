@@ -19,8 +19,8 @@ const Card_become = () => {
     ]
   return (
    <div>
-    <table>
-    <Grid container spacing={3}>
+    
+    <Grid container spacing={8}>
 
     {card.map((obj) => (
           <>
@@ -31,25 +31,25 @@ const Card_become = () => {
             <div  className='colod'>
             <Grid container  direction="column" spacing={3.7}>
             <Grid item> <div className='cat1'> {obj.name} </div> </Grid>
-            <Grid item> <div> <p  className='dt1'  style={{Color:"#FFFFFF"}}>{obj.prix}<span className='an'> /an</span></p></div>  </Grid>
-            <Grid item> <button className='bntcartb1'>
-          <div className='textbntpack'>Choisir le pack</div></button><br/> </Grid>
+            <Grid item> <div> <p  className='dt1'  style={{Color:"#222222"}}>{obj.prix}<span className='an'> /an</span></p></div>  </Grid>
+            <Grid item> <button className='bntcartb0'>
+          <div className='textbntpack0'>Choisir le pack</div></button><br/> </Grid>
           <Grid item>
           <Grid  container  direction="column"    alignItems="center"  spacing={0.7}>
 
 <Grid item>
-  <div className='row4-car'><i className="fa fa-check-circle k"></i><p className='txt1-catb'>Caisse en ligne</p></div>  </Grid>
+  <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'>Caisse en ligne</p></div>  </Grid>
   <Grid item>
     
-     <div className='row4-car'><i className="fa fa-check-circle k"></i><p className='txt1-catb'>Livraison gratuit</p></div>  </Grid>
+     <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'>Livraison gratuit</p></div>  </Grid>
      <Grid item>
-    <div className='row4-car'><i className="fa fa-check-circle k"></i><p className='txt1-catb'>Boutique personalisée</p></div>  </Grid>
+    <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'>Boutique personalisée</p></div>  </Grid>
     <Grid item>
-   <div className='row4-car'><i className="fa fa-check-circle k"></i><p className='txt1-catb'> Assistance personnalisé</p></div>  </Grid>
+   <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'> Assistance personnalisé</p></div>  </Grid>
    <Grid item>
-  <div className='row4-car'><i className="fa fa-check-circle k"></i><p className='txt1-catb'>Participation aux foires</p></div>  </Grid>
+  <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'>Participation aux foires</p></div>  </Grid>
   <Grid item>
- <div className='row4-car'><i className="fa fa-check-circle k "></i><p className='txt1-catb'>Achat groupé</p></div>  </Grid>
+ <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'>Achat groupé</p></div>  </Grid>
  <Grid item>
    <div className='row4-car'><i className="fa fa-check-circle k1"></i><p className='disc'>Conventions personnalisées</p></div>  </Grid>
           </Grid>
@@ -97,7 +97,7 @@ const Card_become = () => {
    
    
     </Grid>
-  </table>
+
  
   </div>
   

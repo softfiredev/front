@@ -1,0 +1,131 @@
+
+
+
+.txt1{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+text-align: center;
+text-transform: capitalize;
+
+color: #252525;
+
+}
+.shop{
+    padding: 10%;
+}
+.txt2{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: right;
+    
+    color: #252525;
+    margin-top: 30%;
+}
+.selec{
+background: #F2F2F2;
+border: 0.75px solid #999999;
+Width:145.5px;
+Height:39px;
+}
+.gr2{
+
+    flex-direction: row;
+display: flex;
+gap: 1em;
+
+}
+.gr1{
+    flex-direction: row;
+    display: flex;
+    gap: 53em;
+    width: 300%;
+}
+.gr{
+    flex-direction: column;
+    display: flex;
+    gap: 5em;
+}
+.input1{
+
+    width: 210px;
+    height: 39px;
+    
+    background: #FFFFFF;
+    border: 0.75px solid #E2E5EA;
+}
+.gr3{
+    flex-direction: row;
+    display: flex;
+    gap: 3em;
+}
+.col3{
+    flex-direction: column;
+    display: flex;
+    gap: 2em; 
+}
+.lin{
+    width: 210px;
+    height: 0px;
+    margin-left: 0%;
+    border: 0.75px solid #E2E5EA;
+    transform: rotate(180deg);
+}
+.txt4{
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+
+
+color: #4B4B4B;
+}
+.bnt1{
+    width: 91px;
+height: 39px;
+left: 165px;
+top: 435px;
+
+background: #FFFFFF;
+border: 0.75px solid #E2E5EA;
+}
+.txt5{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height, or 150% */
+
+
+/* black */
+
+color: #252525;
+}
+.gr5{
+    flex-direction: column;
+    display: flex;
+    gap: 1em; 
+
+}
+.grbnt{
+    flex-direction: row;
+    display: flex;
+    gap: 1em;
+}
+.grp3{
+    flex-direction: row;
+    display: flex;
+    gap: 10px 20px;
+}

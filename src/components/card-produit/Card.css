@@ -1,0 +1,73 @@
+.card{
+width: 200px;
+height: 304px;
+background: #FFFFFF;
+border: 0.75px solid #E2E5EA;
+}
+.img{
+    width: 180px;
+height: 180px;
+left: 425px;
+top: 329px;
+
+background: #D0D2D4;
+}
+.cont{
+    padding: 5%;
+    flex-direction: column;
+    display: flex;
+    gap: 1em; 
+}
+.txt-card1{
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 21px;
+/* identical to box height, or 175% */
+
+
+color: #252525;
+}
+.txt-card2{
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+margin-top: -1%;
+
+color: #4B4B4B;
+
+}
+.stars{
+    margin-top: -5%;
+    margin-left: -2%;
+}
+.grb-card{
+    
+    flex-direction: row;
+display: flex;
+gap: 1em;
+}
+.bnt-card{
+    width: 98px;
+height: 20px;
+cursor: pointer;
+margin-left: 5%;
+margin-top: -2%;
+background: #252525;
+}
+.ajout-bnt{
+margin-top: -2%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+line-height: 12px;
+
+color: #F5F5F7;
+}

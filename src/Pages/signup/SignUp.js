@@ -38,12 +38,14 @@ const Signup = () => {
             email: user.email,
             password: user.password,
             fullname: user.fullname
-          }
+          }     
+
           dispatch(Signupuser(data))
-            .then(response => {
+            .then(response => {          
               if (response.payload.success) {
                 toast.success("Vérifiez votre email maintenant svp pour l'activation de votre  compte");
                 setLoading(false)
+           
 
               } else { toast.error("email exist deja!!"); setLoading(false) }
 

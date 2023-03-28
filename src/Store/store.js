@@ -5,6 +5,7 @@ import SliceLogin from './Authentication/SliceLogin';
 import  SignupSlice  from './Authentication/SliceSignu';  
 import {  persistStore,persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import SlicebntGoogle from './Authentication/SlicebntGoogle';
 
 const persistConfig = {
     key: 'root',
@@ -15,7 +16,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   loginservice:SliceLogin,
-    Signup:SignupSlice
+    Signup:SignupSlice,
+    Googleservice:SlicebntGoogle
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);
   

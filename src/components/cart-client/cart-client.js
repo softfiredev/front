@@ -5,8 +5,7 @@ import avt1 from '../../assets/avt1.png'
 import avt2 from '../../assets/avt2.png'
 import avt3 from '../../assets/avt3.png'
 import Cart from './cart/cart'
-import Tabs from '@mui/material/Tabs';
-import Box from '@mui/material/Box';
+
 const Cart_client = () => {
 
   const tab = [

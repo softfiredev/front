@@ -46,7 +46,7 @@ gap: 1em;
 .gr1{
     flex-direction: row;
     display: flex;
-    gap: 53em;
+    gap: 50em;
     width: 300%;
 }
 .gr{
@@ -124,8 +124,5 @@ color: #252525;
     display: flex;
     gap: 1em;
 }
-.grp3{
-    flex-direction: row;
-    display: flex;
-    gap: 10px 20px;
-}
+
+

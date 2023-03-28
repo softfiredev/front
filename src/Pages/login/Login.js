@@ -148,7 +148,7 @@ useEffect(()=>{
                 </Grid>
                 <div className='esp'></div>
                 <Grid item>      <LoginSocialFacebook
-          appId={'1604717723305699'}
+          appId={'242586168207087'}
           fieldsProfile={
             'id,first_name,last_name,middle_name,name,name_format,picture,short_name,email,gender'
           }>

@@ -4,11 +4,25 @@ import Pagination from '@mui/material/Pagination';
 import { Grid } from '@mui/material'
 import { OutlinedInput } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
+
 const Card = lazy(() => import('../../components/card-produit/Card')); 
 
 const Shop = () => {
+    
+function valuetext(value) {
+    return `${value}°C`;
+  }
+  
     const [nom, setpnom] = useState("ssssss");
     const [prix, setprix] = useState("8.55dt");
+    const [value, setValue] = React.useState([20, 37]);
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue );
+    };
+  
     return (
         <div className='shop'>
             <div className='gr'>
@@ -44,21 +58,35 @@ const Shop = () => {
                                 <Grid item >
 
                                     <div className="grbnt">
-                                        <button className='bnt1'> 0 Dt</button>
-                                        <button className='bnt1'> 420 Dt</button>
+                                        <button className='bnt1'> {value[0]}Dt</button>
+                                        <button className='bnt1'> {value[1]}Dt</button>
 
                                     </div>
 
 
                                 </Grid >
 
-                                <Grid item >  <div class="range_container">
-                                    <div class="sliders_control">
-                                        <input id="fromSlider" type="range" value="10" min="0" max="100" />
-                                    </div>
+                                <Grid item > 
+                                
 
-                                </div>
+
+
+                                <Slider
+  getAriaLabel={() => 'Temperature range'}
+  value={value}
+  onChange={handleChange}
+  valueLabelDisplay="auto"
+  getAriaValueText={valuetext}
+  style={{color:"#F7D070"}}
+/>
+                               
                                 </Grid >
+
+
+
+
+
+
                                 <Grid item ><hr className='lin' ></hr>     </Grid >
 
                                 <Grid item ><p className='txt5'>Catégories de produits</p>  </Grid >
@@ -100,14 +128,20 @@ const Shop = () => {
 
                         </Grid >
                         <Grid item >
-                            <div className='grp3'>
+                            <Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 1 }}>
                                 <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
                                 <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
                                 <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
                                 <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                              
+                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
+                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
+                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
+                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >             
+                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
+                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
+                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
                                  
-                            </div>
+                            </Grid>
 <br/><br/>
                             <Grid item >  <Pagination count={16} shape="rounded"   />  </Grid >
                         </Grid >

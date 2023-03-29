@@ -1,8 +1,9 @@
 .card{
-width: 200px;
-height: 304px;
-background: #FFFFFF;
-border: 0.75px solid #E2E5EA;
+    width: 200px;
+    height: 304px;
+    background: #FFFFFF;
+    border: 0.75px solid #C4CBCD;
+    border-radius: 16px;
 }
 .img{
     width: 180px;
@@ -38,7 +39,7 @@ font-weight: 600;
 font-size: 14px;
 line-height: 17px;
 /* identical to box height */
-margin-top: -1%;
+margin-top: -3%;
 
 color: #4B4B4B;
 
@@ -55,11 +56,14 @@ gap: 1em;
 }
 .bnt-card{
     width: 98px;
-height: 20px;
+    height: 20px;
+
+    background: #222222;
+    border-radius: 8px;
 cursor: pointer;
-margin-left: 5%;
-margin-top: -2%;
-background: #252525;
+margin-left: 10%;
+margin-top: -4%;
+
 }
 .ajout-bnt{
 margin-top: -2%;

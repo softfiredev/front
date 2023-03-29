@@ -31,10 +31,12 @@ color: #252525;
     margin-top: 30%;
 }
 .selec{
-background: #F2F2F2;
-border: 0.75px solid #999999;
-Width:145.5px;
-Height:39px;
+    width: 145.5px;
+    height: 39px;
+ 
+    background: #F2F2F2;
+    border: 0.75px solid #999999;
+    border-radius: 8px;
 }
 .gr-shop2{
 
@@ -46,26 +48,37 @@ gap: 1em;
 .gr1{
     flex-direction: row;
     display: flex;
-    gap: 50em;
+    gap: 55.5em;
     width: 300%;
+}
+
+.grbnt{
+    flex-direction: row;
+    display: flex;
+    gap: 1em;
 }
 .gr{
     flex-direction: column;
     display: flex;
-    gap: 5em;
+    gap: 3em;
 }
-.input1{
+.input-shop{
 
     width: 210px;
     height: 39px;
+
     
     background: #FFFFFF;
-    border: 0.75px solid #E2E5EA;
+
+    border-radius: 8px;
+}
+.prod-shop{
+    width: 110%;
 }
 .gr3{
     flex-direction: row;
     display: flex;
-    gap: 3em;
+    gap: 6em;
 }
 .col3{
     flex-direction: column;
@@ -91,14 +104,22 @@ line-height: 21px;
 
 color: #4B4B4B;
 }
+
+.pagination-shop{
+   margin-left: 20%;
+}
 .bnt1{
     width: 91px;
-height: 39px;
-left: 165px;
-top: 435px;
+    height: 39px;
+    background: #FFFFFF;
+    border: 0.75px solid #C4CBCD;
+    border-radius: 8px;
+}
+.gr5{
+    flex-direction: column;
+    display: flex;
+    gap: 1em; 
 
-background: #FFFFFF;
-border: 0.75px solid #E2E5EA;
 }
 .txt5{
     font-family: 'Inter';

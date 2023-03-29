@@ -1,28 +1,27 @@
-import React, { useEffect, useState,lazy} from 'react'
+import React, { useEffect, useState, lazy } from 'react'
 import "./shop.css"
 import Pagination from '@mui/material/Pagination';
 import { Grid } from '@mui/material'
 import { OutlinedInput } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
-import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
-const Card = lazy(() => import('../../components/card-produit/Card')); 
+const Card = lazy(() => import('../../components/card-produit/Card'));
 
 const Shop = () => {
-    
-function valuetext(value) {
-    return `${value}°C`;
-  }
-  
+
+    function valuetext(value) {
+        return `${value}°C`;
+    }
+
     const [nom, setpnom] = useState("ssssss");
     const [prix, setprix] = useState("8.55dt");
     const [value, setValue] = React.useState([20, 37]);
 
     const handleChange = (event, newValue) => {
-      setValue(newValue );
+        setValue(newValue);
     };
-  
+
     return (
         <div className='shop'>
             <div className='gr'>
@@ -31,7 +30,7 @@ function valuetext(value) {
                         <Grid item > <div className='txt-shop1'>Shop</div></Grid >
                         <Grid item >
                             <div className='gr-shop2'>
-                                <Grid item >  <div className='txt-shop1'>Tri par:</div>    </Grid >
+                                <Grid item >  <div className='txt-shop2'>Tri par:</div>    </Grid >
                                 <Grid item >
                                     <select className='selec'>
                                         <option value="volvo">Popularité</option>
@@ -52,7 +51,7 @@ function valuetext(value) {
                         <Grid item >
 
                             <div className='col3' >
-                                <Grid item ><OutlinedInput className="input1" placeholder="Rechercher des produits" />      </Grid >
+                                <Grid item ><OutlinedInput className="input-shop" placeholder="Rechercher des produits" />      </Grid >
                                 <Grid item ><hr className='lin'></hr>     </Grid >
                                 <Grid item ><p className='txt4'> Filtrer par tarif</p>     </Grid >
                                 <Grid item >
@@ -66,20 +65,20 @@ function valuetext(value) {
 
                                 </Grid >
 
-                                <Grid item > 
-                                
+                                <Grid item >
 
 
 
-                                <Slider
-  getAriaLabel={() => 'Temperature range'}
-  value={value}
-  onChange={handleChange}
-  valueLabelDisplay="auto"
-  getAriaValueText={valuetext}
-  style={{color:"#E9B949"}}
-/>
-                               
+
+                                    <Slider
+                                        getAriaLabel={() => 'Temperature range'}
+                                        value={value}
+                                        onChange={handleChange}
+                                        valueLabelDisplay="auto"
+                                        getAriaValueText={valuetext}
+                                        style={{ color: "#E9B949" }}
+                                    />
+
                                 </Grid >
 
 
@@ -128,22 +127,24 @@ function valuetext(value) {
 
                         </Grid >
                         <Grid item >
-                            <Grid container rowSpacing={4} columnSpacing={{ xs: 5, sm: 1, md: 1 }}>
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >             
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                                <Grid item > <Card prix={prix} nom={nom}/>    </Grid >
-                                 
-                            </Grid>
-<br/><br/>
-                            <Grid item >  <Pagination count={16} shape="rounded"   />  </Grid >
+                            <div className='prod-shop'>
+                                <Grid container rowSpacing={6} columnSpacing={{ xs: 15, sm: 23, md: 2 }}>
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+
+                                </Grid>
+                            </div>
+                            <br /><br /><br />
+                            <Grid item >  <Pagination count={16} shape="rounded" className='pagination-shop' />  </Grid >
                         </Grid >
 
                     </div>

@@ -28,10 +28,10 @@ function valuetext(value) {
             <div className='gr'>
                 <Grid item >
                     <div className='gr1'>
-                        <Grid item > <div className='txt1'>Shop</div></Grid >
+                        <Grid item > <div className='txt-shop1'>Shop</div></Grid >
                         <Grid item >
-                            <div className='gr2'>
-                                <Grid item >  <div className='txt2'>Tri par:</div>    </Grid >
+                            <div className='gr-shop2'>
+                                <Grid item >  <div className='txt-shop1'>Tri par:</div>    </Grid >
                                 <Grid item >
                                     <select className='selec'>
                                         <option value="volvo">Popularité</option>
@@ -77,7 +77,7 @@ function valuetext(value) {
   onChange={handleChange}
   valueLabelDisplay="auto"
   getAriaValueText={valuetext}
-  style={{color:"#F7D070"}}
+  style={{color:"#E9B949"}}
 />
                                
                                 </Grid >

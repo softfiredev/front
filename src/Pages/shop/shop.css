@@ -1,7 +1,7 @@
 
 
 
-.txt1{
+.txt-shop1{
     font-family: 'Inter';
 font-style: normal;
 font-weight: 700;
@@ -18,7 +18,7 @@ color: #252525;
 .shop{
     padding: 10%;
 }
-.txt2{
+.txt-shop2{
 
     font-family: 'Inter';
     font-style: normal;
@@ -36,7 +36,7 @@ border: 0.75px solid #999999;
 Width:145.5px;
 Height:39px;
 }
-.gr2{
+.gr-shop2{
 
     flex-direction: row;
 display: flex;
@@ -112,17 +112,6 @@ line-height: 21px;
 /* black */
 
 color: #252525;
-}
-.gr5{
-    flex-direction: column;
-    display: flex;
-    gap: 1em; 
-
-}
-.grbnt{
-    flex-direction: row;
-    display: flex;
-    gap: 1em;
 }
 
 

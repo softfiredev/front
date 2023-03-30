@@ -9,7 +9,7 @@ import img3_pro from '../../assets/about4.jpg'
 import P from '../../assets/point.png'
 import img4_pro from '../../assets/about5.jpg'
 import { Grid } from '@mui/material'
-import Cart from '../../components/cart-client/cart-client'
+import Cart_cln from '../../components/cart-client/cart-client'
 import Imgt from '../../assets/tni.png'
 import Cart_contact from '../../components/cart-contact/cart_contact'
 const AboutUs = () => {
@@ -116,20 +116,20 @@ const AboutUs = () => {
             </Grid>
           </div>
         </Grid><br /><br />
-        <Cart />
+        <Cart_cln />
 
         <Grid item> <p className='txt12-about'>Notre Partenariats et collaborations</p></Grid>
         <Grid item>
-<div className='e-point'>
+<div className='e-point-about'>
           <Grid container direction="row" spacing={0} >
           <Grid container direction="row" spacing={0} >
           <Box sx={{ maxWidth: { xs:5000, sm: 500 }}}>
           <Slider {...settings}>
  
-        <img src={Imgt} alt='s'className='img-tun' />
+        <img src={Imgt} alt='se'className='img-tun-about' />
             
-        <img src={Imgt} alt='s'className='img-tun'  />
-                <img src={Imgt}  alt='s'  className='img-tun'  />
+        <img src={Imgt} alt='sef'className='img-tun-about'  />
+                <img src={Imgt}  alt='sf'  className='img-tun-about'  />
 </Slider>
     </Box>
     </Grid>

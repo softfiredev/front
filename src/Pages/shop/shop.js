@@ -128,7 +128,7 @@ const Shop = () => {
                         </Grid >
                         <Grid item >
                             <div className='prod-shop'>
-                                <Grid container rowSpacing={6} columnSpacing={{ xs: 15, sm: 23, md: 2 }}>
+                                <Grid container rowSpacing={6} columnSpacing={{ xs: 25, sm: 23, md: 1 }}>
                                     <Grid item > <Card prix={prix} nom={nom} />    </Grid >
                                     <Grid item > <Card prix={prix} nom={nom} />    </Grid >
                                     <Grid item > <Card prix={prix} nom={nom} />    </Grid >

@@ -1,0 +1,23 @@
+.detail{
+    padding: 10%;
+
+    
+    flex-direction: column;
+display: flex;
+gap: 3em;
+}
+.txt1-detail{
+ 
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 16px;
+/* identical to box height, or 103% */
+
+
+/* black maktaba */
+
+color: #222222;
+}

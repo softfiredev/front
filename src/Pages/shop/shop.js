@@ -76,7 +76,7 @@ const Shop = () => {
                                         onChange={handleChange}
                                         valueLabelDisplay="auto"
                                         getAriaValueText={valuetext}
-                                        style={{ color: "#E9B949" }}
+                                        style={{ color: "#222222" }}
                                     />
 
                                 </Grid >
@@ -93,27 +93,27 @@ const Shop = () => {
                                     <div className='gr5'>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} /><span ><p className="Souviens">Scolaire</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Scolaire</p></span>
                                         </Grid>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} /><span ><p className="Souviens">Para-scolaires</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Para-scolaires</p></span>
                                         </Grid>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} /><span ><p className="Souviens">Outils informatiques</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Outils informatiques</p></span>
                                         </Grid>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} /><span ><p className="Souviens">Divers</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Divers</p></span>
                                         </Grid>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} /><span ><p className="Souviens">Jeux educatifs</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Jeux educatifs</p></span>
                                         </Grid>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} /><span ><p className="Souviens">Pack promo</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Pack promo</p></span>
                                         </Grid>
                                     </div>
 

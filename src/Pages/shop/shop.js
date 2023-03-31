@@ -53,12 +53,12 @@ const Shop = () => {
                             <div className='col3' >
                                 <Grid item ><OutlinedInput className="input-shop" placeholder="Rechercher des produits" />      </Grid >
                                 <Grid item ><hr className='lin'></hr>     </Grid >
-                                <Grid item ><p className='txt4'> Filtrer par tarif</p>     </Grid >
+                                <Grid item ><p className='txt4-shop'> Filtrer par tarif</p>     </Grid >
                                 <Grid item >
 
                                     <div className="grbnt">
-                                        <button className='bnt1'> {value[0]}Dt</button>
-                                        <button className='bnt1'> {value[1]}Dt</button>
+                                        <button className='bnt1-shop'> {value[0]}Dt</button>
+                                        <button className='bnt1-shop'> {value[1]}Dt</button>
 
                                     </div>
 
@@ -128,7 +128,7 @@ const Shop = () => {
                         </Grid >
                         <Grid item >
                             <div className='prod-shop'>
-                                <Grid container rowSpacing={6} columnSpacing={{ xs: 25, sm: 23, md: 1 }}>
+                                <Grid container rowSpacing={6} columnSpacing={{ xs: 25, sm: 23, md: 4 }}>
                                     <Grid item > <Card prix={prix} nom={nom} />    </Grid >
                                     <Grid item > <Card prix={prix} nom={nom} />    </Grid >
                                     <Grid item > <Card prix={prix} nom={nom} />    </Grid >

@@ -6,8 +6,6 @@ import Cartcontact from '../../components/cart-contact/cart_contact';
 import React from 'react'
 
 const Become_a_Partner = () => {
-
-
   const onButtonClick = () => { }
   return (
  <div className='group-partner '>
@@ -22,7 +20,6 @@ const Become_a_Partner = () => {
             <Grid item>   <p className='txt1-become'>Devenir partenaire</p> </Grid>
             <Grid item>   <p className='txt2-become'>Nous sommes ravis que vous soyez intéressé par un partenariat avec notre plateforme.</p> </Grid>
             <Grid item>
-
 
               <Grid container direction="row" justifyContent="space-between"  >
                 <Grid item>
@@ -182,13 +179,7 @@ const Become_a_Partner = () => {
                   <Grid item>    <p className='txt8-become'>Vous pouvez fournir plus de détails ci-dessous.</p></Grid>
                   <Grid item> <OutlinedInput className='inpu-conn2' placeholder="Message" multiline rows={5} maxRows={80} /></Grid>
                 </Grid>
-              </Grid>
-             
-
-
-
-
-        
+              </Grid>  
              </Grid>
              </Grid>
 

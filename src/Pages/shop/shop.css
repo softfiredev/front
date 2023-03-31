@@ -16,7 +16,8 @@ color: #252525;
 
 }
 .shop{
-    padding: 10%;
+    padding: 6%;
+    margin-left: 6.5%;
 }
 .txt-shop2{
 
@@ -48,10 +49,22 @@ gap: 1em;
 .gr1{
     flex-direction: row;
     display: flex;
-    gap: 53.8em;
+    gap: 59.8em;
     width: 300%;
 }
-
+@media (max-width: 1500px){
+ 
+    .gr1{
+     
+        gap: 45.8em;
+     
+    }
+    .shop{
+        padding: 5%;
+        margin-left: 6.5%;
+    }
+    
+}
 .grbnt{
     flex-direction: row;
     display: flex;
@@ -72,13 +85,11 @@ gap: 1em;
 
     border-radius: 8px;
 }
-.prod-shop{
-    width: 120%;
-}
+
 .gr3{
     flex-direction: row;
     display: flex;
-    gap: 6em;
+    gap: 8em;
 }
 .col3{
     flex-direction: column;
@@ -92,7 +103,7 @@ gap: 1em;
     border: 0.75px solid #E2E5EA;
     transform: rotate(180deg);
 }
-.txt4{
+.txt4-shop{
     
 font-family: 'Inter';
 font-style: normal;
@@ -108,7 +119,7 @@ color: #4B4B4B;
 .pagination-shop{
    margin-left: 20%;
 }
-.bnt1{
+.bnt1-shop{
     width: 91px;
     height: 39px;
     background: #FFFFFF;

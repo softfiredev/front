@@ -1,4 +1,10 @@
 
+@media (max-width:1280px) {
+    .group-partner {
+        margin-left: -10%;
+    }
+    
+}
 .Become2{
     padding-top:7.5%;
     width: 1600px;
@@ -6,12 +12,10 @@ height: 658px;
     background-image:url("../../assets/bag.png");
    }
 
-.group-partner{
-    margin-left: -4%;
-}
+
 .Become2-cont{
-margin-top: 5%;
-   
+margin-top: 4%;
+   margin-left: -5%;
 }
 .trans2{
     margin-left: -5%;

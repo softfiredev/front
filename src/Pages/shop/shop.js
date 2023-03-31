@@ -4,16 +4,16 @@ import Pagination from '@mui/material/Pagination';
 import { Grid } from '@mui/material'
 import { OutlinedInput } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
-import Slider from '@mui/material/Slider';
-import InputLabel from '@mui/material/InputLabel';
+import PrettoSlider from '@mui/material/Slider';
 import MenuItem from '@mui/material/MenuItem';
 import ListSubheader from '@mui/material/ListSubheader';
-import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { purple, red } from '@mui/material/colors';
+
 const Card = lazy(() => import('../../components/card-produit/Card'));
 
 const Shop = () => {
-
+    const primary = red[500];
     function valuetext(value) {
         return `${value}°C`;
     }
@@ -83,13 +83,14 @@ const Shop = () => {
 
 
 
-                                    <Slider
-                                        getAriaLabel={() => 'Temperature range'}
+                                    <PrettoSlider
+                                       
                                         value={value}
                                         onChange={handleChange}
-                                        valueLabelDisplay="auto"
+                              
                                         getAriaValueText={valuetext}
                                         style={{ color: "#222222" }}
+                                        size="small"
                                     />
 
                                 </Grid >
@@ -157,7 +158,7 @@ const Shop = () => {
                                 </Grid>
                             </div>
                             <br /><br /><br />
-                            <Grid item >  <Pagination count={16} shape="rounded" className='pagination-shop' />  </Grid >
+                            <Grid item >  <Pagination count={16} shape="rounded" className='pagination-shop'  />  </Grid >
                         </Grid >
 
                     </div>

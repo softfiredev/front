@@ -102,32 +102,32 @@ const Shop = () => {
 
                                 <Grid item ><hr className='lin' ></hr>     </Grid >
 
-                                <Grid item ><p className='txt5'>Catégories de produits</p>  </Grid >
+                                <Grid item ><p className='txt5-shop'>Catégories de produits</p>  </Grid >
                                 <Grid item >
                                     <div className='gr5'>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Scolaire</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="S-shop">Scolaire</p></span>
                                         </Grid>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Para-scolaires</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="S-shop">Para-scolaires</p></span>
                                         </Grid>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Outils informatiques</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="S-shop">Outils informatiques</p></span>
                                         </Grid>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Divers</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="S-shop2">Divers</p></span>
                                         </Grid>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Jeux educatifs</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="S-shop">Jeux educatifs</p></span>
                                         </Grid>
 
                                         <Grid item container spacing={1}>
-                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="Souviens">Pack promo</p></span>
+                                            <Checkbox style={{ color: " #222222", marginTop: "-4.2%" }} /><span ><p className="S-shop3">Pack promo</p></span>
                                         </Grid>
                                     </div>
 

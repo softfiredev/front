@@ -19,6 +19,57 @@ color: #252525;
     padding: 6%;
     margin-left: 6.5%;
 }
+.S-shop{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+
+/* black maktaba */
+
+color: #222222;
+
+mix-blend-mode: normal;
+opacity: 0.8;
+margin-top: 4%;
+}
+.S-shop2{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+
+/* black maktaba */
+
+color: #222222;
+
+mix-blend-mode: normal;
+opacity: 0.8;
+margin-top: 10%;
+}
+.S-shop3{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 15px;
+/* identical to box height */
+
+
+/* black maktaba */
+
+color: #222222;
+
+mix-blend-mode: normal;
+opacity: 0.8;
+margin-top: 7%;
+}
 .txt-shop2{
 
     font-family: 'Inter';
@@ -49,14 +100,15 @@ gap: 1em;
 .gr1{
     flex-direction: row;
     display: flex;
-    gap: 59.8em;
+    gap: 60.8em;
+
     width: 300%;
 }
 @media (max-width: 1500px){
  
     .gr1{
      
-        gap: 45.8em;
+        gap:45.8em;
      
     }
     .shop{
@@ -111,7 +163,7 @@ color: #222222;
 .col3{
     flex-direction: column;
     display: flex;
-    gap: 2em; 
+    gap: 28px 
 }
 .lin{
     width: 210px;
@@ -149,18 +201,16 @@ color: #4B4B4B;
     gap: 1em; 
 
 }
-.txt5{
+.txt5-shop{
+
+
     font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 21px;
-/* identical to box height, or 150% */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
 
-
-/* black */
-
-color: #252525;
+    color: #222222;
 }
 
 

@@ -5,6 +5,8 @@
     border: 0.75px solid #C4CBCD;
     border-radius: 16px;
 }
+
+
 .img{
     width: 180px;
 height: 180px;
@@ -50,7 +52,7 @@ color: #4B4B4B;
     margin-left: -2%;
 }
 .grb-card{
-    
+    margin-top: -2%;
     flex-direction: row;
 display: flex;
 gap: 1em;
@@ -63,7 +65,7 @@ gap: 1em;
     border-radius: 8px;
 cursor: pointer;
 margin-left: 10%;
-margin-top: -4%;
+margin-top: -3.5%;
 
 }
 .ajout-bnt{

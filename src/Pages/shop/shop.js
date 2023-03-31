@@ -5,7 +5,11 @@ import { Grid } from '@mui/material'
 import { OutlinedInput } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import Slider from '@mui/material/Slider';
-
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import ListSubheader from '@mui/material/ListSubheader';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 const Card = lazy(() => import('../../components/card-produit/Card'));
 
 const Shop = () => {
@@ -32,12 +36,21 @@ const Shop = () => {
                             <div className='gr-shop2'>
                                 <Grid item >  <div className='txt-shop2'>Tri par:</div>    </Grid >
                                 <Grid item >
-                                    <select className='selec'>
-                                        <option value="volvo">Popularité</option>
-                                        <option value="s">s</option>
-                                        <option value="mercedes">Mercedes</option>
-                                        <option value="audi">Audi</option>
-                                    </select>    </Grid >
+        <Select defaultValue="Popularité" style={{width: "145.5px",height:" 39px",borderRadius: "8px"}} >
+       
+          <MenuItem value="Popularité">
+            <em  className='txt-select'>Popularité</em>
+          </MenuItem>
+          <ListSubheader> </ListSubheader>
+          <MenuItem   value={1}>Option 1</MenuItem>
+          <ListSubheader></ListSubheader>
+          <MenuItem value={2}>Option 2</MenuItem>
+     
+        </Select>
+                                    
+                                    
+                                    
+                                      </Grid >
                             </div>
 
 

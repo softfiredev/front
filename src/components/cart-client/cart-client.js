@@ -14,30 +14,33 @@ const Cart_client = () => {
     { name: "Zain Press", des: "Le système d'échange numérique de Maktba.tn est un véritable changement pour les entreprises cherchant à réduire les déchets et à augmenter la durabilité. Je le recommande vivement à tout professionnel à la recherche de fournitures scolaires et de bureau.", img: avt3 },
   ]
   return (
+ 
     <Grid item>
-      <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" spacing={7}   >
+         <div className='card-cli'>
+      <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" spacing={10}   >
         <Grid item>
           <p className='txt9-about'>Que disent les gens à notre propos?</p></Grid>
         <Grid item>
           <Grid
             container
             direction="row"
-            justifyContent="flex-start"
-            alignItems="flex-start"
+        
+            spacing={3}
           >
-   
+    
             {tab.map((obj) =>
               <>
-               <Cart name={obj.name} des={obj.des} img={obj.img}/>
+                <Cart name={obj.name} des={obj.des} img={obj.img}/>
 
                </>
             )}
-              
+          
           </Grid>
         </Grid>
       </Grid>
-
+      </div>
     </Grid>
+
   )
 }
 

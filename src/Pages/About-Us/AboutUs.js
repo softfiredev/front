@@ -1,9 +1,7 @@
 import * as React from 'react';
 import './AboutUs.css'
 import { OutlinedInput } from '@mui/material';
-import Slider from "react-slick";
-import Box from '@mui/material/Box';
-import img_pro from '../../assets/apropo1.png'
+import 'react-slideshow-image/dist/styles.css'
 import img2_pro from '../../assets/about3.jpg'
 import img3_pro from '../../assets/about4.jpg'
 import P from '../../assets/point.png'
@@ -12,20 +10,10 @@ import { Grid } from '@mui/material'
 import Cart_cln from '../../components/cart-client/cart-client'
 import Imgt from '../../assets/tni.png'
 import Cart_contact from '../../components/cart-contact/cart_contact'
-const AboutUs = () => {
-  const  settings = {
-    dots: true,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    slickNext: true,
-    slickPrevious: true,
-    swipe: true
+import Carousel from 'react-material-ui-carousel'
 
-  }
+const AboutUs = () => {
+
 
   return (
     <div className='about'>
@@ -33,7 +21,7 @@ const AboutUs = () => {
 
         <Grid item>
           <div className='box-about'>
-            <Grid container direction="column" justifyContent="center" alignItems="center" spacing={2} >
+            <Grid container direction="column" justifyContent="center" alignItems="center" spacing={4} >
               <Grid item>  <p className='txt1-about'>À propos de nous </p>  </Grid>
               <Grid item> <p className='txt2-about'>
 
@@ -121,19 +109,22 @@ const AboutUs = () => {
         <Grid item> <p className='txt12-about'>Notre Partenariats et collaborations</p></Grid>
         <Grid item>
 <div className='e-point-about'>
-          <Grid container direction="row" spacing={0} >
-          <Grid container direction="row" spacing={0} >
-          <Box sx={{ maxWidth: { xs:5000, sm: 500 }}}>
-          <Slider {...settings}>
+       
+               
+
+      
+
+  
+
  
-        <img src={Imgt} alt='se'className='img-tun-about' />
-            
-        <img src={Imgt} alt='sef'className='img-tun-about'  />
-                <img src={Imgt}  alt='sf'  className='img-tun-about'  />
-</Slider>
-    </Box>
-    </Grid>
-    </Grid>
+
+                    <img src={Imgt} className='img-tun-about'/>        
+                    <img src={Imgt} className='img-tun-about'  />
+                    <img src={Imgt}   className='img-tun-about'  />
+                    <img src={Imgt}   className='img-tun-about'  />
+                    <img src={Imgt}   className='img-tun-about'  />
+     
+   
     </div>
    
  

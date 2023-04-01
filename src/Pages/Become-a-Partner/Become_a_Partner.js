@@ -15,13 +15,13 @@ const Become_a_Partner = () => {
         <div className='Become2'>
         <div className='Become2-cont'>
 
-          <Grid container direction="column" justifyContent="center" alignItems="center" spacing={5} >
+          <Grid container direction="column" spacing={6} >
             
             <Grid item>   <p className='txt1-become'>Devenir partenaire</p> </Grid>
             <Grid item>   <p className='txt2-become'>Nous sommes ravis que vous soyez intéressé par un partenariat avec notre plateforme.</p> </Grid>
             <Grid item>
 
-              <Grid container direction="row" justifyContent="space-between"  >
+              <Grid container direction="row" justifyContent="center" alignItems="center" spacing={6}  >
                 <Grid item>
                   <p className='txt3-become'>Notre mission est de fournir des fournitures scolaires, des livres et des jouets éducatifs abordables et de haute qualité aux particuliers et aux organisations. </p>
                 </Grid>
@@ -72,7 +72,7 @@ const Become_a_Partner = () => {
       <Grid item>
         <div className='grbs' >
          
-            <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={6}  >
+            <Grid container direction="column" spacing={6}  >
              <div className='row23'>
 
              <Grid item>
@@ -194,7 +194,7 @@ const Become_a_Partner = () => {
    
     
                  
-                  <Grid item>  <Cardbecome />  </Grid><br/><br/>
+                  <Grid item className="Cardbecome">  <Cardbecome />  </Grid><br/><br/>
                   <Grid item>    <button className='bntn20-bec' >
              <div className='textbnt2Connexionn'>Envoyer une demande</div></button> </Grid>
       <Grid item>

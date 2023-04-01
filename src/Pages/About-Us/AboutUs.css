@@ -1,6 +1,6 @@
 .box-about{
     width: 1600px;
-height: 593px;
+height: 658px;
 background: url("../../assets/abut.png");
 padding-top: 5%;
 }
@@ -16,9 +16,8 @@ margin-top: 15%;
 
 }
 .img-tun-about{
-    width: 264px;
-    height: 88px;
-
+    width: 187.5px;
+    height: 41px;
     
     background: #F7F7F7;
     border-radius: 10px;
@@ -181,7 +180,25 @@ background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 border-radius: 20px;
 }
 
-.e-point-about{margin-top: 5%;}
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  
+ 
+  }
+
+
+.e-point-about{
+    padding: 2%;
+    width: 100%;
+    margin: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-direction: row;
+    display: flex;
+    gap: 3em;
+}
 .txt12-about{
   
 margin-left:-77% ;

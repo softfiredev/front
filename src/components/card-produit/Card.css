@@ -6,21 +6,31 @@
     border-radius: 16px;
 }
 
+.txt-sp{
+margin-top: 7%;
+margin-left: -6%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* identical to box height, or 138% */
 
+
+color: #999999;
+}
 .img-cardprod{
-    width: 180px;
+width: 180px;
 height: 180px;
-left: 425px;
-top: 329px;
-
+border-radius: 8px;
+margin-top: -5%;
 cursor: pointer;
-background: #D0D2D4;
 }
 .cont{
     padding: 5%;
     flex-direction: column;
     display: flex;
-    gap: 1em; 
+    gap: 2em; 
 }
 .txt-card1{
 
@@ -29,9 +39,9 @@ font-style: normal;
 font-weight: 500;
 font-size: 12px;
 line-height: 21px;
-/* identical to box height, or 175% */
-
-
+margin-top: -15%;
+Width:180px;
+Height:34px;
 color: #252525;
 }
 .txt-card2{
@@ -42,34 +52,39 @@ font-weight: 600;
 font-size: 14px;
 line-height: 17px;
 /* identical to box height */
-margin-top: -3%;
-
+margin-top: -7%;
 color: #4B4B4B;
 
 }
 .stars{
-    margin-top: -5%;
+    margin-top: 6%;
     margin-left: -2%;
 }
-.grb-card{
-    margin-top: -2%;
+.grb-card2{
     flex-direction: row;
 display: flex;
 gap: 1em;
 }
+.grb-card{
+ 
+    flex-direction: row;
+display: flex;
+gap: 1em;
+}
+
 .bnt-card{
+    margin-top: -7%;
     width: 98px;
     height: 20px;
-
+margin-left: 15%;
     background: #222222;
     border-radius: 8px;
 cursor: pointer;
-margin-left: 10%;
-margin-top: -3.5%;
+
 
 }
 .ajout-bnt{
-margin-top: -2%;
+margin-top: -4%;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 500;

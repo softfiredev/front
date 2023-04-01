@@ -1,4 +1,6 @@
-
+.Cardbecome{
+    margin-left: -3%;
+}
 @media (max-width:1280px) {
     .group-partner {
         margin-left: -10%;
@@ -15,7 +17,7 @@ height: 658px;
 
 .Become2-cont{
 margin-top: 4%;
-   margin-left: -5%;
+  
 }
 .trans2{
     margin-left: -5%;
@@ -269,10 +271,12 @@ cursor: pointer;
 border: none;
 background: #E9B949;
 border-radius: 8px;
+margin-left: -5%;
 }
 .butt{
     padding-top: 18%;
     padding-bottom: 12%;
+
 }
 .textbnt2Connexionn{
     font-family: 'Inter';
@@ -306,7 +310,7 @@ color: #222222;
     width: 1169px;
 height: 64px;
 cursor: pointer;
-
+margin-left: -2%;
 background: #222222;
 border-radius: 8px;
 }
@@ -333,7 +337,7 @@ color: #222222;
 .row23{
     flex-direction: row;
     display: flex;
-    gap: 3em;
+    gap: 5em;
 }
 
 .row4{

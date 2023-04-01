@@ -144,6 +144,14 @@ color: #222222;
     display: flex;
     gap: 3em;
 }
+.css-14gf62f-MuiSlider-thumb::after{
+    width: 15px;
+    height: 15px;
+    background: #FFFFFF;
+
+
+    border: 2.25px solid #222222;
+  }
 .input-shop{
 
     width: 210px;

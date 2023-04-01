@@ -3,10 +3,14 @@ import { Grid } from '@mui/material'
 import './cart.css'
 
 const cart = (props) => {
-    console.log(props)
+
   return (
+
+      
+   
            <Grid item>
-                <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={8}>
+            <div className='bg-cartd'>
+                <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={7}>
                   <Grid item>
                     <img src={props.img} className='img-avt' />
                   </Grid>
@@ -16,10 +20,11 @@ const cart = (props) => {
                     </p>
                   </Grid>
                 </Grid>
+            
                 <Grid item><p className='txt11-about'>{props.name}</p> </Grid>
-
+                </div>
               </Grid>
-  
+     
   )
 }
 

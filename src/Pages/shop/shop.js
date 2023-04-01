@@ -1,4 +1,4 @@
-import React, { useEffect, useState, lazy } from 'react'
+import React, { useEffect, useState} from 'react'
 import "./shop.css"
 import Pagination from '@mui/material/Pagination';
 import { Grid } from '@mui/material'
@@ -8,12 +8,10 @@ import PrettoSlider from '@mui/material/Slider';
 import MenuItem from '@mui/material/MenuItem';
 import ListSubheader from '@mui/material/ListSubheader';
 import Select from '@mui/material/Select';
-import { purple, red } from '@mui/material/colors';
-
-const Card = lazy(() => import('../../components/card-produit/Card'));
+import Card from '../../components/card-produit/Card';
 
 const Shop = () => {
-    const primary = red[500];
+    const prod = [{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"8.1dt",url:""},{nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"8.1dt",url:""},{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"8.1dt",url:""},{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"8.1dt",url:""},{nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"8.1dt",url:""}];
     function valuetext(value) {
         return `${value}°C`;
     }
@@ -143,17 +141,16 @@ const Shop = () => {
                         <Grid item >
                             <div className='prod-shop'>
                                 <Grid container rowSpacing={6} columnSpacing={{ xs: 25, sm: 23, md: 4 }}>
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
-                                    <Grid item > <Card prix={prix} nom={nom} />    </Grid >
+                                  
+                                {prod.map((obj) =>
+              <>
+                           <Grid item > <Card prix={obj.prix} nom={obj.nom} />    </Grid >
+
+               </>
+            )}
+          
+            
+                       
 
                                 </Grid>
                             </div>

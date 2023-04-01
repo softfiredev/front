@@ -57,7 +57,7 @@ Height:495px;
    .bntcartb0{
     width: 294px;
     height: 48px;
-   
+    color: #FFFFFF;
     background: #222222;
     border: 1px solid #222222;
     border-radius: 10px;
@@ -71,6 +71,7 @@ Height:495px;
     border: 1px solid #222222;
     border-radius: 10px;
     cursor: pointer;
+    color: #222222;
     margin-left: 7%;
   }
    .bntcartb{
@@ -136,7 +137,7 @@ line-height: 17px;
 
 width: 259.16px;
 height: 17px;
-color: #FFFFFF;
+color: #222222;
 
 mix-blend-mode: normal;
 opacity: 0.5;
@@ -157,7 +158,7 @@ opacity: 0.5;
         color: #FFFFFF;
       }
       .k1  {
-        color: #FFFFFF;
+        color: #222222;
         mix-blend-mode: normal;
         opacity: 0.5;
       }
@@ -186,8 +187,7 @@ height: 17px;
     line-height: 22px;
     text-align: center;
     
-    color: #FFFFFF;
-  
+
   }
   .textbntpack{
     font-family: 'Inter';
@@ -197,7 +197,7 @@ height: 17px;
     line-height: 22px;
     text-align: center;
     
-    color: #222222;
+
     }
     
 .cat{

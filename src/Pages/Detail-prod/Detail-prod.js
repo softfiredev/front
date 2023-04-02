@@ -1,7 +1,7 @@
 import './Detail-prod.css'
 import Rating from '@mui/material/Rating';
 import { MinusCirlce, AddCircle, Bag, ArchiveAdd, Shop, Flag } from 'iconsax-react';
-import img1 from '../../assets/prod3.png'
+import img1 from '../../assets/prod2.png'
 import icon from '../../assets/icon1.png'
 import React, { useEffect, useState } from 'react'
 import MenuItem from '@mui/material/MenuItem';
@@ -139,7 +139,61 @@ const Detailprod = () => {
 
           <div className='row10-detail'>
 
-            <div><p className='txt20-detail'>Les avis:</p>  </div>
+            <div>
+              <div className='col4-detail'>
+                <div>  <p className='txt20-detail'>Les avis:</p>  </div>
+                <div>
+                  <div className='row6-detail'>
+
+                    <div>
+                      <div className='col3-deatil' >
+                        <div>  <p className='nbr-deatail'>4.5 </p> </div>
+                        <div> <Rating name="size-small" defaultValue={2} size="small" /><span className='txt12-detail'>(160)</span></div>
+
+                      </div>
+                    </div>
+                    <div className='coll33-detail'>
+                      <div className='row6-detail'>
+                        <div>    <p className=''>5</p>    </div>
+                        <div>   <div className="progressbar">
+                          <div className="indicator"></div>
+                        </div>
+
+                        </div>
+                        <div>    <p className='txt12-detail'>(90)</p>    </div>
+
+                      </div>
+
+                      <div className='row6-detail'>
+                        <div>    <p className=''>5</p>    </div>
+                        <div>   <div className="progressbar">
+                          <div className="indicator"></div>
+                        </div>
+
+                        </div>
+                        <div>    <p className='txt12-detail'>(90)</p>    </div>
+
+                      </div>
+
+                      <div className='row6-detail'>
+                        <div>    <p className=''>5</p>    </div>
+                        <div>   <div className="progressbar">
+                          <div className="indicator"></div>
+                        </div>
+
+                        </div>
+                        <div>    <p className='txt12-detail'>(90)</p>    </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <button className='bnt4-detail'><p className='txt7-detail'>Donnez votre avis</p></button>
+                </div>
+              </div>
+            </div>
 
             <div className='Grob1-detail'>
               <div > <p className='txt20-detail'>Les commentaires:</p>      </div >
@@ -147,8 +201,8 @@ const Detailprod = () => {
 
               <div >
                 <p className='txt21-detail'>
-                Trier par:
-                  <div className='select-detail' >    
+                  Trier par:
+                  <div className='select-detail' >
                     <Select className='txt-select-detail' defaultValue="Le plus ancien" style={{ width: "145.5px", height: " 39px", borderRadius: "8px" }} >
 
                       <MenuItem value="Le plus ancien">

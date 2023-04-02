@@ -118,19 +118,11 @@ gap: 1em;
     
 }
 .txt-select{
-    width: 59px;
-height: 17px;
-
-font-family: 'Inter';
+    font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
 font-size: 12px;
 line-height: 16px;
-/* identical to box height, or 138% */
-
-
-/* black maktaba */
-
 color: #222222;
 
 }

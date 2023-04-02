@@ -11,7 +11,7 @@ import Select from '@mui/material/Select';
 import Card from '../../components/card-produit/Card';
 
 const Shop = () => {
-    const prod = [{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"8.1dt",url:""},{nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"8.1dt",url:""},{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"8.1dt",url:""},{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"8.1dt",url:""},{nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"8.1dt",url:""}];
+    const prod = [{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"8.1dt",url:""},{nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"5.1dt",url:""},{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"4.1dt",url:""},{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"8.1dt",url:""},{nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"1.1dt",url:""}];
     function valuetext(value) {
         return `${value}°C`;
     }
@@ -34,18 +34,18 @@ const Shop = () => {
                             <div className='gr-shop2'>
                                 <Grid item >  <div className='txt-shop2'>Tri par:</div>    </Grid >
                                 <Grid item >
-        <Select className='txt-select' defaultValue="Popularité" style={{width: "145.5px",height:" 39px",borderRadius: "8px"}} >
-       
-          <MenuItem value="Popularité">
-            <em  className='txt-select'>Popularité</em>
-          </MenuItem>
-          <ListSubheader> </ListSubheader>
-          <MenuItem  className='txt-select' value={1}>Option 1</MenuItem>
-          <ListSubheader></ListSubheader>
-          <MenuItem className='txt-select'value={2}>Option 2</MenuItem>
-     
-        </Select>
-                                    
+  
+        <Select className='txt-select' defaultValue="Popularité" style={{ width: "145.5px", height: " 39px", borderRadius: "8px" }} >
+
+<MenuItem value="Popularité">
+  <em className='txt-select'>Popularité</em>
+</MenuItem>
+<ListSubheader> </ListSubheader>
+<MenuItem value={1} className='txt-select'>Option 1</MenuItem>
+<ListSubheader></ListSubheader>
+<MenuItem value={2} className='txt-select'>Option 2</MenuItem>
+
+</Select>             
                                     
                                     
                                       </Grid >

@@ -180,13 +180,9 @@ background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 border-radius: 20px;
 }
 
-.scrolling-wrapper {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-  
- 
-  }
+.e-point-about::-webkit-scrollbar {
+    width: 0px;
+}
 
 
 .e-point-about{

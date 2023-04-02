@@ -34,15 +34,15 @@ const Shop = () => {
                             <div className='gr-shop2'>
                                 <Grid item >  <div className='txt-shop2'>Tri par:</div>    </Grid >
                                 <Grid item >
-        <Select defaultValue="Popularité" style={{width: "145.5px",height:" 39px",borderRadius: "8px"}} >
+        <Select className='txt-select' defaultValue="Popularité" style={{width: "145.5px",height:" 39px",borderRadius: "8px"}} >
        
           <MenuItem value="Popularité">
             <em  className='txt-select'>Popularité</em>
           </MenuItem>
           <ListSubheader> </ListSubheader>
-          <MenuItem   value={1}>Option 1</MenuItem>
+          <MenuItem  className='txt-select' value={1}>Option 1</MenuItem>
           <ListSubheader></ListSubheader>
-          <MenuItem value={2}>Option 2</MenuItem>
+          <MenuItem className='txt-select'value={2}>Option 2</MenuItem>
      
         </Select>
                                     

@@ -1,20 +1,316 @@
-.detail{
+.detail {
     padding: 10%;
 
-    
     flex-direction: column;
-display: flex;
-gap: 3em;
+    display: flex;
+    gap: 2em;
 }
-.txt1-detail{
- 
 
+.txt2-detail {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    color: #222222;
+}
+.txt1-detail {
+    margin-top: -5%;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    /* identical to box height, or 103% */
+
+    /* black maktaba */
+
+    color: #222222;
+}
+.img-detail {
+    width: 568px;
+    height: 516px;
+
+    border-radius: 16px;
+}
+
+.row-detail {
+    flex-direction: row;
+    display: flex;
+    gap: 5em;
+}
+
+.txt3-detail {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    /* black maktaba */
+
+    color: #222222;
+}
+.txt4-detail {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
+    /* black maktaba */
+
+    color: #222222;
+}
+.col-detail {
+    flex-direction: column;
+    display: flex;
+    gap: 5em;
+}
+.txt5-detail {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height, or 118% */
+
+    /* black maktaba */
+
+    color: #222222;
+}
+
+.txt6-detail {
+    margin-top: 3%;
+    width: 482px;
+    height: 60px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #818181;
+}
+
+.bord-detail {
+    flex-direction: row;
+    display: flex;
+    gap: 1em;
+    width: 114px;
+    height: 39px;
+    background: #ffffff;
+    border: 0.75px solid #e2e5ea;
+    border-radius: 8px;
+}
+
+.qunt {
+    margin-top: 5%;
+}
+.bnt-gnt {
+    margin-top: 5%;
+    margin-left: 6%;
+    cursor: pointer;
+}
+.row2-detail {
+    flex-direction: row;
+    display: flex;
+    gap: 1em;
+    margin-top: -10%;
+}
+.bnt1-detail {
+    width: 181px;
+    height: 39px;
+  cursor: pointer;
+    flex-direction: row;
+    display: flex;
+    gap: 1em;
+    text-align: center;
+    padding: 2%;
+    /* black maktaba */
+
+    background: #222222;
+    border-radius: 8px;
+}
+.txt7-detail {
+    margin-top: 0.5%;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 138% */
+    margin-left: -1%;
+
+    /* Fill Color/White */
+
+    color: #ffffff;
+}
+
+.bag-detail {
+    margin-left: 8%;
+    margin-top: -2%;
+}
+.bnt2-detail {
+    cursor: pointer;
+
+    flex-direction: row;
+    display: flex;
+    gap: 1em;
+    width: 155px;
+    height: 39px;
+    background: #ffffff;
+    border: 0.75px solid #e2e5ea;
+    border-radius: 8px;
+}
+
+.txt8-detail{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+margin-top: 7%;
+color: #222222;
+}
+.ArchiveAdd-detail{
+    margin-top: 5%; 
+    margin-left: 13%;
+}
+.txt9-detail{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+
+color: #222222;
+
+}
+.row3-detail {
+    flex-direction: row;
+    display: flex;
+    gap: 3em;
+    margin-top: 1%;
+}
+.txt10-detail{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 16px;
+margin-left: 2%;
+    color: #222222;
+}
+.col3-deatil{
+    flex-direction: column;
+    display: flex;
+    gap: 1em;
+}
+.bnt5-detail{
+    width: 157px;
+height: 39px;
+cursor: pointer;
+padding: 5%;
+background: #FFFFFF;
+border: 0.75px solid #D0D2D4;
+border-radius: 8px;
+}
+
+.row6-detail{
+    flex-direction: row;
+    display: flex;
+    gap: 1em;
+
+}
+
+.txt11-detail{
+margin-top: 3.5%;
+width: 102px;
+margin-left: -6%;
 font-family: 'Inter';
 font-style: normal;
-font-weight: 400;
-font-size: 16px;
+font-weight: 500;
+font-size: 12px;
 line-height: 16px;
-/* identical to box height, or 103% */
+/* identical to box height, or 138% */
+
+
+/* black maktaba */
+
+color: #222222;
+}
+.txt12-detail{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 140%;
+margin-left: 2%;
+width: 218px;
+color: #818181;
+}
+
+.txt13-detail{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    color: #222222;
+    margin-left: -3%;
+}
+.flag-detail{
+    margin-top: 2%;
+    margin-left: -40%;
+}
+.img-detail2{
+    width: 77px;
+    height: 77px;
+}
+.txt20-detail{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 16px;
+color: #222222;
+}
+.row10-detail{
+    flex-direction: row;
+    display: flex;
+    gap: 36.5em;
+    width: 110%;
+}
+.Grob1-detail{
+    flex-direction: row;
+    display: flex;
+    gap: 5em;
+}
+.txt21-detail{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+color: #222222;
+margin-top: 1%;
+flex-direction: row;
+display: flex;
+gap: 1em;
+
+}
+.select-detail{
+    margin-top: -5%;
+}
+.txt-select-detail{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+/* identical to box height, or 138% */
 
 
 /* black maktaba */

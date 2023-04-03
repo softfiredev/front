@@ -1,0 +1,115 @@
+.imageProfile{
+    height: 218px;
+    width: 218px;
+    border-radius: 122px;
+}
+.ProfileData{
+    margin-left: 230px;
+    margin-top: 157px;
+}
+.profileInfo{
+    margin-left: 40px;
+}
+.nomLibrairie{
+    
+font-family: 'Merriweather';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 16px;
+color: #1A110A;
+margin-top: 30px;
+margin-bottom: 24px;
+}
+.addresse ,.telephone ,.email{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 16px;
+color: #1A110A;
+margin-bottom: 24px;
+}
+.insta-wrapper {
+    background-color: #D0D2D4;
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    padding-top: 3px;
+    padding-left: 3.5px;
+}
+.icon-insta{
+    text-align: center;
+    color: #1A110A;
+  
+}
+.insta-wrapper i {
+    background-color: #D0D2D4; 
+    padding-top: 2.5px;
+    padding-left: 6px;
+}
+.icons{
+    margin-left: -24px;
+}
+.group-Recherche .Recherche{
+box-sizing: border-box;
+width: 428px;
+height: 52px;
+background: #FFFFFF;
+border: 1px solid #979797;
+border-radius: 8px;
+margin-right: 20px;
+}
+.group-Recherche .btn-Recherche{
+    width: 157px;
+    height: 52px;
+    background: #1A110A;
+    border-radius: 8px; 
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+.group-Tri{
+    margin-left: 56px;
+}
+.group-Tri .Tri{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 16px;
+text-align: right;
+color: #252525;
+margin-right: 19px;
+}
+.select{
+box-sizing: border-box;
+width: 185.65px;
+height: 52px;
+background: #F2F2F2;
+border: 0.75px solid #D0D2D4;
+border-radius: 8px;
+
+}
+.box-filter{
+    margin-left: -134px;
+    margin-top: 100px;
+    margin-bottom: 69px;
+}
+.txt-select{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 16px;
+color: #252525;
+text-align: center;
+}
+.ProdLib{
+    width: 1100px;
+    margin-left: 230px;
+    margin-bottom: 75px;
+}

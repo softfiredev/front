@@ -1,0 +1,232 @@
+.colo{
+  width: 332px;
+  height: 514px;
+
+  
+  background: #F7F7F7;
+  border: 1px solid #B1B1B1;
+  border-radius: 16px;
+}
+.colod{
+  width: 332px;
+  height: 514px;
+
+  background: #F7D070;
+  border: 1px solid #222222;
+  border-radius: 16px;
+}
+.an{
+    width: 27.3px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+color: #222222;
+}
+
+    .an1{
+        width: 27.3px;
+    height: 19px;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #222222;
+    }
+
+table{
+    margin-top: -3%;
+    border: 1px solid #222222;
+    border-radius: 20px;
+    Width:    1129px;
+    Height:    515px;
+   }
+.row6{
+    display: flex;
+    gap: 50px;
+padding-left: 1%;
+    Width:1139px;
+Height:495px;
+   }
+   .bntcartb0{
+    width: 294px;
+    height: 48px;
+   
+    background: #222222;
+    border: 1px solid #222222;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 7%;
+   }
+   .bntcartb1{
+    width: 294px;
+    height: 48px;
+    background: #E9B949;
+    border: 1px solid #222222;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 7%;
+  }
+   .bntcartb{
+    width: 294px;
+    height: 48px;
+    background: #F7D070;
+    border: 1px solid #222222;
+    border-radius: 10px;
+    margin-left: 5%;
+    cursor: pointer;
+  }
+  .cat1{
+    margin-top: 7%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+text-align: center;
+text-transform: uppercase;
+
+color: #222222;
+  }
+
+  p.dt1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    color: #222222;
+}
+  .row4-car{
+    display: flex;
+    justify-content: right;
+  }
+  .disc1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    
+    width: 259.16px;
+    height: 17px;
+    color: #222222;
+    margin-left: 5%;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+  }
+.disc{
+
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+width: 259.16px;
+height: 17px;
+color: #FFFFFF;
+
+mix-blend-mode: normal;
+opacity: 0.5;
+}
+  .txt1-catb{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    width: 259.16px;
+    height: 17px;
+
+    color: #222222;
+ 
+      }
+      .k  {
+        color: #FFFFFF;
+      }
+      .k1  {
+        color: #FFFFFF;
+        mix-blend-mode: normal;
+        opacity: 0.5;
+      }
+      .k2{
+        mix-blend-mode: normal;
+opacity: 0.6;
+      }
+  .txt0-catb{
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+
+margin-left: 5%;
+color: #222222;
+width: 259.16px;
+height: 17px;
+  }
+  .textbntpack0{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #FFFFFF;
+  
+  }
+  .textbntpack{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    
+    color: #222222;
+    }
+    
+.cat{
+ 
+
+  margin-top: 7%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+  
+  text-align: center;
+  text-transform: uppercase;
+  
+
+
+color: #222222;
+
+}
+p.dt{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    /* identical to box height */
+    text-align: center;
+    color: #222222;
+
+}

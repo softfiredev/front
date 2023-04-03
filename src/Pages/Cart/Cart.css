@@ -1,0 +1,267 @@
+.titre{
+    color: #222222;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: capitalize;
+    margin-top: 65px;
+    margin-left: 165px;
+}
+.produit{
+    margin-left: 165px;
+    margin-top: 65px; 
+    width: auto;
+   
+   
+}
+.produit .item {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #222222;
+   
+}
+.lin1{
+    border: 1px solid #C4CBCD;
+    width: 790px;;
+
+}
+.image{
+    border-radius: 8px;
+    Width :112px ; 
+    height: 112px;
+    margin-bottom: 25px;
+    margin-left:-20px ;
+
+}
+.titreProd{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 13.5px;
+line-height: 21px;
+color: #222222;
+margin-top: 30px;
+}
+.prix{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 13.5px;
+line-height: 21px;
+color: #222222;
+margin-top: -30px;
+margin-left: -3px;
+
+}
+.qte{
+box-sizing: border-box;
+width: 90px;
+height: 52px;
+background: #FFFFFF;
+border: 1px solid #C4CBCD;
+border-radius: 8px;
+margin-left: 10px;
+margin: 55px;
+text-align: center;
+}
+.total{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: right;
+    color: #222222;
+   margin-left: 65px;
+}
+.supprime{
+    margin-right: 30px;
+}
+.box{
+    height: 130px;
+}
+.Continuer{
+    margin-left: 165px;
+    margin-top: 40px;
+    margin-bottom: 107px;
+    box-sizing: border-box;
+    width: 249px;
+    height: 52px;
+    background: #FFFFFF;
+    border: 1px solid #C4CBCD;
+    border-radius: 8px
+}
+.Continuer .icon1{
+    font-size: 12px;
+    margin-top: 19px;
+    margin-left: 26px;
+    color: #757E78;
+}
+.Continuer a{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+color: #222222;
+margin-top: 15px;
+}
+.Cart{
+    height: auto;
+}
+.resume{
+box-sizing: border-box;
+width: 303px;
+height: 586px;
+background: #FFFFFF;
+border: 1px solid #C4CBCD;
+border-radius: 8px;
+margin-left: 64px;
+margin-top: 64px;
+
+}
+.titre2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #222222;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 25px;
+}
+.line2{
+width: 222px;
+height: 0px;
+border: 1px solid #C4CBCD;
+}
+.resume .container .titre3 p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #222222;
+    margin-top: 16px;
+   
+}
+.resume .container .chiffer p{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 22px;
+text-align: right;
+color: #222222;
+margin-top: 16px;
+
+}
+.reduction{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+color: #222222;
+margin-top: 24px;
+margin-left: 40px;
+}
+.code{
+box-sizing: border-box;
+width: 222px;
+height: 52px;
+background: #FFFFFF;
+border: 1px solid #4B4B4B;
+border-radius: 8px;
+margin-left: 40px;
+margin-top: 16px;
+margin-bottom: 25px;
+}
+.totalTTC{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 28px;
+color: #222222;
+margin-left: 43px;
+margin-top: 25px;
+}
+.totalMontant{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
+text-align: right;
+color: #222222;
+margin-top: 25px;
+margin-left: -10px;
+}
+.btn-verifie{
+width: 222px;
+height: 52px;
+background: #222222;
+border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+text-align: center;
+color: #FFFFFF;
+margin-top: 24px;
+margin-left: 40px;
+margin-bottom: 40px;
+}
+.btn3{
+    color:#757E78 ; 
+    margin-left: 165px; ;    
+}
+.inpute_icon{
+position:relative
+}
+.scroll{
+        width: 800px;
+        height: 150px;
+        overflow: auto;
+        text-align: justify;
+        padding: 20px;
+        height: 580px;
+        margin-left: -15px;
+        overflow-x: hidden;
+        
+      
+}
+.scroll::-webkit-scrollbar {
+    width: 12px;
+}
+.btn_input{
+position: absolute;
+top: 32px;
+left: 230px;
+height: 20px;
+width: 20px;
+border-radius:3px;
+border: 2px solid #4B4B4B;
+
+}
+
+@media (max-width: 876px) {
+    .Continuer{
+        margin-left: 68px;
+    }
+    .resume{
+        margin-left: 44px;
+    }
+    .produit{
+        display: none;
+    }
+}
+

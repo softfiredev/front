@@ -95,7 +95,7 @@ const AboutUs = () => {
                     <Grid item><p className='txt8-about'>
                       Notre plateforme aide les fournisseurs à optimiser leurs activités et permet aux acheteurs de rationaliser la gestion marketing et logistique. Grâce à la gestion des données en temps réel et à l'information alimentée par l'IA, la prise de décision est simplifiée sur un marché dynamique, améliorant ainsi la gestion des données pour toutes les parties prenantes.<br /> <br />Maktaba encourage l'engagement communautaire en fournissant aux individus des outils pour lancer et gérer leurs propres initiatives culturelles, sociales ou économiques grâce aux bibliothèques numériques. Chaque bibliothèque devient un projet, permettant à chacun de gérer ses propres initiatives.</p> </Grid>
                  
-                    <Grid item>         <img src={img2_pro} className="img-about4" /> </Grid>
+                    <Grid item>         <img src={img2_pro} className="img1-about4" /> </Grid>
                          <img className="img-aboutp" src={P} />
    
                   </Grid>

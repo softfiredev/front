@@ -1,14 +1,27 @@
 import './Detail-prod.css'
 import Rating from '@mui/material/Rating';
-import { MinusCirlce, AddCircle, Bag, ArchiveAdd, Shop, Flag } from 'iconsax-react';
-import img1 from '../../assets/prod2.png'
+import { MinusCirlce, AddCircle, Bag, ArchiveAdd, Shop, Flag,ArrowLeft2 ,ArrowRight2} from 'iconsax-react';
 import icon from '../../assets/icon1.png'
 import React, { useEffect, useState } from 'react'
 import MenuItem from '@mui/material/MenuItem';
 import ListSubheader from '@mui/material/ListSubheader';
+import Pagination from '@mui/material/Pagination';
 import Select from '@mui/material/Select';
+import Card from '../../components/card-produit/Card';
+import { Grid } from '@mui/material'
+
+import im1 from'../../assets/prod1.png'
+import im2 from'../../assets/prod2.png'
+import im3 from'../../assets/prod3.png'
 const Detailprod = () => {
+  const prod = [{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"8.1dt",url:""},{nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"5.1dt",url:""},{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"4.1dt",url:""},{nom:"CRAYON PASTEL DE 12 JOVI WAX +TC 980-16",prix:"8.1dt",url:""},{nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"1.1dt",url:""}];
+  const images = [
+    { url: im1 },
+    { url: im2 },
+    { url: im3 },
+  ];
   const [qnt, setqnt] = useState(1);
+  const [pls, setpls] = useState(0);
   const quantityplus = () => {
     setqnt(qnt + 1)
   }
@@ -18,14 +31,66 @@ const Detailprod = () => {
     }
 
   }
+  const plus=()=>{
+    if(pls<images.length-1)
+    {
+      setpls(pls+1)
+    }
+
+  }
+  const min=()=>{
+    if(pls>0)
+    {
+      setpls(pls-1)
+    }
+
+  }
+
+  console.log(images[pls].url)
   return (
     <div className='detail'>
 
-      <div>     <p className='txt1-detail'> Shop  {' > '}  Scolaire  {' > '}<span className='txt2-detail'>GOUACHE 9T METAL LE COQ 22</span>  </p>  </div>
+      <div>     
+        <p className='txt1-detail'> Shop  {' > '}  Scolaire  {' > '}<span className='txt2-detail'>GOUACHE 9T METAL LE COQ 22</span>  </p>  </div>
 
       <div>
+        <div>
         <div className='row-detail'>
-          <div >  <img src={img1} className='img-detail' /> </div>
+  <div>
+
+  <div className='col303-detail'>
+
+
+  <div >
+    <div className='prod-detail'>
+    <button className='bnt-arrow1' onClick={plus}> <ArrowLeft2
+ size="32"
+ color="#828D9E"
+/> </button>
+<img  className='img-detail' src={images[pls].url} />
+<button onClick={min} className='bnt-arrow1'> <ArrowRight2
+ size="32"
+ color="#828D9E"
+/>
+
+ </button>
+    </div>
+  </div>
+  <div> 
+
+    <div className='row6-detail'> 
+    <img  className='pimg-detail' src={images[pls].url} />
+    <img  className='pimg-detail' src={images[pls].url} />
+    <img  className='pimg-detail' src={images[pls].url} />
+    </div>
+
+    </div>
+
+
+
+  </div>
+  </div>
+
 
           <div>
 
@@ -135,6 +200,8 @@ const Detailprod = () => {
 
 
         </div>
+        </div>
+      
         <div >
 
           <div className='row10-detail'>
@@ -195,10 +262,11 @@ const Detailprod = () => {
               </div>
             </div>
 
+            <div className='coll3-detail'>
+
+            <div >
             <div className='Grob1-detail'>
               <div > <p className='txt20-detail'>Les commentaires:</p>      </div >
-
-
               <div >
                 <p className='txt21-detail'>
                   Trier par:
@@ -223,13 +291,75 @@ const Detailprod = () => {
 
                 </span>
 
-              </div>  </div >
+              </div> 
+              
+       
+               </div >
+               </div>
 
+               <div className='coll4-detail'>  
+
+
+
+              <div> Ashlynn Vaccaro </div>
+              <div><Rating name="size-small" defaultValue={2} size="small" /></div>
+              <div className='txt60-detail'>La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable.</div>
+                 
+                 
+                 
+                 </div>
+
+                 <div className='coll4-detail'>  
+
+
+
+<div> Ashlynn Vaccaro </div>
+<div><Rating name="size-small" defaultValue={2} size="small" /></div>
+<div className='txt60-detail'>La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable.</div>
+   
+   
+   
+                </div>
+                <div className='coll4-detail'>  
+
+
+
+              <div> Ashlynn Vaccaro </div>
+              <div><Rating name="size-small" defaultValue={2} size="small" /></div>
+              <div className='txt60-detail'>J'ai été agréablement surprise par la qualité de la peinture Gouache pour les projets scolaires de mon fils.</div>
+                 
+                 
+                 
+                 </div>
+                 <div className='pagination-detail' >  <Pagination count={16} shape="rounded" className='pagination-shop'  />  </div>
           </div>
 
+
+
+
+
+
+          </div>
         </div>
 
       </div>
+
+      <div>
+        <div className='col303-detail'>
+          <div className='txt20-detail'>Recommendation:</div>
+          <div>
+            <div className='row6-detail'>
+          {prod.map((obj) =>
+              <>
+                           <Grid item > <Card prix={obj.prix} nom={obj.nom} />    </Grid >
+
+               </>
+            )}
+            </div>
+            </div>
+        </div>
+      </div>
+
     </div>
   )
 }

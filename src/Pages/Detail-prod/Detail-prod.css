@@ -39,7 +39,12 @@
     display: flex;
     gap: 5em;
 }
-
+.bnt-arrow1{
+border: none;
+background: #FFFFFF;
+cursor: pointer;
+margin-top: 12%;
+}
 .txt3-detail {
     font-family: "Inter";
     font-style: normal;
@@ -229,6 +234,17 @@ letter-spacing: 0.01em;
 
 color: #222222;
 }
+.pimg-detail{
+
+    width: 60px;
+height: 60px;
+left: 135px;
+top: 745px;
+
+
+border: 1px solid rgba(208, 210, 212, 0.44);
+border-radius: 8px;
+}
 .bnt5-detail{
     width: 157px;
 height: 39px;
@@ -269,7 +285,6 @@ font-weight: 400;
 font-size: 14px;
 line-height: 140%;
 margin-left: 2%;
-width: 218px;
 color: #818181;
 }
 
@@ -301,8 +316,17 @@ color: #222222;
 .row10-detail{
     flex-direction: row;
     display: flex;
-    gap: 7.5em;
+    gap: 14.5em;
     width: 150%;
+}
+
+@media (max-width:1280px)
+{
+    .detail {
+       margin-left: -8%;
+    
+    }
+    
 }
 .Grob1-detail{
     flex-direction: row;
@@ -362,3 +386,42 @@ border-radius: 8px;
     margin-top: 4%;
     margin-left: 5%;
 }
+.coll3-detail{
+    flex-direction: column;
+    display: flex;
+    gap: 2.5em;
+}
+.coll4-detail{
+    flex-direction: column;
+    display: flex;
+ 
+}
+.txt60-detail{
+    width: 450px;
+height: 34px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 140%;
+/* or 17px */
+
+
+color: #4B4B4B;
+}
+.pagination-detail{
+    margin-left: -10%;
+}
+.col303-detail{
+    flex-direction: column;
+    display: flex;
+    gap: 4em;
+}
+
+
+  .prod-detail{
+    flex-direction: row;
+    display: flex;
+    gap: 1em;
+  }

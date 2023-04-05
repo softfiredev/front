@@ -31,7 +31,7 @@ function NavBar() {
         </div>
         <div className='group'>
           <span className="cartchop">
-            <Link to="#" className='iconcolor'>
+            <Link to="/cart" className='iconcolor'>
               <ShoppingCart
                 size="32"
                 color="#FFFFFF"

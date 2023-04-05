@@ -400,8 +400,9 @@ color: #222222;
     background: #ffffff;
     border-radius: 8px;
 }
+
 .row23{
-    flex-direction: column;
+    flex-direction: row;
     display: flex;
     gap: 1em;
 }
@@ -409,7 +410,7 @@ color: #222222;
     flex-direction: column;
     display: flex;
     gap: 1em;
-
+margin-left: -35%;
 }
 .desbecam1{
     font-family: 'Merriweather';
@@ -434,23 +435,13 @@ line-height: 180%;
 
 color: #626262;
 }
-.desbecam3{
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    /* identical to box height, or 150% */
-    
-    
-    color: #222222;
-}
 .row4{
     
         display: flex;
         justify-content: center;
-        gap: 20em;
+        gap: 1em;
+        margin-left: 31%;
 }
 .col2{
 flex-direction: column;

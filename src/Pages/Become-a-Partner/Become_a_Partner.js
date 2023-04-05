@@ -4,9 +4,12 @@ import { OutlinedInput, Grid } from '@mui/material'
 import Cardbecome from '../../components/card-become/card-become'
 import Cartcontact from '../../components/cart-contact/cart_contact';
 import React from 'react'
+import Liste from'../../components/listefq/liste';
 
 const Become_a_Partner = () => {
   const onButtonClick = () => { }
+  
+
   return (
  <div className='group-partner '>
     <Grid container direction="column" justifyContent="center" alignItems="center" spacing={4.5} >
@@ -131,10 +134,6 @@ const Become_a_Partner = () => {
  
               <Grid item>
               <Grid container direction="column" justifyContent="center" alignItems="center" spacing={3}  >
-
- 
- 
- 
                    <Grid item>
                  <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={4}  >
                    <Grid item>    <p className='txt8-become'>Nom de votre travail ?*</p></Grid>
@@ -194,7 +193,7 @@ const Become_a_Partner = () => {
        
                 <Grid item>
                 <div className="row4">
-
+           
                 <div className='col2-becam'>  
                    <div className='desbecam1'>  FAQs </div> 
                    <div className='desbecam2'> Tout ce que vous devez savoir sur Maktaba et
@@ -202,8 +201,20 @@ ses prestations. Vous ne trouvez pas la réponse que vous cherchez?
 Veuillez discuter avec notre équipe. </div> 
                    </div>
 
-                <div className='desbecam3'> Qu'est-ce que Maktaba ?</div>
-                </div>
+          
+                   
+                      
+           <Liste/>
+                             
+            </div>
+
+               
+
+
+
+
+
+           
                 </Grid>
       <Grid item>
         <div className='butt'>

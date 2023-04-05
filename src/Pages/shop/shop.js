@@ -20,8 +20,6 @@ const Shop = () => {
                 <Grid item >
                     <div className='gr1'>
                         <Grid item > <div className='txt-shop1'>Shop</div></Grid >
-                    
-
                     </div>
                 </Grid>
 

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import './AboutUs.css'
 import { OutlinedInput } from '@mui/material';
-import 'react-slideshow-image/dist/styles.css'
 import img2_pro from '../../assets/about3.jpg'
 import img3_pro from '../../assets/about4.jpg'
 import P from '../../assets/point.png'

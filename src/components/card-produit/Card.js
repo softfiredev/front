@@ -17,7 +17,7 @@ const Card = (props) => {
 
 <div className='grb-card22'>
 <div> <img src={img2} /></div>
-<div className='txt-nommaktba'>  Errahma Library</div>
+<div className='txt-nommaktba'> <Link to={"/librairieProfile"}>Errahma Library</Link>  </div>
 </div>
 
     

@@ -1,185 +1,315 @@
 import './Card_become.css'
-import { Grid } from '@mui/material'
-import React, {useState } from 'react'
+import React, { useEffect,useState } from 'react'
+import { TickCircle, Tree } from 'iconsax-react';
+
 const Card_become = () => {
-  const [Silver,setSilver] = useState('colod');
-  const [Bronze,setBronze] = useState('colo');
-  const [Gold,setGold] = useState('colo');
-  const [bnt0,setbnt0] = useState('bntcartb');
-  const [bnt1,setbnt1] = useState('bntcartb0');
-  const [bnt2,setbnt2] = useState('bntcartb');
+  const [Silver, setSilver] = useState('card-becom2');
+  const [Bronze, setBronze] = useState('card-becom');
+  const [Gold, setGold] = useState('card-becom');
 
-    const card=[
-        {
-            name:"Bronze",
-            prix:'10 dt'
-        },
-        {
-            name:"Silver",
-            prix:'100 dt'
-        },
-        {
-            name:"Gold",
-            prix:'1000 dt'
-        }
-    ]
-const col=(nomcart)=>{
-
-  if(nomcart=="Gold")
-  {
-    setbnt0("bntcartb0")
-    setbnt1("bntcartb")
-    setbnt2("bntcartb")
-    setGold("colod")
-    setSilver("colo")
-    setBronze("colo")
-  }
-  if(nomcart=="Silver")
-  { 
-    setbnt0("bntcartb")
-  setbnt1("bntcartb0")
-  setbnt2("bntcartb")
-    setSilver("colod")
-    setGold("colo")
-    setBronze("colo")
-  }
-  if(nomcart=="Bronze"){
-    setbnt0("bntcartb")
-    setbnt1("bntcartb")
-    setbnt2("bntcartb0")
-    setSilver("colo")
-    setGold("colo")
-    setBronze("colod")
-  }
+  const handleChange1 = (event,okk) => {
+    if(event=='Bronze')
+{
+  setBronze("card-becom2")
+  setSilver("card-becom")
+  setGold("card-becom")
 }
+if(event=='Gold')
+{
+  setBronze("card-becom")
+  setSilver("card-becom")
+  setGold("card-becom2")
+}
+if(event=='Silver')
+{
+  setBronze("card-becom")
+  setSilver("card-becom2")
+  setGold("card-becom")
+}
+
+
+  }
+
+  useEffect(()=>{
+    document.getElementById("R3").checked = true;
+  },[])
+
+
+
   return (
-   <div>
-    
-    <Grid container spacing={8}>
+    <div >
 
-    {card.map((obj) => (
-          <>
-      
-            {obj.name=="Silver"?
-            <Grid item>
-     
-            <div  className={Silver}>
-            <Grid container  direction="column" spacing={3.7}>
-            <Grid item> <div className='cat1'> {obj.name} </div> </Grid>
-            <Grid item> <div> <p  className='dt1' >{obj.prix}<span className='an'> /an</span></p></div>  </Grid>
-            <Grid item> <button  className={bnt1} onClick={()=>{col(card[1].name)}}>
-          <div className='textbntpack0'>Choisir le pack</div></button><br/> </Grid>
-          <Grid item>
-          <Grid  container  direction="column"    alignItems="center"  spacing={0.7}>
+      <div className='cardt-bec' >
 
-<Grid item>
-  <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'>Caisse en ligne</p></div>  </Grid>
-  <Grid item>
-    
-     <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'>Livraison gratuit</p></div>  </Grid>
-     <Grid item>
-    <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'>Boutique personalisée</p></div>  </Grid>
-    <Grid item>
-   <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'> Assistance personnalisé</p></div>  </Grid>
-   <Grid item>
-  <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'>Participation aux foires</p></div>  </Grid>
-  <Grid item>
- <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt1-catb'>Achat groupé</p></div>  </Grid>
- <Grid item>
-   <div className='row4-car'><i className="fa fa-check-circle k1"></i><p className='disc'>Conventions personnalisées</p></div>  </Grid>
-          </Grid>
-          </Grid>
-          </Grid>
+        <div className= {Bronze}>
+          <div>
+
+            <div class="container">
+              <div class="round">
+                <input type="radio"  id="R1" name="R" value="R1" onChange={()=>{handleChange1("Bronze")}} />
+                <label for="R1"></label>
+              </div>
+            </div>
+            <div> <p className='txtcatdbecome1'>Bronze</p>  </div><div className='brr'></div>
+            <div> <p className='ancatrdbec'>10dt /an</p>  </div><div className='brr'></div>
+            <div> <p className='descriptioncatdbe1c'>Idéal pour ceux qui débutent avec Maktaba</p>  </div><br /><div className='brr'></div>
+            <div className='colcatdbecome1'>
+
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Caisse en ligne</p></div>
+
+
+                </div>
+              </div>
+
+
+
+
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Livraison gratuit</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Boutique personalisée</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Assistance personnalisé</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#ACACAC" /></div>
+                  <div>  <p className='txtcatdbecome3'>Participation aux foires</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#ACACAC" /></div>
+                  <div>  <p className='txtcatdbecome3'>Achat groupé</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#ACACAC" /></div>
+                  <div>  <p className='txtcatdbecome3'>Conventions personnalisées</p></div>
+
+
+                </div>
+              </div>
+            </div>
+
           </div>
-            </Grid>
-          :
-          <Grid item>
 
-{obj.name=="Bronze"?<>
-<div className={Bronze}>
-  
-  
-  <Grid container  direction="column" spacing={3.7}>
-       <Grid item> <div className='cat'> {obj.name} </div> </Grid>
-       <Grid item> <div> <p  className='dt1'  style={{color: '#222222'}}>{obj.prix}<span className='an'> /an</span></p></div>  </Grid>
-       <Grid item> <button className={bnt2}   onClick={()=>{col(card[0].name)}}>
-     <div className='textbntpack'>Choisir le pack</div></button><br/> </Grid>
-     <Grid item>
-     <Grid  container  direction="column"    alignItems="center"  spacing={0.7}>
-  
-  <Grid item>
-  <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Caisse en ligne</p></div>  </Grid>
-  <Grid item>
-  
-  <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Livraison gratuit</p></div>  </Grid>
-  <Grid item>
-  <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Boutique personalisée</p></div>  </Grid>
-  <Grid item>
-  <div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'> Assistance personnalisé</p></div>  </Grid>
-  <Grid item>
-  <div className='row4-car'><i className="fa fa-check-circle k1"></i><p className='disc'>Participation aux foires</p></div>  </Grid>
-  <Grid item>
-  <div className='row4-car'><i className="fa fa-check-circle k1 "></i><p className='disc'>Achat groupé</p></div>  </Grid>
-  <Grid item>
-  <div className='row4-car'><i className="fa fa-check-circle k1"></i><p className='disc'>Conventions personnalisées</p></div>  </Grid>
-     </Grid>
-     </Grid>
-     </Grid>
+        </div>
+
+        <div className={Silver}>
+          <div>
+
+            <div class="container">
+              <div class="round">
+                <input type="radio"  id="R3"name="R" onChange={()=>{handleChange1("Silver")}}  />
+                <label for="R3"></label>
+              </div>
+            </div>
+            <div> <p className='txtcatdbecome1'>Silver</p>  </div><div className='brr'></div>
+            <div> <p className='ancatrdbec'>100dt /an</p>  </div><div className='brr'></div>
+            <div> <p className='descriptioncatdbec'>Idéal pour ceux qui veulent des fonctionnalités avancées</p>  </div><br /><div className='brr'></div>
+            <div className='colcatdbecome1'>
+
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Caisse en ligne</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Livraison gratuit</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Boutique personalisée</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Assistance personnalisé</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Participation aux foires</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Achat groupé</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#ACACAC" /></div>
+                  <div>  <p className='txtcatdbecome3'>Conventions personnalisées</p></div>
+
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div className= {Gold}>
+          <div>
+
+            <div class="container">
+              <div class="round">
+                <input type="radio"  id="R2" name="R" value="R2" onChange={()=>{handleChange1("Gold")}}  />
+                <label for="R2"></label>
+              </div>
+            </div>
+            <div> <p className='txtcatdbecome1'>Gold</p>  </div><div className='brr'></div>
+            <div> <p className='ancatrdbec'>1000dt /an</p>  </div><div className='brr'></div>
+            <div> <p className='descriptioncatdbec'>Idéal pour ceux qui veulent des conventions personnalisées</p>  </div><br /><div className='brr'></div>
+            <div className='colcatdbecome1'>
+
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Caisse en ligne</p></div>
+
+
+                </div>
+              </div>
+
+
+
+
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Livraison gratuit</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Boutique personalisée</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Assistance personnalisé</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Participation aux foires</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Achat groupé</p></div>
+
+
+                </div>
+              </div>
+              <div>
+                <div className='row4-car'>
+
+                  <div>    <TickCircle size="15" color="#F7D070" /></div>
+                  <div>  <p className='txtcatdbecome2'>Conventions personnalisées</p></div>
+
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+
     </div>
-  
-  
-  
-  </>:<>
-  
-  <div className={Gold}>
-  
-  
-<Grid container  direction="column" spacing={3.7}>
-     <Grid item> <div className='cat'> {obj.name} </div> </Grid>
-     <Grid item> <div> <p  className='dt1'  style={{color: '#222222'}}>{obj.prix}<span className='an'> /an</span></p></div>  </Grid>
-     <Grid item> <button className={bnt0}  onClick={()=>{col(card[2].name)}}>
-   <div className='textbntpack'>Choisir le pack</div></button><br/> </Grid>
-   <Grid item>
-   <Grid  container  direction="column"    alignItems="center"  spacing={0.7}>
 
-<Grid item>
-<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Caisse en ligne</p></div>  </Grid>
-<Grid item>
-
-<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Livraison gratuit</p></div>  </Grid>
-<Grid item>
-<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Boutique personalisée</p></div>  </Grid>
-<Grid item>
-<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'> Assistance personnalisé</p></div>  </Grid>
-<Grid item>
-<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Participation aux foires</p></div>  </Grid>
-<Grid item>
-<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Achat groupé</p></div>  </Grid>
-<Grid item>
-<div className='row4-car'><i className="fa fa-check-circle "></i><p className='txt0-catb'>Conventions personnalisées</p></div>  </Grid>
-   </Grid>
-   </Grid>
-   </Grid>
-  </div>
-  
-  </>}
-     
-
-          </Grid>
-          
-          } 
-      
-      </>
-
-          ))}
-   
-   
-    </Grid>
-
- 
-  </div>
-  
   )
 }
 
 export default Card_become
+
+
+
+

@@ -1,6 +1,8 @@
 
 
-
+.prod-shop{
+    width: 108%;
+}
 .txt-shop1{
     font-family: 'Inter';
 font-style: normal;
@@ -85,18 +87,12 @@ margin-top: 7%;
 .selec{
     width: 145.5px;
     height: 39px;
- 
+
     background: #F2F2F2;
     border: 0.75px solid #999999;
     border-radius: 8px;
 }
-.gr-shop2{
 
-    flex-direction: row;
-display: flex;
-gap: 1em;
-
-}
 .gr1{
     flex-direction: row;
     display: flex;
@@ -136,14 +132,7 @@ color: #222222;
     display: flex;
     gap: 3em;
 }
-.css-14gf62f-MuiSlider-thumb::after{
-    width: 15px;
-    height: 15px;
-    background: #FFFFFF;
 
-
-    border: 2.25px solid #222222;
-  }
 .input-shop{
 
     width: 210px;
@@ -154,11 +143,15 @@ color: #222222;
 
     border-radius: 8px;
 }
-
+.colls-trifel{
+    flex-direction: column;
+    display: flex;
+    gap: 5em;    
+}
 .gr3{
     flex-direction: row;
     display: flex;
-    gap: 8em;
+    gap: 3.5em;
 }
 .col3{
     flex-direction: column;

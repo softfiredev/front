@@ -9,7 +9,7 @@ import Pagination from '@mui/material/Pagination';
 import Select from '@mui/material/Select';
 import Card from '../../components/card-produit/Card';
 import { Grid } from '@mui/material'
-
+import { Link } from 'react-router-dom';
 import im1 from'../../assets/prod1.png'
 import im2 from'../../assets/prod2.png'
 import im3 from'../../assets/prod3.png'
@@ -136,7 +136,7 @@ const Detailprod = () => {
 
                   </div>
 
-                  <div className='txt7-detail'>Ajouter au panier</div>
+                  <div className='txt77-detail'>Ajouter au panier</div>
                 </button>
                 <button className='bnt2-detail'>
                   <div className='ArchiveAdd-detail'><ArchiveAdd
@@ -176,7 +176,12 @@ const Detailprod = () => {
                 <div><br /><br />
                   <p className='txt10-detail'>Partagez ceci : </p><br />
                 </div>
-
+         <div className='row6-detail'>
+         <Link to="#" className="fa fa-facebook icc" ></Link>
+        <Link to="#" className="fa fa-instagram icc"></Link>
+            <Link to="#" className="fa fa-linkedin icc"></Link>
+            <Link to="#" class="fa fa-pinterest icc"></Link>
+         </div>
                 <div className='row6-detail'>
                   <p className='txt12-detail'>Un problème avec ce produit ? </p>
                   <div className='flag-detail'><Flag
@@ -257,7 +262,7 @@ const Detailprod = () => {
                 </div>
 
                 <div>
-                  <button className='bnt4-detail'><p className='txt7-detail'>Donnez votre avis</p></button>
+                 <p className='txt7-detail'>Donnez votre avis</p>
                 </div>
               </div>
             </div>

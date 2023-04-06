@@ -80,7 +80,7 @@ text-align: center;
    margin-left: 65px;
 }
 .supprime{
-    
+cursor: pointer;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 500;

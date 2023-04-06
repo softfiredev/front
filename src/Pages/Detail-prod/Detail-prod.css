@@ -5,7 +5,17 @@
     display: flex;
     gap: 2em;
 }
+.ic{
+    width: 32px;
+height: 32px;
 
+
+background: #F7D070;
+border-radius: 400px;
+}
+.fa .fa-facebook-f .ic{
+    background: #FFFFFF;
+}
 .txt2-detail {
     font-family: "Inter";
     font-style: normal;
@@ -143,18 +153,20 @@ margin-top: 12%;
     border-radius: 8px;
 }
 .txt7-detail {
-    margin-top: 0.5%;
-    font-family: "Inter";
+
+    left: calc(50% - 137px/2 - 516.5px);
+    top: calc(50% - 16px/2 - 144.5px);
+    cursor: pointer;
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 16px;
-    /* identical to box height, or 138% */
-    margin-left: -1%;
-
-    /* Fill Color/White */
-
-    color: #ffffff;
+   
+    text-decoration-line: underline;
+    
+    color: #222222;
+    
 }
 
 .bag-detail {
@@ -254,7 +266,27 @@ background: #FFFFFF;
 border: 0.75px solid #D0D2D4;
 border-radius: 8px;
 }
-
+.icc {
+    width: 32px;
+    height: 32px;
+    background: #F7D070;
+    border-radius: 400px;
+    margin-bottom: 3%;
+  }
+  .fa-facebook,.fa-linkedin,.fa-instagram,.fa-pinterest {
+    color: #ffffff;
+  }
+.txt77-detail{
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+color: #FFFFFF;
+margin-left: -5%;
+width: 115px;
+}
 .row6-detail{
     flex-direction: row;
     display: flex;
@@ -370,15 +402,15 @@ border-radius: 8px;
     height: 16px;
   
     
-    background: #CCCCCC;
-    border-radius: 8px;
+    background: #F7F7F7;
+   
 }
 .indicator{
     width: 265px;
     height: 16px;
 
-    background: #222222;
-    border-radius: 8px;
+    background: #F7D070;
+  
 }
 .coll33-detail{
     flex-direction: column;

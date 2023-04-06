@@ -105,6 +105,7 @@ color: #222222;
 .section_Produit .produits{
     margin-top: 40px;
     margin-left: 32px;
+    width:110%
 }
 .section_Produit .produits .container{
     margin-right: 24px;

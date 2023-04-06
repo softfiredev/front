@@ -1,6 +1,7 @@
 import './Detail-prod.css'
 import Rating from '@mui/material/Rating';
 import { MinusCirlce, AddCircle, Bag, ArchiveAdd, Shop, Flag,ArrowLeft2 ,ArrowRight2} from 'iconsax-react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import icon from '../../assets/icon1.png'
 import React, { useEffect, useState } from 'react'
 import MenuItem from '@mui/material/MenuItem';
@@ -20,6 +21,8 @@ const Detailprod = () => {
     { url: im2 },
     { url: im3 },
   ];
+  const [value, setValue] = useState(3);
+
   const [qnt, setqnt] = useState(1);
   const [pls, setpls] = useState(0);
   const quantityplus = () => {
@@ -98,7 +101,7 @@ const Detailprod = () => {
             <div className='col-detail'>
 
               <div> <p className='txt3-detail'>GOUACHE 9T METAL LE COQ 22</p>
-                <Rating name="size-small" defaultValue={2} size="small" />
+                <Rating name="read-only" value={value} readOnly />
                 <p className='txt4-detail'> 4,998 DT</p>
               </div>
               <div >
@@ -214,13 +217,15 @@ const Detailprod = () => {
             <div>
               <div className='col4-detail'>
                 <div>  <p className='txt20-detail'>Les avis:</p>  </div>
+                
+              
                 <div>
                   <div className='row6-detail'>
 
                     <div>
                       <div className='col3-deatil' >
                         <div>  <p className='nbr-deatail'>4.5 </p> </div>
-                        <div> <Rating name="size-small" defaultValue={2} size="small" /><span className='txt12-detail'>(160)</span></div>
+                        <div> <Rating name="read-only" value={value} readOnly /><span className='txt12-detail'>(160)</span></div>
 
                       </div>
                     </div>
@@ -307,7 +312,7 @@ const Detailprod = () => {
 
 
               <div> Ashlynn Vaccaro </div>
-              <div><Rating name="size-small" defaultValue={2} size="small" /></div>
+              <div><Rating name="read-only" value={value} readOnly /></div>
               <div className='txt60-detail'>La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable.</div>
                  
                  
@@ -319,7 +324,7 @@ const Detailprod = () => {
 
 
 <div> Ashlynn Vaccaro </div>
-<div><Rating name="size-small" defaultValue={2} size="small" /></div>
+<div><Rating name="read-only" value={value} readOnly /></div>
 <div className='txt60-detail'>La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable.</div>
    
    
@@ -330,7 +335,7 @@ const Detailprod = () => {
 
 
               <div> Ashlynn Vaccaro </div>
-              <div><Rating name="size-small" defaultValue={2} size="small" /></div>
+              <div><Rating name="read-only" value={value} readOnly /></div>
               <div className='txt60-detail'>J'ai été agréablement surprise par la qualité de la peinture Gouache pour les projets scolaires de mon fils.</div>
                  
                  

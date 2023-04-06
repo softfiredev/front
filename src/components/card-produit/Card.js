@@ -7,6 +7,7 @@ import img2 from '../../assets/logom.png'
 import { ShoppingCart } from 'iconsax-react';
 
 const Card = (props) => {
+  const [value, setValue] = React.useState(4);
   return (
     <div className='card'>
         <div className="cont">
@@ -25,7 +26,11 @@ const Card = (props) => {
       
        </div>
  
-    <div className='grb-card2'><Rating  className='stars' name="size-small" defaultValue={2} size="small" /><p  className='txt-sp'>(117)</p ></div> 
+    <div className='grb-card2'>
+    
+    <Rating name="read-only" value={value} readOnly defaultValue={2} size="small" className='stars' />
+    
+    <p  className='txt-sp'>(117)</p ></div> 
     <div>   <hr className='line-card'></hr>   </div>
      </div>
   

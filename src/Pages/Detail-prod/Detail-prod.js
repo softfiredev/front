@@ -1,7 +1,6 @@
 import './Detail-prod.css'
 import Rating from '@mui/material/Rating';
 import { MinusCirlce, AddCircle, Bag, ArchiveAdd, Shop, Flag,ArrowLeft2 ,ArrowRight2} from 'iconsax-react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import icon from '../../assets/icon1.png'
 import React, { useEffect, useState } from 'react'
 import MenuItem from '@mui/material/MenuItem';

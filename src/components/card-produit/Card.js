@@ -5,20 +5,25 @@ import { Link } from 'react-router-dom';
 import img1 from '../../assets/prod2.png'
 import img2 from '../../assets/logom.png'
 import { ShoppingCart } from 'iconsax-react';
+import { useNavigate } from "react-router-dom";
 
 const Card = (props) => {
   const [value, setValue] = React.useState(4);
+  const navigate = useNavigate();
+  const link=()=>{
+    navigate("/Detailproduit/"+props.id);
+  }
   return (
     <div className='card'>
         <div className="cont">
-    <Link to="/Detailproduit"> <img src={img1} className='img-cardprod'/></Link>
+   <img src={img1} className='img-cardprod' onClick={link}/>
     <div>
      <div className='txt-card1'>{props.nom} </div>
      <div>
 
 <div className='grb-card22'>
 <div> <img src={img2} /></div>
-<div className='txt-nommaktba'> <Link to={"/librairieProfile"}>Errahma Library</Link>  </div>
+<div> <Link to="/librairieProfile/"><p className='txt-nommaktba'>{props.noml}</p></Link>  </div>
 </div>
 
     

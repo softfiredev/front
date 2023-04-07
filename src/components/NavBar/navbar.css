@@ -9,6 +9,32 @@ a{
 	text-decoration: none;	
 	
 }
+.patch-txt{
+	position: relative;
+	top:19%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+line-height: 12px;
+
+text-align: center;
+
+color: #222222;
+}
+.patch{
+	position: relative;
+	top: -70%;
+	left: 40%;
+	width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    line-height: 20px;
+    color: #fff;
+    font-size: 12px;
+	background: #E9B949;
+
+}
 .iconcolor{
 	margin-top: 50px;
 	color: #FFFFFF;

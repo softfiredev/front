@@ -36,7 +36,7 @@ function NavBar() {
                 size="32"
                 color="#FFFFFF"
                 variant="Bold"
-              />
+              /><p className='patch'><p className='patch-txt'>+3</p></p>
             </Link>
           </span>
           <Link to="login" className='butto-NAV-link' > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>

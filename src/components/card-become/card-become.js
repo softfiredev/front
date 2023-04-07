@@ -9,24 +9,25 @@ const Card_become = () => {
 
   const handleChange1 = (event,okk) => {
     if(event=='Bronze')
-{
+{document.getElementById("R1").checked = true;
   setBronze("card-becom2")
   setSilver("card-becom")
   setGold("card-becom")
 }
 if(event=='Gold')
 {
+  document.getElementById("R2").checked = true;
   setBronze("card-becom")
   setSilver("card-becom")
   setGold("card-becom2")
 }
 if(event=='Silver')
 {
+  document.getElementById("R3").checked = true;
   setBronze("card-becom")
   setSilver("card-becom2")
   setGold("card-becom")
 }
-
 
   }
 
@@ -41,7 +42,7 @@ if(event=='Silver')
 
       <div className='cardt-bec' >
 
-        <div className= {Bronze}>
+        <div className= {Bronze} onClick={()=>{handleChange1("Bronze")}}>
           <div>
 
             <div class="container">
@@ -128,7 +129,7 @@ if(event=='Silver')
 
         </div>
 
-        <div className={Silver}>
+        <div className={Silver} onClick={()=>{handleChange1("Silver")}}>
           <div>
 
             <div class="container">
@@ -212,7 +213,7 @@ if(event=='Silver')
         </div>
 
 
-        <div className= {Gold}>
+        <div className= {Gold} onClick={()=>{handleChange1("Gold")}}>
           <div>
 
             <div class="container">

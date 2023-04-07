@@ -75,7 +75,7 @@ const Become_a_Partner = () => {
                </Grid>
  
                <Grid item>
-                 <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}  >
+                 <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={3}>
                    <Grid item><div className='txt8-become'>Numéro de téléphone*</div>  </Grid>
                    <Grid item> <OutlinedInput className='inpt-becom' placeholder="Numéro de téléphone" />  </Grid>
                  </Grid>
@@ -92,34 +92,34 @@ const Become_a_Partner = () => {
                  <div className='txt8-become'>Ce que vous êtes?*</div><br />
                  <Grid container direction="column" justifyContent="center" alignItems="flex-start" spacing={2}  >
                    <Grid item>
-                     <Grid container direction="row" justifyContent="space-between" alignItems="flex-start"  >
+                     <div className='row300 ' >
                        <input type="Radio" className='radio-become' name="r1" />
                        <p className='txt9-become'>Fournisseur</p>
-                     </Grid>
+                     </div>
                    </Grid>
                    <Grid item>
-                     <Grid container direction="row" justifyContent="space-between" alignItems="flex-start"  >
+                     <div className='row300' >
                        <input type="Radio" className='radio-become' name="r1" />
                        <p className='txt9-become'>Librairie</p>
-                     </Grid>
+                     </div>
                    </Grid>
                    <Grid item>
-                     <Grid container direction="row" justifyContent="space-between" alignItems="flex-start"  >
+                     <div className='row300 '  >
                        <input type="Radio" className='radio-become' name="r1" />
                        <p className='txt9-become'>Entreprise</p>
-                     </Grid>
+                     </div>
                    </Grid>
                    <Grid item>
-                     <Grid container direction="row" justifyContent="space-between" alignItems="flex-start"  >
+                     <div className='row300 ' >
                        <input type="Radio" className='radio-become' name="r1" />
                        <p className='txt9-become'>École</p>
-                     </Grid>
+                     </div>
                    </Grid>
                    <Grid item>
-                     <Grid container direction="row" justifyContent="space-between" alignItems="flex-start"  >
+                     <div className='row300 ' >
                        <div><input type="Radio" className='radio-become' name="r1" /></div>
                        <p className='txt9-become'>Association</p>
-                     </Grid>
+                     </div>
                    </Grid>
       
                 

@@ -36,7 +36,7 @@ function App() {
    <Route path='/AboutUs' element={ <AboutUs/>} />
    <Route path='/BecomePartner' element={ <BecomePartner/>} />
    <Route path='/Shop' element={ <Shop/>} />
-   <Route path='/Detailproduit' element={ <Detailprod/>} />
+   <Route path='/Detailproduit/:id' element={ <Detailprod/>} />
    <Route path='/cart' element={<Cart/>}/>
    <Route path='/librairieProfile' element={<LibrairieProfile/>}/>
    <Route path='/reset-password/:id/:token' element={<Resetpassword/>}/>

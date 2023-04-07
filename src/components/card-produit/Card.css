@@ -1,12 +1,12 @@
 .card{
     width: 256px;
-    height: 310px;
-    background: #FFFFFF;
+    height: 322px;
+    background: #ffffff;
     box-shadow: 0px 5px 30px rgba(207, 207, 207, 0.2);
     border-radius: 8px;
 }
 .txt-nommaktba{
-    margin-top: 2%;
+
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -30,10 +30,12 @@ width: 180px;
 height: 180px;
 border-radius: 8px;
 margin-top: -5%;
+margin-left: 10%;
+margin-bottom: 2%;
 cursor: pointer;
 }
 .cont{
-    padding: 5%;
+    padding : 0 5% 5% 5%;
     flex-direction: column;
     display: flex;
     gap: 2em; 
@@ -62,10 +64,10 @@ margin-top: -9%;
 
 }
 .line-card{
-    width: 100px;
-    height: 0px;
+
     border: 1px solid #F7F7F7;
 
+margin-bottom: 10%;
     transform: rotate(180deg);
 }
 .stars{
@@ -75,8 +77,8 @@ margin-top: -9%;
 .grb-card22{
     flex-direction: row;
 display: flex;
-gap: 1.5em;
-margin-top: -5%;
+gap: 0.5em;
+
 }
 .grb-card2{
     flex-direction: row;
@@ -98,10 +100,11 @@ margin-left: 50%;
 Width:36px;
 Height:36px;
 cursor: pointer;
-margin-top: -9%;
+margin-top: -11%;
 
 
 }
+
 .ajout-bnt{
 font-family: 'Inter';
 font-style: normal;

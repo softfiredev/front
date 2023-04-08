@@ -15,7 +15,16 @@ border-radius: 12px;
     width: 210px;
     height: 39px;
 
-    
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 11px;
+line-height: 16px;
+/* identical to box height, or 133% */
+
+
+color: #9E9E9E;
     background: #FFFFFF;
 
     border-radius: 8px;

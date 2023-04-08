@@ -1,0 +1,39 @@
+.carts2{
+    width: 844px;
+height: 608px;
+
+padding: 5%;
+background: #FFFFFF;
+border-radius: 8px;
+}
+.bnt-pro3{
+width: 156px;
+height: 48px;
+margin-left: 32%;
+background: #222222;
+border-radius: 8px;
+}
+.txt-profile3{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #626262;
+    
+}
+.input-pro{
+    width: 400px;
+height: 48px;
+
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+}
+.col1-page1{
+    flex-direction: column;
+    display: flex;
+    text-align: left;
+    gap: 1.5em;
+}

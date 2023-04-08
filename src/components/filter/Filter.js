@@ -65,7 +65,7 @@ const change4=()=>{
 
             <Grid item ><hr className='lin'></hr>     </Grid >
             <Grid item ><p className='txt4-shopr'> Rechercher des produits</p>     </Grid >
-            <Grid item ><OutlinedInput className="input-shop" placeholder="Rechercher des produits" />      </Grid >
+            <Grid item ><OutlinedInput className="input-shop" placeholder="Rechercher un stylo, une trousse..." />      </Grid >
 
 
             <Grid item ><hr className='lin'></hr>     </Grid >

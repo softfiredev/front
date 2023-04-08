@@ -49,7 +49,6 @@ margin-top: 4%;
     width: 24px;
 height: 24px;
 
-background: #F7D070;
 }
 .box-b1{
     width: 1540px;
@@ -271,11 +270,7 @@ cursor: pointer;
 background: #222222;
 border-radius: 10px;
 }
-.radio-become   {
-    border: #F7D070;
 
-  }
-  
 .Coordonnées{
 
 
@@ -449,12 +444,20 @@ margin-left: -94%;
 margin-top: -2.5%;
 gap: 20px;
 }
-
-input[name="r1"] {
+.row300{
+    flex-direction: row;
+display: flex;
+gap: 0.5em;
+}
+input[name="r1"]:checked {
     width: 24px;
     height: 24px;
-    background: #F7D070;
+    border: 6px solid #F7D070 !important;
+    appearance: none;
 
+
+ 
+    border-radius:50%;
 }
 .txt9-become{
     font-family: 'Inter';

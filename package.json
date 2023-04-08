@@ -27,6 +27,7 @@
     "proxy-state": "^1.3.2",
     "react": "^18.2.0",
     "react-awesome-slider": "^4.1.0",
+    "react-collapsed": "^4.0.1",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^18.2.0",
     "react-facebook-login": "^4.1.1",

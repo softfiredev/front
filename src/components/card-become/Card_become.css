@@ -12,12 +12,12 @@ margin-left: 5%;
 background: #FFFFFF;
 border: 1px solid #E1E1E1;
 border-radius: 8px;
-
+cursor: pointer;
 }
 
 .card-becom2{
   border: 2px solid #F7D070;
-
+cursor: pointer;
   padding: 2.5%;
   width: 220px;
   height: 368px;

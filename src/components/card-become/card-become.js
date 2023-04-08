@@ -45,7 +45,7 @@ if(event=='Silver')
         <div className= {Bronze} onClick={()=>{handleChange1("Bronze")}}>
           <div>
 
-            <div class="container">
+            <div >
               <div class="round">
                 <input type="radio"  id="R1" name="R" value="R1" onChange={()=>{handleChange1("Bronze")}} />
                 <label for="R1"></label>
@@ -132,7 +132,7 @@ if(event=='Silver')
         <div className={Silver} onClick={()=>{handleChange1("Silver")}}>
           <div>
 
-            <div class="container">
+            <div >
               <div class="round">
                 <input type="radio"  id="R3"name="R" onChange={()=>{handleChange1("Silver")}}  />
                 <label for="R3"></label>
@@ -216,7 +216,7 @@ if(event=='Silver')
         <div className= {Gold} onClick={()=>{handleChange1("Gold")}}>
           <div>
 
-            <div class="container">
+            <div>
               <div class="round">
                 <input type="radio"  id="R2" name="R" value="R2" onChange={()=>{handleChange1("Gold")}}  />
                 <label for="R2"></label>

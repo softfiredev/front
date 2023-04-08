@@ -85,6 +85,7 @@ const Detailprod = () => {
   };
   const images = [{ url: im1 }, { url: im2 }, { url: im3 }];
   const [value, setValue] = useState(3);
+  const [imgclick, setimgclick] = useState("");
   const [value2, setValue2] = useState(3);
   const [pls, setpls] = useState(0);
   const [open, setOpen] = React.useState(false);
@@ -113,12 +114,11 @@ const Detailprod = () => {
     }
   };
 
-  console.log(images[pls].url);
   return (
     <div className="detail">
       <div>
         <Stack spacing={2}>
-          <Breadcrumbs separator="›" aria-label="breadcrumb">
+          <Breadcrumbs separator="›" aria-label="breadcrumb" >
             {breadcrumbs}
           </Breadcrumbs>
         </Stack>
@@ -137,17 +137,19 @@ const Detailprod = () => {
                 navigation={true}
                 thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2"
+                className="mySwiper2"onClick={()=>{setimgclick("")}}
               >
-                <SwiperSlide>
-                  <img src={img} />
+
+{images.map((obj) =>
+              <>
+                  <SwiperSlide>
+                {imgclick==""?<><img src={obj.url} /></>:<> <img src={imgclick} /></>} 
                 </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                </SwiperSlide>
+
+               </>
+            )}
+          
+        
               </Swiper>
               <Swiper
                
@@ -156,17 +158,17 @@ const Detailprod = () => {
                freeMode={true}
                watchSlidesProgress={true}
                modules={[FreeMode, Navigation, Thumbs]}
-               className="mySwiper"
+               className="mySwiper"onClick={()=>{setimgclick("")}}
               >
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+            
+{images.map((obj) =>
+              <>
+                  <SwiperSlide>
+                  <img src={obj.url} onClick={()=>{setimgclick(obj.url)}} />
                 </SwiperSlide>
-                <SwiperSlide>
-                  <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={img} />
-                </SwiperSlide>
+
+               </>
+            )}
                 
               </Swiper>
             </div>

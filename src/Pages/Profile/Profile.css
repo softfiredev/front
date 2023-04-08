@@ -21,6 +21,15 @@ border: none;
     cursor: pointer;
 background: #FFFFFF;
 border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+/* identical to box height, or 125% */
+
+
+color: #9E9E9E;
 }
 .bnt-pro{
     width: 229px;
@@ -29,16 +38,17 @@ border-radius: 8px;
     background: #F7D070;
     border-radius: 8px;
     cursor: pointer;
-}
-.txt0-icon{
-    
-font-family: 'Inter';
+    font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
 font-size: 16px;
 line-height: 20px;
 
 color: #222222;
+}
+.txt0-icon{
+    
+
 
 }
 
@@ -59,18 +69,6 @@ text-transform: capitalize;
 
 
 color: #222222;
-}
-.txt-icon{
-    
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 20px;
-/* identical to box height, or 125% */
-
-
-color: #9E9E9E;
 }
 
 .carts{

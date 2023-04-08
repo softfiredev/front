@@ -474,7 +474,7 @@ color: #222222;
 .row10-detail{
     flex-direction: row;
     display: flex;
-    gap: 12.5em;
+    gap: 5.8em;
     width: 150%;
 }
 
@@ -580,7 +580,7 @@ line-height: 140%;
 color: #4B4B4B;
 }
 .pagination-detail{
-    margin-left: -10%;
+    margin-left: 5%;
 }
 .col303-detail{
     flex-direction: column;

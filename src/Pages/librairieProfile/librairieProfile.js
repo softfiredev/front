@@ -11,13 +11,11 @@ import Trifilter from "../../components/tri-filter/Trifilter";
 import Pagination from "@mui/material/Pagination";
 
 const LibrairieProfile = () => {
-  const prod = [
-    { nom: "PACK LIVRE SCOLAIRE 1éME", prix: "8.1dt", url: "" },
-    { nom: "PACK LIVRE SCOLAIRE 1 EME", prix: "5.1dt", url: "" },
-    { nom: "COMPAS AVEC CRAYON 2506 INV", prix: "4.1dt", url: "" },
-    { nom: "PACK LIVRE SCOLAIRE 1éME", prix: "8.1dt", url: "" },
-    { nom: "PACK LIVRE SCOLAIRE 1 EME", prix: "1.1dt", url: "" },
-  ];
+  const prod = [{id:"000011110",nom:"PACK LIVRE SCOLAIRE 1éME",prix:"8.1dt",noml:"ali Library"},
+    {id:"0707275211110",nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"5.1dt",noml:"ali Library"},
+    {id:"278200011110",nom:"COMPAS AVEC CRAYON 2506 INV",prix:"4.1dt",noml:"Errahma Library"},
+    {id:"00ssds011110",nom:"PACK LIVRE SCOLAIRE 1éME",prix:"8.1dt",noml:"Errahma Library"},
+    {id:"0aaa0011110",nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"1.1dt",noml:"Errahma Library"}];
   return (
     <div className="profile">
       <Box
@@ -96,12 +94,12 @@ const LibrairieProfile = () => {
               direction="row"
               justifyContent="flex-start"
               alignItems="center"
-              className="produits"
+              className="produitsLab"
             >
                  {prod.map((obj) =>
               
                            <div className="container">
-                                <Card prix={obj.prix} nom={obj.nom} /> 
+                               <Card prix={obj.prix} nom={obj.nom} noml={obj.noml} id={obj.id}/>  
                            </div> 
 
                

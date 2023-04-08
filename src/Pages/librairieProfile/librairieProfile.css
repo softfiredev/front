@@ -103,12 +103,12 @@ color: #222222;
     margin-left: 24px;
     margin-top: 15px;
 }
-.section_Produit .produits{
+.section_Produit .produitsLab{
     margin-top: 40px;
     margin-left: 32px;
     width:110%
 }
-.section_Produit .produits .container{
+.section_Produit .produitsLab .container{
     margin-right: 24px;
     margin-top: 24px;
 }

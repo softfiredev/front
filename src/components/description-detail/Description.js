@@ -90,7 +90,7 @@ const Description = () => {
 
     </div>
     <div>
-      <p className='txt9-detail'>Information du vendeur:</p><br /><br />
+      <p className='txt9-detail'>Information du vendeur:</p><br />
       <div className='row3-detail'>
         <img src={icon} className='img-detail2' />
         <div className='col3-deatil'>
@@ -115,7 +115,7 @@ const Description = () => {
         </div>
 
       </div>
-      <div><br /><br />
+      <div><br /><br /><br />
         <p className='txt10-detail'>Partagez ceci : </p><br />
       </div>
       <div className='row6-detail'>

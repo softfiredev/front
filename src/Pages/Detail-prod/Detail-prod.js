@@ -325,8 +325,8 @@ const Detailprod = () => {
                     <p className="txt20-detail">Les commentaires:</p>{" "}
                   </div>
                   <div>
-                    <p className="txt21-detail">
-                      Trier par:
+                 
+                  
                       <div className="select-detail">
                         <Select
                           className="txt-select-detail"
@@ -339,7 +339,7 @@ const Detailprod = () => {
                         >
                           <MenuItem value="Le plus ancien">
                             <em className="txt-select-detail">
-                              Le plus ancien
+                            Le plus récent
                             </em>
                           </MenuItem>
                           <ListSubheader> </ListSubheader>
@@ -352,7 +352,7 @@ const Detailprod = () => {
                           </MenuItem>
                         </Select>
                       </div>
-                    </p>
+                    
                     <span></span>
                   </div>
                 </div>

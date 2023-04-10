@@ -226,6 +226,16 @@ color: #222222;
     margin-top: 5%; 
     margin-left: 13%;
 }
+.txt120-detail{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+margin-top: -1%;
+
+color: #626262;
+}
 .txt9-detail{
     font-family: 'Inter';
 font-style: normal;
@@ -374,7 +384,16 @@ width: 115px;
     gap: 1em;
 
 }
+.row-row6card{
+    flex-direction: row;
+    display: flex;
 
+}
+.row610-detail{
+    flex-direction: row;
+    display: flex;
+
+}
 .txt11-detail{
 margin-top: 3.5%;
 width: 102px;

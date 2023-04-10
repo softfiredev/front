@@ -10,6 +10,7 @@ const Profilee = () => {
   const [bnt3, setbnt3] = useState('bnt-pro2');
   const [bnt4, setbnt4] = useState('bnt-pro2');
   const [bnt5, setbnt5] = useState('bnt-pro2');
+  const tab=[{nom:"Profile",icon:<Profile size="20"/>,id:"1",},{},{}]
   const Pagee=()=>{
     if(name=="page1")
     {

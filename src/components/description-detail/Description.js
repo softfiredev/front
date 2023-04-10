@@ -39,7 +39,10 @@ const Description = () => {
     <div className='col-detail'>
 
     <div> <p className='txt3-detail'>GOUACHE 9T METAL LE COQ 22</p>
-      <Rating name="read-only" value={value3} readOnly />
+    <div className="row610-detail">
+                          <Rating name="read-only" value={value3} readOnly />
+                          <p className="txt12-detail">(160)</p>
+                        </div><br/>
       <p className='txt4-detail'> 4,998 DT</p>
     </div>
     <div >

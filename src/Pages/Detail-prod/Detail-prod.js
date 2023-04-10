@@ -1,22 +1,11 @@
 import "./Detail-prod.css";
 import Rating from "@mui/material/Rating";
-import {
-  MinusCirlce,
-  AddCircle,
-  Bag,
-  ArchiveAdd,
-  Shop,
-  Flag,
-  ArrowLeft2,
-  ArrowRight2,
-} from "iconsax-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import img from "../../assets/prod4.png";
 import React, { useEffect, useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import ListSubheader from "@mui/material/ListSubheader";
@@ -35,6 +24,8 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { OutlinedInput } from "@mui/material";
 import Description from "../../components/description-detail/Description";
+import Avatar from '@mui/material/Avatar';
+
 const Detailprod = () => {
   const prod = [
     {
@@ -83,6 +74,10 @@ const Detailprod = () => {
 
     p: 4,
   };
+  const des=[
+  {avtar:<Avatar src=""sx={{ width: 24, height: 24 }}  /> ,nom:"Ashlynn Vaccaro ",stars: <Rating name="read-only" value="2" readOnly />,Description:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. "},{avtar:<Avatar src=""sx={{ width: 24, height: 24 }}  /> ,nom:"Ashlynn Vaccaro ",stars: <Rating name="read-only" value="2" readOnly />,Description:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. "},
+  {avtar:<Avatar src=""sx={{ width: 24, height: 24 }}  /> ,nom:"Ashlynn Vaccaro ",stars: <Rating name="read-only" value="2" readOnly />,Description:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. "},
+  {avtar:<Avatar src=""sx={{ width: 24, height: 24 }}  /> ,nom:"Ashlynn Vaccaro ",stars: <Rating name="read-only" value="2" readOnly />,Description:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. "}]
   const images = [{ url: im1 }, { url: im2 }, { url: im3 }];
   const [value, setValue] = useState(3);
   const [imgclick, setimgclick] = useState("");
@@ -284,6 +279,7 @@ const Detailprod = () => {
                       <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         <div className="col3-deatil">
                           <Rating
+                        
                             value={value}
                             onChange={(event, newValue) => {
                               setValue(newValue);
@@ -357,38 +353,22 @@ const Detailprod = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="coll4-detail">
-                <div> Ashlynn Vaccaro </div>
+        
+              {des.map((obj) =>
+         
+             <div className="coll4-detail">
+                <div  className="row6-detail"><div> {obj.avtar} </div> <div>{obj.nom}  </div></div>
                 <div>
-                  <Rating name="read-only" value={value2} readOnly />
+                {obj.stars} 
                 </div>
                 <div className="txt60-detail">
-                  La peinture Gouache offre des couleurs vives et une
-                  consistance lisse à un prix abordable.
+                {obj.Description} 
                 </div>
               </div>
 
-              <div className="coll4-detail">
-                <div> Ashlynn Vaccaro </div>
-                <div>
-                  <Rating name="read-only" value={value2} readOnly />
-                </div>
-                <div className="txt60-detail">
-                  La peinture Gouache offre des couleurs vives et une
-                  consistance lisse à un prix abordable.
-                </div>
-              </div>
-              <div className="coll4-detail">
-                <div> Ashlynn Vaccaro </div>
-                <div>
-                  <Rating name="read-only" value={value2} readOnly />
-                </div>
-                <div className="txt60-detail">
-                  J'ai été agréablement surprise par la qualité de la peinture
-                  Gouache pour les projets scolaires de mon fils.
-                </div>
-              </div>
+            )}      
+
+   
               <div className="pagination-detail">
                 {" "}
                 <Pagination
@@ -406,9 +386,10 @@ const Detailprod = () => {
         <div className="col303-detail">
           <div className="txt202-detail">Découvrez aussi</div>
           <div>
-            <div className="row6-detail">
+            <div className="row-row6card">
+       
               {prod.map((obj) => (
-                <>
+           
                   <Grid item>
                     <Card
                       prix={obj.prix}
@@ -417,9 +398,10 @@ const Detailprod = () => {
                       id={obj.id}
                     />
                   </Grid>
-                </>
+            
               ))}
             </div>
+
           </div>
         </div>
       </div>

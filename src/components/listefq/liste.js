@@ -34,7 +34,7 @@ const Liste = () => {
   const AccordionSummary = styled((props) => (
     
     <MuiAccordionSummary
-        expandIcon ={btnactive ? <AddCircle sx={{ fontSize: "1.9rem" }} onClick={()=>setbtnactive(false)} /> : <MinusCirlce sx={{ fontSize: "1.9rem" }} onClick={()=>setbtnactive(true)} />}   
+        expandIcon ={ <AddCircle sx={{ fontSize: "1.9rem" }}  />}   
              
       {...props}
     />

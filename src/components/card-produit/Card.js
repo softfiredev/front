@@ -11,7 +11,9 @@ const Card = (props) => {
   const [value, setValue] =useState(4);
   return (
     <div className="card">
+       
       <div className="cont">
+      <div className='back-des'><p className='back-txt'>pack promo</p></div>
         <Link to={`/Detailproduit/${props.id}`}><img src={img1} className="img-cardprod"/></Link>
         
         <div>

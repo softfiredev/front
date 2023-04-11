@@ -39,6 +39,7 @@ cursor: pointer;
     flex-direction: column;
     display: flex;
     gap: 2em; 
+    position:relative;
 }
 .txt-card1{
 
@@ -118,3 +119,13 @@ color: #F5F5F7;
     margin-top: 20%;
     margin-left: 20%;
 }
+.back-des{
+    position: absolute;
+    top:-5px;
+    left: 5px;
+       background: #F7D070;
+       width: 75px;
+   height: 20px;
+   border-radius: 4px;
+   padding:3px;
+   }

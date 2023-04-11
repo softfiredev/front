@@ -46,7 +46,7 @@ const Shop = () => {
                                 {prod.map((obj) =>
               <>
                            <Grid item > 
-                           <div className='back-des'><p className='back-txt'>pack promo</p></div>
+                          
                            <Card prix={obj.prix} nom={obj.nom} noml={obj.noml} id={obj.id}/>  
                              </Grid >
 

@@ -299,7 +299,7 @@ const Detailprod = () => {
                   open={open}
                   aria-labelledby="modal-modal-title"
                   aria-describedby="modal-modal-description"
-                  onClick={handleClose}
+                  onClose={handleClose}
                 >
                   <Box sx={style} >
                     <Typography

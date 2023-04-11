@@ -138,11 +138,12 @@ const Description = () => {
         <p className='txt13-detail' onClick={handleOpen}>Signaler</p>
         <Modal
         open={open}
-        onClick={handleClose}
+        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+
       >
-        <Box sx={style}>
+        <Box sx={style} >
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <p className='closemodal' onClick={handleClose}>X</p>
            <p className='txtmodal-detail'>Signaler cet article</p><br/>

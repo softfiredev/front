@@ -9,7 +9,10 @@ import { Grid } from "@mui/material";
 import Cart_cln from "../../components/cart-client/cart-client";
 import Imgt from "../../assets/tni.png";
 import Cart_contact from "../../components/cart-contact/cart_contact";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode} from "swiper";
+import "swiper/css";
+import "swiper/css/free-mode";
 const AboutUs = () => {
   return (
     <div className="about">
@@ -162,14 +165,32 @@ const AboutUs = () => {
          
           <p className="txt12-about">Notre Partenariats et collaborations</p>
         </Grid>
-        <Grid item>
-          <div className="e-point-about">
-            <img src={Imgt} className="img-tun-about" />
-            <img src={Imgt} className="img-tun-about" />
-            <img src={Imgt} className="img-tun-about" />
-            <img src={Imgt} className="img-tun-about" />
-            <img src={Imgt} className="img-tun-about" />
-          </div>
+        <Grid item style={{marginLeft:"-110px"}}>
+            <div style={{width:"1000px"}} > 
+            <Swiper
+              freeMode={true}
+              grabCursor={true}
+              spaceBetween={-1200}
+              modules={[FreeMode]}
+              className="mySwiper"
+               style={{width:"1500px"}} 
+            >
+              <SwiperSlide> <img src={Imgt} className="swiper-img-about"/></SwiperSlide>
+              <SwiperSlide> <img src={Imgt} className="swiper-img-about"/></SwiperSlide>
+              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
+              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
+              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
+              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
+              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
+              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
+              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
+              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
+
+              
+          
+            </Swiper>
+            </div>
+               
         </Grid>
 
         <Grid item>

@@ -185,9 +185,6 @@ const AboutUs = () => {
               <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
               <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
               <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
-
-              
-          
             </Swiper>
             </div>
                

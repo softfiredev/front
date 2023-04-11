@@ -25,7 +25,6 @@ import Modal from "@mui/material/Modal";
 import { OutlinedInput } from "@mui/material";
 import Description from "../../components/description-detail/Description";
 import Avatar from "@mui/material/Avatar";
-
 const Detailprod = () => {
   const prod = [
     {
@@ -410,7 +409,20 @@ const Detailprod = () => {
           <div className="txt202-detail">Découvrez aussi</div>
           <div>
             <div className="row-row6card">
+            </div>
+          </div>
+          <Grid item style={{marginLeft:"10px"}}>
+            <div style={{width:"1000px"}} > 
+            <Swiper
+              freeMode={true}
+              grabCursor={true}
+              spaceBetween={-1200}
+              modules={[FreeMode]}
+              
+               style={{width:"1500px"}} 
+            >
               {prod.map((obj,key) => (
+                <SwiperSlide>
                 <Grid item key={key}> 
                   <Card
                     prix={obj.prix}
@@ -419,9 +431,12 @@ const Detailprod = () => {
                     id={obj.id}
                   />
                 </Grid>
+                </SwiperSlide>
               ))}
+            </Swiper>
             </div>
-          </div>
+               
+        </Grid>
         </div>
       </div>
     </div>

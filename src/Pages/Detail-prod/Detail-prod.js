@@ -176,7 +176,7 @@ const Detailprod = () => {
                 freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper"
+                className="mySwiper1"
                 onClick={() => {
                   setimgclick("");
                 }}

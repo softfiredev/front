@@ -321,6 +321,11 @@ cursor: pointer;
     display: flex;
     gap: 1em;
 }
+.col3-deatil .reting1{
+ font-size: 80px;
+ margin-left: 30px;
+    margin-bottom: 20px;
+}
 .nbr-deatail{
     font-family: 'Inter';
 font-style: normal;
@@ -611,4 +616,4 @@ color: #4B4B4B;
     flex-direction: row;
     display: flex;
     gap: 1em;
-  }
+}

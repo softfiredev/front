@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 const Description = () => {
     const [value3, setValue3] = useState(3);
   const [qnt, setqnt] = useState(1);
+  const [idlab, setidlab] = useState(1);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -32,7 +33,6 @@ const Description = () => {
     height: '715px',
     boxShadow: '2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)',
     borderRadius: '8px',
-
     p: 4,
   };
   return (
@@ -98,7 +98,7 @@ const Description = () => {
         <img src={icon} className='img-detail2' />
         <div className='col3-deatil'>
           <p className='txt10-detail'>Errahma Library</p>
-          <Link to='/librairieProfile'>
+          <Link to={`/librairieProfile/${idlab}`}>
             <button className='bnt5-detail'>
 
               <div className='row6-detail'>
@@ -138,7 +138,7 @@ const Description = () => {
         <p className='txt13-detail' onClick={handleOpen}>Signaler</p>
         <Modal
         open={open}
-       
+        onClick={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

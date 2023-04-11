@@ -24,7 +24,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { OutlinedInput } from "@mui/material";
 import Description from "../../components/description-detail/Description";
-import Avatar from '@mui/material/Avatar';
+import Avatar from "@mui/material/Avatar";
 
 const Detailprod = () => {
   const prod = [
@@ -74,10 +74,36 @@ const Detailprod = () => {
 
     p: 4,
   };
-  const des=[
-  {avtar:<Avatar src=""sx={{ width: 24, height: 24 }}  /> ,nom:"Ashlynn Vaccaro ",stars: <Rating name="read-only" value="2" readOnly />,Description:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. "},{avtar:<Avatar src=""sx={{ width: 24, height: 24 }}  /> ,nom:"Ashlynn Vaccaro ",stars: <Rating name="read-only" value="2" readOnly />,Description:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. "},
-  {avtar:<Avatar src=""sx={{ width: 24, height: 24 }}  /> ,nom:"Ashlynn Vaccaro ",stars: <Rating name="read-only" value="2" readOnly />,Description:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. "},
-  {avtar:<Avatar src=""sx={{ width: 24, height: 24 }}  /> ,nom:"Ashlynn Vaccaro ",stars: <Rating name="read-only" value="2" readOnly />,Description:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. "}]
+  const des = [
+    {
+      avtar: <Avatar src="" sx={{ width: 24, height: 24 }} />,
+      nom: "Ashlynn Vaccaro ",
+      stars: <Rating name="read-only" value="2" readOnly />,
+      Description:
+        "La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. ",
+    },
+    {
+      avtar: <Avatar src="" sx={{ width: 24, height: 24 }} />,
+      nom: "Ashlynn Vaccaro ",
+      stars: <Rating name="read-only" value="2" readOnly />,
+      Description:
+        "La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. ",
+    },
+    {
+      avtar: <Avatar src="" sx={{ width: 24, height: 24 }} />,
+      nom: "Ashlynn Vaccaro ",
+      stars: <Rating name="read-only" value="2" readOnly />,
+      Description:
+        "La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. ",
+    },
+    {
+      avtar: <Avatar src="" sx={{ width: 24, height: 24 }} />,
+      nom: "Ashlynn Vaccaro ",
+      stars: <Rating name="read-only" value="2" readOnly />,
+      Description:
+        "La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. ",
+    },
+  ];
   const images = [{ url: im1 }, { url: im2 }, { url: im3 }];
   const [value, setValue] = useState(3);
   const [imgclick, setimgclick] = useState("");
@@ -113,7 +139,7 @@ const Detailprod = () => {
     <div className="detail">
       <div>
         <Stack spacing={2}>
-          <Breadcrumbs separator="›" aria-label="breadcrumb" >
+          <Breadcrumbs separator="›" aria-label="breadcrumb">
             {breadcrumbs}
           </Breadcrumbs>
         </Stack>
@@ -132,39 +158,51 @@ const Detailprod = () => {
                 navigation={true}
                 thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2"onClick={()=>{setimgclick("")}}
+                className="mySwiper2"
+                onClick={() => {
+                  setimgclick("");
+                }}
               >
-
-{images.map((obj) =>
-              <>
-                  <SwiperSlide>
-                {imgclick==""?<><img src={obj.url} /></>:<> <img src={imgclick} /></>} 
-                </SwiperSlide>
-
-               </>
-            )}
-          
-        
+                {images.map((obj) => (
+                  <>
+                    <SwiperSlide>
+                      {imgclick == "" ? (
+                        <>
+                          <img src={obj.url} />
+                        </>
+                      ) : (
+                        <>
+                          
+                          <img src={imgclick} />
+                        </>
+                      )}
+                    </SwiperSlide>
+                  </>
+                ))}
               </Swiper>
               <Swiper
-               
-               spaceBetween={10}
-               slidesPerView={7}
-               freeMode={true}
-               watchSlidesProgress={true}
-               modules={[FreeMode, Navigation, Thumbs]}
-               className="mySwiper"onClick={()=>{setimgclick("")}}
+                spaceBetween={10}
+                slidesPerView={7}
+                freeMode={true}
+                watchSlidesProgress={true}
+                modules={[FreeMode, Navigation, Thumbs]}
+                className="mySwiper"
+                onClick={() => {
+                  setimgclick("");
+                }}
               >
-            
-{images.map((obj) =>
-              <>
-                  <SwiperSlide>
-                  <img src={obj.url} onClick={()=>{setimgclick(obj.url)}} />
-                </SwiperSlide>
-
-               </>
-            )}
-                
+                {images.map((obj) => (
+                  <>
+                    <SwiperSlide>
+                      <img
+                        src={obj.url}
+                        onClick={() => {
+                          setimgclick(obj.url);
+                        }}
+                      />
+                    </SwiperSlide>
+                  </>
+                ))}
               </Swiper>
             </div>
             <div className=" description">
@@ -173,213 +211,198 @@ const Detailprod = () => {
           </div>
         </div>
 
-        
-          <div className="row10-detail">
-            <div>
-              <div className="col4-detail">
-                <div>
-                
-                  <p className="txt20-detail">Les avis:</p>{" "}
-                </div>
-
-                <div>
-                  <div className="row6-detail">
-                    <div>
-                      <div className="col3-deatil">
-                        <div>
-                          {" "}
-                          <p className="nbr-deatail">4.5 </p>{" "}
-                        </div>
-                        <div className="row6-detail">
-                          <Rating name="read-only" value={value2} readOnly />
-                          <p className="txt12-detail">(160)</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="coll33-detail">
-                      <div className="row6-detail">
-                        <div>
-                          {" "}
-                          <p className="">5</p>{" "}
-                        </div>
-                        <div>
-                          {" "}
-                          <div className="progressbar">
-                            <div
-                              className="indicator"
-                              style={{ width: "205px" }}
-                            ></div>
-                          </div>
-                        </div>
-                        <div>
-                          {" "}
-                          <p className="txt12-detail">(90)</p>{" "}
-                        </div>
-                      </div>
-
-                      <div className="row6-detail">
-                        <div>
-                          {" "}
-                          <p className="">5</p>{" "}
-                        </div>
-                        <div>
-                          {" "}
-                          <div className="progressbar">
-                            <div className="indicator"></div>
-                          </div>
-                        </div>
-                        <div>
-                          {" "}
-                          <p className="txt12-detail">(90)</p>{" "}
-                        </div>
-                      </div>
-
-                      <div className="row6-detail">
-                        <div>
-                          {" "}
-                          <p className="">5</p>{" "}
-                        </div>
-                        <div>
-                          {" "}
-                          <div className="progressbar">
-                            <div className="indicator"></div>
-                          </div>
-                        </div>
-                        <div>
-                          {" "}
-                          <p className="txt12-detail">(90)</p>{" "}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="txt7-detail" onClick={handleOpen}>
-                    Donnez votre avis
-                  </p>
-
-                  <Modal
-                    open={open}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <Box sx={style}>
-                      <Typography
-                        id="modal-modal-title"
-                        variant="h6"
-                        component="h2"
-                      >
-                        <p className="closemodal" onClick={handleClose}>
-                          X
-                        </p>
-                        <p className="txtmodal-detail">Ajouter votre avis</p>
-                        <br />
-                      </Typography>
-                      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        <div className="col3-deatil">
-                          <Rating
-                        
-                            value={value}
-                            onChange={(event, newValue) => {
-                              setValue(newValue);
-                            }}
-                            sx={{ fontSize: "3rem" }}
-                          />
-                          <p className="txtmodal3">Votre avis</p>
-                          <OutlinedInput
-                            className="inpu-conn2-modal"
-                            placeholder="Message"
-                            multiline
-                            rows={5}
-                            maxRows={80}
-                          />
-                          <div className="row-detail">
-                            <button
-                              className="bnt-modala1"
-                              onClick={handleClose}
-                            >
-                              <p className="txt-modalbnt1">Annuler</p>
-                            </button>
-                            <button className="bnt-modala2">
-                              <p className="txt-modalbnt2">Envoyer</p>
-                            </button>
-                          </div>
-                        </div>
-                      </Typography>
-                    </Box>
-                  </Modal>
-                </div>
-              </div>
-            </div>
-
-            <div className="coll3-detail">
+        <div className="row10-detail">
+          <div>
+            <div className="col4-detail">
               <div>
-                <div className="Grob1-detail">
+                <p className="txt20-detail">Les avis:</p>
+              </div>
+
+              <div>
+                <div className="row6-detail">
                   <div>
-                    {" "}
-                    <p className="txt20-detail">Les commentaires:</p>{" "}
-                  </div>
-                  <div>
-                 
-                  
-                      <div className="select-detail">
-                        <Select
-                          className="txt-select-detail"
-                          defaultValue="Le plus ancien"
-                          style={{
-                            width: "145.5px",
-                            height: " 39px",
-                            borderRadius: "8px",
-                          }}
-                        >
-                          <MenuItem value="Le plus ancien">
-                            <em className="txt-select-detail">
-                            Le plus récent
-                            </em>
-                          </MenuItem>
-                          <ListSubheader> </ListSubheader>
-                          <MenuItem value={1} className="txt-select-detail">
-                            Option 1
-                          </MenuItem>
-                          <ListSubheader></ListSubheader>
-                          <MenuItem value={2} className="txt-select-detail">
-                            Option 2
-                          </MenuItem>
-                        </Select>
+                    <div className="col3-deatil">
+                      <div>
+                        
+                        <p className="nbr-deatail">4.5 </p>
                       </div>
-                    
-                    <span></span>
+                      <div className="row6-detail">
+                        <Rating name="read-only" value={value2} readOnly />
+                        <p className="txt12-detail">(160)</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="coll33-detail">
+                    <div className="row6-detail">
+                      <div>
+                        
+                        <p className="">5</p>
+                      </div>
+                      <div>
+                        
+                        <div className="progressbar">
+                          <div
+                            className="indicator"
+                            style={{ width: "205px" }}
+                          ></div>
+                        </div>
+                      </div>
+                      <div>
+                        
+                        <p className="txt12-detail">(90)</p>
+                      </div>
+                    </div>
+
+                    <div className="row6-detail">
+                      <div>
+                        
+                        <p className="">5</p>
+                      </div>
+                      <div>
+                        
+                        <div className="progressbar">
+                          <div className="indicator"></div>
+                        </div>
+                      </div>
+                      <div>
+                        
+                        <p className="txt12-detail">(90)</p>
+                      </div>
+                    </div>
+
+                    <div className="row6-detail">
+                      <div>
+                        
+                        <p className="">5</p>
+                      </div>
+                      <div>
+                        
+                        <div className="progressbar">
+                          <div className="indicator"></div>
+                        </div>
+                      </div>
+                      <div>
+                        
+                        <p className="txt12-detail">(90)</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-        
-              {des.map((obj) =>
-         
-             <div className="coll4-detail">
-                <div  className="row6-detail"><div> {obj.avtar} </div> <div>{obj.nom}  </div></div>
-                <div>
-                {obj.stars} 
-                </div>
-                <div className="txt60-detail">
-                {obj.Description} 
-                </div>
-              </div>
 
-            )}      
+              <div>
+                <p className="txt7-detail" onClick={handleOpen}>
+                  Donnez votre avis
+                </p>
 
-   
-              <div className="pagination-detail">
-                {" "}
-                <Pagination
-                  count={16}
-                  shape="rounded"
-                  className="pagination-shop"
-                />{" "}
+                <Modal
+                  open={open}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                  onClick={handleClose}
+                >
+                  <Box sx={style} >
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h6"
+                      component="h2"
+                    >
+                      <p className="closemodal" onClick={handleClose}>
+                        X
+                      </p>
+                      <p className="txtmodal-detail">Ajouter votre avis</p>
+                      <br />
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                      <div className="col3-deatil">
+                        <Rating className="reting1"
+                          value={value}
+                          onChange={(event, newValue) => {
+                            setValue(newValue);
+                          }}
+                          
+                        />
+                        <p className="txtmodal3">Votre avis</p>
+                        <OutlinedInput
+                          className="inpu-conn2-modal"
+                          placeholder="Message"
+                          multiline
+                          rows={5}
+                          maxRows={80}
+                        />
+                        <div className="row-detail">
+                          <button className="bnt-modala1" onClick={handleClose}>
+                            <p className="txt-modalbnt1">Annuler</p>
+                          </button>
+                          <button className="bnt-modala2">
+                            <p className="txt-modalbnt2">Envoyer</p>
+                          </button>
+                        </div>
+                      </div>
+                    </Typography>
+                  </Box>
+                </Modal>
               </div>
             </div>
           </div>
-       
+
+          <div className="coll3-detail">
+            <div>
+              <div className="Grob1-detail">
+                <div>
+                  
+                  <p className="txt20-detail">Les commentaires:</p>
+                </div>
+                <div>
+                  <div className="select-detail">
+                    <Select
+                      className="txt-select-detail"
+                      defaultValue="Le plus ancien"
+                      style={{
+                        width: "145.5px",
+                        height: " 39px",
+                        borderRadius: "8px",
+                      }}
+                    >
+                      <MenuItem value="Le plus ancien">
+                        <em className="txt-select-detail">Le plus récent</em>
+                      </MenuItem>
+                      <ListSubheader> </ListSubheader>
+                      <MenuItem value={1} className="txt-select-detail">
+                        Option 1
+                      </MenuItem>
+                      <ListSubheader></ListSubheader>
+                      <MenuItem value={2} className="txt-select-detail">
+                        Option 2
+                      </MenuItem>
+                    </Select>
+                  </div>
+
+                  <span></span>
+                </div>
+              </div>
+            </div>
+
+            {des.map((obj,key) => (
+              <div className="coll4-detail" key={key}>
+                <div className="row6-detail">
+                  <div> {obj.avtar} </div> <div>{obj.nom} </div>
+                </div>
+                <div>{obj.stars}</div>
+                <div className="txt60-detail">{obj.Description}</div>
+              </div>
+            ))}
+
+            <div className="pagination-detail">
+              
+              <Pagination
+                count={16}
+                shape="rounded"
+                className="pagination-shop"
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div>
@@ -387,21 +410,17 @@ const Detailprod = () => {
           <div className="txt202-detail">Découvrez aussi</div>
           <div>
             <div className="row-row6card">
-       
-              {prod.map((obj) => (
-           
-                  <Grid item>
-                    <Card
-                      prix={obj.prix}
-                      nom={obj.nom}
-                      noml={obj.noml}
-                      id={obj.id}
-                    />
-                  </Grid>
-            
+              {prod.map((obj,key) => (
+                <Grid item key={key}> 
+                  <Card
+                    prix={obj.prix}
+                    nom={obj.nom}
+                    noml={obj.noml}
+                    id={obj.id}
+                  />
+                </Grid>
               ))}
             </div>
-
           </div>
         </div>
       </div>

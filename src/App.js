@@ -39,7 +39,7 @@ function App() {
    <Route path='/Shop' element={ <Shop/>} />
    <Route path='/Detailproduit/:id' element={ <Detailprod/>} />
    <Route path='/cart' element={<Cart/>}/>
-   <Route path='/librairieProfile' element={<LibrairieProfile/>}/>
+   <Route path='/librairieProfile/:id' element={<LibrairieProfile/>}/>
    <Route path='/Profile' element={<Profile/>}/>
    <Route path='/reset-password/:id/:token' element={<Resetpassword/>}/>
   <Route path='*' element={ <> page not !!!</>} />

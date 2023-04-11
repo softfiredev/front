@@ -98,16 +98,7 @@ const Detailprod = () => {
     </Typography>,
   ];
 
-  const plus = () => {
-    if (pls < images.length - 1) {
-      setpls(pls + 1);
-    }
-  };
-  const min = () => {
-    if (pls > 0) {
-      setpls(pls - 1);
-    }
-  };
+
 
   return (
     <div className="detail">

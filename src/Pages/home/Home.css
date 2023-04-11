@@ -122,7 +122,7 @@ color: #222222;
 .col3-hom{
     flex-direction: column;
     display: flex;
-    gap:1em;
+    gap:2.5em;
 
  
 }
@@ -332,7 +332,7 @@ color: #222222;
 .rowimg-home{
     flex-direction: row;
     display: flex;
-    gap:6em;
+    gap:7.5em;
 }
 .txt54-home{
     width: 551px;

@@ -5,6 +5,10 @@ import avt1 from '../../assets/avt1.png'
 import avt2 from '../../assets/avt2.png'
 import avt3 from '../../assets/avt3.png'
 import Cart from './cart/cart'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode} from "swiper";
+import "swiper/css";
+import "swiper/css/free-mode";
 
 const Cart_client = () => {
 
@@ -19,24 +23,31 @@ const Cart_client = () => {
          <div className='card-cli'>
       <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" spacing={10}   >
         <Grid item>
-          <p className='txt9-about'>Que disent les gens à notre propos?</p></Grid>
-        <Grid item>
-          <Grid
+          <p className='text-about'>Que disent les gens à notre propos?</p></Grid>
+          <Grid item style={{marginLeft:"-86px"}} 
             container
             direction="row"
-        
-            spacing={3}
-          >
-    
-            {tab.map((obj) =>
-              <>
-                <Cart name={obj.name} des={obj.des} img={obj.img}/>
-
-               </>
-            )}
+            spacing={3}>
+            <div style={{width:"1000px"}} > 
+            <Swiper
+              freeMode={true}
+              grabCursor={true}
+              spaceBetween={-1000}
+              modules={[FreeMode]}
+              className="mySwiper"
+               style={{width:"1500px"}} 
+            >
+               {tab.map((obj) =>
+                <SwiperSlide>  <Cart name={obj.name} des={obj.des} img={obj.img}/> </SwiperSlide>
           
+
+         
+       )}
+            </Swiper>
+            </div>
+               
           </Grid>
-        </Grid>
+       
       </Grid>
       </div>
     </Grid>

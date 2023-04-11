@@ -8,7 +8,7 @@ const cart = (props) => {
 
       
    
-           <Grid item>
+           <Grid item className='card-container-client'>
             <div className='bg-cartd'>
                 <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" spacing={7}>
                   <Grid item>

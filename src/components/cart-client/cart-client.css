@@ -1,7 +1,4 @@
-.txt9-about{
-    width: 1003px;
-    height: 30px;
-  margin-left:8%;
+.text-about{
     font-family: 'Merriweather';
     font-style: normal;
     font-weight: 400;
@@ -9,6 +6,7 @@
     line-height: 30px;
     margin-top: 8%;
     color: #222222;
+    margin-left: -117px;
 }
 .ispa{
     margin-left: 15%;

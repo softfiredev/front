@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import img from "../../assets/prod1.png";
 import './box-produit-card.css'
 import { Grid} from "@mui/material";
 import Box from "@mui/material/Box";
 const Box_produit_Card = (props)=>{
+  const [qte,setqte]=useState(1)
+  const handleChangevalue=(e)=>{
+    setqte(e.target.value)
+  }
         return (
         <>
              <Grid
@@ -19,24 +23,7 @@ const Box_produit_Card = (props)=>{
                         <p className="prix">{props.prix} dt</p>
                     </div>
              </div>
-             {/*<Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                }}
-              >
-               
-                <Grid
-                  container
-                  direction="column"
-                  justifyContent="flex-start"
-                  alignItems="flex-start"
-                >
-                  <p className="titreProd">{props.titre}</p>
-                  <p className="prix">{props.prix}</p>
-                </Grid>
-            </Box>*/}
-              <input type="number" width="20px" className="qte" value={1} />
+              <input type="number" width="20px" className="qte" min={1} onChange={handleChangevalue} value={qte}  />
               <p className="total">{props.total} dt</p>
               <div className="Supprimer"> Supprimer </div>
             </Grid>

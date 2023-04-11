@@ -149,10 +149,9 @@ border-radius: 12px 12px 0px 0px;
         width: 94px;
 height: 40px;
 cursor: pointer;
-
-
 border: 1px solid #513C06;
 border-radius: 8px;
+
       }
       .txtbntcard-felter{
       font-family: 'Inter';
@@ -185,8 +184,10 @@ cursor: pointer;
         width: 127px;
 height: 40px;
 cursor: pointer;
-
-
 border: 1px solid #513C06;
 border-radius: 8px;
+      }
+
+    .bntcard-felter1:hover{
+       background-color: #F7D070;
       }

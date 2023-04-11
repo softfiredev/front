@@ -1,0 +1,162 @@
+
+@media (max-width:1280px) {
+    .group-home {
+        margin-left: -10%;
+    }
+    
+}
+.home{
+    padding: 10%;
+    width: 1540px;
+    height: 870px;
+    background-image:url("../../assets/Home.png");
+   }
+   .home-cont{
+    margin-top: 4%;
+      
+    }
+
+.bo-home{
+    margin-left: -15%;
+}
+
+.txt1-home{
+margin-left: -1%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 101px;
+line-height: 123px;
+Width:1033px;
+Height:246px;
+color: #F7F7F7;
+
+}
+.txt2-home{
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 28px;
+line-height: 34px;
+
+
+color: #F7F7F7;
+}
+.box2-home{
+    width: 1100px;
+height: 143px;
+flex-direction: row;
+display: flex;
+gap: 8em;
+padding-top: 1.5%;
+padding-left: 12%;
+background: #222222;
+backdrop-filter: blur(85px);
+margin-top: 9%;
+margin-left: -5.8%;
+border-radius: 8px;
+}
+.col-home{
+    flex-direction: column;
+display: flex;
+gap:0.5em;
+}
+.col-hom{
+    flex-direction: column;
+    display: flex;
+    gap:4em;
+  
+}
+.col2-hom{
+    flex-direction: column;
+    display: flex;
+    gap:4em;
+  padding-left: 11%;
+}
+.circule{
+width: 38px;
+margin-left: 35%;
+height: 38px;
+border-radius: 50%;
+background: #F7D070;
+}
+.cont-circule{
+margin-top: 19%;
+margin-left: 23%;
+}
+.txt3-home{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+text-align: center;
+color: #F7F7F7;
+}
+.txt4-home{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
+    
+    text-align: center;
+    
+    /* Neutral/700 */
+    
+    color: #CFCFCF;
+}
+.txt5-home{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 40px;
+color: #222222;
+}
+.col3-hom{
+    flex-direction: column;
+    display: flex;
+    gap:1em;
+    margin-left:-5%;
+ 
+}
+.img2-home{
+    width: 576px;
+    height: 284px;
+}
+.row2-hom{
+    flex-direction: row;
+    display: flex;
+    gap:1em;
+}
+.row3-hom{
+    flex-direction: row;
+    display: flex;
+    gap:1em;
+}
+.col4-hom{
+    flex-direction: column;
+    display: flex;
+    gap:1em;
+}
+.img-home{
+    width: 209px;
+height: 138px;
+}
+.txt8-home{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+margin-left: 19%;
+display: flex;
+align-items: center;
+text-align: center;
+color: #515151;
+
+}
+

@@ -5,7 +5,9 @@ import Toast from './components/toast/Toast'
 import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
+
 const Profile = lazy(() => import('./Pages/Profile/Profile')); 
+const Home = lazy(() => import('./Pages/home/Home')); 
 const Resetpassword = lazy(() => import('./Pages/new-password/Resetpassword')); 
 const Shop = lazy(() => import('./Pages/shop/shop')); 
 const Login = lazy(() => import('./Pages/login/Login')); 
@@ -41,6 +43,7 @@ function App() {
    <Route path='/cart' element={<Cart/>}/>
    <Route path='/librairieProfile' element={<LibrairieProfile/>}/>
    <Route path='/Profile' element={<Profile/>}/>
+   <Route path='/Home' element={<Home/>}/>
    <Route path='/reset-password/:id/:token' element={<Resetpassword/>}/>
   <Route path='*' element={ <> page not !!!</>} />
    </Routes>

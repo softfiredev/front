@@ -53,7 +53,7 @@ const change4=()=>{
                     <div className='row-felter1'>
                         <button className='bntcard-felter1'style={{background:color1}}onClick={change1}><p className='txtbntcard-felter'>Nouveautés</p>
                         </button>
-                        <button className='bntcard-felter2' style={{background:color2}}onClick={change2}> <p className='txtbntcard-felter2'>Packs promo</p></button>    </div>
+                        <button className='bntcard-felter1' style={{background:color2}}onClick={change2}> <p className='txtbntcard-felter2'>Packs promo</p></button>    </div>
 
                     <div className='row-felter1'>
                         <button className='bntcard-felter1'style={{background:color3}}onClick={change3}><p className='txtbntcard-felter'>Promotions</p></button>

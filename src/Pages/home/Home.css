@@ -1,6 +1,9 @@
 
 @media (max-width:1280px) {
     .group-home {
+        margin-left: -3%;
+    }
+    .grp3-home{
         margin-left: -10%;
     }
     
@@ -231,7 +234,7 @@ color: #FFFFFF;
 .grp3-home{
     flex-direction: column;
 display: flex;
-gap:2.5em;
+gap:3.5em;
 text-align: left;
 align-items: center;
 }
@@ -247,7 +250,7 @@ align-items: center;
 }
 .cartclient-home{
     width: 1170px;
-height: 361px;
+height: 382px;
 left: 135px;
 top: 3434px;
 gap:14em;

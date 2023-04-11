@@ -20,12 +20,7 @@ const Home = () => {
   ,{icon: <ShieldTick size="22" color="#222222" variant="Bold"/>,desc:"Paiement sécurisé"}
 ]
 const prod = [
-  {
-    id: "000011110",
-    nom: "PACK LIVRE SCOLAIRE 1éME",
-    prix: "8.1dt",
-    noml: "ali Library",
-  },
+
   {
     id: "0707275211110",
     nom: "PACK LIVRE SCOLAIRE 1 EME",
@@ -57,18 +52,19 @@ const cat=[{img:img1,nom:"Scolaire"},
 {img:img4,nom:"Divers"},
 {img:img5,nom:"Jeux educatifs"},]
 
+const clients=[{nom:"Cooper Ekstrom Bothman",des:"J'ai été agréablement surprise par la qualité de la peinture Gouache pour les projets scolaires de mon fils."}]
 
 
   return (
     <div>
       <div className="group-home ">
-        <Grid
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          gap="3em"
+        <Grid          container          direction="column"          justifyContent="center"          alignItems="center"          gap="3em"
         >
+   
+
+
+    
+
           <Grid item>
             <div className="home">
               <div className="home-cont">
@@ -114,9 +110,10 @@ const cat=[{img:img1,nom:"Scolaire"},
                 </Grid>
               </div>
             </div>
-          </div>
+    
         </Grid>
         <div className="brr-home"></div>
+        <div className='grp3-home'>
         <Grid item>   
         <div >
 <div className='col3-hom' >
@@ -128,7 +125,9 @@ const cat=[{img:img1,nom:"Scolaire"},
 
             )}
 
-  </div>  </div>
+  </div>  
+  
+  </div>
 </div>
 
 
@@ -183,14 +182,82 @@ const cat=[{img:img1,nom:"Scolaire"},
            </Grid>
      
        ))}
+
   </div>
+
 </div>
    </div>  
 
-   <div>  <div > <p className='txt5-home'>Equipez-vous d'indispensables</p>    </div></div>
+
         </Grid>
+        <Grid item>   
+        <div >
+<div className='col3-hom' >
+  
+
+  <div>  <div > <p className='txt5-home'>Equipez-vous d'indispensables</p>    </div></div>
+  <div className='row2-hom'>
+    
+  {prod.map((obj) => (
+           
+           <Grid item>
+             <Card
+               prix={obj.prix}
+               nom={obj.nom}
+               noml={obj.noml}
+               id={obj.id}
+             />
+           </Grid>
+     
+       ))}
+
+  </div>
+
+</div>
+   </div>  
+
+
+        </Grid>
+
+
+        <Grid item>  
+        <div className='bg2-home'>   
+          
+          <div><p className='txt10-home'>Promotions</p></div>
+          <div><p className='txt11-home'>Découvrez toutes les promotions</p></div>
+            <div><button className='bnt10-home'><p className='txt12-home'>Je découvre</p></button></div>
+            </div>
+
+        
+        
+        </Grid>
+
+        <Grid item>  
+        <div className='col3-hom' >
+  
+
+  <div>  <div > <p className='txt5-home'>Nos clients continuent de parler!</p>    </div></div>
+  <Cartclient prixprod={prod[0].prix} noml={prod[0].noml} nomprod={prod[0].nom} nomclinet={clients[0].nom} descriptionclient={clients[0].des}/>
+
+</div>
+        
+        
+        </Grid>
+
+        <Grid item>  
+        <div className='col3-hom' >
+  
+
+  <div>  <div > <p className='txt5-home'>        Les marques fournitures scolaires</p>    </div></div>
+
+</div>
+        
+        
+        </Grid>
+
+        </div>
       </Grid>
-    </div>
+    </div>    </div>
   );
 };
 

@@ -9,9 +9,17 @@ import img4 from '../../assets/img4-home.png'
 import img5 from '../../assets/img5-home.png'
 import img6 from '../../assets/img6-home.png'
 import img7 from '../../assets/img7-home.png'
+import imgp1 from '../../assets/imgp1.png'
+import imgp2 from '../../assets/imgp2.png'
+import imgp3 from '../../assets/imgp3.png'
+import imgp4 from '../../assets/imgp4.png'
+import imgp5 from '../../assets/imgp5.png'
+import imgp6 from '../../assets/imgp.png'
+import imgp7 from '../../assets/imgp8.png'
 import Card from "../../components/card-produit/Card";
 
 import Cartclient from '../../components/cartclient-home/Cartclient';
+import { InputGroup } from 'reactstrap';
 const Home = () => {
   const tab=[{icon: <Headphone size="22" color="#222222" variant="Bold"/>,desc:"24/7 Support"}
   ,
@@ -248,12 +256,53 @@ const clients=[{nom:"Cooper Ekstrom Bothman",des:"J'ai été agréablement surpr
         <div className='col3-hom' >
   
 
-  <div>  <div > <p className='txt5-home'>        Les marques fournitures scolaires</p>    </div></div>
+      <div>  <div > <p className='txt5-home'>        Les marques fournitures scolaires</p>    </div></div>
+           <div className='rowimg0-home'>
+         <div><img src={imgp1}/></div>
+         <div><img src={imgp2}/></div>
+         <div><img src={imgp3}/></div>
+         <div><img src={imgp4}/></div>
+         <div><img src={imgp5}/></div>
+         <div><img src={imgp6}/></div>
 
-</div>
+           </div>
+       </div>
         
         
         </Grid>
+        <Grid item>  
+        <div className='rowimg-home' >
+  
+
+      <div className='col3-hom' >  
+        <div >
+         <p className='txt54-home'>  
+      Vous êtes intéressé par un partenariat avec notre plateforme?</p>   
+       </div>
+       <div >
+         <p className='txt56-home'>  
+         En savoir plus sur nos opportunités de partenariat.</p>   
+       </div>
+       <div><button className='bnt6-home'><p className='txtbnt3-home'>Devenier partenaire</p></button>  </div>
+       </div>
+           <div >
+            <img src={imgp7}/>
+           </div>
+       </div>
+        
+        
+        </Grid>
+   <Grid item>
+   <div className='col3-hom' >
+
+  <div>  <div > <p className='txt5-home'>Pourquoi nous choisir?</p>    </div></div>
+  <div>  <div > <p className='txt5home'>Les clients ont besoin d’un service de livraison rapide,fiable et sûr. Et ainsi nous fournissons un service dequalité, des livraisons précises et rapides.</p>    </div></div>
+
+  </div>
+   </Grid>
+
+
+
 
         </div>
       </Grid>

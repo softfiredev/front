@@ -158,15 +158,7 @@ text-transform: uppercase;
 color: #222222;
 
 }
-.back-des{
- position: relative;
- top: 6%;
-    background: #F7D070;
-    width: 75px;
-height: 20px;
-border-radius: 4px;
-padding:3px;
-}
+
 .colls-trifel{
     flex-direction: column;
     display: flex;

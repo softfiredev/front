@@ -207,7 +207,7 @@ const clients=[{nom:"Cooper Ekstrom Bothman",des:"J'ai été agréablement surpr
 <div className='col3-hom' >
   
 
-  <div>  <div > <p className='txt5-home'>Equipez-vous d'indispensables</p>    </div></div>
+  <div>  <div > <p className='txt5-home'>Promotions pour vous!</p>    </div></div>
   <div className='row2-hom'>
     
   {prod.map((obj) => (

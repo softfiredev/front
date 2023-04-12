@@ -1,25 +1,60 @@
 import React, { useState } from "react";
 import "./Profile.css";
-import { LogoutCurve, Profile, Heart,MessageText,Box } from "iconsax-react";
+import { LogoutCurve, Profile, Heart,Notification ,Note} from "iconsax-react";
 import { Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Profilee = () => {
+  const [name, setname] = useState('page1');
+  const [bnt1, setbnt1] = useState('bnt-pro');
+  const [bnt2, setbnt2] = useState('bnt-pro2');
+  const [bnt3, setbnt3] = useState('bnt-pro2');
+  const [bnt4, setbnt4] = useState('bnt-pro2');
+  const [bnt5, setbnt5] = useState('bnt-pro2');
+  const navigate = useNavigate();
+  const tab=[{nom:"Profile",icon:<Profile size="20"/>,id:"1",},{},{}]
+  const Pagee=(name)=>{
+    if(name=="page1")
+    {
+      setbnt1('bnt-pro')
+      setbnt2('bnt-pro2')
+      setbnt3('bnt-pro2')
+      setbnt4('bnt-pro2')
+      setbnt5('bnt-pro2')
+      navigate("/profile/Monidentité");
+    }
+    if(name=='page2')
+    {
+      setbnt1('bnt-pro2')
+      setbnt2('bnt-pro')
+      setbnt3('bnt-pro2')
+      setbnt4('bnt-pro2')
+      setbnt5('bnt-pro2')
+      navigate("/profile/Comonde");
+    }
+  }
   return (
-      <div className="profile-client">
-            <h1 className="titre-profile">Bonjour, Amine!</h1>
-            <div className="container-box-profile">
-                <div className="container-link">
-                          <div> <Profile/><p>profile</p></div>
-                          <div><Heart/><p>Favoris</p></div>
-                          <div> <Box/><p>Commandes</p></div>
-                          <div> <MessageText/> <p>Mes avis</p></div>
-                          <div><LogoutCurve/> <p>Déconnection</p> </div>
-                </div>
-                <div className="pages-container">
-                <Outlet  />
-                </div>
-            </div>
-      </div>
-  );
-};
+    <div className='Profile'>
+      <div className='col1-profile'>
+      <div><p className='txt-profile1'>Bonjour, Amine!</p></div> 
+<div className='row2-profile'>
+<div>
+<div  className='carts'>
+<div><button className={bnt1} onClick={()=>{Pagee('page1')}}><div className='row1-profile'><Profile size="20"/><div className='txt0-icon'>Profile</div></div> </button> </div> 
+ <div><button className={bnt2} onClick={()=>{Pagee('page2')}}><div className='row1-profile'><Heart size="20" /><div className='txt-icon'>Favoris</div></div>  </button> </div> 
+ <div><button className={bnt3}><div className='row1-profile'><Note size="20" /><div className='txt-icon'>Commandes</div></div>  </button> </div> 
+ <div><button className={bnt4}><div className='row1-profile'><Notification size="20" /><div className='txt-icon'>Mes avis</div></div> </button> </div> 
+<div> <button className={bnt5}><div className='row1-profile'><LogoutCurve size="20" /><div className='txt-icon'>Déconnection</div></div> </button> </div> 
 
-export default Profilee;
+</div>
+
+</div>
+
+
+<Outlet  />
+</div>
+    </div>
+    </div>
+  )
+}
+
+export default Profilee

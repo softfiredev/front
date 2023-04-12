@@ -45,6 +45,7 @@ function App() {
    <Route path='/Profile' element={<Profile/>}>
    <Route path='/Profile/Monidentité' element={<Page1_profile/>}/>
    <Route path='/Profile/Comonde' element={<Page2_profile/>}/>
+   <Route path="/Profile" element={ <Navigate to="/Profile/Monidentité" /> } />
     </Route>
     <Route path="/" element={ <Navigate to="/Home" /> } />
 

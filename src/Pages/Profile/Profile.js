@@ -15,7 +15,7 @@ const Profilee = () => {
                           <div><LogoutCurve/> <p>Déconnection</p> </div>
                 </div>
                 <div className="pages-container">
-                <Outlet />
+                <Outlet  />
                 </div>
             </div>
       </div>

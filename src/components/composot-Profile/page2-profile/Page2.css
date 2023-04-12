@@ -112,6 +112,13 @@ line-height: 20px;
 color: #222222;
 
 }
+.input-pro{
+width: 400px;
+height: 48px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+}
 .row7-favo{
     flex-direction: row;
     display: flex;
@@ -125,6 +132,7 @@ width: 32px;
 height: 32px;
 
 }
+
 .shopcont-favo{
     margin-top: 15%;
     margin-left: 15%;

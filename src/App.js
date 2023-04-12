@@ -5,6 +5,7 @@ import Toast from './components/toast/Toast'
 import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
+
 const Profile = lazy(() => import('./Pages/Profile/Profile')); 
 const Home = lazy(() => import('./Pages/home/Home')); 
 const Resetpassword = lazy(() => import('./Pages/new-password/Resetpassword')); 
@@ -21,6 +22,7 @@ const LibrairieProfile = lazy(() =>import ( './Pages/librairieProfile/librairieP
 
 const Page1_profile = lazy(() =>import ( './components/composot-Profile/page-profile/Page'));
 const Page2_profile = lazy(() =>import ( './components/composot-Profile/page2-profile/Page2'));
+const Commandes = lazy(() =>import ( './components/composot-Profile/page3-profile/Commandes'));
 
 function App() {
   return (
@@ -43,8 +45,10 @@ function App() {
    <Route path='/cart' element={<Cart/>}/>
    <Route path='/librairieProfile/:id' element={<LibrairieProfile/>}/>
    <Route path='/Profile' element={<Profile/>}>
+
    <Route path='/Profile/Monidentité' element={<Page1_profile/>}/>
-   <Route path='/Profile/Comonde' element={<Page2_profile/>}/>
+   <Route path='/Profile/favorire' element={<Page2_profile/>}/>
+   <Route path='/Profile/Comonde' element={<Commandes/>}/>
    <Route path="/Profile" element={ <Navigate to="/Profile/Monidentité" /> } />
     </Route>
     <Route path="/" element={ <Navigate to="/Home" /> } />

@@ -29,7 +29,7 @@ const Home = () => {
   ,
   {icon:<TruckFast size="22" color="#222222" variant="Bold"/>,desc:"Livraison express"}
   ,  {icon: <TicketDiscount size="22" color="#222222" variant="Bold"/>,desc:"Prix exclusif"}
-  ,{icon: <ShieldTick size="22" color="#222222" variant="Bold"/>,desc:"Paiement sécurisé"}
+  ,{icon: <ShieldTick size="22.0" color="#222222" variant="Bold"/>,desc:"Paiement sécurisé"}
 ]
 const prod = [
 

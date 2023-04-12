@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./AboutUs.css";
-import { OutlinedInput } from "@mui/material";
+
 import img2_pro from "../../assets/about3.jpg";
 import img3_pro from "../../assets/about4.jpg";
 import P from "../../assets/point.png";
@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode} from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
+import Boxabout from "../../components/box-about/Boxabout";
 const AboutUs = () => {
   return (
     <div className="about">
@@ -159,7 +160,7 @@ const AboutUs = () => {
         </Grid>
         <br />
         <br />
-        <Cart_cln />
+        <Cart_cln qst='Que disent les gens à notre propos?'/>
 
         <Grid item>
          
@@ -201,44 +202,7 @@ const AboutUs = () => {
         </Grid>
 
         <Grid item>
-          <div className="box3-about">
-            <Grid
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
-              spacing={8}
-            >
-              <Grid item>
-                {" "}
-                <p className="txt14-about">
-                  Rejoignez notre newsletter pour des offres exclusives et des
-                  nouveautés.
-                </p>{" "}
-              </Grid>
-
-              <Grid item>
-                <Grid container direction="row" spacing={2}>
-                  <Grid item>
-                    {" "}
-                    <OutlinedInput
-                      className="inpu-about"
-                      placeholder="Email"
-                    />{" "}
-                  </Grid>
-
-                  <Grid item>
-                    {" "}
-                    <button className="bnt2-about">
-                      {" "}
-                      <p className="txt-bntabout">Abonnement</p>
-                    </button>{" "}
-                  </Grid>
-                </Grid>
-              </Grid>
-              <img className="img-aboutp2" src={P} />
-            </Grid>
-          </div>{" "}
+        <Boxabout/>
         </Grid>
       </Grid>
     </div>

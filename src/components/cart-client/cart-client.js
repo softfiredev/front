@@ -10,7 +10,7 @@ import { FreeMode} from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-const Cart_client = () => {
+const Cart_client = (props) => {
 
   const tab = [
     { name: "Carter Donin", des: "“Maktba.tn a révolutionné la façon dont je trouve des fournitures scolaires et de bureau pour mon entreprise. La plateforme est facile à utiliser et efficace, ce qui me permet de gagner du temps et de l'argent.“", img: avt1 },
@@ -23,7 +23,7 @@ const Cart_client = () => {
          <div className='card-cli'>
       <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" spacing={10}   >
         <Grid item>
-          <p className='text-about'>Que disent les gens à notre propos?</p></Grid>
+          <p className='text-about'>{props.qst}</p></Grid>
           <Grid item style={{marginLeft:"-86px"}} 
             container
             direction="row"

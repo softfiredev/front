@@ -145,6 +145,33 @@ color: #222222;
     display: flex;
     gap:1em;
 }
+.txtcarda-home1{
+    width: 374px;
+height: 40px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+color: #626262;
+}
+.txtcarda-home0{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+
+color: #222222;
+
+}
+.catdachat-hom{
+    flex-direction: row;
+    display: flex;
+    gap:1em;
+    width: 374px;
+    height: 40px;
+}
 .col4-hom{
     flex-direction: column;
     display: flex;
@@ -374,7 +401,53 @@ text-align: center;
 
 color: #222222;
 }
+.txst5-home{
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 40px;
+margin-left: -13%;
+color: #252525;
 
+}
+.bntcartcon-home{
+    width: 370px;
+height: 56px;
+background: #222222;
+border-radius: 8px;
+margin-left: 34%;
+}
+.borderfin-home{
+    margin-bottom: 10%;
+    width: 1540px;
+    height: 284px;
+}
+.txtbntcartcon-home{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 28px;
+margin-top: -1%;
+text-align: center;
+
+color: #FFFFFF;
+
+}
+.txst504-home{
+    font-family: 'Merriweather';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 40px;
+text-align: center;
+
+color: #1A110A;
+
+    margin-left: 1%;
+}
 .txt5home{
     width: 707px;
 height: 48px;
@@ -384,10 +457,6 @@ font-style: normal;
 font-weight: 400;
 font-size: 16px;
 line-height: 24px;
-/* or 150% */
-
-
-/* Neutral/300 */
-
+margin-left: 0;
 color: #626262;
 }

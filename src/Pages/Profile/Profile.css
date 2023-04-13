@@ -26,9 +26,6 @@ font-style: normal;
 font-weight: 500;
 font-size: 16px;
 line-height: 20px;
-/* identical to box height, or 125% */
-
-
 color: #9E9E9E;
 }
 .bnt-pro{
@@ -56,14 +53,12 @@ color: #222222;
 
 }
 .txt-profile1{
-    font-family: 'Merriweather';
+font-family: 'Merriweather';
 font-style: normal;
 font-weight: 700;
 font-size: 24px;
 line-height: 30px;
 text-transform: capitalize;
-
-
 color: #222222;
 }
 
@@ -86,9 +81,6 @@ font-style: normal;
 font-weight: 600;
 font-size: 28px;
 line-height: 40px;
-/* identical to box height, or 143% */
-
-
 color: #222222;
 }
 .col2-profile{
@@ -105,7 +97,6 @@ font-style: normal;
 font-weight: 500;
 font-size: 16px;
 line-height: 22px;
-
 text-align: center;
 margin-top: -2%;
 color: #FFFFFF;

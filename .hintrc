@@ -8,7 +8,9 @@
       {
         "ignore": [
           "aspect-ratio",
-          "backdrop-filter"
+          "backdrop-filter",
+          "user-select",
+          "hyphens"
         ]
       }
     ]

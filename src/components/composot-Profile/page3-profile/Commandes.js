@@ -26,16 +26,16 @@ const tabcomo=[
       <div>
       <table style={{width:"105%"}}>
   <tr>
-    <th style={{width:"15%"}}>ID</th>
-    <th>Articles</th>
+    <th>ID</th>
+    <th><div  style={{marginLeft:"-25%"}}>Articles</div></th>
     <th>Date de livraison</th>
     <th>Tarification</th>
-    <th>Statut</th>
+    <th ><div  style={{marginLeft:"20%"}}>Statut</div></th>
   </tr>
 <br/>
   {tabcomo.map((obj) =>
-      <tr>
-    <td>{obj.id}</td>
+      <tr >
+    <td style={{width:"20%"}}>{obj.id}</td>
     <td>{obj.Articles}</td>
     <td>{obj.Date}</td>
     <td>{obj.Tarification}</td>

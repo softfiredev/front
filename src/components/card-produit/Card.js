@@ -13,7 +13,7 @@ const Card = (props) => {
     <div className="card">
        
       <div className="cont">
-      <div className='back-cardprod'><p className='back-text1'>pack promo</p></div>
+      <div className='background-cardeprod'><p className='back-text1'>pack promo</p></div>
 
         <Link to={`/Detailproduit/${props.id}`}><img src={img1} className="img-cardprod"/></Link>
         

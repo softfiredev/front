@@ -119,6 +119,24 @@ font-size: 32px;
 line-height: 40px;
 color: #222222;
 }
+.txt6-home{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 40px;
+color: #222222;
+margin-left: -157px;
+}
+.txt-home{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 40px;
+color: #222222;
+margin-left: -106px;
+}
 .col3-hom{
     flex-direction: column;
     display: flex;

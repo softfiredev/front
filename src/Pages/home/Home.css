@@ -111,6 +111,9 @@ color: #F7F7F7;
     
     color: #CFCFCF;
 }
+.swiper-wrapper{
+    gap: 3em;
+}
 .txt5-home{
     font-family: 'Inter';
 font-style: normal;

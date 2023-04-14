@@ -41,6 +41,15 @@ const Profilee = () => {
       setbnt5('bnt-pro2')
       navigate("/profile/Commandes");
     }
+    if(name=='page4')
+    {
+      setbnt1('bnt-pro2')
+      setbnt2('bnt-pro2')
+      setbnt3('bnt-pro2')
+      setbnt4('bnt-pro')
+      setbnt5('bnt-pro2')
+      navigate("/profile/avis");
+    }
   };
   return (
     <div className='Profile'>
@@ -52,7 +61,7 @@ const Profilee = () => {
 <div><button className={bnt1} onClick={()=>{Pagee('page1')}}><div className='row1-profile'><Profile size="20"/><div className='txt0-icon'>Profile</div></div> </button> </div> 
  <div><button className={bnt2} onClick={()=>{Pagee('page2')}}><div className='row1-profile'><Heart size="20" /><div className='txt-icon'>Favoris</div></div>  </button> </div> 
  <div><button className={bnt3}onClick={()=>{Pagee('page3')}}><div className='row1-profile'><Note size="20" /><div className='txt-icon'>Commandes</div></div>  </button> </div> 
- <div><button className={bnt4}><div className='row1-profile'><Notification size="20" /><div className='txt-icon'>Mes avis</div></div> </button> </div> 
+ <div><button className={bnt4}onClick={()=>{Pagee('page4')}}><div className='row1-profile'><Notification size="20" /><div className='txt-icon'>Mes avis</div></div> </button> </div> 
 <div> <button className={bnt5}><div className='row1-profile'><LogoutCurve size="20" /><div className='txt-icon'>Déconnection</div></div> </button> </div> 
 
 </div>

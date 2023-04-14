@@ -1,0 +1,96 @@
+.Avis{
+    width: 844px;
+height: 1040px;
+background: #FFFFFF;
+border-radius: 8px;
+}
+.col1-avis{
+    flex-direction: column;
+    display: flex;
+    text-align: left;
+    gap: 2.5em;
+padding: 5%;
+}
+.txt1-avis{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 40px;
+color: #222222;
+
+}
+.row1-avis{
+    display: flex;
+    flex-direction: row;
+    gap:2.6em;
+}
+.txt2-avis{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+color: #222222;
+}
+.input-avis{
+
+    width: 519px;
+height: 52px;
+
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+}
+.menuitem-avis{
+    height: 50px;
+}
+.txtmenu-avis{
+    margin-left: 6%;
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+color: #222222;
+
+}
+.menu-avis{
+    margin-left: -10%;
+}
+.bnt1-avis{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+color: #2680C2;
+cursor: pointer;
+width: 128px;
+height: 32px;
+left: 1099px;
+top: 518px;
+background: #DCEEFB;
+border: 1px solid #4098D7;
+border-radius: 8px;
+}
+.txtbnt-avis{
+    margin-top: -1%;
+}
+
+.tabcom-avis{
+    width: 30%;
+    height: 150px;
+
+}
+
+
+
+.more-avis{
+    cursor: pointer;
+    transform: rotate(90deg)
+
+
+}

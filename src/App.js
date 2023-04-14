@@ -23,7 +23,7 @@ const LibrairieProfile = lazy(() =>import ( './Pages/librairieProfile/librairieP
 const Page1_profile = lazy(() =>import ( './components/composot-Profile/page-profile/Page'));
 const Page2_profile = lazy(() =>import ( './components/composot-Profile/page2-profile/Page2'));
 const Commandes = lazy(() =>import ( './components/composot-Profile/page3-profile/Commandes'));
-
+const Avis = lazy(() =>import ( './components/composot-Profile/page4-profile/Avis'));
 function App() {
   return (
     <>
@@ -49,6 +49,7 @@ function App() {
    <Route path='/Profile/Monidentité' element={<Page1_profile/>}/>
    <Route path='/Profile/Favoris' element={<Page2_profile/>}/>
    <Route path='/Profile/Commandes' element={<Commandes/>}/>
+   <Route path='/Profile/Avis' element={<Avis/>}/>
    <Route path="/Profile" element={ <Navigate to="/Profile/Monidentité" /> } />
     </Route>
     <Route path="/" element={ <Navigate to="/Home" /> } />

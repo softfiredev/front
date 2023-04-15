@@ -193,14 +193,14 @@ const Home = () => {
                     <p className="txt6-home">Actualités</p>
                   </div>
                   <div>
-                    <Grid item style={{ marginLeft: "-165px" }}>
+                    <Grid item style={{ marginLeft: "-165px",gap:"10em" }}>
                       <div style={{ width: "1000px" }}>
                         <Swiper
                           freeMode={true}
                           grabCursor={true}
                           spaceBetween={-900}
                           modules={[FreeMode]}
-                          style={{ width: "1500px" }}
+                          style={{ width: "1500px",gap:"10em" }}
                         >
                           <SwiperSlide>
                             <img src={img6} className="img2-home" />

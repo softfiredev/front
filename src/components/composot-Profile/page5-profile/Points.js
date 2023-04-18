@@ -7,7 +7,6 @@ const Points = () => {
     const [line2, setline2] = React.useState("");
     const [clas1, setclas1] = React.useState("link-points");
     const [clas2, setlineclas2] = React.useState("link-points");
-
   return (
  
        <div className='points'>

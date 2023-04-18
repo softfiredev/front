@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./AboutUs.css";
-
+import { Link } from 'react-router-dom';
 import img2_pro from "../../assets/about3.jpg";
 import img3_pro from "../../assets/about4.jpg";
 import P from "../../assets/point.png";
@@ -196,9 +196,11 @@ const AboutUs = () => {
           <br />
           <Cart_contact />
           <br /> <br />
+          <Link to="/Contact">
           <button className="bntn-about">
             <div className="textbntContactez-nous">Contactez-nous</div>
           </button>
+          </Link>
         </Grid>
 
         <Grid item>

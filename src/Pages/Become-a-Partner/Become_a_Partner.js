@@ -5,6 +5,7 @@ import Cardbecome from "../../components/card-become/card-become";
 import Cartcontact from "../../components/cart-contact/cart_contact";
 import React from "react";
 import Liste from "../../components/listefq/liste";
+import { Link } from 'react-router-dom';
 
 const Become_a_Partner = () => {
   const onButtonClick = () => {};
@@ -411,9 +412,11 @@ const Become_a_Partner = () => {
                 <Cartcontact />
               </div>
               <p>
+              <Link to="/Contact">
                 <button className="bntn1-bec">
                   <div className="textbntConnexionn">Contactez-nous</div>
                 </button>
+                </Link>
               </p>
             </div>
           </div>

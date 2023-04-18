@@ -17,6 +17,8 @@ height: 48px;
 margin-left: 32%;
 background: #222222;
 border-radius: 8px;
+cursor: pointer;
+border: none;
 }
 .txt-profile3{
 

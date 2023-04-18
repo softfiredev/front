@@ -6,6 +6,10 @@ import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
 
+
+
+const Points = lazy(() => import('./components/composot-Profile/page5-profile/Points')); 
+const Dachats = lazy(() => import('./components/composot-Profile/page5-profile/Bon dachats/Dachats')); 
 const Profile = lazy(() => import('./Pages/Profile/Profile')); 
 const Home = lazy(() => import('./Pages/home/Home')); 
 const Resetpassword = lazy(() => import('./Pages/new-password/Resetpassword')); 
@@ -50,6 +54,16 @@ function App() {
    <Route path='/Profile/Favoris' element={<Page2_profile/>}/>
    <Route path='/Profile/Commandes' element={<Commandes/>}/>
    <Route path='/Profile/Avis' element={<Avis/>}/>
+
+
+   <Route path='/Profile/MesPoints' element={<Points/>}>
+   <Route path='/Profile/MesPoints/Bondachats' element={<Dachats/>}/>
+
+   <Route path="/Profile/MesPoints" element={ <Navigate to="/Profile/MesPoints/Bondachats" /> } />
+
+   </Route>
+
+
    <Route path="/Profile" element={ <Navigate to="/Profile/Monidentité" /> } />
     </Route>
     <Route path="/" element={ <Navigate to="/Home" /> } />

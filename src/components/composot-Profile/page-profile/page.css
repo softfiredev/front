@@ -6,6 +6,11 @@ padding: 5%;
 background: #FFFFFF;
 border-radius: 8px;
 }
+.rowbnt-page{
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+}
 .bnt-pro3{
 width: 156px;
 height: 48px;
@@ -36,4 +41,5 @@ border-radius: 8px;
     display: flex;
     text-align: left;
     gap: 1.5em;
+    
 }

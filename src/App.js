@@ -37,7 +37,6 @@ function App() {
  <NavBar/>
  <Suspense fallback={<Spinier />}>
    <Routes>
-  
    <Route path='/Login' element={ <Login/>} />
    <Route path='/Signup' element={ <Signup/>} />
    <Route path='/New_password' element={ <Newpassword/>} />

@@ -1,15 +1,20 @@
 import React from 'react'
 import './Spinier.css'
-import Logo from '../../assets/logo.png'
+import Logo from '../../assets/logo2.png'
+
 const Spinier = () => {
   return (
-    <div className='esa'>
         <div className='spinier'>
 
-        <div className="lds-dual-ring">        <img src={Logo} className="img-spi"/>    </div>
-    </div>
+        <div className="">        <img src={Logo} className="img-spi"/>    </div>
+         <div>
+          <p>Vous serez redirigé dans quelques secondes</p>
+          </div>
+<p>   <div class="container">  <div class="progress2 progress-moved">    <div class="progress-bar2">    </div>  </div></div>
+</p>
 
-    
+
+
     </div>
   )
 }

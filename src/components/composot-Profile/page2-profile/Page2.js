@@ -6,6 +6,7 @@ import img1 from '../../../assets/prod2.png'
 import Rating from '@mui/material/Rating';
 import { Link } from 'react-router-dom';
 import img2 from '../../../assets/logom.png'
+
 const Page2 = () => {
   const [value, setValue] = React.useState(4);
   return (

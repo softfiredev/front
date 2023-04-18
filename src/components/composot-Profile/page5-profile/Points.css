@@ -1,0 +1,51 @@
+.txt1-points{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 40px;
+color: #222222;
+
+}
+.row-points{
+    display: flex;
+    flex-direction: row;
+width: 30%;}
+.col1-points{
+    display: flex;
+    flex-direction: column;
+    gap:3em;
+}
+.txt2-points{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 20px;
+color: #222222;
+
+
+}
+.col3-points{
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+}
+.linge-points{
+    width: 99px;
+    height: 0px;
+    transform: rotate(0deg);
+    border: 1px solid #F7D070;
+   margin-top: 5%;
+}
+.txt3-points{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #626262;
+    
+
+}

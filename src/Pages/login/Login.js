@@ -79,8 +79,7 @@ const [profile, setProfile] = useState();
     }
   
   }
-  console.log(
-    )
+  
 useEffect(()=>{
   AuthGmail()
 },[profile])

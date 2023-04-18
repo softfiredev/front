@@ -9,6 +9,7 @@ import {
 } from "iconsax-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
+import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -101,6 +102,14 @@ const Home = () => {
   ];
 
   const clients = [
+    {
+      nom: "Cooper Ekstrom Bothman",
+      des: "J'ai été agréablement surprise par la qualité de la peinture Gouache pour les projets scolaires de mon fils.",
+    },
+    {
+      nom: "Cooper Ekstrom Bothman",
+      des: "J'ai été agréablement surprise par la qualité de la peinture Gouache pour les projets scolaires de mon fils.",
+    },
     {
       nom: "Cooper Ekstrom Bothman",
       des: "J'ai été agréablement surprise par la qualité de la peinture Gouache pour les projets scolaires de mon fils.",
@@ -322,13 +331,32 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
+                <div className="cart2-home">
+                <Swiper
+              freeMode={true}
+              grabCursor={true}
+             
+              
+               style={{width:"1100px"}} 
+            >
+                {clients.map((obj,key) => (
+                <SwiperSlide>
+                <Grid item key={key}> 
+
                 <Cartclient
-                  prixprod={prod[0].prix}
-                  noml={prod[0].noml}
-                  nomprod={prod[0].nom}
-                  nomclinet={clients[0].nom}
-                  descriptionclient={clients[0].des}
+                  prixprod={obj.prix}
+                  noml={obj.noml}
+                  nomprod={obj.nom}
+                  nomclinet={obj.nom}
+                  descriptionclient={obj.des}
                 />
+                </Grid>
+                </SwiperSlide>
+              ))}
+              </Swiper>
+                </div>
+             
+             
               </div>
             </Grid>
 

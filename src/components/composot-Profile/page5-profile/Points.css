@@ -10,9 +10,7 @@ color: #222222;
 .row-points{
     display: flex;
     flex-direction: row;
-margin-left: -10%;
-gap: 0em;
-}
+width: 30%;}
 .col1-points{
     display: flex;
     flex-direction: column;

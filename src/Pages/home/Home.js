@@ -107,6 +107,9 @@ const Home = () => {
     },
   ];
 
+
+  const bart=[{img:  <img src={imgp5} />},{img:  <img src={imgp1} />},{img:  <img src={imgp2} />},{img:  <img src={imgp3} />},{img:  <img src={imgp4} />},{img:  <img src={imgp5} />},{img:  <img src={imgp6} />}]
+
   return (
     <div>
       <div className="group-home ">
@@ -339,24 +342,29 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="rowimg0-home">
-                  <div>
-                    <img src={imgp1} />
-                  </div>
-                  <div>
-                    <img src={imgp2} />
-                  </div>
-                  <div>
-                    <img src={imgp3} />
-                  </div>
-                  <div>
-                    <img src={imgp4} />
-                  </div>
-                  <div>
-                    <img src={imgp5} />
-                  </div>
-                  <div>
-                    <img src={imgp6} />
-                  </div>
+            
+                
+                  <div style={{width:"1000px"}} > 
+                  <Swiper
+              freeMode={true}
+              grabCursor={true}
+              spaceBetween={-1300}
+              modules={[FreeMode]}
+              
+               style={{width:"1500px"}} 
+            >
+              {bart.map((obj,key) => (
+                <SwiperSlide>
+                <Grid item key={key}> 
+                {obj.img}
+                  
+           
+                </Grid>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          
+            </div>
                 </div>
               </div>
             </Grid>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./Home.css";
 import { Grid } from "@mui/material";
 import {
@@ -6,10 +7,10 @@ import {
   TruckFast,
   TicketDiscount,
   ShieldTick,
+
 } from "iconsax-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
-import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -31,7 +32,6 @@ import imgp7 from "../../assets/imgp8.png";
 import Card from "../../components/card-produit/Card";
 
 import Cartclient from "../../components/cartclient-home/Cartclient";
-import { InputGroup } from "reactstrap";
 import Cart_client from "../../components/cart-client/cart-client";
 import Cart_contact from "../../components/cart-contact/cart_contact";
 import Boxabout from "../../components/box-about/Boxabout";
@@ -411,9 +411,13 @@ const Home = () => {
                     </p>
                   </div>
                   <div>
+                    <Link to="/BecomePartner">
+
                     <button className="bnt6-home">
                       <p className="txtbnt3-home">Devenier partenaire</p>
                     </button>
+                    </Link>
+                 
                   </div>
                 </div>
                 <div>
@@ -444,9 +448,11 @@ const Home = () => {
                 </div>
                 <Cart_contact />
                 <div>
+                <Link to="/Contact">
                   <button className="bntcartcon-home">
                     <p className="txtbntcartcon-home">Contactez-nous</p>
                   </button>
+                  </Link>
                 </div>
               </div>
             </Grid>

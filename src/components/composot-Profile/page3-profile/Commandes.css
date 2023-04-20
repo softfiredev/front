@@ -1,70 +1,228 @@
-.comonde{
-    width: 844px;
-height: 1040px;
+.commandes{
+box-sizing: border-box;
+width: 844px;
+height: 1044px;
 background: #FFFFFF;
 border-radius: 8px;
 }
-.col1-como{
-    flex-direction: column;
-    display: flex;
-    text-align: left;
-    gap: 2.5em;
-padding: 5%;
-}
-.txt1-como{
-font-family: 'Inter';
+.titrePageCommande{
+font-family:'Inter';
 font-style: normal;
 font-weight: 600;
 font-size: 28px;
 line-height: 40px;
 color: #222222;
-
+margin: 28px 0 0 28px ;
 }
-.row1-como{
-    display: flex;
-    flex-direction: row;
-    gap:2.6em;
+.filter-commande{
+ margin: 28px 0 0 -5px;
 }
-.txt2-como{
+.filter-commande .filter-commande-items{
+    margin-left: 45px;
     font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 20px;
-color: #222222;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #626262;
 }
-.input-como{
-
-    width: 519px;
+.sous-line-array{
+width: 788px ;
+border: 1px solid #EDEDED;
+margin-left: 48px;
+}
+.search-inpute{
+box-sizing: border-box;
+width: 519px;
 height: 52px;
-
 background: #FFFFFF;
 border: 1px solid #E1E1E1;
 border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 22px;
+color: #B1B1B1;
+margin: 28px 0 0 42px;
 }
-.bnt1-como{
+.array-header{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 28px 0 0 8px;
+}
+.array-header .header-item{
 font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
 font-size: 14px;
 line-height: 20px;
-text-align: center;
-color: #2680C2;
-cursor: pointer;
-width: 128px;
-height: 32px;
-left: 1099px;
-top: 518px;
-background: #DCEEFB;
-border: 1px solid #4098D7;
+color: #222222;
+}
+.vendeur-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    
+}
+.articles{
+    margin-left: 53px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.commande-data{
+    display: flex;
+    margin-bottom: 32px;
+} 
+.articles .icondown{
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.name_libraire{
+margin-left: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 20px;
+color: #222222;
+margin-top: 2px;
+}
+
+.idcommande{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+color: #222222;
+margin-left: 46px;
+}
+.datecommande{
+    margin-left:55px;;
+}
+.vendeur-data{
+    margin-left: 75px;
+}
+.Statut{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;    
+    text-align: center;
+    color: #2680C2; 
+    background: #DCEEFB;
+    border: 1px solid #4098D7;
+    border-radius: 8px;
+    padding: 6px 35px 6px 35px;
+    margin-left: 30px;
+}
+.annule{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;    
+    text-align: center;
+    color: #BA2525; 
+    background: #FFEEEE;
+    border: 1px solid #D64545;
+    border-radius: 8px;
+    padding: 6px 40px 6px 40px;
+    margin-left: 30px;
+}
+.array-data{
+    margin-top: 24px;
+    height: 656px;
+    margin-right: 10px;
+}
+.livre{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;    
+    text-align: center;
+    color: #3F9142; 
+    background: #E3F9E5;
+    border: 1px solid #57AE5B;
+    border-radius: 8px;
+    padding: 6px 48px 6px 48px;
+    margin-left: 30px;
+}
+.Tarification{
+    padding-left: 69px;;
+}
+.Article-data{
+    display: flex;
+    flex-direction: column;
+    width: 198px;
+    margin-left: 153px;
+    margin-top: 5px;
+}
+.Article-data-none{
+    display: none;
+}
+.article{
+    display: flex;
+    flex-direction: row;
+}
+.Article-data .qte{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 24px;
+color: #222222;
+}
+.Article-data img{
+height: 24px;
+width: 24px;
+border-radius: 4px;
+
+}
+.Article-data p {
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 24px;
+color: #222222;
+}
+.pagination2 .nombre-page{
+margin: 19px 0 0 51px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+color: #222222;
+}
+.select-page{
+    width: 60%;
+}
+.select-lable{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+text-align: right;
+color: #222222;
+margin: 17px 28px 0 0;
+}
+.Select{
+box-sizing: border-box;
+width: 85px;
+height: 52px;
+background: #FFFFFF;
+border: 1px solid #E2E5EA;
 border-radius: 8px;
+margin-right: 0px;
 }
-.txtbnt-como{
-    margin-top: -1%;
-}
-
-
-
-
-
-

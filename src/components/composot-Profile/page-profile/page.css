@@ -30,10 +30,12 @@ border: none;
     color: #626262;
     
 }
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input{
+    padding: 11.5px 14px;
+}
 .input-pro{
     width: 400px;
 height: 48px;
-
 background: #FFFFFF;
 border: 1px solid #E1E1E1;
 border-radius: 8px;

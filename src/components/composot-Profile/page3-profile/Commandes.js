@@ -42,8 +42,28 @@ const Commandes = () => {
       Statut: "en cours",
     },
   ];
+  const filterCommande = [
+    {
+      id: "tous",
+      name: "Tous",
+    },
+    {
+      id: "livre",
+      name: "Livre",
+    },
+    {
+      id: "enCours",
+      name: "En cours",
+    },
+    {
+      id: "Annuler",
+      name: "Annuler",
+    },
+  ];
   const [dopdownAricle, setdropdowArticle] = useState(false);
   const [iDdropdownArticle, setiDdropdownArticle] = useState();
+  const [filter,setfilter]=useState(false);
+  const[idFilter,setidFilter]=useState()
   const dropDownOn = (id) => {
     setdropdowArticle(true);
     setiDdropdownArticle(id);
@@ -52,6 +72,10 @@ const Commandes = () => {
     setdropdowArticle(false);
     setiDdropdownArticle(id);
   };
+  const changeStyleFilter=(id)=>{
+    setfilter(true);
+    setidFilter(id)
+  }
   return (
     <div className="commandes">
       <h1 className="titrePageCommande">Commandes</h1>
@@ -63,18 +87,11 @@ const Commandes = () => {
           alignItems="center"
           className="filter-commande"
         >
-          <Grid item className="filter-commande-items">
-            Tous
-          </Grid>
-          <Grid item className="filter-commande-items">
-            Livré
-          </Grid>
-          <Grid item className="filter-commande-items">
-            En cours
-          </Grid>
-          <Grid item className="filter-commande-items">
-            Annulé
-          </Grid>
+          {filterCommande.map((e,key) => (
+            <Grid item className={e.id==="tous" && !filter?"filter-commande-items1":idFilter===e.id && filter ?"filter-commande-items1":"filter-commande-items"} onClick={()=>{changeStyleFilter(e.id)}}>
+              {e.name}
+            </Grid>
+          ))}
         </Grid>
 
         <hr className="sous-line-array" />
@@ -98,7 +115,10 @@ const Commandes = () => {
           </div>
           <hr className="sous-line-array" />
           <div className="array-data">
-            {commandeArray.map((e, key) => (
+            {commandeArray.filter((data)=>{
+              return  idFilter==="livre"? data.Statut==="Livre" :idFilter==="Annuler"? data.Statut==="Annule":idFilter==="enCours"? data.Statut==="en cours":data  
+            }).map((e, key) => (  
+               
               <div>
                 <div className="commande-data" key={key}>
                   <p className="idcommande"> {e.id}</p>
@@ -110,7 +130,7 @@ const Commandes = () => {
                         color="#626262"
                         className="icondown"
                         onClick={(e) => dropDownOn(key)}
-                        style={{cursor:"pointer"}}
+                        style={{ cursor: "pointer" }}
                       />
                     )}
                     {dopdownAricle && (
@@ -121,7 +141,7 @@ const Commandes = () => {
                         onClick={(e) => {
                           dropDownOff(key);
                         }}
-                        style={{cursor:"pointer"}}
+                        style={{ cursor: "pointer" }}
                       />
                     )}
                   </div>
@@ -182,16 +202,16 @@ const Commandes = () => {
         >
           <p className="nombre-page">1-10 sur 19 commandes</p>
           <Grid
-          container
-          direction="row"
-          style={{width:"42%",marginTop:"20px"}}
-          className="select-page"
-        >
+            container
+            direction="row"
+            style={{ width: "42%", marginTop: "20px" }}
+            className="select-page"
+          >
             <p className="select-lable">La page sur laquelle vous êtes</p>
             <select className="Select">
               <option value={1}>1</option>
             </select>
-        </Grid>
+          </Grid>
         </Grid>
       </div>
     </div>

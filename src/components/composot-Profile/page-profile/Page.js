@@ -2,7 +2,6 @@ import React from 'react'
 import './page.css'
 import { OutlinedInput} from '@mui/material'
 import { RefreshSquare,AddCircle} from "iconsax-react";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -17,10 +16,8 @@ const Page = () => {
 <div className='col2-profile'><div className='txt-profile3'>Email</div><OutlinedInput className='input-pro' /></div>
 <div className='col2-profile'><div className='txt-profile3'>Numéro de téléphone</div><OutlinedInput className='input-pro' /></div>
 <div className='col2-profile'><div className='txt-profile3'>Date de naissance</div>
-<LocalizationProvider dateAdapter={AdapterDayjs} >
-    
-        <DatePicker className='input-pro'  />
-      
+<LocalizationProvider dateAdapter={AdapterDayjs}  >
+        <DatePicker className='input-pro'/>
     </LocalizationProvider>
 
 

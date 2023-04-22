@@ -104,7 +104,7 @@ margin-top: 2%;
 .row6-favo{
     flex-direction: row;
     display: flex;
-    gap: 5em;
+    gap: 2em;
 
 }
 .prix-favo{
@@ -115,6 +115,7 @@ font-weight: 600;
 font-size: 18px;
 line-height: 20px;
 color: #222222;
+margin-left: 58px;
 
 }
 .input-pro{
@@ -150,7 +151,23 @@ height: 32px;
     height: 580px;
     margin-left: -15px;
     overflow-x: hidden;
+    margin-top: -41px;
 }
 .scroll-container::-webkit-scrollbar {
     width: 12px;
+}
+.delete-favo{
+width: 32px;
+height: 32px;
+background: #FFFFFF;
+border: 1px solid #FACDCD;
+border-radius: 6px;
+margin-left: 13px;
+}
+.icondelete{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.prix-favo{
+    width: 108px;
 }

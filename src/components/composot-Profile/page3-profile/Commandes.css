@@ -25,6 +25,17 @@ margin: 28px 0 0 28px ;
     font-size: 16px;
     line-height: 20px;
     color: #626262;
+    cursor: pointer;
+}
+.filter-commande .filter-commande-items1{
+    margin-left: 45px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #222222;
+    cursor: pointer;
 }
 .sous-line-array{
 width: 788px ;
@@ -50,7 +61,7 @@ margin: 28px 0 0 42px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin: 28px 0 0 8px;
+    margin: 28px 0 0 53px;
 }
 .array-header .header-item{
 font-family: 'Inter';
@@ -59,6 +70,7 @@ font-weight: 500;
 font-size: 14px;
 line-height: 20px;
 color: #222222;
+margin-left: -3px;
 }
 .vendeur-data{
     display: flex;
@@ -194,6 +206,9 @@ font-weight: 500;
 font-size: 12px;
 line-height: 24px;
 color: #222222;
+}
+.pagination2{
+    margin-top: -11px;
 }
 .pagination2 .nombre-page{
 margin: 19px 0 0 51px;

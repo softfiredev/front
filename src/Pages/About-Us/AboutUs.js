@@ -191,6 +191,7 @@ const AboutUs = () => {
                
         </Grid>
 
+
         <Grid item>
           <p className="txt13-about">Coordonnées et assistance </p> <br />{" "}
           <br />

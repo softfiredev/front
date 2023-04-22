@@ -1,15 +1,21 @@
 .Avis{
-    width: 844px;
+width: 844px;
 height: 1040px;
 background: #FFFFFF;
 border-radius: 8px;
+
 }
 .col1-avis{
     flex-direction: column;
     display: flex;
     text-align: left;
     gap: 2.5em;
-padding: 5%;
+    padding: 5%;
+    box-sizing: border-box;
+    width: 844px;
+    height: auto;
+    background: #FFFFFF;
+    border-radius: 8px;
 }
 .txt1-avis{
 font-family: 'Inter';
@@ -85,12 +91,16 @@ border-radius: 8px;
     height: 150px;
 
 }
-
-
-
 .more-avis{
     cursor: pointer;
     transform: rotate(90deg)
 
-
+}
+.hrline1{
+width: 788px;
+height: 0px;
+border: 1px solid #EDEDED;
+}
+.hedeartable{
+    border-bottom: #222222 solid 1px;
 }

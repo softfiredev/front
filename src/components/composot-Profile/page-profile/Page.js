@@ -83,7 +83,7 @@ const Page = () => {
                 <div className='box3-page'>
 <h2>Mes adresses</h2>
 <div className='rowbnt-page'><AddCircle size="22" color="#E9B949" variant="Bold"/><div>Ajouter une nouvelle adresse</div></div>
-</div>
+</div>ff
                </Typography>
               </AccordionSummary>
               <AccordionDetails>

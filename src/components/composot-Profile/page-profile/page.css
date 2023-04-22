@@ -8,7 +8,7 @@ border-radius: 8px;
 }
 .box2-page{
     width: 844px;
-    height: 156px;
+    height: auto;
     margin-bottom: 10%;
 
 padding: 2%;
@@ -105,4 +105,66 @@ color: #9E9E9E;
     left: 120px;
     background-color: #FFFFFF;
     border-radius: 100px;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+.changePasswordForm{
+    margin-top: 10px;
+}
+.changePasswordFormNone ,.icon-none{
+    display: none;
+}
+
+.changePasswordForm .input-container .label-password-change{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #626262;
+}
+.changePasswordForm .input-container .input-change-password{
+box-sizing: border-box;
+width: 400px;
+height: 48px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+margin-top: 12px;
+margin-bottom: 28px;
+}
+.btn-form .btn-Annuler{
+width: 156px;
+height: 48px;
+background: #FFFFFF;
+border: 1px solid #222222;
+border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+text-align: center;
+color: #222222;
+}
+.btn-form .btn-Valider{
+width: 156px;
+height: 48px;
+background: #222222;
+border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+text-align: center;
+color: #FFFFFF;
+margin-left: 20px;
+}
+.btn-form{
+    width: 344px;
+    margin-left: 65px;
+    margin-top: -2px;
 }

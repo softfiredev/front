@@ -6,7 +6,15 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Avtr from "../../../assets/avtclient.png";
+import { useState } from "react";
 const Page = () => {
+   const [openchangePassword , setopenchangePassword]=useState(false) ;
+   const handleOpenchangePassword=()=>{
+    setopenchangePassword(true)
+   }
+   const handleClosechangePassword=()=>{
+    setopenchangePassword(false)
+   }
   return (
     <div>
       <div className="carts2">
@@ -56,9 +64,21 @@ const Page = () => {
       </div>
       <div className="box2-page">
         <h2>Mon mot de passe</h2>
-        <div className="rowbnt-page">
-          <RefreshSquare size="22" color="#E9B949 " variant="Bold" />
+        <div className={openchangePassword?"icon-none":"rowbnt-page"}>
+          <RefreshSquare size="22" color="#E9B949 " variant="Bold" onClick={handleOpenchangePassword}  />
           <div>Changer le mot de passe</div>
+        </div>
+        <div className={openchangePassword?"changePasswordForm":"changePasswordFormNone"}>
+              <div className="input-container">
+                <label className="label-password-change">Mot de passe actuel</label>
+                <OutlinedInput className="input-change-password" placeholder="Entrez votre mot de passe"/>
+                <label className="label-password-change">Nouveau mot de passe</label>
+                <OutlinedInput className="input-change-password" placeholder="Entrez votre mot de passe"/>
+              </div>
+              <div className="btn-form">
+                  <button className="btn-Annuler">Annuler</button>
+                  <button className="btn-Valider" onClick={handleClosechangePassword}>Valider</button>
+              </div>
         </div>
       </div>
       <div className="box3-page">

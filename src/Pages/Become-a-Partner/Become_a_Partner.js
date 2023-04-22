@@ -397,6 +397,7 @@ const Become_a_Partner = () => {
                 Tout ce que vous devez savoir sur Maktaba et ses prestations.
                 Vous ne trouvez pas la réponse que vous cherchez? Veuillez
                 discuter avec notre équipe. 
+                
               </div>
             </div>
 

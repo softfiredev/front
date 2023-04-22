@@ -7,29 +7,108 @@ background: #FFFFFF;
 border-radius: 8px;
 }
 .box2-page{
+
     width: 844px;
-    height: auto;
+    height: 156px;
     margin-bottom: 10%;
 
 padding: 2%;
 padding-left: 7%;
 background: #FFFFFF;
 border-radius: 8px;
+
+}
+.txtbnt3-page{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center; 
+    color: #222222;
+    margin-top: -1%;
+}
+.txtbnt4-page{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+margin-top: -1%;
+    text-align: center;
+    color: #FFFFFF;
+}
+.bnt4-page{
+    width: 156px;
+    height: 48px;
+    background: #222222;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.bnt3-page{
+    width: 156px;
+height: 48px;
+background: #FFFFFF;
+border: 1px solid #222222;
+border-radius: 8px;
+cursor: pointer;
+}
+.minirow-page{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin-left: 9.5%;
+
+}
+.col0-page {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 1em;
+
+
+padding-left: 7%;
+background: #FFFFFF;
+}
+.col-page{
+
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 1em;
+}
+.line-page{
+    width: 748px;
+height: 0px;
+margin-left: -3%;
+border: 1px solid #E1E1E1;
+}
+.typographyReponse-page{
+    margin-left: 5%;
+    margin-top: -5%;
 }
 .box3-page{
+
     width: 844px;
     height: 156px;
-
 padding: 2%;
 padding-left: 7%;
 background: #FFFFFF;
 border-radius: 8px;
+
 }
 .rowbnt-page{
     display: flex;
     gap: 1em;
     flex-direction: row;
  
+}
+.minicol-page{
+    display: flex;
+    gap:0.5em;
+    flex-direction: column; 
 }
 .txt0-profile3{
     font-family: 'Inter';
@@ -39,6 +118,15 @@ font-size: 14px;
 line-height: 20px;
 margin-top: 50%;
 color: #626262;
+}
+.txt3-profile{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 28px;
+color: #222222;
+
 }
 .avrt-page{
     border-radius: 100px;
@@ -78,7 +166,7 @@ border-radius: 8px;
     flex-direction: column;
     display: flex;
     text-align: left;
-    gap: 1.5em;
+    gap: 1em;
     
 }
 .txt1-profile3{
@@ -95,76 +183,4 @@ color: #9E9E9E;
   
     gap: 1em;
     
-}
-.avatar-container{
-    position: relative;
-}
-.avatar-container .export-icon{
-    position: absolute;
-    top: 114px;
-    left: 120px;
-    background-color: #FFFFFF;
-    border-radius: 100px;
-}
-.input-container{
-    display: flex;
-    flex-direction: column;
-}
-.changePasswordForm{
-    margin-top: 10px;
-}
-.changePasswordFormNone ,.icon-none{
-    display: none;
-}
-
-.changePasswordForm .input-container .label-password-change{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    color: #626262;
-}
-.changePasswordForm .input-container .input-change-password{
-box-sizing: border-box;
-width: 400px;
-height: 48px;
-background: #FFFFFF;
-border: 1px solid #E1E1E1;
-border-radius: 8px;
-margin-top: 12px;
-margin-bottom: 28px;
-}
-.btn-form .btn-Annuler{
-width: 156px;
-height: 48px;
-background: #FFFFFF;
-border: 1px solid #222222;
-border-radius: 8px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 22px;
-text-align: center;
-color: #222222;
-}
-.btn-form .btn-Valider{
-width: 156px;
-height: 48px;
-background: #222222;
-border-radius: 8px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 22px;
-text-align: center;
-color: #FFFFFF;
-margin-left: 20px;
-}
-.btn-form{
-    width: 344px;
-    margin-left: 65px;
-    margin-top: -2px;
 }

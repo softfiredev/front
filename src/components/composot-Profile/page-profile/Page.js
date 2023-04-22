@@ -5,6 +5,7 @@ import { RefreshSquare,AddCircle} from "iconsax-react";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import Avtr from '../../../assets/avtclient.png'
 const Page = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const Page = () => {
 <div className='col1-page1'>
   
 <div className='txt1-carts2'>Mon identité</div>
+<div><div className='rowbnt-page'><img src={Avtr} className='avrt-page'/><div className='col00-page1'><div><p className='txt0-profile3'>Photo de profile</p></div><div><p className='txt1-profile3'>300x300 et max 2 MB</p></div></div></div></div>
 <div className='col2-profile'><div className='txt-profile3'>Nom et Prénom</div><OutlinedInput className='input-pro' /></div>
 <div className='col2-profile'><div className='txt-profile3'>Email</div><OutlinedInput className='input-pro' /></div>
 <div className='col2-profile'><div className='txt-profile3'>Numéro de téléphone</div><OutlinedInput className='input-pro' /></div>
@@ -24,13 +26,17 @@ const Page = () => {
 
 </div>
 <button className='bnt-pro3'><p className='txtbnt-pro2'>Valider</p></button><br/>
-<h2>Mon mot de passe</h2>
+</div></div>
+  <div className='box2-page'>
+  <h2>Mon mot de passe</h2>
 <div className='rowbnt-page'><RefreshSquare size="22" color="#E9B949 "  variant="Bold"/><div>Changer le mot de passe</div></div>
+    </div>
+    <div className='box3-page'>
 <h2>Mes adresses</h2>
 <div className='rowbnt-page'><AddCircle size="22" color="#E9B949" variant="Bold"/><div>Ajouter une nouvelle adresse</div></div>
+</div>
 
-</div>
-</div>
+
     </div>
   )
 }

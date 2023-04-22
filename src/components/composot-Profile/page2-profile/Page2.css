@@ -140,6 +140,7 @@ height: 32px;
 }
 .shopcont-favo{
     margin-top: 15%;
+    cursor: pointer;
     margin-left: 15%;
 }
 .scroll-container{
@@ -167,6 +168,7 @@ margin-left: 13px;
 .icondelete{
     margin-top: 5px;
     margin-left: 5px;
+    cursor: pointer;
 }
 .prix-favo{
     width: 108px;

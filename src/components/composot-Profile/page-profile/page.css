@@ -1,8 +1,27 @@
 .carts2{
     width: 844px;
-height: 608px;
-
+height: 790px;
+margin-bottom: 10%;
 padding: 5%;
+background: #FFFFFF;
+border-radius: 8px;
+}
+.box2-page{
+    width: 844px;
+    height: 156px;
+    margin-bottom: 10%;
+
+padding: 2%;
+padding-left: 7%;
+background: #FFFFFF;
+border-radius: 8px;
+}
+.box3-page{
+    width: 844px;
+    height: 156px;
+
+padding: 2%;
+padding-left: 7%;
 background: #FFFFFF;
 border-radius: 8px;
 }
@@ -10,6 +29,21 @@ border-radius: 8px;
     display: flex;
     gap: 1em;
     flex-direction: row;
+ 
+}
+.txt0-profile3{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 20px;
+margin-top: 50%;
+color: #626262;
+}
+.avrt-page{
+    border-radius: 100px;
+    Width:150px;
+Height:150px;
 }
 .bnt-pro3{
 width: 156px;
@@ -45,5 +79,20 @@ border-radius: 8px;
     display: flex;
     text-align: left;
     gap: 1.5em;
+    
+}
+.txt1-profile3{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+color: #9E9E9E;
+}
+.col00-page1{
+    flex-direction: column;
+    display: flex;
+  
+    gap: 1em;
     
 }

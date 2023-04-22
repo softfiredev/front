@@ -10,6 +10,8 @@ border-radius: 8px;
 
     width: 844px;
     height: 156px;
+    margin-bottom: 10%;
+
 padding: 2%;
 padding-left: 7%;
 background: #FFFFFF;
@@ -129,7 +131,7 @@ color: #222222;
 .avrt-page{
     border-radius: 100px;
     Width:150px;
-Height:150px;
+    Height:150px;
 }
 .bnt-pro3{
 width: 156px;
@@ -182,4 +184,3 @@ color: #9E9E9E;
     gap: 1em;
     
 }
-

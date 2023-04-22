@@ -24,6 +24,8 @@ const Page1_profile = lazy(() =>import ( './components/composot-Profile/page-pro
 const Page2_profile = lazy(() =>import ( './components/composot-Profile/page2-profile/Page2'));
 const Commandes = lazy(() =>import ( './components/composot-Profile/page3-profile/Commandes'));
 const Avis = lazy(() =>import ( './components/composot-Profile/page4-profile/Avis'));
+const VenderCategorie= lazy(()=>import("./Pages/venderCategorie/venderCategorie"))  
+
 function App() {
   return (
     <>
@@ -52,10 +54,11 @@ function App() {
         <Route path='/Profile/MesPoints/Bondachats' element={<Dachats/>}/>
         <Route path="/Profile/MesPoints" element={ <Navigate to="/Profile/MesPoints/Bondachats" /> } />
    </Route>
-    <Route path="/Profile" element={ <Navigate to="/Profile/Monidentité" /> } /> </Route>
-    <Route path="/" element={ <Navigate to="/Home" /> } />
+   <Route path="/Profile" element={ <Navigate to="/Profile/Monidentité" /> } /> </Route>
+   <Route path="/" element={ <Navigate to="/Home" /> } />
    <Route path='/Home' element={<Home/>}/>
    <Route path='/reset-password/:id/:token' element={<Resetpassword/>}/>
+   <Route path='/Categories'element={<VenderCategorie/>} />
   <Route path='*' element={ <> page not !!!</>} />
    </Routes>
    </Suspense>

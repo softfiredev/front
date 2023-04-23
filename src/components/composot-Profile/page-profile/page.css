@@ -9,7 +9,7 @@ border-radius: 8px;
 .box2-page{
 
     width: 844px;
-    height: 156px;
+    height: auto;
     margin-bottom: 10%;
 
 padding: 2%;
@@ -183,4 +183,42 @@ color: #9E9E9E;
   
     gap: 1em;
     
+}
+.avatar-container{
+    position: relative;
+}
+.icon-container{
+position: absolute;
+top:99px;
+left:128px;
+background: #FFFFFF;
+border-radius: 100px;
+width: 30px;
+height: 30px;
+    
+}
+.change-password-form{
+    display: flex;
+    flex-direction: column;
+}
+.change-password-form .label-inpute{
+font-family:'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 20px;
+color: #626262;
+}
+.input-password{
+box-sizing: border-box;
+width: 400px;
+height: 48px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+margin-top: 12px;
+margin-bottom: 28px;
+}
+.rowbnt-page-none,.change-password-form-none{
+    display: none;
 }

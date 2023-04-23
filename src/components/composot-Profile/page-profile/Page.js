@@ -1,17 +1,17 @@
-import React from 'react'
-import './page.css'
-import { OutlinedInput} from '@mui/material'
-import { RefreshSquare,AddCircle} from "iconsax-react";
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import Avtr from '../../../assets/avtclient.png'
+import React, { useState } from "react";
+import "./page.css";
+import { IconButton, InputAdornment, OutlinedInput } from "@mui/material";
+import { RefreshSquare, AddCircle, ExportCurve } from "iconsax-react";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import Avtr from "../../../assets/avtclient.png";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
-
-import MuiAccordionSummary  from "@mui/material/AccordionSummary";
+import MuiAccordionSummary from "@mui/material/AccordionSummary";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
 const Page = () => {
   const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -26,25 +26,28 @@ const Page = () => {
     },
   }));
   {
-}
+  }
   const AccordionSummary = styled((props) => (
-    
     <MuiAccordionSummary {...props} />
-  ))(({ theme }) => ({
-   
-   
-  }));
+  ))(({ theme }) => ({}));
 
   const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     padding: theme.spacing(3),
   }));
-  const [expanded, setExpanded] =React.useState("panel1");
-
+  const [expanded, setExpanded] = React.useState("panel1");
+const[openchangePassword,setopenchangePassword]=useState(false)
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
-    if (newExpanded) {
-    }
   };
+  const [showPassword, setShowPassword] = React.useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleOpenChanegPassword=()=>{
+    setopenchangePassword(true)
+  }
+  const handleCloseChanegPassword=()=>{
+    setopenchangePassword(false)
+  }
+  console.log("test",openchangePassword)
   return (
     <div>
       <div  className='carts2'>
@@ -62,7 +65,7 @@ const Page = () => {
 
 
 
-</div>
+</div>e
 <button className='bnt-pro3'><p className='txtbnt-pro2'>Valider</p></button><br/>
 </div></div>
   <div className='box2-page'>
@@ -104,7 +107,7 @@ const Page = () => {
               </AccordionDetails>
             </Accordion>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

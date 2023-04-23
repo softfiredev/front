@@ -83,14 +83,14 @@ const Page = () => {
                 <div className='box3-page'>
 <h2>Mes adresses</h2>
 <div className='rowbnt-page'><AddCircle size="22" color="#E9B949" variant="Bold"/><div>Ajouter une nouvelle adresse</div></div>
-</div>ff
+</div>
                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <div className="typographyReponse-page">
                   <hr className='line-page'/><br/>
                   <div className='col-page'>
-                 <div>   <p className='txt3-profile'>Ajout d'une nouvelle adresse</p></div><br/>
+                 <div>   <p className='txt3-profile'>Ajout d'une nouvelle adresse</p></div>
           <div className='minicol-page'><div><p>Nom de l’adresse</p></div><OutlinedInput className='input-pro' /><div></div></div>
           <div className='minicol-page'><div><p>Adresse</p></div><OutlinedInput className='input-pro' /><div></div></div>
           <div className='minicol-page'><div><p>Gouvernorat</p></div><OutlinedInput className='input-pro' /><div></div></div>

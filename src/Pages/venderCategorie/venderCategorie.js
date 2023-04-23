@@ -45,6 +45,7 @@ const VenderCategorie = () => {
   console.log(linkarray) ;
   return (
     <div className="categoriePage">
+
       <div className="side-bar">
         <img src={logo} alt="maktba" />
         <div className="link-side-bar">

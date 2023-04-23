@@ -62,7 +62,7 @@ const Page = () => {
 
 
 
-</div>
+</div>e
 <button className='bnt-pro3'><p className='txtbnt-pro2'>Valider</p></button><br/>
 </div></div>
   <div className='box2-page'>

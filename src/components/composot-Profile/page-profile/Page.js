@@ -91,84 +91,38 @@ const Page = () => {
       </div>
       <br />
 
-      <Accordion
-        expanded={expanded === "panel"}
-        onChange={handleChange("panel")}
-      >
-        <AccordionSummary
-          aria-controls="panel1d-content"
-          id="panel1d-header"
-          style={{ width: "650px" }}
-        >
-          <Typography style={{ width: "650px" }} className="typography">
-            <div className="box3-page">
-              <h2>Mes adresses</h2>
-              <div className="rowbnt-page">
-                <AddCircle size="22" color="#E9B949" variant="Bold" />
-                <div>Ajouter une nouvelle adresse</div>
-              </div>
-            </div>
-        
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <div className="typographyReponse-page">
-            <hr className="line-page" />
-            <br />
-            <div className="col-page">
-              <div>
-                {" "}
-                <p className="txt3-profile">Ajout d'une nouvelle adresse</p>
-              </div>
-              <br />
-              <div className="minicol-page">
-                <div>
-                  <p>Nom de l’adresse</p>
-                </div>
-                <OutlinedInput className="input-pro" />
-                <div></div>
-              </div>
-              <div className="minicol-page">
-                <div>
-                  <p>Adresse</p>
-                </div>
-                <OutlinedInput className="input-pro" />
-                <div></div>
-              </div>
-              <div className="minicol-page">
-                <div>
-                  <p>Gouvernorat</p>
-                </div>
-                <OutlinedInput className="input-pro" />
-                <div></div>
-              </div>
-              <div className="minicol-page">
-                <div>
-                  <p>Ville</p>
-                </div>
-                <OutlinedInput className="input-pro" />
-                <div></div>
-              </div>
-              <div className="minicol-page">
-                <div>
-                  <p>Code postal</p>
-                </div>
-                <OutlinedInput className="input-pro" />
-                <div></div>
-              </div>
+<Accordion       expanded={expanded === "panel"}
+              onChange={handleChange("panel")}
+            >
+              <AccordionSummary
+                aria-controls="panel1d-content"
+                id="panel1d-header"
+                style={{width:"650px"}}
+              >
+                <Typography  style={{width:"650px"}} className="typography">
+                <div className='box3-page'>
+<h2>Mes adresses</h2>
+<div className='rowbnt-page'><AddCircle size="22" color="#E9B949" variant="Bold"/><div>Ajouter une nouvelle adresse</div></div>
+</div>ff
+               </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <div className="typographyReponse-page">
+                  <hr className='line-page'/><br/>
+                  <div className='col-page'>
+                 <div>   <p className='txt3-profile'>Ajout d'une nouvelle adresse</p></div><br/>
+          <div className='minicol-page'><div><p>Nom de l’adresse</p></div><OutlinedInput className='input-pro' /><div></div></div>
+          <div className='minicol-page'><div><p>Adresse</p></div><OutlinedInput className='input-pro' /><div></div></div>
+          <div className='minicol-page'><div><p>Gouvernorat</p></div><OutlinedInput className='input-pro' /><div></div></div>
+          <div className='minicol-page'><div><p>Ville</p></div><OutlinedInput className='input-pro' /><div></div></div>
+          <div className='minicol-page'><div><p>Code postal</p></div><OutlinedInput className='input-pro' /><div></div></div>
 
-              <div className="minirow-page">
-                <button className="bnt3-page">
-                  <p className="txtbnt3-page">Annuler</p>
-                </button>{" "}
-                <button className="bnt4-page">
-                  <p className="txtbnt4-page">Valider</p>
-                </button>{" "}
-              </div>
-            </div>
-          </div>
-        </AccordionDetails>
-      </Accordion>
+          <div className='minirow-page'><button className='bnt3-page'><p className='txtbnt3-page'>Annuler</p></button> <button className='bnt4-page'><p className='txtbnt4-page'>Valider</p></button> </div>
+                
+                  </div>
+                </div>
+              </AccordionDetails>
+            </Accordion>
     </div>
   );
 };

@@ -32,7 +32,7 @@ function App() {
    
 
  <BrowserRouter>
- <NavBar/>
+
  <Suspense fallback={<Spinier />}>
    <Routes>
    <Route path='/Login' element={ <Login/>} />

@@ -10,6 +10,7 @@ import {
 } from "iconsax-react";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../../components/NavBar/NavBar";
 const Profilee = () => {
   const [name, setname] = useState("page1");
   const [bnt1, setbnt1] = useState("bnt-pro");
@@ -70,7 +71,9 @@ const Profilee = () => {
     }
   };
   return (
-    <div className="Profile">
+    <>
+         <NavBar/>
+        <div className="Profile">
       <div className="col1-profile">
         <div>
           <p className="txt-profile1">Bonjour, Amine!</p>
@@ -159,6 +162,8 @@ const Profilee = () => {
         </div>
       </div>
     </div>
+    </>
+    
   );
 };
 

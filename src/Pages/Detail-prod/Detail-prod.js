@@ -25,6 +25,7 @@ import Modal from "@mui/material/Modal";
 import { OutlinedInput } from "@mui/material";
 import Description from "../../components/description-detail/Description";
 import Avatar from "@mui/material/Avatar";
+import NavBar from "../../components/NavBar/NavBar";
 const Detailprod = () => {
   const prod = [
     {
@@ -126,7 +127,9 @@ const Detailprod = () => {
 
 
   return (
-    <div className="detail">
+    <>
+      <NavBar/>
+       <div className="detail">
       <div>
         <Stack spacing={2}>
           <Breadcrumbs separator="›" aria-label="breadcrumb">
@@ -431,6 +434,8 @@ const Detailprod = () => {
         </div>
       </div>
     </div>
+    </>
+   
   );
 };
 

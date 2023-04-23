@@ -15,6 +15,7 @@ import Spinier from '../../components/spinier/Spinier'
 import { useAtoms } from '../../Store/globalState/global';
 import {LoginSocialGoogle,  LoginSocialFacebook} from 'reactjs-social-login';
 import { GoogleService } from '../../Store/Service/GoogleService'
+import NavBar from '../../components/NavBar/NavBar';
 const Login = () => {
   const dispatch = useDispatch();
 const [globalState,snap]=useAtoms()
@@ -103,6 +104,7 @@ useEffect(()=>{
   return (
 
     <>
+    <NavBar/>
       { snap.loding ? <Spinier /> :
 
     <div className='login'>

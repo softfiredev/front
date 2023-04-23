@@ -14,9 +14,12 @@ import { FreeMode} from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 import Boxabout from "../../components/box-about/Boxabout";
+import NavBar from "../../components/NavBar/NavBar";
 const AboutUs = () => {
   return (
-    <div className="about">
+        <>
+        <NavBar/>
+             <div className="about">
       <Grid
         container
         direction="column"
@@ -209,6 +212,7 @@ const AboutUs = () => {
         </Grid>
       </Grid>
     </div>
+        </>
   );
 };
 

@@ -5,6 +5,7 @@ import {Grid} from '@mui/material'
 import Addnewpassword from '../../components/add-new-password/add-new-password'
 import Successfullpassword from '../../components/successful-password/Successful_password'
 import { useAtoms } from '../../Store/globalState/global';
+import NavBar from '../../components/NavBar/NavBar'
 const Resetpassword = () => {
 
 const [change , setchange] = useState("add-new-password");
@@ -23,8 +24,9 @@ const Changepage=()=>{
 }
   return (
 
-   
-   <div className='password'>
+   <>
+    <NavBar/>
+    <div className='password'>
        <div className='passww' >
         <Grid item  >
           <img className='im' src={Imge} alt="icon" />
@@ -34,6 +36,8 @@ const Changepage=()=>{
         </Grid>
         </div>
     </div>
+   </>
+  
  
 
   )

@@ -10,6 +10,7 @@ import { Path, Base_url } from '../../config/Config'
 import { toast } from 'react-toastify';
 import { useAtoms } from '../../Store/globalState/global';
 import Spinier from '../../components/spinier/Spinier'
+import NavBar from '../../components/NavBar/NavBar';
 const Cartcontact = lazy(() => import('../../components/cart-contact/cart_contact')); 
 
 
@@ -70,7 +71,7 @@ else{
   return (
 
      <div>
-
+      <NavBar/>
 
       { snap.loding ? <Spinier /> :
       <><div className='contact'>

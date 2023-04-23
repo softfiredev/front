@@ -9,6 +9,7 @@ import Card from "../../components/card-produit/Card";
 import Filter from "../../components/filter/Filter";
 import Trifilter from "../../components/tri-filter/Trifilter";
 import Pagination from "@mui/material/Pagination";
+import NavBar from "../../components/NavBar/NavBar";
 
 const LibrairieProfile = () => {
   const prod = [{id:"000011110",nom:"PACK LIVRE SCOLAIRE 1éME",prix:"8.1dt",noml:"ali Library"},
@@ -17,7 +18,9 @@ const LibrairieProfile = () => {
     {id:"00ssds011110",nom:"PACK LIVRE SCOLAIRE 1éME",prix:"8.1dt",noml:"Errahma Library"},
     {id:"0aaa0011110",nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"1.1dt",noml:"Errahma Library"}];
   return (
-    <div className="profile">
+    <>
+      <NavBar/>
+      <div className="profile">
       <Box
         sx={{
           display: "flex",
@@ -112,6 +115,8 @@ const LibrairieProfile = () => {
         </Grid>
       </div>
     </div>
+    </>
+    
   );
 };
 

@@ -6,12 +6,15 @@ import Cartcontact from "../../components/cart-contact/cart_contact";
 import React from "react";
 import Liste from "../../components/listefq/liste";
 import { Link } from 'react-router-dom';
+import NavBar from "../../components/NavBar/NavBar";
 
 const Become_a_Partner = () => {
   const onButtonClick = () => {};
 
   return (
-    <div className="group-partner ">
+   <>
+      <NavBar/>
+      <div className="group-partner ">
       <Grid
         container
         direction="column"
@@ -424,6 +427,7 @@ const Become_a_Partner = () => {
         </Grid>
       </Grid>
     </div>
+   </>
   );
 };
 

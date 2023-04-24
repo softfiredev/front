@@ -24,9 +24,9 @@ function NavBar() {
            <Link to="/Shop"> <li>Shop </li></Link>
            <ArrowDown2 size="20" color="#FFFFFF" variant="TwoTone" style={{marginTop:'5%',marginLeft:'-3.5%'}}/>
 
-            <Link to="AboutUs"><li>À propos</li></Link>
-           <Link to="BecomePartner"> <li>Devenir partenaire</li></Link>
-          <Link to="Contact">  <li>Contact</li></Link>
+            <Link to="/AboutUs"><li>À propos</li></Link>
+           <Link to="/BecomePartner"> <li>Devenir partenaire</li></Link>
+          <Link to="/Contact">  <li>Contact</li></Link>
           </ul>
         </div>
         <div className='group'>
@@ -39,7 +39,7 @@ function NavBar() {
               /><p className='patch'><p className='patch-txt'>+3</p></p>
             </Link>
           </span>
-          <Link to="login" className='butto-NAV-link' > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
+          <Link to="/login" className='butto-NAV-link' > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
         </div>
 
       </header>

@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import Spinier from '../../components/spinier/Spinier'
 import { Signupuser } from "../../Store/Service/SignupService";
 import { useDispatch, useSelector } from 'react-redux';
+import NavBar from '../../components/NavBar/NavBar';
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -73,6 +74,7 @@ const Signup = () => {
 
   return (
     <>
+      <NavBar/>
       {loading ? <Spinier /> :
 
 

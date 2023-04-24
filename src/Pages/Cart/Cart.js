@@ -5,12 +5,15 @@ import "./Cart.css";
 import { Link } from "react-router-dom";
 import Box_produit_Card from "../../components/box-produit-card/box-produit-card";
 import Recapitulatif from "../../components/Recapitulatif.js/Recapitulatif";
+import NavBar from "../../components/NavBar/NavBar";
 const Cart = () => {
   const produits = [{titre :"stiloazeazeazeazeaze" ,prix :"1100" , total:"2200" , qte:"2"}
   ,{titre :"stiloazeazeazeazeaze" ,prix :"1100" , total:"2200" , qte:"2"}
   ,{titre :"stiloazeazeazeazeaze" ,prix :"1100" , total:"2200" , qte:"2"}]
   return (
-    <div className="Cart">
+    <>
+    <NavBar/>
+       <div className="Cart">
       <Grid item>
         <h1 className="titre">Panier</h1>
       </Grid>
@@ -45,6 +48,8 @@ const Cart = () => {
         <Link to="/Shop"> Continuer vos achats</Link>
       </div>
     </div>
+    </>
+   
   );
 };
 export default Cart;

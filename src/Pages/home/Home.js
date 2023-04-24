@@ -36,6 +36,7 @@ import Cart_client from "../../components/cart-client/cart-client";
 import Cart_contact from "../../components/cart-contact/cart_contact";
 import Boxabout from "../../components/box-about/Boxabout";
 import Cart from "../../components/Cartc-home/Cart";
+import NavBar from "../../components/NavBar/NavBar";
 const Home = () => {
   const tab = [
     {
@@ -121,6 +122,7 @@ const Home = () => {
 
   return (
     <div>
+      <NavBar/>
       <div className="group-home ">
         <Grid
           container

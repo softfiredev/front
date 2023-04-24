@@ -1,10 +1,12 @@
 import './App.css'
 import React,{ lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route,Navigate, Router } from "react-router-dom";
 import Toast from './components/toast/Toast'
 import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
+import Categorie from './components/VenderPage/categorie/categorie';
+import TableauDuBord from './components/VenderPage/TableauDuBord/TableauDuBord';
 const Points = lazy(() => import('./components/composot-Profile/page5-profile/Points')); 
 const Dachats = lazy(() => import('./components/composot-Profile/page5-profile/Bon dachats/Dachats')); 
 const Profile = lazy(() => import('./Pages/Profile/Profile')); 
@@ -24,7 +26,7 @@ const Page1_profile = lazy(() =>import ( './components/composot-Profile/page-pro
 const Page2_profile = lazy(() =>import ( './components/composot-Profile/page2-profile/Page2'));
 const Commandes = lazy(() =>import ( './components/composot-Profile/page3-profile/Commandes'));
 const Avis = lazy(() =>import ( './components/composot-Profile/page4-profile/Avis'));
-const VenderCategorie= lazy(()=>import("./Pages/venderCategorie/venderCategorie"))  
+const Vender= lazy(()=>import("./Pages/vender/vender"))  
 
 function App() {
   return (
@@ -58,7 +60,10 @@ function App() {
    <Route path="/" element={ <Navigate to="/Home" /> } />
    <Route path='/Home' element={<Home/>}/>
    <Route path='/reset-password/:id/:token' element={<Resetpassword/>}/>
-   <Route path='/Categories'element={<VenderCategorie/>} />
+   <Route path='/Vender'element={<Vender/>} >
+        <Route path='/Vender' element={<TableauDuBord/>}/>
+        <Route path='/Vender/categorie' element={<Categorie/>}/>
+   </Route>
   <Route path='*' element={ <> page not !!!</>} />
    </Routes>
    </Suspense>

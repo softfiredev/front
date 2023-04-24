@@ -1,26 +1,14 @@
-import React, { useState } from "react";
-import logo from "../../assets/logo10.png";
-import img from "../../assets/Ellipse 503.png";
-import Box1 from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import {
-  Chart2,
-  Element4,
-  Shop,
-  Box,
-  TruckFast,
-  ShoppingCart,
-  Graph,
-  Receipt1,
-  LogoutCurve,
-  SearchNormal1,
-  ArrowRight2,
-  ArrowLeft2,
-} from "iconsax-react";
-
-import "./venderCategorie.css";
+import React from "react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
+import Box1 from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import logo from "../../../assets/logo10.png";
+import "./categorie.css"
+import {
+    SearchNormal1,
+    ArrowRight2,
+    ArrowLeft2,
+} from "iconsax-react";
 const style = {
   position: "absolute",
   top: "50%",
@@ -33,87 +21,12 @@ const style = {
   height: 500,
   borderRadius: "8px",
 };
-const VenderCategorie = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const linkarray = [
-    {
-      linkname: "Tableau du bord",
-      icon: <Chart2 size="32" color="#7E7E7E" variant="Bulk" />,
-    },
-    {
-      linkname: "Catégories",
-      icon: <Element4 size="32" color="#7E7E7E" variant="Bulk" />,
-    },
-    {
-      linkname: "Inventaire",
-      icon: <Shop size="32" color="#7E7E7E" variant="Bulk" />,
-    },
-    {
-      linkname: "Liste de commandes",
-      icon: <Box size="32" color="#7E7E7E" variant="Bulk" />,
-    },
-    {
-      linkname: "Liste de livraisons",
-      icon: <TruckFast size="32" color="#7E7E7E" variant="Bulk" />,
-    },
-    {
-      linkname: "Approvisionner",
-      icon: <ShoppingCart size="32" color="#7E7E7E" variant="Bulk" />,
-    },
-    {
-      linkname: "Gestion de points",
-      icon: <Graph size="32" color="#7E7E7E" variant="Bulk" />,
-    },
-    {
-      linkname: "Factorisation",
-      icon: <Receipt1 size="32" color="#7E7E7E" variant="Bulk" />,
-    },
-  ];
-  const [linkStyle, setLinkStyle] = useState(false);
-  const [linkId, setLinkId] = useState(0);
-  const handleChangeStyleLink = (id) => {
-    setLinkStyle(true);
-    setLinkId(id);
-  };
-  console.log();
-  return (
-    <div className="categoriePage">
-      <div className="side-bar">
-        <img src={logo} alt="maktba" className="logo-side" />
-        <div className="link-side-bar">
-          {linkarray.map((e, key) => (
-            <div
-              onClick={() => handleChangeStyleLink(key)}
-              className={
-                linkId === key && linkStyle
-                  ? "link"
-                  : key === 0 && !linkStyle
-                  ? "link"
-                  : "linknone"
-              }
-            >
-              {e.icon}
-              <p>{e.linkname}</p>
-            </div>
-          ))}
-        </div>
-        <div className="profile-container1">
-          <img src={img} alt="profil" className="profil" />
-          <p className="titreProfile">Profile</p>
-        </div>
-        <div className="deconnecter-box">
-          <LogoutCurve
-            size="22"
-            color="#E66A6A"
-            variant="Bulk"
-            className="iconOut"
-          />
-          <p className="outText">Se déconnecter</p>
-        </div>
-      </div>
-      <div className="pages-container1">
+const Categorie=()=>{
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    return(<>
+        <div className="pages-container1">
         <div className="header-page-categorie">
           <h1 className="title-page-categorie">Catégories</h1>
           <button className="btn-suggestion" onClick={handleOpen}>
@@ -228,7 +141,6 @@ const VenderCategorie = () => {
           <ArrowRight2 size="22" color="#626262" />
         </div>
       </div>
-    </div>
-  );
-};
-export default VenderCategorie;
+    </>)
+}
+export default Categorie ;

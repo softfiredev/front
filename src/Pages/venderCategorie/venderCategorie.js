@@ -126,7 +126,7 @@ const VenderCategorie = () => {
             aria-describedby="modal-modal-description"
           >
             <Box1 sx={style}>
-              <div className="closeModel">X</div>
+              <div className="closeModel" onClick={handleClose}>X</div>
               <img src={logo} alt="maktba" className="logoModel2" />
               <div className="Suggestion-model" >
                 <h1>Suggestion de catégorie</h1>

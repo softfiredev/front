@@ -7,6 +7,7 @@ import React from "react";
 import Liste from "../../components/listefq/liste";
 import { Link } from 'react-router-dom';
 import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/footer/Footer";
 
 const Become_a_Partner = () => {
   const onButtonClick = () => {};
@@ -427,6 +428,7 @@ const Become_a_Partner = () => {
         </Grid>
       </Grid>
     </div>
+    <Footer/>
    </>
   );
 };

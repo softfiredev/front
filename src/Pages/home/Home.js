@@ -37,6 +37,7 @@ import Cart_contact from "../../components/cart-contact/cart_contact";
 import Boxabout from "../../components/box-about/Boxabout";
 import Cart from "../../components/Cartc-home/Cart";
 import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/footer/Footer";
 const Home = () => {
   const tab = [
     {
@@ -466,6 +467,7 @@ const Home = () => {
           </div>
         </Grid>
       </div>
+      <Footer/>
     </div>
   );
 };

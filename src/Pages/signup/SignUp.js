@@ -13,6 +13,7 @@ import Spinier from '../../components/spinier/Spinier'
 import { Signupuser } from "../../Store/Service/SignupService";
 import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/footer/Footer';
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -161,7 +162,9 @@ const Signup = () => {
 
       }
 
+    <Footer/>
     </>
+
 
   )
 }

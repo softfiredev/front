@@ -15,6 +15,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import Boxabout from "../../components/box-about/Boxabout";
 import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/footer/Footer";
 const AboutUs = () => {
   return (
         <>
@@ -212,6 +213,7 @@ const AboutUs = () => {
         </Grid>
       </Grid>
     </div>
+      <Footer/>
         </>
   );
 };

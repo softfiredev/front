@@ -11,6 +11,7 @@ import {
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/footer/Footer";
 const Profilee = () => {
   const [name, setname] = useState("page1");
   const [bnt1, setbnt1] = useState("bnt-pro");
@@ -162,6 +163,7 @@ const Profilee = () => {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
     
   );

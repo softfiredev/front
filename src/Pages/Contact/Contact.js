@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import { useAtoms } from '../../Store/globalState/global';
 import Spinier from '../../components/spinier/Spinier'
 import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/footer/Footer';
 const Cartcontact = lazy(() => import('../../components/cart-contact/cart_contact')); 
 
 
@@ -124,6 +125,7 @@ else{
             </Grid>
           </div><div></div></>
   }
+      <Footer/>
       </div>
 
   )

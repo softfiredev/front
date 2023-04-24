@@ -16,6 +16,7 @@ import { useAtoms } from '../../Store/globalState/global';
 import {LoginSocialGoogle,  LoginSocialFacebook} from 'reactjs-social-login';
 import { GoogleService } from '../../Store/Service/GoogleService'
 import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/footer/Footer';
 const Login = () => {
   const dispatch = useDispatch();
 const [globalState,snap]=useAtoms()
@@ -220,7 +221,7 @@ useEffect(()=>{
     </div>
 
 }
-
+<Footer/>
 </>
 
 

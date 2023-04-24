@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo10.png";
 import img from "../../assets/Ellipse 503.png";
+import Box1 from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import {
   Chart2,
   Element4,
@@ -15,9 +18,25 @@ import {
   ArrowRight2,
   ArrowLeft2,
 } from "iconsax-react";
+
 import "./venderCategorie.css";
 import { InputAdornment, OutlinedInput } from "@mui/material";
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "#FFFFFF",
+  boxShadow: 24,
+  p: 4,
+  width: 544,
+  height: 500,
+  borderRadius: "8px",
+};
 const VenderCategorie = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const linkarray = [
     {
       linkname: "Tableau du bord",
@@ -97,7 +116,38 @@ const VenderCategorie = () => {
       <div className="pages-container1">
         <div className="header-page-categorie">
           <h1 className="title-page-categorie">Catégories</h1>
-          <button className="btn-suggestion">Faire une suggestion</button>
+          <button className="btn-suggestion" onClick={handleOpen}>
+            Faire une suggestion
+          </button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box1 sx={style}>
+              <div className="closeModel">X</div>
+              <img src={logo} alt="maktba" className="logoModel2" />
+              <div className="Suggestion-model" >
+                <h1>Suggestion de catégorie</h1>
+                <p>
+                  Vous avez une catégorie que vous souhaitez ajouter ?
+                  Envoyez-nous votre suggestion et nous l'examinerons.
+                </p>
+              </div>
+              <div className="form2">
+                    <label className="label-form2">Nom de catégorie</label>
+                    <OutlinedInput  placeholder="Nom de catégorie" className="input-form2"/>
+                    <label className="label-form2">Description</label>
+                    <OutlinedInput placeholder="Votre description de cet catégorie..." className="input-form2"/>
+                    <div className="btn-form2">
+                          <button className="btn-3-Annuler">Annuler</button>
+                          <button className="btn-3-Confirmer">Confirmer</button>
+                    </div>
+
+              </div>
+            </Box1>
+          </Modal>
         </div>
         <div className="box1-categorie">
           <div className="header-box1">

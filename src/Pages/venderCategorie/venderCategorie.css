@@ -118,6 +118,7 @@ line-height: 20px;
 color: #FFFFFF;
 margin-left: 850px ;
 margin-top: 28px;
+cursor: pointer;
 }
 .box1-categorie{
 box-sizing: border-box;
@@ -238,5 +239,93 @@ font-size: 16px;
 line-height: 22px;
 text-align: center;
 color: #626262;
+}
+.closeModel{
+    color: #626262;
+    margin-left: 548px;
+    margin-top: -17px;
+}
+.logoModel2{
+    margin-top: 7px;
+    margin-left: 240px;
+    margin-bottom: 40px;
+}
+.Suggestion-model h1{
+font-family:'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 32px;
+text-align: center;
+color: #222222;
+}
+.Suggestion-model p{
+width: 384px;
+height: 40px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+color: #9E9E9E;
+margin-top: 8px;
+}
+.form2{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 0 73px;
+}
+.form2 .label-form2{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+color: #222222;
+margin-top: 10px;
+}
+.form2 .input-form2{
+box-sizing: border-box;
+width: 416px;
+height: 56px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+margin-top: 8px;
+}
+.btn-form2{
+    margin-top: 40px;
 
+}
+.btn-form2 .btn-3-Annuler{
+    box-sizing: border-box;
+width: 194px;
+height: 56px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 28px;
+text-align: center;
+color: #222222;
+cursor: pointer;
+}
+.btn-form2 .btn-3-Confirmer{
+width: 206px;
+height: 56px;
+background: #222222;
+border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 28px;
+text-align: center;
+color: #FFFFFF;
+margin-left: 18px;
+cursor: pointer;
 }

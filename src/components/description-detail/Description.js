@@ -144,10 +144,11 @@ const Description = () => {
 
       >
         <Box sx={style} >
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            <p className='closemodal' onClick={handleClose}>X</p>
+    
+          <div className='flex-end'>    <div > <i class="fa fa-close" onClick={handleClose}></i></div></div>
+
            <p className='txtmodal-detail'>Signaler cet article</p><br/>
-          </Typography>
+
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           <div className='col3-deatil'>
           <OutlinedInput className='input-login' placeholder="Votre nom et prénom"/>

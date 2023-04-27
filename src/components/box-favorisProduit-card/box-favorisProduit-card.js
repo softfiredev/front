@@ -10,9 +10,7 @@ const Box_FavoirsProduit_Card = (props) => {
     <>
       <div className="row6-favo">
         <div className="row2-favo">
-          <div className="closebnt-favo">
-            <CloseCircle size="22" color="#B1B1B1" />
-          </div>
+      
           <div>
             <img src={img1} className="img1-favo" />
           </div>
@@ -38,7 +36,7 @@ const Box_FavoirsProduit_Card = (props) => {
                 defaultValue={2}
                 size="small"
                 className="stars"
-              />
+              />      <p className="txt12-detail">(160)</p>
             </div>
           </div>
         </div>
@@ -47,16 +45,16 @@ const Box_FavoirsProduit_Card = (props) => {
           <div className="prix-favo">
             <p className="prix-favo">{props.prix} dt</p>
           </div>
-          <Grid container direction="row">
+          <div className="rowboxfavo-page2">
           <div className="shop-favo">
             <div className="shopcont-favo">
               <ShoppingCart size="22" color="#222222" variant="Bold" />
             </div>
           </div>
           <div className="delete-favo">
-              <Trash size="22" color="#E66A6A" className="icondelete" />
+              <Trash size="22" color="#E66A6A" className="icondelete" variant="Bold" />
           </div>
-          </Grid>
+          </div>
           
         </div>
       </div>

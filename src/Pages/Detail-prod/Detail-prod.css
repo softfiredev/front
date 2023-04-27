@@ -273,14 +273,14 @@ margin-left: 2%;
     margin-top: -1%;
     color: #222222;
 }
-.closemodal{
-margin-left: 98%;
-cursor: pointer;
-color: #626262;
-
-
-}
-
+.flex-end{
+    display: flex;
+    justify-content: end;
+    }
+    .fa-close{
+        cursor: pointer;
+        color: #626262;   
+        }
 .txt-modalbnt2{
     font-family: 'Inter';
     font-style: normal;

@@ -98,8 +98,23 @@ line-height: 16px;
 color: #626262;
 margin-top: 2%;
 }
+.rowboxfavo-page2{
+    display: flex;
+    
+}
+.txt12-detail{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 140%;
+margin-left: 2%;
+color: #818181;
+}
 .stars-favo{
     margin-top: -5%;
+    display: flex;
+
 }
 .row6-favo{
     flex-direction: row;

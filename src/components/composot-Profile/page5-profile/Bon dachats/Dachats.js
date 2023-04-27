@@ -63,19 +63,10 @@ const Dachats = () => {
                   onClose={handleClose}
                 >
                   <Box sx={style} >
-                    <Typography
-                      id="modal-modal-title"
-                      variant="h6"
-                      component="h2"
-                    >
-                      <p className="closemodal" onClick={handleClose}>
-                        X
-                      </p>
-                      <img src={logo2} className='logo2-dachats'/>
-                      <br /><br />
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                      <div className="col4-dachats">
+               
+                  <div className='flex-end'>    <div > <i class="fa fa-close" onClick={handleClose}></i></div></div>
+                     <div> <img src={logo2} className='logo2-dachats'/></div>
+                        <div className="col4-dachats">
                         <p className='txt7-Dachats'>Code promo Maktaba</p>
                         <p className='txt1-Dachats'>{tabd.number}%</p>
                         <p className='txt8-Dachats'>Ce code promo vous offre {tabd.number}% de remise sur les produits "scolaire"</p>
@@ -94,7 +85,7 @@ const Dachats = () => {
 
                         </div>
                      
-                    </Typography>
+            
                   </Box>
                 </Modal>
 

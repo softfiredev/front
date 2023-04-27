@@ -50,12 +50,13 @@ background: #222222;
 border-radius: 8px;
 cursor: pointer;
 }
-.closemodal{
-    margin-left: 98%;
+.flex-end{
+display: flex;
+justify-content: end;
+}
+.fa-close{
     cursor: pointer;
-    color: #626262;
-    
-    
+    color: #626262;   
     }
 .bnttxt-Dachats{
     font-family: 'Inter';
@@ -72,6 +73,7 @@ color: #FFFFFF;
     flex-direction: column;
     gap:1em;
     text-align: center;
+   
     
 }
 .bntmodal-Dachats{

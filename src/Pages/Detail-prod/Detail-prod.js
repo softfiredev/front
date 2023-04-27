@@ -301,9 +301,8 @@ const Detailprod = () => {
                       variant="h6"
                       component="h2"
                     >
-                      <p className="closemodal" onClick={handleClose}>
-                        X
-                      </p>
+                                      <div className='flex-end'>    <div > <i class="fa fa-close" onClick={handleClose}></i></div></div>
+
                       <p className="txtmodal-detail">Ajouter votre avis</p>
                       <br />
                     </Typography>

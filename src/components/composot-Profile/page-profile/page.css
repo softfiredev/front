@@ -10,13 +10,38 @@ border-radius: 8px;
 
     width: 844px;
     height: auto;
-    margin-bottom: 10%;
+
 
 padding: 2%;
+padding-bottom: 4%;
 padding-left: 7%;
 background: #FFFFFF;
 border-radius: 8px;
 
+
+}
+
+.row-page032{
+
+    display: flex;
+    flex-direction: row;
+    gap:0em;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+color: #626262;
+}
+
+
+.box-blok{
+    display: block;
+    background-color: #FFFFFF;
+}
+
+.box-hed{
+    display: none;
 }
 .txtbnt3-page{
 
@@ -81,29 +106,61 @@ background: #FFFFFF;
 }
 .line-page{
     width: 748px;
-height: 0px;
+height: auto;
 margin-left: -3%;
 border: 1px solid #E1E1E1;
 }
 .typographyReponse-page{
     margin-left: 5%;
     margin-top: -5%;
+    padding-bottom: 5%;
 }
-.box3-page{
 
+.box3-page{
     width: 844px;
-    height: 156px;
+ 
 padding: 2%;
 padding-left: 7%;
 background: #FFFFFF;
 border-radius: 8px;
 
 }
+.col-page012{
+    display: flex;
+    gap: 1em;
+    height: auto;
+    padding-bottom: 10%;
+    flex-direction: column;
+}
+.txt200-page{
+    cursor: pointer;
+}
+.txt201-page{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 28px;
+color: #222222;
+}
+.row-page{
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+text-decoration-line: underline;
+color: #4098D7;
+}
 .rowbnt-page{
     display: flex;
     gap: 1em;
     flex-direction: row;
- 
+ cursor: pointer;
 }
 .minicol-page{
     display: flex;

@@ -125,6 +125,30 @@ background: #FFFFFF;
 border-radius: 8px;
 
 }
+.txtmodal-page{
+    width: 347px;
+height: 68px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 34px;
+text-align: center;
+color: #222222;
+}
+.txtmodal1-page{
+    width: 294px;
+height: 44px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 22px;
+text-align: center;
+color: #626262;
+}
+
 .col-page012{
     display: flex;
     gap: 1em;

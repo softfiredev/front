@@ -368,7 +368,7 @@ const Home = () => {
                 <div>
                   <div>
                     <p className="txt5-home">
-                      Les marques fournitures scolaires
+                      Les marques des non partenaire
                     </p>
                   </div>
                 </div>

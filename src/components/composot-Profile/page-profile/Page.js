@@ -6,9 +6,28 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Avtr from "../../../assets/avtclient.png";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 const Page = () => {
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    background: "#FFFFFF",
+    width: "544px",
+    height: "356px",
+    boxShadow:
+      "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
+    borderRadius: "8px",
 
+    p: 4,
+  };
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => setOpen(false);
 const[openchangePassword,setopenchangePassword]=useState(false)
 const [opencoll, setopencoll] = React.useState(false);
 
@@ -162,7 +181,7 @@ const [opencoll, setopencoll] = React.useState(false);
            
           </>
         ))}
-       <div className="row-page"> <div className="txt200-page">Modifier</div> <div className="txt200-page">Supprimer</div></div>
+       <div className="row-page"> <div className="txt200-page">Modifier</div> <div className="txt200-page" onClick={()=>{setOpen(true)}}>Supprimer</div></div>
          </div>   
               
          <div className={opencoll && addr.length!=0 ?"col-page012":"box-hed"}>
@@ -180,7 +199,44 @@ const [opencoll, setopencoll] = React.useState(false);
         ))}
        <div className="row-page"> <div className="txt200-page">Modifier</div> <div className="txt200-page">Supprimer</div></div>
          </div>
-         
+         <Modal
+                  open={open}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                  onClose={handleClose}
+                >
+                  <Box sx={style} >
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h6"
+                      component="h2"
+                    >
+                      <p className="closemodal" onClick={handleClose}>
+                        X
+                      </p>
+                      <p className="txtmodal-page">
+                        Etes-vous sûr de vouloir
+supprimer cette adresse?</p><br/>
+<p className="txtmodal2-page">
+Cette modification n’impactera pas les
+commandes passées ou en cours.</p>
+                      <br /> <br />
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                      <div className="col3-deatil">
+                                       
+                        <div className="row-detail">
+                          <button className="bnt-modala1" onClick={handleClose}>
+                            <p className="txt-modalbnt1">Annuler</p>
+                          </button>
+                          <button className="bnt-modala2">
+                            <p className="txt-modalbnt2">Envoyer</p>
+                          </button>
+                        </div>
+                      </div>
+                    </Typography>
+                  </Box>
+                </Modal>
          <br/>
               
 

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Box_produit_Card from "../../components/box-produit-card/box-produit-card";
 import Recapitulatif from "../../components/Recapitulatif.js/Recapitulatif";
 import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/footer/Footer";
 const Cart = () => {
   const produits = [{titre :"stiloazeazeazeazeaze" ,prix :"1100" , total:"2200" , qte:"2"}
   ,{titre :"stiloazeazeazeazeaze" ,prix :"1100" , total:"2200" , qte:"2"}
@@ -48,6 +49,7 @@ const Cart = () => {
         <Link to="/Shop"> Continuer vos achats</Link>
       </div>
     </div>
+    <Footer/>
     </>
    
   );

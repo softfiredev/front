@@ -26,6 +26,7 @@ import { OutlinedInput } from "@mui/material";
 import Description from "../../components/description-detail/Description";
 import Avatar from "@mui/material/Avatar";
 import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/footer/Footer";
 const Detailprod = () => {
   const prod = [
     {
@@ -434,6 +435,7 @@ const Detailprod = () => {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
    
   );

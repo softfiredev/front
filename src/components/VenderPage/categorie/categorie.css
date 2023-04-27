@@ -1,0 +1,240 @@
+.header-page-categorie{
+    display: flex;
+    flex-direction: row;
+    
+
+}
+.header-page-categorie .title-page-categorie{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 48px;
+color: #222222;
+margin: 28px 0 0 28px ;
+}
+.header-page-categorie .btn-suggestion{
+width: 180px;
+height: 48px;
+background: #222222;
+border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 20px;
+color: #FFFFFF;
+margin-left: 850px ;
+margin-top: 28px;
+cursor: pointer;
+}
+.box1-categorie{
+box-sizing: border-box;
+width: 1201px;
+height: 520px;
+background: #FFFFFF;
+border: 1px solid #EEEDF2;
+border-radius: 8px;
+margin: 28px 0 0 30px;
+}
+.header-box1{
+    display: flex;
+    flex-direction: row;
+}
+.search-inpute2{
+box-sizing: border-box;
+width: 500px;
+height: 50px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+margin: 30px 0 0 30px;
+}
+.pagination-VenderCategorie{
+    display: flex;
+    flex-direction: row; 
+    margin-left: 383px;
+    margin-top: 30px;
+}
+.text-1-0{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+color: #222222;
+
+}
+.select-1-0{
+box-sizing: border-box;
+width: 52px;
+height: 32px;
+background: #F7F7F7;
+border: 1px solid #CFCFCF;
+border-radius: 8px;
+margin: 10px 11px 0 16px;
+}
+th {
+    text-align: left;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #7E7E7E;
+    border-top: #F7F7F7 solid 1px;
+    height: 56px;
+}
+.table{
+    margin-top: 50px;
+    margin-left: 41px;
+    width: 100%;
+}
+td{
+    height: 60px;
+    border-top: #F7F7F7 solid 2px;
+}
+.categorie-title1{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 20px;
+color: #222222;
+margin-top: 24px;
+}
+.categorie-description{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 20px;
+color: #222222;
+}
+.nb-prod-table{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+color: #222222;
+}
+.data-update{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+
+
+/* Neutral/0 */
+
+color: #222222;
+}
+.pagination1-categorie{
+    display: flex;
+    flex-direction: row;
+    width: 180px;
+    margin-top: 32px;
+    margin-left: 546px;
+}
+.pagination1-categorie p {
+font-family: 'Manrope';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 22px;
+text-align: center;
+color: #626262;
+}
+.closeModel{
+    color: #626262;
+    margin-left: 548px;
+    margin-top: -17px;
+    cursor: pointer;
+}
+.logoModel2{
+    margin-top: 7px;
+    margin-left: 240px;
+    margin-bottom: 40px;
+}
+.Suggestion-model h1{
+font-family:'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 32px;
+text-align: center;
+color: #222222;
+}
+.Suggestion-model p{
+width: 384px;
+height: 40px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+color: #9E9E9E;
+margin-top: 8px;
+}
+.form2{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 0 73px;
+}
+.form2 .label-form2{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+color: #222222;
+margin-top: 10px;
+}
+.form2 .input-form2{
+box-sizing: border-box;
+width: 416px;
+height: 56px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+margin-top: 8px;
+}
+.btn-form2{
+    margin-top: 40px;
+
+}
+.btn-form2 .btn-3-Annuler{
+    box-sizing: border-box;
+width: 194px;
+height: 56px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 28px;
+text-align: center;
+color: #222222;
+cursor: pointer;
+}
+.btn-form2 .btn-3-Confirmer{
+width: 206px;
+height: 56px;
+background: #222222;
+border-radius: 8px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 28px;
+text-align: center;
+color: #FFFFFF;
+margin-left: 18px;
+cursor: pointer;
+}

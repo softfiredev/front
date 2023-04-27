@@ -6,6 +6,7 @@ import Addnewpassword from '../../components/add-new-password/add-new-password'
 import Successfullpassword from '../../components/successful-password/Successful_password'
 import { useAtoms } from '../../Store/globalState/global';
 import NavBar from '../../components/NavBar/NavBar'
+import Footer from '../../components/footer/Footer'
 const Resetpassword = () => {
 
 const [change , setchange] = useState("add-new-password");
@@ -36,6 +37,7 @@ const Changepage=()=>{
         </Grid>
         </div>
     </div>
+    <Footer/>
    </>
   
  

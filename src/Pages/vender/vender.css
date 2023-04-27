@@ -24,47 +24,6 @@ margin-left: 85px;
    border-left: #C99A2E solid 4px;
    cursor: pointer;
 }
-.linknone{
-    display: flex;
-    flex-direction: row;
-    margin-top: 28px;
-    padding: 14px 30px 14px 30px;
-    cursor: pointer;
-}
-.side-bar .link-side-bar  p{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 20px;
-color: #7E7E7E;
-}
-
-.profile-container1{
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-    width: 256px;
-height: 48px;
-cursor: pointer;
-}
-.profile-container1 .profil{
-height: 24px;
-width: 24px;
-border-radius: 4px;
-margin-top: 11px;
-margin-left: 35px;
-
-}
-.profile-container1 .titreProfile{
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 20px;
-color: #7E7E7E;
-margin-left: 30px;
-}
 .deconnecter-box{
     display: flex;
     flex-direction: row;
@@ -89,4 +48,44 @@ font-weight: 400;
 font-size: 14px;
 line-height: 20px;
 color: #E66A6A;
+}
+.linknone{
+    display: flex;
+    flex-direction: row;
+    margin-top: 28px;
+    padding: 14px 30px 14px 30px;
+    cursor: pointer;
+}
+.side-bar .link-side-bar  p{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+color: #7E7E7E;
+}
+.profile-container1{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    width: 256px;
+height: 48px;
+cursor: pointer;
+}
+.profile-container1 .profil{
+height: 24px;
+width: 24px;
+border-radius: 4px;
+margin-top: 11px;
+margin-left: 35px;
+
+}
+.profile-container1 .titreProfile{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+color: #7E7E7E;
+margin-left: 30px;
 }

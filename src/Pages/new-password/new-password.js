@@ -4,6 +4,7 @@ import Imge from "../../assets/image1.png"
 import {Grid} from '@mui/material'
 import Verifyemail from '../../components/verify email/verify-email'
 import NavBar from '../../components/NavBar/NavBar'
+import Footer from '../../components/footer/Footer'
 
 
 const Password = () => {
@@ -21,6 +22,7 @@ const Password = () => {
         </Grid>
         </div>
     </div>
+    <Footer/>
     </>
    
   )

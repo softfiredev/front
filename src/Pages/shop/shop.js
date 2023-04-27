@@ -6,6 +6,7 @@ import Card from "../../components/card-produit/Card";
 import Filter from "../../components/filter/Filter";
 import Trifilter from "../../components/tri-filter/Trifilter";
 import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/footer/Footer";
 
 const Shop = () => {
   const prod = [
@@ -105,6 +106,7 @@ const Shop = () => {
           </Grid>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

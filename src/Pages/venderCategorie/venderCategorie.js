@@ -49,7 +49,7 @@ const VenderCategorie = () => {
     setLinkStyle(true)
     setLinkId(id)
   }
-  console.log()
+  
   return (
     <div className="categoriePage">
 

@@ -10,6 +10,7 @@ import Filter from "../../components/filter/Filter";
 import Trifilter from "../../components/tri-filter/Trifilter";
 import Pagination from "@mui/material/Pagination";
 import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/footer/Footer";
 
 const LibrairieProfile = () => {
   const prod = [{id:"000011110",nom:"PACK LIVRE SCOLAIRE 1éME",prix:"8.1dt",noml:"ali Library"},
@@ -115,6 +116,7 @@ const LibrairieProfile = () => {
         </Grid>
       </div>
     </div>
+    <Footer/>
     </>
     
   );

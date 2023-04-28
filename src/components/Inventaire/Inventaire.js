@@ -2,32 +2,14 @@ import React from 'react'
 import './Inventaire.css'
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Listevender from '../vender-liste/Listevender';
 
 import {Trash,ExportCircle,ArrowCircleLeft} from "iconsax-react";
 import Ajouter from '../ajoutprod-vender/Ajouter';
+import Avis from '../Vender-avis/Avis';
 
-function TabPanel(props) {
-    const { children, value, index, ...other } = props;
-  
-    return (
-      <div
-        role="tabpanel"
-        hidden={value !== index}
-        id={`simple-tabpanel-${index}`}
-        aria-labelledby={`simple-tab-${index}`}
-        {...other}
-      >
-        {value === index && (
-          <Box sx={{ p: 3 }}>
-            <Typography>{children}</Typography>
-          </Box>
-        )}
-      </div>
-    );
-  }
+
   function a11yProps(index) {
     return {
       id: `simple-tab-${index}`,
@@ -69,9 +51,7 @@ const Inventaire = () => {
         </Tabs>
       </Box>
 <Listevender value={value}/>
-      <TabPanel value={value} index={1}>
-
-      </TabPanel>
+<Avis value={value}/>
     
     </Box>
     </div>

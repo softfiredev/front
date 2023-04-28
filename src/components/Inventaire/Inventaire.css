@@ -22,7 +22,7 @@ color: #E66A6A;
     font-size: 12px;
     line-height: 20px;
     color: #515151;
-     margin-left: -15%;
+     margin-left: -20%;
     }
 .row4-int{
     display: flex;
@@ -39,7 +39,7 @@ cursor: pointer;
 .row3-int{
     display: flex;
     flex-direction: rom;
-    gap:35em;
+    gap:34em;
 }
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
     font-family: 'Inter';
@@ -77,8 +77,8 @@ line-height: 48px;
 color: #222222;
 }
 .box-int{
-    width: 1128px;
-height: 592px;
+    width: 1047px;
+height: auto;
 background: #FFFFFF;
 border-radius: 8px;
 padding: 2%;
@@ -163,7 +163,7 @@ border-radius: 8px;
 .row1-int{
     display: flex;
     flex-direction: row;
-    gap: 10em;
+    gap: 6.5em;
 }
 .row2-int{
     display: flex;

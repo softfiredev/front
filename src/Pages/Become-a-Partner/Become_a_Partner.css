@@ -1,9 +1,15 @@
 .Cardbecome{
     margin-left: -3%;
 }
+.group-partner {
+    display: flex;
+justify-content: left;
+}
+
 @media (max-width:1280px) {
     .group-partner {
-        margin-left: -10%;
+        display: flex;
+    justify-content: left;
     }
     
 }

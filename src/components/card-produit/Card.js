@@ -54,7 +54,7 @@ const Card = (props) => {
 
         <div className="grb-card">
           <p className="txt-card2">{props.prix}</p>
-
+          <p className="txt2xard2">{props.prix}</p>
           <div className="bnt-card">
             <div className="ShoppingCart-card">
               <ShoppingCart size="22" color="#FFffff" variant="Bold" />

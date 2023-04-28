@@ -34,12 +34,14 @@ const Page2 = () => {
             <p className="txt2-favo">Total HT</p>
           </div>
         </div>
-        <hr className="lin-favo" />
-        <div className="scroll-container">
+        <div><div className="lin-favo" /></div>
+      <div>
+      <div className="scroll-container">
           {faivorisProduit.map((produit) => (
            <Box_FavoirsProduit_Card nom={produit.nom} prix={produit.prix} nbstart={produit.nbstart} nomoflibriarie={produit.nomoflibriarie} idl={produit.idlibrairie}/>
           ))}
         </div>
+      </div>
       </div>
     </div>
   );

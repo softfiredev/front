@@ -170,7 +170,7 @@ const AboutUs = () => {
          
           <p className="txt12-about">Notre Partenariats et collaborations</p>
         </Grid>
-        <Grid item style={{marginLeft:"-110px"}}>
+        <Grid item >
             <div style={{width:"1000px"}} > 
             <Swiper
               freeMode={true}
@@ -180,16 +180,14 @@ const AboutUs = () => {
               className="mySwiper"
                style={{width:"1500px"}} 
             >
-              <SwiperSlide> <img src={Imgt} className="swiper-img-about"/></SwiperSlide>
-              <SwiperSlide> <img src={Imgt} className="swiper-img-about"/></SwiperSlide>
-              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
-              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
-              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
-              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
-              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
-              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
-              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
-              <SwiperSlide> <img src={Imgt}className="swiper-img-about"/></SwiperSlide>
+              <SwiperSlide> <div  className="swiper-img-about"><img src={Imgt} className="back"/></div></SwiperSlide>
+              <SwiperSlide> <div  className="swiper-img-about"><img src={Imgt} className="back"/></div></SwiperSlide>
+              <SwiperSlide> <div  className="swiper-img-about"><img src={Imgt} className="back"/></div></SwiperSlide>
+              <SwiperSlide> <div  className="swiper-img-about"><img src={Imgt} className="back"/></div></SwiperSlide>
+              <SwiperSlide> <div  className="swiper-img-about"><img src={Imgt} className="back"/></div></SwiperSlide>
+              <SwiperSlide> <div  className="swiper-img-about"><img src={Imgt} className="back"/></div></SwiperSlide>
+              <SwiperSlide> <div  className="swiper-img-about"><img src={Imgt} className="back"/></div></SwiperSlide>
+
             </Swiper>
             </div>
                

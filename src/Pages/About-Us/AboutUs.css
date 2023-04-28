@@ -341,9 +341,17 @@ color: #222222;
     
     }
  .swiper-img-about{
+    width: 264px;
     height: 88px;
-width: 264px;
+    background: #F7F7F7;
+    border-radius: 8px;
 
-border-radius: 8px;
 
  }   
+
+ .back{
+    Width:187.5px;
+    Height:41px;
+    padding: 10%;
+    padding-left: 15%;
+ }

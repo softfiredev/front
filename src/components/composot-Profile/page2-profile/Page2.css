@@ -8,7 +8,7 @@ border-radius: 8px;
 .row-favo{
     flex-direction: row;
     display: flex;
-    gap:20em;
+    gap:21em;
     
 }
 .closebnt-favo{
@@ -16,16 +16,18 @@ border-radius: 8px;
     margin-top: 15%;
 }
 .lin-favo{
-width: 788px;
-height: 0px;
+
 border: 1px solid #EDEDED;
 margin-top: -27px;
 }
+.colline-box{
+    display: flex;
+    flex-direction: column;
+    
+}
 .lin-favo2{
-    width: 788px;
-    height: 0px;
-    border: 1px solid #EDEDED;
-    margin-top: 10px;
+border: 1px solid #EDEDED;
+width: 730px;
 }
 .txt2-favo{
     
@@ -100,7 +102,8 @@ margin-top: 2%;
 }
 .rowboxfavo-page2{
     display: flex;
-    
+    margin-top: 3%;
+    margin-left: 1%;
 }
 .txt12-detail{
     font-family: 'Inter';
@@ -119,7 +122,7 @@ color: #818181;
 .row6-favo{
     flex-direction: row;
     display: flex;
-    gap: 2em;
+    gap: 9em;
 
 }
 .prix-favo{
@@ -130,7 +133,8 @@ font-weight: 600;
 font-size: 18px;
 line-height: 20px;
 color: #222222;
-margin-left: 58px;
+margin-top: 30%;
+
 
 }
 .input-pro{
@@ -187,4 +191,5 @@ margin-left: 13px;
 }
 .prix-favo{
     width: 108px;
+
 }

@@ -5,6 +5,8 @@ import Rating from "@mui/material/Rating";
 import { More, ArrowCircleRight2, Edit, Trash } from "iconsax-react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import img1 from "../../../assets/prod2.png";
+
 const Avis = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -17,7 +19,7 @@ const Avis = () => {
   const tabcomo = [
     {
       id: "#107570194",
-      Articles: "2",
+      Articles: "GOUACHE 9T...",
       Date: "06 février 2022",
       Score: (
         <Rating
@@ -34,7 +36,7 @@ const Avis = () => {
     },
     {
       id: "#105750194",
-      Articles: "3",
+      Articles: "GOUACHE 9T...",
       Date: "06 février 2023",
       Score: (
         <Rating
@@ -51,7 +53,7 @@ const Avis = () => {
     },
     {
       id: "#1040194",
-      Articles: "5",
+      Articles: "GOUACHE 9T...",
       Date: "06 février 2027",
       Score: (
         <Rating
@@ -68,7 +70,7 @@ const Avis = () => {
     },
     {
       id: "#1005194",
-      Articles: "1",
+      Articles: "GOUACHE 9T...",
       Date: "06 février 2021",
       Score: (
         <Rating
@@ -85,7 +87,7 @@ const Avis = () => {
     },
     {
       id: "#10014594",
-      Articles: "1",
+      Articles: "GOUACHE 9T...",
       Date: "06 février 2020",
       Score: (
         <Rating
@@ -129,10 +131,14 @@ const Avis = () => {
             
             {tabcomo.map((obj) => (
               <tr>
-                <td>{obj.Articles}</td>
+                <td>
+                  <div className="row-avis">
+                <img src={img1} className="img1-avis" />
+                  <div style={{marginTop:"4%"}}>{obj.Articles}</div>
+                  </div></td>
                 <td>{obj.Date}</td>
                 <td>{obj.Score}</td>
-                <td className="tabcom-avis"> {obj.Commentaire} </td>
+                <td className="tabcom-avis"><div > {obj.Commentaire} </div></td>
                 <br />
                 <br />
                 <td>

@@ -4,10 +4,10 @@ import img1 from "../../assets/prod2.png";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 import img2 from "../../assets/logom.png";
-import { Grid } from "@mui/material";
 const Box_FavoirsProduit_Card = (props) => {
   return (
-    <>
+<div>
+<div className="colline-box">
       <div className="row6-favo">
         <div className="row2-favo">
       
@@ -29,10 +29,7 @@ const Box_FavoirsProduit_Card = (props) => {
               </div>
             </div>
             <div className="stars-favo">
-              <Rating
-                name="read-only"
-                value={props.nbstart}
-                readOnly
+              <Rating name="read-only" value={props.nbstart} readOnly
                 defaultValue={2}
                 size="small"
                 className="stars"
@@ -41,10 +38,10 @@ const Box_FavoirsProduit_Card = (props) => {
           </div>
         </div>
 
-        <div className="row7-favo">
-          <div className="prix-favo">
-            <p className="prix-favo">{props.prix} dt</p>
-          </div>
+       
+          
+         <div>   <p className="prix-favo">{props.prix} dt</p></div>
+       
           <div className="rowboxfavo-page2">
           <div className="shop-favo">
             <div className="shopcont-favo">
@@ -56,10 +53,12 @@ const Box_FavoirsProduit_Card = (props) => {
           </div>
           </div>
           
-        </div>
+
       </div>
-      <hr className="lin-favo2" />
-    </>
+
+    </div>
+          <div className="lin-favo2" />
+</div>
   );
 };
 export default Box_FavoirsProduit_Card;

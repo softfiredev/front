@@ -6,7 +6,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Listevender from '../vender-liste/Listevender';
 
-import {Trash,ExportCircle} from "iconsax-react";
+import {Trash,ExportCircle,ArrowCircleLeft} from "iconsax-react";
+import Ajouter from '../ajoutprod-vender/Ajouter';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -36,11 +37,17 @@ function TabPanel(props) {
 
 const Inventaire = () => {
     const [value, setValue] = React.useState(0);
+    const [nextpage, setnextpage] = React.useState(true);
 
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
+    const changepage=()=>{
+    setnextpage(false)
+    }
   return (
+<>
+{nextpage?
     <div className='row-int'>
     <div className='row3-int'>
       <div><p className='txt-int'>Inventaire</p></div>
@@ -48,7 +55,7 @@ const Inventaire = () => {
   
       <div style={{cursor:"pointer"}}>  <Trash size="24" color="#E66A6A"/><p className='txt3-int'>Supprimer</p></div>
   <div style={{cursor:"pointer"}}><ExportCircle size="24" color="#515151"/><p className='txt20-int'>Exporter</p></div>
-  <div><button className='bnt01-int'><p className='txt1-int'>Nouveau produit</p></button></div>
+  <div><button className='bnt01-int' onClick={changepage}><p className='txt1-int'>Nouveau produit</p></button></div>
 
  
     </div>
@@ -69,6 +76,17 @@ const Inventaire = () => {
     </Box>
     </div>
     </div>
+    :
+    <div className='box2-int' >
+    <div className='rowbox-int'  style={{cursor:"pointer"}} onClick={()=>{setnextpage(true)}}><ArrowCircleLeft size="25" color="#9E9E9E"/>
+    <div><p className='txtbox-int'>Retourner</p></div>
+    </div>
+    <div><p className='txt-int'>Ajouter produit</p></div>
+    <Ajouter/>
+    </div>
+ 
+}
+</>
   )
 }
 

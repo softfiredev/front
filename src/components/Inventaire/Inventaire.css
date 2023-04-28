@@ -6,6 +6,28 @@
     flex-direction: column;
     gap:2em;
 }
+.rowbox-int{
+    display: flex;
+    flex-direction: row;
+    gap:1em;
+}
+.txtbox-int{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 28px;
+color: #222222;
+
+}
+.box2-int{
+    padding-top: 1.5%;
+    padding-left: 3%;
+
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+}
 .txt3-int{
 font-family: 'Inter';
 font-style: normal;

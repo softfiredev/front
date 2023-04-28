@@ -136,9 +136,9 @@ const Categorie=()=>{
           </table>
         </div>
         <div className="pagination1-categorie">
-          <ArrowLeft2 size="22" color="#626262" />
+          <ArrowLeft2 size="22" color="#626262"style={{cursor:"pointer"}}  />
           <p>Page 1 sur 1</p>
-          <ArrowRight2 size="22" color="#626262" />
+          <ArrowRight2 size="22" color="#626262"style={{cursor:"pointer"}}  />
         </div>
       </div>
     </>)

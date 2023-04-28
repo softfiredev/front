@@ -34,7 +34,7 @@ function TabPanel(props) {
   }
 
 const Inventaire = () => {
-    const [value, setValue] = React.useState('1');
+    const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
       setValue(newValue);
@@ -45,7 +45,7 @@ const Inventaire = () => {
     <div className='box-int'>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange}>
+        <Tabs value={value} onChange={handleChange} >
          <Tab label="Liste de produits" {...a11yProps(0)} />
           <Tab label="Les avis" {...a11yProps(1)} />
         </Tabs>

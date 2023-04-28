@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Listevender from '../vender-liste/Listevender';
 
+import {Trash,ExportCircle} from "iconsax-react";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -41,7 +42,17 @@ const Inventaire = () => {
     };
   return (
     <div className='row-int'>
-    <div><p className='txt-int'>Inventaire</p></div>
+    <div className='row3-int'>
+      <div><p className='txt-int'>Inventaire</p></div>
+    <div className='row4-int'>
+  
+      <div style={{cursor:"pointer"}}>  <Trash size="32" color="#E66A6A"/><p className='txt3-int'>Supprimer</p></div>
+  <div style={{cursor:"pointer"}}><ExportCircle size="32" color="#515151"/><p className='txt20-int'>Exporter</p></div>
+  <div><button className='bnt01-int'><p className='txt1-int'>Nouveau produit</p></button></div>
+
+ 
+    </div>
+    </div>
     <div className='box-int'>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

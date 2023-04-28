@@ -6,6 +6,41 @@
     flex-direction: column;
     gap:2em;
 }
+.txt3-int{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 20px;
+color: #E66A6A;
+ margin-left: -22%;
+}
+.txt20-int{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    color: #515151;
+     margin-left: -15%;
+    }
+.row4-int{
+    display: flex;
+    flex-direction: row;
+    gap:3em;
+}
+.bnt01-int{
+width: 180px;
+height: 48px;
+background: #222222;
+border-radius: 8px;
+cursor: pointer;
+}
+.row3-int{
+    display: flex;
+    flex-direction: rom;
+    gap:35em;
+}
 .css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
     font-family: 'Inter';
 font-style: normal;
@@ -20,6 +55,18 @@ color: #222222;
 .css-1aquho2-MuiTabs{
 
     background-color: #F7D070;
+}
+.txt1-int{
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 20px;
+margin-top: -1%;
+text-align: center;
+
+color: #FFFFFF;
 }
 .txt-int{
     font-family: 'Inter';

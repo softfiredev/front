@@ -1,0 +1,92 @@
+.row-int{
+    padding-top: 1.5%;
+    padding-left: 3%;
+
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+}
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 20px;
+
+
+color: #222222;
+}    
+
+.css-1aquho2-MuiTabs{
+
+    background-color: #F7D070;
+}
+.txt-int{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 48px;
+color: #222222;
+}
+.box-int{
+    width: 1128px;
+height: 592px;
+background: #FFFFFF;
+border-radius: 8px;
+padding: 2%;
+}
+.select-int{
+    width: 60px;
+height: 32px;
+margin-top: 2%;
+background: #FFFFFF;
+border: 1px solid #CFCFCF;
+border-radius: 8px;
+}
+.txt2-int{
+    width: 100%;
+}
+.input-int{
+    width: 500px;
+height: 48px;
+
+
+background: #FFFFFF;
+
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+}
+.row1-int{
+    display: flex;
+    flex-direction: row;
+    gap: 10em;
+}
+.row2-int{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+.bnt0-int{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    cursor: pointer;
+    width: 138px;
+height: 48px;
+padding: 2%;
+background: #FFFFFF;
+border: 1px solid #515151;
+border-radius: 8px;
+}
+.txt0-int{
+    width: 72px;
+margin-top: 0.5%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 150%;
+
+color: #515151;
+}

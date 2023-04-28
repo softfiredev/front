@@ -6,8 +6,12 @@ import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
 import Categorie from './components/VenderPage/categorie/categorie';
-import TableauDuBord from './components/VenderPage/TableauDuBord/TableauDuBord';
+
+
+
+import Inventaire from './components/Inventaire/Inventaire';
 const Points = lazy(() => import('./components/composot-Profile/page5-profile/Points')); 
+const TableauDuBord = lazy(() => import('./components/VenderPage/TableauDuBord/TableauDuBord')); 
 const Dachats = lazy(() => import('./components/composot-Profile/page5-profile/Bon dachats/Dachats')); 
 const Profile = lazy(() => import('./Pages/Profile/Profile')); 
 const Home = lazy(() => import('./Pages/home/Home')); 
@@ -63,6 +67,7 @@ function App() {
    <Route path='/Vender'element={<Vender/>} >
         <Route path='/Vender' element={<TableauDuBord/>}/>
         <Route path='/Vender/categorie' element={<Categorie/>}/>
+        <Route path='/Vender/Inventaire' element={<Inventaire/>}/>
    </Route>
   <Route path='*' element={ <> page not !!!</>} />
    </Routes>

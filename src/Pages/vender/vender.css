@@ -15,6 +15,10 @@ height: 36px;
 margin-top: 34px;
 margin-left: 85px;
 }
+.txt0214{
+    width: 200%;
+    margin-top: 4%;
+}
 .side-bar .link-side-bar .link{
    display: flex;
    flex-direction: row;

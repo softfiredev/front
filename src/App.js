@@ -8,6 +8,7 @@ import Footer from './components/footer/Footer'
 import Listecommandes from './components/Liste-commandes-vender/Listecommandes';
 import Detailcomnder from './components/Liste-commandes-vender/composentliste/Detailcomnder';
 import VenderProfile from './components/profile-vender/VenderProfile';
+import Listeivraisons from './components/Liste-de-livraisons/Listeivraisons';
 
 const Categorie = lazy(() => import('./components/VenderPage/categorie/categorie')); 
 const Inventaire = lazy(() => import('./components/Inventaire/Inventaire')); 
@@ -72,6 +73,7 @@ function App() {
         <Route path='/Vender/Liste_de_commandes' element={<Listecommandes/>}/>
         <Route path='/Vender/Détails_de_ommande/:id' element={<Detailcomnder/>}/>
         <Route path='/Vender/Profile' element={<VenderProfile/>}/>
+        <Route path='/Vender/Liste_de_Livraisons' element={<Listeivraisons/>}/>
    </Route>
   <Route path='*' element={ <> page not !!!</>} />
    </Routes>

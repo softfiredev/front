@@ -87,7 +87,7 @@ const Listecommandes = () => {
       <TabPanel value={value} index={0}>
       <br/>
       <div className='row01-c'>
-      <Filterbar/>
+      <Filterbar />
 
 <table>
 <tr>
@@ -140,6 +140,7 @@ const Listecommandes = () => {
         </TabPanel>
         <TabPanel value={value} index={1}>
         <div className='row01-c'>
+        <Filterbar/>
         <table>
 <tr>
 
@@ -186,6 +187,7 @@ const Listecommandes = () => {
         </TabPanel>
         <TabPanel value={value} index={2}>
         <div className='row01-c'>
+        <Filterbar/>
         <table>
 <tr>
 
@@ -232,6 +234,7 @@ const Listecommandes = () => {
         </TabPanel>
         <TabPanel value={value} index={3}>
         <div className='row01-c'>
+        <Filterbar/>
         <table>
 <tr>
 
@@ -278,6 +281,7 @@ const Listecommandes = () => {
         </TabPanel>
         <TabPanel value={value} index={4}>
         <div className='row01-c'>
+        <Filterbar/>
         <table>
 <tr>
 

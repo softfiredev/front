@@ -78,7 +78,7 @@ const Vender = () => {
   return (
     <div className="categoriePage">
       <div className="side-bar">
-        <img src={logo} alt="maktba" className="logo-side" />
+        <Link to="/"><img src={logo} alt="maktba" className="logo-side" /></Link>
         <div className="link-side-bar">
           {linkarray.map((e, key) => (
             <Link to={e.linkto}> 
@@ -92,7 +92,7 @@ const Vender = () => {
               }
             >
             <div>      {e.icon}  </div>
-         <div>     <p>{e.linkname}</p>  </div>
+         <div>     <p className="txt0214">{e.linkname}</p>  </div>
             </div>
             </Link>
            

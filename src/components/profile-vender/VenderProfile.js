@@ -24,7 +24,7 @@ const VenderProfile = () => {
 
 <div className='col3-dv'>
     <div className='blo-dv'>
-    <button className='butt-vp'><Edit size="24" color="#222222" variant="Bold"style={{marginTop:"5%"}}/><div><p className='txtbnt-vp'>Modifier</p></div></button>
+    <button className='butt-vp'><Edit size="24" color="#222222" variant="Bold"style={{marginTop:"5%",marginLeft:"5.5%"}}/><div><p className='txtbnt-vp'>Modifier</p></div></button>
 
     </div>
 <div>
@@ -90,7 +90,7 @@ const VenderProfile = () => {
 
 <div className='col3-dv'>
 <div className='blo-dv'>
-    <button className='butt-vp'><Edit size="24" color="#222222" variant="Bold"style={{marginTop:"5%"}}/><div><p className='txtbnt-vp'>Modifier</p></div></button>
+    <button className='butt-vp'><Edit size="24" color="#222222" variant="Bold"style={{marginTop:"5%",marginLeft:"5.5%"}}/><div><p className='txtbnt-vp'>Modifier</p></div></button>
 
     </div><div>
     <div><p className='txt4-vp'>Photo de profile</p></div>

@@ -7,6 +7,7 @@ import img2 from "../../../assets/prod3.png"
 
 const Detailcomnder = () => {
     const navigate = useNavigate();
+    const [open, setopen] = React.useState(true);
 
     const navigat=()=>{
         navigate(`/Vender/Liste_de_commandes`)
@@ -84,15 +85,17 @@ const Detailcomnder = () => {
 
 </table>
 </div>
-
-<div className='box5-dc'>
+{open?
+    <div className='box5-dc'>
 <div className='row01box5-dc'>
 <div><p className='txtbox5-dc'>Souhaitez-vous accepter cette commande ?</p></div>
-<div className='rowbox5-dc'><button className='bntbox5-dc'>Rejeter</button><button className='bntbox6-dc'>Accepter</button></div>
+<div className='rowbox5-dc'><button className='bntbox5-dc' onClick={()=>{setopen(false)}}>Rejeter</button><button className='bntbox6-dc' onClick={()=>{setopen(false)}}>Accepter</button></div>
 
 </div>
 
 </div>
+:<></>
+}
 
 
 </div>

@@ -84,8 +84,8 @@ const Categorie=()=>{
           <table className="table">
             <tr>
               <th style={{ width: "184px" }}>Catégorie</th>
-              <th style={{ width: "504px" }}>Description</th>
-              <th style={{ width: "180px" }}>Nbr de produits</th>
+              <th style={{ width: "484px" }}>Description</th>
+              <th style={{ width: "160px" }}>Nbr de produits</th>
               <th>Dernière mise à jour</th>
             </tr>
             <tr>

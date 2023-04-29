@@ -114,8 +114,8 @@ const Listecommandes = () => {
 <td className='tdwidth1'><p className='txt02-c'>{obj.prix}</p></td>
 <td className='tdwidth1'>{obj.Nbr}</td>
 <td className='tdwidth1'>{obj.date}</td>
+
 <td className='tdwidth1'>
-    
 {obj.Staut==="Compléter"?
 <><button className='bnt01-c'><p className='txtbnt01-c'>{obj.Staut}</p></button></>
 :
@@ -123,7 +123,10 @@ const Listecommandes = () => {
 {obj.Staut==="En cours"?
 <button className='bnt02-c'><p className='txtbnt02-c'>{obj.Staut}</p></button>
 :<>{obj.Staut==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.Staut}</p></button>:
-<>{obj.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.Staut}</p></button>:<></>}</>}</>}</>}</td>
+<>{obj.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.Staut}</p></button>:<></>}</>}</>}</>}
+
+  
+  </td>
 
 </tr>
 
@@ -150,7 +153,7 @@ const Listecommandes = () => {
 </tr>
 
 {filteredDataNouveau.map((item) => (
-<tr className={item.Staut==="Nouveau"?"backnovo-c":""}>
+<tr>
 <td className='tdwidth'>{item.id}</td>
 <td className='tdwidth02'> <div className="row-c">
             <img src={img1} className="img1-c" />
@@ -160,7 +163,7 @@ const Listecommandes = () => {
 <td className='tdwidth1'><p className='txt02-c'>{item.prix}</p></td>
 <td className='tdwidth1'>{item.Nbr}</td>
 <td className='tdwidth1'>{item.date}</td>
-<td className='tdwidth1'>
+
 
 <td className='tdwidth1'>
     
@@ -173,7 +176,7 @@ const Listecommandes = () => {
 :<>{item.Staut==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{item.Staut}</p></button>:
 <>{item.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{item.Staut}</p></button>:<></>}</>}</>}</>}</td>
 
-</td>
+
 </tr>
 ))}
 
@@ -206,7 +209,7 @@ const Listecommandes = () => {
 <td className='tdwidth1'><p className='txt02-c'>{item.prix}</p></td>
 <td className='tdwidth1'>{item.Nbr}</td>
 <td className='tdwidth1'>{item.date}</td>
-<td className='tdwidth1'>
+
 
 <td className='tdwidth1'>
     
@@ -219,7 +222,6 @@ const Listecommandes = () => {
 :<>{item.Staut==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{item.Staut}</p></button>:
 <>{item.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{item.Staut}</p></button>:<></>}</>}</>}</>}</td>
 
-</td>
 </tr>
 ))}
 
@@ -255,7 +257,7 @@ const Listecommandes = () => {
 <td className='tdwidth1'>{item.date}</td>
 <td className='tdwidth1'>
 
-<td className='tdwidth1'>
+
     
 {item.Staut==="Compléter"?
 <><button className='bnt01-c'><p className='txtbnt01-c'>{item.Staut}</p></button></>
@@ -266,7 +268,7 @@ const Listecommandes = () => {
 :<>{item.Staut==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{item.Staut}</p></button>:
 <>{item.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{item.Staut}</p></button>:<></>}</>}</>}</>}</td>
 
-</td>
+
 </tr>
 ))}
 
@@ -301,7 +303,7 @@ const Listecommandes = () => {
 <td className='tdwidth1'>{item.date}</td>
 <td className='tdwidth1'>
 
-<td className='tdwidth1'>
+
     
 {item.Staut==="Compléter"?
 <><button className='bnt01-c'><p className='txtbnt01-c'>{item.Staut}</p></button></>
@@ -312,7 +314,7 @@ const Listecommandes = () => {
 :<>{item.Staut==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{item.Staut}</p></button>:
 <>{item.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{item.Staut}</p></button>:<></>}</>}</>}</>}</td>
 
-</td>
+
 </tr>
 ))}
 

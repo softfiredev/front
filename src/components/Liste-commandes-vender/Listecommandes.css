@@ -9,9 +9,12 @@
 }
 .backnovo-c{
     background: #FFFAEB;
-
+cursor: pointer;
 border-bottom: 1px solid #F7F7F7;
 }
+.backnovo-c0{cursor: pointer;
+}
+
 .bnt01-c{
 width: 88px;
 height: 32px;

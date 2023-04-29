@@ -42,6 +42,7 @@ function App() {
  <BrowserRouter>
 
  <Suspense fallback={<Spinier />}>
+ <NavBar/>
    <Routes>
    <Route path='/Login' element={ <Login/>} />
    <Route path='/Signup' element={ <Signup/>} />
@@ -79,6 +80,7 @@ function App() {
    </Routes>
    </Suspense>
    <Toast/>
+   <Footer/>
  </BrowserRouter>
 
 

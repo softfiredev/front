@@ -105,7 +105,7 @@ useEffect(()=>{
   return (
 
     <>
-    <NavBar/>
+
       { snap.loding ? <Spinier /> :
 
     <div className='login'>
@@ -221,7 +221,7 @@ useEffect(()=>{
     </div>
 
 }
-<Footer/>
+
 </>
 
 

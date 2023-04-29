@@ -20,7 +20,7 @@ const LibrairieProfile = () => {
     {id:"0aaa0011110",nom:"PACK LIVRE SCOLAIRE 1 EME",prix:"1.1dt",noml:"Errahma Library"}];
   return (
     <>
-      <NavBar/>
+
       <div className="profile">
       <Box
         sx={{
@@ -116,7 +116,7 @@ const LibrairieProfile = () => {
         </Grid>
       </div>
     </div>
-    <Footer/>
+
     </>
     
   );

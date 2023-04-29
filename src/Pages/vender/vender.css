@@ -3,6 +3,12 @@
     flex-direction: row;
     background-color: #F7F7F7;
 }
+.nav{
+   display: none;
+}
+.footer{
+    display: none;
+}
 .side-bar{
 width: 256px;
 height: 1024px;

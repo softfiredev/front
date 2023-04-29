@@ -73,7 +73,7 @@ const Profilee = () => {
   };
   return (
     <>
-         <NavBar/>
+   
         <div className="Profile">
       <div className="col1-profile">
         <div>
@@ -163,7 +163,7 @@ const Profilee = () => {
         </div>
       </div>
     </div>
-    <Footer/>
+
     </>
     
   );

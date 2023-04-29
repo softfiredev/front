@@ -19,7 +19,7 @@ import Footer from "../../components/footer/Footer";
 const AboutUs = () => {
   return (
         <>
-        <NavBar/>
+    
              <div className="about">
       <Grid
         container
@@ -211,7 +211,7 @@ const AboutUs = () => {
         </Grid>
       </Grid>
     </div>
-      <Footer/>
+  
         </>
   );
 };

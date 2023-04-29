@@ -129,7 +129,7 @@ const Detailprod = () => {
 
   return (
     <>
-      <NavBar/>
+      
        <div className="detail">
       <div>
         <Stack spacing={2}>
@@ -434,7 +434,7 @@ const Detailprod = () => {
         </div>
       </div>
     </div>
-    <Footer/>
+    
     </>
    
   );

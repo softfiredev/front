@@ -11,7 +11,7 @@ const Password = () => {
 
   return (
     <>
-      <NavBar/>
+    
       <div className='password'>
        <div className='passww' >
         <Grid item  >
@@ -22,7 +22,7 @@ const Password = () => {
         </Grid>
         </div>
     </div>
-    <Footer/>
+
     </>
    
   )

@@ -13,7 +13,7 @@ const Cart = () => {
   ,{titre :"stiloazeazeazeazeaze" ,prix :"1100" , total:"2200" , qte:"2"}]
   return (
     <>
-    <NavBar/>
+
        <div className="Cart">
       <Grid item>
         <h1 className="titre">Panier</h1>
@@ -49,7 +49,7 @@ const Cart = () => {
         <Link to="/Shop"> Continuer vos achats</Link>
       </div>
     </div>
-    <Footer/>
+
     </>
    
   );

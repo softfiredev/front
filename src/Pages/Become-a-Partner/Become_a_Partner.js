@@ -14,7 +14,7 @@ const Become_a_Partner = () => {
 
   return (
    <>
-      <NavBar/>
+ 
       <div className="group-partner ">
       <Grid
         container
@@ -428,7 +428,7 @@ const Become_a_Partner = () => {
         </Grid>
       </Grid>
     </div>
-    <Footer/>
+  
    </>
   );
 };

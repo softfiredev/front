@@ -123,7 +123,7 @@ const Home = () => {
 
   return (
     <div>
-      <NavBar/>
+ 
       <div className="group-home ">
         <Grid
           container
@@ -467,7 +467,7 @@ const Home = () => {
           </div>
         </Grid>
       </div>
-      <Footer/>
+  
     </div>
   );
 };

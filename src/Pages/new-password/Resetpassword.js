@@ -26,7 +26,7 @@ const Changepage=()=>{
   return (
 
    <>
-    <NavBar/>
+
     <div className='password'>
        <div className='passww' >
         <Grid item  >
@@ -37,7 +37,7 @@ const Changepage=()=>{
         </Grid>
         </div>
     </div>
-    <Footer/>
+
    </>
   
  

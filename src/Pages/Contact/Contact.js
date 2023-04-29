@@ -72,7 +72,7 @@ else{
   return (
 
      <div>
-      <NavBar/>
+  
 
       { snap.loding ? <Spinier /> :
       <><div className='contact'>
@@ -125,7 +125,7 @@ else{
             </Grid>
           </div><div></div></>
   }
-      <Footer/>
+     
       </div>
 
   )

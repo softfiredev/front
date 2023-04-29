@@ -75,7 +75,7 @@ const Signup = () => {
 
   return (
     <>
-      <NavBar/>
+
       {loading ? <Spinier /> :
 
 
@@ -162,7 +162,7 @@ const Signup = () => {
 
       }
 
-    <Footer/>
+
     </>
 
 

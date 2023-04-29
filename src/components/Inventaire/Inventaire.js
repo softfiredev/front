@@ -45,9 +45,9 @@ const Inventaire = () => {
     <div className='box-int'>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} >
-         <Tab label="Liste de produits" {...a11yProps(0)} />
-          <Tab label="Les avis" {...a11yProps(1)} />
+        <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#F7D070"} }}>
+         <Tab label={<p className="txttabs-int">Liste de produits</p>} {...a11yProps(0)} />
+          <Tab label={<p className="txttabs-int01">Les avis</p>} {...a11yProps(1)} />
         </Tabs>
       </Box>
 <Listevender value={value}/>

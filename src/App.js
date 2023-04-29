@@ -5,6 +5,7 @@ import Toast from './components/toast/Toast'
 import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
+import Listecommandes from './components/Liste-commandes-vender/Listecommandes';
 
 const Categorie = lazy(() => import('./components/VenderPage/categorie/categorie')); 
 const Inventaire = lazy(() => import('./components/Inventaire/Inventaire')); 
@@ -66,6 +67,7 @@ function App() {
         <Route path='/Vender' element={<TableauDuBord/>}/>
         <Route path='/Vender/categorie' element={<Categorie/>}/>
         <Route path='/Vender/Inventaire' element={<Inventaire/>}/>
+        <Route path='/Vender/Liste_de_commandes' element={<Listecommandes/>}/>
    </Route>
   <Route path='*' element={ <> page not !!!</>} />
    </Routes>

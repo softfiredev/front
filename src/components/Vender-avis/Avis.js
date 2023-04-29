@@ -46,7 +46,7 @@ const Avis = (props) => {
     Commentaire:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable."}
 ]
   return (
-    <TabPanel value={props.value} index={1}>
+    <TabPanel value={props.value} index={1} >
 
 <br/>
  <div className='row1-int'>

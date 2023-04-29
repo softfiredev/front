@@ -42,6 +42,7 @@ const VenderCategorie = () => {
       linkname: "Factorisation",
       icon: <Receipt1 size="32" color="#7E7E7E" variant="Bulk"/>,
     },
+    
   ];
   const [linkStyle,setLinkStyle]=useState(false) 
   const [linkId,setLinkId]=useState(0) 

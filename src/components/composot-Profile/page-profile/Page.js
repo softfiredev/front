@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./page.css";
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { IconButton, InputAdornment, OutlinedInput } from "@mui/material";
 import { RefreshSquare, AddCircle, ExportCurve } from "iconsax-react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";

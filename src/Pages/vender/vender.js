@@ -61,6 +61,12 @@ const Vender = () => {
       icon: <Receipt1 size="32" color="#7E7E7E" variant="Bulk" />,
       linkto :"/Vender/Factorisation"
     },
+ 
+    {
+      linkname: "Profile",
+      icon: <img src={img} alt="profil" className="profil" />,
+      linkto :"/Vender/Profile"
+    },
   ];
   const [linkStyle, setLinkStyle] = useState(false);
   const [linkId, setLinkId] = useState(0);
@@ -76,8 +82,7 @@ const Vender = () => {
         <div className="link-side-bar">
           {linkarray.map((e, key) => (
             <Link to={e.linkto}> 
-                    <div
-              onClick={() => handleChangeStyleLink(key)}
+                    <div   onClick={() => handleChangeStyleLink(key)}
               className={
                 linkId === key && linkStyle
                   ? "link"
@@ -86,17 +91,14 @@ const Vender = () => {
                   : "linknone"
               }
             >
-              {e.icon}
-              <p>{e.linkname}</p>
+            <div>      {e.icon}  </div>
+         <div>     <p>{e.linkname}</p>  </div>
             </div>
             </Link>
            
           ))}
         </div>
-        <div className="profile-container1">
-          <img src={img} alt="profil" className="profil" />
-          <p className="titreProfile">Profile</p>
-        </div>
+      
         <div className="deconnecter-box">
           <LogoutCurve
             size="22"

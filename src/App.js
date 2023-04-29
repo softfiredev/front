@@ -7,6 +7,7 @@ import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
 import Listecommandes from './components/Liste-commandes-vender/Listecommandes';
 import Detailcomnder from './components/Liste-commandes-vender/composentliste/Detailcomnder';
+import VenderProfile from './components/profile-vender/VenderProfile';
 
 const Categorie = lazy(() => import('./components/VenderPage/categorie/categorie')); 
 const Inventaire = lazy(() => import('./components/Inventaire/Inventaire')); 
@@ -70,7 +71,7 @@ function App() {
         <Route path='/Vender/Inventaire' element={<Inventaire/>}/>
         <Route path='/Vender/Liste_de_commandes' element={<Listecommandes/>}/>
         <Route path='/Vender/Détails_de_ommande/:id' element={<Detailcomnder/>}/>
-
+        <Route path='/Vender/Profile' element={<VenderProfile/>}/>
    </Route>
   <Route path='*' element={ <> page not !!!</>} />
    </Routes>

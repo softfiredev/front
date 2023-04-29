@@ -18,6 +18,7 @@ margin-left: 85px;
 .side-bar .link-side-bar .link{
    display: flex;
    flex-direction: row;
+gap: 1em;
    margin-top: 28px;
    padding: 14px 30px 14px 30px;
    background-color: #FCEFC7;
@@ -52,6 +53,7 @@ color: #E66A6A;
 .linknone{
     display: flex;
     flex-direction: row;
+    gap: 1em;
     margin-top: 28px;
     padding: 14px 30px 14px 30px;
     cursor: pointer;

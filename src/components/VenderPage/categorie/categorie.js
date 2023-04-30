@@ -1,6 +1,6 @@
 import React from "react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
-import Box1 from "@mui/material/Box";
+import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import logo from "../../../assets/logo10.png";
 import "./categorie.css"
@@ -18,7 +18,7 @@ const style = {
   boxShadow: 24,
   p: 4,
   width: 544,
-  height: 500,
+  height: 690,
   borderRadius: "8px",
 };
 const Categorie=()=>{
@@ -32,35 +32,44 @@ const Categorie=()=>{
           <button className="btn-suggestion" onClick={handleOpen}>
             Faire une suggestion
           </button>
+   
           <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box1 sx={style}>
-              <div className="closeModel" onClick={handleClose}>X</div>
-              <img src={logo} alt="maktba" className="logoModel2" />
-              <div className="Suggestion-model" >
-                <h1>Suggestion de catégorie</h1>
-                <p>
-                  Vous avez une catégorie que vous souhaitez ajouter ?
-                  Envoyez-nous votre suggestion et nous l'examinerons.
-                </p>
-              </div>
-              <div className="form2">
-                    <label className="label-form2">Nom de catégorie</label>
-                    <OutlinedInput  placeholder="Nom de catégorie" className="input-form2"/>
-                    <label className="label-form2">Description</label>
-                    <OutlinedInput placeholder="Votre description de cet catégorie..." className="input-form2"/>
-                    <div className="btn-form2">
-                          <button className="btn-3-Annuler">Annuler</button>
-                          <button className="btn-3-Confirmer">Confirmer</button>
-                    </div>
+                  open={open}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                  onClose={handleClose}
+                >
+                  <Box sx={style} >
+               <div className="boxmodal-c">
+                
+               <div className='flex-end-c'>    <div > <i class="fa fa-close" onClick={handleClose} style={{cursor:"pointer"}}></i></div></div>
+                     <div className='logo2-c'> <img src={logo} /></div>
+                        <div className="col4-cv">
+                          <div> <p className='txt7-cv'>Suggestion de catégorie</p></div>
+                        <div><p className='txt1-cv'>Vous avez une catégorie que vous souhaitez ajouter ?
+Envoyez-nous votre suggestion et nous l'examinerons.</p>
+     </div>
+     <div className="col20-cv">
+            <p className="txtmodal-cv">Nom de catégorie</p>
+            <OutlinedInput className="input-cv" placeholder="Nom de catégorie" />
+          </div>
+                     
+          <div className="col20-cv">
+            <p className="txtmodal-cv">Description</p>
+            <OutlinedInput className='input-cv2' placeholder="Votre description de cet catégorie..." multiline rows={5} maxRows={80} /> 
+          </div>
+          <div className="col21-cv">
+          <button className="bntmodal-cv" onClick={handleClose}><p className="txtbntmodal-cv">Annuler</p></button>  
+           <button className="bntmodal2-cv"><p className="txtbntmodal2-cv">Envoyer</p></button>
 
-              </div>
-            </Box1>
-          </Modal>
+          </div>
+
+                        </div>
+                     
+                </div>
+            
+                  </Box>
+                </Modal>
         </div>
         <div className="box1-categorie">
           <div className="header-box1">

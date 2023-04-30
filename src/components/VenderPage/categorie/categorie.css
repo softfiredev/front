@@ -28,6 +28,111 @@ margin-left: 698px ;
 margin-top: 28px;
 cursor: pointer;
 }
+.txt7-cv{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 32px;
+color: #222222;
+}
+.txt1-cv{
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+color: #9E9E9E;
+}
+.col4-cv{
+    display: flex;
+    flex-direction: column;
+    gap:2em; 
+}
+.logo2-c{
+
+Height:44px;
+}
+.bntmodal-cv{
+width: 194px;
+height: 56px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+cursor: pointer;
+}
+.bntmodal2-cv{
+    width: 206px;
+    height: 56px;
+
+    background: #222222;
+    border-radius: 8px;
+    cursor: pointer;
+    }
+    .txtbntmodal-cv{
+        font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 28px;
+margin-top: -1%;
+color: #222222;
+    }
+    .txtbntmodal2-cv{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 28px;
+        color: #FFFFFF;
+margin-top: -1%;
+
+    }
+    .input-cv2{
+        width: 416px;
+height: 142px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+    }
+    .txtmodal-cv{
+        font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+color: #222222;
+padding-bottom: 2%;
+    }
+.col21-cv{
+    display: flex;
+  margin-left: 10%;
+    gap:1em; 
+}
+.col20-cv{
+margin-left:10% ;
+    text-align: left;
+}
+.input-cv{
+    width: 416px;
+height: 56px;
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+}
+.boxmodal-c{
+    display: flex;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+gap: 1em;
+}
+.flex-end-c{
+display: flex;
+justify-content: end;
+}
+
 .box1-categorie{
 box-sizing: border-box;
 width: 1047px;

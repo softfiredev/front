@@ -68,7 +68,7 @@ const Listeivraisons = () => {
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de livraisons</p></div>
-    <div className='box01-c'>
+    <div className='box01-lv'>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#F7D070" } }}>

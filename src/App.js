@@ -5,6 +5,7 @@ import Toast from './components/toast/Toast'
 import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
+import Approvisionner from './components/vender-Approvisionner/Approvisionner';
 
 
 const Listecommandes = lazy(() => import('./components/Liste-commandes-vender/Listecommandes')); 
@@ -76,6 +77,7 @@ function App() {
         <Route path='/Vender/Détails_de_ommande/:id' element={<Detailcomnder/>}/>
         <Route path='/Vender/Profile' element={<VenderProfile/>}/>
         <Route path='/Vender/Liste_de_Livraisons' element={<Listeivraisons/>}/>
+        <Route path='/Vender/Approvisionner' element={<Approvisionner/>}/>
    </Route>
   <Route path='*' element={ <> page not !!!</>} />
    </Routes>

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Filterbar.css'
-import {SearchNormal1,Sort} from "iconsax-react";
+import {SearchNormal1} from "iconsax-react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
 const Filterbar = (props) => {
   return (
@@ -16,8 +16,8 @@ const Filterbar = (props) => {
           }
         />
     <button className='bnt0-int'>
-   {props.icon}
-    <div><p  className='txt0-int'>{props.nom}</p></div>
+    {props.icon}
+    <div><p  className='txt0-int'>Ajouter filtre</p></div>
     </button>
     </div>
 

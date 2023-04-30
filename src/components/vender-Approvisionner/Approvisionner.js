@@ -61,7 +61,7 @@ const Approvisionner = () => {
         <div><p className='txt1-Appr'>Approvisionner</p></div>
         <div className='row2-Appr'>
             <button className='bnt1-appr'><div className='rowbnt-appr'><ReceiptText size="24" color="#222" variant="Bold"/><div><p>Transactions</p></div></div></button>
-            <button className='bnt2-appr'><ShoppingCart size="24" color="#fff" variant="Bold" style={{marginTop:"20%"}}/><p className='patch-appr'><p className='patchtxt-appr'>+3</p></p></button>
+            <button className='bnt2-appr'><ShoppingCart size="24" color="#fff" variant="Bold" style={{marginTop:"28%"}}/><p className='patch-appr'><p className='patchtxt-appr'>+3</p></p></button>
 
             </div>
     

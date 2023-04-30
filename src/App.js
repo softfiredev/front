@@ -6,6 +6,8 @@ import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
 import Approvisionner from './components/vender-Approvisionner/Approvisionner';
+import { Fab } from '@mui/material';
+import Factorisation from './components/vender-Factorisation/Factorisation';
 
 
 const Listecommandes = lazy(() => import('./components/Liste-commandes-vender/Listecommandes')); 
@@ -78,6 +80,7 @@ function App() {
         <Route path='/Vender/Profile' element={<VenderProfile/>}/>
         <Route path='/Vender/Liste_de_Livraisons' element={<Listeivraisons/>}/>
         <Route path='/Vender/Approvisionner' element={<Approvisionner/>}/>
+        <Route path='/Vender/Factorisation' element={<Factorisation/>}/>
    </Route>
   <Route path='*' element={ <> page not !!!</>} />
    </Routes>

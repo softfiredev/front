@@ -27,6 +27,7 @@ width: 180px;
 height: 48px;
 background: #F7D070;
 border-radius: 8px;
+cursor: pointer;
 border: none;
 }
 .patchtxt-appr{
@@ -64,6 +65,7 @@ width: 48px;
 height: 48px;
 background: #222222;
 border-radius: 8px;
+cursor: pointer;
 }
 
 

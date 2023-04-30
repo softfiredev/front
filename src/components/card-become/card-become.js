@@ -1,8 +1,8 @@
 import './Card_become.css'
 import React, { useEffect,useState } from 'react'
-import { TickCircle, Tree } from 'iconsax-react';
+import { TickCircle } from 'iconsax-react';
 
-const Card_become = () => {
+const Card_become = (props) => {
   const [Silver, setSilver] = useState('card-becom2');
   const [Bronze, setBronze] = useState('card-becom');
   const [Gold, setGold] = useState('card-becom');
@@ -42,7 +42,7 @@ if(event=='Silver')
 
       <div className='cardt-bec' >
 
-        <div className= {Bronze} onClick={()=>{handleChange1("Bronze")}}>
+        <div className= {Bronze} onClick={()=>{handleChange1("Bronze")}}style={{width:props.width,height:props.height}}>
           <div>
 
             <div >
@@ -129,7 +129,7 @@ if(event=='Silver')
 
         </div>
 
-        <div className={Silver} onClick={()=>{handleChange1("Silver")}}>
+        <div className={Silver} onClick={()=>{handleChange1("Silver")}}style={{width:props.width,height:props.height}}>
           <div>
 
             <div >
@@ -213,7 +213,7 @@ if(event=='Silver')
         </div>
 
 
-        <div className= {Gold} onClick={()=>{handleChange1("Gold")}}>
+        <div className= {Gold} onClick={()=>{handleChange1("Gold")}}style={{width:props.width,height:props.height}}>
           <div>
 
             <div>

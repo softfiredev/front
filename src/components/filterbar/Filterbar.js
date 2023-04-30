@@ -1,8 +1,8 @@
 import React from 'react'
 import './Filterbar.css'
-import {SearchNormal1,FilterAdd,TickSquare,More,ArrowLeft2,ArrowRight2} from "iconsax-react";
+import {SearchNormal1,Sort} from "iconsax-react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
-const Filterbar = () => {
+const Filterbar = (props) => {
   return (
     <div className='row1-int'>
     <div className='row2-int'> 
@@ -16,8 +16,8 @@ const Filterbar = () => {
           }
         />
     <button className='bnt0-int'>
-    <FilterAdd size="22" color="#222222"/>
-    <div><p  className='txt0-int'>Ajouter filtre</p></div>
+   {props.icon}
+    <div><p  className='txt0-int'>{props.nom}</p></div>
     </button>
     </div>
 

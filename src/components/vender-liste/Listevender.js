@@ -1,6 +1,6 @@
 import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
-import {TickSquare,More,ArrowLeft2,ArrowRight2} from "iconsax-react";
+import {TickSquare,More,FilterAdd} from "iconsax-react";
 import img1 from "../../assets/prod2.png";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -29,7 +29,7 @@ const Listevender = (props) => {
   return (
     <TabPanel value={props.value} index={0}>
     <br/>
-<Filterbar/>
+<Filterbar icon={<FilterAdd size="22" color="#222222"/>}nom="Ajouter filtre"/>
 <br/><br/>
 
  <table>
@@ -67,12 +67,7 @@ const Listevender = (props) => {
 
 </table>
 <br/><br/>
-<div className='page-listev'>  
-<div className="pagination1-listev">
-          <ArrowLeft2 size="22" color="#626262" style={{cursor:"pointer"}} />
-          <p>Page 1 sur 1</p>
-          <ArrowRight2 size="22" color="#626262" style={{cursor:"pointer"}} />
-        </div></div>
+
   </TabPanel>
   )
 }

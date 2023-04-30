@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import img1 from "../../assets/Ellipse 503.png"
 import Typography from '@mui/material/Typography';
 import Filterbar from '../filterbar/Filterbar';
-import {ArrowLeft2,ArrowRight2} from "iconsax-react";
+import {ArrowLeft2,ArrowRight2,Sort} from "iconsax-react";
 import { useNavigate } from "react-router-dom";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -80,7 +80,7 @@ const Listeivraisons = () => {
       <TabPanel value={value} index={0}>
       <br/>
       <div className='row01-c'>
-      <Filterbar/>
+      <Filterbar icon={  <Sort size="22" color="#222222"/> }nom="Trier par"/>
 
 <table>
 <tr>
@@ -126,7 +126,7 @@ const Listeivraisons = () => {
         </TabPanel>
         <TabPanel value={value} index={1}>
         <div className='row01-c'>
-        <Filterbar/>
+        <Filterbar icon={  <Sort size="22" color="#222222"/> }nom="Trier par"/>
         <table>
 <tr>
 
@@ -167,7 +167,7 @@ const Listeivraisons = () => {
         </TabPanel>
         <TabPanel value={value} index={2}>
         <div className='row01-c'>
-        <Filterbar/>
+        <Filterbar icon={  <Sort size="22" color="#222222"/> }nom="Trier par"/>
         <table>
 <tr>
 

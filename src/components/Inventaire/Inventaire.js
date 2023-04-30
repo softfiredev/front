@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Listevender from '../vender-liste/Listevender';
+import {ArrowLeft2,ArrowRight2} from "iconsax-react";
 
 import {Trash,ExportCircle,ArrowCircleLeft} from "iconsax-react";
 import Ajouter from '../ajoutprod-vender/Ajouter';
@@ -54,7 +55,14 @@ const Inventaire = () => {
 <Avis value={value}/>
     
     </Box>
+
     </div>
+    <div className='page-listev'>  
+<div className="pagination1-listev">
+          <ArrowLeft2 size="22" color="#626262" style={{cursor:"pointer"}} />
+          <p>Page 1 sur 1</p>
+          <ArrowRight2 size="22" color="#626262" style={{cursor:"pointer"}} />
+        </div></div>
     </div>
     :
     <div className='box2-int' >

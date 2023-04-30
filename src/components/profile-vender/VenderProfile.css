@@ -24,7 +24,7 @@ color: #222222;
 .box1-vp{
     padding: 2%;
 width: 1128px;
-height: 1724px;
+height: auto;
 background: #FFFFFF;
 border-radius: 8px;
 display: flex;
@@ -150,7 +150,7 @@ padding-bottom: 2%;
         height: 48px;
         background: #FFFFFF;
         border: 1px solid #E1E1E1;
-        border-radius: 50px;
+        border-radius: 8px;
 
 
     }

@@ -5,11 +5,12 @@ import Toast from './components/toast/Toast'
 import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
-import Listecommandes from './components/Liste-commandes-vender/Listecommandes';
-import Detailcomnder from './components/Liste-commandes-vender/composentliste/Detailcomnder';
-import VenderProfile from './components/profile-vender/VenderProfile';
-import Listeivraisons from './components/Liste-de-livraisons/Listeivraisons';
 
+
+const Listecommandes = lazy(() => import('./components/Liste-commandes-vender/Listecommandes')); 
+const Listeivraisons = lazy(() => import('./components/Liste-de-livraisons/Listeivraisons')); 
+const VenderProfile = lazy(() => import('./components/profile-vender/VenderProfile')); 
+const Detailcomnder = lazy(() => import('./components/Liste-commandes-vender/composentliste/Detailcomnder')); 
 const Categorie = lazy(() => import('./components/VenderPage/categorie/categorie')); 
 const Inventaire = lazy(() => import('./components/Inventaire/Inventaire')); 
 const Points = lazy(() => import('./components/composot-Profile/page5-profile/Points')); 

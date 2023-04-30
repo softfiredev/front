@@ -93,7 +93,7 @@ const VenderProfile = () => {
     <button className='butt-vp'><Edit size="24" color="#222222" variant="Bold"style={{marginTop:"5%",marginLeft:"5.5%"}}/><div><p className='txtbnt-vp'>Modifier</p></div></button>
 
     </div><div>
-    <div><p className='txt4-vp'>Photo de profile</p></div>
+    <div><p className='txt4-vp'>Votre logo</p></div>
 
     <div className='col4-vp'>
     <div className='box3-vp'>
@@ -101,6 +101,10 @@ const VenderProfile = () => {
     </div>
     <div className="col20-vp">
             <div className="txt-vp">Nom de votre établissement</div>
+            <OutlinedInput className="input-vp" />
+          </div>
+          <div className="col20-vp">
+            <div className="txt-vp">Adresse</div>
             <OutlinedInput className="input-vp" />
           </div>
           <div className="col20-vp">

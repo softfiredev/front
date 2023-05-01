@@ -7,14 +7,6 @@
     margin-bottom: 32px;
    
 }
-.ProfileData{
-    margin-left: 135px;
-    margin-top: 104px;
-    width: 1170px;
-    height: 294px;
-    background: #F7F7F7;
-    border-radius: 16px;
-}
 .profileInfo{
     margin-top: 40px;
     margin-left: 32px;
@@ -97,7 +89,7 @@ color: #222222;
     
 }
 .section_Produit{
-    width: 70%;
+    width: 818px;
 }
 .section_Produit .triFilter{
     margin-left: 24px;
@@ -106,7 +98,7 @@ color: #222222;
 .section_Produit .produitsLab{
     margin-top: 40px;
     margin-left: 32px;
-    width:110%
+    width:840px;
 }
 .section_Produit .produitsLab .container{
     margin-right: 24px;

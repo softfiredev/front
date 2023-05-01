@@ -2,14 +2,8 @@ import React from "react";
 import "./Card.css";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
-import img1 from "../../assets/prod2.png";
-import img2 from "../../assets/logom.png";
 import { ShoppingCart } from "iconsax-react";
-import { useState } from "react";
-
 const Card = (props) => {
-  const [value, setValue] =useState(4);
-  console.log("testtee",props.totalavis)
   return (
     <div className="card">
        
@@ -38,7 +32,7 @@ const Card = (props) => {
           <div className="grb-card2">
             <Rating
               name="read-only"
-              value={props.maxAvis}
+              value={props.maxAvis===undefined?0:props.maxAvis}
               readOnly
               defaultValue={0}
               size="small"

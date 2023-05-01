@@ -6,5 +6,9 @@ export const Path ={
     loginsocial:"user/loginsocial",
     forgotPasswordapi:"user/sendForgotPassword",
     resetpasswordApi:"user/forgotpassword/",
-    getAllProduitlibrairie:"produitLabrairie/findAll"
+    getAllProduitlibrairie:"produitLabrairie/findAll",
+    getinfolibrairie:"labrairie/findProfile/",
+    getAllProduitbyLibrairie:"produitLabrairie/findBylabrairie/",
+    getProduitDetail:"produitLabrairie/findOneProduit/"
+
 }

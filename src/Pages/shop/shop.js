@@ -51,7 +51,7 @@ const Shop = () => {
       dispatch(getAllProduitlibrairie())
   },[dispatch])
   useEffect(()=>{
-    console.log(produitShope)
+    console.log("produit",produitShope)
   },[produitShope])
   return (
     <>
@@ -89,13 +89,13 @@ const Shop = () => {
                             <Card
                               prix={obj.prix}
                               titre={obj.titre}
-                              noml={obj.labrairie.nameLibrairie}
-                              idl={obj.labrairie.id}
-                              totalavis={obj.avisProduitlibraires[0]?.total_avis}
-                              maxAvis={obj.avisProduitlibraires[0]?.max_nb}
+                              noml={obj.labrairie?.nameLibrairie}
+                              idl={obj.labrairie?.id}
+                              totalavis={obj?.avisProduitlibraires[0]?.total_avis}
+                              maxAvis={obj?.avisProduitlibraires[0]?.max_nb}
                               idp={obj.id}
                               logoL={obj.labrairie.imageStore}
-                              imgp={obj.imagelibrairies[0].name_Image}
+                              imgp={obj.imagelibrairies[0]?.name_Image}
                             />
                           </Grid>
                         </>

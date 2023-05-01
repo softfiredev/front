@@ -10,7 +10,7 @@ const Trifilter = (props) => {
     return (
 
         <div className='gr-shop2'>
-            <div>  <div className='txt-shop2'>{props.total} résultats affichés</div>    </div >
+            <div>  <p className='txt-shope-2'>{props.total} résultats affichés</p>    </div >
             <div>
             <div className='row-trifil'>
 

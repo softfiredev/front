@@ -6,7 +6,10 @@ import  SignupSlice  from './Authentication/SliceSignu';
 import {  persistStore,persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import SlicebntGoogle from './Authentication/SlicebntGoogle';
-import SliceAllproduitShope from './getAllproduitLibraire/SliceAllProduitShope';
+import SliceAllproduitShope from './librairieApi/SliceAllProduitShope';
+import SlicegetInfoLibrairie from './librairieApi/SlicegetInfoLibrairie';
+import SliceAllProduitBylibrairie from './librairieApi/SliceAllProduitBylibrairie';
+import SliceProduitDetailLibrairie from './librairieApi/SliceProduitDetailLibrairie';
 
 const persistConfig = {
     key: 'root',
@@ -16,7 +19,10 @@ const rootReducer = combineReducers({
   loginservice:SliceLogin,
     Signup:SignupSlice,
     Googleservice:SlicebntGoogle,
-    AllProduitShope:SliceAllproduitShope
+    AllProduitShope:SliceAllproduitShope,
+    infoLibrairie:SlicegetInfoLibrairie,
+    AllProduitBylibrairie:SliceAllProduitBylibrairie,
+    ProduitDetailLibrairie:SliceProduitDetailLibrairie
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);
   

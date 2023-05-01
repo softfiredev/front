@@ -25,8 +25,10 @@ import Modal from "@mui/material/Modal";
 import { OutlinedInput } from "@mui/material";
 import Description from "../../components/description-detail/Description";
 import Avatar from "@mui/material/Avatar";
-import NavBar from "../../components/NavBar/NavBar";
-import Footer from "../../components/footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getProduitDetail } from "../../Store/Service/ProduitDetail";
+import { useParams } from "react-router-dom";
+
 const Detailprod = () => {
   const prod = [
     {
@@ -113,6 +115,15 @@ const Detailprod = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const produitDetail = useSelector(
+    (state) => state.ProduitDetailLibrairie.detailProd
+  );
+  useEffect(() => {
+    dispatch(getProduitDetail(id));
+  }, [dispatch]);
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/Shop">
       <p className="txtlink1"> Shop</p>
@@ -121,322 +132,319 @@ const Detailprod = () => {
       <p className="txtlink1"> Scolaire </p>
     </Link>,
     <Typography key="3" color="text.primary">
-      <p className="txtlink"> GOUACHE 9T METAL LE COQ 22 </p>
+      <p className="txtlink"> {produitDetail.titre}</p>
     </Typography>,
   ];
-
-
+ const imagesProduit=produitDetail.imagelibrairies
 
   return (
     <>
-      
-       <div className="detail">
-      <div>
-        <Stack spacing={2}>
-          <Breadcrumbs separator="›" aria-label="breadcrumb">
-            {breadcrumbs}
-          </Breadcrumbs>
-        </Stack>
-      </div>
-
-      <div>
+      <div className="detail">
         <div>
-          <div className="row-detail">
-            <div className="swiper_container">
-              <Swiper
-                style={{
-                  "--swiper-navigation-color": "##9E9E9E",
-                  "--swiper-pagination-color": "##9E9E9E",
-                }}
-                spaceBetween={10}
-                navigation={true}
-                thumbs={{ swiper: thumbsSwiper }}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2"
-                onClick={() => {
-                  setimgclick("");
-                }}
-              >
-                {images.map((obj) => (
-                  <>
-                    <SwiperSlide>
-                      {imgclick == "" ? (
-                        <>
-                          <img src={obj.url} />
-                        </>
-                      ) : (
-                        <>
-                          
-                          <img src={imgclick} />
-                        </>
-                      )}
-                    </SwiperSlide>
-                  </>
-                ))}
-              </Swiper>
-              <Swiper
-                spaceBetween={10}
-                slidesPerView={7}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper1"
-                onClick={() => {
-                  setimgclick("");
-                }}
-              >
-                {images.map((obj) => (
-                  <>
-                    <SwiperSlide>
-                      <img
-                        src={obj.url}
-                        onClick={() => {
-                          setimgclick(obj.url);
-                        }}
-                      />
-                    </SwiperSlide>
-                  </>
-                ))}
-              </Swiper>
-            </div>
-            <div className=" description">
-              <Description />
-            </div>
-          </div>
+          <Stack spacing={2}>
+            <Breadcrumbs separator="›" aria-label="breadcrumb">
+              {breadcrumbs}
+            </Breadcrumbs>
+          </Stack>
         </div>
 
-        <div className="row10-detail">
+        <div>
           <div>
-            <div className="col4-detail">
-              <div>
-                <p className="txt20-detail">Les avis:</p>
-              </div>
-
-              <div>
-                <div className="row6-detail">
-                  <div>
-                    <div className="col3-deatil">
-                      <div>
-                        
-                        <p className="nbr-deatail">4.5 </p>
-                      </div>
-                      <div className="row6-detail">
-                        <Rating name="read-only" value={value2} readOnly />
-                        <p className="txt12-detail">(160)</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="coll33-detail">
-                    <div className="row6-detail">
-                      <div>
-                        
-                        <p className="">5</p>
-                      </div>
-                      <div>
-                        
-                        <div className="progressbar">
-                          <div
-                            className="indicator"
-                            style={{ width: "205px" }}
-                          ></div>
-                        </div>
-                      </div>
-                      <div>
-                        
-                        <p className="txt12-detail">(90)</p>
-                      </div>
-                    </div>
-
-                    <div className="row6-detail">
-                      <div>
-                        
-                        <p className="">5</p>
-                      </div>
-                      <div>
-                        
-                        <div className="progressbar">
-                          <div className="indicator"></div>
-                        </div>
-                      </div>
-                      <div>
-                        
-                        <p className="txt12-detail">(90)</p>
-                      </div>
-                    </div>
-
-                    <div className="row6-detail">
-                      <div>
-                        
-                        <p className="">5</p>
-                      </div>
-                      <div>
-                        
-                        <div className="progressbar">
-                          <div className="indicator"></div>
-                        </div>
-                      </div>
-                      <div>
-                        
-                        <p className="txt12-detail">(90)</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <p className="txt7-detail" onClick={handleOpen}>
-                  Donnez votre avis
-                </p>
-
-                <Modal
-                  open={open}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                  onClose={handleClose}
+            <div className="row-detail">
+              <div className="swiper_container">
+                <Swiper
+                  style={{
+                    "--swiper-navigation-color": "##9E9E9E",
+                    "--swiper-pagination-color": "##9E9E9E",
+                  }}
+                  spaceBetween={10}
+                  navigation={true}
+                  thumbs={{ swiper: thumbsSwiper }}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="mySwiper2"
+                  onClick={() => {
+                    setimgclick("");
+                  }}
                 >
-                  <Box sx={style} >
-                    <Typography
-                      id="modal-modal-title"
-                      variant="h6"
-                      component="h2"
-                    >
-                                      <div className='flex-end'>    <div > <i class="fa fa-close" onClick={handleClose}></i></div></div>
-
-                      <p className="txtmodal-detail">Ajouter votre avis</p>
-                      <br />
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                      <div className="col3-deatil">
-                        <Rating className="reting1"
-                          value={value}
-                          onChange={(event, newValue) => {
-                            setValue(newValue);
+                  {imagesProduit.map((obj) => (
+                      <SwiperSlide>
+                        {imgclick == "" ? (
+                          <>
+                            <img src={"http://127.0.0.1:8080/uploads/"+obj.name_Image}/>
+                          </>
+                        ) : (
+                          <>
+                            <img src={"http://127.0.0.1:8080/uploads/"+imgclick} />
+                          </>
+                        )}
+                      </SwiperSlide>
+                    
+                  ))}
+                </Swiper>
+                <Swiper
+                  spaceBetween={10}
+                  slidesPerView={7}
+                  freeMode={true}
+                  watchSlidesProgress={true}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="mySwiper1"
+                  onClick={() => {
+                    setimgclick("");
+                  }}
+                >
+                  {imagesProduit.map((obj) => (
+                    <>
+                      <SwiperSlide>
+                        <img
+                         src={"http://127.0.0.1:8080/uploads/"+obj.name_Image}
+                          onClick={() => {
+                            setimgclick(obj.name_Image);
                           }}
-                          
                         />
-                        <p className="txtmodal3">Votre avis</p>
-                        <OutlinedInput
-                          className="inpu-conn2-modal"
-                          placeholder="Message"
-                          multiline
-                          rows={5}
-                          maxRows={80}
-                        />
-                        <div className="row-detail">
-                          <button className="bnt-modala1" onClick={handleClose}>
-                            <p className="txt-modalbnt1">Annuler</p>
-                          </button>
-                          <button className="bnt-modala2">
-                            <p className="txt-modalbnt2">Envoyer</p>
-                          </button>
+                      </SwiperSlide>
+                    </>
+                  ))}
+                </Swiper>
+              </div>
+              <div className=" description">
+                <Description
+                  titre={produitDetail.titre}
+                  maxAvis={produitDetail?.avisProduitlibraires[0]?.max_nb}
+                  totalAvis={produitDetail?.avisProduitlibraires[0]?.total_avis}
+                  prix={produitDetail.prix}
+                  discription={produitDetail.description}
+                  idl={produitDetail.labrairie.id}
+                  noml={produitDetail.labrairie.nameLibrairie}
+                  imgl={produitDetail.labrairie.imageStore}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="row10-detail">
+            <div>
+              <div className="col4-detail">
+                <div>
+                  <p className="txt20-detail">Les avis:</p>
+                </div>
+
+                <div>
+                  <div className="row6-detail">
+                    <div>
+                      <div className="col3-deatil">
+                        <div>
+                          <p className="nbr-deatail">4.5 </p>
+                        </div>
+                        <div className="row6-detail">
+                          <Rating name="read-only" value={value2} readOnly />
+                          <p className="txt12-detail">(160)</p>
                         </div>
                       </div>
-                    </Typography>
-                  </Box>
-                </Modal>
-              </div>
-            </div>
-          </div>
+                    </div>
+                    <div className="coll33-detail">
+                      <div className="row6-detail">
+                        <div>
+                          <p className="">5</p>
+                        </div>
+                        <div>
+                          <div className="progressbar">
+                            <div
+                              className="indicator"
+                              style={{ width: "205px" }}
+                            ></div>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="txt12-detail">(90)</p>
+                        </div>
+                      </div>
 
-          <div className="coll3-detail">
-            <div>
-              <div className="Grob1-detail">
-                <div>
-                  
-                  <p className="txt20-detail">Les commentaires:</p>
-                </div>
-                <div>
-                  <div className="select-detail">
-                    <Select
-                      className="txt-select-detail"
-                      defaultValue="Le plus ancien"
-                      style={{
-                        width: "145.5px",
-                        height: " 39px",
-                        borderRadius: "8px",
-                      }}
-                    >
-                      <MenuItem value="Le plus ancien">
-                        <em className="txt-select-detail">Le plus récent</em>
-                      </MenuItem>
-                      <ListSubheader> </ListSubheader>
-                      <MenuItem value={1} className="txt-select-detail">
-                        Option 1
-                      </MenuItem>
-                      <ListSubheader></ListSubheader>
-                      <MenuItem value={2} className="txt-select-detail">
-                        Option 2
-                      </MenuItem>
-                    </Select>
+                      <div className="row6-detail">
+                        <div>
+                          <p className="">5</p>
+                        </div>
+                        <div>
+                          <div className="progressbar">
+                            <div className="indicator"></div>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="txt12-detail">(90)</p>
+                        </div>
+                      </div>
+
+                      <div className="row6-detail">
+                        <div>
+                          <p className="">5</p>
+                        </div>
+                        <div>
+                          <div className="progressbar">
+                            <div className="indicator"></div>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="txt12-detail">(90)</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                </div>
 
-                  <span></span>
+                <div>
+                  <p className="txt7-detail" onClick={handleOpen}>
+                    Donnez votre avis
+                  </p>
+
+                  <Modal
+                    open={open}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                    onClose={handleClose}
+                  >
+                    <Box sx={style}>
+                      <Typography
+                        id="modal-modal-title"
+                        variant="h6"
+                        component="h2"
+                      >
+                        <div className="flex-end">
+                          {" "}
+                          <div>
+                            {" "}
+                            <i class="fa fa-close" onClick={handleClose}></i>
+                          </div>
+                        </div>
+
+                        <p className="txtmodal-detail">Ajouter votre avis</p>
+                        <br />
+                      </Typography>
+                      <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        <div className="col3-deatil">
+                          <Rating
+                            className="reting1"
+                            value={value}
+                            onChange={(event, newValue) => {
+                              setValue(newValue);
+                            }}
+                          />
+                          <p className="txtmodal3">Votre avis</p>
+                          <OutlinedInput
+                            className="inpu-conn2-modal"
+                            placeholder="Message"
+                            multiline
+                            rows={5}
+                            maxRows={80}
+                          />
+                          <div className="row-detail">
+                            <button
+                              className="bnt-modala1"
+                              onClick={handleClose}
+                            >
+                              <p className="txt-modalbnt1">Annuler</p>
+                            </button>
+                            <button className="bnt-modala2">
+                              <p className="txt-modalbnt2">Envoyer</p>
+                            </button>
+                          </div>
+                        </div>
+                      </Typography>
+                    </Box>
+                  </Modal>
                 </div>
               </div>
             </div>
 
-            {des.map((obj,key) => (
-              <div className="coll4-detail" key={key}>
-                <div className="row6-detail">
-                  <div> {obj.avtar} </div> <div>{obj.nom} </div>
+            <div className="coll3-detail">
+              <div>
+                <div className="Grob1-detail">
+                  <div>
+                    <p className="txt20-detail">Les commentaires:</p>
+                  </div>
+                  <div>
+                    <div className="select-detail">
+                      <Select
+                        className="txt-select-detail"
+                        defaultValue="Le plus ancien"
+                        style={{
+                          width: "145.5px",
+                          height: " 39px",
+                          borderRadius: "8px",
+                        }}
+                      >
+                        <MenuItem value="Le plus ancien">
+                          <em className="txt-select-detail">Le plus récent</em>
+                        </MenuItem>
+                        <ListSubheader> </ListSubheader>
+                        <MenuItem value={1} className="txt-select-detail">
+                          Option 1
+                        </MenuItem>
+                        <ListSubheader></ListSubheader>
+                        <MenuItem value={2} className="txt-select-detail">
+                          Option 2
+                        </MenuItem>
+                      </Select>
+                    </div>
+
+                    <span></span>
+                  </div>
                 </div>
-                <div>{obj.stars}</div>
-                <div className="txt60-detail">{obj.Description}</div>
               </div>
-            ))}
 
-            <div className="pagination-detail">
-              
-              <Pagination
-                count={16}
-                shape="rounded"
-                className="pagination-shop"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div className="col303-detail">
-          <div className="txt202-detail">Découvrez aussi</div>
-          <div>
-            <div className="row-row6card">
-            </div>
-          </div>
-          <Grid item style={{marginLeft:"10px"}}>
-            <div style={{width:"1000px"}} > 
-            <Swiper
-              freeMode={true}
-              grabCursor={true}
-              spaceBetween={-1200}
-              modules={[FreeMode]}
-              
-               style={{width:"1500px"}} 
-            >
-              {prod.map((obj,key) => (
-                <SwiperSlide>
-                <Grid item key={key}> 
-                  <Card
-                    prix={obj.prix}
-                    nom={obj.nom}
-                    noml={obj.noml}
-                    id={obj.id}
-                  />
-                </Grid>
-                </SwiperSlide>
+              {des.map((obj, key) => (
+                <div className="coll4-detail" key={key}>
+                  <div className="row6-detail">
+                    <div> {obj.avtar} </div> <div>{obj.nom} </div>
+                  </div>
+                  <div>{obj.stars}</div>
+                  <div className="txt60-detail">{obj.Description}</div>
+                </div>
               ))}
-            </Swiper>
+
+              <div className="pagination-detail">
+                <Pagination
+                  count={16}
+                  shape="rounded"
+                  className="pagination-shop"
+                />
+              </div>
             </div>
-               
-        </Grid>
+          </div>
+        </div>
+
+        <div>
+          <div className="col303-detail">
+            <div className="txt202-detail">Découvrez aussi</div>
+            <div>
+              <div className="row-row6card"></div>
+            </div>
+            <Grid item style={{ marginLeft: "10px" }}>
+              <div style={{ width: "1000px" }}>
+                <Swiper
+                  freeMode={true}
+                  grabCursor={true}
+                  spaceBetween={-1200}
+                  modules={[FreeMode]}
+                  style={{ width: "1500px" }}
+                >
+                  {prod.map((obj, key) => (
+                    <SwiperSlide>
+                      <Grid item key={key}>
+                        <Card
+                          prix={obj.prix}
+                          nom={obj.nom}
+                          noml={obj.noml}
+                          id={obj.id}
+                        />
+                      </Grid>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+            </Grid>
+          </div>
         </div>
       </div>
-    </div>
-    
     </>
-   
   );
 };
 

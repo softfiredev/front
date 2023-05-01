@@ -1,6 +1,7 @@
 import React from "react";
 import "./Page2.css";
-import { OutlinedInput } from "@mui/material";
+import {SearchNormal1} from "iconsax-react";
+import { InputAdornment, OutlinedInput } from "@mui/material";
 import Box_FavoirsProduit_Card from './../../box-favorisProduit-card/box-favorisProduit-card';
 
 const Page2 = () => {
@@ -23,7 +24,14 @@ const Page2 = () => {
           <p className="txt1-favo">Favoris</p>
         </div>
         <div>
-          <OutlinedInput className="input-pro" placeholder="Nom de produit" />
+
+
+          <OutlinedInput className="input-pro" placeholder={"Rechercher..."} endAdornment={
+            <InputAdornment position="end">
+              <SearchNormal1 size="19" color="#B1B1B1" />
+            </InputAdornment>
+          }
+        />
         </div>
 
         <div className="row-favo">

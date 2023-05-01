@@ -105,7 +105,8 @@ const Avis = () => {
   ];
   return (
     <div className="avis">
-      <div className="col1-avis">
+  
+    <div className="col1-avis">
         <div>
           <p className="txt1-avis">Mes avis</p>
         </div>
@@ -116,8 +117,8 @@ const Avis = () => {
           />
         </div>
         <div>
-          <table style={{ width: "105%", }}>
-            <tr>
+          <table >
+            <tr >
               <th>
                 <div style={{ marginLeft: "-6%" }}>Articles</div>
               </th>
@@ -127,10 +128,10 @@ const Avis = () => {
                 <div style={{ marginLeft: "10%" }}>Commentaire</div>
               </th>
             </tr>
-            <br />
+      
             
             {tabcomo.map((obj) => (
-              <tr>
+              <tr className="tr-avis">
                 <td>
                   <div className="row-avis">
                 <img src={img1} className="img1-avis" />
@@ -138,7 +139,7 @@ const Avis = () => {
                   </div></td>
                 <td>{obj.Date}</td>
                 <td>{obj.Score}</td>
-                <td className="tabcom-avis"><div > {obj.Commentaire} </div></td>
+                <td className="tabcom-avis"><p className="commtxt-avis"> {obj.Commentaire} </p></td>
                 <br />
                 <br />
                 <td>
@@ -188,6 +189,7 @@ const Avis = () => {
           </table>
         </div>
       </div>
+
     </div>
   );
 };

@@ -279,12 +279,12 @@ commandes passées ou en cours.</p></div><br/>
                 <div>
                   <p>Gouvernorat</p>
                 </div>
-                 <Select className='txt-select' defaultValue="Par pertinence" style={{ width: "400px", height: " 48px", borderRadius: "8px" }} >
+                 <Select className='txt-select-page' defaultValue="Par pertinence" style={{ width: "400px", height: " 48px", borderRadius: "8px" }} >
                     <MenuItem value="Par pertinence">
-                        <em className='txt-select'>{addr[0].Gouvernorat}</em>
+                        <em className='txt-select-page'>{addr[0].Gouvernorat}</em>
                     </MenuItem>
                   
-                    <MenuItem value={1} className='txt-select'>Meilleurs ventes</MenuItem>
+                    <MenuItem value={1} className='txt-select-page'>Meilleurs ventes</MenuItem>
                     <ListSubheader></ListSubheader>
                  
                 </Select>

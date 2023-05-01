@@ -193,6 +193,7 @@ const Commandes = () => {
           </div>
         </div>
         <hr className="sous-line-array" />
+        <div>
         <Grid
           container
           direction="row"
@@ -213,6 +214,7 @@ const Commandes = () => {
             </select>
           </Grid>
         </Grid>
+        </div><br/>
       </div>
     </div>
   );

@@ -5,5 +5,6 @@ export const Path ={
     ContactApi:"user/contact",
     loginsocial:"user/loginsocial",
     forgotPasswordapi:"user/sendForgotPassword",
-    resetpasswordApi:"user/forgotpassword/"
+    resetpasswordApi:"user/forgotpassword/",
+    getAllProduitlibrairie:"produitLabrairie/findAll"
 }

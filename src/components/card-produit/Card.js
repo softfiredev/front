@@ -9,25 +9,26 @@ import { useState } from "react";
 
 const Card = (props) => {
   const [value, setValue] =useState(4);
+  console.log("testtee",props.totalavis)
   return (
     <div className="card">
        
       <div className="cont">
       <div className='background-cardeprod'><p className='back-text1'>pack promo</p></div>
 
-        <Link to={`/Detailproduit/${props.id}`}><img src={img1} className="img-cardprod"/></Link>
+        <Link to={`/Detailproduit/${props.idp}`}><img src={"http://127.0.0.1:8080/uploads/"+props.imgp} className="img-cardprod"/></Link>
         
         <div>
-          <div className="txt-card1">{props.nom} </div>
+          <div className="txt-card1">{props.titre} </div>
           <div>
             <div className="grb-card22">
               <div>
                 
-                <img src={img2} />
+                <img src={"http://127.0.0.1:8080/uploads/"+props.logoL} className="logolib"/>
               </div>
               <div>
               
-                <Link to={`/librairieProfile/${props.id}`}>
+                <Link to={`/librairieProfile/${props.idl}`}>
                   <p className="txt-nommaktba">{props.noml}</p>
                 </Link>
               </div>
@@ -37,14 +38,14 @@ const Card = (props) => {
           <div className="grb-card2">
             <Rating
               name="read-only"
-              value={value}
+              value={props.maxAvis}
               readOnly
-              defaultValue={2}
+              defaultValue={0}
               size="small"
               className="stars"
             />
 
-            <p className="txt-sp">(117)</p>
+            <p className="txt-sp">({props.totalavis===undefined?0:props.totalavis})</p>
           </div>
           <div>
             {" "}
@@ -53,8 +54,8 @@ const Card = (props) => {
         </div>
 
         <div className="grb-card">
-          <p className="txt-card2">{props.prix}</p>
-          <p className="txt2xard2">{props.prix}</p>
+          <p className="txt-card2">{props.prix}dt</p>
+          <p className="txt2xard2">{props.prix}dt</p>
           <div className="bnt-card">
             <div className="ShoppingCart-card">
               <ShoppingCart size="22" color="#FFffff" variant="Bold" />

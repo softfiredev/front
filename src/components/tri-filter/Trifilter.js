@@ -6,11 +6,11 @@ import Select from '@mui/material/Select';
 import { Grid } from '@mui/material'
 import { ArrangeVertical } from 'iconsax-react';
 
-const Trifilter = () => {
+const Trifilter = (props) => {
     return (
 
         <div className='gr-shop2'>
-            <div>  <div className='txt-shop2'>148 résultats affichés</div>    </div >
+            <div>  <div className='txt-shop2'>{props.total} résultats affichés</div>    </div >
             <div>
             <div className='row-trifil'>
 

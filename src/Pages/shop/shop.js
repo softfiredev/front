@@ -5,7 +5,9 @@ import { Grid } from "@mui/material";
 import Card from "../../components/card-produit/Card";
 import Filter from "../../components/filter/Filter";
 import Trifilter from "../../components/tri-filter/Trifilter";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProduitlibrairie } from "../../Store/Service/AllProduitShope";
+import { useEffect } from "react";
 
 const Shop = () => {
   const prod = [
@@ -43,7 +45,14 @@ const Shop = () => {
 
   const [nom, setpnom] = useState("ssssss");
   const [prix, setprix] = useState("8.55dt");
-
+  const dispatch=useDispatch()
+  const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
+  useEffect(()=>{
+      dispatch(getAllProduitlibrairie())
+  },[dispatch])
+  useEffect(()=>{
+    console.log(produitShope)
+  },[produitShope])
   return (
     <>
  
@@ -66,7 +75,7 @@ const Shop = () => {
 
               <Grid item>
                 <div className="colls-trifel">
-                  <Trifilter />
+                  <Trifilter total={produitShope.length}/>
 
                   <div className="prod-shop">
                     <Grid
@@ -74,14 +83,19 @@ const Shop = () => {
                       rowSpacing={6}
                       columnSpacing={{ xs: 25, sm: 23, md: 4 }}
                     >
-                      {prod.map((obj) => (
+                      {produitShope.map((obj) => (
                         <>
                           <Grid item>
                             <Card
                               prix={obj.prix}
-                              nom={obj.nom}
-                              noml={obj.noml}
-                              id={obj.id}
+                              titre={obj.titre}
+                              noml={obj.labrairie.nameLibrairie}
+                              idl={obj.labrairie.id}
+                              totalavis={obj.avisProduitlibraires[0]?.total_avis}
+                              maxAvis={obj.avisProduitlibraires[0]?.max_nb}
+                              idp={obj.id}
+                              logoL={obj.labrairie.imageStore}
+                              imgp={obj.imagelibrairies[0].name_Image}
                             />
                           </Grid>
                         </>

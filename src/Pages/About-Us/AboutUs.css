@@ -4,9 +4,13 @@ height: 658px;
 background: url("../../assets/abut.png");
 padding-top: 5%;
 }
-.box-about2{
-margin-top: 15%;
+.abt{
+   
+        display: flex;
+    justify-content: center;
+ 
 }
+
 .img-about1{
     width: 1170px;
     height: 520px;

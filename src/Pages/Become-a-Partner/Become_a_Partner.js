@@ -10,7 +10,7 @@ const Become_a_Partner = () => {
   const onButtonClick = () => {};
 
   return (
-   <>
+   <div className="partner">
  
       <div className="group-partner ">
       <Grid
@@ -426,7 +426,7 @@ const Become_a_Partner = () => {
       </Grid>
     </div>
   
-   </>
+   </div>
   );
 };
 

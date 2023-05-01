@@ -125,7 +125,8 @@ const Home = () => {
     <div>
  
       <div className="group-home ">
-        <Grid
+    <div>
+    <Grid
           container
           direction="column"
           justifyContent="center"
@@ -364,7 +365,7 @@ const Home = () => {
             </Grid>
 
             <Grid item>
-              <div className="col3-hom">
+              <div className="col30-hom">
                 <div>
                   <div>
                     <p className="txt5-home">
@@ -466,6 +467,7 @@ const Home = () => {
             </Grid>
           </div>
         </Grid>
+    </div>
       </div>
   
     </div>

@@ -8,6 +8,10 @@
     }
     
 }
+.group-home{
+    display: flex;
+    justify-content: center;
+}
 .home{
     padding: 10%;
     width: 1562px;
@@ -144,8 +148,15 @@ margin-left: -106px;
     flex-direction: column;
     display: flex;
     gap:2.6em;
+   
 
- 
+}
+.col30-hom{
+    flex-direction: column;
+    display: flex;
+    gap:2.6em;
+   margin-left: -7.5%;
+
 }
 .img2-home{
     width: 576px;

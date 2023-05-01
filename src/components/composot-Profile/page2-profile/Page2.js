@@ -3,7 +3,6 @@ import "./Page2.css";
 import {SearchNormal1} from "iconsax-react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
 import Box_FavoirsProduit_Card from './../../box-favorisProduit-card/box-favorisProduit-card';
-qsd
 const Page2 = () => {
   const [value, setValue] = React.useState(4);
   const faivorisProduit = [

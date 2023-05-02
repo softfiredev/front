@@ -140,7 +140,7 @@ const Detailprod = () => {
                     setimgclick("");
                   }}
                 >
-                  {imagesProduit.map((obj) => (
+                  {imagesProduit?.map((obj) => (
                     <SwiperSlide>
                       {imgclick == "" ? (
                         <>
@@ -171,7 +171,7 @@ const Detailprod = () => {
                     setimgclick("");
                   }}
                 >
-                  {imagesProduit.map((obj) => (
+                  {imagesProduit?.map((obj) => (
                     <>
                       <SwiperSlide>
                         <img

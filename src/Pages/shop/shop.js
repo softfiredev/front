@@ -48,11 +48,8 @@ const Shop = () => {
   const dispatch=useDispatch()
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
   useEffect(()=>{
-      dispatch(getAllProduitlibrairie())
-  },[dispatch])
-  useEffect(()=>{
-    console.log("produit",produitShope)
-  },[produitShope])
+    dispatch(getAllProduitlibrairie())
+},[dispatch])
   return (
     <>
  
@@ -83,7 +80,7 @@ const Shop = () => {
                       rowSpacing={6}
                       columnSpacing={{ xs: 25, sm: 23, md: 4 }}
                     >
-                      {produitShope?.map((obj) => (
+                      {produitShope!==undefined && produitShope?.map((obj) => (
                         <>
                           <Grid item>
                             <Card

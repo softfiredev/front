@@ -24,7 +24,6 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { OutlinedInput } from "@mui/material";
 import Description from "../../components/description-detail/Description";
-import Avatar from "@mui/material/Avatar";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduitDetail } from "../../Store/Service/ProduitDetail";
 import { useParams } from "react-router-dom";
@@ -94,10 +93,13 @@ const Detailprod = () => {
   const avisProduitDtail = useSelector(
     (state) => state.AllAvisProduitDeatil.avisDetailProd
   );
+  const succesAvis = useSelector(
+    (state) => state.AllAvisProduitDeatil.status
+  );
   useEffect(() => {
     dispatch(getProduitDetail(id));
     dispatch(getAllAvisProduitDeatil(id));
-  }, [dispatch]);
+  }, []);
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/Shop">
       <p className="txtlink1"> Shop</p>
@@ -110,7 +112,6 @@ const Detailprod = () => {
     </Typography>,
   ];
   const imagesProduit = produitDetail.imagelibrairies;
-
   return (
     <>
       <div className="detail">
@@ -219,7 +220,7 @@ const Detailprod = () => {
                             undefined
                               ? 0
                               : produitDetail?.avisProduitlibraires?.[0]
-                                  ?.max_nb}{" "}
+                                  ?.max_nb}
                           </p>
                         </div>
                         <div className="row6-detail">
@@ -394,7 +395,7 @@ const Detailprod = () => {
                 </div>
               </div>
 
-              {avisProduitDtail?.map((obj, key) => (
+              {succesAvis=="success" && avisProduitDtail?.map((obj, key) => (
                 <div className="coll4-detail" key={key}>
                   <div className="row6-detail">
                     <div>

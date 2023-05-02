@@ -16,7 +16,7 @@ export const AllAvisProduitDeatil=createSlice({
    [getAllAvisProduitDeatil.pending]:(state)=>{
     state.status="loading"
    },
-   [getAllAvisProduitDeatil.rejected]:(state)=>{
+   [getAllAvisProduitDeatil.rejected]:(state,{payload})=>{
     state.status="failed"
    }
 

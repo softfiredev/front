@@ -86,7 +86,7 @@ const Shop = () => {
                       {produitShope.map((obj) => (
                         <>
                           <Grid item>
-                            <Card
+                          <Card
                               prix={obj.prix}
                               titre={obj.titre}
                               noml={obj.labrairie?.nameLibrairie}

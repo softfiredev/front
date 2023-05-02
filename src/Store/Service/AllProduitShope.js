@@ -5,6 +5,7 @@ export const getAllProduitlibrairie = createAsyncThunk(
     'getAllProduitlibrairie',
     async () => {
       const response = await axios.get(Base_url+ Path.getAllProduitlibrairie)
+      console.log(response)
       return response.data
     }
   )

@@ -190,13 +190,13 @@ const Detailprod = () => {
               <div className=" description">
                 <Description
                   titre={produitDetail.titre}
-                  maxAvis={produitDetail?.avisProduitlibraires[0]?.max_nb}
-                  totalAvis={produitDetail?.avisProduitlibraires[0]?.total_avis}
+                  maxAvis={produitDetail?.avisProduitlibraires?.[0]?.max_nb}
+                  totalAvis={produitDetail?.avisProduitlibraires?.[0]?.total_avis}
                   prix={produitDetail.prix}
                   discription={produitDetail.description}
-                  idl={produitDetail.labrairie.id}
-                  noml={produitDetail.labrairie.nameLibrairie}
-                  imgl={produitDetail.labrairie.imageStore}
+                  idl={produitDetail.labrairie?.id}
+                  noml={produitDetail.labrairie?.nameLibrairie}
+                  imgl={produitDetail.labrairie?.imageStore}
                 />
               </div>
             </div>
@@ -215,10 +215,10 @@ const Detailprod = () => {
                       <div className="col3-deatil">
                         <div>
                           <p className="nbr-deatail">
-                            {produitDetail?.avisProduitlibraires[0]?.max_nb ===
+                            {produitDetail?.avisProduitlibraires?.[0]?.max_nb ===
                             undefined
                               ? 0
-                              : produitDetail?.avisProduitlibraires[0]
+                              : produitDetail?.avisProduitlibraires?.[0]
                                   ?.max_nb}{" "}
                           </p>
                         </div>
@@ -226,19 +226,19 @@ const Detailprod = () => {
                           <Rating
                             name="read-only"
                             value={
-                              produitDetail?.avisProduitlibraires[0]?.max_nb ===
+                              produitDetail?.avisProduitlibraires?.[0]?.max_nb ===
                               undefined
                                 ? 0
-                                : produitDetail?.avisProduitlibraires[0]?.max_nb
+                                : produitDetail?.avisProduitlibraires?.[0]?.max_nb
                             }
                             readOnly
                           />
                           <p className="txt12-detail">
                             (
-                            {produitDetail?.avisProduitlibraires[0]
+                            {produitDetail?.avisProduitlibraires?.[0]
                               ?.total_avis === undefined
                               ? 0
-                              : produitDetail?.avisProduitlibraires[0]
+                              : produitDetail?.avisProduitlibraires?.[0]
                                   ?.total_avis}
                             )
                           </p>
@@ -401,12 +401,12 @@ const Detailprod = () => {
                       <img
                         src={
                           "http://127.0.0.1:8080/uploads/" +
-                          obj.client.user?.avatar
+                          obj.client?.user?.avatar
                         }
                         style={{ height: "18px", width: "18px" ,borderRadius:"23px" }}
                       />
                     </div>
-                    <div className="fullnameAvis">{obj.client.user.fullname} </div>
+                    <div className="fullnameAvis">{obj.client?.user?.fullname} </div>
                   </div>
                   <div>
                     <Rating name="read-only" value={obj.nbStart} readOnly />

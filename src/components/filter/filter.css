@@ -91,12 +91,15 @@ color: #9E9E9E;
         gap: 1em; 
     
     }
-    .css-14gf62f-MuiSlider-thumb::after{
-        width: 21px;
-        height: 21px;
+   
+       .css-14gf62f-MuiSlider-thumb::after{
+
+        max-width: 24px; 
+        max-height:24px ;
         background: #FFFFFF;
         border: 2.25px solid #E9B949;
       }
+
       .tbnt-shop{
         cursor: pointer;
         width: 280px;

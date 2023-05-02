@@ -5,8 +5,25 @@ import { OutlinedInput } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import PrettoSlider from "@mui/material/Slider";
 import { Candle2 } from "iconsax-react";
+import { useDispatch } from 'react-redux';
+import { filter } from './../../Store/librairieApi/filter/SliceFilter';
 
-const Filter = () => {
+const Filter = (props) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const Dispatch=useDispatch();
+
+  const handleChangee = (event) => {
+    const searchTerm = event.target.value;
+    setSearchTerm(searchTerm);
+    const filteredProduct = props.prod.filter(product => 
+      product.titre.toLowerCase().includes(searchTerm.toLowerCase())
+      
+    );
+    Dispatch(filter({filteredProduct}))
+   
+  };
+
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -103,6 +120,7 @@ const Filter = () => {
         <OutlinedInput
           className="input-shop"
           placeholder="Rechercher un stylo, une trousse..."
+          searchTerm={searchTerm} onChange={handleChangee}
         />
       </Grid>
 
@@ -174,7 +192,7 @@ const Filter = () => {
       </Grid>
 
       <Grid item>
-        <PrettoSlider
+        <PrettoSlider 
           value={value}
           onChange={handleChange}
           getAriaValueText={valuetext}

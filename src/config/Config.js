@@ -9,6 +9,8 @@ export const Path ={
     getAllProduitlibrairie:"produitLabrairie/findAll",
     getinfolibrairie:"labrairie/findProfile/",
     getAllProduitbyLibrairie:"produitLabrairie/findBylabrairie/",
-    getProduitDetail:"produitLabrairie/findOneProduit/"
+    getProduitDetail:"produitLabrairie/findOneProduit/",
+    getAllAvisProduitDeatil:"avisProduitlibraire/getAllAvisByproduit/"
+
 
 }

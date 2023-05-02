@@ -28,6 +28,7 @@ import Avatar from "@mui/material/Avatar";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduitDetail } from "../../Store/Service/ProduitDetail";
 import { useParams } from "react-router-dom";
+import { getAllAvisProduitDeatil } from "../../Store/Service/AllavisProduitDetail";
 
 const Detailprod = () => {
   const prod = [
@@ -77,37 +78,7 @@ const Detailprod = () => {
 
     p: 4,
   };
-  const des = [
-    {
-      avtar: <Avatar src="" sx={{ width: 24, height: 24 }} />,
-      nom: "Ashlynn Vaccaro ",
-      stars: <Rating name="read-only" value="2" readOnly />,
-      Description:
-        "La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. ",
-    },
-    {
-      avtar: <Avatar src="" sx={{ width: 24, height: 24 }} />,
-      nom: "Ashlynn Vaccaro ",
-      stars: <Rating name="read-only" value="2" readOnly />,
-      Description:
-        "La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. ",
-    },
-    {
-      avtar: <Avatar src="" sx={{ width: 24, height: 24 }} />,
-      nom: "Ashlynn Vaccaro ",
-      stars: <Rating name="read-only" value="2" readOnly />,
-      Description:
-        "La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. ",
-    },
-    {
-      avtar: <Avatar src="" sx={{ width: 24, height: 24 }} />,
-      nom: "Ashlynn Vaccaro ",
-      stars: <Rating name="read-only" value="2" readOnly />,
-      Description:
-        "La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable. ",
-    },
-  ];
-  const images = [{ url: im1 }, { url: im2 }, { url: im3 }];
+
   const [value, setValue] = useState(3);
   const [imgclick, setimgclick] = useState("");
   const [value2, setValue2] = useState(3);
@@ -115,14 +86,17 @@ const Detailprod = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
   const dispatch = useDispatch();
   const { id } = useParams();
   const produitDetail = useSelector(
     (state) => state.ProduitDetailLibrairie.detailProd
   );
+  const avisProduitDtail = useSelector(
+    (state) => state.AllAvisProduitDeatil.avisDetailProd
+  );
   useEffect(() => {
     dispatch(getProduitDetail(id));
+    dispatch(getAllAvisProduitDeatil(id));
   }, [dispatch]);
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/Shop">
@@ -135,7 +109,7 @@ const Detailprod = () => {
       <p className="txtlink"> {produitDetail.titre}</p>
     </Typography>,
   ];
- const imagesProduit=produitDetail.imagelibrairies
+  const imagesProduit = produitDetail.imagelibrairies;
 
   return (
     <>
@@ -167,18 +141,23 @@ const Detailprod = () => {
                   }}
                 >
                   {imagesProduit.map((obj) => (
-                      <SwiperSlide>
-                        {imgclick == "" ? (
-                          <>
-                            <img src={"http://127.0.0.1:8080/uploads/"+obj.name_Image}/>
-                          </>
-                        ) : (
-                          <>
-                            <img src={"http://127.0.0.1:8080/uploads/"+imgclick} />
-                          </>
-                        )}
-                      </SwiperSlide>
-                    
+                    <SwiperSlide>
+                      {imgclick == "" ? (
+                        <>
+                          <img
+                            src={
+                              "http://127.0.0.1:8080/uploads/" + obj.name_Image
+                            }
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <img
+                            src={"http://127.0.0.1:8080/uploads/" + imgclick}
+                          />
+                        </>
+                      )}
+                    </SwiperSlide>
                   ))}
                 </Swiper>
                 <Swiper
@@ -196,7 +175,9 @@ const Detailprod = () => {
                     <>
                       <SwiperSlide>
                         <img
-                         src={"http://127.0.0.1:8080/uploads/"+obj.name_Image}
+                          src={
+                            "http://127.0.0.1:8080/uploads/" + obj.name_Image
+                          }
                           onClick={() => {
                             setimgclick(obj.name_Image);
                           }}
@@ -233,11 +214,34 @@ const Detailprod = () => {
                     <div>
                       <div className="col3-deatil">
                         <div>
-                          <p className="nbr-deatail">4.5 </p>
+                          <p className="nbr-deatail">
+                            {produitDetail?.avisProduitlibraires[0]?.max_nb ===
+                            undefined
+                              ? 0
+                              : produitDetail?.avisProduitlibraires[0]
+                                  ?.max_nb}{" "}
+                          </p>
                         </div>
                         <div className="row6-detail">
-                          <Rating name="read-only" value={value2} readOnly />
-                          <p className="txt12-detail">(160)</p>
+                          <Rating
+                            name="read-only"
+                            value={
+                              produitDetail?.avisProduitlibraires[0]?.max_nb ===
+                              undefined
+                                ? 0
+                                : produitDetail?.avisProduitlibraires[0]?.max_nb
+                            }
+                            readOnly
+                          />
+                          <p className="txt12-detail">
+                            (
+                            {produitDetail?.avisProduitlibraires[0]
+                              ?.total_avis === undefined
+                              ? 0
+                              : produitDetail?.avisProduitlibraires[0]
+                                  ?.total_avis}
+                            )
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -390,13 +394,24 @@ const Detailprod = () => {
                 </div>
               </div>
 
-              {des.map((obj, key) => (
+              {avisProduitDtail?.map((obj, key) => (
                 <div className="coll4-detail" key={key}>
                   <div className="row6-detail">
-                    <div> {obj.avtar} </div> <div>{obj.nom} </div>
+                    <div>
+                      <img
+                        src={
+                          "http://127.0.0.1:8080/uploads/" +
+                          obj.client.user?.avatar
+                        }
+                        style={{ height: "18px", width: "18px" ,borderRadius:"23px" }}
+                      />
+                    </div>
+                    <div className="fullnameAvis">{obj.client.user.fullname} </div>
                   </div>
-                  <div>{obj.stars}</div>
-                  <div className="txt60-detail">{obj.Description}</div>
+                  <div>
+                    <Rating name="read-only" value={obj.nbStart} readOnly />
+                  </div>
+                  <div className="txt60-detail">{obj.commenter}</div>
                 </div>
               ))}
 

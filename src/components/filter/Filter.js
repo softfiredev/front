@@ -42,6 +42,7 @@ const Filter = () => {
     setcolor3("#FFFFFF");
     setcolor4("#F7D070");
   };
+
   return (
     <div className="col3">
       <Grid item>

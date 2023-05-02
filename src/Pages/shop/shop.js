@@ -10,41 +10,9 @@ import { getAllProduitlibrairie } from "../../Store/Service/AllProduitShope";
 import { useEffect } from "react";
 
 const Shop = () => {
-  const prod = [
-    {
-      id: "000011110",
-      nom: "PACK LIVRE SCOLAIRE 1éME",
-      prix: "8.1dt",
-      noml: "ali Library",
-    },
-    {
-      id: "0707275211110",
-      nom: "PACK LIVRE SCOLAIRE 1 EME",
-      prix: "5.1dt",
-      noml: "ali Library",
-    },
-    {
-      id: "278200011110",
-      nom: "COMPAS AVEC CRAYON 2506 INV",
-      prix: "4.1dt",
-      noml: "Errahma Library",
-    },
-    {
-      id: "00ssds011110",
-      nom: "PACK LIVRE SCOLAIRE 1éME",
-      prix: "8.1dt",
-      noml: "Errahma Library",
-    },
-    {
-      id: "0aaa0011110",
-      nom: "PACK LIVRE SCOLAIRE 1 EME",
-      prix: "1.1dt",
-      noml: "Errahma Library",
-    },
-  ];
 
-  const [nom, setpnom] = useState("ssssss");
-  const [prix, setprix] = useState("8.55dt");
+
+
   const dispatch=useDispatch()
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
   const lengthtab=produitShope.length;

@@ -3,7 +3,6 @@ import './Trifilter.css'
 import MenuItem from '@mui/material/MenuItem';
 import ListSubheader from '@mui/material/ListSubheader';
 import Select from '@mui/material/Select';
-import { Grid } from '@mui/material'
 import { ArrangeVertical } from 'iconsax-react';
 
 const Trifilter = (props) => {

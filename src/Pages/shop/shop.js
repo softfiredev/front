@@ -47,18 +47,13 @@ const Shop = () => {
 
   const [produitShope, setproduitShope] = useState([]);
   const dispatch=useDispatch()
-  const qsd=( useSelector(state=> state.AllProduitShope.produitShope) )
-  setproduitShope(qsd)
-  console.log(produitShope)
+  const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
   useEffect(()=>{
-    dispatch(getAllProduitlibrairie())  
-    const hh=()=>{
-      const qsd=( useSelector(state=> state.AllProduitShope.produitShope) )
-    }
-  },[])
-
- 
-
+      dispatch(getAllProduitlibrairie())
+  },[dispatch])
+  useEffect(()=>{
+    console.log("produit",produitShope)
+  },[produitShope])
   return (
     <>
  
@@ -89,7 +84,7 @@ const Shop = () => {
                       rowSpacing={6}
                       columnSpacing={{ xs: 25, sm: 23, md: 4 }}
                     >
-                  {produitShope!==undefined && produitShope?.map((obj) => (
+                      {produitShope?.map((obj) => (
                         <>
                           <Grid item>
                             <Card
@@ -97,11 +92,11 @@ const Shop = () => {
                               titre={obj.titre}
                               noml={obj.labrairie?.nameLibrairie}
                               idl={obj.labrairie?.id}
-                              totalavis={obj?.avisProduitlibraires[0]?.total_avis}
-                              maxAvis={obj?.avisProduitlibraires[0]?.max_nb}
+                              totalavis={obj?.avisProduitlibraires?.[0]?.total_avis}
+                              maxAvis={obj?.avisProduitlibraires?.[0]?.max_nb}
                               idp={obj.id}
-                              logoL={obj.labrairie.imageStore}
-                              imgp={obj.imagelibrairies[0]?.name_Image}
+                              logoL={obj.labrairie?.imageStore}
+                              imgp={obj.imagelibrairies?.[0]?.name_Image}
                             />
                           </Grid>
                         </>

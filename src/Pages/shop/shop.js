@@ -45,9 +45,7 @@ const Shop = () => {
     },
   ];
 
-  const [produitShope, setproduitShope] = useState([]);
   const dispatch=useDispatch()
-  const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
   useEffect(()=>{
       dispatch(getAllProduitlibrairie())
   },[dispatch])

@@ -36,7 +36,7 @@ const Shop = () => {
           <Grid item>
             <div className="gr3">
               <Grid item>
-                <Filter />
+                <Filter prod={produitShope} />
               </Grid>
 
               <Grid item>

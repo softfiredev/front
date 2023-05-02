@@ -4,7 +4,7 @@ import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "iconsax-react";
 const Card = (props) => {
-  console.log(props)
+
   return (
     <div className="card">
        

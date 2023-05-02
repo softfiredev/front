@@ -220,7 +220,7 @@ const Detailprod = () => {
                             undefined
                               ? 0
                               : produitDetail?.avisProduitlibraires?.[0]
-                                  ?.max_nb}
+                                  ?.max_nb}{" "}
                           </p>
                         </div>
                         <div className="row6-detail">
@@ -402,12 +402,12 @@ const Detailprod = () => {
                       <img
                         src={
                           "http://127.0.0.1:8080/uploads/" +
-                          obj.client?.user?.avatar
+                          obj.client.user?.avatar
                         }
                         style={{ height: "18px", width: "18px" ,borderRadius:"23px" }}
                       />
                     </div>
-                    <div className="fullnameAvis">{obj.client?.user?.fullname} </div>
+                    <div className="fullnameAvis">{obj.client.user.fullname} </div>
                   </div>
                   <div>
                     <Rating name="read-only" value={obj.nbStart} readOnly />

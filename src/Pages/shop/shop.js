@@ -8,8 +8,6 @@ import Trifilter from "../../components/tri-filter/Trifilter";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduitlibrairie } from "../../Store/Service/AllProduitShope";
 import { useEffect } from "react";
-import axios from "axios"
-import { Path, Base_url } from '../../config/Config';
 
 const Shop = () => {
   const prod = [
@@ -45,13 +43,14 @@ const Shop = () => {
     },
   ];
 
+  const [nom, setpnom] = useState("ssssss");
+  const [prix, setprix] = useState("8.55dt");
   const dispatch=useDispatch()
+  const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
+  const lengthtab=produitShope.length;
   useEffect(()=>{
-      dispatch(getAllProduitlibrairie())
-  },[dispatch])
-  useEffect(()=>{
-    console.log("produit",produitShope)
-  },[produitShope])
+    dispatch(getAllProduitlibrairie())
+},[])
   return (
     <>
  
@@ -82,10 +81,10 @@ const Shop = () => {
                       rowSpacing={6}
                       columnSpacing={{ xs: 25, sm: 23, md: 4 }}
                     >
-                      {produitShope?.map((obj) => (
+                      {lengthtab!==0 && produitShope?.map((obj) => (
                         <>
                           <Grid item>
-                            <Card
+                          <Card
                               prix={obj.prix}
                               titre={obj.titre}
                               noml={obj.labrairie?.nameLibrairie}

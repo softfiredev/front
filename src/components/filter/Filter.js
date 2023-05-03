@@ -20,6 +20,7 @@ const Filter = (props) => {
       
     );
     Dispatch(filter({filteredProduct}))
+   
   };
 
 

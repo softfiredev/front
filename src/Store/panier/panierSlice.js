@@ -4,8 +4,18 @@ export const SlicePanier=createSlice({
   initialState:{panier:[], nbprod:0},
   reducers:{
     add:(state,action)=>{
-        state.panier.push(action.payload);
-        state.nbprod = state.panier?.length;
+        const ProduitExist =state.panier.find((obj)=>obj.idp===action.payload.idp)?true:false
+        if(ProduitExist){
+          state.panier.forEach((obj)=>{
+            if (obj.idp === action.payload.idp) {
+              obj.qte = obj.qte+action.payload.qte;
+            }
+          })        
+        }else{
+          state.panier.push(action.payload);
+          state.nbprod = state.panier?.length;
+        }
+      
        
     },
     remove:(state,action)=>{

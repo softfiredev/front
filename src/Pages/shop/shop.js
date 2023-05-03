@@ -14,11 +14,10 @@ const Shop = () => {
   const dispatch=useDispatch()
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
   const filter=useSelector(state=> state.Filter.filter.filteredProduct)
-  
-  console.log(filter)
   useEffect(()=>{
     dispatch(getAllProduitlibrairie())
-},[])
+},[dispatch])
+ 
   return (
     <>
  
@@ -41,7 +40,7 @@ const Shop = () => {
 
               <Grid item>
                 <div className="colls-trifel">
-                  <Trifilter total={filter.length}/>
+                  <Trifilter total={produitShope?.length}/>
 
                   <div className="prod-shop">
                     <Grid
@@ -49,7 +48,7 @@ const Shop = () => {
                       rowSpacing={6}
                       columnSpacing={{ xs: 25, sm: 23, md: 4 }}
                     >
-                         {filter.map((obj) => (
+                         {produitShope.map((obj) => (
                         <>
                           <Grid item>
                           <Card

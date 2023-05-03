@@ -3,8 +3,13 @@ import "./Card.css";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "iconsax-react";
+import { add } from "../../Store/panier/panierSlice";
+import { useDispatch } from "react-redux";
 const Card = (props) => {
-
+  const dispatch=useDispatch()
+  const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
+    dispatch(add({idp,imgp,prix,titre,qte,idl}))
+  }
   return (
     <div className="card">
        
@@ -53,7 +58,7 @@ const Card = (props) => {
           <p className="txt2xard2">{props.prix}dt</p>
           <div className="bnt-card">
             <div className="ShoppingCart-card">
-              <ShoppingCart size="22" color="#FFffff" variant="Bold" />
+              <ShoppingCart size="22" color="#FFffff" variant="Bold" onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl)} />
             </div>
           </div>
         </div>

@@ -30,7 +30,7 @@ const Triipar = ({onData,isopen}) => {
       function valuetext(value) {
         return `${value}°C`;
       }
- 
+ console.log(value)
   return (
 
           <Modal
@@ -52,8 +52,8 @@ const Triipar = ({onData,isopen}) => {
         
         /></div>
         <div className="boxval-modal">
-            <div className="val-modal"><p>63</p></div>
-            <div className="val-modal"><p>63</p></div>
+            <div className="val-modal"><p>{value[0]}</p></div>
+            <div className="val-modal"><p>{value[1]}</p></div>
         </div>
              </div>
 

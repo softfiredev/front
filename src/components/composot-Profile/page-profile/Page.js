@@ -31,10 +31,10 @@ const Page = () => {
   };
   const [open, setOpen] = React.useState(false);
   const [titre, settitre] = React.useState("");
+
   const handleClose = () => setOpen(false);
 const[openchangePassword,setopenchangePassword]=useState(false)
 const [opencoll, setopencoll] = React.useState(false);
-
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleOpenChanegPassword=()=>{
@@ -58,7 +58,9 @@ const [opencoll, setopencoll] = React.useState(false);
  }
  const addr=[{nom:"119 Rue Wanes Chbil",adr:"71 Rue Galboun Ibn Al Hassen",Gouvernorat:"bembla",Ville:"bembla",Codepostal:"5200"}]
  const client=[{nom:"seifbenaicha",email:"seifbenaica@ggg.ddd",num:"54522021",date:1/1/2000}]
- 
+ const uplode=()=>{
+ }
+
  return (
     <div>
       <div className="carts2">
@@ -68,8 +70,10 @@ const [opencoll, setopencoll] = React.useState(false);
             <div className="rowbnt-page">
               <div className="avatar-container">
                 <img src={Avtr} className="avrt-page" />
-                <div className="icon-container">
+                <div className="icon-container" onClick={uplode}>
+                <label htmlFor="file-input" className="labelup">
                   <ExportCurve
+          
                     size="22"
                     color="#101010"
                     style={{
@@ -78,6 +82,8 @@ const [opencoll, setopencoll] = React.useState(false);
                       marginLeft: "2px",
                     }}
                   />
+                  </label>
+                      <input type="file" className="uplod" id="file-input"accept=".jpg,.png"/>
                 </div>
               </div>
               <div className="col00-page1">

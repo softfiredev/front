@@ -243,20 +243,24 @@ cursor: pointer;
     display: flex;
     gap: 1em;
     flex-direction: row;
- cursor: pointer;
+
  margin-top: 4%;
 }
 .rowbnt-page{
     display: flex;
     gap: 1em;
     flex-direction: row;
- cursor: pointer;
+}
+.uplod{
+    visibility: hidden;
+    display: none;
 }
 .minicol-page{
     display: flex;
     gap:0.5em;
     flex-direction: column; 
 }
+.labelup{cursor: pointer;}
 .txt0-profile3{
     font-family: 'Inter';
 font-style: normal;
@@ -342,6 +346,7 @@ color: #9E9E9E;
 .avatar-container{
     position: relative;
 }
+
 .icon-container{
 position: absolute;
 top:99px;
@@ -350,6 +355,7 @@ background: #FFFFFF;
 border-radius: 100px;
 width: 30px;
 height: 30px;
+cursor: pointer;
     
 }
 .change-password-form{

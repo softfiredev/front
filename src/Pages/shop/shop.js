@@ -49,7 +49,7 @@ const Shop = () => {
                       rowSpacing={6}
                       columnSpacing={{ xs: 25, sm: 23, md: 4 }}
                     >
-                         {filter.map((obj) => (
+                         {produitShope.map((obj) => (
                         <>
                           <Grid item>
                           <Card

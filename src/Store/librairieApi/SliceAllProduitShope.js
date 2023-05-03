@@ -6,7 +6,6 @@ export const AllProduitShope=createSlice({
   initialState:{
     produitShope:[{}],
     status:null
-    
   },
   reducers: {},
   extraReducers:{

@@ -49,7 +49,11 @@ const Signup = () => {
                 setLoading(false)
            
 
-              } else { toast.error("email exist deja!!"); setLoading(false) }
+              } else {
+                console.log(response.payload)
+                toast.error("email exist deja!!"); setLoading(false) 
+              
+              }
 
             })
             .catch(error => {

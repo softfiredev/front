@@ -2,7 +2,17 @@ import React from 'react'
 import './Filterbar.css'
 import {SearchNormal1} from "iconsax-react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
+import Triipar from '../Modal/Triipar';
+
 const Filterbar = (props) => {
+  const [open, setOpen] = React.useState(false);
+  const [dataFromChild, setDataFromChild] = React.useState(false);
+
+  const handleDataFromChild = (data) => {
+    setDataFromChild(data);
+  };
+
+
   return (
     <div className='row1-int'>
     <div className='row2-int'> 
@@ -15,10 +25,11 @@ const Filterbar = (props) => {
             </InputAdornment>
           }
         />
-    <button className='bnt0-int'>
+    <button className='bnt0-int' onClick={()=>{setDataFromChild(true);}}>
     {props.icon}
     <div><p  className='txt0-int'>Ajouter filtre</p></div>
     </button>
+    <Triipar onData={handleDataFromChild} isopen={dataFromChild}/>
     </div>
 
     <div className='row2-int'> 

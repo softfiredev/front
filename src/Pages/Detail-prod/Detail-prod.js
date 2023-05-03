@@ -13,9 +13,7 @@ import Pagination from "@mui/material/Pagination";
 import Select from "@mui/material/Select";
 import Card from "../../components/card-produit/Card";
 import { Grid } from "@mui/material";
-import im1 from "../../assets/prod1.png";
-import im2 from "../../assets/prod2.png";
-import im3 from "../../assets/prod3.png";
+
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";

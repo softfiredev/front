@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Filterbar from '../filterbar/Filterbar';
 import {ArrowLeft2,ArrowRight2,Sort} from "iconsax-react";
 import { useNavigate } from "react-router-dom";
+import Triipar from '../Modal/Triipar';
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
   
@@ -88,8 +89,8 @@ const Listecommandes = () => {
       <TabPanel value={value} index={0}>
       <br/>
       <div className='row01-c'>
-      <Filterbar icon={  <Sort size="22" color="#222222"/> }nom="Trier par"/>
-
+      <Filterbar icon={  <Sort size="22" color="#222222"/> } nom="Trier par" />
+        
 <table>
 <tr>
 

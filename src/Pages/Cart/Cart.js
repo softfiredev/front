@@ -5,11 +5,9 @@ import "./Cart.css";
 import { Link } from "react-router-dom";
 import Box_produit_Card from "../../components/box-produit-card/box-produit-card";
 import Recapitulatif from "../../components/Recapitulatif.js/Recapitulatif";
-
+import { useSelector } from "react-redux";
 const Cart = () => {
-  const produits = [{titre :"stiloazeazeazeazeaze" ,prix :"1100" , total:"2200" , qte:"2"}
-  ,{titre :"stiloazeazeazeazeaze" ,prix :"1100" , total:"2200" , qte:"2"}
-  ,{titre :"stiloazeazeazeazeaze" ,prix :"1100" , total:"2200" , qte:"2"}]
+  const panier=useSelector(state=> state.Panier.panier)
   return (
     <>
 
@@ -25,20 +23,20 @@ const Cart = () => {
       >
         <div className="produit">
           <Grid container direction="row" className="items">
-            <Grid item className="item Article">
+            <div item className="item Article">
               Article
-            </Grid>
-            <Grid item className="item Qte1">
+            </div>
+            <div item className="item Qte1">
               Qte
-            </Grid>
-            <Grid item className="item total1">
+            </div>
+            <div item className="item total1">
               Total HT
-            </Grid>
-            <Grid item className="item"></Grid>
+            </div>
+            <div item className="item"></div>
           </Grid>
           <hr className="underline"></hr>
           <div className="scroll">
-            {produits.map((e,key)=>(<Box_produit_Card titre={e.titre} prix={e.prix} total={e.total}/>))}
+            {panier?.map((e,key)=>(<Box_produit_Card titre={e.titre} prix={e.prix} qte={e.qte} imgp={e.imgp} index={key}/>))}
           </div>
         </div>
         <Recapitulatif Totale={"1371.00"} Frais={"7.50"} Remise={"21.00"} Tax={7}/>

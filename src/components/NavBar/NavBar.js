@@ -4,10 +4,9 @@ import Imge from "../../assets/logo.png"
 import { Link } from 'react-router-dom';
 import { ShoppingCart,ArrowDown2 } from 'iconsax-react';
 import Menuicon from '../menu-icon/minu';
-
+import { useSelector } from 'react-redux';
 function NavBar() {
-
-
+  const nbprod=useSelector(state=> state.Panier.nbprod)
   return (
     <div className='nav'>
       <header className="header">
@@ -36,7 +35,7 @@ function NavBar() {
                 size="32"
                 color="#FFFFFF"
                 variant="Bold"
-              /><p className='patch'><p className='patch-txt'>+3</p></p>
+              /><p className='patch'><p className='patch-txt'>+{nbprod}</p></p>
             </Link>
           </span>
           <Link to="/login" className='butto-NAV-link' > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>

@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 import { ShoppingCart } from "iconsax-react";
 import { add } from "../../Store/panier/panierSlice";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 const Card = (props) => {
   const dispatch=useDispatch()
   const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
     dispatch(add({idp,imgp,prix,titre,qte,idl}))
+    toast.success("Vous avez ajouté un produit à votre panier")
   }
   return (
     <div className="card">

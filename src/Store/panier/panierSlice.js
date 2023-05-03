@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 export const SlicePanier=createSlice({
   name:"Panier",
-  initialState:{panier:[], nbprod:0},
+  initialState:{panier:[], nbprod:0 ,status:null},
   reducers:{
     add:(state,action)=>{
         const ProduitExist =state.panier.find((obj)=>obj.idp===action.payload.idp)?true:false
@@ -14,6 +14,7 @@ export const SlicePanier=createSlice({
         }else{
           state.panier.push(action.payload);
           state.nbprod = state.panier?.length;
+          state.status="success";
         }
       
        
@@ -21,6 +22,7 @@ export const SlicePanier=createSlice({
     remove:(state,action)=>{
       state.panier.splice(action.payload,1);
       state.nbprod = state.panier?.length;
+      state.status="success"
     }
     
   },

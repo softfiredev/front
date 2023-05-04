@@ -105,8 +105,7 @@ useEffect(()=>{
 
     <>
 
-      { snap.loding ? <Spinier /> :
-
+    {
     <div className='login'>
 
       <Grid item >

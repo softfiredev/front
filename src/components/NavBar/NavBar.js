@@ -2,10 +2,10 @@ import React from 'react'
 import './navbar.css'
 import Imge from "../../assets/logo.png"
 import { Link } from 'react-router-dom';
-import { ShoppingCart,ArrowDown2 } from 'iconsax-react';
+import { ShoppingCart,ArrowDown2, ProfileCircle } from 'iconsax-react';
 import Menuicon from '../menu-icon/minu';
 import { useSelector } from 'react-redux';
-function NavBar() {
+function NavBar(props) {
   const nbprod=useSelector(state=> state.Panier.nbprod)
   return (
     <div className='nav'>
@@ -38,7 +38,14 @@ function NavBar() {
               /><p className='patch'><p className='patch-txt'>+{nbprod}</p></p>
             </Link>
           </span>
-          <Link to="/login" className='butto-NAV-link' > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
+          <Link to="/login" className={props.user.auth?"butto-NAV-link-none":"butto-NAV-link"} > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
+          <Link to="/Profile" >
+          <div className={props.user.auth?"section_user":"section_user-none"}>
+                  <p className='username'> Amine</p>
+                  <ProfileCircle size="28" color="#FFFFFF"/>
+          </div>
+          </Link>
+          
         </div>
 
       </header>

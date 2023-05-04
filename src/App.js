@@ -38,6 +38,10 @@ const Avis = lazy(() =>import ( './components/composot-Profile/page4-profile/Avi
 const Vender= lazy(()=>import("./Pages/vender/vender"))  
 
 function App() {
+  const user={
+    id:1,
+    auth:false
+  }
   return (
     <>
    
@@ -45,7 +49,7 @@ function App() {
  <BrowserRouter>
 
  <Suspense fallback={<Spinier />}>
- <NavBar/>
+ <NavBar user={user}/>
    <Routes>
    <Route path='/Login' element={ <Login/>} />
    <Route path='/Signup' element={ <Signup/>} />

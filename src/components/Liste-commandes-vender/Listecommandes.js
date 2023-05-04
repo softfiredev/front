@@ -58,7 +58,7 @@ const Listecommandes = () => {
  
     ]
     const navigat=(id)=>{
-        navigate(`/Vender/Détails_de_ommande/${id}`)
+        navigate(`/Vender/Détails_de_commande/${id}`)
     }
     const filteredDataNouveau = data.filter((item) => {
       return item.Staut.includes("Nouveau");

@@ -19,7 +19,7 @@ const Box_produit_Card = (props)=>{
   }
   useEffect(()=>{
     
-      dispatch(add({"qte":qte,"idlib":props.idl,"prix":total,"idprod":props.idp}))
+      dispatch(add({"qte":qte,"idlib":props.idl,"prix":total,"produitlabrairieId":props.idp}))
     
   },[qte])
 

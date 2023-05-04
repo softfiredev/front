@@ -14,6 +14,7 @@ import SliceAllavisProduitDetail from './librairieApi/SliceAllavisProduitDetail'
 import SliceFilter from './librairieApi/filter/SliceFilter'
 import SlicePanier  from './panier/panierSlice';
 import SliceCommande  from './panier/commandeSlice';
+import AjouteCommandeSlice from './commande/AjouteCommandeSlice';
 const persistConfig = {
     key: 'root',
     storage,
@@ -29,7 +30,8 @@ const rootReducer = combineReducers({
     AllAvisProduitDeatil:SliceAllavisProduitDetail,
     Filter:SliceFilter,
     Panier:SlicePanier,
-    Commande:SliceCommande
+    Commande:SliceCommande,
+    AjouteCommande:AjouteCommandeSlice
 
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);

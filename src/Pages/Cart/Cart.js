@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import Box_produit_Card from "../../components/box-produit-card/box-produit-card";
 import Recapitulatif from "../../components/Recapitulatif.js/Recapitulatif";
 import { useSelector } from "react-redux";
+
 const Cart = () => {
   const panier=useSelector(state=> state.Panier.panier)
-
-
+  
  
   return (
     <>

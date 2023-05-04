@@ -5,6 +5,15 @@
     display: flex;
     gap: 2em;
 }
+.input-deat{
+
+
+
+
+background: #FFFFFF;
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+}
 .mySwiper2{
     width: 568px;
     height: 516px
@@ -308,13 +317,25 @@ border-radius: 8px;
     background: #222222;
     border-radius: 8px;
 }
+.uplod{
+    visibility: hidden;
+    display: none;
+}
+.iconuplod-des{
+    width: 27px;
+    height: 27px;
+margin-left: 47%;
+}
+.tele{margin-left: 34%;}
 .downlo-modal{
-    width: 480px;
+    width: 478px;
     height: 144px;
-
-    background: #FFFFFF;
-    border: 1px dashed #9E9E9E;
-    border-radius: 8px;
+    justify-content: center;
+display: flex;
+flex-direction: column;
+background: #FFFFFF;
+border: 1px dashed #9E9E9E;
+border-radius: 8px;
 cursor: pointer;
 }
 .col3-deatil{

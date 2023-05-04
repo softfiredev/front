@@ -7,7 +7,7 @@ import {
   Shop,
   Flag,
 } from "iconsax-react";
-import icon from "../../assets/icon1.png";
+
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 import Modal from "@mui/material/Modal";
@@ -165,11 +165,11 @@ const Description = (props) => {
               <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                 <div className="col3-deatil">
                   <OutlinedInput
-                    className="input-login"
+                    className="input-deat"
                     placeholder="Votre nom et prénom"
                   />
                   <OutlinedInput
-                    className="input-login"
+                    className="input-deat"
                     placeholder="Votre e-mail"
                   />
                   <OutlinedInput
@@ -178,14 +178,22 @@ const Description = (props) => {
                     multiline
                     rows={5}
                     maxRows={80}
-                  />
-                  <button className="downlo-modal">
+                  />  
+                  <div>
+                  <label htmlFor="file-input" className="labelup">
+                  <div className="downlo-modal">    
                     <img
                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVR4nO2WywqCQBSGv2wTtJNatImWLmodFPUE3agk2gkp5Pu/QAwcw6SmmUGnFv7wgzCe83kuotCq1R9qAKyBK5ABKXABlkDYBDCQ5Hcg/2B1tpJ7a4NuNMCqd3XB5xbQwqpyK02AvcwulWtde3VtD5usTOeFCXRcMzSXbf+qbQPgVAdU2xfJO/ktUQIMxYkhPAI6VWgPOBsmSCrLElrAz8J6VuoKdYUHSAtMZzUsgcpQ5Mw0T4RFtcqj0lwLFfMeWeQ5YbhM71zIJTZDVt03+IaU7Rt8VIGzH4CnKrALxB7BcflT2XeAu4BjYb0okBYcDRfOFJxKzmldPwXVB/CmvAX70kHspAegq6wprKfiuQAAAABJRU5ErkJggg=="
                       alt="ico"
+                      className="iconuplod-des"
                     />
-                    <p className="tele"> Télécharger un fichier</p>
-                  </button>
+                    <div><p className="tele"> Télécharger un fichier</p></div>   
+                  </div>
+                  </label>
+                  <input type="file" className="uplod" id="file-input"accept=".pdf"/>
+
+                  </div>
+              
                   <div className="row-detail">
                     <button className="bnt-modala1" onClick={handleClose}>
                       <p className="txt-modalbnt1">Annuler</p>

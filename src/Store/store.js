@@ -13,6 +13,7 @@ import SliceProduitDetailLibrairie from './librairieApi/SliceProduitDetailLibrai
 import SliceAllavisProduitDetail from './librairieApi/SliceAllavisProduitDetail';
 import SliceFilter from './librairieApi/filter/SliceFilter'
 import SlicePanier  from './panier/panierSlice';
+import SliceCommande  from './panier/commandeSlice';
 const persistConfig = {
     key: 'root',
     storage,
@@ -27,7 +28,8 @@ const rootReducer = combineReducers({
     ProduitDetailLibrairie:SliceProduitDetailLibrairie,
     AllAvisProduitDeatil:SliceAllavisProduitDetail,
     Filter:SliceFilter,
-    Panier:SlicePanier
+    Panier:SlicePanier,
+    Commande:SliceCommande
 
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);

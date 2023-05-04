@@ -98,7 +98,9 @@ color: #222222;
 .section_Produit .produitsLab{
     margin-top: 40px;
     margin-left: 32px;
-    width:840px;
+    
+
+    width: 866px;
 }
 .section_Produit .produitsLab .container{
     margin-right: 24px;

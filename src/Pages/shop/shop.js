@@ -12,12 +12,8 @@ import { getAllProduitlibrairie } from "../../Store/Service/AllProduitShope";
 const Shop = () => {
 
   const dispatch=useDispatch()
-  const [prod, setprod] = useState([]);
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
   const filter=useSelector(state=> state.Filter.filter.filteredProduct)
-
-
-console.log(prod)
   
   useEffect(()=>{
     dispatch(getAllProduitlibrairie())

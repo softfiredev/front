@@ -14,7 +14,7 @@ const Shop = () => {
   const dispatch=useDispatch()
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
   const filter=useSelector(state=> state.Filter.filter.filteredProduct)
-  
+  console.log(filter)
   useEffect(()=>{
     dispatch(getAllProduitlibrairie())
 },[dispatch])

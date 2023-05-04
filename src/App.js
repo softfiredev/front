@@ -5,8 +5,9 @@ import Toast from './components/toast/Toast'
 import Spinier from './components/spinier/Spinier'
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/footer/Footer'
-import { Fab } from '@mui/material';
 
+
+const DetailLivr = lazy(() => import('./components/Liste-de-livraisons/composentliste/DetailLivr')); 
 const Factorisation = lazy(() => import('./components/vender-Factorisation/Factorisation')); 
 const Approvisionner = lazy(() => import('./components/vender-Approvisionner/Approvisionner')); 
 const Listecommandes = lazy(() => import('./components/Liste-commandes-vender/Listecommandes')); 
@@ -75,7 +76,8 @@ function App() {
         <Route path='/Vender/categorie' element={<Categorie/>}/>
         <Route path='/Vender/Inventaire' element={<Inventaire/>}/>
         <Route path='/Vender/Liste_de_commandes' element={<Listecommandes/>}/>
-        <Route path='/Vender/Détails_de_ommande/:id' element={<Detailcomnder/>}/>
+        <Route path='/Vender/Détails_de_commande/:id' element={<Detailcomnder/>}/>
+        <Route path='/Vender/Détails_de_livraison/:id' element={<DetailLivr/>}/>
         <Route path='/Vender/Profile' element={<VenderProfile/>}/>
         <Route path='/Vender/Liste_de_Livraisons' element={<Listeivraisons/>}/>
         <Route path='/Vender/Approvisionner' element={<Approvisionner/>}/>

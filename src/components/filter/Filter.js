@@ -22,7 +22,22 @@ const Filter = (props) => {
     Dispatch(filter({filteredProduct}))
    
   };
+  const [isChecked, setIsChecked] = useState(false);
+  const checkboxValues = ['Scolaire','Para-scolaires', 'Outils informatiques','Divers','Jeux educatifs','Pack promo'];
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
 
+const checkedbox=(event)=>{
+  setIsChecked(event.target.checked)
+  if(event.target.checked)
+  {
+    setSelectedCheckboxes([...selectedCheckboxes,event.target.value])
+  }
+  else{
+    const val=event.target.value
+    setSelectedCheckboxes(selectedCheckboxes.filter((val) => val !== event.target.value));
+  }
+
+}
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -134,47 +149,21 @@ const Filter = (props) => {
       <div className="br-filter"></div>
       <Grid item>
         <div className="gr5">
-          <Grid item container spacing={1}>
-            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} />
-            <span>
-              <p className="S-shop">Scolaire</p>
-            </span>
-          </Grid>
+          {checkboxValues.map((value) => (
 
-          <Grid item container spacing={1}>
-            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} />
-            <span>
-              <p className="S-shop">Para-scolaires</p>
-            </span>
-          </Grid>
+<Grid item container spacing={1}>
+<Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }}   key={value}
+    value={value}
+    onChange={checkedbox} />
+<span>
+  <p className="S-shop">{value}</p>
+</span>
+</Grid>
+ 
+))}
+        
 
-          <Grid item container spacing={1}>
-            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} />
-            <span>
-              <p className="S-shop">Outils informatiques</p>
-            </span>
-          </Grid>
-
-          <Grid item container spacing={1}>
-            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} />
-            <span>
-              <p className="S-shop2">Divers</p>
-            </span>
-          </Grid>
-
-          <Grid item container spacing={1}>
-            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} />
-            <span>
-              <p className="S-shop">Jeux educatifs</p>
-            </span>
-          </Grid>
-
-          <Grid item container spacing={1}>
-            <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} />
-            <span>
-              <p className="S-shop3">Pack promo</p>
-            </span>
-          </Grid>
+       
         </div>
       </Grid>
       <Grid item>

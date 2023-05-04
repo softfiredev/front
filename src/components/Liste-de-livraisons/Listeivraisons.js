@@ -56,7 +56,7 @@ const Listeivraisons = () => {
  
     ]
     const navigat=(id)=>{
-        navigate(`/Vender/Détails_de_ommande/${id}`)
+        navigate(`/Vender/Détails_de_livraison/${id}`)
     }
     const filteredDataEnattente = data.filter((item) => {
       return item.Staut.includes("En attente");

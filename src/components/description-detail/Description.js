@@ -190,7 +190,7 @@ const Description = (props) => {
                     <div><p className="tele"> Télécharger un fichier</p></div>   
                   </div>
                   </label>
-                  <input type="file" className="uplod" id="file-input"accept=".pdf,"/>
+                  <input type="file" className="uplod" id="file-input"/>
 
                   </div>
               

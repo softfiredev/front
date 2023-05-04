@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import img from "../../assets/prod1.png";
 import './box-produit-card.css'
 import { Grid} from "@mui/material";
 import { remove } from "../../Store/panier/panierSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { add, removeCommande } from "../../Store/panier/commandeSlice";
+ 
 const Box_produit_Card = (props)=>{
   const [qte,setqte]=useState(props.qte)
+  const total = props.prix*qte ; 
   const dispatch = useDispatch();
   const handleChangevalue=(e)=>{
     setqte(e.target.value)
   }
   const removeProduit=(index)=>{
     dispatch(remove(index))
+    dispatch(removeCommande(index))
   }
+  useEffect(()=>{
+    
+      dispatch(add({"qte":qte,"idlib":props.idl,"prix":total,"idprod":props.idp}))
+    
+  },[qte])
+
+ 
         return (
         <>
              <Grid
@@ -29,7 +40,7 @@ const Box_produit_Card = (props)=>{
                     </div>
              </div>
               <input type="number" width="20px" className="qte" min={1} onChange={handleChangevalue} value={qte}  />
-              <p className="total">{props.prix*qte} dt</p>
+              <p className="total">{total} dt</p>
               <div className="Supprimer" onClick={()=>removeProduit(props.index)}> Supprimer </div>
             </Grid>
             <hr className="underline"></hr>

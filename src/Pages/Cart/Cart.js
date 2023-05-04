@@ -8,6 +8,9 @@ import Recapitulatif from "../../components/Recapitulatif.js/Recapitulatif";
 import { useSelector } from "react-redux";
 const Cart = () => {
   const panier=useSelector(state=> state.Panier.panier)
+
+
+ 
   return (
     <>
 
@@ -36,10 +39,10 @@ const Cart = () => {
           </Grid>
           <hr className="underline"></hr>
           <div className="scroll">
-            {panier?.map((e,key)=>(<Box_produit_Card titre={e.titre} prix={e.prix} qte={e.qte} imgp={e.imgp} index={key}/>))}
+            {panier?.map((e,key)=>(<Box_produit_Card titre={e.titre} prix={e.prix} qte={e.qte} imgp={e.imgp} index={key} idl={e.idl} idp={e.idp}/>))}
           </div>
         </div>
-        <Recapitulatif Totale={"1371.00"} Frais={"7.50"} Remise={"21.00"} Tax={7}/>
+        <Recapitulatif />
       </Grid>
       <div className="Continuer">
         <ArrowBackIosNewIcon className="icon1" />

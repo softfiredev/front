@@ -15,38 +15,7 @@ import { getAllProduitBylibrairie } from "../../Store/Service/AllProduitBylibrai
 
 
 const LibrairieProfile = () => {
-  const prod = [
-    {
-      id: "000011110",
-      nom: "PACK LIVRE SCOLAIRE 1éME",
-      prix: "8.1dt",
-      noml: "ali Library",
-    },
-    {
-      id: "0707275211110",
-      nom: "PACK LIVRE SCOLAIRE 1 EME",
-      prix: "5.1dt",
-      noml: "ali Library",
-    },
-    {
-      id: "278200011110",
-      nom: "COMPAS AVEC CRAYON 2506 INV",
-      prix: "4.1dt",
-      noml: "Errahma Library",
-    },
-    {
-      id: "00ssds011110",
-      nom: "PACK LIVRE SCOLAIRE 1éME",
-      prix: "8.1dt",
-      noml: "Errahma Library",
-    },
-    {
-      id: "0aaa0011110",
-      nom: "PACK LIVRE SCOLAIRE 1 EME",
-      prix: "1.1dt",
-      noml: "Errahma Library",
-    },
-  ];
+
   const {id}=useParams()
   const dispatch = useDispatch();
   const infolib=useSelector(state =>state.infoLibrairie.info)
@@ -55,6 +24,7 @@ const LibrairieProfile = () => {
     dispatch(getinfolibrairie(id))
     dispatch(getAllProduitBylibrairie(id))
   },[dispatch])
+  console.log(infolib)
   return (
     <>
       <div className="profile">
@@ -142,12 +112,12 @@ const LibrairieProfile = () => {
                     <Card
                        prix={obj.prix}
                        titre={obj.titre}
-                       noml={obj.labrairie?.nameLibrairie}
-                       idl={obj.labrairie?.id}
+                       noml={obj?.labrairie?.nameLibrairie}
+                       idl={infolib?.id}
                        totalavis={obj?.avisProduitlibraires?.[0]?.total_avis}
                        maxAvis={obj?.avisProduitlibraires?.[0]?.max_nb}
                        idp={obj.id}
-                       logoL={obj.labrairie?.imageStore}
+                       logoL={obj?.labrairie?.imageStore}
                        imgp={obj.imagelibrairies?.[0]?.name_Image}
                     />
                   </div>

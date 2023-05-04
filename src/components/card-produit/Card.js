@@ -30,7 +30,7 @@ const Card = (props) => {
               </div>
               <div>
               
-                <Link to={`/librairieProfile/${props.idl}`}>
+                <Link to={`/librairieProfile/${props?.idl}`}>
                   <p className="txt-nommaktba">{props.noml}</p>
                 </Link>
               </div>
@@ -59,8 +59,8 @@ const Card = (props) => {
           <p className="txt-card2">{props.prix}dt</p>
           <p className="txt2xard2">{props.prix}dt</p>
           <div className="bnt-card">
-            <div className="ShoppingCart-card">
-              <ShoppingCart size="22" color="#FFffff" variant="Bold" onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl)} />
+            <div className="ShoppingCart-card"  onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl)}>
+              <ShoppingCart size="22" color="#FFffff" variant="Bold" />
             </div>
           </div>
         </div>

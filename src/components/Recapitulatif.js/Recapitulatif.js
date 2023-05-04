@@ -6,7 +6,7 @@ import "./Recapitulatif.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AjouteCommande } from "../../Store/Service/AjouteCommande";
 import { toast } from "react-toastify";
-const Recapitulatif = () => {
+const Recapitulatif = (props) => {
   const [totalHT, settotalHT] = React.useState(0);
   const commande = useSelector((state) => state.Commande.commande);
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ const Recapitulatif = () => {
     
     for (const idlib in groupedCommande) {
       const { produits, total_ttc } = groupedCommande[idlib];
-      commandes.push({ produits, total_ttc, userId: 1, labrairieId: Number(idlib) });
+      commandes.push({ produits, total_ttc, userId: props.iduser, labrairieId: Number(idlib) });
     }
     console.log(commandes)
     const data ={

@@ -7,7 +7,7 @@ import Box_produit_Card from "../../components/box-produit-card/box-produit-card
 import Recapitulatif from "../../components/Recapitulatif.js/Recapitulatif";
 import { useSelector } from "react-redux";
 
-const Cart = () => {
+const Cart = (props) => {
   const panier=useSelector(state=> state.Panier.panier)
   
  
@@ -42,7 +42,7 @@ const Cart = () => {
             {panier?.map((e,key)=>(<Box_produit_Card titre={e.titre} prix={e.prix} qte={e.qte} imgp={e.imgp} index={key} idl={e.idl} idp={e.idp}/>))}
           </div>
         </div>
-        <Recapitulatif />
+        <Recapitulatif iduser={props.user.id} />
       </Grid>
       <div className="Continuer">
         <ArrowBackIosNewIcon className="icon1" />

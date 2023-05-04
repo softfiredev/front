@@ -12,6 +12,7 @@ import Spinier from "./components/spinier/Spinier";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
+import jwt_decode from "jwt-decode";
 
 const DetailLivr = lazy(() =>
   import("./components/Liste-de-livraisons/composentliste/DetailLivr")
@@ -85,14 +86,22 @@ function App() {
   const googleServiceData = useSelector((state) => state.Googleservice);
   const accessToken=  LoginServiceData.isLogin === true && googleServiceData.isLogin === false ? LoginServiceData.accessToken:googleServiceData.accessToken
   const refreshToken=  LoginServiceData.isLogin === true && googleServiceData.isLogin === false ? LoginServiceData.accessToken:googleServiceData.accessToken
- 
+  if(accessToken.length!=0){
+    var decoded = jwt_decode(accessToken);
+    console.log(decoded)
+
+  }
   const user = {
-    id: 1,
+    id: decoded?.id,
     auth:
       LoginServiceData.isLogin === true && googleServiceData.isLogin === false
         ? LoginServiceData.isLogin
         : googleServiceData.isLogin,
+    fullname:decoded?.fullname,
+    role:decoded?.role
   };
+  console.log("user",user)
+ 
   
   return (
     <>
@@ -108,7 +117,7 @@ function App() {
             <Route path="/BecomePartner" element={<BecomePartner />} />
             <Route path="/Shop" element={<Shop />} />
             <Route path="/Detailproduit/:id" element={<Detailprod />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<Cart user={user}/>} />
             <Route
               path="/librairieProfile/:id"
               element={<LibrairieProfile />}

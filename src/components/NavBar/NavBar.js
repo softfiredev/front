@@ -41,7 +41,7 @@ function NavBar(props) {
           <Link to="/login" className={props.user.auth?"butto-NAV-link-none":"butto-NAV-link"} > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
           <Link to="/Profile" >
           <div className={props.user.auth?"section_user":"section_user-none"}>
-                  <p className='username'> Amine</p>
+                  <p className='username'> {props.user.fullname}</p>
                   <ProfileCircle size="28" color="#FFFFFF"/>
           </div>
           </Link>

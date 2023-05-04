@@ -243,13 +243,22 @@ cursor: pointer;
     display: flex;
     gap: 1em;
     flex-direction: row;
-
+    cursor: pointer;
+ margin-top: 4%;
+}
+.rowbnt-page03210{
+    display: flex;
+    gap: 1em;
+    flex-direction: row;
+ margin-left: 10%;
+    cursor: pointer;
  margin-top: 4%;
 }
 .rowbnt-page{
     display: flex;
     gap: 1em;
     flex-direction: row;
+    cursor: pointer;
 }
 .uplod{
     visibility: hidden;

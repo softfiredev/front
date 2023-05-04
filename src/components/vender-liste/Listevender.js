@@ -29,7 +29,7 @@ const Listevender = (props) => {
   return (
     <TabPanel value={props.value} index={0}>
     <br/>
-<Filterbar icon={<FilterAdd size="22" color="#222222"/>}nom="Ajouter filtre"/>
+<Filterbar icon={<FilterAdd size="22" color="#222222"/>} nom="Ajouter filtre"/>
 <br/><br/>
 
  <table>

@@ -31,6 +31,7 @@ const Page = () => {
   };
   const [open, setOpen] = React.useState(false);
   const [titre, settitre] = React.useState("");
+  const [open1, setOpen1] = React.useState(true);
 
   const handleClose = () => setOpen(false);
 const[openchangePassword,setopenchangePassword]=useState(false)
@@ -60,7 +61,9 @@ const [opencoll, setopencoll] = React.useState(false);
  const client=[{nom:"seifbenaicha",email:"seifbenaica@ggg.ddd",num:"54522021",date:1/1/2000}]
  const uplode=()=>{
  }
-
+const handleinfo=()=>{
+  setOpen1(false)
+}
  return (
     <div>
       <div className="carts2">
@@ -114,11 +117,23 @@ const [opencoll, setopencoll] = React.useState(false);
               <DatePicker className="input-pro" defaultValue={dayjs(client[0].date)} />
             </LocalizationProvider>
           </div>
-          <div className="rowbnt-page0321">
-          <RefreshSquare size="22" color="#E9B949 " variant="Bold"/>
-          <div>Changer mes informations</div>
+          {open1?
+          <div className="rowbnt-page0321" onClick={handleinfo}>
+            <RefreshSquare size="22" color="#E9B949 " variant="Bold"/>
+            <div>Changer mes informations</div>
+          </div>
+          :
+          <div className="rowbnt-page03210">
+          <button onClick={()=>{setOpen1(true)}} className="bnt3-page">
+            <p className="txtbnt3-page">Annuler</p>
+          </button>
+          <button  className="bnt4-page">
+            <p className="txtbnt4-page">Valider</p>
+          </button>
         </div>
-   
+          }
+          
+      
         </div>
         
       </div>

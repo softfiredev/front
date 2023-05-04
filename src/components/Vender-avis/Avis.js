@@ -7,6 +7,7 @@ import { InputAdornment, OutlinedInput } from "@mui/material";
 import img1 from "../../assets/prod2.png";
 import Rating from "@mui/material/Rating";
 import img from "../../assets/Ellipse 503.png"
+import Filterbar from '../filterbar/Filterbar';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -49,32 +50,7 @@ const Avis = (props) => {
     <TabPanel value={props.value} index={1} >
 
 <br/>
- <div className='row1-int'>
-    <div className='row2-int'> 
-    <OutlinedInput
-          className="input-int"
-          placeholder={"Rechercher..."}
-          endAdornment={
-            <InputAdornment position="end">
-              <SearchNormal1 size="19" color="#B1B1B1" />
-            </InputAdornment>
-          }
-        />
-    <button className='bnt0-int'>
-    <Sort size="22" color="#222222"/>
-    <div><p  className='txt0-int'>Trier par</p></div>
-    </button>
-    </div>
-
-    <div className='row2-int'> 
-    <p>Affichage</p>
-    <select className="select-int">
-            <option value={10}> 10</option>
-          </select>
-          <p className='txt2-int'>résultats sur 50</p>
-    </div>
-
- </div>
+<Filterbar icon={ <Sort size="22" color="#222222"/> } nom="Trier par"/>
 <br/><br/>
 
  <table>

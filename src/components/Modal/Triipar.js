@@ -30,7 +30,7 @@ const Triipar = ({onData,isopen}) => {
       function valuetext(value) {
         return `${value}°C`;
       }
- console.log(value)
+
   return (
 
           <Modal

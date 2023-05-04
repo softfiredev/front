@@ -10,11 +10,19 @@ import { getAllProduitlibrairie } from "../../Store/Service/AllProduitShope";
 
 
 const Shop = () => {
+  const [dataFromChild, setDataFromChild] = React.useState([]);
 
+  const handleDataFromChild = (data) => {
+    setDataFromChild(data);
+  
+  };
+
+  
   const dispatch=useDispatch()
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
-  const filter=useSelector(state=> state.Filter.filter.filteredProduct)
-  console.log(filter)
+ 
+
+  console.log(dataFromChild)
   useEffect(()=>{
     dispatch(getAllProduitlibrairie())
 },[dispatch])
@@ -37,12 +45,12 @@ const Shop = () => {
           <Grid item>
             <div className="gr3">
               <Grid item>
-                <Filter prod={produitShope} />
+                <Filter prod={produitShope} onData={handleDataFromChild}/>
               </Grid>
 
               <Grid item>
                 <div className="colls-trifel">
-                  <Trifilter total={filter===undefined?produitShope.length:filter.length}/>
+                  <Trifilter total={dataFromChild.length===0?produitShope.length:dataFromChild.length}/>
 
                   <div className="prod-shop">
                     <Grid
@@ -51,7 +59,7 @@ const Shop = () => {
                       columnSpacing={{ xs: 25, sm: 23, md: 4 }}
                     >
                       
-                       {filter===undefined?
+                       {dataFromChild.length===0 ?
                        <>
                           {produitShope.map((obj) => (
                         <>
@@ -72,7 +80,7 @@ const Shop = () => {
                           ))}</>
 :
 <>
-{filter.map((obj) => (
+{dataFromChild.map((obj) => (
                         <>
                           <Grid item>
                           <Card

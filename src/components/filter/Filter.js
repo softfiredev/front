@@ -8,34 +8,38 @@ import { Candle2 } from "iconsax-react";
 import { useDispatch } from 'react-redux';
 import { filter } from './../../Store/librairieApi/filter/SliceFilter';
 
-const Filter = (props) => {
+const Filter = ({onData,prod}) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const Dispatch=useDispatch();
+  const [value, setValue] = useState([20, 37]);
+  const [color1, setcolor1] = useState("#FFFFFF");
+  const [color2, setcolor2] = useState("#F7D070");
+  const [color3, setcolor3] = useState("#FFFFFF");
+  const [color4, setcolor4] = useState("#FFFFFF");
+  const checkboxValues = ['Scolaire','Para-scolaires', 'Outils informatiques','Divers','Jeux educatifs','Pack promo'];
+ 
 
   const handleChangee = (event) => {
     const searchTerm = event.target.value;
     setSearchTerm(searchTerm);
-    const filteredProduct = props.prod.filter(product => 
+    const filteredProduct = prod.filter(product => 
       product.titre.toLowerCase().includes(searchTerm.toLowerCase())
-      
     );
-    Dispatch(filter({filteredProduct}))
-   
-  };
-  const [isChecked, setIsChecked] = useState(false);
-  const checkboxValues = ['Scolaire','Para-scolaires', 'Outils informatiques','Divers','Jeux educatifs','Pack promo'];
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
 
-const checkedbox=(event)=>{
-  setIsChecked(event.target.checked)
-  if(event.target.checked)
-  {
-    setSelectedCheckboxes([...selectedCheckboxes,event.target.value])
-  }
-  else{
-    const val=event.target.value
-    setSelectedCheckboxes(selectedCheckboxes.filter((val) => val !== event.target.value));
-  }
+    onData(filteredProduct)
+  };
+
+
+const checkedboxfilter=(event)=>{
+    const filteredProduct = prod.filter(product => 
+      product.categorie.name.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    if(event.target.checked )
+    {
+        onData(filteredProduct)  
+    }
+   else{
+    onData([])
+   }
 
 }
 
@@ -45,11 +49,7 @@ const checkedbox=(event)=>{
   function valuetext(value) {
     return `${value}°C`;
   }
-  const [value, setValue] = useState([20, 37]);
-  const [color1, setcolor1] = useState("#FFFFFF");
-  const [color2, setcolor2] = useState("#F7D070");
-  const [color3, setcolor3] = useState("#FFFFFF");
-  const [color4, setcolor4] = useState("#FFFFFF");
+ 
   const change1 = () => {
     setcolor1("#F7D070");
     setcolor2("#FFFFFF");
@@ -154,7 +154,9 @@ const checkedbox=(event)=>{
 <Grid item container spacing={1}>
 <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }}   key={value}
     value={value}
-    onChange={checkedbox} />
+    onChange={checkedboxfilter}
+    />
+ 
 <span>
   <p className="S-shop">{value}</p>
 </span>

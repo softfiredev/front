@@ -222,7 +222,7 @@ function a11yProps(index) {
           <p className="nombre-page">1-10 sur 19 commandes</p>
           <div className="select-page"   >
             <p className="select-lable">La page sur laquelle vous êtes</p>
-            <select className="Select">
+            <select className="Select-comn">
               <option value={1}>1</option>
             </select>
          
@@ -338,7 +338,7 @@ function a11yProps(index) {
           <p className="nombre-page">1-10 sur 19 commandes</p>
           <div className="select-page"   >
             <p className="select-lable">La page sur laquelle vous êtes</p>
-            <select className="Select">
+            <select className="Select-comn">
               <option value={1}>1</option>
             </select>
          
@@ -454,7 +454,7 @@ function a11yProps(index) {
           <p className="nombre-page">1-10 sur 19 commandes</p>
           <div className="select-page"   >
             <p className="select-lable">La page sur laquelle vous êtes</p>
-            <select className="Select">
+            <select className="Select-comn">
               <option value={1}>1</option>
             </select>
          
@@ -570,7 +570,7 @@ function a11yProps(index) {
           <p className="nombre-page">1-10 sur 19 commandes</p>
           <div className="select-page"   >
             <p className="select-lable">La page sur laquelle vous êtes</p>
-            <select className="Select">
+            <select className="Select-comn">
               <option value={1}>1</option>
             </select>
          

@@ -195,7 +195,8 @@ color: #4B4B4B;
 }
 
 .pagination-shop{
-   margin-left: 20%;
+display: flex;
+justify-content: center;
 }
 .bnt1-shop{
     width: 91px;

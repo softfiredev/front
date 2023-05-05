@@ -94,9 +94,7 @@ const startIndex=(current -1)*items;
 const endIndex=startIndex+items;
 const DataPerPage=avisProduitDtail.slice(startIndex,endIndex)
 function handlePagination (event,page) {
-
     setCurrent(page)
-
   }
   
   const [value, setValue] = useState(0);

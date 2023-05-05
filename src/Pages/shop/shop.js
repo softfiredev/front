@@ -22,6 +22,16 @@ const Shop = () => {
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
  
 
+  const items =5;
+  const [current,setCurrent]=useState(1)
+  const NbPage=Math.ceil(produitShope.length/items);
+  const startIndex=(current -1)*items;
+  const endIndex=startIndex+items;
+  const DataPerPage=produitShope.slice(startIndex,endIndex)
+  function handlePagination (event,page) {
+    setCurrent(page)
+  }
+  
   console.log(dataFromChild)
   useEffect(()=>{
     dispatch(getAllProduitlibrairie())
@@ -61,7 +71,7 @@ const Shop = () => {
                       
                        {dataFromChild.length===0 ?
                        <>
-                          {produitShope.map((obj) => (
+                          {DataPerPage.map((obj) => (
                         <>
                           <Grid item>
                           <Card
@@ -112,11 +122,16 @@ const Shop = () => {
                 <br />
                 <Grid item>
                   
-                  <Pagination
-                    count={16}
-                    shape="rounded"
-                    className="pagination-shop"
-                  />
+                <Pagination
+                  count={NbPage}
+                  shape="rounded"
+                  className="pagination-shop"
+                  page={current}
+                  onChange={handlePagination}
+                />
+
+
+
                 </Grid>
               </Grid>
             </div>

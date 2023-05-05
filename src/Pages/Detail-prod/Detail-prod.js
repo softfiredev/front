@@ -28,6 +28,7 @@ import { getAllAvisProduitDeatil } from "../../Store/Service/AllavisProduitDetai
 import { toast } from "react-toastify";
 import { AjouteAvis } from './../../Store/Service/AjouteAvis';
 import Avatar from '@mui/material/Avatar';
+import { getAllProduitByCategorie } from "../../Store/Service/AllproduitlibrairieByCategorie";
 
 const Detailprod = (props) => {
   const prod = [
@@ -86,6 +87,7 @@ const Detailprod = (props) => {
   const succesAvis = useSelector(
     (state) => state.AllAvisProduitDeatil.status
   );
+  const produit = useSelector((state)=>state.AllProduitlibrairieByCategorie.produitlibBycategorie)
 
 const items =4;
 const [current,setCurrent]=useState(1)
@@ -107,11 +109,15 @@ function handlePagination (event,page) {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [refresh,setrefresh]=useState()
-
+ 
   useEffect(() => {
     dispatch(getProduitDetail(id));
+   
+    dispatch( getAllProduitByCategorie(produitDetail?.categorieId))
+  }, []);
+  useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));
-  }, [refresh]);
+  },[refresh])
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/Shop">
       <p className="txtlink1"> Shop</p>
@@ -141,10 +147,11 @@ function handlePagination (event,page) {
 
       })
     }else{
-      toast.error("connecté pour ajouter votre avis.")
+      toast.warning("connecté pour ajouter votre avis.")
     }
     setrefresh(false)
   }
+  console.log(produit)
   return (
     <>
       <div className="detail">
@@ -479,15 +486,20 @@ function handlePagination (event,page) {
                   modules={[FreeMode]}
                   style={{ width: "1500px" }}
                 >
-                  {prod.map((obj, key) => (
+                  {produit.map((obj, key) => (
                     <SwiperSlide>
                       <Grid item key={key}>
-                        <Card
-                          prix={obj.prix}
-                          nom={obj.nom}
-                          noml={obj.noml}
-                          id={obj.id}
-                        />
+                      <Card
+                              prix={obj.prix}
+                              titre={obj.titre}
+                              noml={obj.labrairie?.nameLibrairie}
+                              idl={obj.labrairie?.id}
+                              totalavis={obj?.avisProduitlibraires?.[0]?.total_avis}
+                              maxAvis={obj?.avisProduitlibraires?.[0]?.max_nb}
+                              idp={obj.id}
+                              logoL={obj.labrairie?.imageStore}
+                              imgp={obj.imagelibrairies?.[0]?.name_Image}
+                            />
                       </Grid>
                     </SwiperSlide>
                   ))}

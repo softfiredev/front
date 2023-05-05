@@ -13,5 +13,6 @@ export const Path ={
     getAllAvisProduitDeatil:"avisProduitlibraire/getAllAvisByproduit/",
     addcommande:"commandeDetail/add",
     addAvis:"avisProduitlibraire/add",
-    addproduitfavorie:"produitFavorie/add"
+    addproduitfavorie:"produitFavorie/add",
+    getAllproduitBycategorie:"produitLabrairie/findProduitsBycategorie/"
 }

@@ -17,7 +17,7 @@ const Shop = () => {
   
   };
 
-  
+
   const dispatch=useDispatch()
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
  

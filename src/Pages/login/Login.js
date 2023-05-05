@@ -46,28 +46,23 @@ const [profile, setProfile] = useState();
           password: user.password,
         }
         dispatch(Loginuser(data)).then(response => {
-        
-          if(response.payload!==undefined)
-          {
-            if (response.payload.message === "success") {
-              globalState.loding=false
-            }
-            if (response.payload.message === 'password is not correct') {
-              toast.error("le mot de passe n'est pas correct !!")
-              globalState.loding=false
-            }
-            if (response.payload.message === "verifie your email") {
-              toast.error("active votre compte Svp !!",)
-       
-              globalState.loding=false
-            }
-         
-           
-          }else{
-            toast.error("your email is not excited !!",)
+          if (response.payload.message === "success") {
             globalState.loding=false
           }
+          if (response.payload.message === 'password is not correct') {
+            toast.error("le mot de passe n'est pas correct !!")
+            globalState.loding=false
+          }
+          if (response.payload.message === "verifie your email") {
+            toast.error("active votre compte Svp !!",)
      
+            globalState.loding=false
+          }
+          if (response.payload.message === "email is not correct") {
+                       toast.error("active votre compte Svp !!",)
+
+            globalState.loding=false
+          }
 
         })
 

@@ -130,7 +130,7 @@ const Detailprod = (props) => {
     }else{
       toast.error("connecté pour ajouter votre avis.")
     }
-      
+    setrefresh(false)
   }
   return (
     <>

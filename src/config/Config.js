@@ -11,7 +11,8 @@ export const Path ={
     getAllProduitbyLibrairie:"produitLabrairie/findBylabrairie/",
     getProduitDetail:"produitLabrairie/findOneProduit/",
     getAllAvisProduitDeatil:"avisProduitlibraire/getAllAvisByproduit/",
-    addcommande:"commandeDetail/add"
+    addcommande:"commandeDetail/add",
+    addAvis:"avisProduitlibraire/add"
 
 
 }

@@ -25,8 +25,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProduitDetail } from "../../Store/Service/ProduitDetail";
 import { useParams } from "react-router-dom";
 import { getAllAvisProduitDeatil } from "../../Store/Service/AllavisProduitDetail";
+import { toast } from "react-toastify";
+import { AjouteAvis } from './../../Store/Service/AjouteAvis';
 
-const Detailprod = () => {
+const Detailprod = (props) => {
   const prod = [
     {
       id: "000011110",
@@ -75,15 +77,16 @@ const Detailprod = () => {
     p: 4,
   };
 
-  const [value, setValue] = useState(3);
+  const [value, setValue] = useState(0);
+  const[avisText,setavisText] = useState("")
   const [imgclick, setimgclick] = useState("");
-  const [value2, setValue2] = useState(3);
   const [pls, setpls] = useState(0);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const dispatch = useDispatch();
   const { id } = useParams();
+  const [refresh,setrefresh]=useState()
   const produitDetail = useSelector(
     (state) => state.ProduitDetailLibrairie.detailProd
   );
@@ -96,7 +99,7 @@ const Detailprod = () => {
   useEffect(() => {
     dispatch(getProduitDetail(id));
     dispatch(getAllAvisProduitDeatil(id));
-  }, []);
+  }, [refresh]);
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/Shop">
       <p className="txtlink1"> Shop</p>
@@ -109,6 +112,26 @@ const Detailprod = () => {
     </Typography>,
   ];
   const imagesProduit = produitDetail.imagelibrairies;
+  const addAvis=()=>{
+    if(props.user.auth){
+      let data={
+        nbStart:value,
+        commenter:avisText,
+        clientId:props.user?.id,
+        produitlabrairieId:Number(id)
+      }
+      AjouteAvis(data).then((response)=>{
+        if(response.success==true){
+          toast.success("votre avis bien ajoute")
+        }
+        setrefresh(true)
+
+      })
+    }else{
+      toast.error("connecté pour ajouter votre avis.")
+    }
+      
+  }
   return (
     <>
       <div className="detail">
@@ -336,6 +359,7 @@ const Detailprod = () => {
                             multiline
                             rows={5}
                             maxRows={80}
+                            onChange={(e)=>{setavisText(e.target.value)}}
                           />
                           <div className="row-detail">
                             <button
@@ -344,7 +368,7 @@ const Detailprod = () => {
                             >
                               <p className="txt-modalbnt1">Annuler</p>
                             </button>
-                            <button className="bnt-modala2">
+                            <button className="bnt-modala2" onClick={addAvis}>
                               <p className="txt-modalbnt2">Envoyer</p>
                             </button>
                           </div>

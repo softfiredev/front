@@ -65,7 +65,7 @@ const Recapitulatif = (props) => {
         </div>
         <div className="itemchiffer">
           <p>{totalHT} dt</p>
-          <p>{7.5} dt</p>
+          <p>{0} dt</p>
           <p>-{0} dt</p>
           <p>{7}%</p>
         </div>

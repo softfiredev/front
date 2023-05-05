@@ -19,7 +19,7 @@ const persistConfig = {
     storage,
 };
 const rootReducer = combineReducers({
-  loginservice:SliceLogin,
+    loginservice:SliceLogin,
     Signup:SignupSlice,
     Googleservice:SlicebntGoogle,
     AllProduitShope:SliceAllproduitShope,
@@ -27,7 +27,6 @@ const rootReducer = combineReducers({
     AllProduitBylibrairie:SliceAllProduitBylibrairie,
     ProduitDetailLibrairie:SliceProduitDetailLibrairie,
     AllAvisProduitDeatil:SliceAllavisProduitDetail,
-  
     Panier:SlicePanier,
     Commande:SliceCommande,
     AjouteCommande:AjouteCommandeSlice

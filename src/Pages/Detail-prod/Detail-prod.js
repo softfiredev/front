@@ -231,6 +231,9 @@ function handlePagination (event,page) {
                   idl={produitDetail.labrairie?.id}
                   noml={produitDetail.labrairie?.nameLibrairie}
                   imgl={produitDetail.labrairie?.imageStore}
+                  imgp={imagesProduit?.[0]?.name_Image}
+                  idp={id}
+                  user={props.user}
                 />
               </div>
             </div>

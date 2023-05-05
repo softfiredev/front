@@ -10,17 +10,19 @@ export const userSlice=createSlice({
   },
   reducers: {},
   extraReducers:{
-    [Loginuser.pending]:(state,action)=>{
-      state.isLogin=false
+    [Loginuser.pending]:(state,)=>{
+      state.isLogin=false;
     },
     [Loginuser.fulfilled]:(state,{payload:{accessToken,refreshToken}})=>{
-      state.isLogin=true
+    
+      state.isLogin=true;
       state.accessToken=accessToken;
       state.refreshToken=refreshToken;
-
+      
     },
     [Loginuser.rejected]:(state,action)=>{
       state.isLogin=false
+      
     },
   }  
 

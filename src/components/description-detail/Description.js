@@ -14,6 +14,10 @@ import Modal from "@mui/material/Modal";
 import { OutlinedInput } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { add } from "../../Store/panier/panierSlice";
+import { AjouteProduitFavorie } from "../../Store/Service/AjouteProduitFavorie";
 const Description = (props) => {
   const [value3, setValue3] = useState(3);
   const [qnt, setqnt] = useState(1);
@@ -42,6 +46,31 @@ const Description = (props) => {
     borderRadius: "8px",
     p: 4,
   };
+  const dispatch=useDispatch()
+  const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
+    dispatch(add({idp,imgp,prix,titre,qte,idl}))
+    toast.success("Vous avez ajouté un produit à votre panier")
+  }
+  const Sauvegarder=()=>{
+    if(props.user.auth){
+      const data={
+        clientId:props.user.id,
+        produitlabrairieId:props.idp
+      }
+      AjouteProduitFavorie(data).then((response)=>{
+        console.log(response)
+        if(response.success==true){
+          toast.success("Votre Article a bien été sauvegardé")
+        }else{
+          toast.error("Erreur lors de la sauvegarde")
+        }
+       
+      })
+    }else{
+      toast.warning("Veuillez vous connecter pour pouvoir sauvegardé un Article")
+    }
+    
+  }
   return (
     <div className="col-detail">
       <div>
@@ -88,15 +117,15 @@ const Description = (props) => {
             />
           </div>
         </div>
-        <button className="bnt1-detail">
+        <button className="bnt1-detail" onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,qnt,props.idl)}>
           <div className="bag-detail">
             <Bag size="22" color="#FFFFFF" />
           </div>
 
           <div className="txt77-detail">Ajouter au panier</div>
         </button>
-        <button className="bnt2-detail">
-          <div className="ArchiveAdd-detail">
+        <button className="bnt2-detail"onClick={Sauvegarder}>
+          <div className="ArchiveAdd-detail" >
             <ArchiveAdd size="23" color="#222222" />
           </div>
           <div className="txt8-detail">Sauvegarder</div>

@@ -7,13 +7,7 @@ const Toast = () => {
   return (
 
     <div>
-<ToastContainer
-
-/>
-{/* Same as */}
-<ToastContainer />
-
-
+<ToastContainer/>
     </div>
   )
 }

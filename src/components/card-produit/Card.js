@@ -10,7 +10,7 @@ const Card = (props) => {
   const dispatch=useDispatch()
   const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
     dispatch(add({idp,imgp,prix,titre,qte,idl}))
-    toast.success("Vous avez ajouté un produit à votre panier")
+    toast.success("Vous avez ajouté un produit à votre panier",{autoClose: 1000})
   }
   return (
     <div className="card">

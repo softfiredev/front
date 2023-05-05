@@ -24,6 +24,8 @@ const [profile, setProfile] = useState();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [user, setUser] = useState({ email: "", password: "" });
+  const [check,setCheck] = useState(false);
+
   const handleInputChange = (field) => {
     return (e) => {
       setUser((prev) => ({
@@ -38,68 +40,63 @@ const [profile, setProfile] = useState();
 
   const onsubmit = () => {
     globalState.loding=true
-    if (user.email.length !== 0 && user.password.length !== 0) {
-      let reg =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-      if (reg.test(user.email)) {
-        let data = {
-          email: user.email,
-          password: user.password,
-        }
-        dispatch(Loginuser(data)).then(response => {
+ if(check)
+ {
+  if (user.email.length !== 0 && user.password.length !== 0) {
+    let reg =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    if (reg.test(user.email)) {
+      let data = {
+        email: user.email,
+        password: user.password,
+      }
+      dispatch(Loginuser(data)).then(response => {
+      
+        try
+        {
           if (response.payload.message === "success") {
-           
-          if(response.payload!==undefined)
-          {
-            if (response.payload.message === "success") {
-              globalState.loding=false
-            }
-            if (response.payload.message === 'password is not correct') {
-              toast.error("le mot de passe n'est pas correct !!")
-              globalState.loding=false
-            }
-            if (response.payload.message === "verifie your email") {
-              toast.error("active votre compte Svp !!",)
-       
-              globalState.loding=false
-            }
-         
-           
-          }else{
-            toast.error("your email is not excited !!",)
             globalState.loding=false
           }
           if (response.payload.message === 'password is not correct') {
-            toast.error("le mot de passe n'est pas correct !!")
+            toast.error("le mot de passe n'est pas correct !!",{autoClose: 1000})
             globalState.loding=false
           }
           if (response.payload.message === "verifie your email") {
-            toast.error("active votre compte Svp !!",)
+            toast.error("active votre compte Svp !!",{autoClose: 1000})
      
             globalState.loding=false
-          }
-          if (response.payload.message === "email is not correct") {
-                       toast.error("active votre compte Svp !!",)
+          }         
+        }
+        catch(error){
+          toast.error(" your email is not excited or password is not correct !!",{autoClose: 1000})
+          globalState.loding=false
+        }
 
-            globalState.loding=false
-          }
+      })
 
-        })
-
-     
-      }
-      else {
-        toast.error("validation de Email !!")
-        globalState.loding=false
-      }
-
+   
     }
     else {
-      toast.error("remplir Champ vide SVP !!")
+      toast.error("validation de Email !!",{autoClose: 1000})
       globalState.loding=false
     }
-  
+
   }
-  
+  else {
+    toast.error("remplir Champ vide SVP !!")
+    globalState.loding=false
+  }
+
+ }
+ else{
+  toast.error("checked !!",{autoClose: 1000})
+
+ }
+  }
+  const checkedboxfilter=(event)=>{
+    setCheck(event.target.checked) 
+   }
+
+
 useEffect(()=>{
   AuthGmail()
 },[profile])
@@ -219,7 +216,9 @@ useEffect(()=>{
             </Grid>
 
             <Grid item container spacing={1}>
-              <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }} /><span ><p className="Souviens">Souviens-toi de moi</p></span>
+              <Checkbox style={{ color: " #E9B949", marginTop: "-4.2%" }}
+               onChange={checkedboxfilter}
+              /><span ><p className="Souviens">Souviens-toi de moi</p></span>
             </Grid>
             <Grid item>
               <button className='bntn1-log' onClick={onsubmit}>

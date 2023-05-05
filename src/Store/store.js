@@ -14,12 +14,13 @@ import SliceAllavisProduitDetail from './librairieApi/SliceAllavisProduitDetail'
 import SlicePanier  from './panier/panierSlice';
 import SliceCommande  from './panier/commandeSlice';
 import AjouteCommandeSlice from './commande/AjouteCommandeSlice';
+import SliceAllproduitByCategorie from './librairieApi/SliceAllproduitByCategorie';
 const persistConfig = {
     key: 'root',
     storage,
 };
 const rootReducer = combineReducers({
-  loginservice:SliceLogin,
+    loginservice:SliceLogin,
     Signup:SignupSlice,
     Googleservice:SlicebntGoogle,
     AllProduitShope:SliceAllproduitShope,
@@ -27,11 +28,10 @@ const rootReducer = combineReducers({
     AllProduitBylibrairie:SliceAllProduitBylibrairie,
     ProduitDetailLibrairie:SliceProduitDetailLibrairie,
     AllAvisProduitDeatil:SliceAllavisProduitDetail,
-  
     Panier:SlicePanier,
     Commande:SliceCommande,
-    AjouteCommande:AjouteCommandeSlice
-
+    AjouteCommande:AjouteCommandeSlice,
+    AllProduitlibrairieByCategorie:SliceAllproduitByCategorie
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);
   

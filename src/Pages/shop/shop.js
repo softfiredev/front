@@ -22,7 +22,7 @@ const Shop = () => {
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
  
 
-  const items =5;
+  const items =9;
   const [current,setCurrent]=useState(1)
   const NbPage=Math.ceil(produitShope.length/items);
   const startIndex=(current -1)*items;
@@ -35,7 +35,7 @@ const Shop = () => {
   console.log(dataFromChild)
   useEffect(()=>{
     dispatch(getAllProduitlibrairie())
-},[dispatch])
+},[])
  
 
   return (

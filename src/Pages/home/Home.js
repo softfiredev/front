@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import "./Home.css";
 import { Grid } from "@mui/material";
@@ -38,6 +38,8 @@ import Boxabout from "../../components/box-about/Boxabout";
 import Cart from "../../components/Cartc-home/Cart";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProduitlibrairie } from "../../Store/Service/AllProduitShope";
 const Home = () => {
   const tab = [
     {
@@ -120,7 +122,11 @@ const Home = () => {
 
 
   const bart=[{img:  <img src={imgp5} />},{img:  <img src={imgp1} />},{img:  <img src={imgp2} />},{img:  <img src={imgp3} />},{img:  <img src={imgp4} />},{img:  <img src={imgp5} />},{img:  <img src={imgp6} />}]
-
+  const dispatch=useDispatch()
+  const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
+  useEffect(()=>{
+    dispatch(getAllProduitlibrairie())
+},[])
   return (
     <div>
  
@@ -252,15 +258,20 @@ const Home = () => {
               
                style={{width:"1500px"}} 
             >
-              {prod.map((obj,key) => (
+              {produitShope.map((obj,key) => (
                 <SwiperSlide>
                 <Grid item key={key}> 
-                  <Card
-                    prix={obj.prix}
-                    nom={obj.nom}
-                    noml={obj.noml}
-                    id={obj.id}
-                  />
+                <Card
+                              prix={obj.prix}
+                              titre={obj.titre}
+                              noml={obj.labrairie?.nameLibrairie}
+                              idl={obj.labrairie?.id}
+                              totalavis={obj?.avisProduitlibraires?.[0]?.total_avis}
+                              maxAvis={obj?.avisProduitlibraires?.[0]?.max_nb}
+                              idp={obj.id}
+                              logoL={obj.labrairie?.imageStore}
+                              imgp={obj.imagelibrairies?.[0]?.name_Image}
+                            />
                 </Grid>
                 </SwiperSlide>
               ))}
@@ -290,15 +301,22 @@ const Home = () => {
               
                style={{width:"1500px"}} 
             >
-              {prod.map((obj,key) => (
+              {produitShope.filter((product) => {
+    return product.etat === "promition";
+  }).map((obj,key) => (
                 <SwiperSlide>
                 <Grid item key={key}> 
-                  <Card
-                    prix={obj.prix}
-                    nom={obj.nom}
-                    noml={obj.noml}
-                    id={obj.id}
-                  />
+                <Card
+                              prix={obj.prix}
+                              titre={obj.titre}
+                              noml={obj.labrairie?.nameLibrairie}
+                              idl={obj.labrairie?.id}
+                              totalavis={obj?.avisProduitlibraires?.[0]?.total_avis}
+                              maxAvis={obj?.avisProduitlibraires?.[0]?.max_nb}
+                              idp={obj.id}
+                              logoL={obj.labrairie?.imageStore}
+                              imgp={obj.imagelibrairies?.[0]?.name_Image}
+                            />
                 </Grid>
                 </SwiperSlide>
               ))}

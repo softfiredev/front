@@ -45,13 +45,13 @@ const Signup = () => {
           dispatch(Signupuser(data))
             .then(response => {          
               if (response.payload.success) {
-                toast.success("Vérifiez votre email maintenant svp pour l'activation de votre  compte");
+                toast.success("Vérifiez votre email maintenant svp pour l'activation de votre  compte",{autoClose: 1000});
                 setLoading(false)
            
 
               } else {
                 console.log(response.payload)
-                toast.error("email exist deja!!"); setLoading(false) 
+                toast.error("email exist deja!!",{autoClose: 1000}); setLoading(false) 
               
               }
 
@@ -62,17 +62,17 @@ const Signup = () => {
             });
         }
         else {
-          toast.error("confirmation password  !!")
+          toast.error("confirmation password  !!",{autoClose: 1000})
           setLoading(false)
         }
       } else {
-        toast.error("validation de Email")
+        toast.error("validation de Email",{autoClose: 1000})
         setLoading(false)
       }
     }
     else {
 
-      return toast.error("champ vide !!")
+      return toast.error("champ vide !!",{autoClose: 1000})
 
     }
   }

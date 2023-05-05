@@ -1,9 +1,21 @@
 .commandes{
 box-sizing: border-box;
-width: 844px;
-height: 1044px;
+width: auto;
+height: auto;
 background: #FFFFFF;
 border-radius: 8px;
+}
+.select-page{
+    display: flex;
+    gap:1em;
+
+    margin-left: 10%;
+}
+.com1{
+    padding: 2%;
+}
+.boxtabl-com{
+    margin-left: -7%;
 }
 .titrePageCommande{
 font-family:'Inter';
@@ -38,7 +50,7 @@ margin: 28px 0 0 28px ;
     cursor: pointer;
 }
 .sous-line-array{
-width: 788px ;
+width: 723px ;
 border: 1px solid #EDEDED;
 margin-left: 48px;
 }
@@ -78,24 +90,23 @@ margin-left: -3px;
     justify-content: flex-start;
     align-items: flex-start;
     
-    
 }
 .articles{
-    margin-left: 53px;
+    margin-left: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+
 }
 .commande-data{
     display: flex;
     margin-bottom: 32px;
 } 
 .articles .icondown{
-    margin-top: 5px;
-    margin-left: 15px;
+    margin-top: 7px;
+    margin-left: 7px;
 }
 .name_libraire{
+    width: 500%;
 margin-left: 8px;
 font-family: 'Inter';
 font-style: normal;
@@ -119,9 +130,10 @@ margin-left: 46px;
     margin-left:55px;;
 }
 .vendeur-data{
-    margin-left: 75px;
+    margin-left: 42px;
 }
 .Statut{
+    cursor: pointer;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -132,10 +144,14 @@ margin-left: 46px;
     background: #DCEEFB;
     border: 1px solid #4098D7;
     border-radius: 8px;
-    padding: 6px 35px 6px 35px;
+    width: 128px;
+height: 32px;
+    padding: 6px 0px 0px 0px;
     margin-left: 30px;
 }
 .annule{
+    cursor: pointer;
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -146,15 +162,15 @@ margin-left: 46px;
     background: #FFEEEE;
     border: 1px solid #D64545;
     border-radius: 8px;
-    padding: 6px 40px 6px 40px;
+    width: 128px;
+height: 32px;
+    padding: 6px 0px 0px 0px;
     margin-left: 30px;
 }
-.array-data{
-    margin-top: 24px;
-    height: 656px;
-    margin-right: 10px;
-}
+
 .livre{
+    cursor: pointer;
+
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -165,11 +181,18 @@ margin-left: 46px;
     background: #E3F9E5;
     border: 1px solid #57AE5B;
     border-radius: 8px;
-    padding: 6px 48px 6px 48px;
+    width: 128px;
+height: 32px;
+    padding: 6px 0px 0px 0px;
     margin-left: 30px;
 }
 .Tarification{
-    padding-left: 69px;;
+    padding-left: 35px;;
+}
+.row214-comn{
+    margin-left: 5%;
+    display: flex;
+    gap: 2em;
 }
 .Article-data{
     display: flex;
@@ -210,8 +233,8 @@ color: #222222;
 .pagination2{
     margin-top: -11px;
 }
-.pagination2 .nombre-page{
-margin: 19px 0 0 51px;
+.nombre-page{
+width: 40%;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
@@ -232,7 +255,7 @@ text-align: right;
 color: #222222;
 margin: 17px 28px 0 0;
 }
-.Select{
+.Select-comn{
 box-sizing: border-box;
 width: 85px;
 height: 52px;
@@ -240,4 +263,5 @@ background: #FFFFFF;
 border: 1px solid #E2E5EA;
 border-radius: 8px;
 margin-right: 0px;
+padding: 3%;
 }

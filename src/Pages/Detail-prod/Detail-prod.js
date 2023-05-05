@@ -109,17 +109,18 @@ function handlePagination (event,page) {
       }
       AjouteAvis(data).then((response)=>{
         if(response.success==true){
-          toast.success("votre avis bien ajoute")
+          toast.success("votre avis bien ajoute",{autoClose: 1000})
         }
         setrefresh(true)
 
       })
     }else{
-      toast.warning("connecté pour ajouter votre avis.")
+      toast.warning("connecté pour ajouter votre avis.",{autoClose: 1000})
     }
     setrefresh(false)
+    setOpen(false)
   }
-  console.log(produit)
+
   return (
     <>
       <div className="detail">

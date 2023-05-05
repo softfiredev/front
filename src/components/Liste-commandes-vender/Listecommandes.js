@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 import Filterbar from '../filterbar/Filterbar';
 import {ArrowLeft2,ArrowRight2,Sort} from "iconsax-react";
 import { useNavigate } from "react-router-dom";
-import Triipar from '../Modal/Triipar';
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
   

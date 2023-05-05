@@ -144,11 +144,13 @@ Envoyez-nous votre suggestion et nous l'examinerons.</p>
             </tr>
           </table>
         </div>
-        <div className="pagination1-categorie">
-          <ArrowLeft2 size="22" color="#626262"style={{cursor:"pointer"}}  />
+        <br/> <br/>
+        <div className='page-listev'>  
+<div className="pagination1-listev">
+          <ArrowLeft2 size="22" color="#626262" style={{cursor:"pointer"}} />
           <p>Page 1 sur 1</p>
-          <ArrowRight2 size="22" color="#626262"style={{cursor:"pointer"}}  />
-        </div>
+          <ArrowRight2 size="22" color="#626262" style={{cursor:"pointer"}} />
+        </div></div>
       </div>
     </>)
 }

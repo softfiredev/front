@@ -172,7 +172,21 @@ border-radius: 100px;
 flex-direction: row;
 gap: 1em;
 }
-
+th {
+    text-align: left;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #7E7E7E;
+    border-top: #F7F7F7 solid 1px;
+    height: 56px;
+}
+td {
+    height: 60px;
+    border-top: #F7F7F7 solid 2px;
+}
 .txt1box2-dc{
 font-family: 'Inter';
 font-style: normal;

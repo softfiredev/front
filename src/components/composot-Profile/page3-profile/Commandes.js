@@ -7,7 +7,36 @@ import img2 from "../../../assets/logom.png";
 import img1 from "../../../assets/prod2.png";
 import { Grid } from "@material-ui/core";
 import { useState } from "react";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 const Commandes = () => {
+  function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
+    };
+  }
   const commandeArray = [
     {
       id: "#100194",
@@ -42,27 +71,9 @@ const Commandes = () => {
       Statut: "en cours",
     },
   ];
-  const filterCommande = [
-    {
-      id: "tous",
-      name: "Tous",
-    },
-    {
-      id: "livre",
-      name: "Livre",
-    },
-    {
-      id: "enCours",
-      name: "En cours",
-    },
-    {
-      id: "Annuler",
-      name: "Annuler",
-    },
-  ];
+
   const [dopdownAricle, setdropdowArticle] = useState(false);
   const [iDdropdownArticle, setiDdropdownArticle] = useState();
-  const [filter,setfilter]=useState(false);
   const[idFilter,setidFilter]=useState()
   const dropDownOn = (id) => {
     setdropdowArticle(true);
@@ -72,38 +83,50 @@ const Commandes = () => {
     setdropdowArticle(false);
     setiDdropdownArticle(id);
   };
-  const changeStyleFilter=(id)=>{
-    setfilter(true);
-    setidFilter(id)
-  }
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
+    const filteredDataLivré= commandeArray.filter((item) => {
+      return item.Statut.includes("Livre");
+    });
+    const filteredDataAnnulé = commandeArray.filter((item) => {
+        return item.Statut.includes("Annule");
+      });
+      const filteredEncours = commandeArray.filter((item) => {
+        return item.Statut.includes("en cours");
+      });
+ 
   return (
     <div className="commandes">
-      <h1 className="titrePageCommande">Commandes</h1>
+      <div className="com1">
+      <h1 className="titrePageCommande">Commandes</h1>  <br/>
       <div className="box-container-commande">
-        <Grid
-          container
-          direction="row"
-          justifyContent="flex-start"
-          alignItems="center"
-          className="filter-commande"
-        >
-          {filterCommande.map((e,key) => (
-            <Grid item className={e.id==="tous" && !filter?"filter-commande-items1":idFilter===e.id && filter ?"filter-commande-items1":"filter-commande-items"} onClick={()=>{changeStyleFilter(e.id)}}>
-              {e.name}
-            </Grid>
-          ))}
-        </Grid>
+      
+  <Box sx={{ marginLeft:"2%"}}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#F7D070" } }}>
+         <Tab label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
+          <Tab label={<p className="txttabs-c">Livré</p>} {...a11yProps(1)} />
+          <Tab label={<p className="txttabs-c">En cours</p>} {...a11yProps(1)} />
+          <Tab label={<p className="txttabs-c">Annulé</p>} {...a11yProps(1)} />
 
-        <hr className="sous-line-array" />
-        <OutlinedInput
+        </Tabs>
+      </Box>
+
+    
+        <TabPanel value={value} index={0}>
+      <div className="boxtabl-com">
+      <OutlinedInput
           className="search-inpute"
-          defaultValue={"Rechercher l'ID de commande, l'article"}
-          endAdornment={
+          placeholder="Rechercher l'ID de commande, l'article"   
+                 endAdornment={
             <InputAdornment position="end">
               <SearchNormal1 size="19" color="#B1B1B1" />
             </InputAdornment>
           }
         />
+        <br/><br/>
         <div className="array-commandes">
           <div className="array-header">
             <p className="header-item"> ID</p>
@@ -113,18 +136,17 @@ const Commandes = () => {
             <p className="header-item"> Tarification</p>
             <p className="header-item"> Statut</p>
           </div>
-          <hr className="sous-line-array" />
+          <hr className="sous-line-array" /><br/>
           <div className="array-data">
-            {commandeArray.filter((data)=>{
-              return  idFilter==="livre"? data.Statut==="Livre" :idFilter==="Annuler"? data.Statut==="Annule":idFilter==="enCours"? data.Statut==="en cours":data  
-            }).map((e, key) => (  
+            {commandeArray.map((e, key) => (  
                
               <div>
                 <div className="commande-data" key={key}>
                   <p className="idcommande"> {e.id}</p>
                   <div className="articles">
                     <p className="nombreArticle">{e.nbArticle}</p>
-                    {!dopdownAricle && (
+                   <div>
+                   {!dopdownAricle && (
                       <ArrowDown2
                         size="17"
                         color="#626262"
@@ -144,6 +166,7 @@ const Commandes = () => {
                         style={{ cursor: "pointer" }}
                       />
                     )}
+                    </div>
                   </div>
                   <p className="datecommande">{e.data}</p>
                   <div className="vendeur-data">
@@ -192,30 +215,376 @@ const Commandes = () => {
             ))}
           </div>
         </div>
-        <hr className="sous-line-array" />
+        
+        <hr className="sous-line-array" /><br/>
         <div>
-        <Grid
-          container
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          className="pagination2"
-        >
+        <div className="row214-comn"  >
           <p className="nombre-page">1-10 sur 19 commandes</p>
-          <Grid
-            container
-            direction="row"
-            style={{ width: "42%", marginTop: "20px" }}
-            className="select-page"
-          >
+          <div className="select-page"   >
             <p className="select-lable">La page sur laquelle vous êtes</p>
-            <select className="Select">
+            <select className="Select-comn">
               <option value={1}>1</option>
             </select>
-          </Grid>
-        </Grid>
+         
+        </div>
+        </div>
         </div><br/>
       </div>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+      <div className="boxtabl-com">
+      <OutlinedInput
+          className="search-inpute"
+          placeholder="Rechercher l'ID de commande, l'article" 
+                   endAdornment={
+            <InputAdornment position="end">
+              <SearchNormal1 size="19" color="#B1B1B1" />
+            </InputAdornment>
+          }
+        />
+        <br/><br/>
+        <div className="array-commandes">
+          <div className="array-header">
+            <p className="header-item"> ID</p>
+            <p className="header-item"> Articles</p>
+            <p className="header-item"> Date de livraison</p>
+            <p className="header-item"> Vendeur</p>
+            <p className="header-item"> Tarification</p>
+            <p className="header-item"> Statut</p>
+          </div>
+          <hr className="sous-line-array" /><br/>
+          <div className="array-data">
+            {filteredDataLivré.map((e, key) => (  
+               
+              <div>
+                <div className="commande-data" key={key}>
+                  <p className="idcommande"> {e.id}</p>
+                  <div className="articles">
+                    <p className="nombreArticle">{e.nbArticle}</p>
+                    <div>
+                   {!dopdownAricle && (
+                      <ArrowDown2
+                        size="17"
+                        color="#626262"
+                        className="icondown"
+                        onClick={(e) => dropDownOn(key)}
+                        style={{ cursor: "pointer" }}
+                      />
+                    )}
+                    {dopdownAricle && (
+                      <ArrowUp2
+                        size="17"
+                        color="#626262"
+                        className="icondown"
+                        onClick={(e) => {
+                          dropDownOff(key);
+                        }}
+                        style={{ cursor: "pointer" }}
+                      />
+                    )}
+                    </div>
+                  </div>
+                  <p className="datecommande">{e.data}</p>
+                  <div className="vendeur-data">
+                    <img src={img2} alt="maktba rahma" />
+                    <p className="name_libraire"> {e.nameLib} </p>
+                  </div>
+                  <p className="Tarification"> {e.toatal} DT</p>
+                  <p
+                    className={
+                      e.Statut === "en cours"
+                        ? "Statut"
+                        : e.Statut === "Annule"
+                        ? "annule"
+                        : "livre"
+                    }
+                  >
+                    {e.Statut}
+                  </p>
+                </div>
+                {
+                  <div
+                    className={
+                      dopdownAricle && iDdropdownArticle === key
+                        ? "Article-data"
+                        : "Article-data-none"
+                    }
+                  >
+                    <div className="article">
+                      <p className="qte">1X</p>
+                      <img src={img1} alt="nameImage" />
+                      <p className="titleProduit">GOUACHE 9T METAL...</p>
+                    </div>
+                    <div className="article">
+                      <p className="qte">1X</p>
+                      <img src={img1} alt="nameImage" />
+                      <p className="titleProduit">GOUACHE 9T METAL...</p>
+                    </div>
+                    <div className="article">
+                      <p className="qte">1X</p>
+                      <img src={img1} alt="nameImage" />
+                      <p className="titleProduit">GOUACHE 9T METAL...</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <hr className="sous-line-array" /><br/>
+        <div>
+        <div className="row214-comn"  >
+          <p className="nombre-page">1-10 sur 19 commandes</p>
+          <div className="select-page"   >
+            <p className="select-lable">La page sur laquelle vous êtes</p>
+            <select className="Select-comn">
+              <option value={1}>1</option>
+            </select>
+         
+        </div>
+        </div>
+        </div><br/>
+      </div>
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+      <div className="boxtabl-com">
+      <OutlinedInput
+          className="search-inpute"
+          placeholder="Rechercher l'ID de commande, l'article"         
+           endAdornment={
+            <InputAdornment position="end">
+              <SearchNormal1 size="19" color="#B1B1B1" />
+            </InputAdornment>
+          }
+        />
+        <br/><br/>
+        <div className="array-commandes">
+          <div className="array-header">
+            <p className="header-item"> ID</p>
+            <p className="header-item"> Articles</p>
+            <p className="header-item"> Date de livraison</p>
+            <p className="header-item"> Vendeur</p>
+            <p className="header-item"> Tarification</p>
+            <p className="header-item"> Statut</p>
+          </div>
+          <hr className="sous-line-array" /><br/>
+          <div className="array-data">
+            {filteredEncours.map((e, key) => (  
+               
+              <div>
+                <div className="commande-data" key={key}>
+                  <p className="idcommande"> {e.id}</p>
+                  <div className="articles">
+                    <p className="nombreArticle">{e.nbArticle}</p>
+                    <div>
+                   {!dopdownAricle && (
+                      <ArrowDown2
+                        size="17"
+                        color="#626262"
+                        className="icondown"
+                        onClick={(e) => dropDownOn(key)}
+                        style={{ cursor: "pointer" }}
+                      />
+                    )}
+                    {dopdownAricle && (
+                      <ArrowUp2
+                        size="17"
+                        color="#626262"
+                        className="icondown"
+                        onClick={(e) => {
+                          dropDownOff(key);
+                        }}
+                        style={{ cursor: "pointer" }}
+                      />
+                    )}
+                    </div>
+                  </div>
+                  <p className="datecommande">{e.data}</p>
+                  <div className="vendeur-data">
+                    <img src={img2} alt="maktba rahma" />
+                    <p className="name_libraire"> {e.nameLib} </p>
+                  </div>
+                  <p className="Tarification"> {e.toatal} DT</p>
+                  <p
+                    className={
+                      e.Statut === "en cours"
+                        ? "Statut"
+                        : e.Statut === "Annule"
+                        ? "annule"
+                        : "livre"
+                    }
+                  >
+                    {e.Statut}
+                  </p>
+                </div>
+                {
+                  <div
+                    className={
+                      dopdownAricle && iDdropdownArticle === key
+                        ? "Article-data"
+                        : "Article-data-none"
+                    }
+                  >
+                    <div className="article">
+                      <p className="qte">1X</p>
+                      <img src={img1} alt="nameImage" />
+                      <p className="titleProduit">GOUACHE 9T METAL...</p>
+                    </div>
+                    <div className="article">
+                      <p className="qte">1X</p>
+                      <img src={img1} alt="nameImage" />
+                      <p className="titleProduit">GOUACHE 9T METAL...</p>
+                    </div>
+                    <div className="article">
+                      <p className="qte">1X</p>
+                      <img src={img1} alt="nameImage" />
+                      <p className="titleProduit">GOUACHE 9T METAL...</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <hr className="sous-line-array" /><br/>
+        <div>
+        <div className="row214-comn"  >
+          <p className="nombre-page">1-10 sur 19 commandes</p>
+          <div className="select-page"   >
+            <p className="select-lable">La page sur laquelle vous êtes</p>
+            <select className="Select-comn">
+              <option value={1}>1</option>
+            </select>
+         
+        </div>
+        </div>
+        </div><br/>
+      </div>
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+      <div className="boxtabl-com">
+      <OutlinedInput
+          className="search-inpute"         
+          placeholder="Rechercher l'ID de commande, l'article"
+          endAdornment={
+            <InputAdornment position="end">
+              <SearchNormal1 size="19" color="#B1B1B1" />
+            </InputAdornment>
+          }
+        />
+        <br/><br/>
+        <div className="array-commandes">
+          <div className="array-header">
+            <p className="header-item"> ID</p>
+            <p className="header-item"> Articles</p>
+            <p className="header-item"> Date de livraison</p>
+            <p className="header-item"> Vendeur</p>
+            <p className="header-item"> Tarification</p>
+            <p className="header-item"> Statut</p>
+          </div>
+          <hr className="sous-line-array" /><br/>
+          <div className="array-data">
+            {filteredDataAnnulé.map((e, key) => (  
+               
+              <div>
+                <div className="commande-data" key={key}>
+                  <p className="idcommande"> {e.id}</p>
+                  <div className="articles">
+                    <p className="nombreArticle">{e.nbArticle}</p>
+                    <div>
+                   {!dopdownAricle && (
+                      <ArrowDown2
+                        size="17"
+                        color="#626262"
+                        className="icondown"
+                        onClick={(e) => dropDownOn(key)}
+                        style={{ cursor: "pointer" }}
+                      />
+                    )}
+                    {dopdownAricle && (
+                      <ArrowUp2
+                        size="17"
+                        color="#626262"
+                        className="icondown"
+                        onClick={(e) => {
+                          dropDownOff(key);
+                        }}
+                        style={{ cursor: "pointer" }}
+                      />
+                    )}
+                    </div>
+                  </div>
+                  <p className="datecommande">{e.data}</p>
+                  <div className="vendeur-data">
+                    <img src={img2} alt="maktba rahma" />
+                    <p className="name_libraire"> {e.nameLib} </p>
+                  </div>
+                  <p className="Tarification"> {e.toatal} DT</p>
+                  <p
+                    className={
+                      e.Statut === "en cours"
+                        ? "Statut"
+                        : e.Statut === "Annule"
+                        ? "annule"
+                        : "livre"
+                    }
+                  >
+                    {e.Statut}
+                  </p>
+                </div>
+                {
+                  <div
+                    className={
+                      dopdownAricle && iDdropdownArticle === key
+                        ? "Article-data"
+                        : "Article-data-none"
+                    }
+                  >
+                    <div className="article">
+                      <p className="qte">1X</p>
+                      <img src={img1} alt="nameImage" />
+                      <p className="titleProduit">GOUACHE 9T METAL...</p>
+                    </div>
+                    <div className="article">
+                      <p className="qte">1X</p>
+                      <img src={img1} alt="nameImage" />
+                      <p className="titleProduit">GOUACHE 9T METAL...</p>
+                    </div>
+                    <div className="article">
+                      <p className="qte">1X</p>
+                      <img src={img1} alt="nameImage" />
+                      <p className="titleProduit">GOUACHE 9T METAL...</p>
+                    </div>
+                  </div>
+                }
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <hr className="sous-line-array" /><br/>
+        <div>
+        <div className="row214-comn"  >
+          <p className="nombre-page">1-10 sur 19 commandes</p>
+          <div className="select-page"   >
+            <p className="select-lable">La page sur laquelle vous êtes</p>
+            <select className="Select-comn">
+              <option value={1}>1</option>
+            </select>
+         
+        </div>
+        </div>
+        </div><br/>
+      </div>
+        </TabPanel>
+    </Box>
+  
+      
+      </div>
+        </div>
+  
     </div>
   );
 };

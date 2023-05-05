@@ -2,8 +2,7 @@ import React from 'react'
 import "./Avis.css"
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import {SearchNormal1,Sort,ArrowLeft2,ArrowRight2} from "iconsax-react";
-import { InputAdornment, OutlinedInput } from "@mui/material";
+import {Sort} from "iconsax-react";
 import img1 from "../../assets/prod2.png";
 import Rating from "@mui/material/Rating";
 import img from "../../assets/Ellipse 503.png"
@@ -98,11 +97,7 @@ const Avis = (props) => {
 </table>
 <br/><br/>
 <div className='page-listev'>  
-<div className="pagination1-listev">
-          <ArrowLeft2 size="22" color="#626262" style={{cursor:"pointer"}} />
-          <p>Page 1 sur 1</p>
-          <ArrowRight2 size="22" color="#626262" style={{cursor:"pointer"}} />
-        </div></div>
+</div>
   </TabPanel>
   )
 }

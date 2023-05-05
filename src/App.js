@@ -86,7 +86,6 @@ function App() {
   const googleServiceData = useSelector((state) => state.Googleservice);
   const accessToken=  LoginServiceData.isLogin === true && googleServiceData.isLogin === false ? LoginServiceData.accessToken:googleServiceData.accessToken
   const refreshToken=  LoginServiceData.isLogin === true && googleServiceData.isLogin === false ? LoginServiceData.accessToken:googleServiceData.accessToken
-  console.log("accc",accessToken?.length)
   if(accessToken?.length!==0){
     var decoded = jwt_decode(accessToken);
   }

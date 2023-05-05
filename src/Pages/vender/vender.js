@@ -78,7 +78,7 @@ const Vender = () => {
   return (
     <div className="categoriePage">
       <div className="side-bar">
-        <Link to="/"><img src={logo} alt="maktba" className="logo-side" /></Link>
+    <img src={logo} alt="maktba" className="logo-side" />
         <div className="link-side-bar">
           {linkarray.map((e, key) => (
             <Link to={e.linkto}> 

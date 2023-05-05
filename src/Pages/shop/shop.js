@@ -28,7 +28,7 @@ const Shop = () => {
   const startIndex=(current -1)*items;
   const endIndex=startIndex+items;
   const DataPerPage=produitShope.slice(startIndex,endIndex)
-  function handlePagination (event,page) {
+  function handlePagination (page) {
     setCurrent(page)
   }
   

@@ -98,6 +98,21 @@ font-size: 32px;
 line-height: 48px;
 color: #222222;
 }
+th {
+    text-align: left;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #7E7E7E;
+    border-top: #F7F7F7 solid 1px;
+    height: 56px;
+}
+td {
+    height: 60px;
+    border-top: #F7F7F7 solid 2px;
+}
 .box-int{
     width: auto;
 height: auto;

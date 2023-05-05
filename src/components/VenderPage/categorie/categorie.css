@@ -1,8 +1,8 @@
 .header-page-categorie{
     display: flex;
     flex-direction: row;
-    
 
+    
 }
 .header-page-categorie .title-page-categorie{
 font-family: 'Inter';
@@ -132,7 +132,15 @@ gap: 1em;
 display: flex;
 justify-content: end;
 }
-
+.pagination1-listev{
+    display: flex;
+flex-direction: row;
+gap: 1em;
+}
+.page-listev{
+    display: flex;
+    justify-content: center;
+}
 .box1-categorie{
 box-sizing: border-box;
 width: 1047px;
@@ -141,6 +149,7 @@ background: #FFFFFF;
 border: 1px solid #EEEDF2;
 border-radius: 8px;
 margin: 28px 0 0 30px;
+padding-bottom: 2%;
 }
 .header-box1{
     display: flex;

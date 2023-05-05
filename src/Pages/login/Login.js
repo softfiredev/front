@@ -47,7 +47,7 @@ const [profile, setProfile] = useState();
         }
         dispatch(Loginuser(data)).then(response => {
         
-          if(response.payload!==undefined)
+          try
           {
             if (response.payload.message === "success") {
               globalState.loding=false
@@ -60,11 +60,10 @@ const [profile, setProfile] = useState();
               toast.error("active votre compte Svp !!",)
        
               globalState.loding=false
-            }
-         
-           
-          }else{
-            toast.error("your email is not excited !!",)
+            }         
+          }
+          catch(error){
+            toast.error(" your email is not excited or password is not correct !!",)
             globalState.loding=false
           }
 

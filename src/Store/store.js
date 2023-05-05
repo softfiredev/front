@@ -11,7 +11,6 @@ import SlicegetInfoLibrairie from './librairieApi/SlicegetInfoLibrairie';
 import SliceAllProduitBylibrairie from './librairieApi/SliceAllProduitBylibrairie';
 import SliceProduitDetailLibrairie from './librairieApi/SliceProduitDetailLibrairie';
 import SliceAllavisProduitDetail from './librairieApi/SliceAllavisProduitDetail';
-import SliceFilter from './librairieApi/filter/SliceFilter'
 import SlicePanier  from './panier/panierSlice';
 import SliceCommande  from './panier/commandeSlice';
 import AjouteCommandeSlice from './commande/AjouteCommandeSlice';
@@ -28,7 +27,7 @@ const rootReducer = combineReducers({
     AllProduitBylibrairie:SliceAllProduitBylibrairie,
     ProduitDetailLibrairie:SliceProduitDetailLibrairie,
     AllAvisProduitDeatil:SliceAllavisProduitDetail,
-    Filter:SliceFilter,
+  
     Panier:SlicePanier,
     Commande:SliceCommande,
     AjouteCommande:AjouteCommandeSlice

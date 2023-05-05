@@ -15,7 +15,6 @@ import {
 } from "iconsax-react";
 
 import "./vender.css";
-import Categorie from "../../components/VenderPage/categorie/categorie";
 import { Link, Outlet } from "react-router-dom";
 
 const Vender = () => {
@@ -74,7 +73,7 @@ const Vender = () => {
     setLinkStyle(true);
     setLinkId(id);
   };
-  console.log();
+
   return (
     <div className="categoriePage">
       <div className="side-bar">

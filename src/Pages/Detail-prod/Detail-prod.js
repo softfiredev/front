@@ -27,6 +27,7 @@ import { useParams } from "react-router-dom";
 import { getAllAvisProduitDeatil } from "../../Store/Service/AllavisProduitDetail";
 import { toast } from "react-toastify";
 import { AjouteAvis } from './../../Store/Service/AjouteAvis';
+import Avatar from '@mui/material/Avatar';
 
 const Detailprod = (props) => {
   const prod = [
@@ -76,7 +77,28 @@ const Detailprod = (props) => {
 
     p: 4,
   };
+  const produitDetail = useSelector(
+    (state) => state.ProduitDetailLibrairie.detailProd
+  );
+  const avisProduitDtail = useSelector(
+    (state) => state.AllAvisProduitDeatil.avisDetailProd
+  );
+  const succesAvis = useSelector(
+    (state) => state.AllAvisProduitDeatil.status
+  );
 
+const items =4;
+const [current,setCurrent]=useState(1)
+const NbPage=Math.ceil(avisProduitDtail.length/items);
+const startIndex=(current -1)*items;
+const endIndex=startIndex+items;
+const DataPerPage=avisProduitDtail.slice(startIndex,endIndex)
+function handlePagination (event,page) {
+
+    setCurrent(page)
+
+  }
+  
   const [value, setValue] = useState(0);
   const[avisText,setavisText] = useState("")
   const [imgclick, setimgclick] = useState("");
@@ -87,15 +109,7 @@ const Detailprod = (props) => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [refresh,setrefresh]=useState()
-  const produitDetail = useSelector(
-    (state) => state.ProduitDetailLibrairie.detailProd
-  );
-  const avisProduitDtail = useSelector(
-    (state) => state.AllAvisProduitDeatil.avisDetailProd
-  );
-  const succesAvis = useSelector(
-    (state) => state.AllAvisProduitDeatil.status
-  );
+
   useEffect(() => {
     dispatch(getProduitDetail(id));
     dispatch(getAllAvisProduitDeatil(id));
@@ -111,6 +125,7 @@ const Detailprod = (props) => {
       <p className="txtlink"> {produitDetail.titre}</p>
     </Typography>,
   ];
+
   const imagesProduit = produitDetail.imagelibrairies;
   const addAvis=()=>{
     if(props.user.auth){
@@ -416,38 +431,38 @@ const Detailprod = (props) => {
                 </div>
               </div>
 
-              {succesAvis=="success" && avisProduitDtail?.map((obj, key) => (
+              {succesAvis=="success" && DataPerPage?.map((obj, key) => (
                 <div className="coll4-detail" key={key}>
                   <div className="row6-detail">
                     <div>
-                      <img
-                        src={
-                          "http://127.0.0.1:8080/uploads/" +
-                          obj.client.user?.avatar
-                        }
-                        style={{ height: "18px", width: "18px" ,borderRadius:"23px" }}
-                      />
+                    <Stack direction="row" spacing={2}>
+                      <Avatar    style={{ height: "18px", width: "18px" }}  src={"http://127.0.0.1:8080/uploads/" + obj.client.user?.avatar} />
+                      </Stack>
                     </div>
                     <div className="fullnameAvis">{obj.client.user.fullname} </div>
                   </div>
-                  <div>
-                    <Rating name="read-only" value={obj.nbStart} readOnly />
-                  </div>
+                  <div className="stars-detail">
+                    <div> <Rating name="read-only" value={obj.nbStart} readOnly /> </div>
+                    <div> <p className="txt70-detail">Déposé le 19/07/2022</p></div>
+
+                    </div>
                   <div className="txt60-detail">{obj.commenter}</div>
                 </div>
               ))}
 
               <div className="pagination-detail">
                 <Pagination
-                  count={16}
+                  count={NbPage}
                   shape="rounded"
                   className="pagination-shop"
+                  page={current}
+                  onChange={handlePagination}
                 />
               </div>
             </div>
           </div>
         </div>
-
+<div className="espas-detail"></div>
         <div>
           <div className="col303-detail">
             <div className="txt202-detail">Découvrez aussi</div>

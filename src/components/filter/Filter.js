@@ -5,8 +5,6 @@ import { OutlinedInput } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import PrettoSlider from "@mui/material/Slider";
 import { Candle2 } from "iconsax-react";
-import { useDispatch } from 'react-redux';
-import { filter } from './../../Store/librairieApi/filter/SliceFilter';
 
 const Filter = ({onData,prod}) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,7 +14,6 @@ const Filter = ({onData,prod}) => {
   const [color3, setcolor3] = useState("#FFFFFF");
   const [color4, setcolor4] = useState("#FFFFFF");
   const checkboxValues = ['Scolaire','Para-scolaires', 'Outils informatiques','Divers','Jeux educatifs','Pack promo'];
- 
 
   const handleChangee = (event) => {
     const searchTerm = event.target.value;

@@ -88,7 +88,6 @@ function App() {
   const refreshToken=  LoginServiceData.isLogin === true && googleServiceData.isLogin === false ? LoginServiceData.accessToken:googleServiceData.accessToken
   if(accessToken.length!=0){
     var decoded = jwt_decode(accessToken);
-    console.log(decoded)
 
   }
   const user = {
@@ -100,7 +99,7 @@ function App() {
     fullname:decoded?.fullname,
     role:decoded?.role
   };
-  console.log("user",user)
+
  
   
   return (

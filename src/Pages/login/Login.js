@@ -48,6 +48,7 @@ const [profile, setProfile] = useState();
         dispatch(Loginuser(data)).then(response => {
           if (response.payload.message === "success") {
             globalState.loding=false
+          
           }
           if (response.payload.message === 'password is not correct') {
             toast.error("le mot de passe n'est pas correct !!")
@@ -58,10 +59,10 @@ const [profile, setProfile] = useState();
      
             globalState.loding=false
           }
-          if (response.payload.message === "email is not correct") {
+          if (response.payload.err === "email is not correct") {
                        toast.error("active votre compte Svp !!",)
-
-            globalState.loding=false
+                       console.log(response.payload.err)
+    
           }
 
         })

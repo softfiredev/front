@@ -10,8 +10,7 @@ import {
 } from "iconsax-react";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../../components/NavBar/NavBar";
-import Footer from "../../components/footer/Footer";
+
 const Profilee = () => {
   const [name, setname] = useState("page1");
   const [bnt1, setbnt1] = useState("bnt-pro");
@@ -71,6 +70,12 @@ const Profilee = () => {
       navigate("/profile/MesPoints");
     }
   };
+  const Logout=()=>{
+    localStorage.removeItem("persist:root");
+   
+    navigate("/login");
+
+  }
   return (
     <>
    
@@ -149,7 +154,7 @@ const Profilee = () => {
               </div>
               <div>
                 
-                <button className={bnt5}>
+                <button className={bnt5} onClick={Logout}>
                   <div className="row1-profile">
                     <LogoutCurve size="20" />
                     <div className="txt-icon">Déconnection</div>

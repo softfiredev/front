@@ -171,9 +171,9 @@ const changeIdentite=()=>{
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Date de naissance</div>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker className="input-pro" defaultValue={dayjs(clientData?.Date_de_naissance)} onChange={(e)=>{setDate_de_naissance(e)}}/>
-            </LocalizationProvider>
+         
+              <input type="date" className="input-pro" defaultValue={clientData?.Date_de_naissance} onChange={(e)=>{setDate_de_naissance(e)}}/>
+
           </div>
           {open1?
           <div className="rowbnt-page0321" onClick={handleinfo}>

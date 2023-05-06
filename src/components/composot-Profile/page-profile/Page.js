@@ -115,13 +115,14 @@ const changeIdentite=()=>{
    data.append("fullname",fullname)
    data.append("email",email)
     modifierIdentiteClient(props.user.id,data).then((response)=>{
-      console.log("res",response) 
-      setrefreshpage(true)
-      console.log(data.get("Date_de_naissance"),"data test")
+      if(response.success===true){
+          toast.success("votre identite  modifier avec success")
+          console.log(data.get('telephone'))
+      }
     })
     setrefreshpage(false)
 }
-
+console.log(telephone)
  return (
     <div>
       <div className="carts2">
@@ -130,7 +131,7 @@ const changeIdentite=()=>{
           <div>
             <div className="rowbnt-page">
               <div className="avatar-container">
-                <img src={clientData.avatar?.length===0?Avtr:"http://127.0.0.1:8080/uploads/"+clientData.avatar} className="avrt-page" />
+                <img src={clientData?.avatar?.length===0?Avtr:"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-page" />
                 <div className="icon-container" >
                 <label htmlFor="file-input" className="labelup">
                   <ExportCurve
@@ -158,20 +159,20 @@ const changeIdentite=()=>{
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Nom et Prénom</div>
-            <OutlinedInput className="input-pro" defaultValue={clientData.fullname} onChange={(e)=>{setfullname( e.target.value)}}/>
+            <OutlinedInput className="input-pro" defaultValue={clientData?.fullname} onChange={(e)=>{setfullname( e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Email</div>
-            <OutlinedInput className="input-pro" defaultValue={clientData.email} onChange={(e)=>{setemail( e.target.value)}}/>
+            <OutlinedInput className="input-pro" defaultValue={clientData?.email} onChange={(e)=>{setemail( e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Numéro de téléphone</div>
-            <OutlinedInput className="input-pro" defaultValue={clientData.telephone} onChange={(e)=>{settelephone( e.target.value)}}/>
+            <OutlinedInput className="input-pro" defaultValue={clientData?.telephone} onChange={(e)=>{settelephone(e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Date de naissance</div>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker className="input-pro" defaultValue={dayjs(clientData.Date_de_naissance)} onChange={(e)=>{setDate_de_naissance(e)}}/>
+              <DatePicker className="input-pro" defaultValue={dayjs(clientData?.Date_de_naissance)} onChange={(e)=>{setDate_de_naissance(e)}}/>
             </LocalizationProvider>
           </div>
           {open1?
@@ -258,9 +259,9 @@ const changeIdentite=()=>{
              
         
 
-              <div className={addresses.length!=0 ?"col-page012":"box-hed"}>
+              <div className={addresses?.length!=0 ?"col-page012":"box-hed"}>
             
-              {addresses.map((obj) => (
+              {addresses?.map((obj) => (
           <>
             <div className="txt201-page">. {obj.Nom_de_adresse}</div>
             <div className="row-page032">

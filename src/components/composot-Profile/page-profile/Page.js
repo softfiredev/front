@@ -97,6 +97,7 @@ const dispatch=useDispatch()
 const clientData = useSelector(
   (state) => state.IdentiteClient.identiteClient
 );
+console.log(clientData)
 const [fullname,setfullname]=useState()
 const [email,setemail]=useState()
 const [telephone,settelephone]=useState()
@@ -105,7 +106,7 @@ const [avatar,setavatar]=useState()
 const [refreshpage,setrefreshpage]=useState()
 useEffect(() => {
   dispatch(getIdentiteClientt(props.user.id));
-},[refreshpage]);
+},[]);
 const addresses=clientData?.client?.adresses
 const changeIdentite=()=>{
    const data= new FormData() ; 
@@ -122,7 +123,6 @@ const changeIdentite=()=>{
     })
     setrefreshpage(false)
 }
-console.log(telephone)
  return (
     <div>
       <div className="carts2">
@@ -159,15 +159,15 @@ console.log(telephone)
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Nom et Prénom</div>
-            <OutlinedInput className="input-pro" defaultValue={clientData?.fullname} onChange={(e)=>{setfullname( e.target.value)}}/>
+            <input type="text" className="input-pro" defaultValue={clientData?.fullname} onChange={(e)=>{setfullname( e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Email</div>
-            <OutlinedInput className="input-pro" defaultValue={clientData?.email} onChange={(e)=>{setemail( e.target.value)}}/>
+            <input type="text" className="input-pro" defaultValue={clientData?.email} onChange={(e)=>{setemail( e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Numéro de téléphone</div>
-            <OutlinedInput className="input-pro" defaultValue={clientData?.telephone} onChange={(e)=>{settelephone(e.target.value)}}/>
+            <input type="text" className="input-pro" defaultValue={clientData?.telephone} onChange={(e)=>{settelephone(e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Date de naissance</div>

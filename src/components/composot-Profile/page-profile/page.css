@@ -319,8 +319,14 @@ border: none;
     width: 400px;
 height: 48px;
 background: #FFFFFF;
-border:none;
-border-radius: 8px;
+border: 1px solid #E1E1E1;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #222222;
 }
 .col1-page1{
     flex-direction: column;

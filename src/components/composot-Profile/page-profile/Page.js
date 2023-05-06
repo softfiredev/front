@@ -106,7 +106,7 @@ const [avatar,setavatar]=useState()
 const [refreshpage,setrefreshpage]=useState()
 useEffect(() => {
   dispatch(getIdentiteClientt(props.user.id));
-},[]);
+},[refreshpage]);
 const addresses=clientData?.client?.adresses
 const changeIdentite=()=>{
    const data= new FormData() ; 

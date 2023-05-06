@@ -131,7 +131,7 @@ console.log(telephone)
           <div>
             <div className="rowbnt-page">
               <div className="avatar-container">
-                <img src={clientData?.avatar?.length===0?Avtr:"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-page" />
+                <img src={clientData?.avatar===undefined?Avtr:"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-page" />
                 <div className="icon-container" >
                 <label htmlFor="file-input" className="labelup">
                   <ExportCurve

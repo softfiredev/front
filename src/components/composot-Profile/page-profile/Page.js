@@ -6,7 +6,7 @@ import { RefreshSquare, AddCircle, ExportCurve } from "iconsax-react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Avatar from '@mui/material/Avatar';
+import Avtr from "../../../assets/avtclient.png";
 import Box from "@mui/material/Box";
 import MenuItem from '@mui/material/MenuItem';
 import ListSubheader from '@mui/material/ListSubheader';
@@ -96,7 +96,7 @@ const passwordchange=()=>{
           <div>
             <div className="rowbnt-page">
               <div className="avatar-container">
-              <Avatar style={{ height: "150px", width: "150px" }}  src={"http://127.0.0.1:8080/uploads/" } />
+                <img src={Avtr} className="avrt-page" />
                 <div className="icon-container" onClick={uplode}>
                 <label htmlFor="file-input" className="labelup">
                   <ExportCurve

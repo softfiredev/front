@@ -13,7 +13,9 @@ import ListSubheader from '@mui/material/ListSubheader';
 import Select from '@mui/material/Select';
 import Modal from "@mui/material/Modal";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
-const Page = () => {
+import { changePassword } from './../../../Store/Service/changePassword';
+import { toast } from "react-toastify";
+const Page = (props) => {
   const style = {
     position: "absolute",
     top: "50%",
@@ -64,6 +66,27 @@ const [opencoll, setopencoll] = React.useState(false);
  }
 const handleinfo=()=>{
   setOpen1(false)
+}
+const passwordchange=()=>{
+  if(newPassword!==undefined && actuelPassword!==undefined){
+    const data={
+      newPassword : newPassword ,
+      ActuelPassword :actuelPassword
+    }
+    changePassword(data,props.user.id).then((response)=>{
+      console.log("azeazeaze",response)
+        if(response.success===true){
+            toast.success(" Mot de passe changer")
+        }else{
+            toast.error("verifie votre actuel password")
+        }
+    })
+  }else{
+    toast.error(" Mot de passe actuel ou Nouveau mot de passe vide  ")
+  }
+    
+    setopenchangePassword(false)
+    
 }
  return (
     <div>
@@ -186,7 +209,7 @@ const handleinfo=()=>{
                 <button onClick={handleCloseChanegPassword} className="bnt3-page">
                   <p className="txtbnt3-page">Annuler</p>
                 </button>
-                <button onClick={handleCloseChanegPassword} className="bnt4-page">
+                <button onClick={passwordchange} className="bnt4-page">
                   <p className="txtbnt4-page">Valider</p>
                 </button>
               </div>

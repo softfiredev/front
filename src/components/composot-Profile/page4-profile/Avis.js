@@ -1,21 +1,38 @@
 import React from "react";
 import "./Avis.css";
 import { OutlinedInput } from "@mui/material";
-import Rating from "@mui/material/Rating";
 import { More, ArrowCircleRight2, Edit, Trash } from "iconsax-react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import img1 from "../../../assets/prod2.png";
-
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
+import Modal from "@mui/material/Modal";
 const Avis = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const [op, setop] = React.useState(false);
+  const [op2, setop2] = React.useState(false);
+
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleClicke=()=>{
+    setop(true)
+  }
+  const handleClos = () => {
+    setop(false);
+    setAnchorEl(null);
+  };
+  const handleClos2 = () => {
+    setop2(false);
+    setAnchorEl(null);
+  };
+
   const tabcomo = [
     {
       id: "#107570194",
@@ -103,6 +120,30 @@ const Avis = () => {
         "Enfin un lot qui correspond à la consomnation des enfants Variété, qualité, tout est là.",
     },
   ];
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    background: "#FFFFFF",
+    width: "544px",
+    height: "563px",
+    boxShadow: "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
+    borderRadius: "8px",
+    p: 4,
+  };
+  const stylee = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    background: "#FFFFFF",
+    width: "544px",
+    height: "284px",
+    boxShadow: "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
+    borderRadius: "8px",
+    p: 4,
+  };
   return (
     <div className="avis">
   
@@ -168,28 +209,106 @@ const Avis = () => {
               }}
             >
               <MenuItem className="menuitem-avis" onClick={handleClose}>
-                <ArrowCircleRight2 size="22" color="#222222" />{" "}
+                <ArrowCircleRight2 size="22" color="#222222" />
                 <span>
                   <p className="txtmenu-avis">Aller au produit</p>
-                </span>{" "}
+                </span>
               </MenuItem>
-              <MenuItem className="menuitem-avis" onClick={handleClose}>
+              <MenuItem className="menuitem-avis" onClick={handleClicke}>
                 <Edit size="22" color="#222222" />
                 <span>
                   <p className="txtmenu-avis">Modifier</p>
-                </span>{" "}
+                </span>
               </MenuItem>
-              <MenuItem className="menuitem-avis" onClick={handleClose}>
+              <MenuItem className="menuitem-avis" onClick={()=>{setop2(true)}}>
                 <Trash size="22" color="#222222" />
                 <span>
                   <p className="txtmenu-avis">Supprimer</p>
-                </span>{" "}
+                </span>
               </MenuItem>
             </Menu>
           </table>
         </div>
       </div>
+  <Modal
+                    open={op}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                    onClose={handleClos}
+                  >
+                    <Box sx={style}>
+                    <div className='container-modal'>
+                    <div className="flex-end">
+                          {" "}
+                          <div>
+                            {" "}
+                            <i class="fa fa-close" onClick={handleClos}></i>
+                          </div>
+                        </div>
 
+                    <div><h2 style={{textAlign:"center"}}>Modifier votre avis</h2></div>
+                  <div className="boxavis-pro">
+                <div>
+                      
+                <Rating
+                            className="reting1"
+                            value="2"
+                           style={{fontSize:"4.5em"}}
+                          />
+                </div>
+                <div>
+               <p className="txtmodalavis-pro2"> Commentaire:</p>
+                </div>
+                <div>
+               <p className="txtmodalavis-pro">Vos cours où que vous alliez. Grâce à ce carnet, vous pourrez conserver vos leçons en toute situation grâce au QR code qui apparaît sur chaque page, il vous permettra de sauvegarder n'importe quelle leçon.</p>
+                </div>
+                <div className="minirow-page4">
+                <button onClick={handleClos} className="bnt3-page">
+                  <p className="txtbnt3-page">Annuler</p>
+                </button>
+                <button className="bnt4-page">
+                  <p className="txtbnt4-page">Confirmer</p>
+                </button>
+              </div>
+                    </div>
+
+                    </div>
+                  
+                    </Box>
+                  </Modal>
+                  <Modal
+                    open={op2}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                    onClose={handleClos}
+                  >
+                    <Box sx={stylee}>
+                    <div className='container-modal'>
+                    <div className="flex-end">
+                          {" "}
+                          <div>
+                            {" "}
+                            <i class="fa fa-close" onClick={handleClos2}></i>
+                          </div>
+                        </div>
+<br/>
+                    <div><p className="txtmodal2-page4">Etes-vous sûr de vouloir supprimer cette avis?</p></div>
+ 
+                
+                <div className="minirow2-page4">
+                <button onClick={handleClos2} className="bnt3-page">
+                  <p className="txtbnt3-page4">Annuler</p>
+                </button>
+                <button className="bnt40-page4">
+                  <p className="txtbnt40-page">Supprimer</p>
+                </button>
+              </div>
+                    </div>
+
+         
+                  
+                    </Box>
+                  </Modal>
     </div>
   );
 };

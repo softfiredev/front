@@ -16,5 +16,6 @@ export const Path ={
     addproduitfavorie:"produitFavorie/add",
     getAllproduitBycategorie:"produitLabrairie/findProduitsBycategorie/",
     addSignale:"signalerProduitlibraire/add",
-    changePassword:"user/updatePassword/"
+    changePassword:"user/updatePassword/",
+    identiteClient:"client/findOne/",
 }

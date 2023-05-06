@@ -15,5 +15,6 @@ export const Path ={
     addAvis:"avisProduitlibraire/add",
     addproduitfavorie:"produitFavorie/add",
     getAllproduitBycategorie:"produitLabrairie/findProduitsBycategorie/",
-    addSignale:"signalerProduitlibraire/add"
+    addSignale:"signalerProduitlibraire/add",
+    changePassword:"user/updatePassword/"
 }

@@ -12,7 +12,6 @@ import MenuItem from '@mui/material/MenuItem';
 import ListSubheader from '@mui/material/ListSubheader';
 import Select from '@mui/material/Select';
 import Modal from "@mui/material/Modal";
-
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 const Page = () => {
   const style = {
@@ -32,7 +31,9 @@ const Page = () => {
   const [open, setOpen] = React.useState(false);
   const [titre, settitre] = React.useState("");
   const [open1, setOpen1] = React.useState(true);
-
+  const [newPassword,setnewPassword]=useState()
+  const [actuelPassword,setactuelPassword]=useState()
+  console.log("new",newPassword,"actuel",actuelPassword)
   const handleClose = () => setOpen(false);
 const[openchangePassword,setopenchangePassword]=useState(false)
 const [opencoll, setopencoll] = React.useState(false);
@@ -149,6 +150,7 @@ const handleinfo=()=>{
             className="input-password"
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
+            onChange={(e)=>setactuelPassword(e.target.value)}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -166,6 +168,7 @@ const handleinfo=()=>{
             className="input-password"
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
+            onChange={(e)=>setnewPassword(e.target.value)}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton

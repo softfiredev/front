@@ -124,11 +124,11 @@ function App() {
               element={<LibrairieProfile />}
             />
             <Route path="/Profile" element={<Profile />}>
-              <Route path="/Profile/Monidentité" element={<Page1_profile />} />
-              <Route path="/Profile/Favoris" element={<Page2_profile />} />
-              <Route path="/Profile/Commandes" element={<Commandes />} />
-              <Route path="/Profile/Avis" element={<Avis />} />
-              <Route path="/Profile/MesPoints" element={<Points />}>
+              <Route path="/Profile/Monidentité" element={<Page1_profile user={user}/>} />
+              <Route path="/Profile/Favoris" element={<Page2_profile user={user} />} />
+              <Route path="/Profile/Commandes" element={<Commandes user={user} />} />
+              <Route path="/Profile/Avis" element={<Avis user={user}/>} />
+              <Route path="/Profile/MesPoints" element={<Points user={user} />}>
                 <Route
                   path="/Profile/MesPoints/Bondachats"
                   element={<Dachats />}

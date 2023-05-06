@@ -9,7 +9,7 @@ const Footer = () => {
     <div className='footer'>
     <section className="ft-main">
       <div className="ft-main-item">
-        <div className="ft-logo"><Link to="#"><img src={Imge} alt="logo"/></Link></div><div className='es'></div>
+        <div className="ft-logo"><Link to="#"><img src={Imge} alt="logoo"/></Link></div><div className='es'></div>
         <p className='text1'>
         Maktaba.tn est une plateforme de commerce 
         électronique innovante reliant les réseaux de

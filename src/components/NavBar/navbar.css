@@ -35,6 +35,9 @@ color: #222222;
 	background: #E9B949;
 
 }
+.avrt-pagenave{
+	margin-top: 1%;
+}
 .iconcolor{
 	margin-top: 50px;
 	color: #FFFFFF;
@@ -167,12 +170,7 @@ border-radius: 8px;
 }
 .section_user{
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	margin-right: 85px;
-	margin-top: 35px;
-
-
+	margin-top: 29px;
 }
 .section_user-none{
 	display: none;

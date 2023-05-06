@@ -96,10 +96,11 @@ function App() {
         ? LoginServiceData.isLogin
         : googleServiceData.isLogin,
     fullname:decoded?.fullname,
-    role:decoded?.role
+    role:decoded?.role,
+    avatar:decoded?.avatar
   };
   
-  
+ 
   
 
  

@@ -19,7 +19,6 @@ import { toast } from "react-toastify";
 import { add } from "../../Store/panier/panierSlice";
 import { AjouteProduitFavorie } from "../../Store/Service/AjouteProduitFavorie";
 import { AjouteSignale } from "../../Store/Service/AjouteSignale";
-import axios from "axios";
 const Description = (props) => {
   const [fullname,setFullname]=useState()
   const [email,setemail]=useState()

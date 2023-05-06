@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./page.css";
 import dayjs from 'dayjs';
 import { IconButton, InputAdornment, OutlinedInput } from "@mui/material";
@@ -6,7 +6,7 @@ import { RefreshSquare, AddCircle, ExportCurve } from "iconsax-react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Avtr from "../../../assets/avtclient.png";
+import Avatar from '@mui/material/Avatar';
 import Box from "@mui/material/Box";
 import MenuItem from '@mui/material/MenuItem';
 import ListSubheader from '@mui/material/ListSubheader';
@@ -15,10 +15,6 @@ import Modal from "@mui/material/Modal";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { changePassword } from './../../../Store/Service/changePassword';
 import { toast } from "react-toastify";
-import { useDispatch, useSelector } from "react-redux";
-import { getIdentiteClientt } from "../../../Store/Service/identiteClient";
-import { modifierIdentiteClient } from "../../../Store/Service/ModifieIdentite";
-import axios from "axios";
 const Page = (props) => {
   const style = {
     position: "absolute",
@@ -45,7 +41,6 @@ const[openchangePassword,setopenchangePassword]=useState(false)
 const [opencoll, setopencoll] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
- 
   const handleOpenChanegPassword=()=>{
     setopenchangePassword(true)
   }
@@ -56,6 +51,7 @@ const [opencoll, setopencoll] = React.useState(false);
   settitre("Ajout d'une nouvelle adresse")
   setopencoll(true)
  }
+ 
  const changestyle2=()=>{
   setopencoll(false)
  }
@@ -64,13 +60,12 @@ const [opencoll, setopencoll] = React.useState(false);
   setopencoll(true)
 
  }
+ const addr=[{nom:"119 Rue Wanes Chbil",adr:"71 Rue Galboun Ibn Al Hassen",Gouvernorat:"bembla",Ville:"bembla",Codepostal:"5200"}]
+ const client=[{nom:"seifbenaicha",email:"seifbenaica@ggg.ddd",num:"54522021",date:1/1/2000}]
+ const uplode=()=>{
+ }
 const handleinfo=()=>{
   setOpen1(false)
-  setfullname(clientData.fullname);
-  setemail(clientData.email);
-  settelephone(clientData.telephone);
-  setDate_de_naissance(clientData.Date_de_naissance)
-  setavatar(clientData.avatar)
 }
 const passwordchange=()=>{
   if(newPassword!==undefined && actuelPassword!==undefined){
@@ -93,36 +88,6 @@ const passwordchange=()=>{
     setopenchangePassword(false)
     
 }
-const dispatch=useDispatch()
-const clientData = useSelector(
-  (state) => state.IdentiteClient.identiteClient
-);
-const [fullname,setfullname]=useState()
-const [email,setemail]=useState()
-const [telephone,settelephone]=useState()
-const [Date_de_naissance,setDate_de_naissance]=useState()
-const [avatar,setavatar]=useState()
-const [refreshpage,setrefreshpage]=useState()
-useEffect(() => {
-  dispatch(getIdentiteClientt(props.user.id));
-},[refreshpage]);
-const addresses=clientData?.client?.adresses
-const changeIdentite=()=>{
-   const data= new FormData() ; 
-   data.append("Date_de_naissance",Date_de_naissance)
-   data.append("image",avatar)
-   data.append("telephone",telephone)
-   data.append("fullname",fullname)
-   data.append("email",email)
-    modifierIdentiteClient(props.user.id,data).then((response)=>{
-      if(response.success===true){
-          toast.success("votre identite  modifier avec success")
-          console.log(data.get('telephone'))
-      }
-    })
-    setrefreshpage(false)
-}
-console.log(telephone)
  return (
     <div>
       <div className="carts2">
@@ -131,10 +96,11 @@ console.log(telephone)
           <div>
             <div className="rowbnt-page">
               <div className="avatar-container">
-                <img src={clientData?.avatar===undefined?Avtr:"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-page" />
-                <div className="icon-container" >
+              <Avatar style={{ height: "150px", width: "150px" }}  src={"http://127.0.0.1:8080/uploads/" } />
+                <div className="icon-container" onClick={uplode}>
                 <label htmlFor="file-input" className="labelup">
                   <ExportCurve
+          
                     size="22"
                     color="#101010"
                     style={{
@@ -144,7 +110,7 @@ console.log(telephone)
                     }}
                   />
                   </label>
-                      <input type="file" className="uplod" id="file-input"accept=".jpg,.png" onChange={(e)=>setavatar(e.target.files[0])}/>
+                      <input type="file" className="uplod" id="file-input"accept=".jpg,.png"/>
                 </div>
               </div>
               <div className="col00-page1">
@@ -159,20 +125,20 @@ console.log(telephone)
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Nom et Prénom</div>
-            <OutlinedInput className="input-pro" defaultValue={clientData?.fullname} onChange={(e)=>{setfullname( e.target.value)}}/>
+            <OutlinedInput className="input-pro" value={client[0].nom}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Email</div>
-            <OutlinedInput className="input-pro" defaultValue={clientData?.email} onChange={(e)=>{setemail( e.target.value)}}/>
+            <OutlinedInput className="input-pro" value={client[0].email}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Numéro de téléphone</div>
-            <OutlinedInput className="input-pro" defaultValue={clientData?.telephone} onChange={(e)=>{settelephone(e.target.value)}}/>
+            <OutlinedInput className="input-pro" value={client[0].num}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Date de naissance</div>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker className="input-pro" defaultValue={dayjs(clientData?.Date_de_naissance)} onChange={(e)=>{setDate_de_naissance(e)}}/>
+              <DatePicker className="input-pro" defaultValue={dayjs(client[0].date)} />
             </LocalizationProvider>
           </div>
           {open1?
@@ -186,7 +152,7 @@ console.log(telephone)
             <p className="txtbnt3-page">Annuler</p>
           </button>
           <button  className="bnt4-page">
-            <p className="txtbnt4-page" onClick={changeIdentite}>Valider</p>
+            <p className="txtbnt4-page">Valider</p>
           </button>
         </div>
           }
@@ -259,22 +225,38 @@ console.log(telephone)
              
         
 
-              <div className={addresses?.length!=0 ?"col-page012":"box-hed"}>
-            
-              {addresses?.map((obj) => (
+              <div className={addr.length!=0 ?"col-page012":"box-hed"}>
+            <div className="txt201-page">. Maison</div>
+              {addr.map((obj) => (
           <>
-            <div className="txt201-page">. {obj.Nom_de_adresse}</div>
             <div className="row-page032">
-            <div>{obj.Adresse},</div>
-          <div>{obj.Gouvernorat},</div>
+            <div>{obj.nom},</div>
           <div>{obj.Ville},</div>
-          <div>{obj.Code_postal}</div>
+          <div>{obj.Gouvernorat},</div>
+          <div>{obj.Codepostal}</div>
             </div>
            
           </>
         ))}
        <div className="row-page"> <div className="txt200-page" onClick={openblock}>Modifier</div> <div className="txt200-page" onClick={()=>{setOpen(true)}}>Supprimer</div></div>
          </div>   
+              
+         <div className={ addr.length!=0 ?"col-page012":"box-hed"}>
+            <div className="txt201-page">. Lieu de travail</div>
+              {addr.map((obj) => (
+          <>
+            <div className="row-page032">
+            <div>{obj.nom},</div>
+          <div>{obj.Ville},</div>
+          <div>{obj.Gouvernorat},</div>
+          <div>{obj.Codepostal}</div>
+            </div>
+           
+          </>
+        ))}
+       <div className="row-page"> <div className="txt200-page" onClick={openblock}>Modifier</div> <div className="txt200-page" onClick={()=>{setOpen(true)}}>Supprimer</div></div>
+         </div>
+
          <div onClick={changestyle}>
               <div className={opencoll ?"box-hed":"rowbnt-page"}>
                 <AddCircle size="22" color="#E9B949" variant="Bold" />
@@ -330,14 +312,14 @@ commandes passées ou en cours.</p></div><br/>
                 <div>
                   <p>Nom de l’adresse</p>
                 </div>
-                <OutlinedInput className="input-pro" value={0}/>
+                <OutlinedInput className="input-pro" value={addr[0].nom}/>
                 <div></div>
               </div>
               <div className="minicol-page">
                 <div>
                   <p>Adresse</p>
                 </div>
-                <OutlinedInput className="input-pro" value={0} />
+                <OutlinedInput className="input-pro" value={addr[0].adr} />
                 <div></div>
               </div>
               <div className="minicol-page">
@@ -346,7 +328,7 @@ commandes passées ou en cours.</p></div><br/>
                 </div>
                  <Select className='txt-select-page' defaultValue="Par pertinence" style={{ width: "400px", height: " 48px", borderRadius: "8px" }} >
                     <MenuItem value="Par pertinence">
-                        <em className='txt-select-page'>{0}</em>
+                        <em className='txt-select-page'>{addr[0].Gouvernorat}</em>
                     </MenuItem>
                   
                     <MenuItem value={1} className='txt-select-page'>Meilleurs ventes</MenuItem>
@@ -359,14 +341,14 @@ commandes passées ou en cours.</p></div><br/>
                 <div>
                   <p>Ville</p>
                 </div>
-                <OutlinedInput className="input-pro" value={0}/>
+                <OutlinedInput className="input-pro" value={addr[0].Ville}/>
                 <div></div>
               </div>
               <div className="minicol-page">
                 <div>
                   <p>Code postal</p>
                 </div>
-                <OutlinedInput className="input-pro" value={0}/>
+                <OutlinedInput className="input-pro" value={addr[0].Codepostal}/>
                 <div></div>
               </div>
 

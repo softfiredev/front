@@ -37,7 +37,6 @@ const Page = (props) => {
   const [open1, setOpen1] = React.useState(true);
   const [newPassword,setnewPassword]=useState()
   const [actuelPassword,setactuelPassword]=useState()
-  console.log("new",newPassword,"actuel",actuelPassword)
   const handleClose = () => setOpen(false);
 const[openchangePassword,setopenchangePassword]=useState(false)
 const [opencoll, setopencoll] = React.useState(false);

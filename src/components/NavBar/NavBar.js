@@ -5,7 +5,12 @@ import { Link } from 'react-router-dom';
 import { ShoppingCart,ArrowDown2, ProfileCircle } from 'iconsax-react';
 import Menuicon from '../menu-icon/minu';
 import { useSelector } from 'react-redux';
+import Avatar from '@mui/material/Avatar';
+
 function NavBar(props) {
+  const clientData = useSelector(
+    (state) => state.IdentiteClient.identiteClient
+  );
   const nbprod=useSelector(state=> state.Panier.nbprod)
   return (
     <div className='nav'>
@@ -42,7 +47,7 @@ function NavBar(props) {
           <Link to="/Profile" >
           <div className={props.user.auth?"section_user":"section_user-none"}>
                   <p className='username'> {props.user.fullname}</p>
-                  <ProfileCircle size="28" color="#FFFFFF"/>
+                  <Avatar  style={{ height: "26px", width: "26px" }}  src={"http://127.0.0.1:8080/uploads/"+props.user.avatar} className="avrt-pagenave" />
           </div>
           </Link>
           

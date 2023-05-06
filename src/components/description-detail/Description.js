@@ -18,7 +18,13 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { add } from "../../Store/panier/panierSlice";
 import { AjouteProduitFavorie } from "../../Store/Service/AjouteProduitFavorie";
+import { AjouteSignale } from "../../Store/Service/AjouteSignale";
+import axios from "axios";
 const Description = (props) => {
+  const [fullname,setFullname]=useState()
+  const [email,setemail]=useState()
+  const [message,setmessage]=useState()
+  const [file,setfile]=useState()
   const [value3, setValue3] = useState(3);
   const [qnt, setqnt] = useState(1);
   const [idlab, setidlab] = useState(1);
@@ -61,15 +67,34 @@ const Description = (props) => {
         console.log(response)
         if(response.success==true){
           toast.success("Votre Article a bien été sauvegardé")
-        }else{
-          toast.error("Erreur lors de la sauvegarde")
         }
-       
       })
     }else{
       toast.warning("Veuillez vous connecter pour pouvoir sauvegardé un Article")
     }
     
+  }
+  
+  const Signaler=()=>{
+    if(file===undefined){
+      toast.error(" import une image pour signaler ce produit")
+    }
+    if(props.user.auth ){
+      const formData = new FormData();
+      formData.append('fullnameUser', fullname);
+      formData.append('email', email);
+      formData.append("message",message)
+      formData.append('image', file);
+      formData.append("produitlabrairieId",props.idl)
+     
+      AjouteSignale(formData).then((response)=>{
+        if(response.success==true){
+          toast.success("Votre Signaler bien recu")
+        }
+      })
+    }else{
+      toast.warning("Veuillez vous connecter pour pouvoir Signaler un Article")
+    }
   }
   return (
     <div className="col-detail">
@@ -196,10 +221,12 @@ const Description = (props) => {
                   <OutlinedInput
                     className="input-deat"
                     placeholder="Votre nom et prénom"
+                    onChange={(e)=>{setFullname(e.target.value)}}
                   />
                   <OutlinedInput
                     className="input-deat"
                     placeholder="Votre e-mail"
+                    onChange={(e)=>{setemail(e.target.value)}}
                   />
                   <OutlinedInput
                     className="inpu-conn2-modal"
@@ -207,6 +234,7 @@ const Description = (props) => {
                     multiline
                     rows={5}
                     maxRows={80}
+                    onChange={(e)=>{setmessage(e.target.value)}}
                   />  
                   <div>
                   <label htmlFor="file-input" className="labelup">
@@ -219,7 +247,7 @@ const Description = (props) => {
                     <div><p className="tele"> Télécharger un fichier</p></div>   
                   </div>
                   </label>
-                  <input type="file" className="uplod" id="file-input"/>
+                  <input type="file" className="uplod" id="file-input" onChange={(e)=>{setfile(e.target.files[0])}}/>
 
                   </div>
               
@@ -227,8 +255,8 @@ const Description = (props) => {
                     <button className="bnt-modala1" onClick={handleClose}>
                       <p className="txt-modalbnt1">Annuler</p>
                     </button>
-                    <button className="bnt-modala2">
-                      <p className="txt-modalbnt2">Envoyer</p>
+                    <button className="bnt-modala2" onClick={Signaler}>
+                      <p className="txt-modalbnt2" >Envoyer</p>
                     </button>
                   </div>
                 </div>

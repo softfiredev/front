@@ -31,38 +31,7 @@ import Avatar from '@mui/material/Avatar';
 import { getAllProduitByCategorie } from "../../Store/Service/AllproduitlibrairieByCategorie";
 
 const Detailprod = (props) => {
-  const prod = [
-    {
-      id: "000011110",
-      nom: "PACK LIVRE SCOLAIRE 1éME",
-      prix: "8.1dt",
-      noml: "ali Library",
-    },
-    {
-      id: "0707275211110",
-      nom: "PACK LIVRE SCOLAIRE 1 EME",
-      prix: "5.1dt",
-      noml: "ali Library",
-    },
-    {
-      id: "278200011110",
-      nom: "COMPAS AVEC CRAYON 2506 INV",
-      prix: "4.1dt",
-      noml: "Errahma Library",
-    },
-    {
-      id: "00ssds011110",
-      nom: "PACK LIVRE SCOLAIRE 1éME",
-      prix: "8.1dt",
-      noml: "Errahma Library",
-    },
-    {
-      id: "0aaa0011110",
-      nom: "PACK LIVRE SCOLAIRE 1 EME",
-      prix: "1.1dt",
-      noml: "Errahma Library",
-    },
-  ];
+ 
   const [thumbsSwiper, setThumbsSwiper] = useState();
   const style = {
     position: "absolute",
@@ -112,7 +81,6 @@ function handlePagination (event,page) {
  
   useEffect(() => {
     dispatch(getProduitDetail(id));
-   
     dispatch( getAllProduitByCategorie(produitDetail?.categorieId))
   }, []);
   useEffect(()=>{

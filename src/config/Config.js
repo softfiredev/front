@@ -1,4 +1,4 @@
-export  const Base_url="http://localhost:8080/"
+export  const Base_url="http://127.0.0.1:8080/"
 export const Path ={
     LoginApi:"user/login",
     SignupApi:"user/register",
@@ -14,5 +14,6 @@ export const Path ={
     addcommande:"commandeDetail/add",
     addAvis:"avisProduitlibraire/add",
     addproduitfavorie:"produitFavorie/add",
-    getAllproduitBycategorie:"produitLabrairie/findProduitsBycategorie/"
+    getAllproduitBycategorie:"produitLabrairie/findProduitsBycategorie/",
+    addSignale:"signalerProduitlibraire/add"
 }

@@ -76,14 +76,17 @@ const Description = (props) => {
   }
   
   const Signaler=()=>{
-   
-    if(props.user.auth){
+    if(file===undefined){
+      toast.error(" import une image pour signaler ce produit")
+    }
+    if(props.user.auth ){
       const formData = new FormData();
       formData.append('fullnameUser', fullname);
       formData.append('email', email);
       formData.append("message",message)
       formData.append('image', file);
-      formData.append("produitlabrairieId",props.user.id)
+      formData.append("produitlabrairieId",props.idl)
+     
       AjouteSignale(formData).then((response)=>{
         if(response.success==true){
           toast.success("Votre Signaler bien recu")

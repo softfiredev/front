@@ -7,11 +7,12 @@ import {
   Notification,
   Box,
   MedalStar,
- 
 } from "iconsax-react";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-const Profilee = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { getIdentiteClientt } from "../../Store/Service/identiteClient";
+const Profilee = (props) => {
   const [name, setname] = useState("page1");
   const [bnt1, setbnt1] = useState("bnt-pro");
   const [bnt2, setbnt2] = useState("bnt-pro2");
@@ -21,7 +22,7 @@ const Profilee = () => {
   const [bnt6, setbnt6] = useState("bnt-pro2");
   const navigate = useNavigate();
   useEffect(() => {
-    navigate("/profile/Monidentité");
+    navigate("/Profile/Monidentité");
   }, []);
   const Pagee = (name) => {
     if (name == "page1") {
@@ -31,7 +32,7 @@ const Profilee = () => {
       setbnt4("bnt-pro2");
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro2");
-      navigate("/profile/Monidentité");
+      navigate("/Profile/Monidentité");
     }
     if (name == "page2") {
       setbnt1("bnt-pro2");
@@ -58,7 +59,7 @@ const Profilee = () => {
       setbnt4("bnt-pro");
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro2");
-      navigate("/profile/avis");
+      navigate("/Profile/avis");
     }
     if (name == "page6") {
       setbnt1("bnt-pro2");
@@ -70,106 +71,103 @@ const Profilee = () => {
       navigate("/profile/MesPoints");
     }
   };
-  const Logout=()=>{
-    localStorage.removeItem("persist:root")
-    navigate("/Login")
-    navigate(0)
-  }
+  const Logout = () => {
+    localStorage.removeItem("persist:root");
+    navigate("/Login");
+    navigate(0);
+  };
+
   return (
     <>
-   
-        <div className="Profile">
-      <div className="col1-profile">
-        <div>
-          <p className="txt-profile1">Bonjour, Amine!</p>
-        </div>
-        <div className="row2-profile">
+      <div className="Profile">
+        <div className="col1-profile">
           <div>
-            <div className="carts">
-              <div>
-                <button
-                  className={bnt1}
-                  onClick={() => {
-                    Pagee("page1");
-                  }}
-                >
-                  <div className="row1-profile">
-                    <Profile size="20" />
-                    <div className="txt0-icon">Profile</div>
-                  </div>
-                </button>
-              </div>
-              <div>
-                <button
-                  className={bnt2}
-                  onClick={() => {
-                    Pagee("page2");
-                  }}
-                >
-                  <div className="row1-profile">
-                    <Heart size="20" />
-                    <div className="txt-icon">Favoris</div>
-                  </div>
-                </button>
-              </div>
-              <div>
-                <button
-                  className={bnt3}
-                  onClick={() => {
-                    Pagee("page3");
-                  }}
-                >
-                  <div className="row1-profile">
-                    <Box size="20" />
-                    <div className="txt-icon">Commandes</div>
-                  </div>
-                </button>
-              </div>
-              <div>
-                <button
-                  className={bnt4}
-                  onClick={() => {
-                    Pagee("page4");
-                  }}
-                >
-                  <div className="row1-profile">
-                    <Notification size="20" />
-                    <div className="txt-icon">Mes avis</div>
-                  </div>
-                </button>
-              </div>
-              <div>
-                <button
-                  className={bnt6}
-                  onClick={() => {
-                    Pagee("page6");
-                  }}
-                >
-                  <div className="row1-profile">
-                    <MedalStar size="20" />
-                    <div className="txt-icon">Mes points</div>
-                  </div>
-                </button>
-              </div>
-              <div>
-                
-                <button className={bnt5} onClick={Logout}>
-                  <div className="row1-profile">
-                    <LogoutCurve size="20" />
-                    <div className="txt-icon">Déconnection</div>
-                  </div>
-                </button>
+            <p className="txt-profile1">Bonjour, {props.user.fullname}</p>
+          </div>
+          <div className="row2-profile">
+            <div>
+              <div className="carts">
+                <div>
+                  <button
+                    className={bnt1}
+                    onClick={() => {
+                      Pagee("page1");
+                    }}
+                  >
+                    <div className="row1-profile">
+                      <Profile size="20" />
+                      <div className="txt0-icon">Profile</div>
+                    </div>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className={bnt2}
+                    onClick={() => {
+                      Pagee("page2");
+                    }}
+                  >
+                    <div className="row1-profile">
+                      <Heart size="20" />
+                      <div className="txt-icon">Favoris</div>
+                    </div>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className={bnt3}
+                    onClick={() => {
+                      Pagee("page3");
+                    }}
+                  >
+                    <div className="row1-profile">
+                      <Box size="20" />
+                      <div className="txt-icon">Commandes</div>
+                    </div>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className={bnt4}
+                    onClick={() => {
+                      Pagee("page4");
+                    }}
+                  >
+                    <div className="row1-profile">
+                      <Notification size="20" />
+                      <div className="txt-icon">Mes avis</div>
+                    </div>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className={bnt6}
+                    onClick={() => {
+                      Pagee("page6");
+                    }}
+                  >
+                    <div className="row1-profile">
+                      <MedalStar size="20" />
+                      <div className="txt-icon">Mes points</div>
+                    </div>
+                  </button>
+                </div>
+                <div>
+                  <button className={bnt5} onClick={Logout}>
+                    <div className="row1-profile">
+                      <LogoutCurve size="20" />
+                      <div className="txt-icon">Déconnection</div>
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <Outlet />
+            <Outlet  />
+          </div>
         </div>
       </div>
-    </div>
-
     </>
-    
   );
 };
 

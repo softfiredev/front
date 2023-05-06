@@ -1,27 +1,24 @@
 import {createSlice} from "@reduxjs/toolkit";
-import { getAllAvisProduitDeatil } from './../Service/AllavisProduitDetail';
-export const AllAvisProduitDeatil=createSlice({
-  name:"AllAvisProduitDeatil",
+import { getIdentiteClientt } from "../Service/identiteClient";
+export const IdentiteClient=createSlice({
+  name:"IdentiteClient",
   initialState:{
-    avisDetailProd:[{}],
+    identiteClient:[{}],
     status:null
-    
   },
   reducers: {},
   extraReducers:{
-    [getAllAvisProduitDeatil.fulfilled]:(state,{payload})=>{
-        state.avisDetailProd=payload.avis
-       state.status="success"
+    [getIdentiteClientt.fulfilled]:(state,{payload})=>{
+        state.identiteClient=payload.client
+        state.status="success"
     },
-   [getAllAvisProduitDeatil.pending]:(state)=>{
+   [getIdentiteClientt.pending]:(state)=>{
     state.status="loading"
    },
-   [getAllAvisProduitDeatil.rejected]:(state,{payload})=>{
+   [getIdentiteClientt.rejected]:(state)=>{
     state.status="failed"
    }
-
   }  
-
 })
 
-export default AllAvisProduitDeatil.reducer;
+export default IdentiteClient.reducer;

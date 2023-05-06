@@ -76,10 +76,7 @@ const Description = (props) => {
   }
   
   const Signaler=()=>{
-    if(file===undefined){
-      toast.error(" import une image pour signaler ce produit")
-    }
-    if(props.user.auth ){
+    if(props.user.auth){
       const formData = new FormData();
       formData.append('fullnameUser', fullname);
       formData.append('email', email);

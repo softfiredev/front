@@ -66,13 +66,14 @@ color: #222222;
     flex-direction: row;
     display: flex;
     gap:0em;
-
+    width:70%;
 }
 .col2-favo{
     flex-direction: column;
     display: flex;
     gap: 0.5em;
     margin-top:5%;
+  
 }
 .txt3-favo{
     
@@ -82,7 +83,7 @@ font-weight: 500;
 font-size: 14px;
 line-height: 16px;
 color: #222222;
-
+width:100%
 }
 
 .row4-favo{

@@ -115,10 +115,10 @@ const changeIdentite=()=>{
     modifierIdentiteClient(props.user.id,data).then((response)=>{
       if(response.success===true){
           toast.success("votre identite  modifier avec success")
-          console.log(data.get('telephone'))
+          setrefreshpage(true)
       }
     })
-    setrefreshpage(false)
+    setrefreshpage(false) 
 }
  return (
     <div>

@@ -18,5 +18,8 @@ export const Path ={
     addSignale:"signalerProduitlibraire/add",
     changePassword:"user/updatePassword/",
     identiteClient:"client/findOne/",
-    modifierIdentiteClient:"user/updateIdentite/"
+    modifierIdentiteClient:"user/updateIdentite/",
+    addAdrr:"adresses/add",
+    deleteAdrr:"adresses/delete",
+    ModifAdrr:"adresses/update/"
 }

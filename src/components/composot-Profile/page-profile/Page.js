@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./page.css";
-import dayjs from 'dayjs';
 import { IconButton, InputAdornment, OutlinedInput } from "@mui/material";
 import { RefreshSquare, AddCircle, ExportCurve } from "iconsax-react";
 import Avtr from "../../../assets/avtclient.png";
 import Box from "@mui/material/Box";
 import MenuItem from '@mui/material/MenuItem';
-import ListSubheader from '@mui/material/ListSubheader';
 import Select from '@mui/material/Select';
 import Modal from "@mui/material/Modal";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
@@ -15,7 +13,11 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { getIdentiteClientt } from "../../../Store/Service/identiteClient";
 import { modifierIdentiteClient } from "../../../Store/Service/ModifieIdentite";
+import { AddAdrClient } from "../../../Store/Service/AdrClient/AddAdrClient";
+
 import Avatar from '@mui/material/Avatar';
+import { DeletAdrClient } from "../../../Store/Service/AdrClient/DeletAdrClient";
+import { UpdateAdr } from "../../../Store/Service/AdrClient/UpdateAdrClient";
 
 const Page = (props) => {
   const style = {
@@ -32,9 +34,19 @@ const Page = (props) => {
 
     p: 4,
   };
-  const [open, setOpen] = React.useState(false);
-  const [titre, settitre] = React.useState("");
-  const [open1, setOpen1] = React.useState(true);
+  const [fullname,setfullname]=useState()
+  const [IdAdrr,setIdAdrr]=useState("")
+const [email,setemail]=useState()
+const [telephone,settelephone]=useState()
+const [Date_de_naissance,setDate_de_naissance]=useState()
+const [avatar,setavatar]=useState()
+const [refreshpage,setrefreshpage]=useState()
+const [addresse, setAddresse] = useState({ nom: "", addr: "",Ville:"",codepostal:"",clientId:"" });
+const [Gouvernorat,setGouvernorat] = useState("");
+const Gouvernora=[{nome:"Ariana"},{nome:"Béja"},{nome:"Ben Arous"},{nome:"Bizerte"},{nome:"Gabès"},{nome:"Gafsa"},{nome:"Jendouba"},{nome:"Kairouan"},{nome:"Kairouan"},{nome:"Kasserine"},{nome:"Kébili"},{nome:"Le Kef"},{nome:"Mahdia"},{nome:"La Manouba"},{nome:"Médenine"},{nome:"Monastir"},{nome:"Nabeul"},{nome:"Sfax"},{nome:"Sidi Bouzid"},{nome:"Siliana"},{nome:"Sousse"},{nome:"Tataouine"},{nome:"Tozeur"},{nome:"Tozeur"},{nome:"Tunis"},{nome:"Zaghouan"}]
+  const [open, setOpen] = useState(false);
+  const [titre, settitre] = useState("");
+  const [open1, setOpen1] = useState(true);
   const [newPassword,setnewPassword]=useState()
   const [actuelPassword,setactuelPassword]=useState()
   const handleClose = () => setOpen(false);
@@ -57,8 +69,7 @@ const [opencoll, setopencoll] = React.useState(false);
   setopencoll(false)
  }
  const openblock=()=>{
-  settitre("Modification de l’adresse")
-  setopencoll(true)
+ 
 
  }
 const handleinfo=()=>{
@@ -94,17 +105,13 @@ const dispatch=useDispatch()
 const clientData = useSelector(
   (state) => state.IdentiteClient.identiteClient
 );
-console.log(clientData)
-const [fullname,setfullname]=useState()
-const [email,setemail]=useState()
-const [telephone,settelephone]=useState()
-const [Date_de_naissance,setDate_de_naissance]=useState()
-const [avatar,setavatar]=useState()
-const [refreshpage,setrefreshpage]=useState()
+
+
 useEffect(() => {
   dispatch(getIdentiteClientt(props.user.id));
 },[refreshpage]);
 const addresses=clientData?.client?.adresses
+
 const changeIdentite=()=>{
    const data= new FormData() ; 
    data.append("Date_de_naissance",Date_de_naissance)
@@ -120,6 +127,73 @@ const changeIdentite=()=>{
     })
     setrefreshpage(false) 
 }
+const handleInputChange = (field) => {
+  return (e) => {
+    setAddresse((prev) => ({
+      ...prev,
+      [field]: e.target.value
+    }));
+  };
+};
+const handleChangeGouvernorat = (event) => {
+  setGouvernorat(event.target.value);
+};
+
+const Ajoutadr=()=>{
+  let data = {
+    Nom_de_adresse: addresse.nom,
+    Adresse: addresse.addr,
+    Gouvernorat: Gouvernorat,
+    Ville: addresse.Ville,
+    Code_postal: addresse.codepostal,
+    clientId: props.user.id,
+  }
+  if(Gouvernorat.length!==0 &&addresse.nom.length!==0 && addresse.addr.length!==0 && addresse.Ville.length!==0&& addresse.codepostal.length!==0 ){
+    AddAdrClient(data).then((response)=>{
+      if(response.success===true){
+          toast.success("votre Adresse  Ajoute  avec success",{autoClose: 1000})
+          setrefreshpage(true)
+      }
+    })
+    setrefreshpage(false)
+
+}
+else{ toast.error("remplir votre champ svp !!!",{autoClose: 1000})}
+}
+const DeletAdr=()=>{
+
+DeletAdrClient(IdAdrr,props.user.id).then((response)=>{
+  if(response.success===true){
+      toast.success("votre Adresse  Suppr avec success",{autoClose: 1000})
+      setrefreshpage(true)
+  }
+})
+setrefreshpage(false)
+
+setOpen(false)
+
+}
+
+const updateadr=()=>{
+  let data = {
+    Nom_de_adresse: addresse.nom,
+    Adresse: addresse.addr,
+    Gouvernorat: Gouvernorat,
+    Ville: addresse.Ville,
+    Code_postal: addresse.codepostal,
+    clientId: props.user.id,
+  }
+    UpdateAdr(IdAdrr,props.user.id,data).then((response)=>{
+      if(response.success===true){
+          toast.success("Votre Adresse a été mise à jour avec succès ",{autoClose: 1000})
+          setrefreshpage(true)
+      }
+    })
+    setrefreshpage(false)
+
+}
+
+
  return (
     <div>
       <div className="carts2">
@@ -269,18 +343,13 @@ const changeIdentite=()=>{
           <div>{obj.Ville},</div>
           <div>{obj.Code_postal}</div>
             </div>
-           
+            <div className="row-page"> <div className="txt200-page"onClick={()=>{setIdAdrr(obj.id); settitre("Modification de l’adresse"); setopencoll(true)}}>Modifier</div> 
+       <div className="txt200-page" onClick={()=>{setIdAdrr(obj.id);setOpen(true)}}>Supprimer</div></div>
+   
+         
           </>
-        ))}
-       <div className="row-page"> <div className="txt200-page" onClick={openblock}>Modifier</div> <div className="txt200-page" onClick={()=>{setOpen(true)}}>Supprimer</div></div>
-         </div>   
-         <div onClick={changestyle}>
-              <div className={opencoll ?"box-hed":"rowbnt-page"}>
-                <AddCircle size="22" color="#E9B949" variant="Bold" />
-                <div>Ajouter une nouvelle adresse</div>
-              </div><br/>
-
-              </div>
+      
+      ))}
          <Modal
                   open={open}
                   aria-labelledby="modal-modal-title"
@@ -295,7 +364,7 @@ const changeIdentite=()=>{
                     <div><p className="txtt-pagemodal2">Cette modification n’impactera pas les
 commandes passées ou en cours.</p></div><br/>
                      
-             <div className="rowbnt02-page"><button className="bntmodal2-page" onClick={handleClose}>Annuler</button> <button className="bntmodal3-page">Supprimer</button></div>
+             <div className="rowbnt02-page"><button className="bntmodal2-page" onClick={handleClose}>Annuler</button> <button className="bntmodal3-page" onClick={DeletAdr}>Supprimer</button></div>
                     </div>
                 
 
@@ -306,6 +375,15 @@ commandes passées ou en cours.</p></div><br/>
             
                   </Box>
                 </Modal>
+         </div>   
+         <div onClick={changestyle}>
+              <div className={opencoll ?"box-hed":"rowbnt-page"}>
+                <AddCircle size="22" color="#E9B949" variant="Bold" />
+                <div>Ajouter une nouvelle adresse</div>
+              </div><br/>
+
+              </div>
+
          <br/>
               
 
@@ -329,27 +407,31 @@ commandes passées ou en cours.</p></div><br/>
                 <div>
                   <p>Nom de l’adresse</p>
                 </div>
-                <OutlinedInput className="input-pro" value={0}/>
+                <OutlinedInput className="input-pro" onChange={handleInputChange("nom")} value={addresse.nom}/>
                 <div></div>
               </div>
               <div className="minicol-page">
                 <div>
                   <p>Adresse</p>
                 </div>
-                <OutlinedInput className="input-pro" value={0} />
+
+                <OutlinedInput className="input-pro" onChange={handleInputChange("addr")} value={addresse.addr}/>
                 <div></div>
               </div>
               <div className="minicol-page">
                 <div>
                   <p>Gouvernorat</p>
                 </div>
-                 <Select className='txt-select-page' defaultValue="Par pertinence" style={{ width: "400px", height: " 48px", borderRadius: "8px" }} >
-                    <MenuItem value="Par pertinence">
-                        <em className='txt-select-page'>{0}</em>
+                 <Select value={Gouvernorat} onChange={handleChangeGouvernorat} className='txt-select-page'  placeholder="Tunis" style={{ width: "400px", height: " 48px", borderRadius: "8px" }} >
+                    <MenuItem value="Tunis">
+                        <em className='txt-select-page'>Tunis</em>
                     </MenuItem>
+               
+                        {Gouvernora.map((obj,key) => (
+                          <MenuItem value={obj.nome}className='txt-select-page'>{obj.nome}</MenuItem>
+
+                      ))}
                   
-                    <MenuItem value={1} className='txt-select-page'>Meilleurs ventes</MenuItem>
-                    <ListSubheader></ListSubheader>
                  
                 </Select>
                 <div></div>
@@ -358,14 +440,14 @@ commandes passées ou en cours.</p></div><br/>
                 <div>
                   <p>Ville</p>
                 </div>
-                <OutlinedInput className="input-pro" value={0}/>
+                <OutlinedInput className="input-pro" onChange={handleInputChange("Ville")} value={addresse.Ville}/>
                 <div></div>
               </div>
               <div className="minicol-page">
                 <div>
                   <p>Code postal</p>
                 </div>
-                <OutlinedInput className="input-pro" value={0}/>
+                <OutlinedInput className="input-pro" onChange={handleInputChange("codepostal")} value={addresse.codepostal}/>
                 <div></div>
               </div>
 
@@ -373,9 +455,15 @@ commandes passées ou en cours.</p></div><br/>
                 <button className="bnt3-page" onClick={changestyle2}>
                   <p className="txtbnt3-page">Annuler</p>
                 </button>
-                <button className="bnt4-page">
-                  <p className="txtbnt4-page">Valider</p>
-                </button>
+                {titre=="Modification de l’adresse"?
+ <button className="bnt4-page" onClick={updateadr}>
+ <p className="txtbnt4-page">Valider</p>
+</button>:
+ <button className="bnt4-page"onClick={Ajoutadr} >
+ <p className="txtbnt4-page">Valider</p>
+</button>
+                }
+               
               </div>
             </div>
           </div>

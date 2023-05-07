@@ -11,7 +11,6 @@ import { Eye, EyeSlash } from 'iconsax-react';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { Loginuser } from '../../Store/Service/LoginService'
-import Spinier from '../../components/spinier/Spinier'
 import { useAtoms } from '../../Store/globalState/global';
 import {LoginSocialGoogle,  LoginSocialFacebook} from 'reactjs-social-login';
 import { GoogleService } from '../../Store/Service/GoogleService'

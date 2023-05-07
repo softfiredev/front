@@ -327,6 +327,7 @@ border: 1px solid #E1E1E1;
     font-size: 16px;
     line-height: 20px;
     color: #222222;
+    padding: 1%;
 }
 .col1-page1{
     flex-direction: column;

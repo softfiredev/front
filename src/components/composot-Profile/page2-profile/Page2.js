@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Page2.css";
+import { useDispatch, useSelector } from "react-redux";
+import { GetAllFavorieClient } from "../../../Store/Service/GetAllFavorieClient";
 import {SearchNormal1} from "iconsax-react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
 import Box_FavoirsProduit_Card from './../../box-favorisProduit-card/box-favorisProduit-card';
-const Page2 = () => {
-  const [value, setValue] = React.useState(4);
-  const faivorisProduit = [
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    
-  ];
+const Page2 = (props) => {
+
+  const [refreshpage,setrefreshpage]=useState()
+  const dispatch=useDispatch()
+
+  const faivorisProduit = useSelector(
+    (state) => state.FavorieClient.FavorieClient
+  );
+  useEffect(() => {
+    dispatch(GetAllFavorieClient(props.user.id));
+  },[refreshpage]);
+
   return (
     <div className="favorie">
       <div className="col1-favo">
@@ -45,7 +46,7 @@ const Page2 = () => {
       <div>
       <div className="scroll-container">
           {faivorisProduit.map((produit) => (
-           <Box_FavoirsProduit_Card nom={produit.nom} prix={produit.prix} nbstart={produit.nbstart} nomoflibriarie={produit.nomoflibriarie} idl={produit.idlibrairie}/>
+           <Box_FavoirsProduit_Card nom={produit.produitlabrairie.titre} prix={produit.produitlabrairie.prix} nbstart={produit.nbstart} nomoflibriarie={produit.nomoflibriarie} idl={produit.idlibrairie}/>
           ))}
         </div>
       </div>
@@ -55,3 +56,6 @@ const Page2 = () => {
 };
 
 export default Page2;
+
+
+

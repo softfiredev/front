@@ -33,7 +33,7 @@ const Box_FavoirsProduit_Card = (props) => {
                 defaultValue={0}
                 size="small"
                 className="stars"
-              />      <p className="total-avis">({props.nbstart===undefined?0:props.nbstart})</p>
+              />      <div className="total-avis">({props.nbstart===undefined?0:props.nbstart})</div>
             </div>
           </div>
         </div>

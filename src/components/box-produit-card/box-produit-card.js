@@ -35,8 +35,8 @@ const Box_produit_Card = (props)=>{
              <div className="prod-container">
                     <img src={"http://127.0.0.1:8080/uploads/"+props.imgp} className="image" />
                     <div className="prod-description">
-                        <p className="titreProd"> {props.titre}</p>
-                        <p className="prix">{props.prix} dt</p>
+                       <div> <p className="titreProd"> {props.titre}</p></div>
+                        <div><p className="prix">{props.prix} dt</p></div>
                     </div>
              </div>
               <input type="number" width="20px" className="qte" min={1} onChange={handleChangevalue} value={qte}  />

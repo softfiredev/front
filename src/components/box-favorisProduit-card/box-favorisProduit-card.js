@@ -3,8 +3,15 @@ import { CloseCircle, ShoppingCart, Trash } from "iconsax-react";
 import img1 from "../../assets/prod2.png";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
-import img2 from "../../assets/logom.png";
+import { add } from "../../Store/panier/panierSlice";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 const Box_FavoirsProduit_Card = (props) => {
+  const dispatch=useDispatch()
+  const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
+    dispatch(add({idp,imgp,prix,titre,qte,idl}))
+    toast.success("Vous avez ajouté un produit à votre panier",{autoClose: 1000})
+  }
   return (
 <div>
 <div className="colline-box">
@@ -44,7 +51,7 @@ const Box_FavoirsProduit_Card = (props) => {
        
           <div className="rowboxfavo-page2">
           <div className="shop-favo">
-            <div className="shopcont-favo">
+            <div className="shopcont-favo"  onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl)}>
               <ShoppingCart size="22" color="#222222" variant="Bold" />
             </div>
           </div>

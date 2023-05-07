@@ -2,20 +2,19 @@ import React from "react";
 import "./Page2.css";
 import {SearchNormal1} from "iconsax-react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
-import Box_FavoirsProduit_Card from './../../box-favorisProduit-card/box-favorisProduit-card';
-const Page2 = () => {
-  const [value, setValue] = React.useState(4);
-  const faivorisProduit = [
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    { nom: "produit1", prix: 2000, nomoflibriarie: "elrahma", nbstart: 5 , "idlibrairie":1},
-    
-  ];
+import Box_FavoirsProduit_Card from "./../../box-favorisProduit-card/box-favorisProduit-card";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProduitFavorie } from "../../../Store/Service/AllProduitFavorieByclient";
+const Page2 = (props) => {
+  const dispatch = useDispatch();
+  const produitFavorie = useSelector(
+    (state) => state.produiFavorie.produiFavorieClient
+  );
+  useEffect(() => {
+    dispatch(getAllProduitFavorie(props.user?.id));
+  }, []);
+  console.log(produitFavorie);
+
   return (
     <div className="favorie">
       <div className="col1-favo">

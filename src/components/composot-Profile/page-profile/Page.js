@@ -120,11 +120,7 @@ const changeIdentite=()=>{
    data.append("email",email)
     modifierIdentiteClient(props.user.id,data).then((response)=>{
       if(response.success===true){
-<<<<<<< HEAD
-          toast.success("votre identite  modifier avec success")
-=======
-          toast.success("votre identite  modifier avec success",{autoClose: 900})
->>>>>>> b338a04eb424ed4a27a78b1f973527da9ed10085
+          toast.success("votre identite  modifier avec success",{autoClose: 1000})
           setrefreshpage(true)
       }
     })

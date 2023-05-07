@@ -47,7 +47,7 @@ function NavBar(props) {
           <Link to="/Profile" >
           <div className={props.user.auth?"section_user":"section_user-none"}>
                   <p className='username'> {props.user.fullname}</p>
-                  <Avatar  style={{ height: "26px", width: "26px" }}  src={clientData?.avatar===undefined?Avtr:"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-pagenave" />
+                  <Avatar  style={{ height: "26px", width: "26px" }}  src={clientData.avatar===undefined?"http://127.0.0.1:8080/uploads/"+props.user?.avatar:"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-pagenave" />
           </div>
           </Link>
           

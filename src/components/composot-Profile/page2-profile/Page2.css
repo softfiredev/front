@@ -60,6 +60,7 @@ color: #222222;
 .img1-favo{
     Width:112px;
     Height:112px;
+  
 }
 .row2-favo{
     flex-direction: row;
@@ -99,13 +100,17 @@ font-size: 10px;
 line-height: 16px;
 color: #626262;
 margin-top: 2%;
+height: 16px;
+width: 154px;
+
+
 }
 .rowboxfavo-page2{
     display: flex;
     margin-top: 3%;
     margin-left: 1%;
 }
-.txt12-detail{
+.total-avis{
     font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -113,6 +118,7 @@ font-size: 14px;
 line-height: 140%;
 margin-left: 2%;
 color: #818181;
+margin-top: 2px;
 }
 .stars-favo{
     margin-top: -5%;
@@ -122,7 +128,7 @@ color: #818181;
 .row6-favo{
     flex-direction: row;
     display: flex;
-    gap: 9em;
+       gap: 4em;;
 
 }
 .prix-favo{

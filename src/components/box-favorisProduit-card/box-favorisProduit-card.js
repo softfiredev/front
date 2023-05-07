@@ -12,28 +12,28 @@ const Box_FavoirsProduit_Card = (props) => {
         <div className="row2-favo">
       
           <div>
-            <img src={img1} className="img1-favo" />
+            <img src={"http://127.0.0.1:8080/uploads/"+props.imgp}className="img1-favo" />
           </div>
           <div className="col2-favo">
             <div className="txt3-favo">
-              <p>{props.nom}</p>
+              <p>{props.titre}</p>
             </div>
             <div className="row4-favo">
-              <div>
-                <img src={img2} />
+              <div className="logolib">
+                <img src={"http://127.0.0.1:8080/uploads/"+props.imgl}  style={{width:"20px" , height:"20px"}} />
               </div>
               <div>
                 <Link to={`/librairieProfile/${props.idl}`}>
-                  <p className="txtlink-favo">{props.nomoflibriarie}</p>
+                  <p className="txtlink-favo">{props.namelibriarie}</p>
                 </Link>
               </div>
             </div>
             <div className="stars-favo">
               <Rating name="read-only" value={props.nbstart} readOnly
-                defaultValue={2}
+                defaultValue={0}
                 size="small"
                 className="stars"
-              />      <p className="txt12-detail">(160)</p>
+              />      <p className="total-avis">({props.nbstart===undefined?0:props.nbstart})</p>
             </div>
           </div>
         </div>

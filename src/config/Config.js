@@ -21,6 +21,5 @@ export const Path ={
     modifierIdentiteClient:"user/updateIdentite/",
     addAdrr:"adresses/add",
     deleteAdrr:"adresses/delete",
-    ModifAdrr:"adresses/update/",
-    Getfavo:"produitFavorie/findAllbyclient/"
+    ModifAdrr:"adresses/update/"
 }

@@ -119,11 +119,11 @@ const changeIdentite=()=>{
    data.append("email",email)
     modifierIdentiteClient(props.user.id,data).then((response)=>{
       if(response.success===true){
-          toast.success("votre identite  modifier avec success",{autoClose: 900})
+          toast.success("votre identite  modifier avec success",{autoClose: 1000})
           setrefreshpage(true)
       }
     })
-    setrefreshpage(false)
+    setrefreshpage(false) 
 }
 const handleInputChange = (field) => {
   return (e) => {

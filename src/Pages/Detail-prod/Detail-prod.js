@@ -416,10 +416,10 @@ function handlePagination (event,page) {
                       <Avatar    style={{ height: "18px", width: "18px" }}  src={"http://127.0.0.1:8080/uploads/" + obj.client?.user?.avatar} />
                       </Stack>
                     </div>
-                    <div className="fullnameAvis">{obj.client?.user.fullname} </div>
+                    <div className="fullnameAvis">{obj.client.user.fullname} </div>
                   </div>
                   <div className="stars-detail">
-                    <div> <Rating name="read-only" value={obj.nbStart} readOnly /> </div>
+                    <div> <Rating name="read-only" value={obj?.nbStart} readOnly /> </div>
                     <div> <p className="txt70-detail">Déposé le 19/07/2022</p></div>
 
                     </div>

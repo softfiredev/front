@@ -9,11 +9,8 @@ import { useSelector } from "react-redux";
 
 const Cart = (props) => {
   const panier=useSelector(state=> state.Panier.panier)
-  
- 
   return (
     <>
-
        <div className="Cart">
       <Grid item>
         <h1 className="titre">Panier</h1>

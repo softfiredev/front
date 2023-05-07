@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { DeleteProduitFavorie } from "../../Store/Service/DeleteProduitFavorie";
 
 const Box_FavoirsProduit_Card = (props) => {
-  const [refreshpage,setrefreshpage]=useState(true)
+  const [refreshpage,setrefreshpage]=useState(false)
   const dispatch=useDispatch()
   const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
     dispatch(add({idp,imgp,prix,titre,qte,idl}))

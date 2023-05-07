@@ -22,13 +22,13 @@ const Shop = () => {
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
  
 
-  const items =9;
+  const items =5;
   const [current,setCurrent]=useState(1)
   const NbPage=Math.ceil(produitShope.length/items);
   const startIndex=(current -1)*items;
   const endIndex=startIndex+items;
   const DataPerPage=produitShope.slice(startIndex,endIndex)
-  function handlePagination (page) {
+  function handlePagination (event,page) {
     setCurrent(page)
   }
   
@@ -60,7 +60,7 @@ const Shop = () => {
 
               <Grid item>
                 <div className="colls-trifel">
-                  <Trifilter total={dataFromChild.length===0?produitShope.length:dataFromChild.length}/>
+                  <Trifilter total={DataPerPage.length}/>
 
                   <div className="prod-shop">
                     <Grid

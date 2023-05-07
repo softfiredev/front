@@ -204,9 +204,9 @@ function handlePagination (event,page) {
                   totalAvis={produitDetail?.avisProduitlibraires?.[0]?.total_avis}
                   prix={produitDetail.prix}
                   discription={produitDetail.description}
-                  idl={produitDetail.labrairie?.id}
-                  noml={produitDetail.labrairie?.nameLibrairie}
-                  imgl={produitDetail.labrairie?.imageStore}
+                  idl={produitDetail?.labrairie?.id}
+                  noml={produitDetail?.labrairie?.nameLibrairie}
+                  imgl={produitDetail?.labrairie?.imageStore}
                   imgp={imagesProduit?.[0]?.name_Image}
                   idp={id}
                   user={props.user}
@@ -416,7 +416,7 @@ function handlePagination (event,page) {
                       <Avatar    style={{ height: "18px", width: "18px" }}  src={"http://127.0.0.1:8080/uploads/" + obj.client?.user?.avatar} />
                       </Stack>
                     </div>
-                    <div className="fullnameAvis">{obj.client.user.fullname} </div>
+                    <div className="fullnameAvis">{obj.client?.user.fullname} </div>
                   </div>
                   <div className="stars-detail">
                     <div> <Rating name="read-only" value={obj?.nbStart} readOnly /> </div>

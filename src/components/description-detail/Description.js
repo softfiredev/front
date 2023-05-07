@@ -65,11 +65,11 @@ const Description = (props) => {
       AjouteProduitFavorie(data).then((response)=>{
         console.log(response)
         if(response.success==true){
-          toast.success("Votre Article a bien été sauvegardé")
+          toast.success("Votre Article a bien été sauvegardé",{autoClose: 1000})
         }
       })
     }else{
-      toast.warning("Veuillez vous connecter pour pouvoir sauvegardé un Article")
+      toast.warning("Veuillez vous connecter pour pouvoir sauvegardé un Article",{autoClose: 1000})
     }
     
   }
@@ -85,11 +85,11 @@ const Description = (props) => {
      
       AjouteSignale(formData).then((response)=>{
         if(response.success==true){
-          toast.success("Votre Signaler bien recu")
+          toast.success("Votre Signaler bien recu",{autoClose: 1000})
         }
       })
     }else{
-      toast.warning("Veuillez vous connecter pour pouvoir Signaler un Article")
+      toast.warning("Veuillez vous connecter pour pouvoir Signaler un Article",{autoClose: 1000})
     }
   }
   return (

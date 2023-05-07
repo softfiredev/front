@@ -49,6 +49,7 @@ const Gouvernora=[{nome:"Ariana"},{nome:"Béja"},{nome:"Ben Arous"},{nome:"Bizer
   const [open1, setOpen1] = useState(true);
   const [newPassword,setnewPassword]=useState()
   const [actuelPassword,setactuelPassword]=useState()
+  
   const handleClose = () => setOpen(false);
 const[openchangePassword,setopenchangePassword]=useState(false)
 const [opencoll, setopencoll] = React.useState(false);
@@ -68,10 +69,7 @@ const [opencoll, setopencoll] = React.useState(false);
  const changestyle2=()=>{
   setopencoll(false)
  }
- const openblock=()=>{
- 
 
- }
 const handleinfo=()=>{
   setOpen1(false)
   setfullname(clientData.fullname);
@@ -113,6 +111,7 @@ useEffect(() => {
 const addresses=clientData?.client?.adresses
 
 const changeIdentite=()=>{
+
    const data= new FormData() ; 
    data.append("Date_de_naissance",Date_de_naissance)
    data.append("image",avatar)
@@ -121,7 +120,11 @@ const changeIdentite=()=>{
    data.append("email",email)
     modifierIdentiteClient(props.user.id,data).then((response)=>{
       if(response.success===true){
+<<<<<<< HEAD
           toast.success("votre identite  modifier avec success")
+=======
+          toast.success("votre identite  modifier avec success",{autoClose: 900})
+>>>>>>> b338a04eb424ed4a27a78b1f973527da9ed10085
           setrefreshpage(true)
       }
     })
@@ -155,8 +158,8 @@ const Ajoutadr=()=>{
           setrefreshpage(true)
       }
     })
+    setopencoll(false)
     setrefreshpage(false)
-
 }
 else{ toast.error("remplir votre champ svp !!!",{autoClose: 1000})}
 }
@@ -189,6 +192,7 @@ const updateadr=()=>{
           setrefreshpage(true)
       }
     })
+    setopencoll(false)
     setrefreshpage(false)
 
 }

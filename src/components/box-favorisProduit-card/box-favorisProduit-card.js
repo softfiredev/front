@@ -1,17 +1,33 @@
-import React from "react";
-import { CloseCircle, ShoppingCart, Trash } from "iconsax-react";
-import img1 from "../../assets/prod2.png";
+import React, { useEffect,useState } from "react";
+import {  ShoppingCart, Trash } from "iconsax-react";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 import { add } from "../../Store/panier/panierSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { DeleteProduitFavorie } from "../../Store/Service/DeleteProduitFavorie";
+
 const Box_FavoirsProduit_Card = (props) => {
+  const [refreshpage,setrefreshpage]=useState(true)
   const dispatch=useDispatch()
   const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
     dispatch(add({idp,imgp,prix,titre,qte,idl}))
     toast.success("Vous avez ajouté un produit à votre panier",{autoClose: 1000})
   }
+
+  const removefavo=()=>{
+
+    
+    DeleteProduitFavorie(props.idp,props.idclient).then((response)=>{
+      if(response.success===true){
+          toast.success("votre produit  Suppr avec success",{autoClose: 1000})
+          setrefreshpage(true)
+      }
+    })
+    setrefreshpage(false)
+  }
+  useEffect(() => {
+  }, [refreshpage]);
   return (
 <div>
 <div className="colline-box">
@@ -55,7 +71,7 @@ const Box_FavoirsProduit_Card = (props) => {
               <ShoppingCart size="22" color="#222222" variant="Bold" />
             </div>
           </div>
-          <div className="delete-favo">
+          <div className="delete-favo" onClick={removefavo}>
               <Trash size="22" color="#E66A6A" className="icondelete" variant="Bold" />
           </div>
           </div>

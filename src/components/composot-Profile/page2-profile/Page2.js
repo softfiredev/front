@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./Page2.css";
+
 import { SearchNormal1 } from "iconsax-react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
 import Box_FavoirsProduit_Card from "./../../box-favorisProduit-card/box-favorisProduit-card";
@@ -46,6 +47,7 @@ const Page2 = (props) => {
           <div className="scroll-container">
             {produitFavorie.map((produit) => (
               <Box_FavoirsProduit_Card
+                idclient={props.user.id}
                 titre={produit.produitlabrairie?.titre}
                 idp={produit?.id}
                 prix={produit.produitlabrairie?.prix}

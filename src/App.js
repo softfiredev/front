@@ -100,7 +100,7 @@ function App() {
     avatar:decoded?.avatar
   };
   
- 
+  console.log(user.avatar)
   
 
  

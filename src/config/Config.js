@@ -23,5 +23,6 @@ export const Path ={
     deleteAdrr:"adresses/delete",
     ModifAdrr:"adresses/update/",
     getproduitFavorie:"produitFavorie/findAllbyclient/",
-    DeleteproduitFavorie:"produitFavorie/delete"
+    DeleteproduitFavorie:"produitFavorie/delete",
+    getAllcommandeByclient:"commandeDetail/findcommandebyuser/"
 }

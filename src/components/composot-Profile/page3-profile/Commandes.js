@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Commandes.css";
 import { OutlinedInput } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -11,7 +11,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-const Commandes = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { getAllcommandeByclient } from "../../../Store/Service/getAllcommandebyClient";
+const Commandes = (props) => {
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
   
@@ -83,18 +85,24 @@ function a11yProps(index) {
     setdropdowArticle(false);
     setiDdropdownArticle(id);
   };
+  const commandes = useSelector((state)=> state.AllcommandeByclient.commandesClient)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getAllcommandeByclient(props?.user?.id))
+  },[])
+  console.log(commandes)
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
       setValue(newValue);
     };
-    const filteredDataLivré= commandeArray.filter((item) => {
-      return item.Statut.includes("Livre");
+    const filteredDataLivré= commandes?.filter((item) => {
+      return item.etat.includes("Livre");
     });
-    const filteredDataAnnulé = commandeArray.filter((item) => {
-        return item.Statut.includes("Annule");
+    const filteredDataAnnulé = commandes?.filter((item) => {
+        return item.etat.includes("Annule");
       });
-      const filteredEncours = commandeArray.filter((item) => {
-        return item.Statut.includes("en cours");
+      const filteredEncours = commandes?.filter((item) => {
+        return item.etat.includes("en cours");
       });
  
   return (
@@ -138,13 +146,13 @@ function a11yProps(index) {
           </div>
           <hr className="sous-line-array" /><br/>
           <div className="array-data">
-            {commandeArray.map((e, key) => (  
+            {commandes?.map((e, key) => (  
                
               <div>
                 <div className="commande-data" key={key}>
                   <p className="idcommande"> {e.id}</p>
                   <div className="articles">
-                    <p className="nombreArticle">{e.nbArticle}</p>
+                    <p className="nombreArticle">{e?.produitlabrairies.length}</p>
                    <div>
                    {!dopdownAricle && (
                       <ArrowDown2
@@ -168,22 +176,22 @@ function a11yProps(index) {
                     )}
                     </div>
                   </div>
-                  <p className="datecommande">{e.data}</p>
+                  <p className="datecommande">{e.createdAt}</p>
                   <div className="vendeur-data">
-                    <img src={img2} alt="maktba rahma" />
-                    <p className="name_libraire"> {e.nameLib} </p>
+                    <img src={"http://127.0.0.1:8080/uploads/"+e?.labrairie?.imageStore} alt="maktba rahma"  style={{width:"20px" , height:"20px"}}/>
+                    <p className="name_libraire"> {e?.labrairie?.nameLibrairie} </p>
                   </div>
-                  <p className="Tarification"> {e.toatal} DT</p>
+                  <p className="Tarification"> {e.total_ttc} DT</p>
                   <p
                     className={
-                      e.Statut === "en cours"
+                      e.etat === "en cours"
                         ? "Statut"
-                        : e.Statut === "Annule"
+                        : e.etat === "Annule"
                         ? "annule"
                         : "livre"
                     }
                   >
-                    {e.Statut}
+                    {e.etat}
                   </p>
                 </div>
                 {
@@ -194,21 +202,12 @@ function a11yProps(index) {
                         : "Article-data-none"
                     }
                   >
-                    <div className="article">
-                      <p className="qte">1X</p>
+                    {e?.produitlabrairies?.map((e)=>(<div className="article">
+                      <p className="qte">{e?.produit_c_Detail?.Qte}X</p>
                       <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
+                      <p className="titleProduit">{e.titre}</p>
+                    </div>))}
+                    
                   </div>
                 }
               </div>

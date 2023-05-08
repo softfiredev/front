@@ -17,6 +17,7 @@ import AjouteCommandeSlice from './commande/AjouteCommandeSlice';
 import SliceAllproduitByCategorie from './librairieApi/SliceAllproduitByCategorie';
 import SliceidentiteClient from './ClientApi/SliceidentiteClient';
 import SliceProduitFavorie from './ClientApi/SliceProduitFavorie';
+import SliceAllCommandeByClient from './commande/SliceAllCommandeByClient';
 const persistConfig = {
     key: 'root',
     storage,
@@ -35,7 +36,8 @@ const rootReducer = combineReducers({
     AjouteCommande:AjouteCommandeSlice,
     AllProduitlibrairieByCategorie:SliceAllproduitByCategorie,
     IdentiteClient:SliceidentiteClient,
-    produiFavorie:SliceProduitFavorie
+    produiFavorie:SliceProduitFavorie,
+    AllcommandeByclient:SliceAllCommandeByClient
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);
   

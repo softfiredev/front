@@ -83,7 +83,10 @@ font-weight: 500;
 font-size: 14px;
 line-height: 16px;
 color: #222222;
-width:100%
+text-overflow: ellipsis;
+overflow: hidden;
+max-width: 110px;
+max-height: 18px;
 }
 
 .row4-favo{
@@ -111,18 +114,16 @@ width: 154px;
     margin-top: 3%;
     margin-left: 1%;
 }
-.txttotal-avis21{
+.total-avis{
     font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
 font-size: 14px;
 line-height: 140%;
 color: #818181;
+
 }
-.total-avis21{
-    margin-left: 2%;
-}
-.stars-favo213{
+.stars-favo{
     margin-top: -5%;
     display: flex;
 }
@@ -140,6 +141,7 @@ font-size: 18px;
 line-height: 20px;
 color: #222222;
 margin-top: 30%;
+margin-left: -28px;
 
 
 }

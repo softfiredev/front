@@ -108,8 +108,9 @@ function App() {
   return (
     <>
       <BrowserRouter>
+         <NavBar user={user} />
         <Suspense fallback={<Spinier />}>
-          <NavBar user={user} />
+       
           <Routes>
             <Route path="/Login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} />

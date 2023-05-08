@@ -46,12 +46,16 @@ const Box_FavoirsProduit_Card = (props) => {
                 </Link>
               </div>
             </div>
-            <div className="stars-favo">
-              <Rating name="read-only" value={props.nbstart} readOnly
+            <div className="stars-favo213">
+             <div> <Rating name="read-only" value={props.nbstart} readOnly
                 defaultValue={0}
                 size="small"
                 className="stars"
-              />      <div className="total-avis">({props.nbstart===undefined?0:props.nbstart})</div>
+              /> </div>
+                   <div className="total-avis21">
+                    <p className="txttotal-avis21">({props.nbstart===undefined?0:props.nbstart})</p>
+                    
+                    </div>
             </div>
           </div>
         </div>

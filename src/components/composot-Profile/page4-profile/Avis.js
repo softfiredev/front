@@ -1,5 +1,4 @@
-import React from "react";
-import "./Avis.css";
+import React, { useEffect } from "react";import "./Avis.css";
 import { OutlinedInput } from "@mui/material";
 import { More, ArrowCircleRight2, Edit, Trash } from "iconsax-react";
 import Menu from "@mui/material/Menu";
@@ -8,13 +7,21 @@ import img1 from "../../../assets/prod2.png";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import Modal from "@mui/material/Modal";
-const Avis = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { getAllAvisClient } from "../../../Store/Service/getAllAvisClient";
+
+const Avis = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const [op, setop] = React.useState(false);
   const [op2, setop2] = React.useState(false);
+  const Avis = useSelector((state)=> state.AvisClient.AvisClient)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getAllAvisClient(props?.user?.id))
+  },[])
 
-
+console.log(Avis)
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -171,16 +178,22 @@ const Avis = () => {
             </tr>
       
             
-            {tabcomo.map((obj) => (
+            {Avis.map((obj) => (
               <tr className="tr-avis">
                 <td>
                   <div className="row-avis">
                 <img src={img1} className="img1-avis" />
-                  <div style={{marginTop:"4%"}}>{obj.Articles}</div>
+                  <div style={{marginTop:"4%"}}>{obj.produitlabrairie.titre}</div>
                   </div></td>
-                <td>{obj.Date}</td>
-                <td>{obj.Score}</td>
-                <td className="tabcom-avis"><p className="commtxt-avis"> {obj.Commentaire} </p></td>
+                <td>06 février 2022</td>
+                <td>    <Rating   name="read-only"
+          value="2"
+          readOnly
+          defaultValue={obj.nbStart}
+          size="small"
+          className="stars"
+        /></td>
+                <td className="tabcom-avis"><p className="commtxt-avis"> {obj.commenter} </p></td>
                 <br />
                 <br />
                 <td>

@@ -24,5 +24,8 @@ export const Path ={
     ModifAdrr:"adresses/update/",
     getproduitFavorie:"produitFavorie/findAllbyclient/",
     DeleteproduitFavorie:"produitFavorie/delete",
-    getAllcommandeByclient:"commandeDetail/findcommandebyuser/"
+    getAllcommandeByclient:"commandeDetail/findcommandebyuser/",
+    getAllAvieByclient:"avisProduitlibraire/findAllbyclient/"
+
+
 }

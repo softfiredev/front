@@ -3,9 +3,7 @@ import "./Commandes.css";
 import { OutlinedInput } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import { ArrowDown2, ArrowUp2, SearchNormal1 } from "iconsax-react";
-import img2 from "../../../assets/logom.png";
 import img1 from "../../../assets/prod2.png";
-import { Grid } from "@material-ui/core";
 import { useState } from "react";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -90,21 +88,21 @@ function a11yProps(index) {
   useEffect(()=>{
     dispatch(getAllcommandeByclient(props?.user?.id))
   },[])
-  console.log(commandes)
+
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
       setValue(newValue);
     };
-    const filteredDataLivré= commandes?.filter((item) => {
+    const filteredDataLivré= commandes.filter((item) => {
       return item.etat.includes("Livre");
     });
-    const filteredDataAnnulé = commandes?.filter((item) => {
+    const filteredDataAnnulé = commandes.filter((item) => {
         return item.etat.includes("Annule");
       });
-      const filteredEncours = commandes?.filter((item) => {
+      const filteredEncours = commandes.filter((item) => {
         return item.etat.includes("en cours");
       });
- 
+      console.log(filteredEncours)
   return (
     <div className="commandes">
       <div className="com1">
@@ -116,8 +114,8 @@ function a11yProps(index) {
         <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#F7D070" } }}>
          <Tab label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
           <Tab label={<p className="txttabs-c">Livré</p>} {...a11yProps(1)} />
-          <Tab label={<p className="txttabs-c">En cours</p>} {...a11yProps(1)} />
-          <Tab label={<p className="txttabs-c">Annulé</p>} {...a11yProps(1)} />
+          <Tab label={<p className="txttabs-c">En cours</p>} {...a11yProps(2)} />
+          <Tab label={<p className="txttabs-c">Annulé</p>} {...a11yProps(3)} />
 
         </Tabs>
       </Box>
@@ -253,81 +251,72 @@ function a11yProps(index) {
           </div>
           <hr className="sous-line-array" /><br/>
           <div className="array-data">
-            {filteredDataLivré.map((e, key) => (  
+          {filteredDataLivré?.map((e, key) => (  
                
-              <div>
-                <div className="commande-data" key={key}>
-                  <p className="idcommande"> {e.id}</p>
-                  <div className="articles">
-                    <p className="nombreArticle">{e.nbArticle}</p>
+               <div>
+                 <div className="commande-data" key={key}>
+                   <p className="idcommande"> {e.id}</p>
+                   <div className="articles">
+                     <p className="nombreArticle">{e?.produitlabrairies.length}</p>
                     <div>
-                   {!dopdownAricle && (
-                      <ArrowDown2
-                        size="17"
-                        color="#626262"
-                        className="icondown"
-                        onClick={(e) => dropDownOn(key)}
-                        style={{ cursor: "pointer" }}
-                      />
-                    )}
-                    {dopdownAricle && (
-                      <ArrowUp2
-                        size="17"
-                        color="#626262"
-                        className="icondown"
-                        onClick={(e) => {
-                          dropDownOff(key);
-                        }}
-                        style={{ cursor: "pointer" }}
-                      />
-                    )}
-                    </div>
-                  </div>
-                  <p className="datecommande">{e.data}</p>
-                  <div className="vendeur-data">
-                    <img src={img2} alt="maktba rahma" />
-                    <p className="name_libraire"> {e.nameLib} </p>
-                  </div>
-                  <p className="Tarification"> {e.toatal} DT</p>
-                  <p
-                    className={
-                      e.Statut === "en cours"
-                        ? "Statut"
-                        : e.Statut === "Annule"
-                        ? "annule"
-                        : "livre"
-                    }
-                  >
-                    {e.Statut}
-                  </p>
-                </div>
-                {
-                  <div
-                    className={
-                      dopdownAricle && iDdropdownArticle === key
-                        ? "Article-data"
-                        : "Article-data-none"
-                    }
-                  >
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                  </div>
-                }
-              </div>
-            ))}
+                    {!dopdownAricle && (
+                       <ArrowDown2
+                         size="17"
+                         color="#626262"
+                         className="icondown"
+                         onClick={(e) => dropDownOn(key)}
+                         style={{ cursor: "pointer" }}
+                       />
+                     )}
+                     {dopdownAricle && (
+                       <ArrowUp2
+                         size="17"
+                         color="#626262"
+                         className="icondown"
+                         onClick={(e) => {
+                           dropDownOff(key);
+                         }}
+                         style={{ cursor: "pointer" }}
+                       />
+                     )}
+                     </div>
+                   </div>
+                   <p className="datecommande">{e.createdAt}</p>
+                   <div className="vendeur-data">
+                     <img src={"http://127.0.0.1:8080/uploads/"+e?.labrairie?.imageStore} alt="maktba rahma"  style={{width:"20px" , height:"20px"}}/>
+                     <p className="name_libraire"> {e?.labrairie?.nameLibrairie} </p>
+                   </div>
+                   <p className="Tarification"> {e.total_ttc} DT</p>
+                   <p
+                     className={
+                       e.etat === "en cours"
+                         ? "Statut"
+                         : e.etat === "Annule"
+                         ? "annule"
+                         : "livre"
+                     }
+                   >
+                     {e.etat}
+                   </p>
+                 </div>
+                 {
+                   <div
+                     className={
+                       dopdownAricle && iDdropdownArticle === key
+                         ? "Article-data"
+                         : "Article-data-none"
+                     }
+                   >
+                     {e?.produitlabrairies?.map((e)=>(<div className="article">
+                       <p className="qte">{e?.produit_c_Detail?.Qte}X</p>
+                       <img src={img1} alt="nameImage" />
+                       <p className="titleProduit">{e.titre}</p>
+                     </div>))}
+                     
+                   </div>
+                 }
+               </div>
+             ))}
           </div>
         </div>
         
@@ -369,81 +358,72 @@ function a11yProps(index) {
           </div>
           <hr className="sous-line-array" /><br/>
           <div className="array-data">
-            {filteredEncours.map((e, key) => (  
+          {filteredEncours?.map((e, key) => (  
                
-              <div>
-                <div className="commande-data" key={key}>
-                  <p className="idcommande"> {e.id}</p>
-                  <div className="articles">
-                    <p className="nombreArticle">{e.nbArticle}</p>
+               <div>
+                 <div className="commande-data" key={key}>
+                   <p className="idcommande"> {e.id}</p>
+                   <div className="articles">
+                     <p className="nombreArticle">{e?.produitlabrairies.length}</p>
                     <div>
-                   {!dopdownAricle && (
-                      <ArrowDown2
-                        size="17"
-                        color="#626262"
-                        className="icondown"
-                        onClick={(e) => dropDownOn(key)}
-                        style={{ cursor: "pointer" }}
-                      />
-                    )}
-                    {dopdownAricle && (
-                      <ArrowUp2
-                        size="17"
-                        color="#626262"
-                        className="icondown"
-                        onClick={(e) => {
-                          dropDownOff(key);
-                        }}
-                        style={{ cursor: "pointer" }}
-                      />
-                    )}
-                    </div>
-                  </div>
-                  <p className="datecommande">{e.data}</p>
-                  <div className="vendeur-data">
-                    <img src={img2} alt="maktba rahma" />
-                    <p className="name_libraire"> {e.nameLib} </p>
-                  </div>
-                  <p className="Tarification"> {e.toatal} DT</p>
-                  <p
-                    className={
-                      e.Statut === "en cours"
-                        ? "Statut"
-                        : e.Statut === "Annule"
-                        ? "annule"
-                        : "livre"
-                    }
-                  >
-                    {e.Statut}
-                  </p>
-                </div>
-                {
-                  <div
-                    className={
-                      dopdownAricle && iDdropdownArticle === key
-                        ? "Article-data"
-                        : "Article-data-none"
-                    }
-                  >
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                  </div>
-                }
-              </div>
-            ))}
+                    {!dopdownAricle && (
+                       <ArrowDown2
+                         size="17"
+                         color="#626262"
+                         className="icondown"
+                         onClick={(e) => dropDownOn(key)}
+                         style={{ cursor: "pointer" }}
+                       />
+                     )}
+                     {dopdownAricle && (
+                       <ArrowUp2
+                         size="17"
+                         color="#626262"
+                         className="icondown"
+                         onClick={(e) => {
+                           dropDownOff(key);
+                         }}
+                         style={{ cursor: "pointer" }}
+                       />
+                     )}
+                     </div>
+                   </div>
+                   <p className="datecommande">{e.createdAt}</p>
+                   <div className="vendeur-data">
+                     <img src={"http://127.0.0.1:8080/uploads/"+e?.labrairie?.imageStore} alt="maktba rahma"  style={{width:"20px" , height:"20px"}}/>
+                     <p className="name_libraire"> {e?.labrairie?.nameLibrairie} </p>
+                   </div>
+                   <p className="Tarification"> {e.total_ttc} DT</p>
+                   <p
+                     className={
+                       e.etat === "en cours"
+                         ? "Statut"
+                         : e.etat === "Annule"
+                         ? "annule"
+                         : "livre"
+                     }
+                   >
+                     {e.etat}
+                   </p>
+                 </div>
+                 {
+                   <div
+                     className={
+                       dopdownAricle && iDdropdownArticle === key
+                         ? "Article-data"
+                         : "Article-data-none"
+                     }
+                   >
+                     {e?.produitlabrairies?.map((e)=>(<div className="article">
+                       <p className="qte">{e?.produit_c_Detail?.Qte}X</p>
+                       <img src={img1} alt="nameImage" />
+                       <p className="titleProduit">{e.titre}</p>
+                     </div>))}
+                     
+                   </div>
+                 }
+               </div>
+             ))}
           </div>
         </div>
         
@@ -485,81 +465,72 @@ function a11yProps(index) {
           </div>
           <hr className="sous-line-array" /><br/>
           <div className="array-data">
-            {filteredDataAnnulé.map((e, key) => (  
+          {filteredDataAnnulé?.map((e, key) => (  
                
-              <div>
-                <div className="commande-data" key={key}>
-                  <p className="idcommande"> {e.id}</p>
-                  <div className="articles">
-                    <p className="nombreArticle">{e.nbArticle}</p>
+               <div>
+                 <div className="commande-data" key={key}>
+                   <p className="idcommande"> {e.id}</p>
+                   <div className="articles">
+                     <p className="nombreArticle">{e?.produitlabrairies.length}</p>
                     <div>
-                   {!dopdownAricle && (
-                      <ArrowDown2
-                        size="17"
-                        color="#626262"
-                        className="icondown"
-                        onClick={(e) => dropDownOn(key)}
-                        style={{ cursor: "pointer" }}
-                      />
-                    )}
-                    {dopdownAricle && (
-                      <ArrowUp2
-                        size="17"
-                        color="#626262"
-                        className="icondown"
-                        onClick={(e) => {
-                          dropDownOff(key);
-                        }}
-                        style={{ cursor: "pointer" }}
-                      />
-                    )}
-                    </div>
-                  </div>
-                  <p className="datecommande">{e.data}</p>
-                  <div className="vendeur-data">
-                    <img src={img2} alt="maktba rahma" />
-                    <p className="name_libraire"> {e.nameLib} </p>
-                  </div>
-                  <p className="Tarification"> {e.toatal} DT</p>
-                  <p
-                    className={
-                      e.Statut === "en cours"
-                        ? "Statut"
-                        : e.Statut === "Annule"
-                        ? "annule"
-                        : "livre"
-                    }
-                  >
-                    {e.Statut}
-                  </p>
-                </div>
-                {
-                  <div
-                    className={
-                      dopdownAricle && iDdropdownArticle === key
-                        ? "Article-data"
-                        : "Article-data-none"
-                    }
-                  >
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                    <div className="article">
-                      <p className="qte">1X</p>
-                      <img src={img1} alt="nameImage" />
-                      <p className="titleProduit">GOUACHE 9T METAL...</p>
-                    </div>
-                  </div>
-                }
-              </div>
-            ))}
+                    {!dopdownAricle && (
+                       <ArrowDown2
+                         size="17"
+                         color="#626262"
+                         className="icondown"
+                         onClick={(e) => dropDownOn(key)}
+                         style={{ cursor: "pointer" }}
+                       />
+                     )}
+                     {dopdownAricle && (
+                       <ArrowUp2
+                         size="17"
+                         color="#626262"
+                         className="icondown"
+                         onClick={(e) => {
+                           dropDownOff(key);
+                         }}
+                         style={{ cursor: "pointer" }}
+                       />
+                     )}
+                     </div>
+                   </div>
+                   <p className="datecommande">{e.createdAt}</p>
+                   <div className="vendeur-data">
+                     <img src={"http://127.0.0.1:8080/uploads/"+e?.labrairie?.imageStore} alt="maktba rahma"  style={{width:"20px" , height:"20px"}}/>
+                     <p className="name_libraire"> {e?.labrairie?.nameLibrairie} </p>
+                   </div>
+                   <p className="Tarification"> {e.total_ttc} DT</p>
+                   <p
+                     className={
+                       e.etat === "en cours"
+                         ? "Statut"
+                         : e.etat === "Annule"
+                         ? "annule"
+                         : "livre"
+                     }
+                   >
+                     {e.etat}
+                   </p>
+                 </div>
+                 {
+                   <div
+                     className={
+                       dopdownAricle && iDdropdownArticle === key
+                         ? "Article-data"
+                         : "Article-data-none"
+                     }
+                   >
+                     {e?.produitlabrairies?.map((e)=>(<div className="article">
+                       <p className="qte">{e?.produit_c_Detail?.Qte}X</p>
+                       <img src={img1} alt="nameImage" />
+                       <p className="titleProduit">{e.titre}</p>
+                     </div>))}
+                     
+                   </div>
+                 }
+               </div>
+             ))}
           </div>
         </div>
         

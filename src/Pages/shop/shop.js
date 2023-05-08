@@ -32,7 +32,6 @@ const Shop = () => {
     setCurrent(page)
   }
   
-  console.log(dataFromChild)
   useEffect(()=>{
     dispatch(getAllProduitlibrairie())
 },[])

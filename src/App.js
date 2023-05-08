@@ -14,6 +14,30 @@ import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 
+
+const FornisseuerProfile = lazy(() =>
+  import("./components/FournisseursComponents/profile-Fornisseuer/FornisseuerProfile")
+);
+const FactorisationFornisseuer = lazy(() =>
+  import("./components/FournisseursComponents/Factorisation/FactorisationFornisseuer")
+);
+const DetailcomnderFornisseuer = lazy(() =>
+  import("./components/FournisseursComponents/Listecommandes/composentliste/DetailcomnderFornisseuer")
+);
+const ListecommandesFornisseuer = lazy(() =>
+  import("./components/FournisseursComponents/Listecommandes/ListecommandesFornisseuer")
+);
+const ListelivraisonsFornisseuer = lazy(() =>
+  import("./components/FournisseursComponents/Liste de livraisons/ListelivraisonsFornisseuer")
+);
+const DetailLivrFornisseuer = lazy(() =>
+  import("./components/FournisseursComponents/Liste de livraisons/composentliste/DetailLivrFornisseuer")
+);
+
+const Fournisseurs = lazy(() =>
+  import("./Pages/Fournisseurs/Fournisseurs")
+);
+
 const DetailLivr = lazy(() =>
   import("./components/Liste-de-livraisons/composentliste/DetailLivr")
 );
@@ -100,7 +124,7 @@ function App() {
     avatar:decoded?.avatar
   };
   
-  console.log(user.avatar)
+
   
 
  
@@ -121,10 +145,7 @@ function App() {
             <Route path="/Shop" element={<Shop />} />
             <Route path="/Detailproduit/:id" element={<Detailprod user={user}/>} />
             <Route path="/cart" element={<Cart user={user}/>} />
-            <Route
-              path="/librairieProfile/:id"
-              element={<LibrairieProfile />}
-            />
+            <Route  path="/librairieProfile/:id" element={<LibrairieProfile />}       />
             <Route path="/Profile" element={<Profile user={user} />}>
               <Route path="/Profile/Monidentité" element={<Page1_profile user={user}  />} />
               <Route path="/Profile/Favoris" element={<Page2_profile user={user}   />} />
@@ -175,6 +196,21 @@ function App() {
               />
               <Route path="/Vender/Factorisation" element={<Factorisation />} />
             </Route>
+
+
+
+            <Route path="/Fornisseuer" element={<Fournisseurs />}>
+            <Route path="/Fornisseuer/Liste_de_livraisons" element={<ListelivraisonsFornisseuer />} />
+            <Route path="/Fornisseuer/Détails_de_livraison/:id" element={<DetailLivrFornisseuer />}             />
+            <Route path="/Fornisseuer/Liste_de_commandes" element={<ListecommandesFornisseuer />}             />
+            <Route path="/Fornisseuer/Détails_de_commandes/:id" element={<DetailcomnderFornisseuer />}             />
+            <Route path="/Fornisseuer/Factorisation" element={<FactorisationFornisseuer />}             />
+            <Route path="/Fornisseuer/Profile" element={<FornisseuerProfile />}             />
+
+            </Route>
+
+
+
             <Route path="*" element={<> page not !!!</>} />
           </Routes>
         </Suspense>

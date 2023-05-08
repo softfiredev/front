@@ -8,26 +8,21 @@ import { toast } from "react-toastify";
 import { DeleteProduitFavorie } from "../../Store/Service/DeleteProduitFavorie";
 
 const Box_FavoirsProduit_Card = (props) => {
-  const [refreshpage,setrefreshpage]=useState(false)
   const dispatch=useDispatch()
   const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
     dispatch(add({idp,imgp,prix,titre,qte,idl}))
     toast.success("Vous avez ajouté un produit à votre panier",{autoClose: 1000})
   }
-
   const removefavo=()=>{
-
-    
     DeleteProduitFavorie(props.idp,props.idclient).then((response)=>{
       if(response.success===true){
           toast.success("votre produit  Suppr avec success",{autoClose: 1000})
-          setrefreshpage(true)
+        
       }
     })
-    setrefreshpage(false)
+  
   }
-  useEffect(() => {
-  }, [refreshpage]);
+
   return (
 <div>
 <div className="colline-box">

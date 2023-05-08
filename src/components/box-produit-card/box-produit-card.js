@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import img from "../../assets/prod1.png";
 import './box-produit-card.css'
 import { Grid} from "@mui/material";
 import { remove } from "../../Store/panier/panierSlice";

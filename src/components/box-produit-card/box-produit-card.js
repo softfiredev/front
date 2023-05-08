@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import img from "../../assets/prod1.png";
 import './box-produit-card.css'
 import { Grid} from "@mui/material";
-import { remove } from "../../Store/panier/panierSlice";
+import { remove,add as changeQte} from "../../Store/panier/panierSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { add, removeCommande } from "../../Store/panier/commandeSlice";
  
@@ -19,6 +19,7 @@ const Box_produit_Card = (props)=>{
   }
   useEffect(()=>{
       dispatch(add({"qte":qte,"idlib":props.idl,"prix":total,"produitlabrairieId":props.idp}))
+  
   },[qte])
 
  

@@ -49,6 +49,7 @@ const Gouvernora=[{nome:"Ariana"},{nome:"Béja"},{nome:"Ben Arous"},{nome:"Bizer
   const [open1, setOpen1] = useState(true);
   const [newPassword,setnewPassword]=useState()
   const [actuelPassword,setactuelPassword]=useState()
+  const [inputDisable,setinputDisable]=useState(true)
   
   const handleClose = () => setOpen(false);
 const[openchangePassword,setopenchangePassword]=useState(false)
@@ -77,6 +78,7 @@ const handleinfo=()=>{
   settelephone(clientData.telephone);
   setDate_de_naissance(clientData.Date_de_naissance)
   setavatar(clientData.avatar)
+  setinputDisable(false)
 }
 const passwordchange=()=>{
   if(newPassword!==undefined && actuelPassword!==undefined){
@@ -232,20 +234,20 @@ const updateadr=()=>{
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Nom et Prénom</div>
-            <input type="text" className="input-pro" defaultValue={clientData?.fullname} onChange={(e)=>{setfullname( e.target.value)}}/>
+            <input type="text" disabled={inputDisable} className="input-pro" defaultValue={clientData?.fullname} onChange={(e)=>{setfullname( e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Email</div>
-            <input type="text" className="input-pro" defaultValue={clientData?.email} onChange={(e)=>{setemail( e.target.value)}}/>
+            <input type="text" disabled={inputDisable} className="input-pro" defaultValue={clientData?.email} onChange={(e)=>{setemail( e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Numéro de téléphone</div>
-            <input type="text" className="input-pro" defaultValue={clientData?.telephone} onChange={(e)=>{settelephone(e.target.value)}}/>
+            <input type="text" disabled={inputDisable} className="input-pro" defaultValue={clientData?.telephone} onChange={(e)=>{settelephone(e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Date de naissance</div>
          
-              <input type="date" className="input-pro" defaultValue={clientData?.Date_de_naissance} onChange={(e)=>{setDate_de_naissance(e)}}/>
+              <input type="date" disabled={inputDisable} className="input-pro" defaultValue={clientData?.Date_de_naissance} onChange={(e)=>{setDate_de_naissance(e)}}/>
 
           </div>
           {open1?

@@ -53,10 +53,10 @@ const Page2 = (props) => {
                 prix={produit.produitlabrairie?.prix}
                 nbstart={produit.produitlabrairie?.avisProduitlibraires?.[0]?.max_nb}
                 totalavis={produit.produitlabrairie?.avisProduitlibraires?.[0]?.total_avis}
-                namelibriarie={produit.produitlabrairie.labrairie?.nameLibrairie}
-                idl={produit.produitlabrairie.labrairie?.id}
-                imgl={produit.produitlabrairie.labrairie?.imageStore}
-                imgp={produit.produitlabrairie.imagelibrairies?.[0]?.name_Image}
+                namelibriarie={produit.produitlabrairie?.labrairie?.nameLibrairie}
+                idl={produit.produitlabrairie?.labrairie?.id}
+                imgl={produit.produitlabrairie?.labrairie?.imageStore}
+                imgp={produit.produitlabrairie?.imagelibrairies?.[0]?.name_Image}
               />
             ))}
           </div>

@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from "react";
 import './box-produit-card.css'
 import { Grid} from "@mui/material";
-import { remove,add as changeQte} from "../../Store/panier/panierSlice";
+import { remove,update as changeQte} from "../../Store/panier/panierSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { add, removeCommande } from "../../Store/panier/commandeSlice";
- 
 const Box_produit_Card = (props)=>{
   const [qte,setqte]=useState(props.qte)
   const total = props.prix*qte ; 
   const dispatch = useDispatch();
-  const handleChangevalue=(e)=>{
-    setqte(e.target.value)
-  }
   const removeProduit=(index)=>{
     dispatch(remove(index))
     dispatch(removeCommande(index))
   }
   useEffect(()=>{
       dispatch(add({"qte":qte,"idlib":props.idl,"prix":total,"produitlabrairieId":props.idp}))
-  
   },[qte])
-
+  const changeQtee=(e)=>{
+    setqte(e.target.value)
+    dispatch(changeQte({"idp":props.idp,"imgp":props.imgp,"prix":props.prix,"titre":props.titre,"qte":Number( e.target.value),"idl":props.idl}))
+  }
  
         return (
         <>
@@ -37,7 +35,7 @@ const Box_produit_Card = (props)=>{
                 <div>   <p className="prix">{props.prix} dt</p></div>
                     </div>
              </div>
-              <input type="number" width="20px" className="qte" min={1} onChange={handleChangevalue}  defaultValue={qte}  />
+              <input type="number" width="20px" className="qte" min={1} onChange={(e)=>changeQtee(e)}  defaultValue={qte}/>
               <p className="total">{total} dt</p>
               <div className="Supprimer" onClick={()=>removeProduit(props.index)}> Supprimer </div>
             </Grid>

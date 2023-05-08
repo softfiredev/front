@@ -8,7 +8,7 @@ export const SlicePanier=createSlice({
         if(ProduitExist){
           state.panier.forEach((obj)=>{
             if (obj.idp === action.payload.idp) {
-              obj.qte = obj.qte+action.payload.qte;
+              obj.qte = obj.qte+Number(action.payload.qte);
             }
           })        
         }else{
@@ -23,10 +23,21 @@ export const SlicePanier=createSlice({
       state.panier.splice(action.payload,1);
       state.nbprod = state.panier?.length;
       state.status="success"
-    }
+    },
+    update:(state,action)=>{
+      const ProduitExist =state.panier.find((obj)=>obj.idp===action.payload.idp)?true:false
+      if(ProduitExist){
+        state.panier.forEach((obj)=>{
+          if (obj.idp === action.payload.idp) {
+            obj.qte=Number(action.payload.qte);
+          }
+        })        
+      }
+  },
+  
     
   },
 
 })
-export const{add,remove}=SlicePanier.actions
+export const{add,remove,update}=SlicePanier.actions
 export default SlicePanier.reducer;

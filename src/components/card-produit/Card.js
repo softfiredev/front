@@ -45,6 +45,7 @@ const Card = (props) => {
               defaultValue={0}
               size="small"
               className="stars"
+              style={{marginTop:"14px"}}
             />
 
             <p className="txt-sp">({props.totalavis===undefined?0:props.totalavis})</p>

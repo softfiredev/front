@@ -32,6 +32,7 @@ const Profilee = (props) => {
       setbnt4("bnt-pro2");
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro2");
+      setname("page1") ;    
       navigate("/Profile/Monidentité");
     }
     if (name == "page2") {
@@ -41,6 +42,7 @@ const Profilee = (props) => {
       setbnt4("bnt-pro2");
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro2");
+      setname("page2") ;   
       navigate("/profile/Favoris");
     }
     if (name == "page3") {
@@ -50,6 +52,7 @@ const Profilee = (props) => {
       setbnt4("bnt-pro2");
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro2");
+      setname("page3") ;   
       navigate("/profile/Commandes");
     }
     if (name == "page4") {
@@ -59,6 +62,7 @@ const Profilee = (props) => {
       setbnt4("bnt-pro");
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro2");
+      setname("page4") ;   
       navigate("/Profile/avis");
     }
     if (name == "page6") {
@@ -68,6 +72,7 @@ const Profilee = (props) => {
       setbnt4("bnt-pro2");
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro");
+      setname("page6") ;   
       navigate("/profile/MesPoints");
     }
   };

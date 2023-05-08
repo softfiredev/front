@@ -257,7 +257,7 @@ const updateadr=()=>{
           </div>
           :
           <div className="rowbnt-page03210">
-          <button onClick={()=>{setOpen1(true)}} className="bnt3-page">
+          <button onClick={()=>{setOpen1(true);  setinputDisable(true)}} className="bnt3-page">
             <p className="txtbnt3-page">Annuler</p>
           </button>
           <button  className="bnt4-page">

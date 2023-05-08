@@ -140,10 +140,7 @@ function App() {
                   element={<Navigate to="/Profile/MesPoints/Bondachats" />}
                 />
               </Route>
-              <Route
-                path="/Profile"
-                element={<Navigate to="/Profile/Monidentité" />}
-              />{" "}
+          
             </Route>
             <Route path="/" element={<Navigate to="/Home" />} />
             <Route path="/Home" element={<Home />} />

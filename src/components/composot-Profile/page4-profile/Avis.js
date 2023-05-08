@@ -178,7 +178,7 @@ console.log(Avis)
             </tr>
       
             
-            {Avis.map((obj) => (
+            {Avis?.map((obj) => (
               <tr className="tr-avis">
                 <td>
                   <div className="row-avis">

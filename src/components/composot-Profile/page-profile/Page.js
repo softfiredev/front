@@ -170,11 +170,8 @@ DeletAdrClient(IdAdrr,props.user.id).then((response)=>{
   }
 })
 setrefreshpage(false)
-
 setOpen(false)
-
 }
-
 const updateadr=()=>{
   let data = {
     Nom_de_adresse: addresse.nom,

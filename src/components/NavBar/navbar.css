@@ -83,16 +83,12 @@ color: #1A110A;
 	color: #ffc125;
 }
 .header {
-
-	
   height: 5000%;
   background: #222222;
-  
-
 }
 .cartchop{
 	margin-left: -24%;
-	margin-top: 15.5%;
+	margin-top: 13%;
 }
 @media (min-width: 769px) {
 	.header,
@@ -157,6 +153,10 @@ border-radius: 8px;
 		justify-content: space-between;
 	}
 
+}
+.group032{
+	display: flex;
+	gap:3em;
 }
 .group{
 	display: flex;

@@ -9,6 +9,7 @@ const Verify_email = () => {
   const [email,setemail] = useState("");
   
   const chang=async ()=>{
+
     if(email.length!==0)
     {
       let reg = /^[a-z-A-Z0-9-_.]+@[a-z-A-Z0-9-_]{2,}[.][a-z-A-Z]{2,3}$/
@@ -17,27 +18,20 @@ const Verify_email = () => {
        let data ={
         email:email
        }
+       
          axios.post(Base_url+ Path.forgotPasswordapi,data).then(res=>{
-          if(res.data.success===true)
-          {
-            toast.success("Vérifiez votre email maintenant svp pour réinitialiser votre mot de passe");
-          }else{
-            toast.error("error !!!")
-          }
-    
+
+            toast.success("Vérifiez votre email maintenant svp pour réinitialiser votre mot de passe",{autoClose: 1000});
         })
         .catch(error => {
-          console.error(error);
-      
+          toast.error("your email is not existed !!!",{autoClose: 1000})
         });
       }
       else{
-        toast.error("validation de Email !!")
-
+        toast.error("validation de Email !!",{autoClose: 1000})
       }
-      
     }else{
-      toast.error("remplir Champ vide SVP !!")
+      toast.error("remplir Champ vide SVP !!",{autoClose: 1000})
     }
     
   } 

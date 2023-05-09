@@ -33,8 +33,10 @@ function NavBar(props) {
           <Link to="/Contact">  <li>Contact</li></Link>
           </ul>
         </div>
-        <div className='group'>
-          <span className="cartchop">
+        <div className='group032'>
+          <div className="cartchop">
+
+          <span>
             <Link to="/cart" className='iconcolor'>
               <ShoppingCart
                 size="32"
@@ -43,13 +45,17 @@ function NavBar(props) {
               /><p className='patch'><p className='patch-txt'>+{nbprod}</p></p>
             </Link>
           </span>
-          <Link to="/login" className={props.user.auth?"butto-NAV-link-none":"butto-NAV-link"} > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
+          </div>
+         <div>
+         <Link to="/login" className={props.user.auth?"butto-NAV-link-none":"butto-NAV-link"} > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
           <Link to="/Profile/Monidentité" >
           <div className={props.user.auth?"section_user":"section_user-none"}>
                   <p className='username'> {clientData.fullname===undefined?props.user.fullname:clientData.fullname}</p>
                   <Avatar  style={{ height: "26px", width: "26px" }}  src={clientData?.avatar!==undefined?"http://127.0.0.1:8080/uploads/"+clientData?.avatar:"http://127.0.0.1:8080/uploads/"+props.user.avatar} className="avrt-pagenave" />
           </div>
           </Link>
+          </div>
+    
         </div>
 
       </header>

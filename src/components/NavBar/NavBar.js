@@ -6,7 +6,6 @@ import { ShoppingCart,ArrowDown2, ProfileCircle } from 'iconsax-react';
 import Menuicon from '../menu-icon/minu';
 import { useSelector } from 'react-redux';
 import Avatar from '@mui/material/Avatar';
-import Avtr from "../../assets/avtclient.png";
 function NavBar(props) {
   const clientData = useSelector(
     (state) => state.IdentiteClient.identiteClient
@@ -47,7 +46,7 @@ function NavBar(props) {
           <Link to="/Profile/Monidentité" >
           <div className={props.user.auth?"section_user":"section_user-none"}>
                   <p className='username'> {props.user.fullname}</p>
-                  <Avatar  style={{ height: "26px", width: "26px" }}  src={"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-pagenave" />
+                  <Avatar  style={{ height: "26px", width: "26px" }}  src={clientData?.avatar!==undefined?"http://127.0.0.1:8080/uploads/"+clientData?.avatar:"http://127.0.0.1:8080/uploads/"+props.user.avatar} className="avrt-pagenave" />
           </div>
           </Link>
           

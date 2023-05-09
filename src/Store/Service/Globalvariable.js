@@ -7,3 +7,10 @@ export const Globalvariable = createAsyncThunk(
       return data
     }
 )
+export const Globalvariable2 = createAsyncThunk(
+  'Globalvariable2',
+  async (id) => {
+    const data=id
+    return data
+  }
+)

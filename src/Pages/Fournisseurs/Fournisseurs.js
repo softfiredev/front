@@ -15,12 +15,8 @@ import {
 } from "iconsax-react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
-
 import { Globalvariable } from "../../Store/Service/Globalvariable";
-import { PanoramaFishEye } from "@mui/icons-material";
-
-const Fournisseurs = (props) => {
-
+const Fournisseurs = () => {
   const linkarray = [
     {
       linkname: "Tableau du bord",
@@ -70,14 +66,16 @@ const Fournisseurs = (props) => {
     },
   ];
   const dispatch=useDispatch()
-  const Globalvariablee=useSelector(state=> state.Globalvariable.Global)
-  const [linkStyle, setLinkStyle] = useState(true);
-  const [linkId, setLinkId] = useState(Globalvariablee!==undefined?Globalvariablee:0);
-  const handleChangeStyleLink = (id) => {
+  const Globalvariablee=useSelector(state=> state.Globalvariable.Global1)
+  const [linkStyle, setLinkStyle] = useState(false);
+  const [linkId, setLinkId] = useState(Globalvariablee.length!==undefined?0:Globalvariablee);
+  const handleChangeStyleLink = (id,link) => {
     setLinkStyle(true);
     dispatch(Globalvariable(id))
       setLinkId(id);
+     console.log(link)
   };
+ 
   return (
     <div className="Fournisseurs">
       <div className="sidebar-Fournisseurs">
@@ -85,7 +83,7 @@ const Fournisseurs = (props) => {
         <div className="linksidebar-Fournisseurs">
           {linkarray.map((e, key) => (
             <Link to={e.linkto}> 
-                    <div   onClick={() => handleChangeStyleLink(key)}
+                    <div   onClick={() => handleChangeStyleLink(key,e.linkto)}
               className={
                 linkId === key && linkStyle
                   ? "link"

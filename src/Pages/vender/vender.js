@@ -16,6 +16,8 @@ import {
 
 import "./vender.css";
 import { Link, Outlet } from "react-router-dom";
+import { Globalvariable2 } from "../../Store/Service/Globalvariable";
+import { useDispatch, useSelector } from "react-redux";
 
 const Vender = () => {
  
@@ -67,13 +69,16 @@ const Vender = () => {
       linkto :"/Vender/Profile"
     },
   ];
-  const [linkStyle, setLinkStyle] = useState(false);
-  const [linkId, setLinkId] = useState(0);
+  const dispatch=useDispatch()
+  const Globalvariablee=useSelector(state=> state.Globalvariable.Global2)
+  const [linkStyle, setLinkStyle] = useState(true);
+  const [linkId, setLinkId] = useState(Globalvariablee.length!==undefined?0:Globalvariablee);
   const handleChangeStyleLink = (id) => {
     setLinkStyle(true);
-    setLinkId(id);
+    dispatch(Globalvariable2(id))
+      setLinkId(id);
+     
   };
-
   return (
     <div className="categoriePage">
       <div className="side-bar">

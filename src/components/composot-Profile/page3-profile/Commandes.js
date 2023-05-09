@@ -37,41 +37,6 @@ function a11yProps(index) {
       'aria-controls': `simple-tabpanel-${index}`,
     };
   }
-  const commandeArray = [
-    {
-      id: "#100194",
-      nbArticle: 2,
-      data: "16/04/2023",
-      nameLib: "maktba el rahma",
-      toatal: "200",
-      Statut: "en cours",
-    },
-    {
-      id: "#100194",
-      nbArticle: 2,
-      data: "16/04/2023",
-      nameLib: "maktba el rahma",
-      toatal: "200",
-      Statut: "Livre",
-    },
-    {
-      id: "#100194",
-      nbArticle: 2,
-      data: "16/04/2023",
-      nameLib: "maktba el rahma",
-      toatal: "200",
-      Statut: "Annule",
-    },
-    {
-      id: "#100194",
-      nbArticle: 2,
-      data: "16/04/2023",
-      nameLib: "maktba el rahma",
-      toatal: "200",
-      Statut: "en cours",
-    },
-  ];
-
   const [dopdownAricle, setdropdowArticle] = useState(false);
   const [iDdropdownArticle, setiDdropdownArticle] = useState();
   const[idFilter,setidFilter]=useState()
@@ -88,7 +53,7 @@ function a11yProps(index) {
   useEffect(()=>{
     dispatch(getAllcommandeByclient(props?.user?.id))
   },[])
-
+  console.log(commandes?.[0].produitlabrairies?.[0]?.imagelibrairies?.[0]?.name_Image)
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
       setValue(newValue);
@@ -201,7 +166,7 @@ function a11yProps(index) {
                   >
                     {e?.produitlabrairies?.map((e)=>(<div className="article">
                       <div><p className="qte33">{e?.produit_c_Detail?.Qte}X</p></div>
-                      <img src={img1} alt="nameImage" />
+                      <img src={"http://127.0.0.1:8080/uploads/"+e.imagelibrairies?.[0]?.name_Image} alt="nameImage" />
              <div>         <p className="titleProduit">{e.titre}</p>        </div>
                     </div>))}
                     

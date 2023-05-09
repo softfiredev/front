@@ -183,13 +183,11 @@ console.log(Avis)
                 <td>
                   <div className="row-avis">
                 <img src={img1} className="img1-avis" />
-                  <div style={{marginTop:"4%"}}>{obj.produitlabrairie?.titre}</div>
+                  <div style={{marginTop:"4%"}}>{obj.produitlabrairie.titre}</div>
                   </div></td>
-                <td>06 février 2022</td>
-                <td>    <Rating   name="read-only"
-          value="2"
+                <td>{obj.createdAt}</td>
+                <td>    <Rating   name="read-only" value={obj.nbStart}
           readOnly
-          defaultValue={obj.nbStart}
           size="small"
           className="stars"
         /></td>

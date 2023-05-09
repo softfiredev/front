@@ -96,7 +96,8 @@ margin-left: -3px;
 }
 .titleProduit{
     width :150%;
-    padding-bottom: 20%;
+    padding-bottom: 5px;
+    padding-left: 9px;
 }
 .articles{
     margin-left: 20px;

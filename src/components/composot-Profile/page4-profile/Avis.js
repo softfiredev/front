@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";import "./Avis.css";
+import React, { useEffect } from "react";
+import "./Avis.css";
 import { OutlinedInput } from "@mui/material";
 import { More, ArrowCircleRight2, Edit, Trash } from "iconsax-react";
 import Menu from "@mui/material/Menu";
@@ -15,22 +16,22 @@ const Avis = (props) => {
   const open = Boolean(anchorEl);
   const [op, setop] = React.useState(false);
   const [op2, setop2] = React.useState(false);
-  const Avis = useSelector((state)=> state.AvisClient.AvisClient)
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    dispatch(getAllAvisClient(props?.user?.id))
-  },[])
+  const Avis = useSelector((state) => state.AvisClient.AvisClient);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllAvisClient(props?.user?.id));
+  }, []);
 
-console.log(Avis)
+  console.log(Avis);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleClicke=()=>{
-    setop(true)
-  }
+  const handleClicke = () => {
+    setop(true);
+  };
   const handleClos = () => {
     setop(false);
     setAnchorEl(null);
@@ -135,7 +136,8 @@ console.log(Avis)
     background: "#FFFFFF",
     width: "544px",
     height: "563px",
-    boxShadow: "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
+    boxShadow:
+      "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
     borderRadius: "8px",
     p: 4,
   };
@@ -147,14 +149,14 @@ console.log(Avis)
     background: "#FFFFFF",
     width: "544px",
     height: "284px",
-    boxShadow: "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
+    boxShadow:
+      "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
     borderRadius: "8px",
     p: 4,
   };
   return (
     <div className="avis">
-  
-    <div className="col1-avis">
+      <div className="col1-avis">
         <div>
           <p className="txt1-avis">Mes avis</p>
         </div>
@@ -165,8 +167,8 @@ console.log(Avis)
           />
         </div>
         <div>
-          <table >
-            <tr >
+          <table>
+            <tr>
               <th>
                 <div style={{ marginLeft: "-6%" }}>Articles</div>
               </th>
@@ -176,22 +178,28 @@ console.log(Avis)
                 <div style={{ marginLeft: "10%" }}>Commentaire</div>
               </th>
             </tr>
-      
-            
+
             {Avis?.map((obj) => (
               <tr className="tr-avis">
                 <td>
                   <div className="row-avis">
-                <img src={img1} className="img1-avis" />
+                <img src={"http://127.0.0.1:8080/uploads/"+obj.produitlabrairie?.imagelibrairies?.[0]?.name_Image} className="img1-avis" />
                   <div style={{marginTop:"4%"}}>{obj.produitlabrairie.titre}</div>
                   </div></td>
                 <td>{obj.createdAt}</td>
-                <td>    <Rating   name="read-only" value={obj.nbStart}
-          readOnly
-          size="small"
-          className="stars"
-        /></td>
-                <td className="tabcom-avis"><p className="commtxt-avis"> {obj.commenter} </p></td>
+                <td>
+                  {" "}
+                  <Rating
+                    name="read-only"
+                    value={obj.nbStart}
+                    readOnly
+                    size="small"
+                    className="stars"
+                  />
+                </td>
+                <td className="tabcom-avis">
+                  <p className="commtxt-avis"> {obj.commenter} </p>
+                </td>
                 <br />
                 <br />
                 <td>
@@ -231,7 +239,12 @@ console.log(Avis)
                   <p className="txtmenu-avis">Modifier</p>
                 </span>
               </MenuItem>
-              <MenuItem className="menuitem-avis" onClick={()=>{setop2(true)}}>
+              <MenuItem
+                className="menuitem-avis"
+                onClick={() => {
+                  setop2(true);
+                }}
+              >
                 <Trash size="22" color="#222222" />
                 <span>
                   <p className="txtmenu-avis">Supprimer</p>
@@ -241,39 +254,45 @@ console.log(Avis)
           </table>
         </div>
       </div>
-  <Modal
-                    open={op}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                    onClose={handleClos}
-                  >
-                    <Box sx={style}>
-                    <div className='container-modal'>
-                    <div className="flex-end">
-                          {" "}
-                          <div>
-                            {" "}
-                            <i class="fa fa-close" onClick={handleClos}></i>
-                          </div>
-                        </div>
+      <Modal
+        open={op}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        onClose={handleClos}
+      >
+        <Box sx={style}>
+          <div className="container-modal">
+            <div className="flex-end">
+              {" "}
+              <div>
+                {" "}
+                <i class="fa fa-close" onClick={handleClos}></i>
+              </div>
+            </div>
 
-                    <div><h2 style={{textAlign:"center"}}>Modifier votre avis</h2></div>
-                  <div className="boxavis-pro">
-                <div>
-                      
+            <div>
+              <h2 style={{ textAlign: "center" }}>Modifier votre avis</h2>
+            </div>
+            <div className="boxavis-pro">
+              <div>
                 <Rating
-                            className="reting1"
-                            value="2"
-                           style={{fontSize:"4.5em"}}
-                          />
-                </div>
-                <div>
-               <p className="txtmodalavis-pro2"> Commentaire:</p>
-                </div>
-                <div>
-               <p className="txtmodalavis-pro">Vos cours où que vous alliez. Grâce à ce carnet, vous pourrez conserver vos leçons en toute situation grâce au QR code qui apparaît sur chaque page, il vous permettra de sauvegarder n'importe quelle leçon.</p>
-                </div>
-                <div className="minirow-page4">
+                  className="reting1"
+                  value="2"
+                  style={{ fontSize: "4.5em" }}
+                />
+              </div>
+              <div>
+                <p className="txtmodalavis-pro2"> Commentaire:</p>
+              </div>
+              <div>
+                <p className="txtmodalavis-pro">
+                  Vos cours où que vous alliez. Grâce à ce carnet, vous pourrez
+                  conserver vos leçons en toute situation grâce au QR code qui
+                  apparaît sur chaque page, il vous permettra de sauvegarder
+                  n'importe quelle leçon.
+                </p>
+              </div>
+              <div className="minirow-page4">
                 <button onClick={handleClos} className="bnt3-page">
                   <p className="txtbnt3-page">Annuler</p>
                 </button>
@@ -281,45 +300,43 @@ console.log(Avis)
                   <p className="txtbnt4-page">Confirmer</p>
                 </button>
               </div>
-                    </div>
-
-                    </div>
-                  
-                    </Box>
-                  </Modal>
-                  <Modal
-                    open={op2}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                    onClose={handleClos}
-                  >
-                    <Box sx={stylee}>
-                    <div className='container-modal'>
-                    <div className="flex-end">
-                          {" "}
-                          <div>
-                            {" "}
-                            <i class="fa fa-close" onClick={handleClos2}></i>
-                          </div>
-                        </div>
-<br/>
-                    <div><p className="txtmodal2-page4">Etes-vous sûr de vouloir supprimer cette avis?</p></div>
- 
-                
-                <div className="minirow2-page4">
-                <button onClick={handleClos2} className="bnt3-page">
-                  <p className="txtbnt3-page4">Annuler</p>
-                </button>
-                <button className="bnt40-page4">
-                  <p className="txtbnt40-page">Supprimer</p>
-                </button>
+            </div>
+          </div>
+        </Box>
+      </Modal>
+      <Modal
+        open={op2}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        onClose={handleClos}
+      >
+        <Box sx={stylee}>
+          <div className="container-modal">
+            <div className="flex-end">
+              {" "}
+              <div>
+                {" "}
+                <i class="fa fa-close" onClick={handleClos2}></i>
               </div>
-                    </div>
+            </div>
+            <br />
+            <div>
+              <p className="txtmodal2-page4">
+                Etes-vous sûr de vouloir supprimer cette avis?
+              </p>
+            </div>
 
-         
-                  
-                    </Box>
-                  </Modal>
+            <div className="minirow2-page4">
+              <button onClick={handleClos2} className="bnt3-page">
+                <p className="txtbnt3-page4">Annuler</p>
+              </button>
+              <button className="bnt40-page4">
+                <p className="txtbnt40-page">Supprimer</p>
+              </button>
+            </div>
+          </div>
+        </Box>
+      </Modal>
     </div>
   );
 };

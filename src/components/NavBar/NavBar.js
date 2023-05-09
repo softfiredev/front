@@ -49,7 +49,6 @@ function NavBar(props) {
                   <Avatar  style={{ height: "26px", width: "26px" }}  src={clientData?.avatar!==undefined?"http://127.0.0.1:8080/uploads/"+clientData?.avatar:"http://127.0.0.1:8080/uploads/"+props.user.avatar} className="avrt-pagenave" />
           </div>
           </Link>
-          
         </div>
 
       </header>

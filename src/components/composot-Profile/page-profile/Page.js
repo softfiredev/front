@@ -313,7 +313,7 @@ const onImageChange = (event) => {
                 
                   edge="end"
                 >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                
                 </IconButton>
               </InputAdornment>
             }

@@ -44,7 +44,7 @@ function NavBar(props) {
             </Link>
           </span>
           <Link to="/login" className={props.user.auth?"butto-NAV-link-none":"butto-NAV-link"} > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
-          <Link to="/Profile" >
+          <Link to="/Profile/Monidentité" >
           <div className={props.user.auth?"section_user":"section_user-none"}>
                   <p className='username'> {props.user.fullname}</p>
                   <Avatar  style={{ height: "26px", width: "26px" }}  src={"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-pagenave" />

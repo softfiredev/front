@@ -56,7 +56,7 @@ const[openchangePassword,setopenchangePassword]=useState(false)
 const [opencoll, setopencoll] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
- 
+
   const handleOpenChanegPassword=()=>{
     setopenchangePassword(true)
   }
@@ -78,6 +78,7 @@ const handleinfo=()=>{
   settelephone(clientData.telephone);
   setDate_de_naissance(clientData.Date_de_naissance)
   setavatar(clientData.avatar)
+
   setinputDisable(false)
 }
 const passwordchange=()=>{
@@ -192,7 +193,13 @@ const updateadr=()=>{
 
 }
 
-
+const [image, setImage] = useState(null);
+const onImageChange = (event) => {
+  if (event.target.files && event.target.files[0]) {
+    setavatar(event.target.files[0])
+    setImage(URL.createObjectURL(event.target.files[0]));
+  }
+};
  return (
     <div>
       <div className="carts2">
@@ -202,7 +209,7 @@ const updateadr=()=>{
             <div className="rowbnt-page">
               <div className="avatar-container">
 
-                <Avatar  style={{ height: "150px", width: "150px" }}  src={clientData?.avatar===undefined?Avtr:"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-page" />
+                <Avatar  style={{ height: "150px", width: "150px" }}  src={image!==null?image:"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-page" />
 
                 <div className="icon-container" >
                 <label htmlFor="file-input" className="labelup">
@@ -216,7 +223,7 @@ const updateadr=()=>{
                     }}
                   />
                   </label>
-                      <input type="file" className="uplod" id="file-input"accept=".jpg,.png" onChange={(e)=>setavatar(e.target.files[0])}/>
+                      <input disabled={inputDisable} type="file" className="uplod" id="file-input"accept=".jpg,.png" onChange={onImageChange}/>
                 </div>
               </div>
               <div className="col00-page1">

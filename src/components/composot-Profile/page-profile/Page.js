@@ -90,13 +90,13 @@ const passwordchange=()=>{
     changePassword(data,props.user.id).then((response)=>{
       console.log("azeazeaze",response)
         if(response.success===true){
-            toast.success(" Mot de passe changer")
+            toast.success(" Mot de passe changer",{autoClose: 1000})
         }else{
-            toast.error("verifie votre actuel password")
+            toast.error("verifie votre actuel password",{autoClose: 1000})
         }
     })
   }else{
-    toast.error(" Mot de passe actuel ou Nouveau mot de passe vide  ")
+    toast.error(" Mot de passe actuel ou Nouveau mot de passe vide",{autoClose: 1000})
   }
     
     setopenchangePassword(false)
@@ -305,18 +305,7 @@ const onImageChange = (event) => {
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
             onChange={(e)=>setnewPassword(e.target.value)}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                
-                  edge="end"
-                >
-                
-                </IconButton>
-              </InputAdornment>
-            }
+           
           />
              <div className="minirow-page">
                 <button onClick={handleCloseChanegPassword} className="bnt3-page">

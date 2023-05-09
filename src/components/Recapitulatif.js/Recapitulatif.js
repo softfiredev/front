@@ -43,11 +43,11 @@ const Recapitulatif = (props) => {
     if(props.auth){
       dispatch(AjouteCommande(data)).then((response)=>{
         if(response.payload.success===true){
-          toast.success("commande a été passée avec succès")
+          toast.success("commande a été passée avec succès",{autoClose: 1000})
         }
       })
     }else{
-      toast.error(" login pour passe une commande ")
+      toast.error(" login pour passe une commande ",{autoClose: 1000})
     }
     
   };

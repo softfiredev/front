@@ -211,6 +211,7 @@ height: 32px;
     width: 198px;
     margin-left: 153px;
     margin-top: 5px;
+    padding-bottom: 4%;
 }
 .Article-data-none{
     display: none;
@@ -226,6 +227,7 @@ font-weight: 500;
 font-size: 12px;
 line-height: 24px;
 color: #222222;
+
 }
 .Article-data img{
 height: 24px;

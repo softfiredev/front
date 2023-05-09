@@ -53,7 +53,7 @@ function a11yProps(index) {
   useEffect(()=>{
     dispatch(getAllcommandeByclient(props?.user?.id))
   },[])
-  console.log(commandes?.[0].produitlabrairies?.[0]?.imagelibrairies?.[0]?.name_Image)
+  console.log(commandes?.[0]?.produitlabrairies?.[0]?.imagelibrairies?.[0]?.name_Image)
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
       setValue(newValue);
@@ -114,7 +114,7 @@ function a11yProps(index) {
                 <div className="commande-data" key={key}>
                   <p className="idcommande"> {e.id}</p>
                   <div className="articles">
-                  <div>  <p className="nombreArticle-clm">{e?.produitlabrairies.length}</p></div>
+                  <div>  <p className="nombreArticle-clm">{e?.produitlabrairies?.length}</p></div>
                    <div>
                    {!dopdownAricle && (
                       <ArrowDown2
@@ -221,7 +221,7 @@ function a11yProps(index) {
                 <div className="commande-data" key={key}>
                   <p className="idcommande"> {e.id}</p>
                   <div className="articles">
-                  <div>  <p className="nombreArticle-clm">{e?.produitlabrairies.length}</p></div>
+                  <div>  <p className="nombreArticle-clm">{e?.produitlabrairies?.length}</p></div>
                    <div>
                    {!dopdownAricle && (
                       <ArrowDown2
@@ -328,7 +328,7 @@ function a11yProps(index) {
                 <div className="commande-data" key={key}>
                   <p className="idcommande"> {e.id}</p>
                   <div className="articles">
-                  <div>  <p className="nombreArticle-clm">{e?.produitlabrairies.length}</p></div>
+                  <div>  <p className="nombreArticle-clm">{e?.produitlabrairies?.length}</p></div>
                    <div>
                    {!dopdownAricle && (
                       <ArrowDown2
@@ -435,7 +435,7 @@ function a11yProps(index) {
                <div className="commande-data" key={key}>
                  <p className="idcommande"> {e.id}</p>
                  <div className="articles">
-                 <div>  <p className="nombreArticle-clm">{e?.produitlabrairies.length}</p></div>
+                 <div>  <p className="nombreArticle-clm">{e?.produitlabrairies?.length}</p></div>
                   <div>
                   {!dopdownAricle && (
                      <ArrowDown2

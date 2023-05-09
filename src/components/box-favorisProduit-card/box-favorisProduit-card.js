@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from "react";
 import {  ShoppingCart, Trash } from "iconsax-react";
 import Rating from "@mui/material/Rating";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { add } from "../../Store/panier/panierSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
@@ -9,6 +9,7 @@ import { DeleteProduitFavorie } from "../../Store/Service/DeleteProduitFavorie";
 
 const Box_FavoirsProduit_Card = (props) => {
   const dispatch=useDispatch()
+  const relod=useNavigate()
   const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
     dispatch(add({idp,imgp,prix,titre,qte,idl}))
     toast.success("Vous avez ajouté un produit à votre panier",{autoClose: 1000})
@@ -20,7 +21,7 @@ const Box_FavoirsProduit_Card = (props) => {
         
       }
     })
-  
+  relod(0);
   }
 
   return (

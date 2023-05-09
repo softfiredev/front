@@ -4,13 +4,16 @@ import { Grid} from "@mui/material";
 import { remove,update as changeQte} from "../../Store/panier/panierSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { add, removeCommande } from "../../Store/panier/commandeSlice";
+import { useNavigate } from "react-router-dom";
 const Box_produit_Card = (props)=>{
   const [qte,setqte]=useState(props.qte)
   const total = props.prix*qte ; 
   const dispatch = useDispatch();
+  const relod=useNavigate()
   const removeProduit=(index)=>{
     dispatch(remove(index))
     dispatch(removeCommande(index))
+    relod(0);
   }
   useEffect(()=>{
       dispatch(add({"qte":qte,"idlib":props.idl,"prix":total,"produitlabrairieId":props.idp}))

@@ -14,6 +14,7 @@ const Page2 = (props) => {
   useEffect(() => {
     dispatch(getAllProduitFavorie(props.user?.id));
   }, []);
+
   return (
     <div className="favorie">
       <div className="col1-favo">

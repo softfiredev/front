@@ -11,7 +11,6 @@ function NavBar(props) {
     (state) => state.IdentiteClient.identiteClient
   );
   const nbprod=useSelector(state=> state.Panier.nbprod)
-  console.log(clientData.fullname)
   return (
     <div className='nav'>
       <header className="header">
@@ -50,7 +49,7 @@ function NavBar(props) {
          <Link to="/login" className={props.user.auth?"butto-NAV-link-none":"butto-NAV-link"} > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
           <Link to="/Profile/Monidentité" >
           <div className={props.user.auth?"section_user":"section_user-none"}>
-                  <p className='username'> {clientData.fullname===undefined?props.user.fullname:clientData.fullname}</p>
+                  <p className='username'> {clientData?.fullname===undefined?props.user?.fullname:clientData?.fullname}</p>
                   <Avatar  style={{ height: "26px", width: "26px" }}  src={clientData?.avatar!==undefined?"http://127.0.0.1:8080/uploads/"+clientData?.avatar:"http://127.0.0.1:8080/uploads/"+props.user.avatar} className="avrt-pagenave" />
           </div>
           </Link>

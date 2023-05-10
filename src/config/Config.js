@@ -25,7 +25,9 @@ export const Path ={
     getproduitFavorie:"produitFavorie/findAllbyclient/",
     DeleteproduitFavorie:"produitFavorie/delete",
     getAllcommandeByclient:"commandeDetail/findcommandebyuser/",
-    getAllAvieByclient:"avisProduitlibraire/findAllbyclient/"
+    getAllAvieByclient:"avisProduitlibraire/findAllbyclient/",
+    deleteAvis:"avisProduitlibraire/delete/",
+    ModifierAvis:"avisProduitlibraire/update/"
 
 
 }

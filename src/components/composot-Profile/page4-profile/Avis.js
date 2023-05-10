@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Avis.css";
 import { OutlinedInput } from "@mui/material";
 import { More, ArrowCircleRight2, Edit, Trash } from "iconsax-react";
@@ -10,21 +10,48 @@ import Rating from "@mui/material/Rating";
 import Modal from "@mui/material/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllAvisClient } from "../../../Store/Service/getAllAvisClient";
+import { Link } from "react-router-dom";
+import { supprimerAvis } from "../../../Store/Service/supprimerAvis";
+import { toast } from "react-toastify";
+import { ModifierAvis } from "../../../Store/Service/ModifierAvis";
 
 const Avis = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const [op, setop] = React.useState(false);
   const [op2, setop2] = React.useState(false);
+  const [idp ,setIdp] = useState()
+  const [idavis ,setidavis] = useState()
+  const [Nbstars ,setNbstars]=useState()
+  const [commanter,setCommanter]=useState()
+  const [refresh ,setrefresh] = useState()
   const Avis = useSelector((state) => state.AvisClient.AvisClient);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllAvisClient(props?.user?.id));
-  }, []);
-
-  console.log(Avis);
-  const handleClick = (event) => {
+  }, [refresh]);
+  const changeAvis=()=>{
+    const data={
+      nbStart:Nbstars,
+      commenter:commanter
+    }
+    ModifierAvis(idavis,data).then((response)=>{
+      if(response.success===true){
+        toast.success("votre avis Modifier avec success",{autoClose: 1000})
+        setrefresh(true)
+    }
+      
+    })
+    setrefresh(false)
+    setop(false);
+    setAnchorEl(null);
+  }
+  const handleClick = (event,idp,idavis,nbStars,commanter) => {
     setAnchorEl(event.currentTarget);
+    setIdp(idp)
+    setidavis(idavis)
+    setNbstars(nbStars)
+    setCommanter(commanter)
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -128,6 +155,19 @@ const Avis = (props) => {
         "Enfin un lot qui correspond à la consomnation des enfants Variété, qualité, tout est là.",
     },
   ];
+  const supprimerOneAvis=()=>{
+    supprimerAvis(idavis).then((response)=>{
+      if(response.success===true){
+        toast.success("votre avis supprimer avec success",{autoClose: 1000})
+        setrefresh(true)
+    }
+    })
+    setrefresh(false)
+    setop2(false);
+    setAnchorEl(null);
+    
+
+  }
   const style = {
     position: "absolute",
     top: "50%",
@@ -210,7 +250,7 @@ const Avis = (props) => {
                       aria-controls={open ? "basic-menu" : undefined}
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
-                      onClick={handleClick}
+                      onClick={(e)=>handleClick(e,obj?.produitlabrairie?.id,obj.id,obj.nbStart,obj.commenter)}
                     />
                   </div>
                 </td>
@@ -230,7 +270,7 @@ const Avis = (props) => {
               <MenuItem className="menuitem-avis" onClick={handleClose}>
                 <ArrowCircleRight2 size="22" color="#222222" />
                 <span>
-                  <p className="txtmenu-avis">Aller au produit</p>
+                   <Link to={"/Detailproduit/"+idp} className="txtmenu-avis">Aller au produit</Link>
                 </span>
               </MenuItem>
               <MenuItem className="menuitem-avis" onClick={handleClicke}>
@@ -277,8 +317,9 @@ const Avis = (props) => {
               <div>
                 <Rating
                   className="reting1"
-                  value="2"
+                  value={Nbstars}
                   style={{ fontSize: "4.5em" }}
+                  onChange={(e)=>setNbstars(e.target.value)}
                 />
               </div>
               <div>
@@ -286,17 +327,14 @@ const Avis = (props) => {
               </div>
               <div>
                 <p className="txtmodalavis-pro">
-                  Vos cours où que vous alliez. Grâce à ce carnet, vous pourrez
-                  conserver vos leçons en toute situation grâce au QR code qui
-                  apparaît sur chaque page, il vous permettra de sauvegarder
-                  n'importe quelle leçon.
+                  {commanter}
                 </p>
               </div>
               <div className="minirow-page4">
                 <button onClick={handleClos} className="bnt3-page">
                   <p className="txtbnt3-page">Annuler</p>
                 </button>
-                <button className="bnt4-page">
+                <button className="bnt4-page" onClick={changeAvis}>
                   <p className="txtbnt4-page">Confirmer</p>
                 </button>
               </div>
@@ -330,7 +368,7 @@ const Avis = (props) => {
               <button onClick={handleClos2} className="bnt3-page">
                 <p className="txtbnt3-page4">Annuler</p>
               </button>
-              <button className="bnt40-page4">
+              <button className="bnt40-page4" onClick={supprimerOneAvis}>
                 <p className="txtbnt40-page">Supprimer</p>
               </button>
             </div>

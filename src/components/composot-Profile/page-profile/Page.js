@@ -106,7 +106,7 @@ const clientData = useSelector(
   (state) => state.IdentiteClient.identiteClient
 );
 
-
+console.log("data",Date_de_naissance)
 useEffect(() => {
   dispatch(getIdentiteClientt(props.user.id));
 },[refreshpage]);
@@ -250,7 +250,7 @@ const onImageChange = (event) => {
           <div className="col2-profile">
             <div className="txt-profile3">Date de naissance</div>
          
-              <input type="date" disabled={inputDisable} className="input-pro" defaultValue={clientData?.Date_de_naissance} onChange={(e)=>{setDate_de_naissance(e)}}/>
+              <input type="date" disabled={inputDisable} className="input-pro" defaultValue={clientData?.Date_de_naissance} onChange={(e)=>{setDate_de_naissance(e.target.value)}}/>
 
           </div>
           {open1?

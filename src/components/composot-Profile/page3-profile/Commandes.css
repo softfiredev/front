@@ -100,7 +100,7 @@ margin-left: -3px;
     padding-left: 9px;
 }
 .articles{
-    margin-left: 20px;
+    margin-left: 48px;
     display: flex;
     flex-direction: row;
 
@@ -134,7 +134,7 @@ font-weight: 400;
 font-size: 14px;
 line-height: 20px;
 color: #222222;
-margin-left: 46px;
+margin-left: 77px;;
 }
 .datecommande{
     margin-left:55px;;

@@ -88,7 +88,6 @@ const passwordchange=()=>{
       ActuelPassword :actuelPassword
     }
     changePassword(data,props.user.id).then((response)=>{
-      console.log("azeazeaze",response)
         if(response.success===true){
             toast.success(" Mot de passe changer",{autoClose: 1000})
         }else{

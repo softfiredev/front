@@ -27,7 +27,8 @@ export const Path ={
     getAllcommandeByclient:"commandeDetail/findcommandebyuser/",
     getAllAvieByclient:"avisProduitlibraire/findAllbyclient/",
     deleteAvis:"avisProduitlibraire/delete/",
-    ModifierAvis:"avisProduitlibraire/update/"
+    ModifierAvis:"avisProduitlibraire/update/",
+    findCommandeBylibrairie:"commandeDetail/findCommandeBylibrairie/",
 
 
 }

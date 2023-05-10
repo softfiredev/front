@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import './Listecommandes.css'
+import Avatar from '@mui/material/Avatar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -8,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import Filterbar from '../filterbar/Filterbar';
 import {ArrowLeft2,ArrowRight2,Sort} from "iconsax-react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { findCommandeBylibrairie } from "../../Store/Service/findCommandeBylibrairie";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
   
@@ -36,7 +39,7 @@ function a11yProps(index) {
 
 
 
-const Listecommandes = () => {
+const Listecommandes = (props) => {
     const navigate = useNavigate();
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
@@ -56,20 +59,30 @@ const Listecommandes = () => {
 
  
     ]
+    const librairieData = useSelector(
+      (state) => state.findCommandeBylibrairie.commandeslibrairie
+    );
+    console.log(librairieData)
+const dispatch=useDispatch()
+    useEffect(() => {
+      dispatch(findCommandeBylibrairie(2));
+    },[]);
+    
+
     const navigat=(id)=>{
         navigate(`/Vender/Détails_de_commande/${id}`)
     }
-    const filteredDataNouveau = data.filter((item) => {
-      return item.Staut.includes("Nouveau");
+    const filteredDataNouveau = librairieData.filter((item) => {
+      return item.etat.includes("Nouveau");
     });
-    const filteredDataRejeter = data.filter((item) => {
-        return item.Staut.includes("Rejeter");
+    const filteredDataRejeter = librairieData.filter((item) => {
+        return item.etat.includes("Rejeter");
       });
-      const filteredEncours = data.filter((item) => {
-        return item.Staut.includes("En cours");
+      const filteredEncours = librairieData.filter((item) => {
+        return item.etat.includes("en cours");
       });
-      const filteredDataCompléter = data.filter((item) => {
-        return item.Staut.includes("Compléter");
+      const filteredDataCompleter = librairieData.filter((item) => {
+        return item.etat.includes("Completer");
       });
   return (
     <div className='liste-c'>
@@ -80,9 +93,9 @@ const Listecommandes = () => {
         <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#F7D070" } }}>
          <Tab label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
           <Tab label={<p className="txttabs-c">Nouveau</p>} {...a11yProps(1)} />
-          <Tab label={<p className="txttabs-c">En cours</p>} {...a11yProps(1)} />
-          <Tab label={<p className="txttabs-c">Compléter</p>} {...a11yProps(1)} />
-          <Tab label={<p className="txttabs-c">Rejeter</p>} {...a11yProps(1)} />
+          <Tab label={<p className="txttabs-c">En cours</p>} {...a11yProps(2)} />
+          <Tab label={<p className="txttabs-c">Compléter</p>} {...a11yProps(3)} />
+          <Tab label={<p className="txttabs-c">Rejeter</p>} {...a11yProps(4)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -102,29 +115,30 @@ const Listecommandes = () => {
 
 </tr>
 
-{data.map((obj,index) => (
+{librairieData.map((obj,index) => (
 
 <tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
 
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
-            <img src={img1} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.nom}</p></div>
+          
+            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.prix}</p></td>
-<td className='tdwidth1'>{obj.Nbr}</td>
-<td className='tdwidth1'>{obj.date}</td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.Staut==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.Staut}</p></button></>
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
 :
 <>
-{obj.Staut==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.Staut}</p></button>
-:<>{obj.Staut==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.Staut}</p></button>:
-<>{obj.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.Staut}</p></button>:<></>}</>}</>}</>}
+{obj.etat==="en cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
+<>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
 
   
   </td>
@@ -154,32 +168,36 @@ const Listecommandes = () => {
 
 </tr>
 
-{filteredDataNouveau.map((item) => (
-<tr>
-<td className='tdwidth'>{item.id}</td>
+{filteredDataNouveau.map((obj,index) => (
+
+<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+
+<td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
-            <img src={img1} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{item.nom}</p></div>
+          
+            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{item.prix}</p></td>
-<td className='tdwidth1'>{item.Nbr}</td>
-<td className='tdwidth1'>{item.date}</td>
-
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-    
-{item.Staut==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{item.Staut}</p></button></>
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
 :
 <>
-{item.Staut==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{item.Staut}</p></button>
-:<>{item.Staut==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{item.Staut}</p></button>:
-<>{item.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{item.Staut}</p></button>:<></>}</>}</>}</>}</td>
+{obj.etat==="en cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
+<>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
 
+  
+  </td>
 
 </tr>
+
 ))}
 
 
@@ -200,32 +218,36 @@ const Listecommandes = () => {
 <th>Mise à jour</th>
 
 </tr>
+{filteredEncours.map((obj,index) => (
 
-{filteredEncours.map((item) => (
-<tr className={item.Staut==="Nouveau"?"backnovo-c":""}>
-<td className='tdwidth'>{item.id}</td>
+<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+
+<td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
-            <img src={img1} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{item.nom}</p></div>
+          
+            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{item.prix}</p></td>
-<td className='tdwidth1'>{item.Nbr}</td>
-<td className='tdwidth1'>{item.date}</td>
-
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-    
-{item.Staut==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{item.Staut}</p></button></>
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
 :
 <>
-{item.Staut==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{item.Staut}</p></button>
-:<>{item.Staut==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{item.Staut}</p></button>:
-<>{item.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{item.Staut}</p></button>:<></>}</>}</>}</>}</td>
+{obj.etat==="en cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
+<>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
+
+  
+  </td>
 
 </tr>
+
 ))}
 
 
@@ -247,33 +269,36 @@ const Listecommandes = () => {
 <th>Mise à jour</th>
 
 </tr>
+{filteredDataCompleter.map((obj,index) => (
 
-{filteredDataCompléter.map((item) => (
-<tr className={item.Staut==="Nouveau"?"backnovo-c":""}>
-<td className='tdwidth'>{item.id}</td>
+<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+
+<td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
-            <img src={img1} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{item.nom}</p></div>
+          
+            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{item.prix}</p></td>
-<td className='tdwidth1'>{item.Nbr}</td>
-<td className='tdwidth1'>{item.date}</td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.createdAt}</td>
+
 <td className='tdwidth1'>
-
-
-    
-{item.Staut==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{item.Staut}</p></button></>
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
 :
 <>
-{item.Staut==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{item.Staut}</p></button>
-:<>{item.Staut==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{item.Staut}</p></button>:
-<>{item.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{item.Staut}</p></button>:<></>}</>}</>}</>}</td>
+{obj.etat==="en cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
+<>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
 
+  
+  </td>
 
 </tr>
+
 ))}
 
 
@@ -295,32 +320,36 @@ const Listecommandes = () => {
 
 </tr>
 
-{filteredDataRejeter.map((item) => (
-<tr className={item.Staut==="Nouveau"?"backnovo-c":""}>
-<td className='tdwidth'>{item.id}</td>
+{filteredDataRejeter.map((obj,index) => (
+
+<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+
+<td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
-            <img src={img1} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{item.nom}</p></div>
+          
+            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{item.prix}</p></td>
-<td className='tdwidth1'>{item.Nbr}</td>
-<td className='tdwidth1'>{item.date}</td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.createdAt}</td>
+
 <td className='tdwidth1'>
-
-
-    
-{item.Staut==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{item.Staut}</p></button></>
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
 :
 <>
-{item.Staut==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{item.Staut}</p></button>
-:<>{item.Staut==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{item.Staut}</p></button>:
-<>{item.Staut==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{item.Staut}</p></button>:<></>}</>}</>}</>}</td>
+{obj.etat==="en cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
+<>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
 
+  
+  </td>
 
 </tr>
+
 ))}
 
 

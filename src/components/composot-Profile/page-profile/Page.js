@@ -106,7 +106,6 @@ const clientData = useSelector(
   (state) => state.IdentiteClient.identiteClient
 );
 
-console.log("data",Date_de_naissance)
 useEffect(() => {
   dispatch(getIdentiteClientt(props.user.id));
 },[refreshpage]);

@@ -114,9 +114,9 @@ width:100%;
 .img1-c{
     background-blend-mode: multiply, normal;
 mix-blend-mode: normal;
-border-radius: 4px;
-Width:40px;
-Height:40px;
+border-radius: 15px;
+width: 32px;
+height: 32px;
 }
 .row-c{
     display: flex;

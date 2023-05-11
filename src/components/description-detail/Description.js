@@ -19,14 +19,15 @@ import { toast } from "react-toastify";
 import { add } from "../../Store/panier/panierSlice";
 import { AjouteProduitFavorie } from "../../Store/Service/AjouteProduitFavorie";
 import { AjouteSignale } from "../../Store/Service/AjouteSignale";
+import {TickCircle,Trash,InfoCircle,CloseCircle} from "iconsax-react";
+
 const Description = (props) => {
   const [fullname,setFullname]=useState()
   const [email,setemail]=useState()
+  const [op,setop]=useState()
   const [message,setmessage]=useState()
   const [file,setfile]=useState()
-  const [value3, setValue3] = useState(3);
   const [qnt, setqnt] = useState(1);
-  const [idlab, setidlab] = useState(1);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -38,6 +39,27 @@ const Description = (props) => {
       setqnt(qnt - 1);
     }
   };
+  const [sizeimg,setSizeimg]=useState(false)
+  const [img,setImage]=useState()
+  const [imgsize,setImgsize]=useState()
+  const [realimgsize,setRealimgsize]=useState()
+  const [imgname,setImgmane]=useState()
+  const onImageChange = (e) => {
+      if (e.target.files && e.target.files[0]) {
+          setImage(URL.createObjectURL(e.target.files[0]));
+          setfile(e.target.files[0])
+          setSizeimg((e.target.files[0].size)>(1024*1024))
+          const size=e.target.files[0].size/ (1024 * 1024) ;
+          let g=(size.toString());
+          setRealimgsize(size)
+          setImgsize(g.slice(0,4));
+          const name=e.target.files[0].name
+          setImgmane(name.slice(0,11));
+      }
+    }
+const sup=()=>{
+  setImage(undefined)
+}
   const style = {
     position: "absolute",
     top: "50%",
@@ -63,7 +85,7 @@ const Description = (props) => {
         produitlabrairieId:props.idp
       }
       AjouteProduitFavorie(data).then((response)=>{
-        console.log(response)
+
         if(response.success==true){
           toast.success("Votre Article a bien été sauvegardé",{autoClose: 1000})
         }
@@ -75,6 +97,11 @@ const Description = (props) => {
   }
   
   const Signaler=()=>{
+if(!sizeimg)
+{
+
+  if( fullname!==undefined && email!==undefined &&message!==undefined)
+  {
     if(props.user.auth){
       const formData = new FormData();
       formData.append('fullnameUser', fullname);
@@ -87,11 +114,22 @@ const Description = (props) => {
         if(response.success==true){
           toast.success("Votre Signaler bien recu",{autoClose: 1000})
         }
+        setOpen(false)
       })
     }else{
       toast.warning("Veuillez vous connecter pour pouvoir Signaler un Article",{autoClose: 1000})
     }
+  }else{
+    toast.error("remplir votre chomp Svp !!",{autoClose: 1000})
+
   }
+  
+}else{
+  toast.error("Taill Image !!!",{autoClose: 1000})
+}
+
+  }
+
   return (
     <div className="col-detail">
       <div>
@@ -231,8 +269,45 @@ const Description = (props) => {
                     rows={5}
                     maxRows={80}
                     onChange={(e)=>{setmessage(e.target.value)}}
-                  />  
-                  <div>
+                  /> 
+                  {img !==undefined?
+                   sizeimg===false?
+                    <div className="globalboxuplod-descriptiondeatil">
+                    <div className="rowuplod01-descriptiondeatil">
+                  <div className="rol01-descriptiondeatil"> 
+                  <div><TickCircle size="25" color="#57AE5B" variant="Bold" onClick={sup}/></div>
+                  <div><img src={img} className="mguplod-descriptiondeatil" style={{marginTop:"-20%"}}/></div>
+                  <div><p className="txtuplod02-descriptiondeatil">{imgname}</p></div>
+                  </div>
+                  
+                  <div className="rol01-descriptiondeatil"> 
+                  <div><p className="txtuplod03-descriptiondeatil">{imgsize}Mo</p></div>
+                  <div><Trash size="25" color="#222" style={{cursor:"pointer"}} onClick={sup}/></div>
+                  </div>
+                  
+                  </div>
+                  
+                   </div>
+                  :
+                  <div className="globalboxuplod-descriptiondeatil">
+                  <div className="rowuplod01-descriptiondeatil">
+               <div className="rol01-descriptiondeatil"> 
+               <div><InfoCircle size="15" color="#D64545" variant="Bold" style={{marginTop:"40%"}} /></div>
+               <div><img src={img} className="mguplod-descriptiondeatil"style={{marginTop:"-20%"}}/></div>
+               <div><p className="txtuplod02-descriptiondeatil"style={{color:"#D64545"}}>{imgname}</p></div>
+               </div>
+               
+               <div className="rol01-descriptiondeatil"> 
+               <div><p className="txtuplod03-descriptiondeatil"style={{color:"#D64545"}}>Réessayer</p></div>
+               <div><CloseCircle size="18" color="#222" style={{cursor:"pointer",marginTop:"20%"}} onClick={sup}/></div>
+               </div>
+               
+                </div>
+                
+                 </div>
+                  :
+                  <div onClick={()=>{setop(true)}}>
+
                   <label htmlFor="file-input" className="labelup">
                   <div className="downlo-modal">    
                     <img
@@ -243,9 +318,12 @@ const Description = (props) => {
                     <div><p className="tele"> Télécharger un fichier</p></div>   
                   </div>
                   </label>
-                  <input type="file" className="uplod" id="file-input" onChange={(e)=>{setfile(e.target.files[0])}}/>
+                  <input type="file" className="uplod" id="file-input"  onChange={onImageChange}/>
 
                   </div>
+
+                  } 
+                  
               
                   <div className="row-detail">
                     <button className="bnt-modala1" onClick={handleClose}>
@@ -268,3 +346,8 @@ const Description = (props) => {
 };
 
 export default Description;
+
+
+
+
+

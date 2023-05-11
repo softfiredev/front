@@ -65,6 +65,9 @@ const [opencoll, setopencoll] = React.useState(false);
     setopenchangePassword(false)
   }
  const changestyle=()=>{
+setAddresse({ nom:"" , addr:"", Ville:"",codepostal:"" ,clientId:""})
+setGouvernorat("")
+
   settitre("Ajout d'une nouvelle adresse")
   setopencoll(true)
  }
@@ -133,8 +136,9 @@ const changeIdentite=()=>{
       }
     })
    }
-   
+
     setrefreshpage(false) 
+    setOpen1(true);  setinputDisable(true)
 }
 const handleInputChange = (field) => {
   return (e) => {
@@ -181,6 +185,8 @@ setrefreshpage(false)
 setOpen(false)
 }
 const updateadr=()=>{
+
+
   let data = {
     Nom_de_adresse: addresse.nom,
     Adresse: addresse.addr,
@@ -215,12 +221,13 @@ const onImageChange = (event) => {
           <div className="txt1-carts2">Mon identité</div>
           <div>
             <div className="rowbnt-page">
+            <label htmlFor="file-input" className="labelup">
+
               <div className="avatar-container">
-                  
+
                 <Avatar  style={{ height: "150px", width: "150px" }}  src={image!==null?image:"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-page" />
 
                 <div className="icon-container" >
-                <label htmlFor="file-input" className="labelup">
                   <ExportCurve
                     size="22"
                     color="#101010"
@@ -230,10 +237,12 @@ const onImageChange = (event) => {
                       marginLeft: "2px",
                     }}
                   />
-                  </label>
-                      <input disabled={inputDisable} type="file" className="uplod" id="file-input"accept=".jpg,.png" onChange={onImageChange}/>
+                 
                 </div>
+               
               </div>
+              </label>
+                      <input disabled={inputDisable} type="file" className="uplod" id="file-input"accept=".jpg,.png" onChange={onImageChange}/>
               <div className="col00-page1">
                 <div>
                   <p className="txt0-profile3">Photo de profile</p>
@@ -346,7 +355,8 @@ const onImageChange = (event) => {
           <div>{obj.Ville},</div>
           <div>{obj.Code_postal}</div>
             </div>
-            <div className="row-page"> <div className="txt200-page"onClick={()=>{setIdAdrr(obj.id); settitre("Modification de l’adresse"); setopencoll(true)}}>Modifier</div> 
+            <div className="row-page"> <div className="txt200-page"onClick={()=>{setAddresse({ nom:obj.Nom_de_adresse , addr: obj.Adresse, Ville:obj.Ville, codepostal: obj.Code_postal, clientId:obj.id });
+             ;setGouvernorat(obj.Gouvernorat);setIdAdrr(obj.id); settitre("Modification de l’adresse"); setopencoll(true);console.log(obj)}}>Modifier</div> 
        <div className="txt200-page" onClick={()=>{setIdAdrr(obj.id);setOpen(true)}}>Supprimer</div></div>
    
          

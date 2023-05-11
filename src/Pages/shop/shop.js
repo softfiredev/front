@@ -10,8 +10,7 @@ import { getAllProduitlibrairie } from "../../Store/Service/AllProduitShope";
 
 
 const Shop = () => {
-  const [dataFromChild, setDataFromChild] = React.useState([]);
-
+  const [dataFromChild, setDataFromChild] = useState([]);
   const handleDataFromChild = (data) => {
     setDataFromChild(data);
   

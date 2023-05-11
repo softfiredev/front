@@ -12,7 +12,12 @@ import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getIdentiteClientt } from "../../Store/Service/identiteClient";
+
 const Profilee = (props) => {
+  const clientData = useSelector(
+    (state) => state.IdentiteClient.identiteClient
+  );
+  
   const [name, setname] = useState("page1");
   const [bnt1, setbnt1] = useState("bnt-pro");
   const [bnt2, setbnt2] = useState("bnt-pro2");
@@ -87,7 +92,7 @@ const Profilee = (props) => {
       <div className="Profile">
         <div className="col1-profile">
           <div>
-            <p className="txt-profile1">Bonjour, {props.user.fullname}</p>
+            <p className="txt-profile1">Bonjour, {clientData?.fullname===undefined?props.user?.fullname:clientData?.fullname}</p>
           </div>
           <div className="row2-profile">
             <div>

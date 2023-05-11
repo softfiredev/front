@@ -4,7 +4,6 @@ import { OutlinedInput } from "@mui/material";
 import { More, ArrowCircleRight2, Edit, Trash } from "iconsax-react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import img1 from "../../../assets/prod2.png";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import Modal from "@mui/material/Modal";
@@ -68,93 +67,6 @@ const Avis = (props) => {
     setAnchorEl(null);
   };
 
-  const tabcomo = [
-    {
-      id: "#107570194",
-      Articles: "GOUACHE 9T...",
-      Date: "06 février 2022",
-      Score: (
-        <Rating
-          name="read-only"
-          value="2"
-          readOnly
-          defaultValue={2}
-          size="small"
-          className="stars"
-        />
-      ),
-      Commentaire:
-        "Enfin un lot qui correspond à la consomnation des enfants Variété, qualité, tout est là.",
-    },
-    {
-      id: "#105750194",
-      Articles: "GOUACHE 9T...",
-      Date: "06 février 2023",
-      Score: (
-        <Rating
-          name="read-only"
-          value="2"
-          readOnly
-          defaultValue={2}
-          size="small"
-          className="stars"
-        />
-      ),
-      Commentaire:
-        "Enfin un lot qui correspond à la consomnation des enfants Variété, qualité, tout est là.",
-    },
-    {
-      id: "#1040194",
-      Articles: "GOUACHE 9T...",
-      Date: "06 février 2027",
-      Score: (
-        <Rating
-          name="read-only"
-          value="2"
-          readOnly
-          defaultValue={2}
-          size="small"
-          className="stars"
-        />
-      ),
-      Commentaire:
-        "Enfin un lot qui correspond à la consomnation des enfants Variété, qualité, tout est là.Enfin un lot qui correspond à la consomnation des enfants Variété, qualité, tout est là.",
-    },
-    {
-      id: "#1005194",
-      Articles: "GOUACHE 9T...",
-      Date: "06 février 2021",
-      Score: (
-        <Rating
-          name="read-only"
-          value="2"
-          readOnly
-          defaultValue={2}
-          size="small"
-          className="stars"
-        />
-      ),
-      Commentaire:
-        "Enfin un lot qui correspond à la consomnation des enfants Variété, qualité, tout est là.",
-    },
-    {
-      id: "#10014594",
-      Articles: "GOUACHE 9T...",
-      Date: "06 février 2020",
-      Score: (
-        <Rating
-          name="read-only"
-          value="2"
-          readOnly
-          defaultValue={2}
-          size="small"
-          className="stars"
-        />
-      ),
-      Commentaire:
-        "Enfin un lot qui correspond à la consomnation des enfants Variété, qualité, tout est là.",
-    },
-  ];
   const supprimerOneAvis=()=>{
     supprimerAvis(idavis).then((response)=>{
       if(response.success===true){
@@ -226,19 +138,21 @@ const Avis = (props) => {
                 <img src={"http://127.0.0.1:8080/uploads/"+obj.produitlabrairie?.imagelibrairies?.[0]?.name_Image} className="img1-avis" />
                   <div style={{marginTop:"4%"}}>{obj.produitlabrairie?.titre}</div>
                   </div></td>
-                <td>{obj.createdAt}</td>
+                <td><div>{obj.createdAt}</div></td>
                 <td>
-                  {" "}
-                  <Rating
+                <div className="obj-nbStart">
+                <Rating
                     name="read-only"
                     value={obj.nbStart}
                     readOnly
                     size="small"
                     className="stars"
                   />
+                  </div>
+           
                 </td>
                 <td className="tabcom-avis">
-                  <p className="commtxt-avis"> {obj.commenter} </p>
+                 <div className="divcommtxt-avis"> <p className="commtxt-avis"> {obj.commenter} </p></div>
                 </td>
                 <br />
                 <br />
@@ -326,9 +240,14 @@ const Avis = (props) => {
                 <p className="txtmodalavis-pro2"> Commentaire:</p>
               </div>
               <div>
-                <p className="txtmodalavis-pro">
-                  {commanter}
-                </p>
+                
+               
+                  <OutlinedInput
+                   className="txtmodalavis-pro"
+                    placeholder= {commanter}
+                    onChange={(e)=>{setCommanter(e.target.value)}}
+                  />
+           
               </div>
               <div className="minirow-page4">
                 <button onClick={handleClos} className="bnt3-page">

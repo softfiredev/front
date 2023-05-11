@@ -10,7 +10,8 @@
           "aspect-ratio",
           "backdrop-filter",
           "user-select",
-          "hyphens"
+          "hyphens",
+          "position: sticky"
         ]
       }
     ]

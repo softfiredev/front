@@ -40,7 +40,7 @@ const Detailprod = (props) => {
     transform: "translate(-50%, -50%)",
     background: "#FFFFFF",
     width: "544px",
-    height: "550px",
+    height: "560px",
     boxShadow:
       "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
     borderRadius: "8px",

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import "./Page2.css";
 
 import { SearchNormal1 } from "iconsax-react";
@@ -8,12 +8,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProduitFavorie } from "../../../Store/Service/AllProduitFavorieByclient";
 const Page2 = (props) => {
   const dispatch = useDispatch();
-  const produitFavorie = useSelector(
-    (state) => state.produiFavorie.produiFavorieClient
-  );
+  const [dataFromChild, setDataFromChild] = useState([]);
+  const produiFavorieClient = useSelector((state) => state.produiFavorie.produiFavorieClient);
   useEffect(() => {
     dispatch(getAllProduitFavorie(props.user?.id));
-  }, []);
+    setDataFromChild(produiFavorieClient);
+  },[produiFavorieClient]);
 
   return (
     <div className="favorie">
@@ -46,8 +46,9 @@ const Page2 = (props) => {
         </div>
         <div>
           <div className="scroll-container">
-            {produitFavorie.map((produit) => (
+            {dataFromChild.map((produit) => (
               <Box_FavoirsProduit_Card
+             
                 idclient={props.user.id}
                 titre={produit.produitlabrairie?.titre}
                 idp={produit?.id}

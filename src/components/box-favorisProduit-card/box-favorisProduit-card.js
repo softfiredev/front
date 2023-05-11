@@ -6,6 +6,7 @@ import { add } from "../../Store/panier/panierSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { DeleteProduitFavorie } from "../../Store/Service/DeleteProduitFavorie";
+import { getAllProduitFavorie } from "../../Store/Service/AllProduitFavorieByclient";
 
 const Box_FavoirsProduit_Card = (props) => {
   const dispatch=useDispatch()
@@ -18,10 +19,10 @@ const Box_FavoirsProduit_Card = (props) => {
     DeleteProduitFavorie(props.idp,props.idclient).then((response)=>{
       if(response.success===true){
           toast.success("votre produit  Suppr avec success",{autoClose: 1000})
-        
       }
+      dispatch(getAllProduitFavorie(props.user?.id));
+
     })
-  relod(0);
   }
 
   return (

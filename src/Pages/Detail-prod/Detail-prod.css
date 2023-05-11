@@ -353,6 +353,56 @@ border: 1px dashed #9E9E9E;
 border-radius: 8px;
 cursor: pointer;
 }
+.globalboxuplod-descriptiondeatil{
+    padding: 5%;
+    width: 478px;
+    height: 144px;
+    justify-content: center;
+display: flex;
+flex-direction: column;
+background: #FFFFFF;
+border: 1px dashed #9E9E9E;
+border-radius: 8px;
+cursor: pointer;
+}
+.mguplod-descriptiondeatil{
+    Width:54px;
+Height:54px;
+    background-blend-mode: multiply, normal;
+mix-blend-mode: normal;
+border-radius: 4px;
+
+}
+.txtuplod03-descriptiondeatil{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 24px;
+color: #7E7E7E;
+}
+.txtuplod02-descriptiondeatil{
+    width: 150%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 24px;
+
+color: #222222;
+}
+.rowuplod01-descriptiondeatil{
+    display: flex;
+    flex-direction: row;
+    gap:10em;
+}
+.rol01-descriptiondeatil{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin-top: 8%;
+}
 .col3-deatil{
     flex-direction: column;
     display: flex;
@@ -629,8 +679,8 @@ color: #222222;
  
 }
 .txt60-detail{
-    width: 450px;
-height: 34px;
+    width: 227px;
+height: 26px;
 
 font-family: 'Inter';
 font-style: normal;

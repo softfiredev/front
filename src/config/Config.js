@@ -29,6 +29,6 @@ export const Path ={
     deleteAvis:"avisProduitlibraire/delete/",
     ModifierAvis:"avisProduitlibraire/update/",
     findCommandeBylibrairie:"commandeDetail/findCommandeBylibrairie/",
-
+    Detailcomonde:'commandeDetail/findOneCommande/'
 
 }

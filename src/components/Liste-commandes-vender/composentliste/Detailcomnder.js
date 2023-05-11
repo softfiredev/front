@@ -1,18 +1,27 @@
-import React from 'react'
+import React, { useEffect,useState } from "react";
 import './Detailcomnder.css'
 import {ArrowCircleLeft,Call,Sms,Location} from "iconsax-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import img1 from "../../../assets/Ellipse 503.png"
 import img2 from "../../../assets/prod3.png"
+import { useDispatch, useSelector } from "react-redux";
+import { Detailcomonde } from "../../../Store/Service/Detailcomonde";
 
-const Detailcomnder = () => {
+const Detailcomnder = (props) => {
+    const [dataFromChild, setDataFromChild] = useState([]);
     const navigate = useNavigate();
-    const [open, setopen] = React.useState(true);
-
+    const dispatch = useDispatch();
+    const idcomonde=useParams(":id");
+    const [open, setopen] = useState(true);
     const navigat=()=>{
         navigate(`/Vender/Liste_de_commandes`)
     }
-    const data=[{nom:"GOUACHE 9T METAL...",prix:"174 dt",Qté:'2',TotaleHT:"348.00 dt"},{nom:"GOUACHE 9T METAL...",prix:"174 dt",Qté:'2',TotaleHT:"348.00 dt"}]
+    const DetailcomondeClient = useSelector((state) => state.Detailcomonde.Detailcomonde);
+    useEffect(() => {
+      dispatch(Detailcomonde(idcomonde.id));
+      setDataFromChild(DetailcomondeClient);
+    },[DetailcomondeClient]);
+const data=[{nom:"GOUACHE 9T METAL...",prix:"174 dt",Qté:'2',TotaleHT:"348.00 dt"},{nom:"GOUACHE 9T METAL...",prix:"174 dt",Qté:'2',TotaleHT:"348.00 dt"}]
   return (
     <div className='Detailcomnder'>
        <div className='rowbox-dc'  style={{cursor:"pointer"}} onClick={navigat} ><ArrowCircleLeft size="25" color="#9E9E9E"/>
@@ -29,7 +38,7 @@ const Detailcomnder = () => {
     <div><p className='txtbox1-ddc'>#103429</p></div>
     <div>
         <ul className='ul-dc'>
-            <li><p className='txtli-dc'>Montant Totale:<span className='txtspanli-dc'> 1371.00 dt</span></p></li>
+            <li><p className='txtli-dc'>Montant Totale:<span className='txtspanli-dc'>{dataFromChild.total_ttc   } dt</span></p></li>
             <br/>
             <li>Nbr d’article(s):<span className='txtspanli-dc'> 7</span></li>
         </ul>
@@ -63,7 +72,7 @@ const Detailcomnder = () => {
 </div>
 <table>
 
-{data.map((obj,index) => (
+{DetailcomondeClient.map((obj,index) => (
 
 <tr >
 <td className='widthtd-dc'><div className='row2box4-dc'>

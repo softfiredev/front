@@ -22,6 +22,7 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+    margin-top:14%;
 }
 .txt1-dc{
     
@@ -59,7 +60,7 @@ color: #222222;
 }
 .border-dc{
     width: 8px;
-height: 132px;
+height: 145px;
 
 background: #F7D070;
 border-radius: 8px 0px 0px 8px;
@@ -72,12 +73,13 @@ border-radius: 8px 0px 0px 8px;
 }
 .box1-dc{
 width: 362px;
-height: 132px;
+height: auto;
 background: #FFFFFF;
 border-radius: 8px;
 display: flex;
 flex-direction: row;
 gap: 1em;
+
 
 }
 .txtbox1-ddc{
@@ -113,7 +115,7 @@ color: #4098D7;
 mix-blend-mode: normal;
 }
 .box3-dc{
-    width: 348px;
+    width: 358px;
 height: auto;
 background: #FFFFFF;
 border-radius: 8px;
@@ -125,8 +127,9 @@ padding-top: 5%;
 padding-bottom: 5%;
 }
 .box2-dc{
-width: 348px;
-height: 252px;
+width: 358px;
+height: auto;
+padding-bottom: 4%;
 background: #FFFFFF;
 border-radius: 8px;
 display: flex;
@@ -182,9 +185,10 @@ th {
     color: #7E7E7E;
     border-top: #F7F7F7 solid 1px;
     height: 56px;
+    padding-bottom: 5%;
 }
 td {
-    height: 60px;
+    height: 179px;
     border-top: #F7F7F7 solid 2px;
 }
 .txt1box2-dc{
@@ -229,7 +233,7 @@ margin-top: 3%;
 flex-direction: column;
 gap: 1.7em;
 width: 728px;
-height: 570px;
+height: auto;
 background: #FFFFFF;
 border-radius: 8px;
 padding-top: 1.5%;
@@ -260,7 +264,7 @@ border: 1px solid #EDEDED;
     gap: 1em;
 }
 .imgbox4-dc{
-Width:112px;
+Width:76px;
 Height:112px;
 mix-blend-mode: normal;
 border-radius: 8px;
@@ -272,10 +276,11 @@ border-radius: 8px;
     font-size: 16px;
     line-height: 20px;
     color: #626262;
-    margin-top: 90%;
+    width: 100%;
+
     }
     .widthtd-dc{
-        width: 41%;
+        width: 42.5%;
     }
     .widthtd1-dc{
         width: 37%;
@@ -298,8 +303,8 @@ gap:1em;
         font-weight: 600;
         font-size: 20px;
         line-height: 24px;
-    
         color: #222222;
+   
     }
     .bntbox5-dc{
 width: 160px;

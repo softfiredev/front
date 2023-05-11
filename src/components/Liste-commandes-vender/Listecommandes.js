@@ -70,7 +70,9 @@ const dispatch=useDispatch()
     
 
     const navigat=(id)=>{
+      
         navigate(`/Vender/Détails_de_commande/${id}`)
+        navigate(0)
     }
     const filteredDataNouveau = librairieData.filter((item) => {
       return item.etat.includes("Nouveau");

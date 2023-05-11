@@ -50,7 +50,8 @@ const Gouvernora=[{nome:"Ariana"},{nome:"Béja"},{nome:"Ben Arous"},{nome:"Bizer
   const [newPassword,setnewPassword]=useState()
   const [actuelPassword,setactuelPassword]=useState()
   const [inputDisable,setinputDisable]=useState(true)
-  
+  const [sizeimg,setSizeimg]=useState(false)
+
   const handleClose = () => setOpen(false);
 const[openchangePassword,setopenchangePassword]=useState(false)
 const [opencoll, setopencoll] = React.useState(false);
@@ -119,12 +120,20 @@ const changeIdentite=()=>{
    data.append("telephone",telephone)
    data.append("fullname",fullname)
    data.append("email",email)
+  
+   if(sizeimg)
+   {
+     {toast.error("taill image !!! ",{autoClose: 1000})}
+   }else{
     modifierIdentiteClient(props.user.id,data).then((response)=>{
+     
       if(response.success===true){
           toast.success("votre identite  modifier avec success",{autoClose: 1000})
           setrefreshpage(true)
       }
     })
+   }
+   
     setrefreshpage(false) 
 }
 const handleInputChange = (field) => {
@@ -195,6 +204,7 @@ const [image, setImage] = useState(null);
 const onImageChange = (event) => {
   if (event.target.files && event.target.files[0]) {
     setavatar(event.target.files[0])
+    setSizeimg((event.target.files[0].size)>(1024*1024))
     setImage(URL.createObjectURL(event.target.files[0]));
   }
 };
@@ -206,7 +216,7 @@ const onImageChange = (event) => {
           <div>
             <div className="rowbnt-page">
               <div className="avatar-container">
-
+                  
                 <Avatar  style={{ height: "150px", width: "150px" }}  src={image!==null?image:"http://127.0.0.1:8080/uploads/"+clientData?.avatar} className="avrt-page" />
 
                 <div className="icon-container" >

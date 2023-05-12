@@ -3,57 +3,44 @@ import "./Detailcomnder.css";
 import Avatar from "@mui/material/Avatar";
 import { ArrowCircleLeft, Call, Sms, Location } from "iconsax-react";
 import { useNavigate, useParams } from "react-router-dom";
-import img1 from "../../../assets/Ellipse 503.png";
-import img2 from "../../../assets/prod3.png";
 import { useDispatch, useSelector } from "react-redux";
 import { Detailcomonde } from "../../../Store/Service/Detailcomonde";
 import { AccepterCommande } from "../../../Store/Service/AccepterCommandeDetail";
 import { toast } from "react-toastify";
+import { AnnulerCommande } from "../../../Store/Service/AccepterCommandeDetail";
 
 const Detailcomnder = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const idcomonde = useParams(":id");
   const [open, setopen] = useState(true);
+  const [Anuuler, setAnuuler] = useState(true);
   const navigat = () => {
     navigate(`/Vender/Liste_de_commandes`);
   };
   const DetailcomondeClient = useSelector(
     (state) => state.Detailcomonde.Detailcomonde
   );
+  console.log(DetailcomondeClient)
   useEffect(() => {
     dispatch(Detailcomonde(idcomonde.id));
   }, []);
-  console.log(DetailcomondeClient[0]);
-  const data = [
-    {
-      nom: "GOUACHE 9T METAL...",
-      prix: "174 dt",
-      Qté: "2",
-      TotaleHT: "348.00 dt",
-    },
-    {
-      nom: "GOUACHE 9T METAL...",
-      prix: "174 dt",
-      Qté: "2",
-      TotaleHT: "348.00 dt",
-    },
-  ];
   const Accepter=()=>{
     AccepterCommande(idcomonde.id).then((response)=>{
        if(response.success==true){
-        toast.success(" commande Accepter",{autoClose: 1000})
+        toast.success("commande Accepter",{autoClose: 1000})
        }
     })
     setopen(false);
   }
   const Annuler=()=>{
-    AccepterCommande(idcomonde.id).then((response)=>{
+    AnnulerCommande(idcomonde.id).then((response)=>{
+      console.log(response)
         if(response.success==true){
-         toast.error(" commande Annuler",{autoClose: 1000})
+         toast.error("commande Annuler",{autoClose: 1000})
         }
         setopen(false);
-          
+        setAnuuler(true) 
      })
   }
   return (
@@ -139,12 +126,12 @@ const Detailcomnder = (props) => {
               <Location size="24" color="#9E9E9E" variant="Bold" />
               <div>
                 <p className="txt1box3-dc">
-                  {" "}
+            
                   {
                     DetailcomondeClient[0]?.user?.client?.adresses[0]
                       ?.Code_postal
                   }
-                  {DetailcomondeClient[0]?.user?.client?.adresses[0]?.Adresse},{" "}
+                  {DetailcomondeClient[0]?.user?.client?.adresses[0]?.Adresse},
                   {DetailcomondeClient[0]?.user?.client?.adresses[0]?.Ville}
                 </p>
               </div>
@@ -154,15 +141,63 @@ const Detailcomnder = (props) => {
             <div>
               <p className="txtbox2-dc">Calendrier</p>
             </div>
+
+            
             <div className="minirow-dc">
               <div className="cirl-dc"></div>
               <div>
                 <p className="txt3box3-dc">Demande reçu : </p>
               </div>
               <div>
-                <p className="txt4box3-dc">20/03/2023</p>
+                <p className="txt4box3-dc">{DetailcomondeClient[0]?.createdAt}</p>
               </div>
             </div>
+
+{
+  DetailcomondeClient[0]?.data_acceptation!=null&&Anuuler?
+  <div className="minirow-dc">
+  <div className="cirl-dc2"></div>
+  <div>
+    <p className="txt3box3-dc">Demande acceptée: </p>
+  </div>
+  <div>
+    <p className="txt4box3-dc">{DetailcomondeClient[0]?.data_acceptation}</p>
+  </div>
+</div>
+:<></>
+}
+{DetailcomondeClient[0]?.Date_préparée!=null?
+<div className="minirow-dc">
+<div className="cirl-dc3"></div>
+<div>
+  <p className="txt3box3-dc">Demande préparée: </p>
+</div>
+<div>
+  <p className="txt4box3-dc">{DetailcomondeClient[0]?.Date_préparée}</p>
+</div>
+</div>
+:
+<></>
+}
+{
+DetailcomondeClient[0]?.Data_rejetée!=null &&Anuuler?
+<div className="minirow-dc">
+<div className="cirl-dc4"></div>
+<div>
+  <p className="txt3box3-dc">Demande rejetée: </p>
+</div>
+<div>
+  <p className="txt4box3-dc">{DetailcomondeClient[0]?.Data_rejetée}</p>
+</div>
+</div>
+:
+<></>
+
+}
+
+           
+
+
           </div>
         </div>
         <div className="col05-dc">

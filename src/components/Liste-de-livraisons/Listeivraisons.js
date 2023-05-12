@@ -57,8 +57,11 @@ const dispatch=useDispatch()
     const navigat=(id)=>{
         navigate(`/Vender/Détails_de_livraison/${id}`)
     }
+    const filteredData = librairieData.filter((item) => {
+      return item.etat.includes("en cours"||"Completer");
+    });
     const filteredDataEnattente = librairieData.filter((item) => {
-      return item.etat.includes("en cours");
+      return item.etat.includes("en cours"&&"Annuler");
     });
     const filteredDataLivrer = librairieData.filter((item) => {
         return item.etat.includes("Completer");
@@ -92,7 +95,7 @@ const dispatch=useDispatch()
 <th>Mise à jour</th>
 
 </tr>
-{librairieData.map((obj,index) => (
+{filteredData.map((obj,index) => (
 
 <tr  onClick={()=>{navigat(obj.id)}} style={{cursor:"pointer"}}>
 

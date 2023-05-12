@@ -242,7 +242,7 @@ padding-left: 3%;
 .rowbox4-dc{
     display: flex;
     flex-direction: row;
-    gap: 15em;
+    gap:14em;;
 }
 .txtbox4-dc{
 font-family: 'Inter';
@@ -326,4 +326,20 @@ cursor: pointer;
                 flex-direction: column;
                 text-align: center;
                 gap: 2em;
-            }
+            }   
+.scroll-div2{
+    overflow: auto;
+    text-align: justify;
+    padding: 20px;
+    height: 580px;
+    margin-left: -15px;
+    overflow-x: hidden;
+    
+  
+}
+.scroll-div2::-webkit-scrollbar {
+width: 12px;
+}      
+.tab-prd{
+    width: 677px;
+} 

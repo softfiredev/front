@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -123,18 +123,18 @@ function App() {
     role:decoded?.role,
     avatar:decoded?.avatar
   };
+  useEffect(() => {
+      window.scroll(0,0)
+  }, []);
   
 
-  
-
- 
-  
   return (
-    <>
+    < div >
+    
       <BrowserRouter>
+     
          <NavBar user={user} />
-        <Suspense fallback={<Spinier />}>
-       
+         <Suspense fallback={<Spinier />}>
           <Routes>
             <Route path="/Login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} />
@@ -217,7 +217,7 @@ function App() {
         <Toast />
         <Footer />
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

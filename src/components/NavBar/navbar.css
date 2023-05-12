@@ -83,8 +83,11 @@ color: #1A110A;
 	color: #ffc125;
 }
 .header {
-  height: 5000%;
   background: #222222;
+  position: fixed;
+	top: 0;
+	width: 98.98%;
+	z-index: 9999; /* ensure the nav is above other elements */
 }
 .cartchop{
 	margin-left: -24%;

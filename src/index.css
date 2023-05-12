@@ -4,7 +4,6 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #fcfcfc;
-  overflow-x:hidden;
 }
 
 @media (min-width: 1280px ) {

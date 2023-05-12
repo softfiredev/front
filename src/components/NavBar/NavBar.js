@@ -12,7 +12,6 @@ function NavBar(props) {
   );
   const nbprod=useSelector(state=> state.Panier.nbprod)
   return (
-    <div className='nav'>
       <header className="header">
         <div className="logo">
           <Link to="/home"> <img src={Imge} alt="logo" /></Link>
@@ -61,7 +60,7 @@ function NavBar(props) {
 
 
 
-    </div>
+    
   )
 }
 

@@ -21,7 +21,7 @@ const Box_FavoirsProduit_Card = (props) => {
           toast.success("votre produit  Suppr avec success",{autoClose: 1000})
       }
       dispatch(getAllProduitFavorie(props.user?.id));
-
+      
     })
   }
 

@@ -13,7 +13,6 @@ const Box_produit_Card = (props)=>{
   const removeProduit=(index)=>{
     dispatch(remove(index))
     dispatch(removeCommande(index))
-    relod(0);
   }
   useEffect(()=>{
       dispatch(add({"qte":qte,"idlib":props.idl,"prix":total,"produitlabrairieId":props.idp}))

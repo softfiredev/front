@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import ListSubheader from "@mui/material/ListSubheader";
 import Pagination from "@mui/material/Pagination";
@@ -31,7 +31,7 @@ import Avatar from '@mui/material/Avatar';
 import { getAllProduitByCategorie } from "../../Store/Service/AllproduitlibrairieByCategorie";
 
 const Detailprod = (props) => {
- 
+  const [x, setx] = useState();
   const [thumbsSwiper, setThumbsSwiper] = useState();
   const style = {
     position: "absolute",
@@ -82,10 +82,13 @@ function handlePagination (event,page) {
   useEffect(() => {
     dispatch(getProduitDetail(id));
     dispatch( getAllProduitByCategorie(produitDetail?.categorieId))
+    window.scrollTo(0, 0);
   }, []);
   useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));
+    
   },[refresh])
+
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/Shop">
       <p className="txtlink1"> Shop</p>
@@ -120,7 +123,6 @@ function handlePagination (event,page) {
     setrefresh(false)
     setOpen(false)
   }
-
   return (
     <>
       <div className="detail">
@@ -474,8 +476,10 @@ function handlePagination (event,page) {
                   ))}
                 </Swiper>
               </div>
+                    
             </Grid>
           </div>
+          <p>{x}</p>
         </div>
       </div>
     </>

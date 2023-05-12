@@ -7,52 +7,12 @@
     color: #222222;
     
 }
-.backnovo-c{
-    background: #FFFAEB;
-cursor: pointer;
-border-bottom: 1px solid #F7F7F7;
-}
+
 .backnovo-c0{cursor: pointer;
 }
 
-.bnt01-c{
-width: 88px;
-height: 32px;
-background: #B6E0FE;
-border-radius: 36px;
-border: none;
-cursor: pointer;
-}
-.txtbnt01-c{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 14px;
-text-align: center;
-margin-top: -1%;
-color: #05400A;
-}
 
 
-.txtbnt02-c{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 14px;
-text-align: center;
-margin-top: -1%;
-color: #003E6B;
-}
-.bnt02-c{
-    width: 88px;
-    height: 32px;
-    background: #C1EAC5;
-        border-radius: 36px;
-    border: none;
-    cursor: pointer;
-    }
 .liste-c{
     padding: 2%;
     display: flex;
@@ -69,6 +29,50 @@ th {
     color: #7E7E7E;
     border-top: #F7F7F7 solid 1px;
     height: 56px;
+}
+.txtbnt01-lc{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #05400A;
+}
+.txtbnt02-lc{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
+
+text-align: center;
+
+color: #003E6B;
+}
+.bnt02-lc{
+border: none;
+    width: 88px;
+height: 32px;
+border: none;
+background: #B6E0FE;
+border-radius: 36px;
+}
+.txtbnt01-lc{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
+color: #05400A;
+}
+.bnt01-lc{
+    width: 88px;
+    height: 32px;
+    left: 1220px;
+    top: 370px;
+    background: #C1EAC5;
+    border-radius: 36px;
 }
 td {
     height: 60px;

@@ -21,7 +21,7 @@ height: 32px;
 background: #C1EAC5;
 border-radius: 36px;
 border: none;
-cursor: pointer;
+
 }
 .txtbnt01-c{
     font-family: 'Inter';
@@ -51,7 +51,6 @@ color: #003E6B;
     background: #B6E0FE;
     border-radius: 36px;
     border: none;
-    cursor: pointer;
     }
 .liste-c{
     padding: 2%;

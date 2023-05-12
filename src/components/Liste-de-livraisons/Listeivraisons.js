@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import './Listeivraisons.css'
+import Avatar from '@mui/material/Avatar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -8,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import Filterbar from '../filterbar/Filterbar';
 import {ArrowLeft2,ArrowRight2,Sort} from "iconsax-react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { findCommandeBylibrairie } from "../../Store/Service/findCommandeBylibrairie";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
   
@@ -41,28 +44,24 @@ const Listeivraisons = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
       };
-      const data=[
-        {id:"45645645",nom:"Otis Hoppe",prix:"8.500",Nbr:"20",date:"31/03/2023",Staut:"Compléter"},
-        {id:"2000254",nom:"Otis Hoppe",prix:"8.500",Nbr:"5",date:"05/03/2023",Staut:"Compléter"},
-        {id:"45468",nom:"Otis Hoppe",prix:"8.500",Nbr:"10",date:"01/03/2023",Staut:"Compléter"},
-        {id:"103429",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"En attente"},
-        {id:"456456456",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"En attente"},
-        {id:"33773732",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"Compléter"},
-        {id:"103429",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"En attente"},
-        {id:"5533223",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"En attente"},
-        {id:"999999955",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"Compléter"},
-        {id:"232323232",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"En attente"},
+      
+    const librairieData = useSelector(
+      (state) => state.findCommandeBylibrairie.commandeslibrairie
+    );
 
- 
-    ]
+const dispatch=useDispatch()
+    useEffect(() => {
+      dispatch(findCommandeBylibrairie(2));
+    },[]);
+    
     const navigat=(id)=>{
         navigate(`/Vender/Détails_de_livraison/${id}`)
     }
-    const filteredDataEnattente = data.filter((item) => {
-      return item.Staut.includes("En attente");
+    const filteredDataEnattente = librairieData.filter((item) => {
+      return item.etat.includes("en cours");
     });
-    const filteredDataLivrer = data.filter((item) => {
-        return item.Staut.includes("Compléter");
+    const filteredDataLivrer = librairieData.filter((item) => {
+        return item.etat.includes("Completer");
       });
   
   return (
@@ -73,7 +72,7 @@ const Listeivraisons = () => {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#F7D070" } }}>
          <Tab label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
-          <Tab label={<p className="txttabs-c">En attente</p>} {...a11yProps(1)} />
+          <Tab label={<p className="txttabs-c">en cours</p>} {...a11yProps(1)} />
           <Tab label={<p className="txttabs-c">Livrer</p>} {...a11yProps(1)} />
         </Tabs>
       </Box>
@@ -93,25 +92,29 @@ const Listeivraisons = () => {
 <th>Mise à jour</th>
 
 </tr>
+{librairieData.map((obj,index) => (
 
-{data.map((obj,index) => (
-
-<tr onClick={()=>{navigat(obj.id)}} className='backnovo-c0'>
+<tr  onClick={()=>{navigat(obj.id)}} style={{cursor:"pointer"}}>
 
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
-            <img src={img1} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.nom}</p></div>
+          
+            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c"style={{borderRadius:"50%"}} />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.prix}</p></td>
-<td className='tdwidth1'>{obj.Nbr}</td>
-<td className='tdwidth1'>{obj.date}</td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.Staut==="Compléter"?<button className='bnt02-c'><p className='txtbnt02-c'>{obj.Staut}</p></button>:<button className='bnt01-c'><p className='txtbnt02-c'>{obj.Staut}</p></button>}
-
-  
+{obj.etat==="Completer"?
+<><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj.etat}</p></button></>
+:
+<>
+<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etat}</p></button>
+</>
+}
   </td>
 
 </tr>
@@ -138,27 +141,31 @@ const Listeivraisons = () => {
 <th>Mise à jour</th>
 
 </tr>
+{filteredDataEnattente.map((obj,index) => (
 
-{filteredDataEnattente.map((item) => (
-<tr onClick={()=>{navigat(item.id)}} className='backnovo-c0'>
-<td className='tdwidth'>{item.id}</td>
+<tr  onClick={()=>{navigat(obj.id)}}style={{cursor:"pointer"}}>
+
+<td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
-            <img src={img1} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{item.nom}</p></div>
+          
+            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} style={{borderRadius:"50%"}} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{item.prix}</p></td>
-<td className='tdwidth1'>{item.Nbr}</td>
-<td className='tdwidth1'>{item.date}</td>
-
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{item.Staut==="Compléter"?<button className='bnt02-c'><p className='txtbnt02-c'>{item.Staut}</p></button>:<button className='bnt01-c'><p className='txtbnt02-c'>{item.Staut}</p></button>}
 
-</td>
 
+<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etat}</p></button>
+
+  
+  </td>
 
 </tr>
+
 ))}
 
 
@@ -180,28 +187,31 @@ const Listeivraisons = () => {
 
 </tr>
 
-{filteredDataLivrer.map((item) => (
-<tr onClick={()=>{navigat(item.id)}} className='backnovo-c0'>
-<td className='tdwidth'>{item.id}</td>
+{filteredDataLivrer.map((obj,index) => (
+
+<tr onClick={()=>{navigat(obj.id)}}style={{cursor:"pointer"}}>
+
+<td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
-            <img src={img1} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{item.nom}</p></div>
+          
+            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar}  style={{borderRadius:"50%"}} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{item.prix}</p></td>
-<td className='tdwidth1'>{item.Nbr}</td>
-<td className='tdwidth1'>{item.date}</td>
-
-
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{item.Staut==="Compléter"?<button className='bnt02-c'><p className='txtbnt02-c'>{item.Staut}</p></button>:<button className='bnt01-c'><p className='txtbnt02-c'>{item.Staut}</p></button>}
 
-</td>
+<button className='bnt01-c'><p className='txtbnt01-lc'>{obj.etat}</p></button>
+
+  
+  </td>
 
 </tr>
-))}
 
+))}
 
 </table>
         </div>

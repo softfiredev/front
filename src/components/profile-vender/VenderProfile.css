@@ -67,6 +67,9 @@ display: flex;
 justify-content: center;
 padding-top: 2%;
 }
+.deconnecter-box{
+    margin-top: 500%;
+}
 .box2row-vp{
     display: flex;
     flex-direction: row;

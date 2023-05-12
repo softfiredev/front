@@ -4,7 +4,6 @@ import Avatar from '@mui/material/Avatar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import img1 from "../../assets/Ellipse 503.png"
 import Typography from '@mui/material/Typography';
 import Filterbar from '../filterbar/Filterbar';
 import {ArrowLeft2,ArrowRight2,Sort} from "iconsax-react";
@@ -45,24 +44,11 @@ const Listecommandes = (props) => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
       };
-      const data=[
-        {id:"45645645",nom:"Otis Hoppe",prix:"8.500",Nbr:"20",date:"31/03/2023",Staut:"Compléter"},
-        {id:"2000254",nom:"Otis Hoppe",prix:"8.500",Nbr:"5",date:"05/03/2023",Staut:"En cours"},
-        {id:"45468",nom:"Otis Hoppe",prix:"8.500",Nbr:"10",date:"01/03/2023",Staut:"Nouveau"},
-        {id:"103429",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"Rejeter"},
-        {id:"456456456",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"Rejeter"},
-        {id:"33773732",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"En cours"},
-        {id:"103429",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"Rejeter"},
-        {id:"5533223",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"Nouveau"},
-        {id:"999999955",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"Nouveau"},
-        {id:"232323232",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"21/03/2023",Staut:"Rejeter"},
 
- 
-    ]
     const librairieData = useSelector(
       (state) => state.findCommandeBylibrairie.commandeslibrairie
     );
-    console.log(librairieData)
+
 const dispatch=useDispatch()
     useEffect(() => {
       dispatch(findCommandeBylibrairie(2));
@@ -70,7 +56,6 @@ const dispatch=useDispatch()
     
 
     const navigat=(id)=>{
-      
         navigate(`/Vender/Détails_de_commande/${id}`)
         navigate(0)
     }
@@ -124,7 +109,7 @@ const dispatch=useDispatch()
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar}style={{borderRadius:"50%"}} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
@@ -177,7 +162,7 @@ const dispatch=useDispatch()
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+            <Avatar style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
@@ -227,7 +212,7 @@ const dispatch=useDispatch()
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+            <Avatar style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
@@ -278,7 +263,7 @@ const dispatch=useDispatch()
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+            <Avatar style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
@@ -329,7 +314,7 @@ const dispatch=useDispatch()
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+            <Avatar  style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>

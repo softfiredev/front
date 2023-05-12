@@ -6,13 +6,14 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Filterbar from '../filterbar/Filterbar';
-import {ArrowLeft2,ArrowRight2,Sort} from "iconsax-react";
+import {Sort} from "iconsax-react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { findCommandeBylibrairie } from "../../Store/Service/findCommandeBylibrairie";
+import Pagination from "@mui/material/Pagination";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
-  
+   
     return (
       <div
         role="tabpanel"
@@ -29,32 +30,27 @@ function TabPanel(props) {
       </div>
     );
   }
+  
 function a11yProps(index) {
+
     return {
       id: `simple-tab-${index}`,
       'aria-controls': `simple-tabpanel-${index}`,
     };
   }
-
-
-
 const Listecommandes = (props) => {
     const navigate = useNavigate();
     const [value, setValue] = React.useState(0);
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-      };
-
     const librairieData = useSelector(
       (state) => state.findCommandeBylibrairie.commandeslibrairie
     );
-
+    const [all, setAll] = React.useState(librairieData);
 const dispatch=useDispatch()
     useEffect(() => {
       dispatch(findCommandeBylibrairie(2));
     },[]);
     
-
+  
     const navigat=(id)=>{
         navigate(`/Vender/Détails_de_commande/${id}`)
         navigate(0)
@@ -71,6 +67,21 @@ const dispatch=useDispatch()
       const filteredDataCompleter = librairieData.filter((item) => {
         return item.etat.includes("Completer");
       });
+
+      const handleChange = (event, newValue) => {
+        setValue(newValue);
+      }
+
+      const items =8;
+      const [current,setCurrent]=useState(1)
+      const NbPage=Math.ceil(all.length/items);
+      const startIndex=(current -1)*items;
+      const endIndex=startIndex+items;
+      const DataPerPage=all.slice(startIndex,endIndex)
+      function handlePagination (event,page) {
+        setCurrent(page)
+      }
+  
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de commandes</p></div>
@@ -78,11 +89,11 @@ const dispatch=useDispatch()
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#F7D070" } }}>
-         <Tab label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
-          <Tab label={<p className="txttabs-c">Nouveau</p>} {...a11yProps(1)} />
-          <Tab label={<p className="txttabs-c">En cours</p>} {...a11yProps(2)} />
-          <Tab label={<p className="txttabs-c">Compléter</p>} {...a11yProps(3)} />
-          <Tab label={<p className="txttabs-c">Rejeter</p>} {...a11yProps(4)} />
+         <Tab onClick={()=>{setAll(librairieData);setCurrent(1)}}  label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
+          <Tab onClick={()=>{setAll(filteredDataNouveau);setCurrent(1)}} label={<p className="txttabs-c">Nouveau</p>} {...a11yProps(1)} />
+          <Tab  onClick={()=>{setAll(filteredEncours);setCurrent(1)}}label={<p className="txttabs-c">En cours</p>} {...a11yProps(2)} />
+          <Tab  onClick={()=>{setAll(filteredDataCompleter);setCurrent(1)}}label={<p className="txttabs-c">Compléter</p>} {...a11yProps(3)} />
+          <Tab  onClick={()=>{setAll(filteredDataRejeter);setCurrent(1)}}label={<p className="txttabs-c">Rejeter</p>} {...a11yProps(4)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -102,7 +113,7 @@ const dispatch=useDispatch()
 
 </tr>
 
-{librairieData.map((obj,index) => (
+{DataPerPage.map((obj,index) => (
 
 <tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
 
@@ -307,7 +318,7 @@ const dispatch=useDispatch()
 
 </tr>
 
-{filteredDataRejeter.map((obj,index) => (
+{DataPerPage.map((obj,index) => (
 
 <tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
 
@@ -347,9 +358,15 @@ const dispatch=useDispatch()
     </div>
     <div className='page-c'>  
 <div className="pagination1-c">
-          <ArrowLeft2 size="22" color="#626262" style={{cursor:"pointer"}} />
-          <p>Page 1 sur 1</p>
-          <ArrowRight2 size="22" color="#626262" style={{cursor:"pointer"}} />
+
+           <Pagination
+                  count={NbPage}
+                  shape="rounded"
+                  className="pagination-shop"
+                  page={current}
+                  onChange={handlePagination}
+                />
+
         </div></div>
 
     </div>

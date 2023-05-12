@@ -185,7 +185,7 @@ function App() {
                 path="/Vender/Détails_de_livraison/:id"
                 element={<DetailLivr />}
               />
-              <Route path="/Vender/Profile" element={<VenderProfile />} />
+              <Route path="/Vender/Profile" element={<VenderProfile user={user}/>} />
               <Route
                 path="/Vender/Liste_de_Livraisons"
                 element={<Listeivraisons />}

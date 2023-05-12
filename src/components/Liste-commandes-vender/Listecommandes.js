@@ -63,7 +63,7 @@ const dispatch=useDispatch()
       return item.etat.includes("Nouveau");
     });
     const filteredDataRejeter = librairieData.filter((item) => {
-        return item.etat.includes("Rejeter");
+        return item.etat.includes("Annule");
       });
       const filteredEncours = librairieData.filter((item) => {
         return item.etat.includes("en cours");
@@ -124,7 +124,7 @@ const dispatch=useDispatch()
 <>
 {obj.etat==="en cours"?
 <button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
-:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
+:<>{obj.etat==="Annule"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
 <>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
 
   
@@ -329,7 +329,7 @@ const dispatch=useDispatch()
 <>
 {obj.etat==="en cours"?
 <button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
-:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
+:<>{obj.etat==="Annule"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
 <>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
 
   

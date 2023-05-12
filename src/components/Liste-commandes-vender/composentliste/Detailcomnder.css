@@ -142,8 +142,29 @@ padding-top: 5%;
     width: 16px;
 height: 16px;
 border-radius: 100%;
-background: #57AE5B;
+background: #F7D070;
 margin-top: 1%;
+}
+.cirl-dc4{
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #D64545;
+    margin-top: 1%;
+}
+.cirl-dc2{
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #4098D7;
+    margin-top: 1%;
+}
+.cirl-dc3{
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #57AE5B;
+        margin-top: 1%;
 }
 .txt3box3-dc{
 

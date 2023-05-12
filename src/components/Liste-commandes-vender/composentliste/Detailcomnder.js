@@ -23,8 +23,14 @@ const Detailcomnder = (props) => {
   );
   useEffect(() => {
     dispatch(Detailcomonde(idcomonde.id));
+    if(DetailcomondeClient?.[0]?.data_acceptation===null){
+      setopen(true)
+    }else{
+      setopen(false)
+    }
   }, []);
-  console.log(DetailcomondeClient[0]);
+
+  console.log(open,"open")
   const data = [
     {
       nom: "GOUACHE 9T METAL...",

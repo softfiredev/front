@@ -35,5 +35,7 @@ export const Path ={
     livreCommande:'commandeDetail/livre/',
     ProfileVender:'labrairie/findProfile/',
     UpdateProfile:'labrairie/updateProfile/',
+    listProduitLib:'produitLabrairie/ListeDeProduitslibrairie/',
+    allAvisLib:"avisProduitlibraire/avislib/"
 
 }

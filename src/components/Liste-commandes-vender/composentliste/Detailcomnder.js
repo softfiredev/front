@@ -21,7 +21,7 @@ const Detailcomnder = (props) => {
   const DetailcomondeClient = useSelector(
     (state) => state.Detailcomonde.Detailcomonde
   );
-  console.log(DetailcomondeClient)
+
   useEffect(() => {
     dispatch(Detailcomonde(idcomonde.id));
     if(DetailcomondeClient?.[0]?.data_acceptation===null){
@@ -63,6 +63,9 @@ const Detailcomnder = (props) => {
         setAnuuler(true) 
      })
   }
+
+ 
+
   return (
     <div className="Detailcomnder">
       <div

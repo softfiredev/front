@@ -4,7 +4,7 @@ import Avatar from '@mui/material/Avatar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import img1 from "../../assets/Ellipse 503.png"
+import Pagination from "@mui/material/Pagination";
 import Typography from '@mui/material/Typography';
 import Filterbar from '../filterbar/Filterbar';
 import {ArrowLeft2,ArrowRight2,Sort} from "iconsax-react";
@@ -53,19 +53,30 @@ const dispatch=useDispatch()
     useEffect(() => {
       dispatch(findCommandeBylibrairie(2));
     },[]);
-    
+
+
     const navigat=(id)=>{
         navigate(`/Vender/Détails_de_livraison/${id}`)
     }
     const filteredData = librairieData.filter((item) => {
       return item.etat.includes("en cours"||"Completer");
     });
-    const filteredDataEnattente = librairieData.filter((item) => {
-      return item.etat.includes("en cours"&&"Annuler");
+    const filteredDataEnattente = filteredData.filter((item) => {
+      return item.etat.includes("en cours");
     });
-    const filteredDataLivrer = librairieData.filter((item) => {
+    const filteredDataLivrer = filteredData.filter((item) => {
         return item.etat.includes("Completer");
       });
+      const [all, setAll] = React.useState(filteredData);
+      const items =8;
+      const [current,setCurrent]=useState(1)
+      const NbPage=Math.ceil(all.length/items);
+      const startIndex=(current -1)*items;
+      const endIndex=startIndex+items;
+      const DataPerPage=all.slice(startIndex,endIndex)
+      function handlePagination (event,page) {
+        setCurrent(page)
+      }
   
   return (
     <div className='liste-c'>
@@ -74,9 +85,9 @@ const dispatch=useDispatch()
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#F7D070" } }}>
-         <Tab label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
-          <Tab label={<p className="txttabs-c">en cours</p>} {...a11yProps(1)} />
-          <Tab label={<p className="txttabs-c">Livrer</p>} {...a11yProps(1)} />
+         <Tab onClick={()=>{setAll(filteredData);setCurrent(1)}} label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
+          <Tab onClick={()=>{setAll(filteredDataEnattente);setCurrent(1)}} label={<p className="txttabs-c">en cours</p>} {...a11yProps(1)} />
+          <Tab  onClick={()=>{setAll(filteredDataLivrer);setCurrent(1)}} label={<p className="txttabs-c">Livrer</p>} {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -95,7 +106,7 @@ const dispatch=useDispatch()
 <th>Mise à jour</th>
 
 </tr>
-{filteredData.map((obj,index) => (
+{DataPerPage.map((obj,index) => (
 
 <tr  onClick={()=>{navigat(obj.id)}} style={{cursor:"pointer"}}>
 
@@ -144,7 +155,7 @@ const dispatch=useDispatch()
 <th>Mise à jour</th>
 
 </tr>
-{filteredDataEnattente.map((obj,index) => (
+{DataPerPage.map((obj,index) => (
 
 <tr  onClick={()=>{navigat(obj.id)}}style={{cursor:"pointer"}}>
 
@@ -224,11 +235,16 @@ const dispatch=useDispatch()
     </Box>
     </div>
     <div className='page-c'>  
-<div className="pagination1-c">
-          <ArrowLeft2 size="22" color="#626262" style={{cursor:"pointer"}} />
-          <p>Page 1 sur 1</p>
-          <ArrowRight2 size="22" color="#626262" style={{cursor:"pointer"}} />
-        </div></div>
+
+    <Pagination
+                  count={NbPage}
+                  shape="rounded"
+                  className="pagination-shop"
+                  page={current}
+                  onChange={handlePagination}
+        />
+        
+        </div>
 
     </div>
   )

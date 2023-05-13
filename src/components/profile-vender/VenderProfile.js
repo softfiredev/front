@@ -16,7 +16,7 @@ import { modifierIdentitevender } from "../../Store/Service/modifierIdentitevend
 const VenderProfile = (props) => {
 const [open,setopen]=useState(true)
 const [open2,setopen2]=useState(true)
-const [ok,setok]=useState(true)
+const [ok,setok]=useState(false)
 const [ok2,setok2]=useState(false)
 const [image, setImage] = useState(null);
 const [sizeimg,setSizeimg]=useState(false)

@@ -54,7 +54,7 @@ const dispatch=useDispatch()
       dispatch(findCommandeBylibrairie(2));
     },[]);
 
-
+console.log("s")
     const navigat=(id)=>{
         navigate(`/Vender/Détails_de_livraison/${id}`)
     }

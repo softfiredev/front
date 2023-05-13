@@ -120,17 +120,17 @@ const dispatch=useDispatch()
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar}style={{borderRadius:"50%"}} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj?.user?.avatar}style={{borderRadius:"50%"}} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
 <td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
+<td className='tdwidth1'>{obj?.produitlabrairies[0]?.nb_Article}</td>
+<td className='tdwidth1'>{obj?.createdAt}</td>
 
 <td className='tdwidth1'>
 {obj.etat==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj?.etat}</p></button></>
 :
 <>
 {obj.etat==="en cours"?
@@ -178,7 +178,7 @@ const dispatch=useDispatch()
               </div>
               </td>
 <td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
@@ -228,7 +228,7 @@ const dispatch=useDispatch()
               </div>
               </td>
 <td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
@@ -279,7 +279,7 @@ const dispatch=useDispatch()
               </div>
               </td>
 <td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
@@ -330,7 +330,7 @@ const dispatch=useDispatch()
               </div>
               </td>
 <td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0].nb_Article}</td>
+<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>

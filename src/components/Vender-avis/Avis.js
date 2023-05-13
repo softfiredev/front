@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState  } from 'react'
 import "./Avis.css"
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -10,6 +10,7 @@ import Filterbar from '../filterbar/Filterbar';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { avisLib } from '../../Store/Service/AllAvisBylib';
+import Pagination from "@mui/material/Pagination";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -37,6 +38,15 @@ const dispatch=useDispatch()
 useEffect(()=>{
       dispatch(avisLib(2))
 },[])
+const items =8;
+const [current,setCurrent]=useState(1)
+const NbPage=Math.ceil(avis.length/items);
+const startIndex=(current -1)*items;
+const endIndex=startIndex+items;
+const DataPerPage=avis.slice(startIndex,endIndex)
+function handlePagination (event,page) {
+  setCurrent(page)
+}
   return (
     <TabPanel value={props.value} index={1} >
 
@@ -90,6 +100,13 @@ useEffect(()=>{
 <br/><br/>
 <div className='page-listev'>  
 </div>
+<Pagination
+                  count={NbPage}
+                  shape="rounded"
+                  className="pagination-shop"
+                  page={current}
+                  onChange={handlePagination}
+                />
   </TabPanel>
   )
 }

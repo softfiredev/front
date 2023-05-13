@@ -2,32 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./Ajouter.css"
 import {Box,Import,TickCircle,Trash,InfoCircle,CloseCircle} from "iconsax-react";
 import { OutlinedInput } from '@mui/material';
-import { useDispatch, useSelector } from "react-redux";
 import { Ajoutproduit } from "../../Store/Service/Ajoutproduit";
 import Select from '@mui/material/Select';
 import { toast } from "react-toastify";
 import MenuItem from '@mui/material/MenuItem';
+import { Modifierprod } from "../../Store/Service/Modifierprod";
 const Ajouter = (props) => {
-   const [img,setImage]=useState()
-   const [produit, setproduit] = useState({titre:"",prix:"",qte:"",categorieId:"1"});
+   const [img,setImage]=useState(props?.titre==="Modify produit"?"http://127.0.0.1:8080/uploads/"+props?.prod.img:undefined)
+   const [produit, setproduit] = useState(props?.titre==="Modify produit"? props?.prod:{titre:"",prix:"",qte:"",categorieId:"1"});
     const [imgsize,setImgsize]=useState()
     const [realimgsize,setRealimgsize]=useState()
     const [imgname,setImgmane]=useState()
     const [prodimg,setprodimg]=useState()
     const [sizeimg,setsizeimg]=useState()
-    const onImageChange = (event) => {
-        if (event.target.files && event.target.files[0]) {
-            setImage(URL.createObjectURL(event.target.files[0]));
-            const size=event.target.files[0].size ;
-            let g=(size.toString());
-            setRealimgsize(size)
-            setImgsize(g.slice(0,4));
-            const name=event.target.files[0].name
-            setImgmane(name.slice(0,11));
-            setprodimg(event.target.files[0])
-            setsizeimg(realimgsize>(1024*1024))
-        }
-      }
+
       const handleInputChange = (field) => {
         return (e) => {
             setproduit((prev) => ({
@@ -36,40 +24,71 @@ const Ajouter = (props) => {
           }));
         };
       };
-
-
-      const Ajoutprod=()=>{
-     
+    
+    const Ajoutprod=()=>{
      if(produit.titre.length!=0&&produit.prix.length!=0 &&produit.qte.length!=0 &&prodimg!=undefined)
         {
             const data= new FormData() ; 
             data.append("titre",produit.titre)
-            data.append("description","")
+            data.append("description","dfgdfg")
             data.append("prix",produit.prix)
             data.append("qte",produit.qte)
             data.append("categorieId",produit.categorieId)
             data.append("image",prodimg)
             data.append("labrairieId",2)
+         
             if(realimgsize>(1024*1024))
             {
               {toast.error("taill image !!! ",{autoClose: 1000})}
             }else{
+              console.log(prodimg)
               Ajoutproduit(data).then((response)=>{
-                  console.log(response)
+      
                if(response.success===true){
                    toast.success("votre produit a ete Ajoute avec success",{autoClose: 1000})
-                 
+                 setproduit({titre:"",prix:"",qte:"",categorieId:"1"})
+                 setImage(undefined)
                }
              })
             }       
         } 
         else{ {toast.error("remplir votre champ Svp !!! ",{autoClose: 1000})}    }
         }
-    
+      
+             const Modifyprod=()=>{
+              const data= new FormData() ; 
+              data.append("titre",produit.titre)
+              data.append("description","dfgdfg")
+              data.append("prix",produit.prix)
+              data.append("qte",produit.qte)
+              data.append("categorieId",produit.categorieId)
+              data.append("image",produit.img)
+              data.append("labrairieId",2)
+              Modifierprod(produit.idprod,data).then((response)=>{
+                if(response.success===true){
+                  toast.success("votre avis Modifier avec success",{autoClose: 1000})
+                  }
+              })
+     
+            }
+
         const Anuler=()=>{
             setproduit({titre:"",description:"",prix:"",qte:"",categorieId:""})
             setImage(undefined)
             setprodimg(undefined)
+        }
+        const onImageChange = (event) => {
+          if (event.target.files && event.target.files[0]) {
+             setprodimg(event.target.files[0])
+             setImage(URL.createObjectURL(event.target.files[0]));
+              const size=event.target.files[0].size ;
+              let g=(size.toString());
+              setRealimgsize(size)
+              setImgsize(g.slice(0,4));
+              const name=event.target.files[0].name
+              setImgmane(name.slice(0,11));
+              setsizeimg(realimgsize>(1024*1024))
+          }
         }
   return (
     <>
@@ -116,11 +135,11 @@ const Ajouter = (props) => {
 <div className="rol01-ajout"> 
 <div><TickCircle size="15" color="#57AE5B" variant="Bold" style={{marginTop:"30%"}}onClick={()=>{setImage(undefined);setprodimg(undefined)}}/></div>
 <div><img src={img} className="mguplod-ajout"/></div>
-<div><p className="txtuplod02-ajoute">{imgname}</p></div>
+<div><p className="txtuplod02-ajoute">{imgname?imgname:produit.img}</p></div>
 </div>
 
 <div className="rol01-ajout"> 
-<div><p className="txtuplod03-ajoute">{imgsize}Mo</p></div>
+<div><p className="txtuplod03-ajoute">{imgsize?imgsize:"0.1"}Mo</p></div>
 <div><Trash size="15" color="#222" style={{cursor:"pointer"}} onClick={()=>{setImage(undefined);setprodimg(undefined)}}/></div>
 </div>
 
@@ -165,9 +184,14 @@ const Ajouter = (props) => {
         <OutlinedInput placeholder='Quantité'onChange={handleInputChange("qte")} value={produit.qte}  />
     </div>
 
-<div className='rowbnt-ajout'>
+    <div className='rowbnt-ajout'>
 <button className='bnt01-ajout' onClick={Anuler}><p className='txtbnt01-ajout'>Annuler</p></button>
-<button  onClick={Ajoutprod} className='bnt02-ajout'><p className='txtbnt02-ajout'>Ajouter</p></button></div>
+{props.titre==="Modify produit"?
+<button onClick={Modifyprod} className='bnt02-ajout'><p className='txtbnt02-ajout'>Modify</p></button>
+:
+<button  onClick={Ajoutprod} className='bnt02-ajout'><p className='txtbnt02-ajout'>Ajouter</p></button>
+}
+</div>
 </div>
     </div>
         </>

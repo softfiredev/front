@@ -153,6 +153,17 @@ padding: 2%;
     cursor: pointer;
     border: none;
     }
+    .menuitem-listev{
+        display: flex;
+        gap: 0.5em;
+    }
+    .pagination-shop{
+        display: flex;
+        justify-content: center;
+    }
+    .menu-listev{
+        margin-left: -9.3%;
+    }
 .txtbnt3-inv4{
 
     font-family: 'Inter';

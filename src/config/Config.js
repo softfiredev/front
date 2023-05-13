@@ -36,6 +36,7 @@ export const Path ={
     ProfileVender:'labrairie/findProfile/',
     UpdateProfile:'labrairie/updateProfile/',
     listProduitLib:'produitLabrairie/ListeDeProduitslibrairie/',
-    allAvisLib:"avisProduitlibraire/avislib/"
-
+    allAvisLib:"avisProduitlibraire/avislib/",
+    Ajoutproduit:"produitLabrairie/add",
+    Supproduit:"produitLabrairie/delete/"
 }

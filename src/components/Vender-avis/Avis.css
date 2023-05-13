@@ -2,7 +2,7 @@
     width: 30%;
 }
 .comm-aviss{
-    width: 318px;
+width: 318px;
 height: 32px;
 font-family: 'Inter';
 font-style: normal;
@@ -10,7 +10,7 @@ font-weight: 500;
 font-size: 10px;
 line-height: 16px;
 color: #222222;
-
+margin-top: 2%;
 }
 .txt0014-aviss{
     

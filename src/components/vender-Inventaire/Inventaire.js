@@ -105,10 +105,8 @@ const Inventaire = () => {
               <p className="txtbox-int">Retourner</p>
             </div>
           </div>
-          <div>
-            <p className="txt-int">Ajouter produit</p>
-          </div>
-          <Ajouter />
+          
+          <Ajouter titre="Modify produit" />
         </div>
       )}
     </>

@@ -9,7 +9,6 @@ import img from "../../assets/Ellipse 503.png"
 import Filterbar from '../filterbar/Filterbar';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-
 import { avisLib } from '../../Store/Service/AllAvisBylib';
 
 function TabPanel(props) {
@@ -32,29 +31,12 @@ function TabPanel(props) {
     );
   }
 const Avis = (props) => {
-    const data=[{id:"103429",nom:"GOUACHE 9T METAL",
-    nomcl:"Otis Hoppe",
-    cat:"Scolaire",
-    date:"20/03/2023",
-    Commentaire:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable."}
-    ,
-    {id:"103429",nom:"GOUACHE 9T METAL",
-    nomcl:"Otis Hoppe",
-    cat:"Scolaire",
-    date:"20/03/2023",
-    Commentaire:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable."}
-    ,{id:"103429",nom:"GOUACHE 9T METAL",
-    nomcl:"Otis Hoppe",
-    cat:"Scolaire",
-    date:"20/03/2023",
-    Commentaire:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable."}
-]
+  
 const avis = useSelector((state)=>state.Allavislib.avislib)
 const dispatch=useDispatch()
 useEffect(()=>{
       dispatch(avisLib(2))
 },[])
-console.log(avis)
   return (
     <TabPanel value={props.value} index={1} >
 
@@ -97,7 +79,7 @@ console.log(avis)
 
 </td>
 <td className='tdwidth10-aviss'>{obj.createdAt}</td>
-<td className='tdwidth10-aviss'><p className='comm-aviss'>{obj.commenter}</p></td>
+<td className='tdwidth10-aviss'><div><p className='comm-aviss'>{obj.commenter}</p></div></td>
 
 
 </tr>

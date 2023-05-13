@@ -51,7 +51,7 @@ const rootReducer = combineReducers({
     Detailcomonde:SliceDetailcomonde,
     profileVender:Slicegetfrofile,
     AlllistProduitLib:SliceAllListProduit,
-    Allavislib:SliceAvis
+    Allavislib:SliceAvis,
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);
   

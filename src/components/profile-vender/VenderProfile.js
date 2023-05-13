@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './VenderProfile.css'
-import {Profile,Edit,ProfileCircle,Shop } from "iconsax-react";
+import {Profile,Edit,Shop } from "iconsax-react";
 import {  OutlinedInput } from "@mui/material";
 import Select from '@mui/material/Select';
 import { toast } from "react-toastify";
@@ -51,6 +51,7 @@ useEffect(() => {
   dispatch(getIdentiteClientt(props.user?.id));
   dispatch(getprofileVender(2));
 },[refreshpage]);
+
 const [vender, setVender] = useState({ nom:clientData?.fullname, numero:clientData?.telephone,email:clientData?.email,date:clientData?.Date_de_naissance,genre:"Male"});
 const [venderl, setVenderl] = useState({ nom:venderData?.nameLibrairie, addr:venderData?.adresse,email:venderData?.emailLib,insta:venderData?.instagram,fb:venderData?.facebook,telephone:venderData?.telephone});
 const [avatar,setavatar]=useState()
@@ -100,8 +101,6 @@ const changeIdentite2=()=>{
     dat.append("instagram",venderl.insta)
     avatar2!==undefined?dat.append("image",avatar2):dat.append("image",venderData?.imageStore)
     dat.append("emailLib",venderl.email)
-    console.log(venderData?.imageStore)
-    console.log(avatar2)
     if(sizeimg2)
     {
       {toast.error("taill image !!! ",{autoClose: 1000})}

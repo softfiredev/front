@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
-import { TickSquare, More, FilterAdd } from "iconsax-react";
-import img1 from "../../assets/prod2.png";
+import { TickSquare, More, FilterAdd, ArrowCircleRight2, Edit, Trash } from "iconsax-react";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
 import Filterbar from "../filterbar/Filterbar";
 import { useDispatch, useSelector } from "react-redux";
+import { supprimerprod } from "../../Store/Service/supprimerprod";
+import { toast } from "react-toastify";
 import { AllListProduitLibe } from "../../Store/Service/AllistProduitLib";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -27,45 +32,68 @@ function TabPanel(props) {
   );
 }
 const Listevender = (props) => {
-  const data = [
-    {
-      id: "103429",
-      nom: "GOUACHE 9T METAL",
-      prix: "8.500",
-      cat: "Scolaire",
-      Qté: "20",
-      Mise: "20/03/2023",
-    },
-    {
-      id: "103429",
-      nom: "GOUACHE 9T METAL",
-      prix: "8.500",
-      cat: "Scolaire",
-      Qté: "20",
-      Mise: "20/03/2023",
-    },
-    {
-      id: "103429",
-      nom: "GOUACHE 9T METAL",
-      prix: "8.500",
-      cat: "Scolaire",
-      Qté: "20",
-      Mise: "20/03/2023",
-    },
-    {
-      id: "103429",
-      nom: "GOUACHE 9T METAL",
-      prix: "8.500",
-      cat: "Scolaire",
-      Qté: "20",
-      Mise: "20/03/2023",
-    },
-  ];
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const [op, setop] = React.useState(false);
+  const [op2, setop2] = React.useState(false);
+  const [idp ,setIdp] = useState()
+  const [idprod ,setidprod] = useState()
+  const [titre ,settitre]=useState()
+  const [prix,setprix]=useState()
+  const [qnt,setqnt]=useState()
+  const [categorieprod,setcategorie]=useState()
   const dispatch = useDispatch();
   const produit = useSelector((state) => state.AlllistProduitLib.listProduit);
   useEffect(() => {
     dispatch(AllListProduitLibe(2));
   }, []);
+  const handleClick = (event,idprod,titre,qnt,cat,prix) => {
+    setAnchorEl(event.currentTarget);
+    setidprod(idprod)
+    setprix(prix)
+    setqnt(qnt)
+    settitre(titre)
+    setcategorie(cat)
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleClicke = () => {
+    setop(true);
+  };
+  const handleClos = () => {
+    setop(false);
+    setAnchorEl(null);
+  };
+  const handleClos2 = () => {
+    setop2(false);
+    setAnchorEl(null);
+  };
+  const stylee = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    background: "#FFFFFF",
+    width: "544px",
+    height: "284px",
+    boxShadow:
+      "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
+    borderRadius: "8px",
+    p: 4,
+  };
+  const supprimerOneAvis=()=>{
+    supprimerprod(idprod).then((response)=>{
+      if(response.success===true){
+        toast.success("votre avis supprimer avec success",{autoClose: 1000})
+   
+    }
+    })
+
+    setop2(false);
+    setAnchorEl(null);
+    
+  }
   return (
     <TabPanel value={props.value} index={0}>
       <br />
@@ -118,11 +146,87 @@ const Listevender = (props) => {
             <td>
               {" "}
               <div className="more-int">
-                <More size="22" color="#222222" />
+              <More
+                      size="22"
+                      color="#222222"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.name,obj?.qte)}
+                    />
               </div>
             </td>
           </tr>
         ))}
+               <Menu
+              id="basic-menu"
+              className="menu-avis"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              <MenuItem className="menuitem-avis" onClick={handleClose}>
+                <ArrowCircleRight2 size="22" color="#222222" />
+                <span>
+                   <Link to={"/Detailproduit/"+idp} className="txtmenu-avis">Aller au produit</Link>
+                </span>
+              </MenuItem>
+              <MenuItem className="menuitem-avis" onClick={handleClicke}>
+                <Edit size="22" color="#222222" />
+                <span>
+                  <p className="txtmenu-avis">Modifier</p>
+                </span>
+              </MenuItem>
+              <MenuItem
+                className="menuitem-avis"
+                onClick={() => {
+                  setop2(true);
+                }}
+              >
+                <Trash size="22" color="#222222" />
+                <span>
+                  <p className="txtmenu-avis">Supprimer</p>
+                </span>
+              </MenuItem>
+            </Menu>
+
+
+            <Modal
+        open={op2}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        onClose={handleClos}
+      >
+        <Box sx={stylee}>
+          <div className="container-modal">
+            <div className="flex-end">
+              {" "}
+              <div>
+              
+                <i class="fa fa-close" onClick={handleClos2} style={{cursor:"pointer"}}></i>
+              </div>
+            </div>
+     
+            <div>
+              <p className="txtmodal2-inv4">
+                Etes-vous sûr de vouloir supprimer cette Produit?
+              </p>
+            </div>
+
+            <div className="minirow2-inv4">
+              <button onClick={handleClos2} className="bnt3-inv4">
+                <p className="txtbnt3-inv4">Annuler</p>
+              </button>
+              <button className="bnt40-inv4" onClick={supprimerOneAvis}>
+                <p className="txtbnt40-inv4">Supprimer</p>
+              </button>
+            </div>
+          </div>
+        </Box>
+      </Modal>
       </table>
       <br />
       <br />

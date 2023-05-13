@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Avis.css"
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
@@ -7,6 +7,10 @@ import img1 from "../../assets/prod2.png";
 import Rating from "@mui/material/Rating";
 import img from "../../assets/Ellipse 503.png"
 import Filterbar from '../filterbar/Filterbar';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { avisLib } from '../../Store/Service/AllAvisBylib';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -45,6 +49,12 @@ const Avis = (props) => {
     date:"20/03/2023",
     Commentaire:"La peinture Gouache offre des couleurs vives et une consistance lisse à un prix abordable."}
 ]
+const avis = useSelector((state)=>state.Allavislib.avislib)
+const dispatch=useDispatch()
+useEffect(()=>{
+      dispatch(avisLib(2))
+},[])
+console.log(avis)
   return (
     <TabPanel value={props.value} index={1} >
 
@@ -64,16 +74,16 @@ const Avis = (props) => {
 
 </tr>
 
-{data.map((obj,index) => (
+{avis.map((obj,index) => (
 <tr>
 
 <td className='tdwidth2-aviss'> <div className="row-int01">
-            <img src={img1} className="img1-int" />
-              <div style={{marginTop:"3%"}}><p className='txt01-int'>{obj.nom}</p></div>
+            <img src={"http://127.0.0.1:8080/uploads/"+obj.produitlabrairie?.imagelibrairies?.[0]?.name_Image} className="img1-int" />
+              <div style={{marginTop:"3%"}}><p className='txt01-int'>{obj.produitlabrairie?.titre}</p></div>
               </div>
             </td>
 <td className='tdwidth02-aviss'>
-<p className='txt02-int'><Rating name="read-only" value={props.nbstart} readOnly
+<p className='txt02-int'><Rating name="read-only" value={obj.nbstart} readOnly
                 defaultValue={2}
                 size="small"
                 className="stars"
@@ -81,13 +91,13 @@ const Avis = (props) => {
               </td>
 <td className='tdwidth10-aviss'>
     <div className='tdwidth3-aviss'>
-    <div> <img src={img} alt="maktba"  className="img-aviss"/></div>
-<div><p className='txt0014-aviss'>{obj.nomcl}</p></div>
+    <div> <img src={"http://127.0.0.1:8080/uploads/"+obj?.client?.user?.avatar} alt="maktba"  className="img-aviss"/></div>
+<div><p className='txt0014-aviss'>{obj.client?.user?.fullname}</p></div>
     </div>
 
 </td>
-<td className='tdwidth10-aviss'>{obj.date}</td>
-<td className='tdwidth10-aviss'><p className='comm-aviss'>{obj.Commentaire}</p></td>
+<td className='tdwidth10-aviss'>{obj.createdAt}</td>
+<td className='tdwidth10-aviss'><p className='comm-aviss'>{obj.commenter}</p></td>
 
 
 </tr>

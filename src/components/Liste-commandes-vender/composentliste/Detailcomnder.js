@@ -24,7 +24,27 @@ const Detailcomnder = (props) => {
 
   useEffect(() => {
     dispatch(Detailcomonde(idcomonde.id));
+    if(DetailcomondeClient?.[0]?.data_acceptation===null){
+      setopen(true)
+    }else{
+      setopen(false)
+    }
   }, []);
+  console.log(DetailcomondeClient[0]);
+  const data = [
+    {
+      nom: "GOUACHE 9T METAL...",
+      prix: "174 dt",
+      Qté: "2",
+      TotaleHT: "348.00 dt",
+    },
+    {
+      nom: "GOUACHE 9T METAL...",
+      prix: "174 dt",
+      Qté: "2",
+      TotaleHT: "348.00 dt",
+    },
+  ];
   const Accepter=()=>{
     AccepterCommande(idcomonde.id).then((response)=>{
        if(response.success==true){

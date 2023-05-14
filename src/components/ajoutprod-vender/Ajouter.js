@@ -38,7 +38,7 @@ const Ajouter = (props) => {
       };
 
 
-      const Ajoutprod=()=>{
+  const Ajoutprod=()=>{
      
      if(produit.titre.length!=0&&produit.prix.length!=0 &&produit.qte.length!=0 &&prodimg!=undefined)
         {

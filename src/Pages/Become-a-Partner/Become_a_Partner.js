@@ -3,11 +3,29 @@ import Part from "../../assets/part.jpg";
 import { OutlinedInput, Grid } from "@mui/material";
 import Cardbecome from "../../components/card-become/card-become";
 import Cartcontact from "../../components/cart-contact/cart_contact";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Liste from "../../components/listefq/liste";
 import { Link } from 'react-router-dom';
 const Become_a_Partner = () => {
-  const onButtonClick = () => {};
+  const [file,setfile]=useState()
+  const [sizeimg,setSizeimg]=useState(false)
+  const [img,setImage]=useState()
+  const [imgsize,setImgsize]=useState()
+  const [realimgsize,setRealimgsize]=useState()
+  const [imgname,setImgmane]=useState()
+  const onImageChange = (e) => {
+      if (e.target.files && e.target.files[0]) {
+          setImage(URL.createObjectURL(e.target.files[0]));
+          setfile(e.target.files[0])
+          setSizeimg((e.target.files[0].size)>(1024*1024))
+          const size=e.target.files[0].size/ (1024 * 1024) ;
+          let g=(size.toString());
+          setRealimgsize(size)
+          setImgsize(g.slice(0,4));
+          const name=e.target.files[0].name
+          setImgmane(name.slice(0,11));
+      }
+    }
 
   return (
    <div className="partner">
@@ -293,14 +311,21 @@ const Become_a_Partner = () => {
                         <p className="txt8-become">Soumettre un fichier</p>
                       </Grid>
                       <Grid item>
-                      
-                        <button className="downlo" onClick={onButtonClick}>
-                          <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVR4nO2WywqCQBSGv2wTtJNatImWLmodFPUE3agk2gkp5Pu/QAwcw6SmmUGnFv7wgzCe83kuotCq1R9qAKyBK5ABKXABlkDYBDCQ5Hcg/2B1tpJ7a4NuNMCqd3XB5xbQwqpyK02AvcwulWtde3VtD5usTOeFCXRcMzSXbf+qbQPgVAdU2xfJO/ktUQIMxYkhPAI6VWgPOBsmSCrLElrAz8J6VuoKdYUHSAtMZzUsgcpQ5Mw0T4RFtcqj0lwLFfMeWeQ5YbhM71zIJTZDVt03+IaU7Rt8VIGzH4CnKrALxB7BcflT2XeAu4BjYb0okBYcDRfOFJxKzmldPwXVB/CmvAX70kHspAegq6wprKfiuQAAAABJRU5ErkJggg=="
-                            alt="ico"
-                          />
-                          <p className="tele"> Télécharger un fichier</p>
-                        </button> 
+                      <div className="downlo-modalbecome">
+                      <label htmlFor="file-input" className="labelup">
+                  <div >    
+                    <img
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVR4nO2WywqCQBSGv2wTtJNatImWLmodFPUE3agk2gkp5Pu/QAwcw6SmmUGnFv7wgzCe83kuotCq1R9qAKyBK5ABKXABlkDYBDCQ5Hcg/2B1tpJ7a4NuNMCqd3XB5xbQwqpyK02AvcwulWtde3VtD5usTOeFCXRcMzSXbf+qbQPgVAdU2xfJO/ktUQIMxYkhPAI6VWgPOBsmSCrLElrAz8J6VuoKdYUHSAtMZzUsgcpQ5Mw0T4RFtcqj0lwLFfMeWeQ5YbhM71zIJTZDVt03+IaU7Rt8VIGzH4CnKrALxB7BcflT2XeAu4BjYb0okBYcDRfOFJxKzmldPwXVB/CmvAX70kHspAegq6wprKfiuQAAAABJRU5ErkJggg=="
+                      alt="ico"
+                      className="iconuplod-desbecome"
+                    />
+                    <div><p className="tele"> Télécharger un fichier</p></div>   
+                  </div>
+                  </label>
+                  <input type="file" className="uplod" id="file-input" accept=".pdf" onChange={onImageChange}/>
+
+                  </div>
+
                       </Grid>
                     </Grid>
                   </Grid>

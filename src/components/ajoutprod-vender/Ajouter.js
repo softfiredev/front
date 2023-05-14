@@ -61,15 +61,14 @@ const Ajouter = (props) => {
         
               const data= new FormData() ; 
               data.append("description","")
-              data.append("image",prodimg);
+              data.append("name_Image",prodimg);
               data.append("prix",produit.prix)
               data.append("qte",produit.qte)
               data.append("titre",produit.titre)
               data.append("categorieId",produit.categorieId)
               data.append("labrairieId",2)           
-              for (let [key, value] of data.entries()) {
-                console.log(key + ': ' + value);
-              }              Modifierprod(produit.idprod,data).then((response)=>{
+              
+               Modifierprod(produit.idprod,data).then((response)=>{
                 if(response.success===true){
                   toast.success("votre avis Modifier avec success",{autoClose: 1000})
                   }

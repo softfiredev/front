@@ -76,7 +76,7 @@ const sup=()=>{
   const dispatch=useDispatch()
   const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
     dispatch(add({idp,imgp,prix,titre,qte,idl}))
-    toast.success("Vous avez ajouté un produit a votre panier ",{autoClose: 1000})
+    toast.success("Vous avez ajouté un produit a votre panier",{autoClose: 1000})
   }
   const Sauvegarder=()=>{
     if(props.user.auth){

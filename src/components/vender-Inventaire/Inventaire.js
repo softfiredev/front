@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import "./Inventaire.css";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Listevender from "../vender-liste/Listevender";
-import { ArrowLeft2, ArrowRight2 } from "iconsax-react";
-
 import { Trash, ExportCircle, ArrowCircleLeft } from "iconsax-react";
 import Ajouter from "../ajoutprod-vender/Ajouter";
 import Avis from "../Vender-avis/Avis";
@@ -17,16 +15,22 @@ function a11yProps(index) {
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
-const Inventaire = () => {
-  const [value, setValue] = React.useState(0);
-  const [nextpage, setnextpage] = React.useState(true);
 
+const Inventaire = () => {
+  const [value, setValue] = useState(0);
+  const [nextpage, setnextpage] =useState(true);
+  const [produit, setproduit] = useState({titre:"",prix:"",qte:"",categorieId:"1",idprod:"",op:false,img:""});
+  
+  const handleDataFromChild = (data) => {
+    setproduit(data);
+  };
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   const changepage = () => {
     setnextpage(false);
   };
+
 
   return (
     <>
@@ -71,25 +75,11 @@ const Inventaire = () => {
                   />
                 </Tabs>
               </Box>
-              <Listevender value={value} />
+              <Listevender value={value} onData={handleDataFromChild} setnextpage={()=>{setnextpage(false)}}/>
               <Avis value={value} />
             </Box>
           </div>
-          <div className="page-listev">
-            <div className="pagination1-listev">
-              <ArrowLeft2
-                size="22"
-                color="#626262"
-                style={{ cursor: "pointer" }}
-              />
-              <p>Page 1 sur 1</p>
-              <ArrowRight2
-                size="22"
-                color="#626262"
-                style={{ cursor: "pointer" }}
-              />
-            </div>
-          </div>
+       
         </div>
       ) : (
         <div className="box2-int">
@@ -98,6 +88,7 @@ const Inventaire = () => {
             style={{ cursor: "pointer" }}
             onClick={() => {
               setnextpage(true);
+              setproduit({titre:"",prix:"",qte:"",categorieId:"1",idprod:"",op:false})
             }}
           >
             <ArrowCircleLeft size="25" color="#9E9E9E" />
@@ -105,8 +96,11 @@ const Inventaire = () => {
               <p className="txtbox-int">Retourner</p>
             </div>
           </div>
-          
-          <Ajouter titre="Modify produit" />
+          {produit.op? <Ajouter titre="Modify produit" prod={produit} />
+                 :  <Ajouter titre="Ajoute produit" />
+          }
+    
+        
         </div>
       )}
     </>

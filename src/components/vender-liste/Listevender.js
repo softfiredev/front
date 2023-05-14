@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { supprimerprod } from "../../Store/Service/supprimerprod";
 import { toast } from "react-toastify";
 import { AllListProduitLibe } from "../../Store/Service/AllistProduitLib";
+import Pagination from "@mui/material/Pagination";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -42,24 +43,38 @@ const Listevender = (props) => {
   const [prix,setprix]=useState()
   const [qnt,setqnt]=useState()
   const [categorieprod,setcategorie]=useState()
+  const [img,setimg]=useState()
   const dispatch = useDispatch();
   const produit = useSelector((state) => state.AlllistProduitLib.listProduit);
   useEffect(() => {
     dispatch(AllListProduitLibe(2));
   }, []);
-  const handleClick = (event,idprod,titre,qnt,cat,prix) => {
+  
+  const handleClick = (event,idprod,titre,prix,cat,qnt,img) => {
     setAnchorEl(event.currentTarget);
     setidprod(idprod)
     setprix(prix)
     setqnt(qnt)
     settitre(titre)
     setcategorie(cat)
+    setimg(img)
   };
+  const items =8;
+  const [current,setCurrent]=useState(1)
+  const NbPage=Math.ceil(produit.length/items);
+  const startIndex=(current -1)*items;
+  const endIndex=startIndex+items;
+  const DataPerPage=produit.slice(startIndex,endIndex)
+  function handlePagination (event,page) {
+    setCurrent(page)
+  }
   const handleClose = () => {
     setAnchorEl(null);
   };
   const handleClicke = () => {
-    setop(true);
+    const data={titre:titre,prix:prix,qte:qnt,categorieId:"1",idprod:idprod,op:true,img:img}
+    props.onData(data)
+    props.setnextpage()
   };
   const handleClos = () => {
     setop(false);
@@ -86,15 +101,15 @@ const Listevender = (props) => {
     supprimerprod(idprod).then((response)=>{
       if(response.success===true){
         toast.success("votre avis supprimer avec success",{autoClose: 1000})
-   
     }
     })
-
     setop2(false);
     setAnchorEl(null);
-    
   }
+
   return (
+    
+    
     <TabPanel value={props.value} index={0}>
       <br />
       <Filterbar
@@ -121,7 +136,7 @@ const Listevender = (props) => {
           <th>Mise à jour</th>
         </tr>
 
-        {produit.map((obj, index) => (
+        {DataPerPage.map((obj, index) => (
           <tr>
             <td className="tdwidth0">
               {" "}
@@ -152,7 +167,7 @@ const Listevender = (props) => {
                       aria-controls={open ? "basic-menu" : undefined}
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
-                      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.name,obj?.qte)}
+                      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.name,obj?.qte,obj?.imagelibrairies?.[0]?.name_Image)}
                     />
               </div>
             </td>
@@ -160,7 +175,7 @@ const Listevender = (props) => {
         ))}
                <Menu
               id="basic-menu"
-              className="menu-avis"
+              className="menu-listev"
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
@@ -168,20 +183,20 @@ const Listevender = (props) => {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <MenuItem className="menuitem-avis" onClick={handleClose}>
+              <MenuItem className="menuitem-listev" onClick={handleClose}>
                 <ArrowCircleRight2 size="22" color="#222222" />
                 <span>
                    <Link to={"/Detailproduit/"+idp} className="txtmenu-avis">Aller au produit</Link>
                 </span>
               </MenuItem>
-              <MenuItem className="menuitem-avis" onClick={handleClicke}>
+              <MenuItem className="menuitem-listev" onClick={handleClicke}>
                 <Edit size="22" color="#222222" />
                 <span>
                   <p className="txtmenu-avis">Modifier</p>
                 </span>
               </MenuItem>
               <MenuItem
-                className="menuitem-avis"
+                className="menuitem-listev"
                 onClick={() => {
                   setop2(true);
                 }}
@@ -230,6 +245,14 @@ const Listevender = (props) => {
       </table>
       <br />
       <br />
+              
+      <Pagination
+                  count={NbPage}
+                  shape="rounded"
+                  className="pagination-shop"
+                  page={current}
+                  onChange={handlePagination}
+                />
     </TabPanel>
   );
 };

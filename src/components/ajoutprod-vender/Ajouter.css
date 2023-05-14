@@ -9,8 +9,7 @@
     padding: 4%;
 }
 .txtuplod02-ajoute{
-    width: 150%;
-
+width: 150%;
 font-family: 'Inter';
 font-style: normal;
 font-weight: 500;
@@ -25,7 +24,7 @@ color: #222222;
 .rowuplod01-ajout{
     display: flex;
     flex-direction: row;
-    gap:14em;
+    gap:10em;
 }
 .labelup{cursor: pointer;}
 .txtuplod03-ajoute{

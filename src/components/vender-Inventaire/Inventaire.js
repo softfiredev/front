@@ -19,7 +19,7 @@ function a11yProps(index) {
 const Inventaire = () => {
   const [value, setValue] = useState(0);
   const [nextpage, setnextpage] =useState(true);
-  const [produit, setproduit] = useState({titre:"",prix:"",qte:"",categorieId:"1",idprod:"",op:false,img:""});
+  const [produit, setproduit] = useState({titre:"",prix:"",qte:"",categorieId:"1",idprod:"",op:false,imagelibrairies:{}});
   
   const handleDataFromChild = (data) => {
     setproduit(data);
@@ -30,7 +30,7 @@ const Inventaire = () => {
   const changepage = () => {
     setnextpage(false);
   };
-
+console.log(produit)
 
   return (
     <>

@@ -49,7 +49,7 @@ const Listevender = (props) => {
   useEffect(() => {
     dispatch(AllListProduitLibe(2));
   }, []);
-  
+
   const handleClick = (event,idprod,titre,prix,cat,qnt,img) => {
     setAnchorEl(event.currentTarget);
     setidprod(idprod)
@@ -72,7 +72,7 @@ const Listevender = (props) => {
     setAnchorEl(null);
   };
   const handleClicke = () => {
-    const data={titre:titre,prix:prix,qte:qnt,categorieId:"1",idprod:idprod,op:true,img:img}
+    const data={titre:titre,prix:prix,qte:qnt,categorieId:"1",idprod:idprod,op:true,imagelibrairies:img}
     props.onData(data)
     props.setnextpage()
   };
@@ -167,7 +167,7 @@ const Listevender = (props) => {
                       aria-controls={open ? "basic-menu" : undefined}
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
-                      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.name,obj?.qte,obj?.imagelibrairies?.[0]?.name_Image)}
+                      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.name,obj?.qte,obj?.imagelibrairies)}
                     />
               </div>
             </td>

@@ -97,6 +97,7 @@ const sup=()=>{
   }
   
   const Signaler=()=>{
+    console.log(email,fullname,message,file)
 if(!sizeimg)
 {
 

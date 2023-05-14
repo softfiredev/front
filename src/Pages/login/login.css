@@ -125,6 +125,7 @@ color: #1A110A;
 .login{
  padding: 7%;
 margin-left: 3%;
+margin-top: 5%;
 flex-direction: row;
 display: flex;
 gap: 3em;

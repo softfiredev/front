@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import MenuItem from '@mui/material/MenuItem';
 import { Modifierprod } from "../../Store/Service/Modifierprod";
 const Ajouter = (props) => {
-   const [img,setImage]=useState(props?.titre==="Modify produit"?"http://127.0.0.1:8080/uploads/"+props?.prod.img:undefined)
+   const [img,setImage]=useState(props?.titre==="Modify produit"?"http://127.0.0.1:8080/uploads/"+props?.prod?.imagelibrairies[0].name_Image:undefined)
    const [produit, setproduit] = useState(props?.titre==="Modify produit"? props?.prod:{titre:"",prix:"",qte:"",categorieId:"1"});
     const [imgsize,setImgsize]=useState()
     const [realimgsize,setRealimgsize]=useState()
@@ -56,17 +56,20 @@ const Ajouter = (props) => {
         } 
         else{ {toast.error("remplir votre champ Svp !!! ",{autoClose: 1000})}    }
         }
-      
+        console.log(produit[0])
              const Modifyprod=()=>{
+        
               const data= new FormData() ; 
-              data.append("titre",produit.titre)
-              data.append("description","dfgdfg")
+              data.append("description","")
+              data.append("image",prodimg);
               data.append("prix",produit.prix)
               data.append("qte",produit.qte)
+              data.append("titre",produit.titre)
               data.append("categorieId",produit.categorieId)
-              data.append("image",produit.img)
-              data.append("labrairieId",2)
-              Modifierprod(produit.idprod,data).then((response)=>{
+              data.append("labrairieId",2)           
+              for (let [key, value] of data.entries()) {
+                console.log(key + ': ' + value);
+              }              Modifierprod(produit.idprod,data).then((response)=>{
                 if(response.success===true){
                   toast.success("votre avis Modifier avec success",{autoClose: 1000})
                   }
@@ -137,7 +140,7 @@ const Ajouter = (props) => {
 <div className="rol01-ajout"> 
 <div><TickCircle size="15" color="#57AE5B" variant="Bold" style={{marginTop:"30%"}}onClick={()=>{setImage(undefined);setprodimg(undefined)}}/></div>
 <div><img src={img} className="mguplod-ajout"/></div>
-<div><p className="txtuplod02-ajoute">{imgname?imgname:produit.img}</p></div>
+<div><p className="txtuplod02-ajoute">{imgname?imgname:produit?.imagelibrairies[0]?.name_Image}</p></div>
 </div>
 
 <div className="rol01-ajout"> 

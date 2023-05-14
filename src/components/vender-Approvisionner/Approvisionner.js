@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Approvisionner.css'
 import {ReceiptText,ShoppingCart} from "iconsax-react";
 import Tabs from '@mui/material/Tabs';
@@ -9,6 +9,10 @@ import Typography from '@mui/material/Typography';
 import img1 from "../../assets/prod2.png";
 import Filterbar from '../filterbar/Filterbar';
 import {ArrowLeft2,ArrowRight2,Sort} from "iconsax-react";
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { findAllProduitFournisseur } from '../../Store/Service/findAllProduitFournisseur';
 const Approvisionner = () => {
     const [value, setValue] = React.useState(0);
     const data=[
@@ -54,7 +58,12 @@ const Approvisionner = () => {
         };
       }
     
-    
+      const produit = useSelector((state)=>state.AllproduitFournisseur.produitFournisseur)
+      const dispatch=useDispatch()
+      useEffect(()=>{
+            dispatch(findAllProduitFournisseur())
+      },[])
+      console.log(produit)
   return (
     <div className='Approvisionner'>
       <div className='row1-Appr'>
@@ -92,7 +101,7 @@ const Approvisionner = () => {
 <th></th>
 </tr>
 
-{data.map((obj,index) => (
+{produit.map((obj,index) => (
 
 <tr  className='backnovo-Appr'>
 
@@ -100,20 +109,20 @@ const Approvisionner = () => {
 <td className='tdwidth02-Appr'> 
          
 <div className="row-Appr01">
-            <img src={img1} className="img2-Appr" />
-              <div style={{marginTop:"3%"}}><p className='txt010-Appr'>{obj.nom}</p></div>
+            <img src={"http://127.0.0.1:8080/uploads/"+obj.image} className="img2-Appr" />
+              <div style={{marginTop:"3%"}}><p className='txt010-Appr'>{obj.titre}</p></div>
               </div>
       
         
               </td>
-<td className='tdwidth1-Appr'><p className='txt020-Appr'>{obj.prix}</p></td>
-<td className='tdwidth1-Appr'>{obj.Nbr}</td>
+<td className='tdwidth1-Appr'><p className='txt020-Appr'>{obj.prix_en_gros}</p></td>
+<td className='tdwidth1-Appr'>{obj.Qte}</td>
 <td className='tdwidth02-Appr'>
 <div className="row-Appr01">
-            <img src={img2} className="img3-Appr" />
-              <div style={{marginTop:"3%"}}><p className='txt010-Appr'>{obj.nom}</p></div>
+            <img src={"http://127.0.0.1:8080/uploads/"+obj.fournisseur?.user?.avatar} className="img3-Appr" />
+              <div style={{marginTop:"3%"}}><p className='txt010-Appr'>{obj.fournisseur?.user?.fullname}</p></div>
               </div></td>
-<td className='tdwidth101-Appr'>{obj.date}</td>
+<td className='tdwidth101-Appr'>{obj.fournisseur?.telephone}</td>
 
 <td className='tdwidth1-Appr'>
   <div className="bntshoop-appr">

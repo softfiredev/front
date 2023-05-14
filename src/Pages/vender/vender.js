@@ -79,6 +79,7 @@ const Vender = () => {
       setLinkId(id);
      
   };
+ 
   return (
     <div className="categoriePage">
       <div className="side-bar">

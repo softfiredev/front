@@ -70,7 +70,7 @@ const Ajouter = (props) => {
               
                Modifierprod(produit.idprod,data).then((response)=>{
                 if(response.success===true){
-                  toast.success("votre avis Modifier avec success",{autoClose: 1000})
+                  toast.success("votre avis Modifier avec success ",{autoClose: 1000})
                   }
               })
      

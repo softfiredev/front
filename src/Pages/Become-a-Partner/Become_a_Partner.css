@@ -4,6 +4,7 @@
 .partner{
     display: flex;
 justify-content: center;
+margin-top:4%
 }
 
 @media (max-width:1280px) {

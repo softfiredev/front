@@ -25,6 +25,8 @@ import SliceDetailcomonde from './vender/SliceDetailcomonde';
 import Slicegetfrofile from './vender/Slicegetprofile';
 import SliceAllListProduit from './venderApi/SliceAllListProduit';
 import SliceAvis from './vender/SliceAvis';
+import  SliceNbproduitLib  from './vender/SliceNbProduit';
+import SliceAllproduitFournisseur from './fournisseur/SlicefindAllproduit';
 const persistConfig = {
     key: 'root',
     storage,
@@ -52,6 +54,8 @@ const rootReducer = combineReducers({
     profileVender:Slicegetfrofile,
     AlllistProduitLib:SliceAllListProduit,
     Allavislib:SliceAvis,
+    NbproduitLib:SliceNbproduitLib,
+    AllproduitFournisseur:SliceAllproduitFournisseur
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);
   

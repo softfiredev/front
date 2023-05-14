@@ -40,5 +40,7 @@ export const Path ={
     Ajoutproduit:"produitLabrairie/add",
     Supproduit:"produitLabrairie/delete/",
     Modifierprod:"produitLabrairie/update/",
+    nbProduitLibBycategorie:"categorie/NbproduitlibBycategorie/",
+    getAllProduitFornisseur:"produit/findAll"
 
 }

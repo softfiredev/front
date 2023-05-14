@@ -7,15 +7,24 @@ import Select from '@mui/material/Select';
 import { toast } from "react-toastify";
 import MenuItem from '@mui/material/MenuItem';
 import { Modifierprod } from "../../Store/Service/Modifierprod";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllGategorie } from "../../Store/Service/getAllGategorie";
+
 const Ajouter = (props) => {
    const [img,setImage]=useState(props?.titre==="Modify produit"?"http://127.0.0.1:8080/uploads/"+props?.prod?.imagelibrairies[0].name_Image:undefined)
-   const [produit, setproduit] = useState(props?.titre==="Modify produit"? props?.prod:{titre:"",prix:"",qte:"",categorieId:"1"});
-    const [imgsize,setImgsize]=useState()
-    const [realimgsize,setRealimgsize]=useState()
+   const [produit, setproduit] = useState(props?.titre==="Modify produit"? props?.prod:{titre:"",prix:"",qte:"",categorieId:""});
+    
+   const [imgsize,setImgsize]=useState()
+   const [realimgsize,setRealimgsize]=useState()
     const [imgname,setImgmane]=useState()
     const [prodimg,setprodimg]=useState()
     const [sizeimg,setsizeimg]=useState()
-
+    const dispatch = useDispatch();
+    const categorie = useSelector((state) => state.AllCategorie.Gategorie);
+   
+    useEffect(() => {
+      dispatch(getAllGategorie());
+    }, []);
       const handleInputChange = (field) => {
         return (e) => {
             setproduit((prev) => ({
@@ -24,7 +33,6 @@ const Ajouter = (props) => {
           }));
         };
       };
-
 
       const Ajoutprod=()=>{
      
@@ -56,18 +64,15 @@ const Ajouter = (props) => {
         } 
         else{ {toast.error("remplir votre champ Svp !!! ",{autoClose: 1000})}    }
         }
-        console.log(produit[0])
-             const Modifyprod=()=>{
-        
+
+             const Modifyprod=()=>{  
               const data= new FormData() ; 
-              data.append("description","")
-              data.append("name_Image",prodimg);
+              data.append("titre",produit.titre)
               data.append("prix",produit.prix)
               data.append("qte",produit.qte)
-              data.append("titre",produit.titre)
               data.append("categorieId",produit.categorieId)
               data.append("labrairieId",2)           
-              
+              data.append("name_Image",prodimg);
                Modifierprod(produit.idprod,data).then((response)=>{
                 if(response.success===true){
                   toast.success("votre avis Modifier avec success ",{autoClose: 1000})
@@ -94,6 +99,7 @@ const Ajouter = (props) => {
               setsizeimg(realimgsize>(1024*1024))
           }
         }
+        console.log(props?.titre==="Modify produit"?produit.categorieId:"1")
   return (
     <>
     <div>
@@ -169,17 +175,17 @@ const Ajouter = (props) => {
     </div>
     <div className='col3-ajout'>
         <div><p  className='txt4-ajout'>Catégorie</p></div>
-        <Select className='txt-select' defaultValue=" choisir une catégorie " style={{ width: "500px", height: " 48px", borderRadius: "8px" }} >
-                    <MenuItem value=" choisir une catégorie ">
+        <Select className='txt-select' defaultValue={props?.titre==="Modify produit"?produit.categorieId:"1"} style={{ width: "500px", height: " 48px", borderRadius: "8px" }}onChange={handleInputChange("categorieId")}  >
+                    <MenuItem value={props?.titre==="Modify produit"?produit.categorieId:"1"}>
                         <em className='txt-select-ajout'>choisir une catégorie </em>
                     </MenuItem>
-                  
-                    <MenuItem value={0} className='txt-select'>Scolaire</MenuItem>
-                    <MenuItem value={1} className='txt-select'>Para-scolaires</MenuItem>
-                    <MenuItem value={2} className='txt-select'>Outils informatiques</MenuItem>
-                    <MenuItem value={3} className='txt-select'>Divers</MenuItem>
-                    <MenuItem value={4} className='txt-select'>Jeux educatifs</MenuItem>
-                    <MenuItem value={5} className='txt-select'>Pack promo</MenuItem>
+                    {categorie.map((obj) => (
+                      <MenuItem value={obj.id}  className='txt-select'>{obj.name}</MenuItem>
+                    
+                      ))
+                  }
+            
+               
                   
                 </Select>
     </div>

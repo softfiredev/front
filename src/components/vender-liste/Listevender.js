@@ -59,6 +59,7 @@ const Listevender = (props) => {
     setcategorie(cat)
     setimg(img)
   };
+
   const items =8;
   const [current,setCurrent]=useState(1)
   const NbPage=Math.ceil(produit.length/items);
@@ -72,7 +73,7 @@ const Listevender = (props) => {
     setAnchorEl(null);
   };
   const handleClicke = () => {
-    const data={titre:titre,prix:prix,qte:qnt,categorieId:"1",idprod:idprod,op:true,imagelibrairies:img}
+    const data={titre:titre,prix:prix,qte:qnt,categorieId:categorieprod,idprod:idprod,op:true,imagelibrairies:img}
     props.onData(data)
     props.setnextpage()
   };
@@ -106,6 +107,7 @@ const Listevender = (props) => {
     setop2(false);
     setAnchorEl(null);
   }
+
 
   return (
     
@@ -167,7 +169,7 @@ const Listevender = (props) => {
                       aria-controls={open ? "basic-menu" : undefined}
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
-                      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.name,obj?.qte,obj?.imagelibrairies)}
+                      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.id,obj?.qte,obj?.imagelibrairies)}
                     />
               </div>
             </td>

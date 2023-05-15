@@ -45,7 +45,7 @@ const Ajouter = (props) => {
             data.append("qte",produit.qte)
             data.append("categorieId",produit.categorieId)
             data.append("image",prodimg)
-            data.append("labrairieId",3)
+            data.append("labrairieId",2)
          
             if(realimgsize>(1024*1024))
             {

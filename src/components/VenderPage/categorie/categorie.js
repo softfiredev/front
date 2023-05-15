@@ -29,7 +29,7 @@ const Categorie = () => {
   );
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getNbProduitlibBycategorie(3));
+    dispatch(getNbProduitlibBycategorie(2));
   }, []);
   const items =8;
   const [current,setCurrent]=useState(1)

@@ -49,7 +49,7 @@ const venderData = useSelector(
 );
 useEffect(() => {
   dispatch(getIdentiteClientt(props.user?.id));
-  dispatch(getprofileVender(3));
+  dispatch(getprofileVender(2));
 },[refreshpage]);
 
 const [vender, setVender] = useState({ nom:clientData?.fullname, numero:clientData?.telephone,email:clientData?.email,date:clientData?.Date_de_naissance,genre:"Male"});
@@ -106,7 +106,7 @@ const changeIdentite2=()=>{
       {toast.error("taill image !!! ",{autoClose: 1000})}
     }
     else{
-     modifierIdentitevender(3,dat).then((response)=>{
+     modifierIdentitevender(2,dat).then((response)=>{
        if(response.success===true){
            toast.success("votre identite  modifier avec success",{autoClose: 1000})
            setrefreshpage(true)

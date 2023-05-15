@@ -50,7 +50,7 @@ const Listevender = (props) => {
   const produit = useSelector((state) => state.AlllistProduitLib.listProduit);
 
   useEffect(() => {
-    dispatch(AllListProduitLibe(3));
+    dispatch(AllListProduitLibe(2));
   }, [ref]);
 
   const handleClick = (event,idprod,titre,prix,cat,qnt,img) => {

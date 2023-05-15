@@ -43,12 +43,15 @@ const Listevender = (props) => {
   const [prix,setprix]=useState()
   const [qnt,setqnt]=useState()
   const [categorieprod,setcategorie]=useState()
+  const [ref,setref]=useState()
+
   const [img,setimg]=useState()
   const dispatch = useDispatch();
   const produit = useSelector((state) => state.AlllistProduitLib.listProduit);
+
   useEffect(() => {
-    dispatch(AllListProduitLibe(2));
-  }, []);
+    dispatch(AllListProduitLibe(3));
+  }, [ref]);
 
   const handleClick = (event,idprod,titre,prix,cat,qnt,img) => {
     setAnchorEl(event.currentTarget);
@@ -98,14 +101,18 @@ const Listevender = (props) => {
     borderRadius: "8px",
     p: 4,
   };
-  const supprimerOneAvis=()=>{
+  const supprimerOneProd=()=>{
     supprimerprod(idprod).then((response)=>{
       if(response.success===true){
-        toast.success("votre avis supprimer avec success",{autoClose: 1000})
+        toast.success("votre produit a ete supprimer avec success",{autoClose: 1000})
+        setref(true)
+
     }
     })
     setop2(false);
     setAnchorEl(null);
+    setref(false)
+
   }
 
 
@@ -237,7 +244,7 @@ const Listevender = (props) => {
               <button onClick={handleClos2} className="bnt3-inv4">
                 <p className="txtbnt3-inv4">Annuler</p>
               </button>
-              <button className="bnt40-inv4" onClick={supprimerOneAvis}>
+              <button className="bnt40-inv4" onClick={supprimerOneProd}>
                 <p className="txtbnt40-inv4">Supprimer</p>
               </button>
             </div>

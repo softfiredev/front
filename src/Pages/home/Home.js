@@ -105,7 +105,8 @@ const Home = () => {
           <Grid item>
             <div className="home">
               <div className="home-cont">
-                <Grid container direction="column" spacing={6}>
+              <div>
+              <Grid container direction="column" spacing={6}>
                   <Grid item>
                     <p className="txt1-home">
                       L'univers de fournitures scolaires
@@ -142,6 +143,7 @@ const Home = () => {
                     </Grid>
                   </Grid>
                 </Grid>
+               </div>
               </div>
             </div>
           </Grid>

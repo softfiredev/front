@@ -36,7 +36,7 @@ const Ajouter = (props) => {
 
       const Ajoutprod=()=>{
      
-     if(produit.titre.length!=0&&produit.prix.length!=0 &&produit.qte.length!=0 &&prodimg!=undefined)
+     if(produit.categorieId!=0&&produit.titre.length!=0&&produit.prix.length!=0 &&produit.qte.length!=0 &&prodimg!=undefined)
         {
             const data= new FormData() ; 
             data.append("titre",produit.titre)
@@ -45,7 +45,7 @@ const Ajouter = (props) => {
             data.append("qte",produit.qte)
             data.append("categorieId",produit.categorieId)
             data.append("image",prodimg)
-            data.append("labrairieId",2)
+            data.append("labrairieId",3)
          
             if(realimgsize>(1024*1024))
             {
@@ -56,7 +56,7 @@ const Ajouter = (props) => {
       
                if(response.success===true){
                    toast.success("votre produit a ete Ajoute avec success",{autoClose: 1000})
-                 setproduit({titre:"",prix:"",qte:"",categorieId:"1"})
+                 setproduit({titre:"",prix:"",qte:"",categorieId:"0"})
                  setImage(undefined)
                }
              })
@@ -72,7 +72,7 @@ const Ajouter = (props) => {
               data.append("qte",produit.qte)
               data.append("categorieId",produit.categorieId)
               data.append("labrairieId",2)           
-              data.append("name_Image",prodimg);
+              data.append("image",prodimg);
                Modifierprod(produit.idprod,data).then((response)=>{
                 if(response.success===true){
                   toast.success("votre avis Modifier avec success ",{autoClose: 1000})
@@ -175,8 +175,8 @@ const Ajouter = (props) => {
     </div>
     <div className='col3-ajout'>
         <div><p  className='txt4-ajout'>Catégorie</p></div>
-        <Select className='txt-select' defaultValue={props?.titre==="Modify produit"?produit.categorieId:"1"} style={{ width: "500px", height: " 48px", borderRadius: "8px" }}onChange={handleInputChange("categorieId")}  >
-                    <MenuItem value={props?.titre==="Modify produit"?produit.categorieId:"1"}>
+        <Select className='txt-select' defaultValue={props?.titre==="Modify produit"?produit.categorieId:0} style={{ width: "500px", height: " 48px", borderRadius: "8px" }}onChange={handleInputChange("categorieId")}  >
+                    <MenuItem value={props?.titre==="Modify produit"?produit.categorieId:0}>
                         <em className='txt-select-ajout'>choisir une catégorie </em>
                     </MenuItem>
                     {categorie.map((obj) => (

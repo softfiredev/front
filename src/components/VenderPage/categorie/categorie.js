@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import logo from "../../../assets/logo10.png";
 import "./categorie.css";
-import { SearchNormal1, ArrowRight2, ArrowLeft2 } from "iconsax-react";
+import Pagination from "@mui/material/Pagination";
+import { SearchNormal1} from "iconsax-react";
 import { useDispatch, useSelector } from "react-redux";
 import { getNbProduitlibBycategorie } from "../../../Store/Service/nbProduitLibByCategoorie";
 const style = {
@@ -28,9 +29,17 @@ const Categorie = () => {
   );
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getNbProduitlibBycategorie(2));
+    dispatch(getNbProduitlibBycategorie(3));
   }, []);
-  console.log(produitbycategorie);
+  const items =8;
+  const [current,setCurrent]=useState(1)
+  const NbPage=Math.ceil(produitbycategorie.length/items);
+  const startIndex=(current -1)*items;
+  const endIndex=startIndex+items;
+  const DataPerPage=produitbycategorie.slice(startIndex,endIndex)
+  function handlePagination (event,page) {
+    setCurrent(page)
+  }
   return (
     <>
       <div className="pages-container1">
@@ -131,7 +140,7 @@ const Categorie = () => {
               <th style={{ width: "160px" }}>Nbr de produits</th>
               <th>Dernière mise à jour</th>
             </tr>
-            {produitbycategorie.map((e)=>( <tr>
+            {DataPerPage.map((e)=>( <tr>
               <td className="categorie-title1">{e.name}</td>
               <td className="categorie-description">
                       {e.Description}
@@ -145,19 +154,13 @@ const Categorie = () => {
         </div>
         <br /> <br />
         <div className="page-listev">
-          <div className="pagination1-listev">
-            <ArrowLeft2
-              size="22"
-              color="#626262"
-              style={{ cursor: "pointer" }}
-            />
-            <p>Page 1 sur 1</p>
-            <ArrowRight2
-              size="22"
-              color="#626262"
-              style={{ cursor: "pointer" }}
-            />
-          </div>
+        <Pagination
+                  count={NbPage}
+                  shape="rounded"
+                  className="pagination-shop"
+                  page={current}
+                  onChange={handlePagination}
+                />
         </div>
       </div>
     </>

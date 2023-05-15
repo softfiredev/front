@@ -14,12 +14,13 @@
 }
 .home{
     padding: 10%;
-    width: 1562px;
+    width: 1876px;
     height: 870px;
     background-image:url("../../assets/Home.png");
    }
    .home-cont{
-    margin-top: 4%;
+    display: flex;
+    justify-content: center;
       
     }
 
@@ -239,7 +240,7 @@ color: #222222;
 
 }
 .bg2-home{
-    width: 1562px;
+    width: 1876px;
 height: 284px;
 flex-direction: column;
 display: flex;
@@ -460,9 +461,7 @@ cursor: pointer;
 }
 .borderfin-home{
     margin-bottom: 10%;
-    width: 1540px;
-    height: 358px;
-    margin-left: -1%;
+
 }
 .txtbntcartcon-home{
     font-family: 'Inter';

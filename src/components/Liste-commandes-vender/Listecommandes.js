@@ -45,11 +45,7 @@ const Listecommandes = (props) => {
       (state) => state.findCommandeBylibrairie.commandeslibrairie
     );
     const [all, setAll] = React.useState(librairieData);
-const dispatch=useDispatch()
-    useEffect(() => {
-      dispatch(findCommandeBylibrairie(2));
-    },[]);
-    
+
   
     const navigat=(id)=>{
         navigate(`/Vender/Détails_de_commande/${id}`)
@@ -81,7 +77,11 @@ const dispatch=useDispatch()
       function handlePagination (event,page) {
         setCurrent(page)
       }
-  
+      const dispatch=useDispatch()
+      useEffect(() => {
+        dispatch(findCommandeBylibrairie(2));
+      },[]);
+
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de commandes</p></div>
@@ -216,7 +216,7 @@ const dispatch=useDispatch()
 <th>Mise à jour</th>
 
 </tr>
-{filteredEncours.map((obj,index) => (
+{DataPerPage.map((obj,index) => (
 
 <tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
 

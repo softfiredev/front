@@ -10,8 +10,7 @@ import {
 } from "iconsax-react";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getIdentiteClientt } from "../../Store/Service/identiteClient";
+import { useSelector } from "react-redux";
 
 const Profilee = (props) => {
   const clientData = useSelector(

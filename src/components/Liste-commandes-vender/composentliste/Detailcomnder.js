@@ -14,9 +14,12 @@ const Detailcomnder = (props) => {
   const dispatch = useDispatch();
   const idcomonde = useParams(":id");
   const [open, setopen] = useState(true);
+  const [ref, setref] = useState();
+
   const [Anuuler, setAnuuler] = useState(true);
   const navigat = () => {
     navigate(`/Vender/Liste_de_commandes`);
+    navigate(0)
   };
   const DetailcomondeClient = useSelector(
     (state) => state.Detailcomonde.Detailcomonde
@@ -29,38 +32,32 @@ const Detailcomnder = (props) => {
     }else{
       setopen(false)
     }
-  }, []);
+  }, [ref]);
   console.log(DetailcomondeClient[0]);
-  const data = [
-    {
-      nom: "GOUACHE 9T METAL...",
-      prix: "174 dt",
-      Qté: "2",
-      TotaleHT: "348.00 dt",
-    },
-    {
-      nom: "GOUACHE 9T METAL...",
-      prix: "174 dt",
-      Qté: "2",
-      TotaleHT: "348.00 dt",
-    },
-  ];
+
   const Accepter=()=>{
     AccepterCommande(idcomonde.id).then((response)=>{
        if(response.success==true){
         toast.success("commande Accepter",{autoClose: 1000})
+        setref(true)
        }
     })
     setopen(false);
+    setref(false)
+
   }
   const Annuler=()=>{
     AnnulerCommande(idcomonde.id).then((response)=>{
       console.log(response)
         if(response.success==true){
          toast.error("commande Annuler",{autoClose: 1000})
+         setref(true)
+
         }
         setopen(false);
-        setAnuuler(true) 
+        setAnuuler(true) ;
+        setref(false);
+
      })
   }
 

@@ -13,6 +13,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 
 const FornisseuerProfile = lazy(() =>
@@ -132,10 +133,12 @@ function App() {
     < div >
     
       <BrowserRouter>
-     
+      <ScrollToTop />
          <NavBar user={user} />
          <Suspense fallback={<Spinier />}>
+          
           <Routes>
+         
             <Route path="/Login" element={<Login />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/New_password" element={<Newpassword />} />

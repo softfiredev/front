@@ -319,7 +319,7 @@ const Become_a_Partner = () => {
                       alt="ico"
                       className="iconuplod-desbecome"
                     />
-                    <div><p className="tele"> Télécharger un fichier</p></div>   
+                    <div><p className="tele-become"> Télécharger un fichier</p></div>   
                   </div>
                   </label>
                   <input type="file" className="uplod" id="file-input" accept=".pdf" onChange={onImageChange}/>

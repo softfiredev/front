@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import img from "../../assets/Ellipse 150.png";
+import React, { useEffect,useState } from "react";
 import Box from "@mui/material/Box";
 import { Grid } from "@mui/material";
 import { Link, useParams } from "react-router-dom";
@@ -24,7 +23,16 @@ const LibrairieProfile = () => {
     dispatch(getinfolibrairie(id))
     dispatch(getAllProduitBylibrairie(id))
   },[dispatch])
-  console.log(infolib)
+  const items =8;
+  const [current,setCurrent]=useState(1)
+  const NbPage=Math.ceil(produit.length/items);
+  const startIndex=(current -1)*items;
+  const endIndex=startIndex+items;
+  const DataPerPage=produit.slice(startIndex,endIndex)
+  function handlePagination (event,page) {
+    setCurrent(page)
+  }
+
   return (
     <>
       <div className="profile">
@@ -107,7 +115,7 @@ const LibrairieProfile = () => {
                 alignItems="center"
                 className="produitsLab"
               >
-                {produit.map((obj) => (
+                {DataPerPage.map((obj) => (
                   <div className="container">
                     <Card
                        prix={obj.prix}
@@ -124,11 +132,13 @@ const LibrairieProfile = () => {
                 ))}
               </Grid>
               <div className="Pagination">
-                <Pagination
-                  count={16}
+              <Pagination
+                  count={NbPage}
                   shape="rounded"
                   className="pagination-shop"
-                />
+                  page={current}
+                  onChange={handlePagination}
+        />
               </div>
             </div>
           </Grid>

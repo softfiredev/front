@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useEffect } from "react";
+
 import "./AboutUs.css";
 import { Link } from 'react-router-dom';
 import img2_pro from "../../assets/about3.jpg";
@@ -17,6 +19,9 @@ import Boxabout from "../../components/box-about/Boxabout";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/footer/Footer";
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
         <div className="abt">
     

@@ -469,7 +469,10 @@ function handlePagination (event,page) {
                               idp={obj.id}
                               logoL={obj.labrairie?.imageStore}
                               imgp={obj.imagelibrairies?.[0]?.name_Image}
+                              etat={obj?.etat}
+                              prix_en_Solde={obj?.prix_en_Solde}
                             />
+                           
                       </Grid>
                     </SwiperSlide>
                   ))}

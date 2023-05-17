@@ -12,7 +12,7 @@ import { getAllGategorie } from "../../Store/Service/getAllGategorie";
 
 const Ajouter = (props) => {
    const [img,setImage]=useState(props?.titre==="Modify produit"?"http://127.0.0.1:8080/uploads/"+props?.prod?.imagelibrairies[0].name_Image:undefined)
-   const [produit, setproduit] = useState(props?.titre==="Modify produit"? props?.prod:{titre:"",prix:"",qte:"",categorieId:""});
+   const [produit, setproduit] = useState(props?.titre==="Modify produit"? props?.prod:{titre:"",prix:"",qte:"",categorieId:"",remise:"",prix_en_Solde:"",description:""});
     
    const [imgsize,setImgsize]=useState()
    const [realimgsize,setRealimgsize]=useState()
@@ -21,7 +21,6 @@ const Ajouter = (props) => {
     const [sizeimg,setsizeimg]=useState()
     const dispatch = useDispatch();
     const categorie = useSelector((state) => state.AllCategorie.Gategorie);
-   
     useEffect(() => {
       dispatch(getAllGategorie());
     }, []);
@@ -99,7 +98,7 @@ const Ajouter = (props) => {
               setsizeimg(realimgsize>(1024*1024))
           }
         }
-        console.log(props?.titre==="Modify produit"?produit.categorieId:"1")
+    
   return (
     <>
     <div>
@@ -192,6 +191,18 @@ const Ajouter = (props) => {
     <div className='col3-ajout'>
         <div><p  className='txt4-ajout'>Quantité</p></div>
         <OutlinedInput placeholder='Quantité'onChange={handleInputChange("qte")} value={produit.qte}  />
+    </div>
+    <div className='col3-ajout'>
+        <div><p  className='txt4-ajout'>description</p></div>
+        <OutlinedInput placeholder='description'onChange={handleInputChange("description")} value={produit.description}  />
+    </div>
+    <div className='col3-ajout'>
+        <div><p  className='txt4-ajout'> prix_en_Solde</p></div>
+        <OutlinedInput placeholder='prix_en_Solde'onChange={handleInputChange("prix_en_Solde")} value={produit.prix_en_Solde}  />
+    </div>
+    <div className='col3-ajout'>
+        <div><p  className='txt4-ajout'>remise</p></div>
+        <OutlinedInput placeholder='remise'onChange={handleInputChange("remise")} value={produit.remise}  />
     </div>
 
     <div className='rowbnt-ajout'>

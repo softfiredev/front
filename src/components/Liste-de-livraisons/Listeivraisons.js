@@ -59,8 +59,7 @@ const dispatch=useDispatch()
     }
     
       
-  
-    console.log(new Date())
+
     const datenow=""
     const filteredData = librairieData.filter((item) => {
       return item.etat.includes("en cours")  || item.etat.includes("livre");;

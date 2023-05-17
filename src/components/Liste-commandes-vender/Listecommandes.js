@@ -83,7 +83,13 @@ const Listecommandes = (props) => {
       useEffect(() => {
         dispatch(findCommandeBylibrairie(props?.user.id));
       }, []);
-    
+
+      const date = new Date(); 
+      const datanow = date.toISOString().split('T')[0];
+    const daty= datanow==DataPerPage[0]?.createdAt;
+   
+
+console.log(daty)
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de commandes</p></div>
@@ -117,7 +123,7 @@ const Listecommandes = (props) => {
 
 {DataPerPage.map((obj,index) => (
 
-<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+<tr className={daty && obj.etat==="en cours"?"backnovo-c":"backnovo-c0"}  onClick={()=>{navigat(obj.id)}}>
 
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
@@ -132,7 +138,7 @@ const Listecommandes = (props) => {
 
 <td className='tdwidth1'>
 {obj.etat==="livre"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>Compléter</p></button></>
+<><button className='bnt01-c'><p className='txtbnt01-c'>livre</p></button></>
 :
 <>
 {obj.etat==="en cours"?
@@ -286,7 +292,7 @@ const Listecommandes = (props) => {
 
 <td className='tdwidth1'>
 {obj.etat==="livre"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>Compléter</p></button></>
+<><button className='bnt01-c'><p className='txtbnt01-c'>livre</p></button></>
 :
 <>
 {obj.etat==="en cours"?

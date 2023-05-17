@@ -44,6 +44,10 @@ const Listevender = (props) => {
   const [qnt,setqnt]=useState()
   const [categorieprod,setcategorie]=useState()
   const [ref,setref]=useState()
+  const [prix_en_Solde,setprix_en_Solde]=useState()
+  const [remise,setremise]=useState()
+  const [description,setdescription]=useState()
+
 
   const [img,setimg]=useState()
   const dispatch = useDispatch();
@@ -53,7 +57,7 @@ const Listevender = (props) => {
     dispatch(AllListProduitLibe(props?.id));
   }, [ref]);
 
-  const handleClick = (event,idprod,titre,prix,cat,qnt,img) => {
+  const handleClick = (event,idprod,titre,prix,cat,qnt,img,prix_en_Solde,remise,description) => {
     setAnchorEl(event.currentTarget);
     setidprod(idprod)
     setprix(prix)
@@ -61,6 +65,11 @@ const Listevender = (props) => {
     settitre(titre)
     setcategorie(cat)
     setimg(img)
+    setprix_en_Solde(prix_en_Solde)
+    setremise(remise)
+    setdescription(description)
+
+
   };
 
   const items =8;
@@ -76,7 +85,7 @@ const Listevender = (props) => {
     setAnchorEl(null);
   };
   const handleClicke = () => {
-    const data={titre:titre,prix:prix,qte:qnt,categorieId:categorieprod,idprod:idprod,op:true,imagelibrairies:img}
+    const data={titre:titre,prix:prix,qte:qnt,categorieId:categorieprod,idprod:idprod,op:true,imagelibrairies:img,prix_en_Solde:prix_en_Solde,remise:remise,description:description}
     props.onData(data)
     props.setnextpage()
   };
@@ -176,7 +185,7 @@ const Listevender = (props) => {
                       aria-controls={open ? "basic-menu" : undefined}
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
-                      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.id,obj?.qte,obj?.imagelibrairies)}
+                      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.id,obj?.qte,obj?.imagelibrairies,obj?.prix_en_Solde,obj?.remise,obj?.description)}
                     />
               </div>
             </td>

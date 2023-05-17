@@ -13,8 +13,13 @@ const Card = (props) => {
     toast.success("Vous avez ajouté un produit à votre panier",{autoClose: 1000})
   }
   const date = new Date();
-  const formattedDate = date.toISOString().split('T')[0];
- const datenow=formattedDate=="2023-05-17"
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const formattedDate = `${year}-${month}-${day}`;
+
+ const datenow=formattedDate==props.dateG
+console.log((parseInt(props?.totalavis)>20 )+"/"+props?.totalavis)
   return (
     <div className="card">
        
@@ -22,15 +27,15 @@ const Card = (props) => {
       {props.etat!==null &&  props.etat==="pack promo" ?
   <div className='background-cardeprod'><p className='back-text1'>{props.etat}</p></div>
   :
-  props.etat!==null && props.etat==="Remise"?
-  <div className='background-cardRes'><p className='back-text2' >{props.etat} 20%</p></div>
-  :props.etat!==null && props.etat==="Meilleures vente"?
-  <div className='background-cardRes'style={{background:"#E67635"}}><p className='back-text2' >{props.etat}</p></div>
-  :props.etat!==null && props.etat==="Nouveautés" && datenow?
-  <div className='background-cardRes'style={{background:"#4098D7"}}><p className='back-text2' >{props.etat}</p></div>
-  :<></>
+  props.etat!==null && props.etat==="remise"?
+  <div className='background-cardRes'><p className='back-text2' >{props.etat} {props.remise} %</p></div>
+  : datenow && (parseInt(props?.totalavis)<=20 )?<div className='background-cardRes'style={{background:"#4098D7"}}><p className='back-text2' >Nouveautés</p></div>
+:<></>
       }  
-    
+    {
+      (parseInt(props?.totalavis)>20 )?  <div className='background-cardRes'style={{background:"#E67635"}}><p className='back-text2' >Meilleures vente</p></div>
+      :<></>
+    }
 
         <Link to={`/Detailproduit/${props.idp}`}><img src={"http://127.0.0.1:8080/uploads/"+props.imgp} className="img-cardprod"/></Link>
         
@@ -71,11 +76,11 @@ const Card = (props) => {
         </div>
    
      
-          {props.prix_en_Solde!==null?
+          {props?.prix_en_Solde!==null?
       
           <div className="grb-card">
-          <div><p className="txt-card2">{props.prix_en_Solde}dt</p></div>
-          <p className="txt2xard2">{props.prix}dt</p>
+          <div><p className="txt-card2">{props?.prix_en_Solde?.toFixed(2)}dt</p></div>
+          <p className="txt2xard2">{props?.prix?.toFixed(2)}dt</p>
           <div className="bnt-card">
             <div className="ShoppingCart-card"  onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl)}>
               <ShoppingCart size="22" color="#FFffff" variant="Bold" />
@@ -83,7 +88,7 @@ const Card = (props) => {
           </div>
         </div>
           :   <div className="grb-card">
-          <div><p className="txt-card2">{props.prix}dt</p></div>
+          <div><p className="txt-card2">{props.prix?.toFixed(2)}dt</p></div>
           <p className="txt2xard2"></p>
           <div className="bnt-card">
             <div className="ShoppingCart-card"  onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl)}>

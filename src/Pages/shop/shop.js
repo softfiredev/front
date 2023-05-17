@@ -84,6 +84,9 @@ const Shop = () => {
                               imgp={obj.imagelibrairies?.[0]?.name_Image}
                               etat={obj?.etat}
                               prix_en_Solde={obj?.prix_en_Solde}
+                              dateG={obj?.createdAt}
+                              remise={obj?.remise}
+                              
                             />
                           </Grid>
                         </>
@@ -103,6 +106,10 @@ const Shop = () => {
                               idp={obj.id}
                               logoL={obj.labrairie?.imageStore}
                               imgp={obj.imagelibrairies?.[0]?.name_Image}
+                              etat={obj?.etat}
+                              prix_en_Solde={obj?.prix_en_Solde}
+                              dateG={obj?.createdAt}
+                              remise={obj?.remise}
                             />
                           </Grid>
                         </>

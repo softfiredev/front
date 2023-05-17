@@ -19,7 +19,7 @@ const Card = (props) => {
   const formattedDate = `${year}-${month}-${day}`;
 
  const datenow=formattedDate==props.dateG
-console.log((parseInt(props?.totalavis)>20 )+"/"+props?.totalavis)
+console.log( props.etat===null &&datenow && !(parseInt(props?.totalavis)<=20 ))
   return (
     <div className="card">
        
@@ -29,7 +29,7 @@ console.log((parseInt(props?.totalavis)>20 )+"/"+props?.totalavis)
   :
   props.etat!==null && props.etat==="remise"?
   <div className='background-cardRes'><p className='back-text2' >{props.etat} {props.remise} %</p></div>
-  : datenow && (parseInt(props?.totalavis)<=20 )?<div className='background-cardRes'style={{background:"#4098D7"}}><p className='back-text2' >Nouveautés</p></div>
+  :props.etat===null &&datenow && !(parseInt(props?.totalavis)<=20 )?<div className='background-cardRes'style={{background:"#4098D7"}}><p className='back-text2' >Nouveautés</p></div>
 :<></>
       }  
     {

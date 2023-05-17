@@ -18,9 +18,15 @@ import "./vender.css";
 import { Link, Outlet } from "react-router-dom";
 import { Globalvariable2 } from "../../Store/Service/Globalvariable";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Vender = () => {
- 
+  const navigate = useNavigate();
+  const Logout = () => {
+    localStorage.removeItem("persist:root");
+    navigate("/login");
+    navigate(0);
+  };
   const linkarray = [
     {
       linkname: "Tableau du bord",
@@ -39,7 +45,7 @@ const Vender = () => {
     },
     {
       linkname: "Liste de commandes",
-      icon: <Box size="32" color="#7E7E7E" variant="Bulk" />,
+      icon: <Box size="32" color="#7E7E7E" variant="Bulk"  />,
       linkto :"/Vender/Liste_de_commandes"
     },
     {
@@ -86,7 +92,7 @@ const Vender = () => {
     <img src={logo} alt="maktba" className="logo-side" />
         <div className="link-side-bar">
           {linkarray.map((e, key) => (
-            <Link to={e.linkto}> 
+            <Link to={e.linkto} > 
                     <div   onClick={() => handleChangeStyleLink(key)}
               className={
                 linkId === key && linkStyle
@@ -104,7 +110,7 @@ const Vender = () => {
           ))}
         </div>
       
-        <div className="deconnecter-box">
+        <div className="deconnecter-box" onClick={Logout}>
           <LogoutCurve
             size="22"
             color="#E66A6A"

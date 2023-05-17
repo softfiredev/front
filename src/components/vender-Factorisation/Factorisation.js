@@ -7,12 +7,7 @@ const Factorisation = () => {
         {Factorisation:"2023",Plan:"Gold",Date:"20/08/2023",Montant:"1000 dt"},
         {Factorisation:"2023",Plan:"Gold",Date:"20/08/2023",Montant:"1000 dt"},
         {Factorisation:"2023",Plan:"Silver",Date:"20/08/2023",Montant:"1000 dt"},
-        {Factorisation:"2023",Plan:"Silver",Date:"20/08/2023",Montant:"1000 dt"},
-        {Factorisation:"2023",Plan:"Silver",Date:"20/08/2023",Montant:"1000 dt"},
-        {Factorisation:"2023",Plan:"Silver",Date:"20/08/2023",Montant:"1000 dt"},
-        {Factorisation:"2023",Plan:"Gold",Date:"20/08/2023",Montant:"1024 dt"},
-        {Factorisation:"2023",Plan:"Silver",Date:"20/08/2023",Montant:"1000 dt"},
- 
+
     ]
   return (
     <div className='Factorisation'>

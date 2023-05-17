@@ -88,6 +88,8 @@ const Detailprod = lazy(() => import("./Pages/Detail-prod/Detail-prod"));
 const BecomePartner = lazy(() =>
   import("./Pages/Become-a-Partner/Become_a_Partner")
 );
+
+const Protection = lazy(() => import("./Store/protection"));
 const Cart = lazy(() => import("./Pages/Cart/Cart"));
 const LibrairieProfile = lazy(() =>
   import("./Pages/librairieProfile/librairieProfile")
@@ -107,6 +109,8 @@ const Avis = lazy(() =>
 const Vender = lazy(() => import("./Pages/vender/vender"));
 
 function App() {
+
+ 
   const LoginServiceData = useSelector((state) => state.loginservice);
   const googleServiceData = useSelector((state) => state.Googleservice);
   const accessToken=  LoginServiceData.isLogin === true && googleServiceData.isLogin === false ? LoginServiceData.accessToken:googleServiceData.accessToken
@@ -124,24 +128,23 @@ function App() {
     role:decoded?.role,
     avatar:decoded?.avatar
   };
-  useEffect(() => {
-      window.scroll(0,0)
-  }, []);
-  
+
+
 
   return (
     < div >
     
       <BrowserRouter>
+      
       <ScrollToTop />
          <NavBar user={user} />
          <Suspense fallback={<Spinier />}>
-          
+        
           <Routes>
-         
-            <Route path="/Login" element={<Login />} />
-            <Route path="/Signup" element={<Signup />} />
-            <Route path="/New_password" element={<Newpassword />} />
+       
+            <Route path="/Login" element={ <Protection user={user}><Login user={user} /></Protection>} />
+            <Route path="/Signup" element={<Protection user={user}><Signup /></Protection>} />
+            <Route path="/New_password" element={<Protection user={user}><Newpassword /></Protection>} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/BecomePartner" element={<BecomePartner />} />
@@ -172,32 +175,32 @@ function App() {
               path="/reset-password/:id/:token"
               element={<Resetpassword />}
             />
-            <Route path="/Vender" element={<Vender />}>
+            <Route path="/Vender" element={ <Protection user={user}><Vender /></Protection>}>
               <Route path="/Vender" element={<TableauDuBord />} />
-              <Route path="/Vender/categorie" element={<Categorie />} />
-              <Route path="/Vender/Inventaire" element={<Inventaire />} />
+              <Route path="/Vender/categorie" element={ <Protection user={user}><Categorie user={user} /></Protection>} />
+              <Route path="/Vender/Inventaire" element={<Protection user={user}><Inventaire user={user}/></Protection>} />
               <Route
                 path="/Vender/Liste_de_commandes"
-                element={<Listecommandes />}
+                element={<Protection user={user}><Listecommandes user={user}/></Protection>}
               />
               <Route
-                path="/Vender/Détails_de_commande/:id"
-                element={<Detailcomnder />}
+                path="/Vender/Details_de_commande/:id"
+                element={<Protection user={user}><Detailcomnder /></Protection>}
               />
               <Route
-                path="/Vender/Détails_de_livraison/:id"
-                element={<DetailLivr />}
+                path="/Vender/Details_de_livraison/:id"
+                element={<Protection user={user}><DetailLivr /></Protection>}
               />
-              <Route path="/Vender/Profile" element={<VenderProfile user={user}/>} />
+              <Route path="/Vender/Profile" element={<Protection user={user}><VenderProfile user={user}/></Protection>} />
               <Route
                 path="/Vender/Liste_de_Livraisons"
-                element={<Listeivraisons />}
+                element={<Protection user={user}><Listeivraisons user={user} /></Protection>}
               />
               <Route
                 path="/Vender/Approvisionner"
-                element={<Approvisionner />}
+                element={<Protection user={user}><Approvisionner user={user}/></Protection>}
               />
-              <Route path="/Vender/Factorisation" element={<Factorisation />} />
+              <Route path="/Vender/Factorisation" element={<Protection user={user}><Factorisation /></Protection>} />
             </Route>
 
 

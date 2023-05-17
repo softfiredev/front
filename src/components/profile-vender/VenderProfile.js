@@ -49,10 +49,10 @@ const venderData = useSelector(
 );
 useEffect(() => {
   dispatch(getIdentiteClientt(props.user?.id));
-  dispatch(getprofileVender(2));
+  dispatch(getprofileVender(props.user?.id));
 },[refreshpage]);
 
-const [vender, setVender] = useState({ nom:clientData?.fullname, numero:clientData?.telephone,email:clientData?.email,date:clientData?.Date_de_naissance,genre:"Male"});
+const [vender, setVender] = useState({ nom:clientData.fullname, numero:clientData.telephone,email:clientData.email,date:clientData.Date_de_naissance,genre:"Male"});
 const [venderl, setVenderl] = useState({ nom:venderData?.nameLibrairie, addr:venderData?.adresse,email:venderData?.emailLib,insta:venderData?.instagram,fb:venderData?.facebook,telephone:venderData?.telephone});
 const [avatar,setavatar]=useState()
 const [avatar2,setavatar2]=useState()
@@ -106,7 +106,7 @@ const changeIdentite2=()=>{
       {toast.error("taill image !!! ",{autoClose: 1000})}
     }
     else{
-     modifierIdentitevender(2,dat).then((response)=>{
+     modifierIdentitevender(props.user.id,dat).then((response)=>{
        if(response.success===true){
            toast.success("votre identite  modifier avec success",{autoClose: 1000})
            setrefreshpage(true)
@@ -141,6 +141,8 @@ const onImageChange2 = (event) => {
     setok2(true);
   }
 };
+
+
   return (
 
     <div className='vp'>
@@ -190,23 +192,23 @@ const onImageChange2 = (event) => {
     </div>
     <div className="col20-vp">
             <div className="txt-vp">Nom et Prénom</div>
-            <OutlinedInput  className="input-vp" onChange={handleInputChange("nom")} value={vender.nom} />
+            <input  className="input-provp" onChange={handleInputChange("nom")} value={vender.nom===undefined?clientData.fullname:vender.nom} />
           </div>
           <div className="col20-vp">
             <div className="txt-vp">Numéro de téléphone</div>
-            <OutlinedInput  className="input-vp" onChange={handleInputChange("numero")} value={vender.numero}/>
+            <input  className="input-provp" onChange={handleInputChange("numero")} value={vender.nom===undefined?clientData.telephone:vender.numero}/>
           </div>
           <div className="col20-vp">
             <div className="txt-vp">Email</div>
-            <OutlinedInput  className="input-vp" onChange={handleInputChange("email")} value={vender.email} />
+            <input  className="input-provp" onChange={handleInputChange("email")} value={vender.nom===undefined?clientData.email:vender.email} />
           </div>
           <div className="col20-vp">
           <div className="txt-vp">Date de naissance</div>
-          <input type="date" className="inputdate-vp"onChange={handleInputChange("date")} value={vender.date}/>
+          <input type="date" className="input-provp"onChange={handleInputChange("date")} value={vender.nom===undefined?clientData.Date_de_naissance:vender.date}/>
           </div>
           <div className="col20-vp">
           <div className="txt-vp">Genre</div>
-          <Select  onChange={handleInputChange("genre")} value={vender.genre}className='txt-select' defaultValue="Par pertinence" style={{ width: "500px", height: " 48px", borderRadius: "8px" }} >
+          <Select  onChange={handleInputChange("genre")} value={vender.genre}className='txt-select' style={{ width: "500px", height: " 48px", borderRadius: "8px" }} >
                     <MenuItem value="Male">
                         <em className='txt-select-vp'>Male</em>
                     </MenuItem>
@@ -253,7 +255,7 @@ const onImageChange2 = (event) => {
 <>
 <label htmlFor="file-input2" className="labelup">
    <div className='circle-vp'>
-    {image2==null && venderData===undefined?
+    {image2==null && venderData.imageStore===null?
 <div className="boxgrprof-vp">    <Shop size="84" color="#515151" variant="Bold"style={{marginTop:"20%",marginLeft:"22%"}}/> 
 </div>
 :
@@ -282,27 +284,27 @@ const onImageChange2 = (event) => {
     </div>
     <div className="col20-vp">
             <div className="txt-vp">Nom de votre établissement</div>
-            <OutlinedInput className="input-vp" onChange={handleInputChange2("nom")} value={venderl.nom} />
+            <input className="input-provp" onChange={handleInputChange2("nom")} value={venderl.nom===undefined?venderData.nameLibrairie:venderl.nom} />
           </div>
           <div className="col20-vp">
             <div className="txt-vp">Adresse</div>
-            <OutlinedInput className="input-vp"onChange={handleInputChange2("addr")} value={venderl.addr} />
+            <input className="input-provp"onChange={handleInputChange2("addr")}  value={venderl.nom===undefined?venderData.adresse:venderl.addr} />
           </div>
           <div className="col20-vp">
             <div className="txt-vp">Téléphone</div>
-            <OutlinedInput className="input-vp" onChange={handleInputChange2("telephone")} value={venderl.telephone}/>
+            <input className="input-provp" onChange={handleInputChange2("telephone")}  value={venderl.nom===undefined?venderData.nameLibrairie:venderl.telephone}/>
           </div>
           <div className="col20-vp">
             <div className="txt-vp">Mail</div>
-            <OutlinedInput className="input-vp"onChange={handleInputChange2("email")} value={venderl.email} />
+            <input className="input-provp"onChange={handleInputChange2("email")}  value={venderl.nom===undefined?venderData.emailLib:venderl.email} />
           </div>
           <div className="col20-vp">
             <div className="txt-vp">Lien de page Facebook</div>
-            <OutlinedInput className="input-vp" onChange={handleInputChange2("fb")} value={venderl.fb}/>
+            <input className="input-provp" onChange={handleInputChange2("fb")}  value={venderl.nom===undefined?venderData.facebook:venderl.fb}/>
           </div>
           <div className="col20-vp">
             <div className="txt-vp">Lien de page Instagram</div>
-            <OutlinedInput className="input-vp"onChange={handleInputChange2("insta")} value={venderl.insta} />
+            <input className="input-provp"onChange={handleInputChange2("insta")}  value={venderl.nom===undefined?venderData.instagram:venderl.insta}/>
           </div>
        
     </div>

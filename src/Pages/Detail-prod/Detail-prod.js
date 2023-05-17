@@ -82,7 +82,6 @@ function handlePagination (event,page) {
   useEffect(() => {
     dispatch(getProduitDetail(id));
     dispatch( getAllProduitByCategorie(produitDetail?.categorieId))
-    window.scrollTo(0, 0);
   }, []);
   useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));

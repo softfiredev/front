@@ -67,8 +67,25 @@ display: flex;
 justify-content: center;
 padding-top: 2%;
 }
-.deconnecter-box{
-    margin-top: 500%;
+input:focus { 
+    outline: none !important;
+    border-color: #caa651;
+    box-shadow:  #caa651 solid 4px;
+ }
+ .deconnecter-box{margin-top: 420%;}
+.input-provp{
+    width: 500px;
+height: 57px;
+background: #FFFFFF;
+border: 1px solid #bdbbbb;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #222222;
+    padding: 1.5%;
 }
 .box2row-vp{
     display: flex;

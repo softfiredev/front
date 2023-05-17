@@ -15,20 +15,7 @@ import { useDispatch } from 'react-redux';
 import { findAllProduitFournisseur } from '../../Store/Service/findAllProduitFournisseur';
 const Approvisionner = () => {
     const [value, setValue] = React.useState(0);
-    const data=[
-        {id:"45645645",nom:"Otis Hoppe",prix:"8.500",Nbr:"20",date:"(+216) 20 222 222",Staut:"Compléter"},
-        {id:"2000254",nom:"Otis Hoppe",prix:"8.500",Nbr:"5",date:"(+216) 20 222 222",Staut:"Compléter"},
-        {id:"45468",nom:"Otis Hoppe",prix:"8.500",Nbr:"10",date:"(+216) 20 222 222",Staut:"Compléter"},
-        {id:"103429",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"(+216) 20 222 222",Staut:"En attente"},
-        {id:"456456456",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"(+216) 20 222 222",Staut:"En attente"},
-        {id:"33773732",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"(+216) 20 222 222",Staut:"Compléter"},
-        {id:"103429",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"(+216) 20 222 222",Staut:"En attente"},
-        {id:"5533223",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"(+216) 20 222 222",Staut:"En attente"},
-        {id:"999999955",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"(+216) 20 222 222",Staut:"Compléter"},
-        {id:"232323232",nom:"Otis Hoppe",prix:"8.500",Nbr:"15",date:"(+216) 20 222 222",Staut:"En attente"},
-
- 
-    ]
+  
     const handleChange = (event, newValue) => {
         setValue(newValue);
       };

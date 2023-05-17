@@ -32,6 +32,7 @@ export const Path ={
     Detailcomonde:'commandeDetail/findOneCommande/',
     AccepteCommande:'commandeDetail/Accepter/',
     AnnulerCommande:'commandeDetail/Annuler/',
+    LivreCommande:"commandeDetail/livre/",
     livreCommande:'commandeDetail/livre/',
     ProfileVender:'labrairie/findProfile/',
     UpdateProfile:'labrairie/updateProfile/',

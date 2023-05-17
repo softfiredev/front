@@ -55,16 +55,22 @@ const dispatch=useDispatch()
     },[]);
 
     const navigat=(id)=>{
-        navigate(`/Vender/Détails_de_livraison/${id}`)
+        navigate(`/Vender/Details_de_livraison/${id}`)
     }
+    
+      
+  
+    console.log(new Date())
+    const datenow=""
     const filteredData = librairieData.filter((item) => {
-      return item.etat.includes("en cours"||"Completer");
+      return item.etat.includes("en cours")  || item.etat.includes("livre");;
     });
+    console.log(librairieData)
     const filteredDataEnattente = filteredData.filter((item) => {
       return item.etat.includes("en cours");
     });
     const filteredDataLivrer = filteredData.filter((item) => {
-        return item.etat.includes("Completer");
+        return item.etat.includes("livre");
       });
       const [all, setAll] = React.useState(filteredData);
       const items =8;
@@ -76,7 +82,7 @@ const dispatch=useDispatch()
       function handlePagination (event,page) {
         setCurrent(page)
       }
-  
+      console.log(filteredData)
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de livraisons</p></div>
@@ -116,12 +122,12 @@ const dispatch=useDispatch()
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
 <td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="Completer"?
+{obj.etat==="livre"?
 <><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj.etat}</p></button></>
 :
 <>
@@ -165,7 +171,7 @@ const dispatch=useDispatch()
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
 <td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
@@ -211,16 +217,20 @@ const dispatch=useDispatch()
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
 <td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-
-<button className='bnt01-c'><p className='txtbnt01-lc'>{obj.etat}</p></button>
-
-  
+{obj.etat==="livre"?
+<><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj.etat}</p></button></>
+:
+<>
+<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etat}</p></button>
+</>
+}
   </td>
+
 
 </tr>
 

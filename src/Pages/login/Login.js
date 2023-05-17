@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./login.css"
-import { Link } from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import Imge from "../../assets/image1.png"
 import { Grid } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox';
@@ -14,8 +14,9 @@ import { Loginuser } from '../../Store/Service/LoginService'
 import { useAtoms } from '../../Store/globalState/global';
 import {LoginSocialGoogle,  LoginSocialFacebook} from 'reactjs-social-login';
 import { GoogleService } from '../../Store/Service/GoogleService'
+import jwt_decode from "jwt-decode";
 
-const Login = () => {
+const Login = (props) => {
   const dispatch = useDispatch();
 const [globalState,snap]=useAtoms()
 const [Provider,setProvider] = useState('');
@@ -24,7 +25,7 @@ const [profile, setProfile] = useState();
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [user, setUser] = useState({ email: "", password: "" });
   const [check,setCheck] = useState(false);
-
+  const nav=useNavigate()
   const handleInputChange = (field) => {
     return (e) => {
       setUser((prev) => ({
@@ -49,12 +50,24 @@ const [profile, setProfile] = useState();
         password: user.password,
       }
       dispatch(Loginuser(data)).then(response => {
-      
         try
         {
-          if (response.payload.message === "success") {
-            globalState.loding=false
-          }
+         
+            var decoded = jwt_decode(response.payload.accessToken);
+            const user = {
+              role:decoded?.role,
+     
+            };
+            if(user.role==="client")
+            {
+              nav("/shop")
+            }
+            if(user.role==="labrairie")
+            {
+              nav("/vender")
+            }
+     
+         
           if (response.payload.message === 'password is not correct') {
             toast.error("le mot de passe n'est pas correct !!",{autoClose: 1000})
             globalState.loding=false
@@ -90,6 +103,8 @@ const [profile, setProfile] = useState();
   toast.error("checked !!",{autoClose: 1000})
 
  }
+
+ 
   }
   const checkedboxfilter=(event)=>{
     setCheck(event.target.checked) 
@@ -108,8 +123,21 @@ useEffect(()=>{
       }
     
       dispatch(GoogleService(data)).then(response => {
-        console.log(response)   
-      
+   
+        var decoded = jwt_decode(response.payload.accessToken);
+        const user = {
+          role:decoded?.role,
+ 
+        };
+        if(user.role==="client")
+        {
+          nav("/shop")
+        }
+        if(user.role==="labrairie")
+        {
+          nav("/vender")
+        }
+    
       })
     }
 

@@ -20,7 +20,7 @@ const style = {
   height: 690,
   borderRadius: "8px",
 };
-const Categorie = () => {
+const Categorie = (props) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -29,7 +29,7 @@ const Categorie = () => {
   );
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getNbProduitlibBycategorie(2));
+    dispatch(getNbProduitlibBycategorie(props.user?.id));
   }, []);
   const items =8;
   const [current,setCurrent]=useState(1)

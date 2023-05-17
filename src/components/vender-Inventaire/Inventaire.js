@@ -16,7 +16,7 @@ function a11yProps(index) {
   };
 }
 
-const Inventaire = () => {
+const Inventaire = (props) => {
   const [value, setValue] = useState(0);
   const [nextpage, setnextpage] =useState(true);
   const [produit, setproduit] = useState({titre:"",prix:"",qte:"",categorieId:"1",idprod:"",op:false,imagelibrairies:{}});
@@ -30,7 +30,7 @@ const Inventaire = () => {
   const changepage = () => {
     setnextpage(false);
   };
-console.log(produit)
+
 
   return (
     <>
@@ -75,8 +75,8 @@ console.log(produit)
                   />
                 </Tabs>
               </Box>
-              <Listevender value={value} onData={handleDataFromChild} setnextpage={()=>{setnextpage(false)}}/>
-              <Avis value={value} />
+              <Listevender value={value} onData={handleDataFromChild} setnextpage={()=>{setnextpage(false)}} id={props.user?.id}/>
+              <Avis value={value} id={props.user?.id} />
             </Box>
           </div>
        
@@ -97,7 +97,7 @@ console.log(produit)
             </div>
           </div>
           {produit.op? <Ajouter titre="Modify produit" prod={produit} />
-                 :  <Ajouter titre="Ajoute produit" />
+                 :  <Ajouter titre="Ajoute produit" id={props.user?.id}/>
           }
     
         

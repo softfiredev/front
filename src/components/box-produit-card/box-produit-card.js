@@ -38,7 +38,7 @@ const Box_produit_Card = (props)=>{
                     </div>
              </div>
               <input type="number" width="20px" className="qte" min={1} onChange={(e)=>changeQtee(e)}  defaultValue={qte}/>
-              <p className="total">{total} dt</p>
+              <p className="total">{total.toFixed(2)} dt</p>
               <div className="Supprimer" onClick={()=>removeProduit(props.index)}> Supprimer </div>
             </Grid>
             <hr className="underline"></hr>

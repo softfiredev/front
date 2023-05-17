@@ -8,3 +8,7 @@ export const AnnulerCommande = async (id) => {
   const response = await axios.put(Base_url + Path.AnnulerCommande+id);
   return response.data;
 };
+export const LivreCommande = async (id) => {
+  const response = await axios.put(Base_url + Path.LivreCommande+id);
+  return response.data;
+};

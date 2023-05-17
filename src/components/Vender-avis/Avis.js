@@ -3,9 +3,7 @@ import "./Avis.css"
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import {Sort} from "iconsax-react";
-import img1 from "../../assets/prod2.png";
 import Rating from "@mui/material/Rating";
-import img from "../../assets/Ellipse 503.png"
 import Filterbar from '../filterbar/Filterbar';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -35,8 +33,9 @@ const Avis = (props) => {
   
 const avis = useSelector((state)=>state.Allavislib.avislib)
 const dispatch=useDispatch()
+console.log(props.user?.id)
 useEffect(()=>{
-      dispatch(avisLib(2))
+      dispatch(avisLib(props?.id))
 },[])
 const items =8;
 const [current,setCurrent]=useState(1)

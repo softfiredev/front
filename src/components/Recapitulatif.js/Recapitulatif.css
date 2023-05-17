@@ -1,7 +1,7 @@
 .resume{
     box-sizing: border-box;
     width: 303px;
-    height: 586px;
+    height: auto;
     background: #FFFFFF;
     border: 1px solid #C4CBCD;
     border-radius: 8px;

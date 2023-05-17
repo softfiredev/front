@@ -40,6 +40,7 @@ function a11yProps(index) {
   }
 const Listecommandes = (props) => {
     const navigate = useNavigate();
+    const [refreshed, setRefreshed] = useState(false);
     const [value, setValue] = React.useState(0);
     const librairieData = useSelector(
       (state) => state.findCommandeBylibrairie.commandeslibrairie
@@ -48,7 +49,7 @@ const Listecommandes = (props) => {
 
   
     const navigat=(id)=>{
-        navigate(`/Vender/Détails_de_commande/${id}`)
+        navigate(`/Vender/Details_de_commande/${id}`)
         navigate(0)
     }
     const filteredDataNouveau = librairieData.filter((item) => {
@@ -60,8 +61,8 @@ const Listecommandes = (props) => {
       const filteredEncours = librairieData.filter((item) => {
         return item.etat.includes("en cours");
       });
-      const filteredDataCompleter = librairieData.filter((item) => {
-        return item.etat.includes("Completer");
+      const filteredDatalivre = librairieData.filter((item) => {
+        return item.etat.includes("livre");
       });
 
       const handleChange = (event, newValue) => {
@@ -76,12 +77,13 @@ const Listecommandes = (props) => {
       const DataPerPage=all.slice(startIndex,endIndex)
       function handlePagination (event,page) {
         setCurrent(page)
-      }
+      }     
+
       const dispatch=useDispatch()
       useEffect(() => {
-        dispatch(findCommandeBylibrairie(2));
-      },[]);
-
+        dispatch(findCommandeBylibrairie(props?.user.id));
+      }, []);
+    
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de commandes</p></div>
@@ -92,7 +94,7 @@ const Listecommandes = (props) => {
          <Tab onClick={()=>{setAll(librairieData);setCurrent(1)}}  label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
           <Tab onClick={()=>{setAll(filteredDataNouveau);setCurrent(1)}} label={<p className="txttabs-c">Nouveau</p>} {...a11yProps(1)} />
           <Tab  onClick={()=>{setAll(filteredEncours);setCurrent(1)}}label={<p className="txttabs-c">En cours</p>} {...a11yProps(2)} />
-          <Tab  onClick={()=>{setAll(filteredDataCompleter);setCurrent(1)}}label={<p className="txttabs-c">Compléter</p>} {...a11yProps(3)} />
+          <Tab  onClick={()=>{setAll(filteredDatalivre);setCurrent(1)}}label={<p className="txttabs-c">livre</p>} {...a11yProps(3)} />
           <Tab  onClick={()=>{setAll(filteredDataRejeter);setCurrent(1)}}label={<p className="txttabs-c">Rejeter</p>} {...a11yProps(4)} />
         </Tabs>
       </Box>
@@ -124,13 +126,13 @@ const Listecommandes = (props) => {
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
 <td className='tdwidth1'>{obj?.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj?.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj?.etat}</p></button></>
+{obj.etat==="livre"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>Compléter</p></button></>
 :
 <>
 {obj.etat==="en cours"?
@@ -177,12 +179,12 @@ const Listecommandes = (props) => {
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
 <td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="Compléter"?
+{obj.etat==="livre"?
 <><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
 :
 <>
@@ -227,12 +229,12 @@ const Listecommandes = (props) => {
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
 <td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="Compléter"?
+{obj.etat==="livre"?
 <><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
 :
 <>
@@ -267,7 +269,7 @@ const Listecommandes = (props) => {
 <th>Mise à jour</th>
 
 </tr>
-{filteredDataCompleter.map((obj,index) => (
+{filteredDatalivre.map((obj,index) => (
 
 <tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
 
@@ -278,13 +280,13 @@ const Listecommandes = (props) => {
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
 <td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
+{obj.etat==="livre"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>Compléter</p></button></>
 :
 <>
 {obj.etat==="en cours"?
@@ -329,12 +331,12 @@ const Listecommandes = (props) => {
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc}</p></td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
 <td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="Compléter"?
+{obj.etat==="livre"?
 <><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
 :
 <>

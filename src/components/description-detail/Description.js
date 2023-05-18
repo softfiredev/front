@@ -32,8 +32,13 @@ const Description = (props) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const quantityplus = () => {
-    setqnt(qnt + 1);
+    if(qnt<props.qte)
+    {
+      setqnt(qnt + 1);
+    }
+
   };
+
   const quantityminu = () => {
     if (qnt > 1) {
       setqnt(qnt - 1);
@@ -97,7 +102,7 @@ const sup=()=>{
   }
   
   const Signaler=()=>{
-    console.log(email,fullname,message,file)
+
 if(!sizeimg)
 {
 

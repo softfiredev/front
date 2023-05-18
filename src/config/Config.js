@@ -44,5 +44,6 @@ export const Path ={
     nbProduitLibBycategorie:"categorie/NbproduitlibBycategorie/",
     getAllProduitFornisseur:"produit/findAll",
     Gategorie:"categorie/findCategorie",
+    addProduitCommande:"commandeDetail/addArticle",
 
 }

@@ -87,7 +87,7 @@ const Commandes = (props) => {
     dispatch(getAllcommandeByclient(props?.user?.id));
   }, [refresh]);
   console.log(
-    commandes?.[0]?.produitlabrairies?.[0]?.imagelibrairies?.[0]?.name_Image
+    commandes
   );
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
@@ -102,7 +102,6 @@ const Commandes = (props) => {
   const filteredEncours = commandes?.filter((item) => {
     return item?.etatClient?.includes("en cours");
   });
-  console.log( commandes)
   const addProd =(Qte,produitlabrairieId,commandeEnDetailId,prix)=>{
     const data={
       Qte:Qte,produitlabrairieId:produitlabrairieId,commandeEnDetailId:commandeEnDetailId,prix,prix

@@ -124,7 +124,7 @@ useEffect(()=>{
     
       dispatch(GoogleService(data)).then(response => {
    
-        var decoded = jwt_decode(response.payload.accessToken);
+        var decoded = jwt_decode(response.payload?.accessToken);
         const user = {
           role:decoded?.role,
  

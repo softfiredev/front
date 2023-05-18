@@ -331,7 +331,7 @@ const FaireComonde = () => {
     <p className='txt10-Fc'>Code de réduction</p>
       <div className="inpute_icon">
         <OutlinedInput placeholder="Entrer votre code" className="code-Fc" />
-        <button className="btn_input">
+        <button className="btn_inputFc">
           <ArrowForwardIosIcon
             style={{
               width: "15px",

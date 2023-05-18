@@ -129,12 +129,14 @@ const handleCheckboxChange=(event)=>{
   const value = event.target.value;
 
   if (event.target.checked) {
+    props.onDataReceived(selectedValues);
     setSelectedValues(prevValues => [...prevValues, value]);
+
   } else {
     setSelectedValues(prevValues => prevValues.filter(val => val !== value));
   }
+  
 }
-
 
   return (
     <TabPanel value={props.value} index={0}>

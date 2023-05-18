@@ -39,7 +39,7 @@ export const Path ={
     listProduitLib:'produitLabrairie/ListeDeProduitslibrairie/',
     allAvisLib:"avisProduitlibraire/avislib/",
     Ajoutproduit:"produitLabrairie/add",
-    Supproduit:"produitLabrairie/delete/",
+    Supproduit:"produitLabrairie/delete",
     Modifierprod:"produitLabrairie/update/",
     nbProduitLibBycategorie:"categorie/NbproduitlibBycategorie/",
     getAllProduitFornisseur:"produit/findAll",

@@ -7,6 +7,7 @@ import Listevender from "../vender-liste/Listevender";
 import { Trash, ExportCircle, ArrowCircleLeft } from "iconsax-react";
 import Ajouter from "../ajoutprod-vender/Ajouter";
 import Avis from "../Vender-avis/Avis";
+import { supprimerprod } from "../../Store/Service/supprimerprod";
 
 
 function a11yProps(index) {
@@ -20,7 +21,10 @@ const Inventaire = (props) => {
   const [value, setValue] = useState(0);
   const [nextpage, setnextpage] =useState(true);
   const [produit, setproduit] = useState({titre:"",prix:"",qte:"",categorieId:"1",idprod:"",op:false,imagelibrairies:{},prix_en_Solde:"",remise:"",description:"",Allid:[]});
-
+  const [idsProduitSupprime, setidsProduitSupprime] = useState();
+  const handleDataReceived = (data) => {
+    setidsProduitSupprime(data);
+  };
   const handleDataFromChild = (data) => {
     setproduit(data);
   
@@ -35,9 +39,12 @@ const Inventaire = (props) => {
   };
   
   const supall=()=>{
-    console.log(produit)
+    supprimerprod({"ids":idsProduitSupprime}).then((response)=>{
+      console.log(response)
+    })
   }
-
+  console.log(idsProduitSupprime)
+  
   return (
     <>
       {nextpage ? (
@@ -81,7 +88,7 @@ const Inventaire = (props) => {
                   />
                 </Tabs>
               </Box>
-              <Listevender value={value} onData={handleDataFromChild} setnextpage={()=>{setnextpage(false)}} id={props.user?.id}/>
+              <Listevender value={value} onDataReceived={handleDataReceived} onData={handleDataFromChild} setnextpage={()=>{setnextpage(false)}} id={props.user?.id}/>
               <Avis value={value} id={props.user?.id} />
             </Box>
           </div>

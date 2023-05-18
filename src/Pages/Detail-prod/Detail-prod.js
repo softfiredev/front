@@ -29,8 +29,11 @@ import { toast } from "react-toastify";
 import { AjouteAvis } from './../../Store/Service/AjouteAvis';
 import Avatar from '@mui/material/Avatar';
 import { getAllProduitByCategorie } from "../../Store/Service/AllproduitlibrairieByCategorie";
+import { useNavigate} from 'react-router-dom';
 
 const Detailprod = (props) => {
+  const nav=useNavigate()
+
   const [x, setx] = useState();
   const [thumbsSwiper, setThumbsSwiper] = useState();
   const style = {
@@ -67,8 +70,13 @@ const DataPerPage=avisProduitDtail.slice(startIndex,endIndex)
 function handlePagination (event,page) {
     setCurrent(page)
   }
-  
-  const [value, setValue] = useState(0);
+if(DataPerPage.length==0)
+{
+  nav(0)
+}
+
+
+const [value, setValue] = useState(0);
   const[avisText,setavisText] = useState("")
   const [imgclick, setimgclick] = useState("");
   const [pls, setpls] = useState(0);
@@ -122,6 +130,7 @@ function handlePagination (event,page) {
     setrefresh(false)
     setOpen(false)
   }
+
   return (
     <>
       <div className="detail">
@@ -210,6 +219,7 @@ function handlePagination (event,page) {
                   imgl={produitDetail?.labrairie?.imageStore}
                   imgp={imagesProduit?.[0]?.name_Image}
                   idp={id}
+                  qte={produitDetail?.qte}
                   user={props.user}
                 />
               </div>

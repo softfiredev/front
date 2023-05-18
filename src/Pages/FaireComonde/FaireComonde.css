@@ -1,0 +1,150 @@
+.Fc{
+    padding: 13%;
+    display: flex;
+    flex-direction: column;
+    gap:9em;
+   
+
+}
+.txt1-Fc{
+    font-family: 'Merriweather';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 30px;
+text-transform: capitalize;
+
+color: #222222;
+}
+.row-Fc{
+    display: flex;
+    gap:1em;
+
+}
+.col0-Fc{
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+   
+}
+.bloxrow-Fc{
+    display: flex;
+    flex-direction: row;
+    gap:1.5em;
+}
+.blox-Fc{
+ width: 580px;
+height: auto;
+display: flex;
+flex-direction: column;
+gap:1.5em;
+background: #FFFFFF;
+border: 1px solid #CFCFCF;
+border-radius: 8px;
+padding: 2%;
+cursor: pointer;
+}
+.circule-Fc{
+    font-family: 'Inter';
+font-style: normal;
+    width: 28px;
+height: 28px;
+border-radius: 100%;
+color: #FFFFFF;
+background: #222222;
+padding-left: 1.8%;
+padding-top: 0.3%;
+}
+
+.txt2-Fc{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 28px;
+color: #222222;
+
+}
+.txt3-Fc{
+ font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 22px;
+color: #222222;
+
+}
+
+.sousblox-Fc{
+  
+display: flex;
+flex-direction: column;
+gap:1em;
+
+}
+.sousblox2-Fc{
+    padding-top: 8%;
+  padding-left: 7%;
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+    
+    }
+.login-Fc{
+
+display: flex;
+flex-direction: column;
+gap:2em;
+
+}
+.Sing-Fc{
+    display: flex;
+flex-direction: column;
+gap:2em;
+
+}
+.bnt0-Fc{
+width: 248px;
+height: 56px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 22px;
+text-align: center;
+color: #FFFFFF;
+background: #222222;
+border-radius: 8px;
+cursor: pointer;
+}
+.bnt1-Fc{
+width: 248px;
+height: 56px;
+cursor: pointer;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 22px;
+text-align: center;
+color: #222222;
+background: #FFFFFF;
+border: 1px solid #222222;
+border-radius: 8px;
+}
+
+.radio-Fc{
+    width: 24px;
+height: 24px;
+
+}
+input[name="r0"]:checked {
+    width: 24px;
+    height: 24px;
+    border: 10px solid #F7D070 !important;
+    appearance: none;
+    border-radius:50%;
+}
+.rowmini-Fc{
+    
+}

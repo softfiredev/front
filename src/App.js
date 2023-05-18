@@ -16,6 +16,13 @@ import jwt_decode from "jwt-decode";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 
+
+
+
+const FaireComonde = lazy(() =>
+  import("./Pages/FaireComonde/FaireComonde")
+);
+
 const FornisseuerProfile = lazy(() =>
   import("./components/FournisseursComponents/profile-Fornisseuer/FornisseuerProfile")
 );
@@ -175,6 +182,7 @@ function App() {
               path="/reset-password/:id/:token"
               element={<Resetpassword />}
             />
+            
             <Route path="/Vender" element={ <Protection user={user}><Vender /></Protection>}>
               <Route path="/Vender" element={<TableauDuBord />} />
               <Route path="/Vender/categorie" element={ <Protection user={user}><Categorie user={user} /></Protection>} />
@@ -215,7 +223,7 @@ function App() {
 
             </Route>
 
-
+            <Route path="/Faire_une_commande" element={<FaireComonde/>} />
 
             <Route path="*" element={<> page not !!!</>} />
           </Routes>

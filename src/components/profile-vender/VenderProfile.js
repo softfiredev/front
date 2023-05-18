@@ -14,6 +14,7 @@ import { getprofileVender } from "../../Store/Service/getfrofileVender";
 import { modifierIdentiteClient } from "../../Store/Service/ModifieIdentite";
 import { modifierIdentitevender } from "../../Store/Service/modifierIdentitevender";
 const VenderProfile = (props) => {
+
 const [open,setopen]=useState(true)
 const [open2,setopen2]=useState(true)
 const [ok,setok]=useState(false)
@@ -24,6 +25,7 @@ const [refreshpage,setrefreshpage]=useState()
 const [image2, setImage2] = useState(null);
 const [sizeimg2,setSizeimg2]=useState(false)
 
+
 const handleInputChange = (field) => {
   return (e) => {
     setVender((prev) => ({
@@ -32,6 +34,7 @@ const handleInputChange = (field) => {
     }));
   };
 };
+
 const handleInputChange2 = (field) => {
   return (e) => {
     setVenderl((prev) => ({
@@ -56,7 +59,6 @@ const [vender, setVender] = useState({ nom:clientData.fullname, numero:clientDat
 const [venderl, setVenderl] = useState({ nom:venderData?.nameLibrairie, addr:venderData?.adresse,email:venderData?.emailLib,insta:venderData?.instagram,fb:venderData?.facebook,telephone:venderData?.telephone});
 const [avatar,setavatar]=useState()
 const [avatar2,setavatar2]=useState()
-
 const changeIdentite=()=>{
   if(ok==false)
   {
@@ -88,7 +90,6 @@ const changeIdentite=()=>{
   }
   
 }
-
 const changeIdentite2=()=>{
   if(ok2==false)
   {
@@ -101,6 +102,7 @@ const changeIdentite2=()=>{
     dat.append("instagram",venderl.insta)
     avatar2!==undefined?dat.append("image",avatar2):dat.append("image",venderData?.imageStore)
     dat.append("emailLib",venderl.email)
+
     if(sizeimg2)
     {
       {toast.error("taill image !!! ",{autoClose: 1000})}
@@ -122,7 +124,6 @@ const changeIdentite2=()=>{
   }
 
 }
-
 const onImageChange = (event) => {
   if (event.target.files && event.target.files[0]) {
     setavatar(event.target.files[0])
@@ -141,7 +142,6 @@ const onImageChange2 = (event) => {
     setok2(true);
   }
 };
-
   return (
 
     <div className='vp'>

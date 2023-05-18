@@ -246,16 +246,16 @@ const Commandes = (props) => {
                           >
                             {e.etatClient}
                           </p>
-                          <div className="more-cmd">
-                            <More
-                              size="22"
-                              aria-haspopup="true"
-                              aria-controls={open ? "basic-menu" : undefined}
-                              aria-expanded={open ? "true" : undefined}
-                              onClick={()=>handleClick(e.id)}
-                            />
-                           
-                          </div>
+                          <div className="more-cd">
+                    <More
+                      size="22"
+                      color="#222222"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={()=>handleClick(e.id)}
+                      />
+                           </div>
                         </div>
                         {
                           <div
@@ -287,39 +287,43 @@ const Commandes = (props) => {
                             ))}
                           </div>
                         }
-                          <div className=" menu">
-                            <Menu
-                              id="basic-menu"
-                              className="menu"
-                              anchorEl={anchorEl}
-                              open={open}
-                              onClose={handleClose}
-                              MenuListProps={{
-                                "aria-labelledby": "basic-button",
-                              }}
-                            >
-                              <MenuItem
+                     
+                          
+                           
+                         
+                    
+                      </div>
+                    ))}
+                         <Menu
+              id="basic-menu"
+              className="menu-cd"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+        
+        <MenuItem
                                 className="menuitem-avis"
                                 onClick={handleClicke}
                               >
                                 <Edit size="22" color="#222222" />
                                 <span>
-                                  <p className="txtmenu-avis">Ajoute un article</p>
+                                  <p className="txtmenu-cd">Ajoute un article</p>
                                 </span>
                               </MenuItem>
                               <MenuItem
-                                className="menuitem-avis"
+                                className="menuitem-cd"
                                 onClick={Annuler}
                               >
                                 <Trash size="22" color="#222222" />
                                 <span>
-                                  <p className="txtmenu-avis">Annule </p>
+                                  <p className="txtmenu-cd">Annule </p>
                                 </span>
                               </MenuItem>
-                            </Menu>
-                            </div>
-                      </div>
-                    ))}
+            </Menu>
                   </div>
                 </div>
 

@@ -279,12 +279,31 @@ border-radius: 8px;
 margin-right: 0px;
 padding: 3%;
 }
-.more-cmd{
-    cursor: pointer;
-    transform: rotate(90deg)
+.more-cd{
+
+     cursor: pointer;
+     transform: rotate(90deg)
+    
+ }
+
+
+.menuitem-cd{
+    height: 50px;
 }
-.menu{
-    margin-left: 75%;
+.txtmenu-cd{
+    margin-left: 6%;
+    
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+color: #222222;
+
+}
+.menu-cd{
+    margin-left: 70%;
+    margin-top: -12%;
 }
 .close{
     margin-left: 467px;

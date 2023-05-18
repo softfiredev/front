@@ -70,6 +70,7 @@ const Ajouter = (props) => {
               data.append("titre",produit.titre)
               data.append("description",produit.description)
               data.append("prix",produit.prix)
+              data.append("qte",produit.qte)
               data.append("prix_en_Solde",produit.prix_en_Solde)
               data.append("remise",produit.remise)
               data.append("categorieId",produit.categorieId)                

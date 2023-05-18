@@ -13,6 +13,7 @@ import { supprimerprod } from "../../Store/Service/supprimerprod";
 import { toast } from "react-toastify";
 import { AllListProduitLibe } from "../../Store/Service/AllistProduitLib";
 import Pagination from "@mui/material/Pagination";
+import { collapseClasses } from "@mui/material";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -37,7 +38,8 @@ const Listevender = (props) => {
   const open = Boolean(anchorEl);
   const [op, setop] = React.useState(false);
   const [op2, setop2] = React.useState(false);
-  const [idp ,setIdp] = useState()
+  const [idp ,setIdp] = useState()  
+  const [checed ,setcheced] = useState()
   const [idprod ,setidprod] = useState()
   const [titre ,settitre]=useState()
   const [prix,setprix]=useState()
@@ -47,6 +49,7 @@ const Listevender = (props) => {
   const [prix_en_Solde,setprix_en_Solde]=useState()
   const [remise,setremise]=useState()
   const [description,setdescription]=useState()
+  const [selectedValues, setSelectedValues] = useState([]);
 
 
   const [img,setimg]=useState()
@@ -85,7 +88,7 @@ const Listevender = (props) => {
     setAnchorEl(null);
   };
   const handleClicke = () => {
-    const data={titre:titre,prix:prix,qte:qnt,categorieId:categorieprod,idprod:idprod,op:true,imagelibrairies:img,prix_en_Solde:prix_en_Solde,remise:remise,description:description}
+    const data={titre:titre,prix:prix,qte:qnt,categorieId:categorieprod,idprod:idprod,op:true,imagelibrairies:img,prix_en_Solde:prix_en_Solde,remise:remise,description:description,Allid:selectedValues}
     props.onData(data)
     props.setnextpage()
   };
@@ -115,7 +118,6 @@ const Listevender = (props) => {
       if(response.success===true){
         toast.success("votre produit a ete supprimer avec success",{autoClose: 1000})
         setref(true)
-
     }
     })
     setop2(false);
@@ -123,11 +125,18 @@ const Listevender = (props) => {
     setref(false)
 
   }
+const handleCheckboxChange=(event)=>{
+  const value = event.target.value;
+
+  if (event.target.checked) {
+    setSelectedValues(prevValues => [...prevValues, value]);
+  } else {
+    setSelectedValues(prevValues => prevValues.filter(val => val !== value));
+  }
+}
 
 
   return (
-    
-    
     <TabPanel value={props.value} index={0}>
       <br />
       <Filterbar
@@ -157,12 +166,13 @@ const Listevender = (props) => {
         {DataPerPage.map((obj, index) => (
           <tr>
             <td className="tdwidth0">
-              {" "}
-              <Checkbox style={{ color: " #E9B949" }} key={index} />
+              <Checkbox style={{ color: " #E9B949" }} key={index} 
+               value={obj.id}
+               onChange={handleCheckboxChange}
+          />
             </td>
             <td className="tdwidth">{obj.id}</td>
             <td className="tdwidth02">
-              {" "}
               <div className="row-int01">
                 <img src={"http://127.0.0.1:8080/uploads/"+obj.imagelibrairies?.[0]?.name_Image} className="img1-int" />
                 <div style={{ marginTop: "3%" }}>
@@ -177,7 +187,7 @@ const Listevender = (props) => {
             <td className="tdwidth1">{obj?.qte}</td>
             <td className="tdwidth1">{obj?.updatedAt}</td>
             <td>
-              {" "}
+    
               <div className="more-int">
               <More
                       size="22"

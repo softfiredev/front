@@ -104,10 +104,10 @@ width:100%;
 
 
 
-.tdwidth{
+.tdwidth-lv{
     width: 15%;
 }
-.tdwidth02{
+.tdwidth02-lv{
     width: 27%;
 }
 .img1-c{
@@ -123,7 +123,7 @@ height: 32px;
     gap: 1em;
 
 }
-.tdwidth1{
+.tdwidth1-lv{
     width: 14%;
 }
 .txt02-c{

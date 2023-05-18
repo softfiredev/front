@@ -40,29 +40,31 @@ function a11yProps(index) {
   }
 const Listecommandes = (props) => {
     const navigate = useNavigate();
-    const [refreshed, setRefreshed] = useState(false);
+    const [refreshed, setRefreshed] = useState();
     const [value, setValue] = React.useState(0);
     const librairieData = useSelector(
       (state) => state.findCommandeBylibrairie.commandeslibrairie
     );
+    const librairieState = useSelector(
+      (state) => state.findCommandeBylibrairie.status
+    );
     const [all, setAll] = React.useState(librairieData);
 
-  
     const navigat=(id)=>{
         navigate(`/Vender/Details_de_commande/${id}`)
         navigate(0)
     }
-    const filteredDataNouveau = librairieData.filter((item) => {
-      return item.etat.includes("Nouveau");
+    const filteredDataNouveau = librairieData?.filter((item) => {
+      return item?.etatVender.includes("Nouveau");
     });
-    const filteredDataRejeter = librairieData.filter((item) => {
-        return item.etat.includes("Annule");
+    const filteredDataRejeter = librairieData?.filter((item) => {
+        return item?.etatVender.includes("Rejeter");
       });
-      const filteredEncours = librairieData.filter((item) => {
-        return item.etat.includes("en cours");
+      const filteredEncours = librairieData?.filter((item) => {
+        return item?.etatVender.includes("En cours");
       });
-      const filteredDatalivre = librairieData.filter((item) => {
-        return item.etat.includes("livre");
+      const filteredDataCompléter = librairieData?.filter((item) => {
+        return item?.etatVender.includes("Compléter");
       });
 
       const handleChange = (event, newValue) => {
@@ -71,10 +73,10 @@ const Listecommandes = (props) => {
 
       const items =8;
       const [current,setCurrent]=useState(1)
-      const NbPage=Math.ceil(all.length/items);
+      const NbPage=Math.ceil(all?.length/items);
       const startIndex=(current -1)*items;
       const endIndex=startIndex+items;
-      const DataPerPage=all.slice(startIndex,endIndex)
+      const DataPerPage=all?.slice(startIndex,endIndex)
       function handlePagination (event,page) {
         setCurrent(page)
       }     
@@ -82,14 +84,14 @@ const Listecommandes = (props) => {
       const dispatch=useDispatch()
       useEffect(() => {
         dispatch(findCommandeBylibrairie(props?.user.id));
+        if(all?.length===0 && librairieState!="failed") 
+        {
+          navigate(0)
+        }
       }, []);
 
-      const date = new Date(); 
-      const datanow = date.toISOString().split('T')[0];
-    const daty= datanow==DataPerPage[0]?.createdAt;
-   
 
-console.log(daty)
+
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de commandes</p></div>
@@ -100,7 +102,7 @@ console.log(daty)
          <Tab onClick={()=>{setAll(librairieData);setCurrent(1)}}  label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
           <Tab onClick={()=>{setAll(filteredDataNouveau);setCurrent(1)}} label={<p className="txttabs-c">Nouveau</p>} {...a11yProps(1)} />
           <Tab  onClick={()=>{setAll(filteredEncours);setCurrent(1)}}label={<p className="txttabs-c">En cours</p>} {...a11yProps(2)} />
-          <Tab  onClick={()=>{setAll(filteredDatalivre);setCurrent(1)}}label={<p className="txttabs-c">livre</p>} {...a11yProps(3)} />
+          <Tab  onClick={()=>{setAll(filteredDataCompléter);setCurrent(1)}}label={<p className="txttabs-c">Compléter</p>} {...a11yProps(3)} />
           <Tab  onClick={()=>{setAll(filteredDataRejeter);setCurrent(1)}}label={<p className="txttabs-c">Rejeter</p>} {...a11yProps(4)} />
         </Tabs>
       </Box>
@@ -121,30 +123,30 @@ console.log(daty)
 
 </tr>
 
-{DataPerPage.map((obj,index) => (
+{DataPerPage?.map((obj,index) => (
 
-<tr className={daty && obj.etat==="en cours"?"backnovo-c":"backnovo-c0"}  onClick={()=>{navigat(obj.id)}}>
+<tr className={obj?.etatVender==="Nouveau"?"backnovo-c":"backnovo-c0"}  onClick={()=>{navigat(obj.id)}}>
 
-<td className='tdwidth'>{obj.id}</td>
+<td className='tdwidth'>{obj?.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
             <Avatar src={"http://127.0.0.1:8080/uploads/"+obj?.user?.avatar}style={{borderRadius:"50%"}} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
+<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc?.toFixed(2)}</p></td>
 <td className='tdwidth1'>{obj?.produitlabrairies[0]?.nb_Article}</td>
 <td className='tdwidth1'>{obj?.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="livre"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>livre</p></button></>
+{obj.etatVender==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>Compléter</p></button></>
 :
 <>
-{obj.etat==="en cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
-:<>{obj.etat==="Annule"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
-<>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
+{obj.etatVender==="En cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
+:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
+<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
 
   
   </td>
@@ -174,9 +176,9 @@ console.log(daty)
 
 </tr>
 
-{filteredDataNouveau.map((obj,index) => (
+{filteredDataNouveau?.map((obj,index) => (
 
-<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+<tr className={obj.etatVender==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
 
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
@@ -190,14 +192,14 @@ console.log(daty)
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="livre"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
+{obj.etatVender==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
 :
 <>
-{obj.etat==="en cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
-:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
-<>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
+{obj?.etatVender==="En cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
+:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
+<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
 
   
   </td>
@@ -224,7 +226,7 @@ console.log(daty)
 <th>Mise à jour</th>
 
 </tr>
-{DataPerPage.map((obj,index) => (
+{DataPerPage?.map((obj,index) => (
 
 <tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
 
@@ -240,14 +242,14 @@ console.log(daty)
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="livre"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
+{obj.etatVender==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
 :
 <>
-{obj.etat==="en cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
-:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
-<>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
+{obj.etatVender==="En cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
+:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
+<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
 
   
   </td>
@@ -275,7 +277,7 @@ console.log(daty)
 <th>Mise à jour</th>
 
 </tr>
-{filteredDatalivre.map((obj,index) => (
+{filteredDataCompléter?.map((obj,index) => (
 
 <tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
 
@@ -291,14 +293,14 @@ console.log(daty)
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="livre"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>livre</p></button></>
+{obj.etatVender==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>Compléter</p></button></>
 :
 <>
-{obj.etat==="en cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
-:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
-<>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
+{obj.etatVender==="En cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
+:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
+<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
 
   
   </td>
@@ -326,7 +328,7 @@ console.log(daty)
 
 </tr>
 
-{DataPerPage.map((obj,index) => (
+{DataPerPage?.map((obj,index) => (
 
 <tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
 
@@ -342,14 +344,14 @@ console.log(daty)
 <td className='tdwidth1'>{obj.createdAt}</td>
 
 <td className='tdwidth1'>
-{obj.etat==="livre"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etat}</p></button></>
+{obj.etatVender==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
 :
 <>
-{obj.etat==="en cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etat}</p></button>
-:<>{obj.etat==="Annule"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etat}</p></button>:
-<>{obj.etat==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etat}</p></button>:<></>}</>}</>}</>}
+{obj?.etatVender==="En cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
+:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
+<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
 
   
   </td>

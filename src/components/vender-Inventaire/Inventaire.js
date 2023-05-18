@@ -19,18 +19,24 @@ function a11yProps(index) {
 const Inventaire = (props) => {
   const [value, setValue] = useState(0);
   const [nextpage, setnextpage] =useState(true);
-  const [produit, setproduit] = useState({titre:"",prix:"",qte:"",categorieId:"1",idprod:"",op:false,imagelibrairies:{},prix_en_Solde:"",remise:"",description:""});
-  
+  const [produit, setproduit] = useState({titre:"",prix:"",qte:"",categorieId:"1",idprod:"",op:false,imagelibrairies:{},prix_en_Solde:"",remise:"",description:"",Allid:[]});
+
   const handleDataFromChild = (data) => {
     setproduit(data);
+  
   };
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    
   };
   const changepage = () => {
     setnextpage(false);
   };
-
+  
+  const supall=()=>{
+    console.log(produit)
+  }
 
   return (
     <>
@@ -41,7 +47,7 @@ const Inventaire = (props) => {
               <p className="txt-int">Inventaire</p>
             </div>
             <div className="row4-int">
-              <div style={{ cursor: "pointer" }}>
+              <div style={{ cursor: "pointer" }} onClick={supall}>
                 {" "}
                 <Trash size="24" color="#E66A6A" />
                 <p className="txt3-int">Supprimer</p>

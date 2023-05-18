@@ -38,7 +38,7 @@ function a11yProps(index) {
   }
 
 
-const Listeivraisons = () => {
+const Listeivraisons = (props) => {
     const navigate = useNavigate();
     const [value, setValue] = React.useState(0);
     const handleChange = (event, newValue) => {
@@ -50,9 +50,7 @@ const Listeivraisons = () => {
     );
 
 const dispatch=useDispatch()
-    useEffect(() => {
-      dispatch(findCommandeBylibrairie(2));
-    },[]);
+  
 
     const navigat=(id)=>{
         navigate(`/Vender/Details_de_livraison/${id}`)
@@ -60,28 +58,37 @@ const dispatch=useDispatch()
     
       
 
-    const datenow=""
-    const filteredData = librairieData.filter((item) => {
-      return item.etat.includes("en cours")  || item.etat.includes("livre");;
+    const librairieState = useSelector(
+      (state) => state.findCommandeBylibrairie.status
+    );
+    const filteredData = librairieData?.filter((item) => {
+      return item.etatVender.includes("En cours")  || item.etatVender.includes("Compléter");;
     });
-    console.log(librairieData)
-    const filteredDataEnattente = filteredData.filter((item) => {
-      return item.etat.includes("en cours");
+
+    const filteredDataEnattente = filteredData?.filter((item) => {
+      return item.etatVender.includes("En cours");
     });
-    const filteredDataLivrer = filteredData.filter((item) => {
-        return item.etat.includes("livre");
+    const filteredDataLivrer = filteredData?.filter((item) => {
+        return item.etatVender.includes("Compléter");
       });
       const [all, setAll] = React.useState(filteredData);
       const items =8;
       const [current,setCurrent]=useState(1)
-      const NbPage=Math.ceil(all.length/items);
+      const NbPage=Math.ceil(all?.length/items);
       const startIndex=(current -1)*items;
       const endIndex=startIndex+items;
-      const DataPerPage=all.slice(startIndex,endIndex)
+      const DataPerPage=all?.slice(startIndex,endIndex)
       function handlePagination (event,page) {
         setCurrent(page)
       }
-      console.log(filteredData)
+      useEffect(() => {
+        dispatch(findCommandeBylibrairie(props?.user.id));
+        if(all?.length===0 && librairieState!="failed"&&filteredData?.length!==0) 
+        {
+          navigate(0)
+        }
+      },[]);
+
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de livraisons</p></div>
@@ -90,7 +97,7 @@ const dispatch=useDispatch()
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#F7D070" } }}>
          <Tab onClick={()=>{setAll(filteredData);setCurrent(1)}} label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
-          <Tab onClick={()=>{setAll(filteredDataEnattente);setCurrent(1)}} label={<p className="txttabs-c">en cours</p>} {...a11yProps(1)} />
+          <Tab onClick={()=>{setAll(filteredDataEnattente);setCurrent(1)}} label={<p className="txttabs-c">En cours</p>} {...a11yProps(1)} />
           <Tab  onClick={()=>{setAll(filteredDataLivrer);setCurrent(1)}} label={<p className="txttabs-c">Livrer</p>} {...a11yProps(1)} />
         </Tabs>
       </Box>
@@ -110,27 +117,27 @@ const dispatch=useDispatch()
 <th>Mise à jour</th>
 
 </tr>
-{DataPerPage.map((obj,index) => (
+{DataPerPage?.map((obj,index) => (
 
 <tr  onClick={()=>{navigat(obj.id)}} style={{cursor:"pointer"}}>
 
-<td className='tdwidth'>{obj.id}</td>
-<td className='tdwidth02'> <div className="row-c">
+<td className='tdwidth-lv'>{obj.id}</td>
+<td className='tdwidth02-lv'> <div className="row-c">
           
             <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c"style={{borderRadius:"50%"}} />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
+<td className='tdwidth1-lv'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
+<td className='tdwidth1-lv'>{obj.produitlabrairies[0]?.nb_Article}</td>
+<td className='tdwidth1-lv'>{obj.createdAt}</td>
 
-<td className='tdwidth1'>
-{obj.etat==="livre"?
-<><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj.etat}</p></button></>
+<td className='tdwidth1-lv'>
+{obj.etatVender==="Compléter"?
+<><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj.etatVender}</p></button></>
 :
 <>
-<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etat}</p></button>
+<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etatVender}</p></button>
 </>
 }
   </td>
@@ -159,25 +166,25 @@ const dispatch=useDispatch()
 <th>Mise à jour</th>
 
 </tr>
-{DataPerPage.map((obj,index) => (
+{DataPerPage?.map((obj,index) => (
 
 <tr  onClick={()=>{navigat(obj.id)}}style={{cursor:"pointer"}}>
 
-<td className='tdwidth'>{obj.id}</td>
-<td className='tdwidth02'> <div className="row-c">
+<td className='tdwidth-lv'>{obj.id}</td>
+<td className='tdwidth02-lv'> <div className="row-c">
           
             <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} style={{borderRadius:"50%"}} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
+<td className='tdwidth1-lv'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
+<td className='tdwidth1-lv'>{obj.produitlabrairies[0]?.nb_Article}</td>
+<td className='tdwidth1-lv'>{obj.createdAt}</td>
 
-<td className='tdwidth1'>
+<td className='tdwidth1-lv'>
 
 
-<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etat}</p></button>
+<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etatVender}</p></button>
 
   
   </td>
@@ -205,27 +212,27 @@ const dispatch=useDispatch()
 
 </tr>
 
-{filteredDataLivrer.map((obj,index) => (
+{filteredDataLivrer?.map((obj,index) => (
 
 <tr onClick={()=>{navigat(obj.id)}}style={{cursor:"pointer"}}>
 
-<td className='tdwidth'>{obj.id}</td>
-<td className='tdwidth02'> <div className="row-c">
+<td className='tdwidth-lv'>{obj.id}</td>
+<td className='tdwidth02-lv'> <div className="row-c">
           
             <Avatar src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar}  style={{borderRadius:"50%"}} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
+<td className='tdwidth1-lv'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
+<td className='tdwidth1-lv'>{obj.produitlabrairies[0]?.nb_Article}</td>
+<td className='tdwidth1-lv'>{obj.createdAt}</td>
 
-<td className='tdwidth1'>
-{obj.etat==="livre"?
-<><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj.etat}</p></button></>
+<td className='tdwidth1-lv'>
+{obj.etatVender==="Compléter"?
+<><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj.etatVender}</p></button></>
 :
 <>
-<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etat}</p></button>
+<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etatVender}</p></button>
 </>
 }
   </td>

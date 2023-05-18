@@ -70,11 +70,6 @@ const DataPerPage=avisProduitDtail.slice(startIndex,endIndex)
 function handlePagination (event,page) {
     setCurrent(page)
   }
-if(DataPerPage.length==0)
-{
-  nav(0)
-}
-
 
 const [value, setValue] = useState(0);
   const[avisText,setavisText] = useState("")
@@ -93,7 +88,12 @@ const [value, setValue] = useState(0);
   }, []);
   useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));
-    
+    if(produit.length==0)
+{
+  nav(0)
+}
+
+
   },[refresh])
 
   const breadcrumbs = [

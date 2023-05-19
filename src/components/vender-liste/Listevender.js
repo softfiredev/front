@@ -13,7 +13,6 @@ import { supprimerprod } from "../../Store/Service/supprimerprod";
 import { toast } from "react-toastify";
 import { AllListProduitLibe } from "../../Store/Service/AllistProduitLib";
 import Pagination from "@mui/material/Pagination";
-import { collapseClasses } from "@mui/material";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -50,9 +49,6 @@ const Listevender = (props) => {
   const [remise,setremise]=useState()
   const [description,setdescription]=useState()
   const [selectedValues, setSelectedValues] = useState([]);
-
-
-
   const [img,setimg]=useState()
   const dispatch = useDispatch();
   const prod = useSelector((state) => state.AlllistProduitLib.status);
@@ -117,14 +113,12 @@ const Listevender = (props) => {
     p: 4,
   };
   const supprimerOneProd=()=>{
-
-    supprimerprod(idprod).then((response)=>{
-      if(response.success===true){
-        toast.success("votre produit a ete supprimer avec success",{autoClose: 1000})
-        setref(true)
-    
-    }
-    })
+    supprimerprod({"ids":idprod}).then((response)=>{
+      toast.success("votre produit a ete supprimer avec success",{autoClose: 1000})
+      setref(true)
+     
+     })
+  
     setop2(false);
     setAnchorEl(null);
     setref(false)

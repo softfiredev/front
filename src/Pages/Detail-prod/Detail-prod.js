@@ -94,7 +94,9 @@ const [value, setValue] = useState(0);
   }, [id]);
   useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));
+    window.scrollTo(0, 0);
     if(produit.length==0&& produitState!="failed")
+    
 {
   nav(0)
 }

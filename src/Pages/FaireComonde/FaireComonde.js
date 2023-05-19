@@ -10,6 +10,8 @@ import Checkbox from "@mui/material/Checkbox";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useDispatch, useSelector } from "react-redux";
 import { getIdentiteClientt } from "../../Store/Service/identiteClient";
+import { AjouteCommande } from "../../Store/Service/AjouteCommande";
+import { toast } from "react-toastify";
 
 const FaireComonde = (props) => {
   const navigate = useNavigate();
@@ -58,10 +60,9 @@ const FaireComonde = (props) => {
   const [open4, setopen4] = useState(false);
   const [ModeLiv,setModeLiv] = useState();
   const [ModePay,setModePay] = useState();
+  const [idA,setidA] = useState();
+  console.log(idA,"adresse",ModeLiv,"modeliv",ModePay,"Modepay")
   const [OpenFormAdr,setOpenFormAdr] = useState(false);
-  console.log(ModeLiv,"aaaa")
-  console.log(ModePay,"oooooo")
-  console.log(OpenFormAdr)
   const handleChangeGouvernorat = (event) => {
     setGouvernorat(event.target.value);
   };
@@ -103,7 +104,37 @@ const FaireComonde = (props) => {
       }
   },[])
   const addresses=clientData?.client?.adresses
-  
+  const passeCommande = () => {
+    const commandes = [];
+    const groupedCommande = commande.reduce((acc, item) => {
+      const { idlib, prix, qte, produitlabrairieId } = item;
+      if (!acc[idlib]) {
+        acc[idlib] = { produits: [], total_ttc: 0 };
+      }
+      acc[idlib].produits.push({ produitlabrairieId, Qte: qte });
+      acc[idlib].total_ttc += (prix*1.07);
+      return acc;
+    }, {});
+    
+    for (const idlib in groupedCommande) {
+      const { produits, total_ttc } = groupedCommande[idlib];
+      commandes.push({ produits, total_ttc,Adresse:idA,Mode_liv:ModeLiv,Mode_pay:ModePay, userId: props.user.id, labrairieId: Number(idlib) });
+    }
+    console.log(commandes)
+    const data ={
+      "commande":commandes
+    }
+    if(props.user.auth){
+      dispatch(AjouteCommande(data)).then((response)=>{
+        if(response.payload.success===true){
+          toast.success("commande a été passée avec succès",{autoClose: 1000})
+        }
+      })
+    }else{
+      toast.error(" login pour passe une commande ",{autoClose: 1000})
+    }
+    
+  };
   return (
     <div className="Fc">
       <div>
@@ -166,7 +197,7 @@ const FaireComonde = (props) => {
 
                 {addresses?.map((obj, index) => (
                   <div className="rowmini-Fc">
-                    <input type="Radio" className="radio-Fc" name="r0" value={obj.id}   />
+                    <input type="Radio" className="radio-Fc" name="r0" value={obj.id}  onChange={(e)=>setidA(e.target.value)}  />
                     <div className="colini-Fc">
                       <div>
                         <p className="txt4-Fc">{obj.Nom_de_adresse}</p>
@@ -395,7 +426,7 @@ const FaireComonde = (props) => {
                 </div>
               </div>
               <div className="endflex-Fc">
-                <button className="bntendflex-Fc">Continuer</button>
+                <button className="bntendflex-Fc" onClick={passeCommande}>Finalisez votre commande</button>
               </div>
             </div>
           </div>

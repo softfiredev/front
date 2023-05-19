@@ -6,6 +6,7 @@ import "./Recapitulatif.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AjouteCommande } from "../../Store/Service/AjouteCommande";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 const Recapitulatif = (props) => {
   const [totalHT, settotalHT] = React.useState(0);
   const commande = useSelector((state) => state.Commande.commande);
@@ -97,9 +98,10 @@ const Recapitulatif = (props) => {
         <p className="totalTTC">Total TTC</p>
         <p className="totalMontant">{(totalHT * 1.07).toFixed(2)} dt</p>
       </Grid>
-      <button className="btn-verifie"  onClick={passeCommande}>
+      <Link to={"/Faire_une_commande"}> <button className="btn-verifie">
         Vérifier
-      </button>
+      </button></Link>
+     
     </div>
   );
 };

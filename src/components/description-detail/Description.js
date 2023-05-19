@@ -117,7 +117,7 @@ if(!sizeimg)
       formData.append('email', email);
       formData.append("message",message)
       formData.append('image', file);
-      formData.append("produitlabrairieId",props.idl)
+      formData.append("produitlabrairieId",props.idp)
 
       AjouteSignale(formData).then((response)=>{
      

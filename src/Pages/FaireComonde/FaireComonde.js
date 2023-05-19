@@ -99,10 +99,8 @@ const FaireComonde = (props) => {
   );
   const dispatch=useDispatch()
   useEffect(()=>{
-      if(clientData===undefined){
         dispatch(getIdentiteClientt(props.user.id));
-      }
-  },[])
+  },[clientData])
   const addresses=clientData?.client?.adresses
   const passeCommande = () => {
     const commandes = [];
@@ -150,7 +148,7 @@ const FaireComonde = (props) => {
               <div className="txtwidth-Fc">
                 <p className="txt2-Fc">Informations Personelles</p>
               </div>
-              <div className="tick-Fc">
+              <div className={props.user.auth?"tick-Fc":"tick-Fc-none"}>
                <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>
@@ -184,7 +182,7 @@ const FaireComonde = (props) => {
               <div  className="txtwidth-Fc">
                 <p className="txt2-Fc">Adresses</p>
               </div>
-              <div className="tick-Fc">
+              <div className={idA!==undefined?"tick-Fc":"tick-Fc-none"}>
                <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>
@@ -335,7 +333,7 @@ const FaireComonde = (props) => {
                 <p className="txt2-Fc">Mode de livraison</p>
               </div>
 
-              <div className="tick-Fc">
+              <div className={ModeLiv!==undefined?"tick-Fc":"tick-Fc-none"}>
                <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>
@@ -392,7 +390,7 @@ const FaireComonde = (props) => {
               <div className="txtwidth-Fc">
                 <p className="txt2-Fc">Détails de paiement</p>
               </div>
-              <div className="tick-Fc">
+              <div className={ModePay!==undefined?"tick-Fc":"tick-Fc-none"}>
                <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>

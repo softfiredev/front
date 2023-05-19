@@ -10,7 +10,7 @@ import Footer from '../../components/footer/Footer'
 const Resetpassword = () => {
 
 const [change , setchange] = useState("add-new-password");
-const [globalState,snap]=useAtoms()
+
 const Changepage=()=>{
   switch(change){
 

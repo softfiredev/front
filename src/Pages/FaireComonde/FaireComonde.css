@@ -72,8 +72,12 @@ font-style: normal;
 font-weight: 500;
 font-size: 18px;
 line-height: 28px;
+
 color: #222222;
 
+}
+.txtwidth-Fc{
+    width:40%;
 }
 .txt3-Fc{
  font-family: 'Inter';
@@ -233,6 +237,7 @@ font-size: 16px;
 line-height: 28px;
 color: #222222;
 }
+
 .txt8-Fc{
 font-family: 'Inter';
 font-style: normal;
@@ -338,3 +343,13 @@ width: 100%;
 .sousblox-Fc-none,.sousblox2-Fc-none,.colini-Fc-none,.colini-Fc-none,.sousblox3-Fc-none{
     display: none;
 }
+
+
+
+.tick-Fc{
+    width: 50%;
+    }
+    .ticktxt-Fc{
+        text-align: end;
+        margin-top: 1%;
+    }

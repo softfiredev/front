@@ -26,7 +26,7 @@ const Profilee = (props) => {
   const [bnt6, setbnt6] = useState("bnt-pro2");
   const navigate = useNavigate();
   useEffect(() => {
-    navigate("/Profile/Monidentité");
+    navigate("/Profile/Monidentite");
   }, []);
   const Pagee = (name) => {
     if (name == "page1") {
@@ -37,7 +37,7 @@ const Profilee = (props) => {
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro2");
       setname("page1") ;    
-      navigate("/Profile/Monidentité");
+      navigate("/Profile/Monidentite");
     }
     if (name == "page2") {
       setbnt1("bnt-pro2");
@@ -47,7 +47,7 @@ const Profilee = (props) => {
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro2");
       setname("page2") ;   
-      navigate("/profile/Favoris");
+      navigate("/Profile/Favoris");
     }
     if (name == "page3") {
       setbnt1("bnt-pro2");
@@ -57,7 +57,7 @@ const Profilee = (props) => {
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro2");
       setname("page3") ;   
-      navigate("/profile/Commandes");
+      navigate("/Profile/Commandes");
     }
     if (name == "page4") {
       setbnt1("bnt-pro2");
@@ -67,7 +67,7 @@ const Profilee = (props) => {
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro2");
       setname("page4") ;   
-      navigate("/Profile/avis");
+      navigate("/Profile/Avis");
     }
     if (name == "page6") {
       setbnt1("bnt-pro2");
@@ -77,7 +77,7 @@ const Profilee = (props) => {
       setbnt5("bnt-pro2");
       setbnt6("bnt-pro");
       setname("page6") ;   
-      navigate("/profile/MesPoints");
+      navigate("/Profile/MesPoints");
     }
   };
   const Logout = () => {

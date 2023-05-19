@@ -159,12 +159,14 @@ function App() {
             <Route path="/Detailproduit/:id" element={<Detailprod user={user}/>} />
             <Route path="/cart" element={<Cart user={user}/>} />
             <Route  path="/librairieProfile/:id" element={<LibrairieProfile />}       />
-            <Route path="/Profile" element={<Profile user={user} />}>
-              <Route path="/Profile/Monidentité" element={<Page1_profile user={user}  />} />
-              <Route path="/Profile/Favoris" element={<Page2_profile user={user}   />} />
-              <Route path="/Profile/Commandes" element={<Commandes user={user}   />} />
-              <Route path="/Profile/Avis" element={<Avis user={user} />} />
-              <Route path="/Profile/MesPoints" element={<Points user={user}  />}>
+       
+       
+            <Route path="/Profile" element={<Protection user={user}><Profile user={user}/></Protection>}>
+              <Route path="/Profile/Monidentite" element={<Page1_profile user={user}  />} />
+              <Route path="/Profile/Favoris" element={<Protection user={user}><Page2_profile user={user}   /></Protection>} />
+              <Route path="/Profile/Commandes" element={<Protection user={user}><Commandes user={user}   /></Protection>} />
+              <Route path="/Profile/Avis" element={<Protection user={user}><Avis user={user} /></Protection>} />
+              <Route path="/Profile/MesPoints" element={<Protection user={user}><Points user={user}  /></Protection>}>
                 <Route
                   path="/Profile/MesPoints/Bondachats"
                   element={<Dachats />}

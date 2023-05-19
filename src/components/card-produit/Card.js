@@ -21,7 +21,6 @@ const Card = (props) => {
   const formattedDate = `${year}-${month}-${day}`;
  const datenow=formattedDate==props.dateG
 
-console.log((parseInt(props?.totalavis==undefined?0:props?.totalavis)<=20 ))
   return (
     <div className="card">
        

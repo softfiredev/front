@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./FaireComonde.css";
 import { useNavigate } from "react-router-dom";
-import { IconButton, InputAdornment, OutlinedInput } from "@mui/material";
+import {  OutlinedInput } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
+import {  TickCircle} from "iconsax-react";
 import Select from "@mui/material/Select";
 import { Grid } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
@@ -115,8 +116,11 @@ const FaireComonde = (props) => {
               <div className="circule-Fc">
                 <p>1</p>
               </div>
-              <div>
+              <div className="txtwidth-Fc">
                 <p className="txt2-Fc">Informations Personelles</p>
+              </div>
+              <div className="tick-Fc">
+               <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>
             <div className={props.user.auth?"sousblox-Fc-none":"sousblox-Fc"}>
@@ -146,18 +150,21 @@ const FaireComonde = (props) => {
               <div className="circule-Fc">
                 <p>2</p>
               </div>
-              <div>
+              <div  className="txtwidth-Fc">
                 <p className="txt2-Fc">Adresses</p>
               </div>
+              <div className="tick-Fc">
+               <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
+              </div>
             </div>
-            {addresses.length != 0 ? (
+            {addresses?.length != 0 ? (
               
               <div className={open2?"sousblox2-Fc":"sousblox2-Fc-none"}>
-                <div>
+                <div className="txtwidth-Fc">
                   <p className="txt3-Fc">Mes adresses:</p>
                 </div>
 
-                {addresses.map((obj, index) => (
+                {addresses?.map((obj, index) => (
                   <div className="rowmini-Fc">
                     <input type="Radio" className="radio-Fc" name="r0" value={obj.id}   />
                     <div className="colini-Fc">
@@ -211,7 +218,7 @@ const FaireComonde = (props) => {
                         <em className="txt-select-page">Tunis</em>
                       </MenuItem>
 
-                      {Gouvernora.map((obj, key) => (
+                      {Gouvernora?.map((obj, key) => (
                         <MenuItem value={obj.nome} className="txt-select-page">
                           {obj.nome}
                         </MenuItem>
@@ -293,8 +300,12 @@ const FaireComonde = (props) => {
               <div className="circule-Fc" onClick={()=>setopen3(true)} >
                 <p>3</p>
               </div>
-              <div>
+              <div className="txtwidth-Fc">
                 <p className="txt2-Fc">Mode de livraison</p>
+              </div>
+
+              <div className="tick-Fc">
+               <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>
 
@@ -347,8 +358,11 @@ const FaireComonde = (props) => {
               <div className="circule-Fc4">
                 <p>4</p>
               </div>
-              <div>
+              <div className="txtwidth-Fc">
                 <p className="txt2-Fc">Détails de paiement</p>
+              </div>
+              <div className="tick-Fc">
+               <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>
              

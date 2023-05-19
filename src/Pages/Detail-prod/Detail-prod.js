@@ -60,7 +60,9 @@ const Detailprod = (props) => {
     (state) => state.AllAvisProduitDeatil.status
   );
   const produit = useSelector((state)=>state.AllProduitlibrairieByCategorie.produitlibBycategorie)
-
+  const produitState = useSelector(
+    (state) => state.AllProduitlibrairieByCategorie.status
+  );
 const items =4;
 const [current,setCurrent]=useState(1)
 const NbPage=Math.ceil(avisProduitDtail.length/items);
@@ -85,15 +87,17 @@ const [value, setValue] = useState(0);
   useEffect(() => {
     dispatch(getProduitDetail(id));
     dispatch( getAllProduitByCategorie(produitDetail?.categorieId))
-  }, []);
+    if(produit.length==0&& produitState!="failed")
+    {
+      nav(0)
+    }
+  }, [id]);
   useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));
-    if(produit.length==0)
+    if(produit.length==0&& produitState!="failed")
 {
   nav(0)
 }
-
-
   },[refresh])
 
   const breadcrumbs = [
@@ -130,7 +134,7 @@ const [value, setValue] = useState(0);
     setrefresh(false)
     setOpen(false)
   }
-
+console.log(id)
   return (
     <>
       <div className="detail">

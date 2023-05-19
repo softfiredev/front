@@ -29,8 +29,17 @@ const Description = (props) => {
   const [file,setfile]=useState()
   const [qnt, setqnt] = useState(1);
   const [open, setOpen] = React.useState(false);
+  const [sizeimg,setSizeimg]=useState(false)
+  const [img,setImage]=useState()
+  const [imgsize,setImgsize]=useState()
+  const [realimgsize,setRealimgsize]=useState()
+  const [imgname,setImgmane]=useState()
+
+
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
+  const handleClose = () => {setOpen(false);setImage(undefined);setFullname(undefined);setemail(undefined);setmessage(undefined)};
+
   const quantityplus = () => {
     if(qnt<props.qte)
     {
@@ -44,11 +53,7 @@ const Description = (props) => {
       setqnt(qnt - 1);
     }
   };
-  const [sizeimg,setSizeimg]=useState(false)
-  const [img,setImage]=useState()
-  const [imgsize,setImgsize]=useState()
-  const [realimgsize,setRealimgsize]=useState()
-  const [imgname,setImgmane]=useState()
+
   const onImageChange = (e) => {
       if (e.target.files && e.target.files[0]) {
           setImage(URL.createObjectURL(e.target.files[0]));
@@ -100,13 +105,11 @@ const sup=()=>{
     }
     
   }
-  
   const Signaler=()=>{
 
 if(!sizeimg)
 {
-
-  if( fullname!==undefined && email!==undefined &&message!==undefined)
+  if( fullname!==undefined && email!==undefined &&message!==undefined &&img!==undefined)
   {
     if(props.user.auth){
       const formData = new FormData();
@@ -115,9 +118,11 @@ if(!sizeimg)
       formData.append("message",message)
       formData.append('image', file);
       formData.append("produitlabrairieId",props.idl)
-     
+
       AjouteSignale(formData).then((response)=>{
+     
         if(response.success==true){
+          
           toast.success("Votre Signaler bien recu",{autoClose: 1000})
         }
         setOpen(false)
@@ -135,6 +140,7 @@ if(!sizeimg)
 }
 
   }
+  
 
   return (
     <div className="col-detail">

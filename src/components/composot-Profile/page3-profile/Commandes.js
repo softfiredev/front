@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./Commandes.css";
 import { Menu, MenuItem, Modal, OutlinedInput } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
-import { AddCircle, ArrowCircleRight2, ArrowDown2, ArrowUp2, Edit, Link, More, SearchNormal1, Trash } from "iconsax-react";
+import { AddCircle, BoxRemove, ArrowDown2, ArrowUp2, Edit, CloseCircle, More, SearchNormal1, Trash } from "iconsax-react";
 import img1 from "../../../assets/prod2.png";
 import { useState } from "react";
 import Tabs from "@mui/material/Tabs";
@@ -42,12 +42,12 @@ const Commandes = (props) => {
   }
   const style = {
     position: "absolute",
-    top: "60%",
+    top: "55%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     background: "#FFFFFF",
     width: "544px",
-    height: "500px",
+    height: "570px",
     boxShadow:
       "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
     borderRadius: "8px",
@@ -59,13 +59,28 @@ const Commandes = (props) => {
   const [Modelopen, setModelopen] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const [titre, settitre] = useState();
 
+  const stylee = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    background: "#FFFFFF",
+    width: "544px",
+    height: "284px",
+    boxShadow:
+      "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
+    borderRadius: "8px",
+    p: 4,
+  };
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handleClicke = () => {
+  const handleClicke = (titre) => {
     setModelopen(true)
     setAnchorEl(null);
+    settitre(titre)
   };
   const [op, setop] = React.useState(false);
   const [op2, setop2] = React.useState(false);
@@ -86,9 +101,7 @@ const Commandes = (props) => {
   useEffect(() => {
     dispatch(getAllcommandeByclient(props?.user?.id));
   }, [refresh]);
-  console.log(
-    commandes
-  );
+
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -127,6 +140,7 @@ const Commandes = (props) => {
 
      })
   }
+
   return (
     <div className="commandes">
       <div className="com1">
@@ -303,25 +317,45 @@ const Commandes = (props) => {
                 "aria-labelledby": "basic-button",
               }}
             >
-        
-        <MenuItem
+     <div>
+         
+     <MenuItem
                                 className="menuitem-avis"
-                                onClick={handleClicke}
+                                onClick={()=>{handleClicke("Ajoute un article")}}
                               >
                                 <Edit size="22" color="#222222" />
                                 <span>
                                   <p className="txtmenu-cd">Ajoute un article</p>
                                 </span>
                               </MenuItem>
-                              <MenuItem
-                                className="menuitem-cd"
-                                onClick={Annuler}
+     </div>
+                          
+                                
+                         <div>
+                         <MenuItem
+                                className="menuitem-avis"
+                                onClick={()=>{handleClicke("Supprime un article")}}
+                          
                               >
                                 <Trash size="22" color="#222222" />
                                 <span>
-                                  <p className="txtmenu-cd">Annule </p>
+                                  <p className="txtmenu-cd">Supprime un article</p>
                                 </span>
                               </MenuItem>
+                          
+                         </div>
+                       <div>
+                       <MenuItem
+                                className="menuitem-cd"
+                                onClick={()=>{setop2(true);setAnchorEl(null);}}
+                           
+                              >
+                                <BoxRemove size="22" color="red"/>
+                                <span>
+                                  <p      style={{color:"red"}} className="txtmenu-cd">Annule Commande </p>
+                                </span>
+                              </MenuItem>
+                       </div>
             </Menu>
                   </div>
                 </div>
@@ -755,21 +789,90 @@ const Commandes = (props) => {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-                <div className="close">
+             <div>
+             <div className="close">
                   <i class="fa fa-close" onClick={()=>setModelopen(false)}></i>
                 </div>
-                <p className="Model-titre">Ajoute un Article</p>
-                <div className="scroll">
-                  {produitShope.map((e)=>(<div className="prod" >
-                            <img src={"http://127.0.0.1:8080/uploads/"+e.imagelibrairies?.[0]?.name_Image} />
-                            <p className="titre-model-box"> {e.titre}</p>
-                            <p> {e.prix}</p>
-                            <AddCircle size="22" color="#222222" style={{marginTop:"14px", cursor:"pointer"}} onClick={()=>addProd(1,e.id,idCommande,e.prix)}/>
-                      </div>  ))}
-                        
-                </div>
+    <div className="Modeltitre-com">
+    <p className="Model-titre">{titre}</p>
+    </div>
+    <div className="Modeltitre-com">
+    <OutlinedInput className="search-inpute02"placeholder={"Rechercher..."}
+              endAdornment={
+                <InputAdornment position="end">
+                  <SearchNormal1 size="19" color="#B1B1B1" />
+                </InputAdornment>
+              }
+            />
+    </div><br/>
+    <div style={{display:"flex",gap:"4em",marginTop:"5%"}}>
+      <div className="txtmadal-comnd03">produit</div>
+      <div className="txtmadal-comnd03">nom de produit</div>
+      <div className="txtmadal-comnd02">prix</div>
+    </div>
+               
+                { 
+                titre!=="Supprime un article"?
+                <div className="scroll-maodalc">
+                {produitShope.map((e)=>(<div className="prod" >
+                          <img src={"http://127.0.0.1:8080/uploads/"+e.imagelibrairies?.[0]?.name_Image} />
+                          <p className="titre-model-box"> {e.titre}</p>
+                          <p> {e.prix} Dt</p>
+                          <AddCircle size="22" color="#222222" style={{marginTop:"14px", cursor:"pointer"}} onClick={()=>addProd(1,e.id,idCommande,e.prix)}/>
+                    </div>  ))}
+                      
+              </div>
+              :
+                
+              <div className="scroll-maodalc">
+              {produitShope.map((e)=>(<div className="prod" >
+                        <img src={"http://127.0.0.1:8080/uploads/"+e.imagelibrairies?.[0]?.name_Image} />
+                        <p className="titre-model-box"> {e.titre}</p>
+                        <p> {e.prix} Dt</p>
+                        <CloseCircle size="22" color="red" style={{marginTop:"14px", cursor:"pointer"}} onClick={()=>addProd(1,e.id,idCommande,e.prix)}/>
+                  </div>  ))}
+                    
+            </div>
+                }
+             
+              
+              </div>
             </Box>
           </Modal>
+
+          <Modal
+        open={op2}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        onClose={()=>{setop2(false)}}
+      >
+        <Box sx={stylee}>
+          <div className="container-modal">
+            <div className="flex-end">
+              {" "}
+              <div>
+                {" "}
+                <i class="fa fa-close" onClick={()=>{setop2(false)}}></i>
+              </div>
+            </div>
+            <br />
+            <div>
+              <p className="txtmodal2-page4">
+                Etes-vous sûr de vouloir Annuler cette Commande?
+              </p>
+            </div>
+
+            <div className="minirow2-page4">
+              <button  onClick={()=>{setop2(false)}} className="bnt3-page">
+                <p className="txtbnt3-page4">Annuler</p>
+              </button>
+              <button className="bnt40-page4" onClick={Annuler}>
+                <p className="txtbnt40-page">Confirmer</p>
+              </button>
+            </div>
+          </div>
+        </Box>
+      </Modal>
         </div>
       </div>
     </div>

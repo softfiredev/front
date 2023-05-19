@@ -82,7 +82,6 @@ const Profilee = (props) => {
   };
   const Logout = () => {
     localStorage.removeItem("persist:root");
-    navigate("/login");
     navigate(0);
   };
 

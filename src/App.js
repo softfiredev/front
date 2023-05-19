@@ -219,11 +219,9 @@ function App() {
             <Route path="/Fornisseuer/Liste_de_commandes" element={<ListecommandesFornisseuer />}             />
             <Route path="/Fornisseuer/Détails_de_commandes/:id" element={<DetailcomnderFornisseuer />}             />
             <Route path="/Fornisseuer/Factorisation" element={<FactorisationFornisseuer />}             />
-            <Route path="/Fornisseuer/Profile" element={<FornisseuerProfile />}             />
-
+            <Route path="/Fornisseuer/Profile" element={<FornisseuerProfile />}/>
             </Route>
-
-            <Route path="/Faire_une_commande" element={<FaireComonde/>} />
+            <Route path="/Faire_une_commande" element={<FaireComonde user={user}/>}/>
 
             <Route path="*" element={<> page not !!!</>} />
           </Routes>

@@ -196,7 +196,7 @@ border: 1px solid #E1E1E1;
 border-radius: 8px;
 }
 .Souviens-Fc{
-    font-family: 'Inter';
+font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
 font-size: 14px;
@@ -243,7 +243,7 @@ color: #9E9E9E;
 }
 .col20-Fc{
 width: 520px;
-height: auto;
+height: 755px;
 background: #F7F7F7;
 border: 1px solid #CFCFCF;
 border-radius: 8px;
@@ -306,7 +306,7 @@ width: 100%;
 }
 .row200-Fc{
     display: flex;
-    gap: 18em;
+    gap: 14em;
 }
 .col200-Fc{
     display: flex;
@@ -334,4 +334,7 @@ width: 100%;
     border: 1px solid #222222;
     text-align:"center" 
     
+}
+.sousblox-Fc-none,.sousblox2-Fc-none,.colini-Fc-none,.colini-Fc-none,.sousblox3-Fc-none{
+    display: none;
 }

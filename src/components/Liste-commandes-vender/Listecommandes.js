@@ -178,7 +178,7 @@ const Listecommandes = (props) => {
 
 {filteredDataNouveau?.map((obj,index) => (
 
-<tr className={obj.etatVender==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+<tr onClick={()=>{navigat(obj.id)}}>
 
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">

@@ -52,9 +52,12 @@ const Listevender = (props) => {
   const [selectedValues, setSelectedValues] = useState([]);
 
 
+
   const [img,setimg]=useState()
   const dispatch = useDispatch();
+  const prod = useSelector((state) => state.AlllistProduitLib.status);
   const produit = useSelector((state) => state.AlllistProduitLib.listProduit);
+  
 
   useEffect(() => {
     dispatch(AllListProduitLibe(props?.id));
@@ -114,10 +117,12 @@ const Listevender = (props) => {
     p: 4,
   };
   const supprimerOneProd=()=>{
+
     supprimerprod(idprod).then((response)=>{
       if(response.success===true){
         toast.success("votre produit a ete supprimer avec success",{autoClose: 1000})
         setref(true)
+    
     }
     })
     setop2(false);
@@ -125,18 +130,6 @@ const Listevender = (props) => {
     setref(false)
 
   }
-const handleCheckboxChange=(event)=>{
-  const value = event.target.value;
-
-  if (event.target.checked) {
-    props.onDataReceived(selectedValues);
-    setSelectedValues(prevValues => [...prevValues, value]);
-
-  } else {
-    setSelectedValues(prevValues => prevValues.filter(val => val !== value));
-  }
-  
-}
 
   return (
     <TabPanel value={props.value} index={0}>
@@ -164,45 +157,89 @@ const handleCheckboxChange=(event)=>{
           <th>Qté</th>
           <th>Mise à jour</th>
         </tr>
+      
+{prod!=="failed"?
+DataPerPage.map((obj, index) => (
+  <tr>
+    <td className="tdwidth0">
+      <Checkbox style={{ color: " #E9B949" }} key={index} 
+       value={obj.id}
+      
+       onChange={props.handleCheckboxChange}
+  />
+    </td>
+    <td className="tdwidth">{obj.id}</td>
+    <td className="tdwidth02">
+      <div className="row-int01">
 
-        {DataPerPage.map((obj, index) => (
-          <tr>
-            <td className="tdwidth0">
-              <Checkbox style={{ color: " #E9B949" }} key={index} 
-               value={obj.id}
-               onChange={handleCheckboxChange}
-          />
-            </td>
-            <td className="tdwidth">{obj.id}</td>
-            <td className="tdwidth02">
-              <div className="row-int01">
-                <img src={"http://127.0.0.1:8080/uploads/"+obj.imagelibrairies?.[0]?.name_Image} className="img1-int" />
-                <div style={{ marginTop: "3%" }}>
-                  <p className="txt01-int">{obj.titre}</p>
-                </div>
-              </div>
-            </td>
-            <td className="tdwidth1">
-              <p className="txt02-int">{obj?.prix}</p>
-            </td>
-            <td className="tdwidth1">{obj?.categorie?.name}</td>
-            <td className="tdwidth1">{obj?.qte}</td>
-            <td className="tdwidth1">{obj?.updatedAt}</td>
-            <td>
-    
-              <div className="more-int">
-              <More
-                      size="22"
-                      color="#222222"
-                      aria-controls={open ? "basic-menu" : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? "true" : undefined}
-                      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.id,obj?.qte,obj?.imagelibrairies,obj?.prix_en_Solde,obj?.remise,obj?.description)}
-                    />
-              </div>
-            </td>
-          </tr>
-        ))}
+        <img src={"http://127.0.0.1:8080/uploads/"+obj.imagelibrairies?.[0]?.name_Image} className="img1-int" />
+   
+       
+       <div style={{ marginTop: "3%" }}>
+          <p className="txt01-int">{obj.titre}</p>
+        </div>
+      </div>
+    </td>
+    <td className="tdwidth1">
+      <p className="txt02-int">{obj?.prix}</p>
+    </td>
+    <td className="tdwidth1">{obj?.categorie?.name}</td>
+    <td className="tdwidth1">{obj?.qte}</td>
+    <td className="tdwidth1">{obj?.updatedAt}</td>
+    <td>
+
+      <div className="more-int">
+ 
+      <More
+      size="22"
+      color="#222222"
+      aria-controls={open ? "basic-menu" : undefined}
+      aria-haspopup="true"
+      aria-expanded={open ? "true" : undefined}
+      onClick={(e)=>handleClick(e,obj?.id,obj?.titre,obj?.prix,obj?.categorie?.id,obj?.qte,obj?.imagelibrairies,obj?.prix_en_Solde,obj?.remise,obj?.description)}
+    />
+   
+  
+      </div>
+    </td>
+  </tr>
+))
+:
+DataPerPage.map((obj, index) => (
+  <tr>
+    <td className="tdwidth0">
+  
+    </td>
+    <td className="tdwidth"></td>
+    <td className="tdwidth02">
+      <div className="row-int01">
+
+   
+       
+       <div style={{ marginTop: "3%" }}>
+          <p className="txt01-int"></p>
+        </div>
+      </div>
+    </td>
+    <td className="tdwidth1">
+      <p className="txt02-int"></p>
+    </td>
+    <td className="tdwidth1"></td>
+    <td className="tdwidth1"></td>
+    <td className="tdwidth1"></td>
+    <td>
+
+      <div className="more-int">
+ 
+   
+  
+      </div>
+    </td>
+  </tr>
+))
+}
+        
+        
                <Menu
               id="basic-menu"
               className="menu-listev"

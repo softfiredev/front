@@ -21,14 +21,24 @@ const Inventaire = (props) => {
   const [value, setValue] = useState(0);
   const [nextpage, setnextpage] =useState(true);
   const [produit, setproduit] = useState({titre:"",prix:"",qte:"",categorieId:"1",idprod:"",op:false,imagelibrairies:{},prix_en_Solde:"",remise:"",description:"",Allid:[]});
-  const [idsProduitSupprime, setidsProduitSupprime] = useState();
-  const handleDataReceived = (data) => {
-    setidsProduitSupprime(data);
-  };
+
   const handleDataFromChild = (data) => {
     setproduit(data);
   
   };
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
+
+  const handleCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+
+    if (checked) {
+      setSelectedCheckboxes([...selectedCheckboxes, value]);
+    } else {
+      setSelectedCheckboxes(selectedCheckboxes.filter((item) => item !== value));
+    }
+  };
+
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -39,11 +49,12 @@ const Inventaire = (props) => {
   };
   
   const supall=()=>{
-    supprimerprod({"ids":idsProduitSupprime}).then((response)=>{
-      console.log(response)
-    })
+    supprimerprod({"ids":selectedCheckboxes}).then((response)=>{
+       window.location.reload() 
+      
+      })
   }
-  console.log(idsProduitSupprime)
+
   
   return (
     <>
@@ -88,7 +99,7 @@ const Inventaire = (props) => {
                   />
                 </Tabs>
               </Box>
-              <Listevender value={value} onDataReceived={handleDataReceived} onData={handleDataFromChild} setnextpage={()=>{setnextpage(false)}} id={props.user?.id}/>
+              <Listevender value={value}      selectedCheckboxes={selectedCheckboxes}     handleCheckboxChange={handleCheckboxChange}onData={handleDataFromChild} setnextpage={()=>{setnextpage(false)}} id={props.user?.id}/>
               <Avis value={value} id={props.user?.id} />
             </Box>
           </div>

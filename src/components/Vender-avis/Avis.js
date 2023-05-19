@@ -33,7 +33,6 @@ const Avis = (props) => {
   
 const avis = useSelector((state)=>state.Allavislib.avislib)
 const dispatch=useDispatch()
-console.log(props.user?.id)
 useEffect(()=>{
       dispatch(avisLib(props?.id))
 },[])

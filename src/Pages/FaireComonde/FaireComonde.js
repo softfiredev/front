@@ -476,7 +476,7 @@ const FaireComonde = (props) => {
             <div className="col202-Fc">
               <div>
                 {" "}
-                <p className="txt101-Fc">{totalHT*1.07} dt</p>
+                <p className="txt101-Fc">{(totalHT*1.07).toFixed(2)} dt</p>
               </div>
               <div>
                 {" "}
@@ -525,7 +525,7 @@ const FaireComonde = (props) => {
             <div className="col202-Fc">
               <div>
                 {" "}
-                <p className="txt101-Fc">{totalHT*1.07} dt</p>
+                <p className="txt101-Fc">{(totalHT*1.07).toFixed(2)} dt</p>
               </div>
             </div>
           </div>

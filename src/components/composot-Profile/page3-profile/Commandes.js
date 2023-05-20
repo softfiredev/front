@@ -2,7 +2,17 @@ import React, { useEffect } from "react";
 import "./Commandes.css";
 import { Menu, MenuItem, Modal, OutlinedInput } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
-import { AddCircle, BoxRemove, ArrowDown2, ArrowUp2, Edit, CloseCircle, More, SearchNormal1, Trash } from "iconsax-react";
+import {
+  AddCircle,
+  BoxRemove,
+  ArrowDown2,
+  ArrowUp2,
+  Edit,
+  CloseCircle,
+  More,
+  SearchNormal1,
+  Trash,
+} from "iconsax-react";
 import img1 from "../../../assets/prod2.png";
 import { useState } from "react";
 import Tabs from "@mui/material/Tabs";
@@ -14,6 +24,7 @@ import { getAllcommandeByclient } from "../../../Store/Service/getAllcommandebyC
 import { addProduitCommande } from "../../../Store/Service/addProduitCommande";
 import { toast } from "react-toastify";
 import { AnnulerCommande } from "../../../Store/Service/AccepterCommandeDetail";
+import { deleteProduitCommande } from "../../../Store/Service/deleteProduitcCommande";
 const Commandes = (props) => {
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -53,7 +64,9 @@ const Commandes = (props) => {
     borderRadius: "8px",
     p: 4,
   };
-  const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
+  const produitShope = useSelector(
+    (state) => state.AllProduitShope.produitShope
+  );
   const [dopdownAricle, setdropdowArticle] = useState(false);
   const [iDdropdownArticle, setiDdropdownArticle] = useState();
   const [Modelopen, setModelopen] = useState(false);
@@ -78,14 +91,14 @@ const Commandes = (props) => {
     setAnchorEl(null);
   };
   const handleClicke = (titre) => {
-    setModelopen(true)
+    setModelopen(true);
     setAnchorEl(null);
-    settitre(titre)
+    settitre(titre);
   };
   const [op, setop] = React.useState(false);
   const [op2, setop2] = React.useState(false);
-  const [idCommande ,setidCommande] = useState()
-  const [refresh ,setrefresh] = useState(0)
+  const [idCommande, setidCommande] = useState();
+  const [refresh, setrefresh] = useState(0);
   const dropDownOn = (id) => {
     setdropdowArticle(true);
     setiDdropdownArticle(id);
@@ -97,6 +110,7 @@ const Commandes = (props) => {
   const commandes = useSelector(
     (state) => state.AllcommandeByclient.commandesClient
   );
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllcommandeByclient(props?.user?.id));
@@ -115,32 +129,44 @@ const Commandes = (props) => {
   const filteredEncours = commandes?.filter((item) => {
     return item?.etatClient?.includes("en cours");
   });
-  const addProd =(Qte,produitlabrairieId,commandeEnDetailId,prix)=>{
-    const data={
-      Qte:Qte,produitlabrairieId:produitlabrairieId,commandeEnDetailId:commandeEnDetailId,prix,prix
-    }
-    addProduitCommande(data).then((response)=>{
-      if(response.success===true){
-        setrefresh(refresh+1)
-        toast.success("Article bien Ajoute")
+  const [ProduitCommande,setCommande]=useState()
+  console.log(ProduitCommande)
+  const addProd = (Qte, produitlabrairieId, commandeEnDetailId, prix) => {
+    const data = {
+      Qte: Qte,
+      produitlabrairieId: produitlabrairieId,
+      commandeEnDetailId: commandeEnDetailId,
+      prix,
+      prix,
+    };
+    addProduitCommande(data).then((response) => {
+      if (response.success === true) {
+        setrefresh(refresh + 1);
+        toast.success("Article bien Ajoute");
       }
-    })
-  }
-  const handleClick=(id)=>{
-      setidCommande(id)
-      setAnchorEl(true)
-  }
-  const Annuler=()=>{
-    AnnulerCommande(idCommande).then((response)=>{
-        if(response.success==true){
-         toast.error("commande Annuler",{autoClose: 1000})
-         setrefresh(refresh+1)
+    });
+  };
+  const handleClick = (id) => {
+    setidCommande(id);
+    setAnchorEl(true);
+  };
+  const Annuler = () => {
+    AnnulerCommande(idCommande).then((response) => {
+      if (response.success == true) {
+        toast.error("commande Annuler", { autoClose: 1000 });
+        setrefresh(refresh + 1);
+      }
+    });
+  };
+  const deleteArticle=(idp,idc)=>{
+      deleteProduitCommande(idp,idc).then((response)=>{
+        if (response.success === true) {
+          setrefresh(refresh + 1);
+          toast.success("Article bien Ajoute");
         }
-        
-
-     })
+      })
   }
-
+console.log(commandes,"commm")
   return (
     <div className="commandes">
       <div className="com1">
@@ -199,6 +225,8 @@ const Commandes = (props) => {
                   <br />
                   <div className="array-data">
                     {commandes?.map((e, key) => (
+                      <div>
+                    
                       <div>
                         <div className="commande-data" key={key}>
                           <p className="idcommande"> {e.id}</p>
@@ -260,15 +288,15 @@ const Commandes = (props) => {
                             {e.etatClient}
                           </p>
                           <div className="more-cd">
-                    <More
-                      size="22"
-                      color="#222222"
-                      aria-controls={open ? "basic-menu" : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? "true" : undefined}
-                      onClick={()=>handleClick(e.id)}
-                      />
-                           </div>
+                            <More
+                              size="22"
+                              color="#222222"
+                              aria-controls={open ? "basic-menu" : undefined}
+                              aria-haspopup="true"
+                              aria-expanded={open ? "true" : undefined}
+                              onClick={() => handleClick(e.id)}
+                            />
+                          </div>
                         </div>
                         {
                           <div
@@ -278,8 +306,10 @@ const Commandes = (props) => {
                                 : "Article-data-none"
                             }
                           >
-                            {e?.produitlabrairies?.map((e) => (
-                              <div className="article">
+                             
+                            {e?.produitlabrairies?.map((e)=>(
+                              <div className="article"> 
+                                   
                                 <div>
                                   <p className="qte33">
                                     {e?.produit_c_Detail?.Qte}X
@@ -300,63 +330,60 @@ const Commandes = (props) => {
                             ))}
                           </div>
                         }
-                     
-                          
-                           
-                         
-                    
+                      </div>
+                      <Menu
+                      id="basic-menu"
+                      className="menu-cd"
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      MenuListProps={{
+                        "aria-labelledby": "basic-button",
+                      }}
+                    >
+                      <div>
+                        <MenuItem
+                          className="menuitem-avis"
+                          onClick={() => {
+                            handleClicke("Ajoute un article");
+                          }}
+                        >
+                          <Edit size="22" color="#222222" />
+                          <span>
+                            <p className="txtmenu-cd">Ajoute un article</p>
+                          </span>
+                        </MenuItem>
+                        <MenuItem
+                          className="menuitem-avis"
+                          onClick={() => {
+                            handleClicke("Supprime un article");
+                          }}
+                        >
+                          <Trash size="22" color="#222222" />
+                          <span onClick={()=>setCommande(e?.produitlabrairies)}>
+                            <p className="txtmenu-cd">Supprime un article</p>
+                          </span>
+                        </MenuItem>
+                        <MenuItem
+                          className="menuitem-cd"
+                          onClick={() => {
+                            setop2(true);
+                            setAnchorEl(null);
+                          }}
+                        >
+                          <BoxRemove size="22" color="red" />
+                          <span>
+                            <p style={{ color: "red" }} className="txtmenu-cd">
+                              Annule Commande{" "}
+                            </p>
+                          </span>
+                        </MenuItem>
+                      </div>
+
+                                    </Menu>
                       </div>
                     ))}
-                         <Menu
-              id="basic-menu"
-              className="menu-cd"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-              }}
-            >
-     <div>
-         
-     <MenuItem
-                                className="menuitem-avis"
-                                onClick={()=>{handleClicke("Ajoute un article")}}
-                              >
-                                <Edit size="22" color="#222222" />
-                                <span>
-                                  <p className="txtmenu-cd">Ajoute un article</p>
-                                </span>
-                              </MenuItem>
-     </div>
-                          
-                                
-                         <div>
-                         <MenuItem
-                                className="menuitem-avis"
-                                onClick={()=>{handleClicke("Supprime un article")}}
-                          
-                              >
-                                <Trash size="22" color="#222222" />
-                                <span>
-                                  <p className="txtmenu-cd">Supprime un article</p>
-                                </span>
-                              </MenuItem>
-                          
-                         </div>
-                       <div>
-                       <MenuItem
-                                className="menuitem-cd"
-                                onClick={()=>{setop2(true);setAnchorEl(null);}}
-                           
-                              >
-                                <BoxRemove size="22" color="red"/>
-                                <span>
-                                  <p      style={{color:"red"}} className="txtmenu-cd">Annule Commande </p>
-                                </span>
-                              </MenuItem>
-                       </div>
-            </Menu>
+                 
                   </div>
                 </div>
 
@@ -376,7 +403,6 @@ const Commandes = (props) => {
                   </div>
                 </div>
                 <br />
-               
               </div>
             </TabPanel>
             <TabPanel value={value} index={1}>
@@ -784,95 +810,131 @@ const Commandes = (props) => {
           </Box>
           <Modal
             open={Modelopen}
-            onClose={()=>setModelopen(false)}
+            onClose={() => setModelopen(false)}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-             <div>
-             <div className="close">
-                  <i class="fa fa-close" onClick={()=>setModelopen(false)}></i>
+              <div>
+                <div className="close">
+                  <i
+                    class="fa fa-close"
+                    onClick={() => setModelopen(false)}
+                  ></i>
                 </div>
-    <div className="Modeltitre-com">
-    <p className="Model-titre">{titre}</p>
-    </div>
-    <div className="Modeltitre-com">
-    <OutlinedInput className="search-inpute02"placeholder={"Rechercher..."}
-              endAdornment={
-                <InputAdornment position="end">
-                  <SearchNormal1 size="19" color="#B1B1B1" />
-                </InputAdornment>
-              }
-            />
-    </div><br/>
-    <div style={{display:"flex",gap:"4em",marginTop:"5%"}}>
-      <div className="txtmadal-comnd03">produit</div>
-      <div className="txtmadal-comnd03">nom de produit</div>
-      <div className="txtmadal-comnd02">prix</div>
-    </div>
-               
-                { 
-                titre!=="Supprime un article"?
-                <div className="scroll-maodalc">
-                {produitShope.map((e)=>(<div className="prod" >
-                          <img src={"http://127.0.0.1:8080/uploads/"+e.imagelibrairies?.[0]?.name_Image} />
-                          <p className="titre-model-box"> {e.titre}</p>
-                          <p> {e.prix} Dt</p>
-                          <AddCircle size="22" color="#222222" style={{marginTop:"14px", cursor:"pointer"}} onClick={()=>addProd(1,e.id,idCommande,e.prix)}/>
-                    </div>  ))}
-                      
-              </div>
-              :
-                
-              <div className="scroll-maodalc">
-              {produitShope.map((e)=>(<div className="prod" >
-                        <img src={"http://127.0.0.1:8080/uploads/"+e.imagelibrairies?.[0]?.name_Image} />
+                <div className="Modeltitre-com">
+                  <p className="Model-titre">{titre}</p>
+                </div>
+                <div className="Modeltitre-com">
+                  <OutlinedInput
+                    className="search-inpute02"
+                    placeholder={"Rechercher..."}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <SearchNormal1 size="19" color="#B1B1B1" />
+                      </InputAdornment>
+                    }
+                  />
+                </div>
+                <br />
+                <div style={{ display: "flex", gap: "4em", marginTop: "5%" }}>
+                  <div className="txtmadal-comnd03">produit</div>
+                  <div className="txtmadal-comnd03">nom de produit</div>
+                  <div className="txtmadal-comnd02">prix</div>
+                </div>
+
+                {titre !== "Supprime un article" ? (
+                  <div className="scroll-maodalc">
+                    {produitShope.map((e) => (
+                      <div className="prod">
+                        <img
+                          src={
+                            "http://127.0.0.1:8080/uploads/" +
+                            e.imagelibrairies?.[0]?.name_Image
+                          }
+                        />
                         <p className="titre-model-box"> {e.titre}</p>
                         <p> {e.prix} Dt</p>
-                        <CloseCircle size="22" color="red" style={{marginTop:"14px", cursor:"pointer"}} onClick={()=>addProd(1,e.id,idCommande,e.prix)}/>
-                  </div>  ))}
-                    
-            </div>
-                }
-             
-              
+                        <AddCircle
+                          size="22"
+                          color="#222222"
+                          style={{ marginTop: "14px", cursor: "pointer" }}
+                          onClick={() => addProd(1, e.id, idCommande, e.prix)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="scroll-maodalc">
+                    {ProduitCommande.map((e) => (
+                      <div className="prod">
+                        <img
+                          src={
+                            "http://127.0.0.1:8080/uploads/" +
+                            e.imagelibrairies?.[0]?.name_Image
+                          }
+                        />
+                        <p className="titre-model-box"> {e.titre}</p>
+                        <p> {e.prix} Dt</p>
+                        <CloseCircle
+                          size="22"
+                          color="red"
+                          style={{ marginTop: "14px", cursor: "pointer" }}
+                          onClick={() => deleteArticle(e?.produit_c_Detail?.produitlabrairieId,e?.produit_c_Detail?.commandeEnDetailId)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </Box>
           </Modal>
 
           <Modal
-        open={op2}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        onClose={()=>{setop2(false)}}
-      >
-        <Box sx={stylee}>
-          <div className="container-modal">
-            <div className="flex-end">
-              {" "}
-              <div>
-                {" "}
-                <i class="fa fa-close" onClick={()=>{setop2(false)}}></i>
-              </div>
-            </div>
-            <br />
-            <div>
-              <p className="txtmodal2-page4">
-                Etes-vous sûr de vouloir Annuler cette Commande?
-              </p>
-            </div>
+            open={op2}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            onClose={() => {
+              setop2(false);
+            }}
+          >
+            <Box sx={stylee}>
+              <div className="container-modal">
+                <div className="flex-end">
+                  {" "}
+                  <div>
+                    {" "}
+                    <i
+                      class="fa fa-close"
+                      onClick={() => {
+                        setop2(false);
+                      }}
+                    ></i>
+                  </div>
+                </div>
+                <br />
+                <div>
+                  <p className="txtmodal2-page4">
+                    Etes-vous sûr de vouloir Annuler cette Commande?
+                  </p>
+                </div>
 
-            <div className="minirow2-page4">
-              <button  onClick={()=>{setop2(false)}} className="bnt3-page">
-                <p className="txtbnt3-page4">Annuler</p>
-              </button>
-              <button className="bnt40-page4" onClick={Annuler}>
-                <p className="txtbnt40-page">Confirmer</p>
-              </button>
-            </div>
-          </div>
-        </Box>
-      </Modal>
+                <div className="minirow2-page4">
+                  <button
+                    onClick={() => {
+                      setop2(false);
+                    }}
+                    className="bnt3-page"
+                  >
+                    <p className="txtbnt3-page4">Annuler</p>
+                  </button>
+                  <button className="bnt40-page4" onClick={Annuler}>
+                    <p className="txtbnt40-page">Confirmer</p>
+                  </button>
+                </div>
+              </div>
+            </Box>
+          </Modal>
         </div>
       </div>
     </div>

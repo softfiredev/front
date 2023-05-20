@@ -87,19 +87,10 @@ const [value, setValue] = useState(0);
   useEffect(() => {
     dispatch(getProduitDetail(id));
     dispatch( getAllProduitByCategorie(produitDetail?.categorieId))
-    if(produit.length==0&& produitState!="failed")
-    {
-      nav(0)
-    }
   }, [id]);
   useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));
     window.scrollTo(0, 0);
-    if(produit.length==0&& produitState!="failed")
-    
-{
-  nav(0)
-}
   },[refresh])
 
   const breadcrumbs = [

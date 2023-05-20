@@ -21,38 +21,7 @@ const Recapitulatif = (props) => {
   React.useEffect(() => {
     calculTotalHT();
   }, [commande]);
-  const passeCommande = () => {
-    const commandes = [];
-    const groupedCommande = commande.reduce((acc, item) => {
-      const { idlib, prix, qte, produitlabrairieId } = item;
-      if (!acc[idlib]) {
-        acc[idlib] = { produits: [], total_ttc: 0 };
-      }
-      acc[idlib].produits.push({ produitlabrairieId, Qte: qte });
-      acc[idlib].total_ttc += (prix*1.07);
-      return acc;
-    }, {});
-    
-    for (const idlib in groupedCommande) {
-      const { produits, total_ttc } = groupedCommande[idlib];
-      commandes.push({ produits, total_ttc, userId: props.iduser, labrairieId: Number(idlib) });
-    }
-    console.log(commandes)
-    const data ={
-      "commande":commandes
-    }
-    if(props.auth){
-      dispatch(AjouteCommande(data)).then((response)=>{
-        if(response.payload.success===true){
-          toast.success("commande a été passée avec succès",{autoClose: 1000})
-        }
-      })
-    }else{
-      toast.error(" login pour passe une commande ",{autoClose: 1000})
-    }
-    
-  };
- 
+
   return (
     <div className="resume">
       <h1 className="titre2">Récapitulatif</h1>
@@ -98,9 +67,17 @@ const Recapitulatif = (props) => {
         <p className="totalTTC">Total TTC</p>
         <p className="totalMontant">{(totalHT * 1.07).toFixed(2)} dt</p>
       </Grid>
-      <Link to={"/Faire_une_commande"}> <button className="btn-verifie">
+      
+      {commande.length!=0?
+  <Link to={"/Faire_une_commande"}> <button className="btn-verifie">
         Vérifier
-      </button></Link>
+      </button>
+      </Link>
+      :
+    <button className="btn-verifie" onClick={()=>{ toast.error("ne pasdes produit dans votre card !!",{autoClose: 1000})}}>
+      Vérifier
+    </button>
+}
      
     </div>
   );

@@ -225,26 +225,25 @@ const vrifmode=()=>{
                <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>
-            {addresses?.length != 0 ? (
-              
-              <div className={open2?"sousblox2-Fc":"sousblox2-Fc-none"}>
-                <div className="txtwidth-Fc">
-                  <p className="txt3-Fc">Mes adresses:</p>
-                </div>
+            {props.user.auth?
+            <div className="sousblox2-Fc">
+            <div className="txtwidth-Fc">
+              <p className="txt3-Fc">Mes adresses:</p>
+            </div>
 
-                {addresses?.map((obj, index) => (
-                  <div className="rowmini-Fc">
-                    <input type="Radio" className="radio-Fc" name="r0" value={obj.id}  onChange={(e)=>setidA(e.target.value)}  />
-                    <div className="colini-Fc">
-                      <div>
-                        <p className="txt4-Fc">{obj.Nom_de_adresse}</p>
-                      </div>
-                      <div>
-                        <p className="txt5-Fc">{obj.Adresse},{obj.Gouvernorat},{obj.Ville},{obj.Code_postal}</p>
-                      </div>
-                    </div>
+            {addresses?.map((obj, index) => (
+              <div className="rowmini-Fc">
+                <input type="Radio" className="radio-Fc" name="r0" value={obj.id}  onChange={(e)=>setidA(e.target.value)}/>
+                <div className="colini-Fc">
+                  <div>
+                    <p className="txt4-Fc">{obj.Nom_de_adresse}</p>
                   </div>
-                ))}
+                  <div>
+                    <p className="txt5-Fc">{obj.Adresse},{obj.Gouvernorat},{obj.Ville},{obj.Code_postal}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
 
             <div className="rowmini-Fc">
               <input type="Radio" className="radio-Fc" name="r0"  onChange={(e)=>{setOpenFormAdr(e.target.checked)}} />

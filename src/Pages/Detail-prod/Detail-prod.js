@@ -91,6 +91,10 @@ const [value, setValue] = useState(0);
   }, [id]);
   useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));
+    if(produit.length==0&& produitState!="failed")
+{
+  nav(0)
+}
   },[refresh])
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/Shop">

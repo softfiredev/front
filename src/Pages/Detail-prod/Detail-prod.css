@@ -343,8 +343,8 @@ color: #B1B1B1;
 }
 .tele{margin-left: 34%;}
 .downlo-modal{
-    width: 478px;
-    height: 144px;
+    width: 440px;
+    height: 100px;
     justify-content: center;
 display: flex;
 flex-direction: column;

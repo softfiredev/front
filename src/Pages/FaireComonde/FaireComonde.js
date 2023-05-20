@@ -12,18 +12,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getIdentiteClientt } from "../../Store/Service/identiteClient";
 import { AjouteCommande } from "../../Store/Service/AjouteCommande";
 import { toast } from "react-toastify";
+import { AddAdrClient } from "../../Store/Service/AdrClient/AddAdrClient";
 
 const FaireComonde = (props) => {
   const navigate = useNavigate();
-  const [addresse, setAddresse] = useState({
-    nom: "",
-    addr: "",
-    Ville: "",
-    codepostal: "",
-    clientId: "",
-    Societe: "",
-    NuméroTVA: "",
-  });
+  const [addresse, setAddresse] = useState({ addr: "",Ville:"",codepostal:"",clientId:"" });
+
   const [Gouvernorat, setGouvernorat] = useState("");
   const Gouvernora = [
     { nome: "Ariana" },
@@ -53,6 +47,7 @@ const FaireComonde = (props) => {
     { nome: "Tunis" },
     { nome: "Zaghouan" },
   ];
+  const [opencoll, setopencoll] = React.useState(false);
   const [check, setCheck] = useState(false);
   const [login, setlogin] = useState(false);
   const [open2, setopen2] = useState(false);
@@ -61,8 +56,10 @@ const FaireComonde = (props) => {
   const [ModeLiv,setModeLiv] = useState();
   const [ModePay,setModePay] = useState();
   const [idA,setidA] = useState();
-  console.log(idA,"adresse",ModeLiv,"modeliv",ModePay,"Modepay")
   const [OpenFormAdr,setOpenFormAdr] = useState(false);
+  const [refreshpage,setrefreshpage]=useState()
+  const [step2, setstep2] = useState(false);
+  const [step3, setstep3] = useState(false);
   const handleChangeGouvernorat = (event) => {
     setGouvernorat(event.target.value);
   };
@@ -75,13 +72,35 @@ const FaireComonde = (props) => {
       }));
     };
   };
-
+  const Ajoutadr=()=>{
+    let data = {
+      Nom_de_adresse: addresse.nom,
+      Adresse: addresse.addr,
+      Gouvernorat: Gouvernorat,
+      Ville: addresse.Ville,
+      Code_postal: addresse.codepostal,
+      clientId: props.user.id,
+    }
+    if(Gouvernorat.length!==0 && addresse.addr.length!==0 && addresse.Ville.length!==0&& addresse.codepostal.length!==0 ){
+      AddAdrClient(data).then((response)=>{
+        if(response.success===true){
+            toast.success("votre Adresse  Ajoute  avec success",{autoClose: 1000})
+            setrefreshpage(true)
+        }
+      })
+      setOpenFormAdr(false)
+      setrefreshpage(false)
+      setstep2(true)
+  }
+  else{ toast.error("remplir votre champ svp !!!",{autoClose: 1000})}
+  }
   const checkedboxfilter = (event) => {
     setCheck(event.target.checked);
   };
   
-  const data = [];
+
   const panier=useSelector(state=> state.Panier.panier)
+
   const commande = useSelector((state) => state.Commande.commande);
   const [totalHT, settotalHT] = React.useState(0);
   const calculTotalHT = () => {
@@ -93,16 +112,20 @@ const FaireComonde = (props) => {
   };
   React.useEffect(() => {
     calculTotalHT();
-  }, [commande]);
+  }, [commande||refreshpage]);
   const clientData = useSelector(
     (state) => state.IdentiteClient.identiteClient
   );
   const dispatch=useDispatch()
   useEffect(()=>{
         dispatch(getIdentiteClientt(props.user.id));
-  },[clientData])
+  },[refreshpage])
+
+  
   const addresses=clientData?.client?.adresses
   const passeCommande = () => {
+  if(ModePay!==undefined)
+  {
     const commandes = [];
     const groupedCommande = commande.reduce((acc, item) => {
       const { idlib, prix, qte, produitlabrairieId } = item;
@@ -118,21 +141,37 @@ const FaireComonde = (props) => {
       const { produits, total_ttc } = groupedCommande[idlib];
       commandes.push({ produits, total_ttc,Adresse:idA,Mode_liv:ModeLiv,Mode_pay:ModePay, userId: props.user.id, labrairieId: Number(idlib) });
     }
-    console.log(commandes)
+
     const data ={
       "commande":commandes
     }
+    console.log(data)
     if(props.user.auth){
       dispatch(AjouteCommande(data)).then((response)=>{
         if(response.payload.success===true){
           toast.success("commande a été passée avec succès",{autoClose: 1000})
+          
         }
       })
     }else{
       toast.error(" login pour passe une commande ",{autoClose: 1000})
     }
     
+  }
+  else{
+    toast.error("choisir un étails de paiement !!!",{autoClose: 1000})
+  }
   };
+const vrifmode=()=>{
+  if(ModeLiv===undefined)
+  {
+    toast.error("choisir un Mode de livraison !!!",{autoClose: 1000})
+  }
+  else{
+    setstep3(true)
+  }
+}
+  
   return (
     <div className="Fc">
       <div>
@@ -174,7 +213,7 @@ const FaireComonde = (props) => {
             </div>
           </div>
 
-          <div className="blox-Fc"  onClick={()=>setopen2(true)}>
+          <div className="blox-Fc">
             <div className="bloxrow-Fc" onClick={()=>setopen2(true)}>
               <div className="circule-Fc">
                 <p>2</p>
@@ -182,7 +221,7 @@ const FaireComonde = (props) => {
               <div  className="txtwidth-Fc">
                 <p className="txt2-Fc">Adresses</p>
               </div>
-              <div className={idA!==undefined?"tick-Fc":"tick-Fc-none"}>
+              <div className={idA!=undefined?"tick-Fc":"tick-Fc-none"}>
                <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>
@@ -192,6 +231,7 @@ const FaireComonde = (props) => {
                 <div className="txtwidth-Fc">
                   <p className="txt3-Fc">Mes adresses:</p>
                 </div>
+
                 {addresses?.map((obj, index) => (
                   <div className="rowmini-Fc">
                     <input type="Radio" className="radio-Fc" name="r0" value={obj.id}  onChange={(e)=>setidA(e.target.value)}  />
@@ -206,123 +246,139 @@ const FaireComonde = (props) => {
                   </div>
                 ))}
 
-                <div className="rowmini-Fc">
-                  <input type="Radio" className="radio-Fc" name="r0"  onChange={(e)=>{setOpenFormAdr(e.target.checked)}} />
-                  <div>
-                    <p className="txt4-Fc">Autre</p>
-                  </div>
-                </div>
-
-                <div className={OpenFormAdr?"sousblox3-Fc":"sousblox3-Fc-none"}>
-                  <br />
-
-                  <div className="colini-Fc">
-                    <div>
-                      <p className="txt5-Fc">Adresse *</p>
-                    </div>
-                    <OutlinedInput
-                      className="input-Fc"
-                      onChange={handleInputChange("addr")}
-                      value={addresse.addr}
-                    />
-                  </div>
-
-                  <div className="colini-Fc">
-                    <div>
-                      <p className="txt5-Fc">Gouvernorat</p>
-                    </div>
-                    <Select
-                      value={Gouvernorat}
-                      onChange={handleChangeGouvernorat}
-                      className="txt-select-page"
-                      placeholder="Tunis"
-                      style={{
-                        width: "460px",
-                        height: " 48px",
-                        borderRadius: "8px",
-                      }}
-                    >
-                      <MenuItem value="Tunis">
-                        <em className="txt-select-page">Tunis</em>
-                      </MenuItem>
-
-                      {Gouvernora?.map((obj, key) => (
-                        <MenuItem value={obj.nome} className="txt-select-page">
-                          {obj.nome}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                    <div></div>
-                  </div>
-
-                  <div className="colini-Fc">
-                    <div>
-                      <p className="txt5-Fc">Ville</p>
-                    </div>
-                    <OutlinedInput
-                      className="input-Fc"
-                      onChange={handleInputChange("Ville")}
-                      value={addresse.Ville}
-                    />
-                  </div>
-
-                  <div className="colini-Fc">
-                    <div>
-                      <p className="txt5-Fc">Code postal*</p>
-                    </div>
-                    <OutlinedInput
-                      className="input-Fc"
-                      onChange={handleInputChange("codepostal")}
-                      value={addresse.codepostal}
-                    />
-                  </div>
-
-                  <div className="colini-Fc">
-                    <div>
-                      <p className="txt5-Fc">Société</p>
-                    </div>
-                    <OutlinedInput
-                      placeholder="Société"
-                      className="input-Fc"
-                      onChange={handleInputChange("Societe")}
-                      value={addresse.Societe}
-                    />
-                  </div>
-                  <div className="colini-Fc">
-                    <div>
-                      <p className="txt5-Fc">Numéro de TVA</p>
-                    </div>
-                    <OutlinedInput
-                      placeholder="Numéro de TVA"
-                      className="input-Fc"
-                      onChange={handleInputChange("NuméroTVA")}
-                      value={addresse.NuméroTVA}
-                    />
-                  </div>
-                  <div>
-                    <Grid item container spacing={1}>
-                      <Checkbox
-                        style={{ color: " #62B0E8" }}
-                        onChange={checkedboxfilter}
-                      />
-                      <span>
-                        <p className="Souviens-Fc">
-                          Utiliser aussi cette adresse pour la facturation
-                        </p>
-                      </span>
-                    </Grid>
-                  </div>
-                  <div className="endflex-Fc">
-                    <button className="bntendflex-Fc">Continuer</button>
-                  </div>
-                </div>
+            <div className="rowmini-Fc">
+              <input type="Radio" className="radio-Fc" name="r0"  onChange={(e)=>{setOpenFormAdr(e.target.checked)}} />
+              <div>
+                <p className="txt4-Fc">Autre</p>
               </div>
-            ) : (
-              <></>
-            )}
+            </div>
+
+            <div className={OpenFormAdr?"sousblox3-Fc":"sousblox3-Fc-none"}>
+              <br />
+
+              <div className="colini-Fc">
+                <div>
+                  <p className="txt5-Fc">Adresse *</p>
+                </div>
+                <OutlinedInput
+                  className="input-Fc"
+                  onChange={handleInputChange("addr")}
+                  value={addresse.addr}
+                />
+              </div>
+
+              <div className="colini-Fc">
+                <div>
+                  <p className="txt5-Fc">Gouvernorat</p>
+                </div>
+                <Select
+                  value={Gouvernorat}
+                  onChange={handleChangeGouvernorat}
+                  className="txt-select-page"
+                  placeholder="Tunis"
+                  style={{
+                    width: "460px",
+                    height: " 48px",
+                    borderRadius: "8px",
+                  }}
+                >
+                  <MenuItem value="Tunis">
+                    <em className="txt-select-page">Tunis</em>
+                  </MenuItem>
+
+                  {Gouvernora?.map((obj, key) => (
+                    <MenuItem value={obj.nome} className="txt-select-page">
+                      {obj.nome}
+                    </MenuItem>
+                  ))}
+                </Select>
+                <div></div>
+              </div>
+
+              <div className="colini-Fc">
+                <div>
+                  <p className="txt5-Fc">Ville</p>
+                </div>
+                <OutlinedInput
+                  className="input-Fc"
+                  onChange={handleInputChange("Ville")}
+                  value={addresse.Ville}
+                />
+              </div>
+
+              <div className="colini-Fc">
+                <div>
+                  <p className="txt5-Fc">Code postal*</p>
+                </div>
+                <OutlinedInput
+                  className="input-Fc"
+                  onChange={handleInputChange("codepostal")}
+                  value={addresse.codepostal}
+                />
+              </div>
+
+              <div className="colini-Fc">
+                <div>
+                  <p className="txt5-Fc">Société</p>
+                </div>
+                <OutlinedInput
+                  placeholder="Société"
+                  className="input-Fc"
+ 
+                />
+              </div>
+              <div className="colini-Fc">
+                <div>
+                  <p className="txt5-Fc">Numéro de TVA</p>
+                </div>
+                <OutlinedInput
+                  placeholder="Numéro de TVA"
+                  className="input-Fc"
+           
+                />
+              </div>
+              <div>
+                <Grid item container spacing={1}>
+                  <Checkbox
+                    style={{ color: " #62B0E8" }}
+                    onChange={checkedboxfilter}
+                  />
+                  <span>
+                    <p className="Souviens-Fc">
+                      Utiliser aussi cette adresse pour la facturation
+                    </p>
+                  </span>
+                </Grid>
+              </div>
+              <div className="endflex-Fc">
+                <button className="bntendflex-Fc" onClick={Ajoutadr}>Continuer</button>
+              </div>
+            </div>
+
+            </div>
+            :
+            <>
+            </> 
+            }
+              
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           </div>
 
-          <div className="blox-Fc" onClick={()=>setopen3(true)}>
+          <div className="blox-Fc">
             <div className="bloxrow-Fc">
             
               <div className="circule-Fc"  >
@@ -337,9 +393,9 @@ const FaireComonde = (props) => {
               </div>
             </div>
 
-            <div className={open3?"colini-Fc":"colini-Fc-none"}>
+            <div className={idA!=undefined?"colini-Fc":"colini-Fc-none"}>
               <div className="rowmini-Fc">
-                <input type="Radio" className="radio-Fc" name="r0"  value={"Fly Delivery - Mahdia"} onChange={(e)=>setModeLiv(e.target.value)}/>
+                <input type="Radio" className="radio-Fc" name="r1"  value={"Fly Delivery - Mahdia"} onChange={(e)=>setModeLiv(e.target.value)}/>
                 <div className="colini-Fc">
                   <div>
                     <p className="txt4-Fc">Fly Delivery - Mahdia</p>
@@ -350,7 +406,7 @@ const FaireComonde = (props) => {
                 </div>
               </div>
               <div className="rowmini-Fc">
-                <input type="Radio" className="radio-Fc" name="r0"  value={"Aramex - Toute la Tunisie"}  onChange={(e)=>setModeLiv(e.target.value)} />
+                <input type="Radio" className="radio-Fc" name="r1"  value={"Aramex - Toute la Tunisie"}  onChange={(e)=>setModeLiv(e.target.value)} />
                 <div className="colini-Fc">
                   <div>
                     <p className="txt4-Fc">Aramex - Toute la Tunisie </p>
@@ -363,7 +419,7 @@ const FaireComonde = (props) => {
                 </div>
               </div>
               <div className="rowmini-Fc">
-                <input type="Radio" className="radio-Fc" name="r0" value={"Retrait en magasine"} onChange={(e)=>setModeLiv(e.target.value)} />
+                <input type="Radio" className="radio-Fc" name="r1" value={"Retrait en magasine"} onChange={(e)=>setModeLiv(e.target.value)} />
                 <div className="colini-Fc">
                   <div>
                     <p className="txt4-Fc">Retrait en magasine </p>
@@ -376,13 +432,13 @@ const FaireComonde = (props) => {
                 </div>
               </div>
               <div className="endflex-Fc">
-                <button className="bntendflex-Fc">Continuer</button>
+                <button className="bntendflex-Fc" onClick={vrifmode}>Continuer</button>
               </div>
             </div>
           </div>
 
-          <div className="blox-Fc"  onClick={()=>setopen4(true)}>
-            <div className="bloxrow-Fc" >
+          <div className="blox-Fc">
+            <div className="bloxrow-Fc"  onClick={()=>setopen4(true)}>
               <div className="circule-Fc4">
                 <p>4</p>
               </div>
@@ -394,9 +450,9 @@ const FaireComonde = (props) => {
               </div>
             </div>
              
-            <div className={open4?"colini-Fc":"colini-Fc-none"}>
+            <div className={step3?"colini-Fc":"colini-Fc-none"}>
               <div className="rowmini-Fc">
-                <input type="Radio" className="radio-Fc" name="r0" value={"Paiement par carte bancaire à la livraison"} onChange={(e)=>setModePay(e.target.value)} />
+                <input type="Radio" className="radio-Fc" name="r2" value={"Paiement par carte bancaire à la livraison"} onChange={(e)=>setModePay(e.target.value)} />
 
                 <div>
                   <p className="txt7-Fc">
@@ -406,7 +462,7 @@ const FaireComonde = (props) => {
                 </div>
               </div>
               <div className="rowmini-Fc">
-                <input type="Radio" className="radio-Fc" name="r0" value={"Paiement par carte bancaire"} onChange={(e)=>setModePay(e.target.value)} />
+                <input type="Radio" className="radio-Fc" name="r2" value={"Paiement par carte bancaire"} onChange={(e)=>setModePay(e.target.value)} />
 
                 <div>
                   <p className="txt7-Fc">
@@ -416,7 +472,7 @@ const FaireComonde = (props) => {
                 </div>
               </div>
               <div className="rowmini-Fc">
-                <input type="Radio" className="radio-Fc" name="r0" value={"Payer comptant à la livraison"} onChange={(e)=>setModePay(e.target.value)}/>
+                <input type="Radio" className="radio-Fc" name="r2" value={"Payer comptant à la livraison"} onChange={(e)=>setModePay(e.target.value)}/>
 
                 <div>
                   <p className="txt7-Fc">Payer comptant à la livraison</p>

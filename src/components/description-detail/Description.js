@@ -72,12 +72,12 @@ const sup=()=>{
 }
   const style = {
     position: "absolute",
-    top: "50%",
+    top: "56%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     background: "#FFFFFF",
-    width: "544px",
-    height: "715px",
+    width: "500px",
+    height: "600px",
     boxShadow:
       "2px 5px 15px rgba(26, 31, 39, 0.02), 10px 15px 40px rgba(26, 31, 39, 0.03)",
     borderRadius: "8px",
@@ -278,8 +278,8 @@ if(!sizeimg)
                     className="inpu-conn2-modal"
                     placeholder="Message"
                     multiline
-                    rows={5}
-                    maxRows={80}
+                    rows={3}
+                    maxRows={50}
                     onChange={(e)=>{setmessage(e.target.value)}}
                   /> 
                   {img !==undefined?

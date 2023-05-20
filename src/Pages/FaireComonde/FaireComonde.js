@@ -150,7 +150,7 @@ const FaireComonde = (props) => {
       dispatch(AjouteCommande(data)).then((response)=>{
         if(response.payload.success===true){
           toast.success("commande a été passée avec succès",{autoClose: 1000})
-          
+          navigate("/Shop");
         }
       })
     }else{
@@ -171,7 +171,8 @@ const vrifmode=()=>{
     setstep3(true)
   }
 }
-  
+
+  console.log(OpenFormAdr+"/"+idA)
   return (
     <div className="Fc">
       <div>
@@ -233,7 +234,7 @@ const vrifmode=()=>{
 
             {addresses?.map((obj, index) => (
               <div className="rowmini-Fc">
-                <input type="Radio" className="radio-Fc" name="r0" value={obj.id}  onChange={(e)=>setidA(e.target.value)}/>
+                <input type="Radio" className="radio-Fc" name="r0" value={obj.id} onClick={()=>{setidA(obj.id);setOpenFormAdr(false)}}/>
                 <div className="colini-Fc">
                   <div>
                     <p className="txt4-Fc">{obj.Nom_de_adresse}</p>
@@ -246,7 +247,7 @@ const vrifmode=()=>{
             ))}
 
             <div className="rowmini-Fc">
-              <input type="Radio" className="radio-Fc" name="r0"  onChange={(e)=>{setOpenFormAdr(e.target.checked)}} />
+              <input type="Radio" className="radio-Fc" name="r0"   onClick={()=>{setOpenFormAdr((true));setidA(undefined)}} />
               <div>
                 <p className="txt4-Fc">Autre</p>
               </div>
@@ -576,7 +577,7 @@ const vrifmode=()=>{
 
             <div className="col202-Fc">
               <div>
-                {" "}
+              
                 <p className="txt101-Fc">{(totalHT*1.07).toFixed(2)} dt</p>
               </div>
             </div>

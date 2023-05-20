@@ -95,10 +95,11 @@ const Commandes = (props) => {
     setAnchorEl(null);
     settitre(titre);
   };
-  const [op, setop] = React.useState(false);
+
   const [op2, setop2] = React.useState(false);
   const [idCommande, setidCommande] = useState();
   const [refresh, setrefresh] = useState(0);
+  const [prodcom, setprodcom] = React.useState();
   const dropDownOn = (id) => {
     setdropdowArticle(true);
     setiDdropdownArticle(id);
@@ -130,7 +131,7 @@ const Commandes = (props) => {
     return item?.etatClient?.includes("en cours");
   });
   const [ProduitCommande,setCommande]=useState()
-  console.log(ProduitCommande)
+
   const addProd = (Qte, produitlabrairieId, commandeEnDetailId, prix) => {
     const data = {
       Qte: Qte,
@@ -142,13 +143,15 @@ const Commandes = (props) => {
     addProduitCommande(data).then((response) => {
       if (response.success === true) {
         setrefresh(refresh + 1);
-        toast.success("Article bien Ajoute");
+        toast.success("Article bien Ajoute", { autoClose: 1000 });
+        setModelopen(false)
       }
     });
   };
-  const handleClick = (id) => {
-    setidCommande(id);
+  const handleClick = (com) => {
+    setidCommande(com?.id);
     setAnchorEl(true);
+    setprodcom(com?.produitlabrairies)
   };
   const Annuler = () => {
     AnnulerCommande(idCommande).then((response) => {
@@ -162,11 +165,12 @@ const Commandes = (props) => {
       deleteProduitCommande(idp,idc).then((response)=>{
         if (response.success === true) {
           setrefresh(refresh + 1);
-          toast.success("Article bien Ajoute");
+          toast.success("article bien suprême", { autoClose: 1000 });
+          setModelopen(false)
         }
       })
   }
-console.log(commandes,"commm")
+
   return (
     <div className="commandes">
       <div className="com1">
@@ -294,7 +298,7 @@ console.log(commandes,"commm")
                               aria-controls={open ? "basic-menu" : undefined}
                               aria-haspopup="true"
                               aria-expanded={open ? "true" : undefined}
-                              onClick={() => handleClick(e.id)}
+                              onClick={() => handleClick(e)}
                             />
                           </div>
                         </div>
@@ -567,7 +571,7 @@ console.log(commandes,"commm")
                     {filteredEncours?.map((e, key) => (
                       <div>
                         <div className="commande-data" key={key}>
-                          <p className="idcommande"> {e.id}</p>
+                          <p className="idcommande"> {e?.id}</p>
                           <div className="articles">
                             <div>
                               {" "}
@@ -866,7 +870,7 @@ console.log(commandes,"commm")
                   </div>
                 ) : (
                   <div className="scroll-maodalc">
-                    {ProduitCommande.map((e) => (
+                    {prodcom?.map((e) => (
                       <div className="prod">
                         <img
                           src={

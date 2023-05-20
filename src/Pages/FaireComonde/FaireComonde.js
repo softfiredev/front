@@ -213,8 +213,8 @@ const vrifmode=()=>{
             </div>
           </div>
 
-          <div className="blox-Fc" >
-            <div className="bloxrow-Fc">
+          <div className="blox-Fc">
+            <div className="bloxrow-Fc" onClick={()=>setopen2(true)}>
               <div className="circule-Fc">
                 <p>2</p>
               </div>
@@ -376,7 +376,8 @@ const vrifmode=()=>{
 
 
           </div>
-          <div className="blox-Fc" onClick={()=>setopen3(true)}>
+
+          <div className="blox-Fc">
             <div className="bloxrow-Fc">
             
               <div className="circule-Fc"  >
@@ -435,8 +436,8 @@ const vrifmode=()=>{
             </div>
           </div>
 
-          <div className="blox-Fc"  >
-            <div className="bloxrow-Fc" >
+          <div className="blox-Fc">
+            <div className="bloxrow-Fc"  onClick={()=>setopen4(true)}>
               <div className="circule-Fc4">
                 <p>4</p>
               </div>

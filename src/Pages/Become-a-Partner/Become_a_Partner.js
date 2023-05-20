@@ -6,6 +6,8 @@ import Cartcontact from "../../components/cart-contact/cart_contact";
 import React, { useEffect, useState } from "react";
 import Liste from "../../components/listefq/liste";
 import { Link } from 'react-router-dom';
+import { becamePartner } from "../../Store/Service/becamePartner";
+import { toast } from "react-toastify";
 const Become_a_Partner = () => {
   const [file,setfile]=useState()
   const [sizeimg,setSizeimg]=useState(false)
@@ -13,6 +15,34 @@ const Become_a_Partner = () => {
   const [imgsize,setImgsize]=useState()
   const [realimgsize,setRealimgsize]=useState()
   const [imgname,setImgmane]=useState()
+  const [fullname,setFullname]=useState()
+  const [email,setemail]=useState()
+  const [phone,setphone]=useState()
+  const [Role,setRole]=useState()
+  const [nameWork,setnameWork]=useState()
+  const [link,setlink]=useState()
+  const [detail,setdetail]=useState()
+  const [pack,setpack]=useState("gold")
+ 
+const EnvoyerDemende=()=>{
+  const forma = new FormData() ; 
+ forma.append("fullname",fullname)
+ forma.append("email",email)
+ forma.append("phone",phone)
+ forma.append("Role",Role)
+ forma.append("name_work",nameWork)
+ forma.append("file",file)
+ forma.append("links",link)
+ forma.append("detail",detail)
+ forma.append("pack",pack)
+ forma.append("etat","Nouveau")
+ forma.append("AdminId",1)
+  becamePartner(forma).then((response)=>{
+      if(response.success===true){
+          toast.success("votre demende Envoyer")
+      }
+  })
+}
   const onImageChange = (e) => {
       if (e.target.files && e.target.files[0]) {
           setImage(URL.createObjectURL(e.target.files[0]));
@@ -150,6 +180,7 @@ const Become_a_Partner = () => {
                             <OutlinedInput
                               className="inpt-becom"
                               placeholder="Nom et prénom"
+                              onChange={(e)=>{setFullname(e.target.value)}}
                             /> 
                           </Grid>
                         </Grid>
@@ -173,6 +204,7 @@ const Become_a_Partner = () => {
                             <OutlinedInput
                               className="inpt-becom"
                               placeholder="Numéro de téléphone"
+                              onChange={(e)=>{setphone(e.target.value)}}
                             /> 
                           </Grid>
                         </Grid>
@@ -194,6 +226,7 @@ const Become_a_Partner = () => {
                             <OutlinedInput
                               className="inpt-becom"
                               placeholder="E-mail*"
+                              onChange={(e)=>{setemail(e.target.value)}}
                             /> 
                           </Grid>
                         </Grid>
@@ -214,6 +247,8 @@ const Become_a_Partner = () => {
                                 type="Radio"
                                 className="radio-become"
                                 name="r1"
+                                onChange={(e)=>{setRole(e.target.value)}}
+                                value={"Fournisseur"}
                               />
                               <p className="txt9-become">Fournisseur</p>
                             </div>
@@ -224,6 +259,8 @@ const Become_a_Partner = () => {
                                 type="Radio"
                                 className="radio-become"
                                 name="r1"
+                                value={"Librairie"}
+                                onChange={(e)=>{setRole(e.target.value)}}
                               />
                               <p className="txt9-become">Librairie</p>
                             </div>
@@ -234,6 +271,8 @@ const Become_a_Partner = () => {
                                 type="Radio"
                                 className="radio-become"
                                 name="r1"
+                                onChange={(e)=>{setRole(e.target.value)}}
+                                value={"Entreprise"}
                               />
                               <p className="txt9-become">Entreprise</p>
                             </div>
@@ -244,6 +283,8 @@ const Become_a_Partner = () => {
                                 type="Radio"
                                 className="radio-become"
                                 name="r1"
+                                value={"École"}
+                                onChange={(e)=>{setRole(e.target.value)}}
                               />
                               <p className="txt9-become">École</p>
                             </div>
@@ -255,6 +296,8 @@ const Become_a_Partner = () => {
                                   type="Radio"
                                   className="radio-become"
                                   name="r1"
+                                  value={"Association"}
+                                  onChange={(e)=>{setRole(e.target.value)}}
                                 />
                               </div>
                               <p className="txt9-become">Association</p>
@@ -284,7 +327,6 @@ const Become_a_Partner = () => {
                       spacing={4}
                     >
                       <Grid item>
-                      
                         <p className="txt8-become">Nom de votre travail ?*</p>
                       </Grid>
                       <Grid item>
@@ -292,6 +334,7 @@ const Become_a_Partner = () => {
                         <OutlinedInput
                           className="inpt-becom"
                           placeholder="Nom de votre travail"
+                          onChange={(e)=>{setnameWork(e.target.value)}}
                         /> 
                       </Grid>
                     </Grid>
@@ -349,6 +392,7 @@ const Become_a_Partner = () => {
                         <OutlinedInput
                           className="inpt-becom"
                           placeholder="Lien"
+                          onChange={(e)=>{setlink(e.target.value)}}
                         /> 
                       </Grid>
                     </Grid>
@@ -376,6 +420,7 @@ const Become_a_Partner = () => {
                           multiline
                           rows={5}
                           maxRows={80}
+                          onChange={(e)=>{setdetail(e.target.value)}}
                         />
                       </Grid>
                     </Grid>
@@ -394,7 +439,6 @@ const Become_a_Partner = () => {
                         <div className="txt80-become">Votre choix de pack*</div>
                       </Grid>
                       <Grid item className="Cardbecome">
-                      
                         <Cardbecome /> 
                       </Grid>
                     </Grid>
@@ -403,7 +447,7 @@ const Become_a_Partner = () => {
               </Grid>
 
               <Grid item>
-                <button className="bntn20-bec">
+                <button className="bntn20-bec" onClick={EnvoyerDemende}>
                   <div className="textbnt2Connexionn">Envoyer une demande</div>
                 </button> 
               </Grid>

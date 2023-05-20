@@ -92,7 +92,7 @@ const FaireComonde = (props) => {
       setrefreshpage(false)
       setstep2(true)
   }
-  else{ toast.error("remplir votre champ svp !!!",{autoClose: 1000})}
+  else{ toast.error("remplir votre champ svp !!",{autoClose: 1000})}
   }
   const checkedboxfilter = (event) => {
     setCheck(event.target.checked);

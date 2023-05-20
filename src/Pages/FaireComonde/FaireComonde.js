@@ -192,7 +192,6 @@ const FaireComonde = (props) => {
                 <div className="txtwidth-Fc">
                   <p className="txt3-Fc">Mes adresses:</p>
                 </div>
-
                 {addresses?.map((obj, index) => (
                   <div className="rowmini-Fc">
                     <input type="Radio" className="radio-Fc" name="r0" value={obj.id}  onChange={(e)=>setidA(e.target.value)}  />

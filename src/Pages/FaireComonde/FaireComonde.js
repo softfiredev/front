@@ -145,7 +145,7 @@ const FaireComonde = (props) => {
     const data ={
       "commande":commandes
     }
-    console.log(data)
+ 
     if(props.user.auth){
       dispatch(AjouteCommande(data)).then((response)=>{
         if(response.payload.success===true){
@@ -156,7 +156,6 @@ const FaireComonde = (props) => {
     }else{
       toast.error(" login pour passe une commande ",{autoClose: 1000})
     }
-    
   }
   else{
     toast.error("choisir un étails de paiement !!!",{autoClose: 1000})
@@ -172,7 +171,6 @@ const vrifmode=()=>{
   }
 }
 
-  console.log(OpenFormAdr+"/"+idA)
   return (
     <div className="Fc">
       <div>
@@ -360,22 +358,6 @@ const vrifmode=()=>{
             <>
             </> 
             }
-              
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           </div>
 
           <div className="blox-Fc">

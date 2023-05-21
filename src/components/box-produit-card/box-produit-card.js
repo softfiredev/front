@@ -9,7 +9,6 @@ const Box_produit_Card = (props)=>{
   const [qte,setqte]=useState(props.qte)
   const total = props.prix*qte ; 
   const dispatch = useDispatch();
-  const relod=useNavigate()
   const removeProduit=(index)=>{
     dispatch(remove(index))
     dispatch(removeCommande(index))
@@ -37,7 +36,7 @@ const Box_produit_Card = (props)=>{
                 <div>   <p className="prix">{props.prix} dt</p></div>
                     </div>
              </div>
-              <input type="number" width="20px" className="qte" min={1} onChange={(e)=>changeQtee(e)}  defaultValue={qte}/>
+              <input type="number" width="20px" className="qte" min={1} max={props.qte} onChange={(e)=>changeQtee(e)}  defaultValue={qte}/>
               <p className="total">{total.toFixed(2)} dt</p>
               <div className="Supprimer" onClick={()=>removeProduit(props.index)}> Supprimer </div>
             </Grid>

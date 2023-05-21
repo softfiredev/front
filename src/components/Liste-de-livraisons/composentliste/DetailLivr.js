@@ -27,7 +27,7 @@ const DetailLivr= () => {
            if(response.success==true){
             toast.success("commande Livrer",{autoClose: 1000})
             setref(true)
-            console.log(response)
+   
            }
         })
         setopen(false);
@@ -37,13 +37,8 @@ const DetailLivr= () => {
 
     useEffect(() => {
         dispatch(Detailcomonde(idcomonde.id));
-        if(DetailcomondeClient?.[0]?.data_acceptation===null){
-          setopen(true)
-        }else{
-          setopen(false)
-        }
       }, [ref]);
-
+      console.log(DetailcomondeClient[0])
 
   return (
     <div className='Detailcomnder'>
@@ -54,9 +49,14 @@ const DetailLivr= () => {
    <div >
         <p className='txt1-dc'>Détails de livraison</p>
     </div>
-    <div>
-        <button className='bnt-dl' onClick={Livrer}>Marquer comme livré</button>
-    </div>
+    {
+      DetailcomondeClient?.[0]?.Date_préparée===null?
+      <div>
+      <button className='bnt-dl' onClick={Livrer}>Marquer comme livré</button>
+  </div>
+  :""
+    }
+   
     </div>
     <div className='row1-dc'>
 <div className='col1-dc'>
@@ -126,15 +126,21 @@ const DetailLivr= () => {
 <div className='box3-dc'>
 <div><p className='txtbox2-dc'>Calendrier</p></div>
 <div className='minirow-dc'><div className='cirl3-dc'></div><div><p className='txt3box3-dc'>Demande reçu : </p></div>
-<div><p className='txt4box3-dc'>20/03/2023</p></div>
+<div><p className='txt4box3-dc'>{DetailcomondeClient?.[0]?.createdAt}</p></div>
 </div>
-<div className='minirow-dc'><div className='cirl2-dc'></div><div><p className='txt3box3-dc'>Demande reçu : </p></div>
-<div><p className='txt4box3-dc'>20/03/2023</p></div>
+<div className='minirow-dc'><div className='cirl2-dc'></div><div><p className='txt3box3-dc'>Demande acceptée : </p></div>
+<div><p className='txt4box3-dc'>{DetailcomondeClient?.[0]?.data_acceptation}</p></div>
 </div>
-<div className='minirow-dc'><div className='cirl-dc'></div><div><p className='txt3box3-dc'>Demande reçu : </p></div>
-<div><p className='txt4box3-dc'>20/03/2023</p></div>
-</div>
-<div className='line-dl'></div>
+{DetailcomondeClient?.[0]?.Date_préparée!=null?
+<>
+<div className='minirow-dc'><div className='cirl-dc'></div><div><p className='txt3box3-dc'>Demande préparée : </p></div>
+  <div><p className='txt4box3-dc'>{DetailcomondeClient?.[0]?.Date_préparée}</p></div>
+  </div>
+  <div className='line-dl'></div></>
+  :""
+}
+
+
 </div>
 </div>
 <div className='col05-dc'>

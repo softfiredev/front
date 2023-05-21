@@ -16,11 +16,8 @@ const Shop = () => {
   
   };
 
-
   const dispatch=useDispatch()
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)
- 
-
   const items =8;
   const [current,setCurrent]=useState(1)
   const NbPage=Math.ceil(produitShope.length/items);
@@ -71,6 +68,7 @@ const Shop = () => {
                        <>
                           {DataPerPage.map((obj) => (
                         <>
+                        {obj.qte!=0?
                           <Grid item>
                           <Card
                               prix={obj.prix}
@@ -89,6 +87,9 @@ const Shop = () => {
                               
                             />
                           </Grid>
+                          :""
+
+                        }
                         </>
                           ))}</>
 :

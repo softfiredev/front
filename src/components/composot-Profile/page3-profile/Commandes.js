@@ -156,8 +156,8 @@ const Commandes = (props) => {
   const Annuler = () => {
     AnnulerCommande(idCommande).then((response) => {
       if (response.success == true) {
-        toast.error("commande Annuler", { autoClose: 1000 });
-        setrefresh(refresh + 1);
+        toast.success("commande a ete Annuler", { autoClose: 1000 });
+        setop2(false);
       }
     });
   };

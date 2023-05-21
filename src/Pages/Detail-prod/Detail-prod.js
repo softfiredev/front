@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import ListSubheader from "@mui/material/ListSubheader";
 import Pagination from "@mui/material/Pagination";
@@ -30,6 +30,7 @@ import { AjouteAvis } from './../../Store/Service/AjouteAvis';
 import Avatar from '@mui/material/Avatar';
 import { getAllProduitByCategorie } from "../../Store/Service/AllproduitlibrairieByCategorie";
 import { useNavigate} from 'react-router-dom';
+
 
 const Detailprod = (props) => {
   const nav=useNavigate()
@@ -60,10 +61,7 @@ const Detailprod = (props) => {
     (state) => state.AllAvisProduitDeatil.status
   );
   const produit = useSelector((state)=>state.AllProduitlibrairieByCategorie.produitlibBycategorie)
-  const produitState = useSelector(
-    (state) => state.AllProduitlibrairieByCategorie.status
-  );
-  console.log(produit)
+
 const items =4;
 const [current,setCurrent]=useState(1)
 const NbPage=Math.ceil(avisProduitDtail.length/items);
@@ -84,18 +82,17 @@ const [value, setValue] = useState(0);
   const dispatch = useDispatch();
   const { id } = useParams();
   const [refresh,setrefresh]=useState()
- 
+  const [ref,forceUpdate]=useReducer(x=>x+1,0)
+
   useEffect(() => {
-    dispatch(getProduitDetail(id));
+    dispatch(getProduitDetail(id),forceUpdate());
     dispatch( getAllProduitByCategorie(produitDetail?.categorieId))
-  }, [id]);
+  }, [ref]);
   useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));
-    if(produit.length==0&& produitState!="failed")
-{
-  nav(0)
-}
   },[refresh])
+
+
   const breadcrumbs = [
     <Link underline="hover" key="1" color="inherit" href="/Shop">
       <p className="txtlink1"> Shop</p>

@@ -13,7 +13,7 @@ const Detailcomnder = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const idcomonde = useParams(":id");
-  const [open, setopen] = useState(true);
+ 
   const [ref, setref] = useState();
 
   const [Anuuler, setAnuuler] = useState(true);
@@ -27,13 +27,12 @@ const Detailcomnder = (props) => {
 
   useEffect(() => {
     dispatch(Detailcomonde(idcomonde.id));
-    if(DetailcomondeClient?.[0]?.data_acceptation===null){
-      setopen(true)
-    }else{
-      setopen(false)
-    }
+  
   }, [ref]);
-  console.log(DetailcomondeClient[0]);
+  const filteredData = DetailcomondeClient[0]?.user?.client?.adresses?.filter(item => item?.id === DetailcomondeClient[0]?.Adresse);
+
+
+  const [open, setopen] = useState(DetailcomondeClient[0]?.etatVender==="Nouveau");
 
   const Accepter=()=>{
     AccepterCommande(idcomonde.id).then((response)=>{
@@ -148,11 +147,10 @@ const Detailcomnder = (props) => {
                 <p className="txt1box3-dc">
             
                   {
-                    DetailcomondeClient[0]?.user?.client?.adresses[0]
-                      ?.Code_postal
+                   filteredData?.[0]?.Code_postal
                   }
-                  {DetailcomondeClient[0]?.user?.client?.adresses[0]?.Adresse},
-                  {DetailcomondeClient[0]?.user?.client?.adresses[0]?.Ville}
+                  {filteredData?.[0]?.Adresse},
+                  {filteredData?.[0]?.Ville}
                 </p>
               </div>
             </div>

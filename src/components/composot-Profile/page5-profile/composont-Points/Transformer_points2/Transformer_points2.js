@@ -17,16 +17,17 @@ const Transformer_points2 = (props) => {
     setnbPoint(nbp)
     setsolde(Number(nbPoint)/0.5/1)
   }
-  const handleData=(nbp,solde)=>{
+  const handleData=(solde,nbp)=>{
     setnbPoint(nbp)
     setsolde(solde)
   }
   const datae={
     solde:solde , 
-    iduser:props.user.id,
+    userId:props.user.id,
     idp:props.idp,
-    nbPoint:nbPoint,
+    nbpoint:nbPoint,
   }
+  console.log(datae)
   return (
     <div className="Tf1">
       <div

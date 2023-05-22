@@ -15,9 +15,6 @@ const Points = (props) => {
   const handleData = (data) => {
     setidp(data);
   }
-  const getDataBonDachat = (data)=>{
-    setdata()
-  }
   const dispatch=useDispatch()
   const Changepage = () => {
     switch (change) {
@@ -48,11 +45,12 @@ const Points = (props) => {
               setchange("Transformer_points1");
             }}
             onClick={(data) => {
-              setchange("Transformer_points3");
+             
               dispatch(addBonDachateapi(data)).then((response)=>{
-                console.log(response)
+                if(response.payload.success==true){
+                  setchange("Transformer_points3");
+                }
               })
-              console.log(data)
             }}
             idp={idp}
             user={props.user}

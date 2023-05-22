@@ -46,6 +46,8 @@ export const Path ={
     Gategorie:"categorie/findCategorie",
     addProduitCommande:"commandeDetail/addArticle",
     becomePartner:"BecomePartner/add",
-    deleteProduitCommande :"commandeDetail/deleteArticle/"
+    deleteProduitCommande :"commandeDetail/deleteArticle/",
+    AllPartnaire :"partenaire/findAll",
+    addBonDachate:"bonAchat/add"
 
 }

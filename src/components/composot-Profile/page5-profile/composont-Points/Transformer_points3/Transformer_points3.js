@@ -1,7 +1,10 @@
 import React from 'react'
 import './Transformer_points3.css'
 import { SearchNormal1,ArrowCircleLeft} from "iconsax-react";
+import { useSelector } from 'react-redux';
 const Transformer_points3 = (props) => {
+  const bondAchate = useSelector((state)=> state.addBondachateSlice.bondachate)
+  console.log(bondAchate)
   return (
     <div className='Tf1'>
     <div className='row-Tf1' onClick={()=>{props.onRetourner()}}>
@@ -14,8 +17,8 @@ const Transformer_points3 = (props) => {
     <div><p className='txt-Tf1'>Transformer mes points</p></div>
    <div className='prag-Tf3'>
     <p>
-     Vous avez transféré <span className='txth-Tf3'>200pts</span> (40 dinars), avec <span className='txth-Tf3'>Errahma Maktba</span>.
-     Votre code est le <span className='txth-Tf3'>#1258E6</span>.
+     Vous avez transféré <span className='txth-Tf3'>200pts</span> ({bondAchate.solde} dinars).
+     Votre code est le <span className='txth-Tf3'>{bondAchate.code}</span>.
      Il sera enregistré dans votre espace "mes points".
      Une fois validé, ce code ne fonctionnera plus.
     </p>

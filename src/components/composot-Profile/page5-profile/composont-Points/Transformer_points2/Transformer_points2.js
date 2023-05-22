@@ -24,7 +24,7 @@ const Transformer_points2 = (props) => {
   const datae={
     solde:solde , 
     userId:props.user.id,
-    idp:props.idp,
+    partenaireId:props.idp,
     nbpoint:nbPoint,
   }
   console.log(datae)

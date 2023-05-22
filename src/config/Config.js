@@ -48,6 +48,7 @@ export const Path ={
     becomePartner:"BecomePartner/add",
     deleteProduitCommande :"commandeDetail/deleteArticle/",
     AllPartnaire :"partenaire/findAll",
-    addBonDachate:"bonAchat/add"
+    addBonDachate:"bonAchat/add",
+    allbonDachateUser :"bonAchat/findByuser/"
 
 }

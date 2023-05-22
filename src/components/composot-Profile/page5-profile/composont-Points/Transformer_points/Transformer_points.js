@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Transformer_points.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AllbonDachateByuser } from "../../../../../Store/Service/AllbonDachateByuser";
+import { Okb } from "iconsax-react";
 
 const Transformer_points = (props) => {
   const data = [{ nom: "qsd" }, { nom: "qsd" }, { nom: "qsd" }, { nom: "qsd" }];
@@ -10,15 +12,24 @@ const Transformer_points = (props) => {
     { nom: "Validé" },
     { nom: "Non validé" },
   ];
-  const Point = useSelector(
-    (state) => state.IdentiteClient.identiteClient.point
+  const client = useSelector(
+    (state) => state.IdentiteClient.identiteClient
   );
+  const bonDachates = useSelector(
+    (state) => state.AllbonDachateByuser.bondachates
+  );
+  
+  const dispatch = useDispatch()
+  useEffect(()=>{
+      dispatch(AllbonDachateByuser(client.id))
+  },[])
+  console.log(bonDachates)
 
   return (
     <div className="points">
       <div className="row-points">
         <div>
-          <p className="txt-points">Mes points: {Point} pts</p>
+          <p className="txt-points">Mes points: {client.point} pts</p>
         </div>
         <button
           className="bnt-points"
@@ -34,32 +45,32 @@ const Transformer_points = (props) => {
         <tr>
           <th>Date</th>
           <th>Partenaire</th>
-          <th>Nbr de points</th>
+          <th>Solde</th>
           <th>Code</th>
           <th>Statut</th>
         </tr>
 
-        {data.map((obj, index) => (
+        {bonDachates.map((obj, index) => (
           <tr>
             <td className="tdwidth1-points">
-              <p>02/04/2023</p>
+              <p>{obj.createdAt}</p>
             </td>
             <td className="tdwidth1-points">
-              <p>Errahma Maktba</p>
+              <p>{obj.partenaire?.user?.fullname}</p>
             </td>
             <td className="tdwidth1-points">
-              <p>1700</p>
-            </td>
-
-            <td className="tdwidth1-points">
-              <p>#305563</p>
+              <p>{obj.solde} DT</p>
             </td>
 
             <td className="tdwidth1-points">
-              {data2[0].name === "Non validé" ? (
+              <p>{obj.code}</p>
+            </td>
+
+            <td className="tdwidth1-points">
+              {obj.etat === "Non validé" ? (
                 <button className="bn010-points">Non validé</button>
               ) : (
-                <button className="bn0101-points">validé</button>
+                <button className="bn0101-points">{obj.etat}</button>
               )}
             </td>
           </tr>

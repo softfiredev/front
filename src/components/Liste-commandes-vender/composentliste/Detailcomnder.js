@@ -32,7 +32,7 @@ const Detailcomnder = (props) => {
   const filteredData = DetailcomondeClient[0]?.user?.client?.adresses?.filter(item => item?.id === DetailcomondeClient[0]?.Adresse);
 
 
-  const [open, setopen] = useState(DetailcomondeClient[0]?.etatVender==="Nouveau");
+  const [open, setopen] = useState("Nouveau");
 
   const Accepter=()=>{
     AccepterCommande(idcomonde.id).then((response)=>{
@@ -41,19 +41,18 @@ const Detailcomnder = (props) => {
         setref(true)
        }
     })
-    setopen(false);
+    setopen("false");
     setref(false)
 
   }
   const Annuler=()=>{
     AnnulerCommande(idcomonde.id).then((response)=>{
-      console.log(response)
         if(response.success==true){
          toast.error("commande Annuler",{autoClose: 1000})
          setref(true)
 
         }
-        setopen(false);
+        setopen("false");
         setAnuuler(true) ;
         setref(false);
 
@@ -61,7 +60,7 @@ const Detailcomnder = (props) => {
   }
 
  
-
+console.log(DetailcomondeClient[0]?.etatVender==="Nouveau")
   return (
     <div className="Detailcomnder">
       <div
@@ -91,7 +90,7 @@ const Detailcomnder = (props) => {
                     <p className="txtli-dc">
                       Montant Totale:
                       <span className="txtspanli-dc">
-                        {DetailcomondeClient[0]?.total_ttc} dt
+                        {DetailcomondeClient[0]?.total_ttc}  dt
                       </span>
                     </p>
                   </li>
@@ -273,7 +272,9 @@ DetailcomondeClient[0]?.Data_rejetée!=null &&Anuuler?
             </div>
             
           </div>
-          {open ? (
+          {DetailcomondeClient[0]?.etatVender===open ? 
+          
+       
             <div className="box5-dc">
               <div className="row01box5-dc">
                 <div>
@@ -297,9 +298,9 @@ DetailcomondeClient[0]?.Data_rejetée!=null &&Anuuler?
                 </div>
               </div>
             </div>
-          ) : (
+         : 
             <></>
-          )}
+          }
         </div>
       </div>
     </div>

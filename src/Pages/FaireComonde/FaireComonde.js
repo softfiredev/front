@@ -100,7 +100,19 @@ const FaireComonde = (props) => {
   const checkedboxfilter = (event) => {
     setCheck(event.target.checked);
   };
-  
+
+  const calulerPoint=()=>{
+    if(totalHT>=20 && totalHT<=100){
+      setPoint(50)
+    }
+    if(totalHT>100 && totalHT<=300){
+      setPoint(80)
+    }
+    if(totalHT>300){
+      setPoint(150)
+    }
+  }
+
 
   const panier=useSelector(state=> state.Panier.panier)
 
@@ -119,7 +131,7 @@ const FaireComonde = (props) => {
     valide();
     calculTotalHT();
     calulerPoint();
-    console.log(Point,"useEffect")
+
   }, [commande||refreshpage]);
   const clientData = useSelector(
     (state) => state.IdentiteClient.identiteClient

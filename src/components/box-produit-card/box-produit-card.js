@@ -20,7 +20,7 @@ const Box_produit_Card = (props)=>{
     setqte(e.target.value)
     dispatch(changeQte({"idp":props.idp,"imgp":props.imgp,"prix":props.prix,"titre":props.titre,"qte":Number( e.target.value),"idl":props.idl}))
   }
-  console.log(props.Allqte)
+  console.log(props)
         return (
         <>
              <Grid

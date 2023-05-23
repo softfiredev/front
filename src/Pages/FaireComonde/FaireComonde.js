@@ -13,12 +13,13 @@ import { getIdentiteClientt } from "../../Store/Service/identiteClient";
 import { AjouteCommande } from "../../Store/Service/AjouteCommande";
 import { toast } from "react-toastify";
 import { AddAdrClient } from "../../Store/Service/AdrClient/AddAdrClient";
-
+import { addPoint } from "../../Store/Service/addPoint";
 const FaireComonde = (props) => {
   const navigate = useNavigate();
   const [addresse, setAddresse] = useState({nom: "", addr: "",Ville:"",codepostal:"",clientId:"" });
 
   const [Gouvernorat, setGouvernorat] = useState("");
+  const [Point, setPoint] = useState(50);
   const Gouvernora = [
     { nome: "Ariana" },
     { nome: "Béja" },
@@ -99,6 +100,8 @@ const FaireComonde = (props) => {
   const checkedboxfilter = (event) => {
     setCheck(event.target.checked);
   };
+  
+
   const panier=useSelector(state=> state.Panier.panier)
 
   const commande = useSelector((state) => state.Commande.commande);
@@ -110,11 +113,13 @@ const FaireComonde = (props) => {
     commande?.map((obj) => {
       total += obj.prix;
     });
-    settotalHT(total);
+    settotalHT(total*1.07);
   };
   React.useEffect(() => {
     valide();
     calculTotalHT();
+    calulerPoint();
+    console.log(Point,"useEffect")
   }, [commande||refreshpage]);
   const clientData = useSelector(
     (state) => state.IdentiteClient.identiteClient
@@ -183,6 +188,11 @@ const FaireComonde = (props) => {
       dispatch(AjouteCommande(data)).then((response)=>{
         if(response.payload.success===true){
           toast.success("commande a été passée avec succès",{autoClose: 1000})
+
+        
+          addPoint(props.user.id,{point:Point}).then((response)=>{
+            console.log(response)
+          })
           navigate("/Shop");
         }
       })
@@ -541,7 +551,7 @@ React.useEffect(() => {
             <div className="col202-Fc">
               <div>
                 {" "}
-                <p className="txt101-Fc">{(totalHT*1.07).toFixed(2)} dt</p>
+                <p className="txt101-Fc">{totalHT.toFixed(2)} dt</p>
               </div>
               <div>
                 {" "}
@@ -590,7 +600,7 @@ React.useEffect(() => {
             <div className="col202-Fc">
               <div>
               
-                <p className="txt101-Fc">{(totalHT*1.07).toFixed(2)} dt</p>
+                <p className="txt101-Fc">{totalHT.toFixed(2)} dt</p>
               </div>
             </div>
           </div>

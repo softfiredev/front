@@ -84,9 +84,8 @@ const sup=()=>{
     p: 4,
   };
   const dispatch=useDispatch()
-  const Addtopanier=(idp,imgp,prix,titre,qte,idl,Allqte)=>{
-    console.log(Allqte)
-    dispatch(add({idp,imgp,prix,titre,qte,idl,Allqte}))
+  const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
+    dispatch(add({idp,imgp,prix,titre,qte,idl}))
     toast.success("Vous avez ajouté un produit a votre panier ",{autoClose: 1000})
   }
   const Sauvegarder=()=>{

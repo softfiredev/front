@@ -5,6 +5,8 @@ export const SlicePanier=createSlice({
   reducers:{
     add:(state,action)=>{
         const ProduitExist =state.panier.find((obj)=>obj.idp===action.payload.idp)?true:false
+        console.log(state.panier,"panier")
+        console.log(ProduitExist,"etate idp");
         if(ProduitExist){
           state.panier.forEach((obj)=>{
             if (obj.idp === action.payload.idp) {

@@ -1,24 +1,31 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { getAllProduitFavorie } from "../Service/AllProduitFavorieByclient";
-export const produiFavorie=createSlice({
-  name:"produiFavorie",
-  initialState:{
-    produiFavorieClient:[{}],
-    status:null
+export const produiFavorie = createSlice({
+  name: "produiFavorie",
+  initialState: {
+    produiFavorieClient: [],
+    status: null,
   },
-  reducers: {},
-  extraReducers:{
-    [getAllProduitFavorie.fulfilled]:(state,{payload})=>{
-        state.produiFavorieClient=payload.produitFavorie
-        state.status="success"
+  reducers: {
+    removeProductFromFav: (state, { payload }) => {
+      state.produiFavorieClient = state.produiFavorieClient.filter(
+        (index) => index !== payload.id
+      );
     },
-   [getAllProduitFavorie.pending]:(state)=>{
-    state.status="loading"
-   },
-   [getAllProduitFavorie.rejected]:(state)=>{
-    state.status="failed"
-   }
-  }  
-})
+  },
+  extraReducers: {
+    [getAllProduitFavorie.fulfilled]: (state, { payload }) => {
+      state.produiFavorieClient = payload.produitFavorie;
+      state.status = "success";
+    },
+    [getAllProduitFavorie.pending]: (state) => {
+      state.status = "loading";
+    },
+    [getAllProduitFavorie.rejected]: (state) => {
+      state.status = "failed";
+    },
+  },
+});
+export const { removeProductFromFav } = produiFavorie.actions;
 
 export default produiFavorie.reducer;

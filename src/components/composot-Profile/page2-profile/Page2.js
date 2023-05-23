@@ -13,7 +13,7 @@ const Page2 = (props) => {
   useEffect(() => {
     dispatch(getAllProduitFavorie(props.user?.id));
     setDataFromChild(produiFavorieClient);
-  },[produiFavorieClient]);
+  },[]);
 
   return (
     <div className="favorie">

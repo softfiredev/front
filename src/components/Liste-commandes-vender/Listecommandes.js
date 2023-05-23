@@ -71,6 +71,7 @@ const Listecommandes = (props) => {
         setValue(newValue);
       }
 
+      
       const items =8;
       const [current,setCurrent]=useState(1)
       const NbPage=Math.ceil(all?.length/items);

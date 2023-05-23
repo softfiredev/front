@@ -18,10 +18,12 @@ const Box_FavoirsProduit_Card = (props) => {
   const removefavo=()=>{
     DeleteProduitFavorie(props.idp,props.idclient).then((response)=>{
       if(response.success===true){
+
           toast.success("votre produit  Suppr avec success",{autoClose: 1000})
+      
       }
       dispatch(getAllProduitFavorie(props.user?.id));
-      
+
     })
   }
 

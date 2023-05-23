@@ -84,8 +84,9 @@ const sup=()=>{
     p: 4,
   };
   const dispatch=useDispatch()
-  const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
-    dispatch(add({idp,imgp,prix,titre,qte,idl}))
+  const Addtopanier=(idp,imgp,prix,titre,qte,idl,Allqte)=>{
+    console.log(Allqte)
+    dispatch(add({idp,imgp,prix,titre,qte,idl,Allqte}))
     toast.success("Vous avez ajouté un produit a votre panier ",{autoClose: 1000})
   }
   const Sauvegarder=()=>{
@@ -99,6 +100,10 @@ const sup=()=>{
         if(response.success==true){
           toast.success("Votre Article a bien été sauvegardé",{autoClose: 1000})
         }
+        if(response.message===" produit est deja dans la liste de produit favorie")
+        {
+          toast.error(response.message,{autoClose: 1000})
+        }
       })
     }else{
       toast.warning("Veuillez vous connecter pour pouvoir sauvegardé un Article",{autoClose: 1000})
@@ -109,8 +114,10 @@ const sup=()=>{
 
 if(!sizeimg)
 {
-  if( fullname!==undefined && email!==undefined &&message!==undefined &&img!==undefined)
+  if( fullname!==undefined && fullname?.length!==0 &&email?.length!==0  &&message?.length!==0 &&email!==undefined &&message!==undefined && img!==undefined)
+
   {
+ 
     if(props.user.auth){
       const formData = new FormData();
       formData.append('fullnameUser', fullname);
@@ -124,8 +131,13 @@ if(!sizeimg)
         if(response.success==true){
           
           toast.success("Votre Signaler bien recu",{autoClose: 1000})
+          setOpen(false)
+          setImage(undefined)
+          setFullname(undefined)
+          setemail(undefined)
+          setmessage(undefined)
         }
-        setOpen(false)
+       
       })
     }else{
       toast.warning("Veuillez vous connecter pour pouvoir Signaler un Article",{autoClose: 1000})
@@ -140,9 +152,7 @@ if(!sizeimg)
 }
 
   }
-  
-
-  return (
+    return (
     <div className="col-detail">
       <div>
         {" "}
@@ -188,7 +198,7 @@ if(!sizeimg)
             />
           </div>
         </div>
-        <button className="bnt1-detail" onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,qnt,props.idl)}>
+        <button className="bnt1-detail" onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,qnt,props.idl,props.qte)}>
           <div className="bag-detail">
             <Bag size="22" color="#FFFFFF" />
           </div>
@@ -288,7 +298,7 @@ if(!sizeimg)
                     <div className="rowuplod01-descriptiondeatil">
                   <div className="rol01-descriptiondeatil"> 
                   <div><TickCircle size="25" color="#57AE5B" variant="Bold" onClick={sup}/></div>
-                  <div><img src={img} className="mguplod-descriptiondeatil" style={{marginTop:"-20%"}}/></div>
+                  <div><img src={img} className="mguplod-descriptiondeatil" style={{marginTop:"-30%"}}/></div>
                   <div><p className="txtuplod02-descriptiondeatil">{imgname}</p></div>
                   </div>
                   

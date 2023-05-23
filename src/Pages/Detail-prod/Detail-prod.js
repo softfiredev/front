@@ -82,12 +82,11 @@ const [value, setValue] = useState(0);
   const dispatch = useDispatch();
   const { id } = useParams();
   const [refresh,setrefresh]=useState()
-  const [ref,forceUpdate]=useReducer(x=>x+1,0)
 
   useEffect(() => {
-    dispatch(getProduitDetail(id),forceUpdate());
+    dispatch(getProduitDetail(id));
     dispatch( getAllProduitByCategorie(produitDetail?.categorieId))
-  }, [ref]);
+  }, []);
   useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));
   },[refresh])

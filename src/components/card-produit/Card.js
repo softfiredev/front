@@ -10,18 +10,16 @@ import { useNavigate} from 'react-router-dom';
 const Card = (props) => {
   const dispatch=useDispatch()
   const nav=useNavigate()
-  const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
-    dispatch(add({idp,imgp,prix,titre,qte,idl}))
+  const Addtopanier=(idp,imgp,prix,titre,qte,idl,Allqte)=>{
+    dispatch(add({idp,imgp,prix,titre,qte,idl,Allqte}))
     toast.success("Vous avez ajouté un produit à votre panier",{autoClose: 1000})
   }
-
   const date = new Date();
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const day = String(date.getDate()).padStart(2, '0');
   const formattedDate = `${year}-${month}-${day}`;
  const datenow=formattedDate==props.dateG
-
 
   return (
     <div className="card">
@@ -85,7 +83,7 @@ const Card = (props) => {
           <div><p className="txt-card2">{props?.prix_en_Solde?.toFixed(2)}dt</p></div>
           <p className="txt2xard2">{props?.prix?.toFixed(2)}dt</p>
           <div className="bnt-card">
-            <div className="ShoppingCart-card"  onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl)}>
+            <div className="ShoppingCart-card"  onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl,props.qte)}>
               <ShoppingCart size="22" color="#FFffff" variant="Bold" />
             </div>
           </div>
@@ -94,7 +92,7 @@ const Card = (props) => {
           <div><p className="txt-card2">{props.prix?.toFixed(2)}dt</p></div>
           <p className="txt2xard2"></p>
           <div className="bnt-card">
-            <div className="ShoppingCart-card"  onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl)}>
+            <div className="ShoppingCart-card"  onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl,props.qte)}>
               <ShoppingCart size="22" color="#FFffff" variant="Bold" />
             </div>
           </div>

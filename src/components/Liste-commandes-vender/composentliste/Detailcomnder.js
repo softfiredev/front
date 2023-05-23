@@ -90,7 +90,7 @@ console.log(DetailcomondeClient[0]?.etatVender==="Nouveau")
                     <p className="txtli-dc">
                       Montant Totale:
                       <span className="txtspanli-dc">
-                        {DetailcomondeClient[0]?.total_ttc} dt
+                        {DetailcomondeClient[0]?.total_ttc}  dt
                       </span>
                     </p>
                   </li>

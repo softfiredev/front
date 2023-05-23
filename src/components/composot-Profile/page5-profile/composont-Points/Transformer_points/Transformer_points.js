@@ -2,16 +2,8 @@ import React, { useEffect } from "react";
 import "./Transformer_points.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AllbonDachateByuser } from "../../../../../Store/Service/AllbonDachateByuser";
-import { Okb } from "iconsax-react";
 
 const Transformer_points = (props) => {
-  const data = [{ nom: "qsd" }, { nom: "qsd" }, { nom: "qsd" }, { nom: "qsd" }];
-  const data2 = [
-    { nom: "Non validé" },
-    { nom: "Validé" },
-    { nom: "Validé" },
-    { nom: "Non validé" },
-  ];
   const client = useSelector(
     (state) => state.IdentiteClient.identiteClient
   );
@@ -23,7 +15,7 @@ const Transformer_points = (props) => {
   useEffect(()=>{
       dispatch(AllbonDachateByuser(client.id))
   },[])
-  console.log(bonDachates)
+
 
   return (
     <div className="points">

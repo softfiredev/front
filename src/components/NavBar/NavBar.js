@@ -25,8 +25,6 @@ function NavBar(props) {
           <ul className="main-nav">
            <Link to="/home"> <li>Accueil</li></Link>
            <Link to="/Shop"> <li>Shop </li></Link>
-           <ArrowDown2 size="20" color="#FFFFFF" variant="TwoTone" style={{marginTop:'5%',marginLeft:'-3.5%'}}/>
-
             <Link to="/AboutUs"><li>À propos</li></Link>
            <Link to="/BecomePartner"> <li>Devenir partenaire</li></Link>
           <Link to="/Contact">  <li>Contact</li></Link>

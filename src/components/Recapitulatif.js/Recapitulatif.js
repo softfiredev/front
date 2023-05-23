@@ -6,9 +6,12 @@ import "./Recapitulatif.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AjouteCommande } from "../../Store/Service/AjouteCommande";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { useNavigate} from 'react-router-dom';
+
 const Recapitulatif = (props) => {
   const [totalHT, settotalHT] = React.useState(0);
+  const nav=useNavigate()
+
   const commande = useSelector((state) => state.Commande.commande);
   const dispatch = useDispatch();
   const calculTotalHT = () => {
@@ -21,6 +24,39 @@ const Recapitulatif = (props) => {
   React.useEffect(() => {
     calculTotalHT();
   }, [commande]);
+
+
+
+const valide=()=>{
+  if(commande.length!=0)
+  {
+    let arry=[]
+    let qt=true
+    for(let i=0;i<props.panier.length;i++)
+    {
+      
+    if(props.panier[i].Allqte<props.panier[i].qte)
+    {
+      arry.push(props.panier[i].titre+"  les Qnt en stoke :"+props.panier[i].Allqte)
+      qt=false
+    }
+ 
+    }
+    if(qt)
+    {
+      nav("/Faire_une_commande")
+    }else{
+      toast.error("les Qnt de  produit :"+arry,{autoClose:2000})
+
+    }
+
+  }
+  else{
+    toast.error("ne pasdes produit dans votre card !!",{autoClose: 1000})
+  }
+  
+  }
+ 
 
   return (
     <div className="resume">
@@ -68,17 +104,11 @@ const Recapitulatif = (props) => {
         <p className="totalMontant">{(totalHT * 1.07).toFixed(2)} dt</p>
       </Grid>
       
-      {commande.length!=0?
-  <Link to={"/Faire_une_commande"}> <button className="btn-verifie">
+
+ <button className="btn-verifie" onClick={valide}>
         Vérifier
       </button>
-      </Link>
-      :
-    <button className="btn-verifie" onClick={()=>{ toast.error("ne pasdes produit dans votre card !!",{autoClose: 1000})}}>
-      Vérifier
-    </button>
-}
-     
+      
     </div>
   );
 };

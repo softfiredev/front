@@ -60,7 +60,7 @@ const Points = (props) => {
         return (
           <Transformer_points3
             onRetourner={() => {
-              setchange("Transformer_points2");
+              setchange("Transformer_points");
             }}
             onClick={() => {
               setchange("Transformer_points");

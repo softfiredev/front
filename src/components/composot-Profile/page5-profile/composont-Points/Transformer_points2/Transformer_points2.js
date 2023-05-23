@@ -27,7 +27,7 @@ const Transformer_points2 = (props) => {
     partenaireId:props.idp,
     nbpoint:nbPoint,
   }
-  console.log(datae)
+
   return (
     <div className="Tf1">
       <div

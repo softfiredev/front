@@ -60,7 +60,6 @@ const Detailcomnder = (props) => {
   }
 
  
-console.log(DetailcomondeClient[0]?.etatVender==="Nouveau")
   return (
     <div className="Detailcomnder">
       <div
@@ -98,7 +97,7 @@ console.log(DetailcomondeClient[0]?.etatVender==="Nouveau")
                   <li>
                     Nbr d’article(s):
                     <span className="txtspanli-dc">
-                      {" "}
+                     
                       {DetailcomondeClient[0]?.produitlabrairies?.length}
                     </span>
                   </li>

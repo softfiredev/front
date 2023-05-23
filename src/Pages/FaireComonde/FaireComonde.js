@@ -16,7 +16,7 @@ import { AddAdrClient } from "../../Store/Service/AdrClient/AddAdrClient";
 import { addPoint } from "../../Store/Service/addPoint";
 const FaireComonde = (props) => {
   const navigate = useNavigate();
-  const [addresse, setAddresse] = useState({ addr: "",Ville:"",codepostal:"",clientId:"" });
+  const [addresse, setAddresse] = useState({nom: "", addr: "",Ville:"",codepostal:"",clientId:"" });
 
   const [Gouvernorat, setGouvernorat] = useState("");
   const [Point, setPoint] = useState(50);
@@ -73,6 +73,7 @@ const FaireComonde = (props) => {
       }));
     };
   };
+
   const Ajoutadr=()=>{
     let data = {
       Nom_de_adresse: addresse.nom,
@@ -82,6 +83,7 @@ const FaireComonde = (props) => {
       Code_postal: addresse.codepostal,
       clientId: props.user.id,
     }
+  
     if(Gouvernorat.length!==0 && addresse.addr.length!==0 && addresse.Ville.length!==0&& addresse.codepostal.length!==0 ){
       AddAdrClient(data).then((response)=>{
         if(response.success===true){
@@ -98,6 +100,7 @@ const FaireComonde = (props) => {
   const checkedboxfilter = (event) => {
     setCheck(event.target.checked);
   };
+
   const calulerPoint=()=>{
     if(totalHT>=20 && totalHT<=100){
       setPoint(50)
@@ -110,10 +113,13 @@ const FaireComonde = (props) => {
     }
   }
 
+
   const panier=useSelector(state=> state.Panier.panier)
 
   const commande = useSelector((state) => state.Commande.commande);
   const [totalHT, settotalHT] = React.useState(0);
+  const [play, setplay] = React.useState(true);
+
   const calculTotalHT = () => {
     let total = 0;
     commande?.map((obj) => {
@@ -122,9 +128,10 @@ const FaireComonde = (props) => {
     settotalHT(total*1.07);
   };
   React.useEffect(() => {
+    valide();
     calculTotalHT();
     calulerPoint();
-    console.log(Point,"useEffect")
+
   }, [commande||refreshpage]);
   const clientData = useSelector(
     (state) => state.IdentiteClient.identiteClient
@@ -134,7 +141,37 @@ const FaireComonde = (props) => {
         dispatch(getIdentiteClientt(props.user.id));
   },[refreshpage])
 
+  const valide=()=>{
+    if(commande.length!=0)
+    {
+      let arry=[]
+      let qt=true
+      for(let i=0;i<panier?.length;i++)
+      {
+        
+      if(panier[i].Allqte<panier[i].qte)
+      {
+        arry.push(panier[i].titre+"  les Qnt en stoke :"+panier[i].Allqte)
+        qt=false
+     
+      }
+      }
+      if(qt)
+      {
+      setplay(true)
+
+      }else{
+      setplay(false)
+
+      }
   
+    }
+    else{
+      toast.error("ne pas des produit dans votre card !!",{autoClose: 1000})
+    }
+    
+    }
+
   const addresses=clientData?.client?.adresses
   const passeCommande = () => {
   if(ModePay!==undefined)
@@ -188,11 +225,17 @@ const vrifmode=()=>{
     setstep3(true)
   }
 }
-
+React.useEffect(() => {
+  valide();
+}, []);
   return (
     <div className="Fc">
       <div>
-        <p className="txt1-Fc">faire une commande</p>
+      {
+        play?  <p className="txt1-Fc">faire une commande</p>
+        :
+        <p className="txt1-Fc" style={{color:"red"}}>Error  Limite des quantité des Commonde dépassée!!</p>
+      }
       </div>
       <div className="row0-Fc">
         <div className="col0-Fc">
@@ -204,11 +247,11 @@ const vrifmode=()=>{
               <div className="txtwidth-Fc">
                 <p className="txt2-Fc">Informations Personelles</p>
               </div>
-              <div className={props.user.auth?"tick-Fc":"tick-Fc-none"}>
+              <div className={props.user.auth && play===true?"tick-Fc":"tick-Fc-none"}>
                <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>
-            <div className={props.user.auth?"sousblox-Fc-none":"sousblox-Fc"}>
+            <div className={props.user.auth ?"sousblox-Fc-none":"sousblox-Fc"}>
               <div className="row-Fc">
                 <button
                   className="bnt0-Fc"
@@ -242,7 +285,7 @@ const vrifmode=()=>{
                <p  className="ticktxt-Fc"><TickCircle size="22" color="#57AE5B" variant="Bold"/></p>
               </div>
             </div>
-            {props.user.auth?
+            {props.user.auth && play===true?
             <div className="sousblox2-Fc">
             <div className="txtwidth-Fc">
               <p className="txt3-Fc">Mes adresses:</p>
@@ -271,7 +314,16 @@ const vrifmode=()=>{
 
             <div className={OpenFormAdr?"sousblox3-Fc":"sousblox3-Fc-none"}>
               <br />
-
+              <div className="colini-Fc">
+                <div>
+                  <p className="txt5-Fc">Nom de l’adresse</p>
+                </div>
+                <OutlinedInput
+                  placeholder="Société"
+                  className="input-Fc"
+                  onChange={handleInputChange("nom")} value={addresse.nom}
+                />
+              </div>
               <div className="colini-Fc">
                 <div>
                   <p className="txt5-Fc">Adresse *</p>
@@ -332,27 +384,6 @@ const vrifmode=()=>{
                   value={addresse.codepostal}
                 />
               </div>
-
-              <div className="colini-Fc">
-                <div>
-                  <p className="txt5-Fc">Société</p>
-                </div>
-                <OutlinedInput
-                  placeholder="Société"
-                  className="input-Fc"
- 
-                />
-              </div>
-              <div className="colini-Fc">
-                <div>
-                  <p className="txt5-Fc">Numéro de TVA</p>
-                </div>
-                <OutlinedInput
-                  placeholder="Numéro de TVA"
-                  className="input-Fc"
-           
-                />
-              </div>
               <div>
                 <Grid item container spacing={1}>
                   <Checkbox
@@ -365,12 +396,15 @@ const vrifmode=()=>{
                     </p>
                   </span>
                 </Grid>
-              </div>
+                
               <div className="endflex-Fc">
                 <button className="bntendflex-Fc" onClick={Ajoutadr}>Continuer</button>
               </div>
-            </div>
-
+              </div>
+          
+             
+              </div>
+         
             </div>
             :
             <>

@@ -355,8 +355,8 @@ cursor: pointer;
 }
 .globalboxuplod-descriptiondeatil{
     padding: 5%;
-    width: 478px;
-    height: 144px;
+    width: 438px;
+    height: 103px;
     justify-content: center;
 display: flex;
 flex-direction: column;
@@ -371,7 +371,7 @@ Height:54px;
     background-blend-mode: multiply, normal;
 mix-blend-mode: normal;
 border-radius: 4px;
-
+margin-top: -500%;
 }
 .txtuplod03-descriptiondeatil{
     font-family: 'Inter';
@@ -395,7 +395,7 @@ color: #222222;
 .rowuplod01-descriptiondeatil{
     display: flex;
     flex-direction: row;
-    gap:10em;
+    gap:7.5em;
 }
 .rol01-descriptiondeatil{
     display: flex;

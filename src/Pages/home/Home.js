@@ -30,17 +30,18 @@ import imgp5 from "../../assets/imgp5.png";
 import imgp6 from "../../assets/imgp.png";
 import imgp7 from "../../assets/imgp8.png";
 import Card from "../../components/card-produit/Card";
+import { useNavigate} from "react-router-dom";
 
 import Cartclient from "../../components/cartclient-home/Cartclient";
 import Cart_client from "../../components/cart-client/cart-client";
 import Cart_contact from "../../components/cart-contact/cart_contact";
 import Boxabout from "../../components/box-about/Boxabout";
 import Cart from "../../components/Cartc-home/Cart";
-import NavBar from "../../components/NavBar/NavBar";
-import Footer from "../../components/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProduitlibrairie } from "../../Store/Service/AllProduitShope";
 const Home = () => {
+  const navigate = useNavigate();
+
   const tab = [
     {
       icon: <Headphone size="22" color="#222222" variant="Bold" />,
@@ -253,7 +254,12 @@ const Home = () => {
                 <div className="col3-hom">
                   <div>
                     <div>
-                      <p className="txt-home">Promotions pour vous!</p>
+                      {produitShope?.[0]?.etat === "promition"?
+
+<p className="txt-home">Promotions pour vous!</p>
+:""
+                      }
+                   
                     </div>
                   </div>
                   <Grid item style={{marginLeft:"-103px"}}>
@@ -302,7 +308,7 @@ const Home = () => {
                   <p className="txt11-home">Découvrez toutes les promotions</p>
                 </div>
                 <div>
-                  <button className="bnt10-home">
+                  <button className="bnt10-home" onClick={()=>{navigate("/Shop")}}>
                     <p className="txt12-home">Je découvre</p>
                   </button>
                 </div>
@@ -400,7 +406,7 @@ const Home = () => {
                   <div>
                     <Link to="/BecomePartner">
 
-                    <button className="bnt6-home">
+                    <button className="bnt6-home"onClick={()=>{navigate("/BecomePartner")}}>
                       <p className="txtbnt3-home">Devenier partenaire</p>
                     </button>
                     </Link>
@@ -436,7 +442,7 @@ const Home = () => {
                 <Cart_contact />
                 <div>
                 <Link to="/Contact">
-                  <button className="bntcartcon-home">
+                  <button className="bntcartcon-home" onClick={()=>{navigate("/Contact")}}>
                     <p className="txtbntcartcon-home">Contactez-nous</p>
                   </button>
                   </Link>

@@ -49,6 +49,7 @@ export const Path ={
     deleteProduitCommande :"commandeDetail/deleteArticle/",
     AllPartnaire :"partenaire/findAll",
     addBonDachate:"bonAchat/add",
-    allbonDachateUser :"bonAchat/findByuser/"
+    allbonDachateUser :"bonAchat/findByuser/",
+    addPoint : "user/addPoint/"
 
 }

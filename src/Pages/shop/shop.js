@@ -13,7 +13,6 @@ const Shop = () => {
   const [dataFromChild, setDataFromChild] = useState([]);
   const handleDataFromChild = (data) => {
     setDataFromChild(data);
-  
   };
 
   const dispatch=useDispatch()

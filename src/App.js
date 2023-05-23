@@ -18,7 +18,9 @@ import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 
 
-
+const Gestion_points = lazy(() =>
+  import("./components/Gestion de points-vender/Gestion_points")
+);
 const FaireComonde = lazy(() =>
   import("./Pages/FaireComonde/FaireComonde")
 );
@@ -211,6 +213,8 @@ function App() {
                 element={<Protection user={user}><Approvisionner user={user}/></Protection>}
               />
               <Route path="/Vender/Factorisation" element={<Protection user={user}><Factorisation /></Protection>} />
+              <Route path="/Vender/Gestion_de_points" element={<Protection user={user}><Gestion_points /></Protection>} />
+
             </Route>
 
 

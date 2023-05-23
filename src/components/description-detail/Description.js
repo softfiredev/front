@@ -84,7 +84,8 @@ const sup=()=>{
     p: 4,
   };
   const dispatch=useDispatch()
-  const Addtopanier=(idp,imgp,prix,titre,qte,idl)=>{
+  const Addtopanier=(idprod,imgp,prix,titre,qte,idl)=>{
+      const idp=Number(idprod)
     dispatch(add({idp,imgp,prix,titre,qte,idl}))
     toast.success("Vous avez ajouté un produit a votre panier ",{autoClose: 1000})
   }

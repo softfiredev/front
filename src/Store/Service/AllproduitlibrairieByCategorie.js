@@ -5,7 +5,6 @@ export const getAllProduitByCategorie = createAsyncThunk(
     'getAllProduitByCategorie',
     async (id) => {
       const response = await axios.get(Base_url+ Path.getAllproduitBycategorie+id)
-      console.log(response.data)
       return response.data
     }
   )

@@ -30,7 +30,6 @@ function TabPanel(props) {
       </div>
     );
   }
-  
 function a11yProps(index) {
 
     return {
@@ -40,7 +39,6 @@ function a11yProps(index) {
   }
 const Listecommandes = (props) => {
     const navigate = useNavigate();
-    const [refreshed, setRefreshed] = useState();
     const [value, setValue] = React.useState(0);
     const librairieData = useSelector(
       (state) => state.findCommandeBylibrairie.commandeslibrairie

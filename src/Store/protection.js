@@ -17,7 +17,7 @@ if(user.auth==true &&user.role==="labrairie" )
   const s=location.pathname.substring(location.pathname.length,location.pathname.indexOf("n/")+2)
   const c=location.pathname.substring(location.pathname.length,location.pathname.indexOf("e/")+2)
 
-  if((location.pathname==="/Vender/Liste_de_commandes"||location.pathname==="/Vender/Details_de_commande/"+c||location.pathname==="/vender"||location.pathname==="/Vender/categorie"||location.pathname==="/Vender/Inventaire"||location.pathname==="/Vender/Liste_de_livraisons"||location.pathname==="/Vender/Details_de_livraison/"+s||location.pathname==="/Vender/Approvisionner"||location.pathname==="/Vender/Factorisation"||location.pathname==="/Vender/Profile"||location.pathname==="/Vender/Gestion_de_points"))
+  if((location.pathname==="/Vender/Liste_de_commandes"||location.pathname==="/Vender/Details_de_commande/"+c||location.pathname==="/vender"||location.pathname==="/Vender/categorie"||location.pathname==="/Vender/Inventaire"||location.pathname==="/Vender/Liste_de_livraisons"||location.pathname==="/Vender/Details_de_livraison/"+s||location.pathname==="/Vender/Approvisionner"||location.pathname==="/Vender/Factorisation"||location.pathname==="/Vender/Profile"||location.pathname==="/Vender/Gestion_de_points"||location.pathname==="/Vender/TableauDuBord"))
   {
     return children
   }

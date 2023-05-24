@@ -31,7 +31,7 @@ const Vender = () => {
     {
       linkname: "Tableau du bord",
       icon: <Chart2 size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Vender"
+      linkto :"/Vender/TableauDuBord"
     },
     {
       linkname: "Catégories",

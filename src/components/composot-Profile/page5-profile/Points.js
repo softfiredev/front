@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 const Points = (props) => {
   const [change, setchange] = React.useState("Transformer_points");
   const [idp, setidp]=React.useState();
-  const [data, setdata]=React.useState(); 
+  const [point, setpoint]=React.useState(); 
   const handleData = (data) => {
     setidp(data);
   }
@@ -45,7 +45,7 @@ const Points = (props) => {
               setchange("Transformer_points1");
             }}
             onClick={(data) => {
-             
+              setpoint(data.nbpoint)
               dispatch(addBonDachateapi(data)).then((response)=>{
                 if(response.payload.success==true){
                   setchange("Transformer_points3");
@@ -65,6 +65,7 @@ const Points = (props) => {
             onClick={() => {
               setchange("Transformer_points");
             }}
+            point={point}
           />
         );
       default:

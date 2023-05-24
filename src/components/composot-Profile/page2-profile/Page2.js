@@ -10,10 +10,14 @@ const Page2 = (props) => {
   const dispatch = useDispatch();
   const [dataFromChild, setDataFromChild] = useState([]);
   const produiFavorieClient = useSelector((state) => state.produiFavorie.produiFavorieClient);
+  const [refresh, setrefresh] = useState(0);
+  const refreshPage = ()=>{
+    setrefresh(refresh+1)
+  }
+  console.log(refresh)
   useEffect(() => {
     dispatch(getAllProduitFavorie(props.user?.id));
-    setDataFromChild(produiFavorieClient);
-  },[]);
+  },[refresh]);
 
   return (
     <div className="favorie">
@@ -46,7 +50,7 @@ const Page2 = (props) => {
         </div>
         <div>
           <div className="scroll-container">
-            {dataFromChild.map((produit) => (
+            {produiFavorieClient.map((produit) => (
               <Box_FavoirsProduit_Card
              
                 idclient={props.user.id}
@@ -59,6 +63,7 @@ const Page2 = (props) => {
                 idl={produit.produitlabrairie?.labrairie?.id}
                 imgl={produit.produitlabrairie?.labrairie?.imageStore}
                 imgp={produit.produitlabrairie?.imagelibrairies?.[0]?.name_Image}
+                refresh={refreshPage}
               />
             ))}
           </div>

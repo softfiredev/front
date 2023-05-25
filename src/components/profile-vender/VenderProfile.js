@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './VenderProfile.css'
 import {Profile,Edit,Shop } from "iconsax-react";
+import {  OutlinedInput } from "@mui/material";
 import Select from '@mui/material/Select';
 import { toast } from "react-toastify";
 import MenuItem from '@mui/material/MenuItem';
@@ -54,9 +55,47 @@ useEffect(() => {
   dispatch(getprofileVender(props.user?.id));
 },[refreshpage]);
 
-const [vender, setVender] = useState({ nom:clientData.fullname, numero:clientData.telephone,email:clientData.email,date:clientData.Date_de_naissance,genre:"Male"});
-const [venderl, setVenderl] = useState({ nom:venderData?.nameLibrairie, addr:venderData?.adresse,email:venderData?.emailLib,insta:venderData?.instagram,fb:venderData?.facebook,telephone:venderData?.telephone});
-const [avatar,setavatar]=useState()
+const [vender, setVender] = useState({
+  nom: clientData?.fullname || "",
+  numero: clientData?.telephone || "",
+  email: clientData?.email || "",
+  date: clientData?.Date_de_naissance || "",
+  genre: "Male"
+});
+
+const [venderl, setVenderl] = useState({
+  nom: venderData?.nameLibrairie || "",
+  addr: venderData?.adresse || "",
+  email: venderData?.emailLib || "",
+  insta: venderData?.instagram || "",
+  fb: venderData?.facebook || "",
+  telephone: venderData?.telephone || ""
+});
+useEffect(() => {
+  if (clientData) {
+    setVender((prevVender) => ({
+      ...prevVender,
+      nom: clientData.fullname || "",
+      numero: clientData.telephone || "",
+      email: clientData.email || "",
+      date: clientData.Date_de_naissance || ""
+    }));
+  }
+}, [clientData]);
+
+useEffect(() => {
+  if (venderData) {
+    setVenderl((prevVenderl) => ({
+      ...prevVenderl,
+      nom: venderData.nameLibrairie || "",
+      addr: venderData.adresse || "",
+      email: venderData.emailLib || "",
+      insta: venderData.instagram || "",
+      fb: venderData.facebook || "",
+      telephone: venderData.telephone || ""
+    }));
+  }
+}, [venderData]);const [avatar,setavatar]=useState()
 const [avatar2,setavatar2]=useState()
 const changeIdentite=()=>{
   if(ok==false)
@@ -141,6 +180,8 @@ const onImageChange2 = (event) => {
     setok2(true);
   }
 };
+
+
   return (
 
     <div className='vp'>

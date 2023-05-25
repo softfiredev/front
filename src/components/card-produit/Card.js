@@ -14,6 +14,10 @@ const Card = (props) => {
     dispatch(add({idp,imgp,prix,titre,qte,idl,Allqte}))
     toast.success("Vous avez ajouté un produit à votre panier",{autoClose: 1000})
   }
+  const link=()=>{
+    nav(`/Detailproduit/${props.idp}`)
+    nav(0)
+  }
   const date = new Date();
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -38,7 +42,7 @@ const Card = (props) => {
       :<></>
     }
 
-        <Link  to={`/Detailproduit/${props.idp}`}><img src={"http://127.0.0.1:8080/uploads/"+props.imgp} className="img-cardprod"/></Link>
+        <div  onClick={link}><img src={"http://127.0.0.1:8080/uploads/"+props.imgp} className="img-cardprod"/></div>
         
         <div>
           <div><p  className="txt-card1">{props.titre}</p> </div>

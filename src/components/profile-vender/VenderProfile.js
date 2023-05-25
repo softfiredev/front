@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './VenderProfile.css'
 import {Profile,Edit,Shop } from "iconsax-react";
-import {  OutlinedInput } from "@mui/material";
 import Select from '@mui/material/Select';
 import { toast } from "react-toastify";
 import MenuItem from '@mui/material/MenuItem';

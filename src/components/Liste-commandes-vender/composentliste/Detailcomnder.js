@@ -18,7 +18,7 @@ const Detailcomnder = (props) => {
 
   const [Anuuler, setAnuuler] = useState(true);
   const navigat = () => {
-    navigate(`/Vender/Liste_de_commandes`);
+    navigate("/Vender/Liste_de_commandes");
     navigate(0)
   };
   const DetailcomondeClient = useSelector(

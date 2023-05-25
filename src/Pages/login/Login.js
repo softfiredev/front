@@ -135,7 +135,7 @@ useEffect(()=>{
         }
         if(user.role==="labrairie")
         {
-          nav("/vender")
+          nav("/Vender/TableauDuBord")
         }
     
       })

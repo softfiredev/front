@@ -17,30 +17,31 @@ const TableauDuBord=(props)=>{
       dispatch(findCommandeBylibrairie(props?.user.id));
     }, []);
 
-    const data = {
+      const data = {
         labels: ['Compléter  (164)', 'En cours (30)', 'Rejeter (6)','Nouveau (6)'],
         datasets: [
           {
             data: [300, 200, 100,50],
             backgroundColor: ['#7BC47F', '#62B0E8', '#E66A6A','#F9DA8B'],
-       
+            cutout:"80%"
           }
         ],
       };
       const dat = {
         labels: ['23/03', '24/03', '25/03', '26/03', '25/03', '25/03'],
+  
         datasets: [
           {
             label: 'Nombre de commandes',
             data: [150, 200, 400, 400, 50, 300],
             backgroundColor: ['#F7D070'],
             hoverBackgroundColor: ['#F7D070'],
-            
+            borderRadius : 8 ,
+            borderWidth: 1,
+            barThickness:30
           },
         ],
       };
-
-      
       const options = {
         percentageInnerCutout : 0,
         plugins: {
@@ -61,8 +62,9 @@ const TableauDuBord=(props)=>{
         },
         rotation: 90, 
       };
-    
       const optionss = {
+        responsive: true,
+        
         plugins: {
           legend: {
            display:false,
@@ -70,7 +72,7 @@ const TableauDuBord=(props)=>{
         },
  
       };
-    
+
     return(
         
      <div className="Tb">
@@ -132,7 +134,14 @@ const TableauDuBord=(props)=>{
 
 <div className="row3-Tb">
 <div >
-    <Doughnut data={data} style={{width:"355.39px",height:"136px"}} options={options}/>
+<div style={{ width: '300px', height: '300px', position: 'relative'}}>
+    <Doughnut data={data} options={options} width={200} height={200}/>
+        <div style={{ position: 'absolute', width: '100%', top: '52%', left:" -29%", textAlign: 'center', marginTop: '-28px',  lineHeight: '20px'}}>
+            <p className="txt-2014">202</p> 
+            <p className="txt-2040">Total</p>
+        </div>
+        </div>
+
   
 </div>
 

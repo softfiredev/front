@@ -63,14 +63,7 @@ const [vender, setVender] = useState({
   genre: "Male"
 });
 
-const [venderl, setVenderl] = useState({
-  nom: venderData?.nameLibrairie || "",
-  addr: venderData?.adresse || "",
-  email: venderData?.emailLib || "",
-  insta: venderData?.instagram || "",
-  fb: venderData?.facebook || "",
-  telephone: venderData?.telephone || ""
-});
+
 useEffect(() => {
   if (clientData) {
     setVender((prevVender) => ({
@@ -82,7 +75,14 @@ useEffect(() => {
     }));
   }
 }, [clientData]);
-
+const [venderl, setVenderl] = useState({
+  nom: venderData?.nameLibrairie || "",
+  addr: venderData?.adresse || "",
+  email: venderData?.emailLib || "",
+  insta: venderData?.instagram || "",
+  fb: venderData?.facebook || "",
+  telephone: venderData?.telephone || ""
+});
 useEffect(() => {
   if (venderData) {
     setVenderl((prevVenderl) => ({
@@ -95,7 +95,11 @@ useEffect(() => {
       telephone: venderData.telephone || ""
     }));
   }
-}, [venderData]);const [avatar,setavatar]=useState()
+}, [venderData]);
+
+console.log(venderData.telephone)
+
+const [avatar,setavatar]=useState()
 const [avatar2,setavatar2]=useState()
 const changeIdentite=()=>{
   if(ok==false)

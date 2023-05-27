@@ -7,16 +7,25 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import { useDispatch, useSelector } from "react-redux";
+import { nb_commande_par_jour } from "../../../Store/Service/nb_commande_par_jour";
 import { findCommandeBylibrairie } from "../../../Store/Service/findCommandeBylibrairie";
+import { prodplusvendus } from "../../../Store/Service/prodplusvendus";
+
 const TableauDuBord=(props)=>{
     const librairieData = useSelector(
         (state) => state.findCommandeBylibrairie.commandeslibrairie
       );
+      const prodplusvende = useSelector(
+        (state) => state.prodplusvende.produit )
+
+const nbcommandeparjour= useSelector( (state) => state.nbcommandeparjoure.produit);
     const dispatch=useDispatch()
     useEffect(() => {
       dispatch(findCommandeBylibrairie(props?.user.id));
+      dispatch(prodplusvendus(props?.user.id));
+      dispatch(nb_commande_par_jour(props?.user.id));
     }, []);
-
+    console.log(nbcommandeparjour);
       const data = {
         labels: ['Compléter  (164)', 'En cours (30)', 'Rejeter (6)','Nouveau (6)'],
         datasets: [
@@ -28,12 +37,11 @@ const TableauDuBord=(props)=>{
         ],
       };
       const dat = {
-        labels: ['23/03', '24/03', '25/03', '26/03', '25/03', '25/03'],
-  
+        labels: [],
         datasets: [
           {
             label: 'Nombre de commandes',
-            data: [150, 200, 400, 400, 50, 300],
+            data: [],
             backgroundColor: ['#F7D070'],
             hoverBackgroundColor: ['#F7D070'],
             borderRadius : 8 ,
@@ -42,6 +50,15 @@ const TableauDuBord=(props)=>{
           },
         ],
       };
+
+
+nbcommandeparjour.forEach((value) => {
+  dat.labels.push(value.createdAt); 
+  dat.datasets[0].data.push(value.nombre_commandes.toFixed(0));
+});
+
+
+
       const options = {
         percentageInnerCutout : 0,
         plugins: {
@@ -72,7 +89,7 @@ const TableauDuBord=(props)=>{
         },
  
       };
-console.log(props.user)
+
     return(
         
      <div className="Tb">
@@ -87,14 +104,21 @@ console.log(props.user)
 <div className="bloq1-tb">
 <div><p className="txt3-Tb">Les plus vendus  <span className="txt4-Tb"> (30 derniers jours)</span></p></div>
 
-<div className="col1-tb">
+<div className="scroll">
+
+
+
+  {
+    
+    prodplusvende?.map((obj) => (
+      <div className="col1-tb">
 <div className="row2-Tb">
 <div>
-<p className="txt5-Tb">x111</p>
+<p className="txt5-Tb">X{obj?.produitlabrairies[0]?.total_ventes}</p>
 </div>
-<img src=""  className="img-Tb"/>
+<img src={"http://127.0.0.1:8080/uploads/"+obj?.produitlabrairies[0]?.imagelibrairies[0].name_Image}  className="img-Tb"/>
 <div>
-<p className="txt6-Tb">GOUACHE 9T META</p>
+<p className="txt6-Tb">{obj?.produitlabrairies[0]?.titre}</p>
 </div>
 
 
@@ -102,6 +126,14 @@ console.log(props.user)
 
 
 </div>
+
+    ))
+  }
+
+
+</div>
+
+
 </div>
 
 <div className="bloq1-tb">
@@ -124,9 +156,12 @@ console.log(props.user)
 </div>
 
 
-</div>
 
 </div>
+
+
+</div>
+
 
 <div className="bloq1-tb">
 <div><p className="txt3-Tb">Commandesétats<span className="txt4-Tb"> (30 derniers jours)</span></p></div>

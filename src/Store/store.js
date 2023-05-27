@@ -31,6 +31,9 @@ import SliceGategorie from './ClientApi/SliceGategorie';
 import AllPartnaireSlice from './Partnaire/AllPartnaireSlice';
 import  addBondachateSlice from './bonDachate/addbonDachateSlice';
 import  AllbonDachateByuserSclie  from './bonDachate/AllbonDachateByuserSlice';
+import Sliceprodplusvende from './commande/Sliceprodplusvende';
+import Slicenb_commande_par_jour from './commande/Slicenb_commande_par_jour';
+
 const persistConfig = {
     key: 'root',
     storage,
@@ -63,7 +66,9 @@ const rootReducer = combineReducers({
     AllCategorie:SliceGategorie,
     Allpartnaire:AllPartnaireSlice,
     addBondachateSlice:addBondachateSlice,
-    AllbonDachateByuser:AllbonDachateByuserSclie
+    AllbonDachateByuser:AllbonDachateByuserSclie,
+    prodplusvende:Sliceprodplusvende,
+    nbcommandeparjoure:Slicenb_commande_par_jour
 
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);

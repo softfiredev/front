@@ -50,6 +50,8 @@ export const Path ={
     AllPartnaire :"partenaire/findAll",
     addBonDachate:"bonAchat/add",
     allbonDachateUser :"bonAchat/findByuser/",
-    addPoint : "user/addPoint/"
+    addPoint : "user/addPoint/",
+    produit_plus_vendus:"commandeDetail/produit_plus_vendus/",
+    nb_commande_par:"commandeDetail/nb_commande_par_jour/"
 
 }

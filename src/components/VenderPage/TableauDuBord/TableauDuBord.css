@@ -305,3 +305,19 @@ line-height: 150%;
 text-align: center;
 color: #9C9CA4;
 }
+.scroll{
+    width: 800px;
+    height: 150px;
+    overflow: auto;
+    text-align: justify;
+    padding: 20px;
+    height: 580px;
+    margin-left: -15px;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.scroll::-webkit-scrollbar {
+width: 12px;
+}

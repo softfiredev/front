@@ -35,8 +35,6 @@ if((location.pathname==="/Profile/Monidentite" || location.pathname==="/Profile"
 else{return <Navigate to="/" />}
 }
 
-
-
 if(user.auth===false )
 {
  return <Navigate to="/" />

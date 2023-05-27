@@ -23,24 +23,24 @@ function NavBar(props) {
           </div>
         <div className='groupli'>
           <ul className="main-nav">
-           <Link to="/home"> <li>Accueil</li></Link>
-           <Link to="/Shop"> <li>Shop </li></Link>
-            <Link to="/AboutUs"><li>À propos</li></Link>
-           <Link to="/BecomePartner"> <li>Devenir partenaire</li></Link>
-          <Link to="/Contact">  <li>Contact</li></Link>
+           <a href="/home"> <li>Accueil</li></a>
+           <a href="/Shop"> <li>Shop </li></a>
+            <a href="/AboutUs"><li>À propos</li></a>
+           <a href="/BecomePartner"> <li>Devenir partenaire</li></a>
+          <a href="/Contact">  <li>Contact</li></a>
           </ul>
         </div>
         <div className='group032'>
           <div className="cartchop">
 
           <span>
-            <Link to="/cart" className='iconcolor'>
+            <a href="/cart" className='iconcolor'>
               <ShoppingCart
                 size="32"
                 color="#FFFFFF"
                 variant="Bold"
               /><p className='patch'><p className='patch-txt'>+{nbprod}</p></p>
-            </Link>
+            </a>
           </span>
           </div>
          <div>

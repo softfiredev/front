@@ -61,6 +61,7 @@ const Detailprod = (props) => {
     (state) => state.AllAvisProduitDeatil.status
   );
   const produit = useSelector((state)=>state.AllProduitlibrairieByCategorie.produitlibBycategorie)
+  const produitstate = useSelector((state)=>state.AllProduitlibrairieByCategorie.status)
 
 const items =4;
 const [current,setCurrent]=useState(1)
@@ -85,7 +86,6 @@ const [value, setValue] = useState(0);
 
   useEffect(() => {
     dispatch(getProduitDetail(id));
-    console.log(produitDetail);
     dispatch( getAllProduitByCategorie(produitDetail?.categorieId))
   }, [id]);
   useEffect(()=>{

@@ -24,7 +24,6 @@ const Vender = () => {
   const navigate = useNavigate();
   const Logout = () => {
     localStorage.removeItem("persist:root");
-    navigate("/login");
     navigate(0);
   };
   const linkarray = [

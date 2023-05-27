@@ -180,8 +180,8 @@ function App() {
               </Route>
           
             </Route>
-            <Route path="/" element={<Navigate to="/Home" />} />
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Navigate to={user.auth==false || user.role==="client" ?"/Home":"/Vender/TableauDuBord"} />} />
+            <Route path="/Home" element={user.auth==false || user.role==="client"?<Home />:<Protection user={user}><Vender /></Protection>}  />
             <Route
               path="/reset-password/:id/:token"
               element={<Resetpassword />}

@@ -72,7 +72,7 @@ const TableauDuBord=(props)=>{
         },
  
       };
-
+console.log(props.user)
     return(
         
      <div className="Tb">

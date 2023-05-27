@@ -86,8 +86,9 @@ const [value, setValue] = useState(0);
 
   useEffect(() => {
     dispatch(getProduitDetail(id));
-    dispatch( getAllProduitByCategorie(produitDetail?.categorieId))
-  }, [id]);
+    dispatch(getAllProduitByCategorie(produitDetail?.categorieId));
+  }, [dispatch, id, produitDetail?.categorieId]);
+
   useEffect(()=>{
     dispatch(getAllAvisProduitDeatil(id));
   },[refresh])

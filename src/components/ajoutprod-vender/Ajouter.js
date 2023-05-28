@@ -147,6 +147,8 @@ const Ajouter = (props) => {
       setsizeimg(realimgsize > 1024 * 1024);
     }
   };
+
+
   return (
     <>
       <div>

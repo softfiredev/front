@@ -59,7 +59,7 @@ const Detailcomnder = (props) => {
      })
   }
 
- console.log(filteredData)
+ console.log(DetailcomondeClient[0].produitlabrairies  )
   return (
     <div className="Detailcomnder">
       <div

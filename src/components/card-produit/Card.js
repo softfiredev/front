@@ -24,7 +24,7 @@ const Card = (props) => {
   const day = String(date.getDate()).padStart(2, '0');
   const formattedDate = `${year}-${month}-${day}`;
  const datenow=formattedDate==props.dateG
-
+console.log(props.remise)
   return (
     <div className="card">
        
@@ -32,13 +32,13 @@ const Card = (props) => {
       {props.etat!==null &&  props.etat==="pack promo" ?
   <div className='background-cardeprod'><p className='back-text1'>{props.etat}</p></div>
   :
-  props.etat!==null && props.etat==="remise"?
+  props.etat!==null && props.etat==="remise" &&props.remise!==0?
   <div className='background-cardRes'><p className='back-text2' >{props.etat} {props.remise} %</p></div>
   :props.etat===null &&datenow && (parseInt(props?.totalavis==undefined?0:props?.totalavis)<=25 )?<div className='background-cardRes'style={{background:"#4098D7"}}><p className='back-text2' >Nouveautés</p></div>
 :<></>
       }  
     {
-      (parseInt(props?.totalavis)>=25 )?  <div className='background-cardRes'style={{background:"#E67635"}}><p className='back-text2' >Meilleures vente</p></div>
+      (parseInt(props?.totalavis)>=25 )&&props.remise===0?  <div className='background-cardRes'style={{background:"#E67635"}}><p className='back-text2' >Meilleures vente</p></div>
       :<></>
     }
 

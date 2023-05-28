@@ -8,6 +8,7 @@ import Liste from "../../components/listefq/liste";
 import { Link } from 'react-router-dom';
 import { becamePartner } from "../../Store/Service/becamePartner";
 import { toast } from "react-toastify";
+import { TickCircle} from "iconsax-react";
 const Become_a_Partner = () => {
   const [file,setfile]=useState()
   const [sizeimg,setSizeimg]=useState(false)
@@ -356,14 +357,22 @@ const EnvoyerDemende=()=>{
                       <Grid item>
                       <div className="downlo-modalbecome">
                       <label htmlFor="file-input" className="labelup">
-                  <div >    
-                    <img
-                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVR4nO2WywqCQBSGv2wTtJNatImWLmodFPUE3agk2gkp5Pu/QAwcw6SmmUGnFv7wgzCe83kuotCq1R9qAKyBK5ABKXABlkDYBDCQ5Hcg/2B1tpJ7a4NuNMCqd3XB5xbQwqpyK02AvcwulWtde3VtD5usTOeFCXRcMzSXbf+qbQPgVAdU2xfJO/ktUQIMxYkhPAI6VWgPOBsmSCrLElrAz8J6VuoKdYUHSAtMZzUsgcpQ5Mw0T4RFtcqj0lwLFfMeWeQ5YbhM71zIJTZDVt03+IaU7Rt8VIGzH4CnKrALxB7BcflT2XeAu4BjYb0okBYcDRfOFJxKzmldPwXVB/CmvAX70kHspAegq6wprKfiuQAAAABJRU5ErkJggg=="
-                      alt="ico"
-                      className="iconuplod-desbecome"
-                    />
-                    <div><p className="tele-become"> Télécharger un fichier</p></div>   
-                  </div>
+                 
+                 {img===undefined?
+     <div >    
+     <img
+       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVR4nO2WywqCQBSGv2wTtJNatImWLmodFPUE3agk2gkp5Pu/QAwcw6SmmUGnFv7wgzCe83kuotCq1R9qAKyBK5ABKXABlkDYBDCQ5Hcg/2B1tpJ7a4NuNMCqd3XB5xbQwqpyK02AvcwulWtde3VtD5usTOeFCXRcMzSXbf+qbQPgVAdU2xfJO/ktUQIMxYkhPAI6VWgPOBsmSCrLElrAz8J6VuoKdYUHSAtMZzUsgcpQ5Mw0T4RFtcqj0lwLFfMeWeQ5YbhM71zIJTZDVt03+IaU7Rt8VIGzH4CnKrALxB7BcflT2XeAu4BjYb0okBYcDRfOFJxKzmldPwXVB/CmvAX70kHspAegq6wprKfiuQAAAABJRU5ErkJggg=="
+       alt="ico"
+       className="iconuplod-desbecome"
+     />
+     <div><p className="tele-become"> Télécharger un fichier</p></div>   
+   </div>
+   :     <div >    
+  <TickCircle size="32" color="#57AE5B" variant="Bold"/>
+   <div><p className="tele-become"> fichier :  {imgname} </p></div>   
+ </div>
+                 }
+             
                   </label>
                   <input type="file" className="uplod" id="file-input" accept=".pdf" onChange={onImageChange}/>
 

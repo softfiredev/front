@@ -59,7 +59,7 @@ const Detailcomnder = (props) => {
      })
   }
 
- 
+ console.log(filteredData)
   return (
     <div className="Detailcomnder">
       <div
@@ -143,12 +143,10 @@ const Detailcomnder = (props) => {
               <Location size="24" color="#9E9E9E" variant="Bold" />
               <div>
                 <p className="txt1box3-dc">
-            
-                  {
-                   filteredData?.[0]?.Code_postal
-                  }
-                  {filteredData?.[0]?.Adresse},
-                  {filteredData?.[0]?.Ville}
+                {filteredData?.[0]?.Nom_de_adresse}, 
+                {filteredData?.[0]?.Code_postal}
+                {filteredData?.[0]?.Gouvernorat} 
+                {filteredData?.[0]?.Ville}
                 </p>
               </div>
             </div>

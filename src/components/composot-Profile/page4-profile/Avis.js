@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { supprimerAvis } from "../../../Store/Service/supprimerAvis";
 import { toast } from "react-toastify";
 import { ModifierAvis } from "../../../Store/Service/ModifierAvis";
+import Pagination from "@mui/material/Pagination";
 
 const Avis = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -106,6 +107,16 @@ const Avis = (props) => {
     borderRadius: "8px",
     p: 4,
   };
+  const items =4;
+  const [current,setCurrent]=useState(1)
+  const NbPage=Math.ceil(Avis?.length/items);
+  const startIndex=(current -1)*items;
+  const endIndex=startIndex+items;
+  const DataPerPage=Avis?.slice(startIndex,endIndex)
+  function handlePagination (event,page) {
+    setCurrent(page)
+  }     
+
   return (
     <div className="avis">
       <div className="col1-avis">
@@ -131,7 +142,7 @@ const Avis = (props) => {
               </th>
             </tr>
 
-            {Avis?.map((obj) => (
+            {DataPerPage?.map((obj) => (
               <tr className="tr-avis">
                 <td>
                   <div className="row-avis">
@@ -294,6 +305,17 @@ const Avis = (props) => {
           </div>
         </Box>
       </Modal>
+      <div className="pagination1-avis">
+<br/>
+<Pagination
+       count={NbPage}
+       shape="rounded"
+       className="pagination-avis"
+       page={current}
+       onChange={handlePagination}
+     />
+
+</div>
     </div>
   );
 };

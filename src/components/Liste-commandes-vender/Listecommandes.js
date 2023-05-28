@@ -376,7 +376,8 @@ const Listecommandes = (props) => {
                   onChange={handlePagination}
                 />
 
-        </div></div>
+        </div>
+        </div>
 
     </div>
   )

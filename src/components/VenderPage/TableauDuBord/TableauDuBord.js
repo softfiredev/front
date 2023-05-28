@@ -10,8 +10,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { nb_commande_par_jour } from "../../../Store/Service/nb_commande_par_jour";
 import { findCommandeBylibrairie } from "../../../Store/Service/findCommandeBylibrairie";
 import { prodplusvendus } from "../../../Store/Service/prodplusvendus";
+import moment from 'moment';
+
+
 
 const TableauDuBord=(props)=>{
+
+  const op= [ '1','2', '3','4','5','6','7'];
+
+const [selectedValue, setSelectedValue] = useState(1);
+
+const handleSelectChange = (event) => {
+  setSelectedValue(event.target.value);
+};
+
     const librairieData = useSelector(
         (state) => state.findCommandeBylibrairie.commandeslibrairie
       );
@@ -25,7 +37,14 @@ const nbcommandeparjour= useSelector( (state) => state.nbcommandeparjoure.produi
       dispatch(prodplusvendus(props?.user.id));
       dispatch(nb_commande_par_jour(props?.user.id));
     }, []);
-    console.log(nbcommandeparjour);
+      
+    const currentDate = moment().format('YYYY-MM-DD');
+    const filteredData = librairieData.filter(item => {
+      const parsedDate = moment(item.createdAt, 'YYYY-MM-DD');
+      const threeDaysAgo = moment().subtract(10, 'days');
+      return parsedDate.isBetween(threeDaysAgo, currentDate, null, '[]');
+    });
+
       const data = {
         labels: ['Compléter  (164)', 'En cours (30)', 'Rejeter (6)','Nouveau (6)'],
         datasets: [
@@ -46,16 +65,21 @@ const nbcommandeparjour= useSelector( (state) => state.nbcommandeparjoure.produi
             hoverBackgroundColor: ['#F7D070'],
             borderRadius : 8 ,
             borderWidth: 1,
-            barThickness:30
+            barThickness:40
           },
         ],
       };
-
-
-nbcommandeparjour.forEach((value) => {
-  dat.labels.push(value.createdAt); 
-  dat.datasets[0].data.push(value.nombre_commandes.toFixed(0));
-});
+      const filteredData2 = nbcommandeparjour.filter(item => {
+      const parsedDate = moment(item.createdAt, 'YYYY-MM-DD');
+      const threeDaysAgo = moment().subtract(selectedValue, 'days');
+      return parsedDate.isBetween(threeDaysAgo, currentDate, null, '[]');
+    });
+    dat.labels.push(filteredData2.createdAt); 
+    dat.datasets[0].data.push(filteredData2.nombre_commandes);
+    filteredData2.forEach((value) => {
+    dat.labels.push(value.createdAt); 
+    dat.datasets[0].data.push(value.nombre_commandes);
+    });
 
 
 
@@ -89,6 +113,8 @@ nbcommandeparjour.forEach((value) => {
         },
  
       };
+ 
+
 
     return(
         
@@ -121,10 +147,7 @@ nbcommandeparjour.forEach((value) => {
 <p className="txt6-Tb">{obj?.produitlabrairies[0]?.titre}</p>
 </div>
 
-
 </div>
-
-
 </div>
 
     ))
@@ -198,13 +221,12 @@ nbcommandeparjour.forEach((value) => {
     <p className="txt9-tb">Nombre de commandes</p>
 </div>
 <div>
-<Select className='txt-select' defaultValue="2"style={{ marginTop:"-2%",width: "202.57px", height: " 40px", borderRadius: "8px" }} >
-                    <MenuItem value="2">
-                        <em className='txt-select-ajout'>Les 7 derniers jours </em>
-                    </MenuItem>
-                
-                      <MenuItem value="3" className='txt-select'>Les 2 derniers jours</MenuItem>
-                  
+<Select value={selectedValue} onChange={handleSelectChange} className='txt-select'style={{ marginTop:"-2%",width: "202.57px", height: " 40px", borderRadius: "8px" }} >
+                   
+                      {op.map((option) => (
+                <MenuItem  key={option} value={option} className='txt-select'>Les {option} derniers jours</MenuItem>
+
+                     ))}
                 </Select>
 </div>
 </div>
@@ -226,7 +248,7 @@ nbcommandeparjour.forEach((value) => {
 
 </tr>
 
-{librairieData?.map((obj,index) => (
+{filteredData?.map((obj,index) => (
 
 <tr className={obj?.etatVender==="Nouveau"?"backnovo-c":"backnovo-c0"} >
 

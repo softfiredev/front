@@ -230,11 +230,17 @@ border-radius: 8px;
 .txtbnt-avis{
     margin-top: -1%;
 }
+.pagination1-avis{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+gap: 1em;
+}
 
 .tabcom-avis{
 
-    width: 30%;
-    height: 150px;
+    width: 25%;
+    height: 100px;
 
 }
 .obj-nbStart{

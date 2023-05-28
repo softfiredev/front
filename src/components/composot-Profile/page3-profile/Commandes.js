@@ -122,7 +122,7 @@ const Commandes = (props) => {
     setValue(newValue);
   };
   const filteredDataLivré = commandes?.filter((item) => {
-    return item?.etatClient?.includes("Livre");
+    return item?.etatClient?.includes("livre");
   });
   const filteredDataAnnulé = commandes?.filter((item) => {
     return item?.etatClient?.includes("Annule");

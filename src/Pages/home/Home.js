@@ -73,14 +73,28 @@ const Home = () => {
     {
       nom: "Cooper Ekstrom Bothman",
       des: "J'ai été agréablement surprise par la qualité de la peinture Gouache pour les projets scolaires de mon fils.",
+      prix:15,
+      titre:"bilcar",
+      noml:"anoir maktaba", 
+      id:7,
+      imgp:"image-1684855257453.png"
     },
     {
       nom: "Cooper Ekstrom Bothman",
       des: "J'ai été agréablement surprise par la qualité de la peinture Gouache pour les projets scolaires de mon fils.",
-    },
+      prix:2,
+      titre:"9lam",
+      noml:"elRahma",
+      id:"7",
+      imgp:"image-1684945195823.png"
+        },
     {
       nom: "Cooper Ekstrom Bothman",
       des: "J'ai été agréablement surprise par la qualité de la peinture Gouache pour les projets scolaires de mon fils.",
+      prix:1,
+      titre:"mastra",
+      noml:"elRahma",
+      imgp:"image-1685222711933.png"
     },
   ];
 
@@ -342,6 +356,7 @@ const Home = () => {
                   nomprod={obj.nom}
                   nomclinet={obj.nom}
                   descriptionclient={obj.des}
+                  imgp={obj.imgp}
                 />
                 </Grid>
                 </SwiperSlide>

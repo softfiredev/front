@@ -4,12 +4,14 @@ import Rating from "@mui/material/Rating";
 import Card from "../../components/card-produit/Card";
 const Cartclient = (props) => {
     const [value4, setValue4] = useState(3);
+
+
   return (
     <div className='cartclient-home'>
     <div>
       <div className='colcart0-home'>  
       <div className='rowmini-home'> 
-        <Avatar src=""sx={{ width: 40, height: 40 }}  /> 
+        <Avatar src={props.imgc}sx={{ width: 40, height: 40 }}  /> 
         <div>  
          <div className='colmini-home'>
          <div><p className='txtcart0-home'>{props.nomclinet}</p> </div>
@@ -26,7 +28,7 @@ const Cartclient = (props) => {
   
 
       </div>
-      <div>  <Card  prix={props.prixprod}  nom={props.nomprod}   noml={props.noml}    id={props.idprod}   /></div>
+      <div>  <Card   imgp={props.imgp} prix_en_Solde={null}  prix={props.prixprod}  nom={props.nomprod}   noml={props.noml}  id={props.idprod}   /></div>
        </div>
   )
 }

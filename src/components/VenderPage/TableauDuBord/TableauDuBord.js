@@ -11,6 +11,7 @@ import { nb_commande_par_jour } from "../../../Store/Service/nb_commande_par_jou
 import { findCommandeBylibrairie } from "../../../Store/Service/findCommandeBylibrairie";
 import { prodplusvendus } from "../../../Store/Service/prodplusvendus";
 import moment from 'moment';
+import { nb_commande } from "../../../Store/Service/nb_commande";
 
 
 
@@ -29,13 +30,14 @@ const handleSelectChange = (event) => {
       );
       const prodplusvende = useSelector(
         (state) => state.prodplusvende.produit )
-
-const nbcommandeparjour= useSelector( (state) => state.nbcommandeparjoure.produit);
+        const nbcommande= useSelector( (state) => state.nb_commande.produit);
+        const nbcommandeparjour= useSelector( (state) => state.nbcommandeparjoure.produit);
     const dispatch=useDispatch()
     useEffect(() => {
       dispatch(findCommandeBylibrairie(props?.user.id));
       dispatch(prodplusvendus(props?.user.id));
       dispatch(nb_commande_par_jour(props?.user.id));
+      dispatch(nb_commande(props?.user.id));
     }, []);
       
     const currentDate = moment().format('YYYY-MM-DD');
@@ -44,12 +46,12 @@ const nbcommandeparjour= useSelector( (state) => state.nbcommandeparjoure.produi
       const threeDaysAgo = moment().subtract(10, 'days');
       return parsedDate.isBetween(threeDaysAgo, currentDate, null, '[]');
     });
-
+console.log(nbcommande)
       const data = {
-        labels: ['Compléter  (164)', 'En cours (30)', 'Rejeter (6)','Nouveau (6)'],
+        labels: [`Compléter  (${nbcommande[0]?.completes})`, `en_cours  (${nbcommande[0]?.en_cours})`,`rejetees  (${nbcommande[0]?.rejetees})`,`nouvelles  (${nbcommande[0]?.nouvelles})`],
         datasets: [
           {
-            data: [300, 200, 100,50],
+            data: [nbcommande[0]?.completes, nbcommande[0]?.en_cours, nbcommande[0]?.rejetees,nbcommande[0]?.nouvelles],
             backgroundColor: ['#7BC47F', '#62B0E8', '#E66A6A','#F9DA8B'],
             cutout:"80%"
           }
@@ -186,7 +188,7 @@ const nbcommandeparjour= useSelector( (state) => state.nbcommandeparjoure.produi
 </div>
 
 
-<div className="bloq1-tb">
+<div className="bloq10-tb">
 <div><p className="txt3-Tb">Commandesétats<span className="txt4-Tb"> (30 derniers jours)</span></p></div>
 
 
@@ -195,7 +197,7 @@ const nbcommandeparjour= useSelector( (state) => state.nbcommandeparjoure.produi
 <div style={{ width: '300px', height: '300px', position: 'relative'}}>
     <Doughnut data={data} options={options} width={200} height={200}/>
         <div style={{ position: 'absolute', width: '100%', top: '52%', left:" -29%", textAlign: 'center', marginTop: '-28px',  lineHeight: '20px'}}>
-            <p className="txt-2014">202</p> 
+            <p className="txt-2014">{nbcommande[0]?.total_commandes}</p> 
             <p className="txt-2040">Total</p>
         </div>
         </div>

@@ -46,6 +46,17 @@ display: flex;
 flex-direction: column;
 gap:1em;
     }
+    .bloq10-tb{
+        width: 359px;
+        height: 237px;
+        background: #FFFFFF;
+        border: 1px solid #EEEDF2;
+        border-radius: 16px;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        gap:2em;
+            }
     .txt3-Tb{
 font-family: 'Inter';
 font-style: normal;

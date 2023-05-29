@@ -1,23 +1,23 @@
 import "./App.css";
 import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  Router,
-} from "react-router-dom";
+
+import { BrowserRouter as Router, Route, Routes,   Navigate, useLocation } from 'react-router-dom';
+
 import Toast from "./components/toast/Toast";
 import Spinier from "./components/spinier/Spinier";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
+const AdminPartners = lazy(() =>
+  import("./components/Admin-components/AdminPartners/AdminPartners")
+);
 
 
-
-
+const Admin = lazy(() =>
+  import("./Pages/Admin/Admin")
+);
 const Gestion_points = lazy(() =>
   import("./components/Gestion de points-vender/Gestion_points")
 );
@@ -116,10 +116,20 @@ const Avis = lazy(() =>
   import("./components/composot-Profile/page4-profile/Avis")
 );
 const Vender = lazy(() => import("./Pages/vender/vender"));
+function ScrollToTop() {
+  const location = useLocation();
 
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo(0,0);
+    };
+
+    scrollToTop();
+  }, [location]);
+
+  return null;
+}
 function App() {
-
- 
   const LoginServiceData = useSelector((state) => state.loginservice);
   const googleServiceData = useSelector((state) => state.Googleservice);
   const accessToken=  LoginServiceData.isLogin === true && googleServiceData.isLogin === false ? LoginServiceData.accessToken:googleServiceData.accessToken
@@ -139,13 +149,13 @@ function App() {
   };
 
 
-
   return (
-    < div >
-    
-      <BrowserRouter>
-      
-      <ScrollToTop />
+
+   
+
+      <Router>
+       <ScrollToTop />
+   
          <NavBar user={user} />
          <Suspense fallback={<Spinier />}>
         
@@ -227,15 +237,22 @@ function App() {
             <Route path="/Fornisseuer/Factorisation" element={<FactorisationFornisseuer />}             />
             <Route path="/Fornisseuer/Profile" element={<FornisseuerProfile />}/>
             </Route>
-            <Route path="/Faire_une_commande" element={<FaireComonde user={user}/>}/>
+            
+             <Route path="/Faire_une_commande" element={<FaireComonde user={user}/>}/>
+             <Route path="/Admin" element={<Admin user={user}/>}>
+             <Route path="/Admin/Partners" element={<AdminPartners user={user}/>}/>
+             </Route>
 
             <Route path="*" element={<> page not !!!</>} />
           </Routes>
         </Suspense>
         <Toast />
         <Footer />
-      </BrowserRouter>
-    </div>
+    
+        </Router>
+
+
+
   );
 }
 

@@ -83,7 +83,12 @@ const Footer = () => {
       </div>
     </section>
     <hr className='line'/>
-      <p className='Copyright'>Copyright © 2022 Maktaba.tn</p>
+    <p className="Copyright" onClick={() => {    
+  window.scrollTo({
+    top: 10000,
+    behavior: "smooth"
+  });
+}}>Copyright © 2023 Maktaba.tn</p>
   </div>
  
 

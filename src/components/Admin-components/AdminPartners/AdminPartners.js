@@ -8,8 +8,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Filterbar from '../../filterbar/Filterbar';
-import {Sort,More, Edit, Trash } from "iconsax-react";
-
+import {Sort,More, TickCircle, Trash,CloseCircle } from "iconsax-react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { findCommandeBylibrairie } from "../../../Store/Service/findCommandeBylibrairie";
@@ -54,7 +53,10 @@ const Listecommandes = (props) => {
       (state) => state.findCommandeBylibrairie.status
     );
     const [all, setAll] = React.useState(librairieData);
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
 
+    };
     const navigat=(id)=>{
         navigate(`/Vender/Details_de_commande/${id}`)
         navigate(0)
@@ -104,7 +106,7 @@ const Listecommandes = (props) => {
 
   return (
     <div className='liste-c'>
-  <div>   <p className='txt-c'>Liste de Utilisateurs</p></div>
+  <div>   <p className='txt-c'>Liste de demande</p></div>
     <div className='box01-c'>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -129,11 +131,12 @@ const Listecommandes = (props) => {
 
 <th>#</th>
 <th>Client</th>
-<th>Type</th>
-<th>Date factorisation</th>
-<th>Date de création</th>
-<th>Pack</th>
-<th>Staut</th>
+<th>N téléphone</th>
+<th>E-mail</th>
+<th>Role</th>
+<th>Nom de travail </th>
+<th>etat</th>
+<th>fichier</th>
 <th></th>
 </tr>
 
@@ -144,7 +147,6 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj?.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj?.user?.avatar}style={{borderRadius:"50%"}} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
@@ -162,14 +164,19 @@ const Listecommandes = (props) => {
   
   </td>
   <td className='tdwidth1'>
-    
+  </td>
+
+  <td className='tdwidth1'>
+                   <div className="more-avis">
                       <More
                       size="22"
                       color="#222222"
                       aria-controls={open ? "basic-menu" : undefined}
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
                       />
+                          </div>
   </td>
 </tr>
 
@@ -500,9 +507,20 @@ const Listecommandes = (props) => {
             >
       
               <MenuItem className="menuitem-avis" onClick={handleClicke}>
-                <Edit size="22" color="#222222" />
+              <TickCircle size="22" color="#626262"/>
                 <span>
-                  <p className="txtmenu-avis">Modifier</p>
+                  <p className="txtmenu-avis">Confirmer</p>
+                </span>
+              </MenuItem>
+              <MenuItem
+                className="menuitem-avis"
+                onClick={() => {
+                  setop2(true);
+                }}
+              >          
+               <CloseCircle size="22" color="#626262" />
+                <span>
+                  <p className="txtmenu-avis" >Refuser</p>
                 </span>
               </MenuItem>
               <MenuItem
@@ -511,9 +529,9 @@ const Listecommandes = (props) => {
                   setop2(true);
                 }}
               >
-                <Trash size="22" color="#222222" />
+                <Trash size="22"color="#D64545" />
                 <span>
-                  <p className="txtmenu-avis">Supprimer</p>
+                  <p className="txtmenu-avis" style={{color:"#D64545"}}>Bloquer</p>
                 </span>
               </MenuItem>
             </Menu>

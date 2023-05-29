@@ -69,6 +69,16 @@ th {
     border-top: #F7F7F7 solid 1px;
     height: 56px;
 }
+.menuitem-avis{
+    display: flex;
+    
+}
+.more-avis{
+    margin-top: 30%;
+     cursor: pointer;
+     transform: rotate(90deg)
+    
+ }
 td {
     height: 60px;
     width: 16%;

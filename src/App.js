@@ -240,7 +240,7 @@ function App() {
             
              <Route path="/Faire_une_commande" element={<FaireComonde user={user}/>}/>
              <Route path="/Admin" element={<Admin user={user}/>}>
-             <Route path="/Admin/Partners" element={<AdminPartners user={user}/>}/>
+             <Route path="/Admin/Liste_de_demande" element={<AdminPartners user={user}/>}/>
              </Route>
 
             <Route path="*" element={<> page not !!!</>} />

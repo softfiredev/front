@@ -8,11 +8,12 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Filterbar from '../../filterbar/Filterbar';
-import {Sort,More, TickCircle, Trash,CloseCircle } from "iconsax-react";
-import { useNavigate } from "react-router-dom";
+import {Sort,More, TickCircle, Trash,CloseCircle,ReceiptSearch } from "iconsax-react";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { findCommandeBylibrairie } from "../../../Store/Service/findCommandeBylibrairie";
 import Pagination from "@mui/material/Pagination";
+import { demondePar } from "../../../Store/Service/demondePar";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
    
@@ -47,33 +48,37 @@ const Listecommandes = (props) => {
     const [op, setop] = React.useState(false);
     const [op2, setop2] = React.useState(false);
     const librairieData = useSelector(
-      (state) => state.findCommandeBylibrairie.commandeslibrairie
+      (state) => state.demondePar.demendes
     );
     const librairieState = useSelector(
-      (state) => state.findCommandeBylibrairie.status
+      (state) => state.demondePar.status
     );
     const [all, setAll] = React.useState(librairieData);
+    const [all2, setAll2] = React.useState(librairieData);
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
-
     };
+
     const navigat=(id)=>{
         navigate(`/Vender/Details_de_commande/${id}`)
         navigate(0)
     }
-    const filteredDataNouveau = librairieData?.filter((item) => {
-      return item?.etatVender.includes("Nouveau");
-    });
-    const filteredDataRejeter = librairieData?.filter((item) => {
-        return item?.etatVender.includes("Rejeter");
-      });
-      const filteredEncours = librairieData?.filter((item) => {
-        return item?.etatVender.includes("En cours");
-      });
-      const filteredDataCompléter = librairieData?.filter((item) => {
-        return item?.etatVender.includes("Compléter");
-      });
 
+    const filteredLibrairie = librairieData?.filter((item) => {
+      return item?.Role?.includes("Librairie");
+    });
+    const filteredDataFournisseur = librairieData?.filter((item) => {
+        return item?.Role?.includes("Fournisseur");
+      });
+      const filteredEntreprise = librairieData?.filter((item) => {
+        return item?.Role?.includes("Entreprise");
+      });
+      const filteredDataÉcole = librairieData?.filter((item) => {
+        return item?.Role?.includes("École");
+      });
+      const filteredAssociation = librairieData?.filter((item) => {
+        return item?.Role?.includes("Association");
+      });
       const handleChange = (event, newValue) => {
         setValue(newValue);
       }
@@ -83,7 +88,7 @@ const Listecommandes = (props) => {
       const handleClicke = () => {
         setop(true);
       };
-      const items =8;
+      const items =10;
       const [current,setCurrent]=useState(1)
       const NbPage=Math.ceil(all?.length/items);
       const startIndex=(current -1)*items;
@@ -92,16 +97,31 @@ const Listecommandes = (props) => {
       function handlePagination (event,page) {
         setCurrent(page)
       }     
-
+  
+      const filteredetat1= filteredLibrairie?.filter((item) => {
+        return item?.etat?.includes("en_cours");
+      });
+      const filteredetat2= filteredDataFournisseur?.filter((item) => {
+        return item?.etat?.includes("en_cours");
+      });
+      const filteredetat3= filteredEntreprise?.filter((item) => {
+        return item?.etat?.includes("en_cours");
+      });
+      const filteredetat4= filteredDataÉcole?.filter((item) => {
+        return item?.etat?.includes("en_cours");
+      });
+      const filteredetat5= filteredAssociation?.filter((item) => {
+        return item?.etat?.includes("en_cours");
+      });
+      console.log(filteredetat3.length)
       const dispatch=useDispatch()
       useEffect(() => {
-        dispatch(findCommandeBylibrairie(12));
+        dispatch(demondePar());
         if(all?.length===0 && librairieState!="failed") 
         {
           navigate(0)
         }
       }, []);
-
 
 
   return (
@@ -112,13 +132,11 @@ const Listecommandes = (props) => {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#F7D070" } }}>
          <Tab onClick={()=>{setAll(librairieData);setCurrent(1)}}  label={<p className="txttabs-c">Tout</p>} {...a11yProps(0)} />
-          <Tab onClick={()=>{setAll(filteredDataNouveau);setCurrent(1)}} label={<p className="txttabs-c">Librairie</p>} {...a11yProps(1)} />
-          <Tab  onClick={()=>{setAll(filteredEncours);setCurrent(1)}}label={<p className="txttabs-c">Fournesseur</p>} {...a11yProps(2)} />
-          <Tab  onClick={()=>{setAll(filteredDataCompléter);setCurrent(1)}}label={<p className="txttabs-c">Entreprise</p>} {...a11yProps(3)} />
-          <Tab  onClick={()=>{setAll(filteredDataRejeter);setCurrent(1)}}label={<p className="txttabs-c">Ecole</p>} {...a11yProps(4)} />
-          <Tab  onClick={()=>{setAll(filteredDataRejeter);setCurrent(1)}}label={<p className="txttabs-c">Association</p>} {...a11yProps(5)} />
-          <Tab  onClick={()=>{setAll(filteredDataRejeter);setCurrent(1)}}label={<p className="txttabs-c">Demandes</p>} {...a11yProps(6)} />
-
+          <Tab onClick={()=>{setAll(filteredLibrairie);setCurrent(1);}} label={<div style={{display:"flex"}}><p className="txttabs-c">Librairie</p>{filteredetat1?.length!==0?<div className="cir-titre">{filteredetat1?.length}</div>:<></>}</div>}{...a11yProps(1)} />
+          <Tab  onClick={()=>{setAll(filteredDataFournisseur);setCurrent(1)}} label={<div style={{display:"flex"}}><p className="txttabs-c">Fournesseur</p>{filteredetat2?.length!==0?<div className="cir-titre2">{filteredetat2?.length}</div>:<></>}</div>}{...a11yProps(2)} />
+          <Tab  onClick={()=>{setAll(filteredEntreprise);setCurrent(1)}} label={<div style={{display:"flex"}}><p className="txttabs-c">Entreprise</p>{filteredetat3?.length!==0?<div className="cir-titre2">{filteredetat3?.length}</div>:<></>}</div>} {...a11yProps(3)} />
+          <Tab  onClick={()=>{setAll(filteredDataÉcole);setCurrent(1)}} label={<div style={{display:"flex"}}><p className="txttabs-c">Ecole</p>{filteredetat4?.length!==0?<div className="cir-titre">{filteredetat4?.length}</div>:<></>}</div>} {...a11yProps(4)} />
+          <Tab  onClick={()=>{setAll(filteredAssociation);setCurrent(1)}} label={<div style={{display:"flex"}}><p className="txttabs-c">Association</p>{filteredetat5?.length!==0?<div className="cir-titre2">{filteredetat5?.length}</div>:<></>}</div>} {...a11yProps(5)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -129,45 +147,50 @@ const Listecommandes = (props) => {
 <table>
 <tr>
 
-<th>#</th>
+<th><p style={{marginLeft:"15%"}}>#</p></th>
 <th>Client</th>
 <th>N téléphone</th>
 <th>E-mail</th>
 <th>Role</th>
 <th>Nom de travail </th>
 <th>etat</th>
-<th>fichier</th>
-<th></th>
+<th>pack</th>
+<th ><p style={{marginLeft:"50%"}}>fichier</p></th>
+
 </tr>
 
 {DataPerPage?.map((obj,index) => (
 
-<tr className={obj?.etatVender==="Nouveau"?"backnovo-c":"backnovo-c0"} >
+<tr className={obj?.etat==="en_cours"?"backnovo-c":"backnovo-c0"} >
 
-<td className='tdwidth'>{obj?.id}</td>
-<td className='tdwidth02'> <div className="row-c">
+<td className='tdwidth'><p style={{marginLeft:"15%"}}>{obj?.id}</p></td>
+<td > <div className="row-c">
           
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc?.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj?.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj?.createdAt}</td>
-<td className='tdwidth1'>{obj?.createdAt}</td>
-<td className='tdwidth1'>
-{obj.etatVender==="Compléter"?
+<td ><p className='txt02-c'>{obj?.phone}</p></td>
+<td>{obj?.email}</td>
+<td ><div className="txt02-s">{obj?.Role}</div></td>
+<td >{obj?.name_work}</td>
+<td >
+{obj.etat==="Compléter"?
 <><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>Payer</p></button></>
-:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p></button>:
-<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p></button>:
+<>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
 </>}
 
   
   </td>
-  <td className='tdwidth1'>
+  <td >
+    {obj?.pack}
+  </td>
+  <td >
+  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
   </td>
 
-  <td className='tdwidth1'>
-                   <div className="more-avis">
+  <td className="more-avis">
+                   <div  className="more-avis2">
                       <More
                       size="22"
                       color="#222222"
@@ -176,7 +199,7 @@ const Listecommandes = (props) => {
                       aria-expanded={open ? "true" : undefined}
                       onClick={handleClick}
                       />
-                          </div>
+            </div>
   </td>
 </tr>
 
@@ -185,8 +208,6 @@ const Listecommandes = (props) => {
 
 </table>
       </div>
-
- 
         </TabPanel>
         <TabPanel value={value} index={1}>
         <div className='row01-c'>
@@ -194,43 +215,60 @@ const Listecommandes = (props) => {
         <table>
 <tr>
 
-<th>#</th>
+<th><p style={{marginLeft:"15%"}}>#</p></th>
 <th>Client</th>
-<th>Montant</th>
-<th>Nbr d’articles</th>
-<th>Date de création</th>
-<th>Mise à jour</th>
+<th>N téléphone</th>
+<th>E-mail</th>
+<th>Role</th>
+<th>Nom de travail </th>
+<th>etat</th>
+<th>pack</th>
+<th ><p style={{marginLeft:"50%"}}>fichier</p></th>
 
 </tr>
 
-{filteredDataNouveau?.map((obj,index) => (
+{DataPerPage?.map((obj,index) => (
 
-<tr onClick={()=>{navigat(obj.id)}}>
+<tr className={obj?.etat==="en_cours"?"backnovo-c":"backnovo-c0"} >
 
-<td className='tdwidth'>{obj.id}</td>
-<td className='tdwidth02'> <div className="row-c">
+<td className='tdwidth'><p style={{marginLeft:"15%"}}>{obj?.id}</p></td>
+<td > <div className="row-c">
           
-            <Avatar style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
-
-<td className='tdwidth1'>
-{obj.etatVender==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
-:
-<>
-{obj?.etatVender==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
-:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
-<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
+<td ><p className='txt02-c'>{obj?.phone}</p></td>
+<td>{obj?.email}</td>
+<td ><div className="txt02-s">{obj?.Role}</div></td>
+<td >{obj?.name_work}</td>
+<td >
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>Payer</p></button></>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p></button>:
+<>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
+</>}
 
   
   </td>
+  <td >
+    {obj?.pack}
+  </td>
+  <td >
+  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  </td>
 
+  <td className="more-avis">
+                   <div  className="more-avis2">
+                      <More
+                      size="22"
+                      color="#222222"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                      />
+            </div>
+  </td>
 </tr>
 
 ))}
@@ -245,42 +283,60 @@ const Listecommandes = (props) => {
         <table>
 <tr>
 
-<th>#</th>
+<th><p style={{marginLeft:"15%"}}>#</p></th>
 <th>Client</th>
-<th>Montant</th>
-<th>Nbr d’articles</th>
-<th>Date de création</th>
-<th>Mise à jour</th>
+<th>N téléphone</th>
+<th>E-mail</th>
+<th>Role</th>
+<th>Nom de travail </th>
+<th>etat</th>
+<th>pack</th>
+<th ><p style={{marginLeft:"50%"}}>fichier</p></th>
 
 </tr>
+
 {DataPerPage?.map((obj,index) => (
 
-<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+<tr className={obj?.etat==="en_cours"?"backnovo-c":"backnovo-c0"} >
 
-<td className='tdwidth'>{obj.id}</td>
-<td className='tdwidth02'> <div className="row-c">
+<td className='tdwidth'><p style={{marginLeft:"15%"}}>{obj?.id}</p></td>
+<td > <div className="row-c">
           
-            <Avatar style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
-
-<td className='tdwidth1'>
-{obj.etatVender==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
-:
-<>
-{obj.etatVender==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
-:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
-<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
+<td ><p className='txt02-c'>{obj?.phone}</p></td>
+<td>{obj?.email}</td>
+<td ><div className="txt02-s">{obj?.Role}</div></td>
+<td >{obj?.name_work}</td>
+<td >
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>Payer</p></button></>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p></button>:
+<>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
+</>}
 
   
   </td>
+  <td >
+    {obj?.pack}
+  </td>
+  <td >
+  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  </td>
 
+  <td className="more-avis">
+                   <div  className="more-avis2">
+                      <More
+                      size="22"
+                      color="#222222"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                      />
+            </div>
+  </td>
 </tr>
 
 ))}
@@ -296,42 +352,60 @@ const Listecommandes = (props) => {
         <table>
 <tr>
 
-<th>#</th>
+<th><p style={{marginLeft:"15%"}}>#</p></th>
 <th>Client</th>
-<th>Montant</th>
-<th>Nbr d’articles</th>
-<th>Date de création</th>
-<th>Mise à jour</th>
+<th>N téléphone</th>
+<th>E-mail</th>
+<th>Role</th>
+<th>Nom de travail </th>
+<th>etat</th>
+<th>pack</th>
+<th ><p style={{marginLeft:"50%"}}>fichier</p></th>
 
 </tr>
-{filteredDataCompléter?.map((obj,index) => (
 
-<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+{DataPerPage?.map((obj,index) => (
 
-<td className='tdwidth'>{obj.id}</td>
-<td className='tdwidth02'> <div className="row-c">
+<tr className={obj?.etat==="en_cours"?"backnovo-c":"backnovo-c0"} >
+
+<td className='tdwidth'><p style={{marginLeft:"15%"}}>{obj?.id}</p></td>
+<td > <div className="row-c">
           
-            <Avatar style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
-
-<td className='tdwidth1'>
-{obj.etatVender==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>Compléter</p></button></>
-:
-<>
-{obj.etatVender==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
-:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
-<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
+<td ><p className='txt02-c'>{obj?.phone}</p></td>
+<td>{obj?.email}</td>
+<td ><div className="txt02-s">{obj?.Role}</div></td>
+<td >{obj?.name_work}</td>
+<td >
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>Payer</p></button></>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p></button>:
+<>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
+</>}
 
   
   </td>
+  <td >
+    {obj?.pack}
+  </td>
+  <td >
+  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  </td>
 
+  <td className="more-avis">
+                   <div  className="more-avis2">
+                      <More
+                      size="22"
+                      color="#222222"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                      />
+            </div>
+  </td>
 </tr>
 
 ))}
@@ -346,43 +420,60 @@ const Listecommandes = (props) => {
         <table>
 <tr>
 
-<th>#</th>
+<th><p style={{marginLeft:"15%"}}>#</p></th>
 <th>Client</th>
-<th>Montant</th>
-<th>Nbr d’articles</th>
-<th>Date de création</th>
-<th>Mise à jour</th>
+<th>N téléphone</th>
+<th>E-mail</th>
+<th>Role</th>
+<th>Nom de travail </th>
+<th>etat</th>
+<th>pack</th>
+<th ><p style={{marginLeft:"50%"}}>fichier</p></th>
 
 </tr>
 
 {DataPerPage?.map((obj,index) => (
 
-<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+<tr className={obj?.etat==="en_cours"?"backnovo-c":"backnovo-c0"} >
 
-<td className='tdwidth'>{obj.id}</td>
-<td className='tdwidth02'> <div className="row-c">
+<td className='tdwidth'><p style={{marginLeft:"15%"}}>{obj?.id}</p></td>
+<td > <div className="row-c">
           
-            <Avatar  style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
-
-<td className='tdwidth1'>
-{obj.etatVender==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
-:
-<>
-{obj?.etatVender==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
-:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
-<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
+<td ><p className='txt02-c'>{obj?.phone}</p></td>
+<td>{obj?.email}</td>
+<td ><div className="txt02-s">{obj?.Role}</div></td>
+<td >{obj?.name_work}</td>
+<td >
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>Payer</p></button></>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p></button>:
+<>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
+</>}
 
   
   </td>
+  <td >
+    {obj?.pack}
+  </td>
+  <td >
+  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  </td>
 
+  <td className="more-avis">
+                   <div  className="more-avis2">
+                      <More
+                      size="22"
+                      color="#222222"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                      />
+            </div>
+  </td>
 </tr>
 
 ))}
@@ -397,43 +488,60 @@ const Listecommandes = (props) => {
         <table>
 <tr>
 
-<th>#</th>
+<th><p style={{marginLeft:"15%"}}>#</p></th>
 <th>Client</th>
-<th>Montant</th>
-<th>Nbr d’articles</th>
-<th>Date de création</th>
-<th>Mise à jour</th>
+<th>N téléphone</th>
+<th>E-mail</th>
+<th>Role</th>
+<th>Nom de travail </th>
+<th>etat</th>
+<th>pack</th>
+<th ><p style={{marginLeft:"50%"}}>fichier</p></th>
 
 </tr>
 
 {DataPerPage?.map((obj,index) => (
 
-<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+<tr className={obj?.etat==="en_cours"?"backnovo-c":"backnovo-c0"} >
 
-<td className='tdwidth'>{obj.id}</td>
-<td className='tdwidth02'> <div className="row-c">
+<td className='tdwidth'><p style={{marginLeft:"15%"}}>{obj?.id}</p></td>
+<td > <div className="row-c">
           
-            <Avatar  style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
-
-<td className='tdwidth1'>
-{obj.etatVender==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
-:
-<>
-{obj?.etatVender==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
-:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
-<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
+<td ><p className='txt02-c'>{obj?.phone}</p></td>
+<td>{obj?.email}</td>
+<td ><div className="txt02-s">{obj?.Role}</div></td>
+<td >{obj?.name_work}</td>
+<td >
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>Payer</p></button></>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p></button>:
+<>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
+</>}
 
   
   </td>
+  <td >
+    {obj?.pack}
+  </td>
+  <td >
+  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  </td>
 
+  <td className="more-avis">
+                   <div  className="more-avis2">
+                      <More
+                      size="22"
+                      color="#222222"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                      />
+            </div>
+  </td>
 </tr>
 
 ))}
@@ -448,43 +556,60 @@ const Listecommandes = (props) => {
         <table>
 <tr>
 
-<th>#</th>
+<th><p style={{marginLeft:"15%"}}>#</p></th>
 <th>Client</th>
-<th>Montant</th>
-<th>Nbr d’articles</th>
-<th>Date de création</th>
-<th>Mise à jour</th>
+<th>N téléphone</th>
+<th>E-mail</th>
+<th>Role</th>
+<th>Nom de travail </th>
+<th>etat</th>
+<th>pack</th>
+<th ><p style={{marginLeft:"50%"}}>fichier</p></th>
 
 </tr>
 
 {DataPerPage?.map((obj,index) => (
 
-<tr className={obj.Staut==="Nouveau"?"backnovo-c":"backnovo-c0"} onClick={()=>{navigat(obj.id)}}>
+<tr className={obj?.etat==="en_cours"?"backnovo-c":"backnovo-c0"} >
 
-<td className='tdwidth'>{obj.id}</td>
-<td className='tdwidth02'> <div className="row-c">
+<td className='tdwidth'><p style={{marginLeft:"15%"}}>{obj?.id}</p></td>
+<td > <div className="row-c">
           
-            <Avatar  style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
-
-<td className='tdwidth1'>
-{obj.etatVender==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
-:
-<>
-{obj?.etatVender==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
-:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
-<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
+<td ><p className='txt02-c'>{obj?.phone}</p></td>
+<td>{obj?.email}</td>
+<td ><div className="txt02-s">{obj?.Role}</div></td>
+<td >{obj?.name_work}</td>
+<td >
+{obj.etat==="Compléter"?
+<><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>Payer</p></button></>
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p></button>:
+<>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
+</>}
 
   
   </td>
+  <td >
+    {obj?.pack}
+  </td>
+  <td >
+  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  </td>
 
+  <td className="more-avis">
+                   <div  className="more-avis2">
+                      <More
+                      size="22"
+                      color="#222222"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                      />
+            </div>
+  </td>
 </tr>
 
 ))}

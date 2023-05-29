@@ -34,6 +34,7 @@ import  AllbonDachateByuserSclie  from './bonDachate/AllbonDachateByuserSlice';
 import Sliceprodplusvende from './commande/Sliceprodplusvende';
 import Slicenb_commande_par_jour from './commande/Slicenb_commande_par_jour';
 import Slicenb_commande from './commande/Slicenb_commande';
+import  SliceAlldemondep  from './Admin/SliceAlldemondep';
 
 const persistConfig = {
     key: 'root',
@@ -71,6 +72,7 @@ const rootReducer = combineReducers({
     prodplusvende:Sliceprodplusvende,
     nbcommandeparjoure:Slicenb_commande_par_jour,
     nb_commande:Slicenb_commande,
+    demondePar:SliceAlldemondep,
 
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);

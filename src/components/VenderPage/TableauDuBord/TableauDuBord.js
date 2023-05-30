@@ -25,7 +25,7 @@ const TableauDuBord = (props) => {
   const librairieData = useSelector(
     (state) => state.findCommandeBylibrairie.commandeslibrairie
   );
-  const produit_mieux_note=useSelector((state)=>state.ProduitMieuxNote.ProduitMieuxNote)
+  const produit_mieux_note=useSelector((state)=>state?.ProduitMieuxNote.ProduitMieuxNote)
   const prodplusvende = useSelector((state) => state.prodplusvende.produit);
   const nbcommande = useSelector((state) => state.nb_commande.produit);
   const nbcommandeparjour = useSelector(
@@ -61,7 +61,6 @@ const TableauDuBord = (props) => {
           nbcommande[0]?.en_cours,
           nbcommande[0]?.rejetees,
           nbcommande[0]?.nouvelles,
->>>>>>> f484fdb1e8031a8a7e8b3ba71ecd62dc5b2baf2c
         ],
         backgroundColor: ["#7BC47F", "#62B0E8", "#E66A6A", "#F9DA8B"],
         cutout: "80%",
@@ -141,149 +140,6 @@ const TableauDuBord = (props) => {
             </p>
           </div>
 
-<<<<<<< HEAD
-<div className="row1-tb">
-
-<div className="bloq1-tb">
-<div><p className="txt3-Tb">Les plus vendus  <span className="txt4-Tb"> (30 derniers jours)</span></p></div>
-
-<div className="scroll">
-
-  {
-    
-    prodplusvende?.map((obj) => (
-      <div className="col1-tb">
-<div className="row2-Tb">
-<div>
-<p className="txt5-Tb">X{obj?.produitlabrairies[0]?.total_ventes}</p>
-</div>
-<img src={"http://127.0.0.1:8080/uploads/"+obj?.produitlabrairies[0]?.imagelibrairies[0].name_Image}  className="img-Tb"/>
-<div>
-<p className="txt6-Tb">{obj?.produitlabrairies[0]?.titre}</p>
-</div>
-
-</div>
-</div>
-
-    ))
-  }
-
-
-</div>
-
-
-</div>
-
-<div className="bloq1-tb">
-<div><p className="txt3-Tb">Les mieux notés<span className="txt4-Tb"> (30 derniers jours)</span></p></div>
-<div className="scroll">
-
-  {
-    prodmieuxnotes?.map((obj) => (
-
-<div className="col1-tb">
-<div className="row2-Tb">
-
-<Rating name="read-only" value={ 2 }  readOnly style={{fontSize:"16px"}}/>
-<span className="span-tb">(117)</span>
-<div>
-<img src=""  className="img-Tb"/>
-</div>
-
-<div>
-<p className="txt6-Tb">GOUACHE 9T META</p>
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-    ))
-  
-  
-  }
-</div>
-
-
-</div>
-
-
-<div className="bloq10-tb">
-<div><p className="txt3-Tb">Commandesétats<span className="txt4-Tb"> (30 derniers jours)</span></p></div>
-
-
-<div className="row3-Tb">
-<div >
-<div style={{ width: '300px', height: '300px', position: 'relative'}}>
-    <Doughnut data={data} options={options} width={200} height={200}/>
-        <div style={{ position: 'absolute', width: '100%', top: '52%', left:" -29%", textAlign: 'center', marginTop: '-28px',  lineHeight: '20px'}}>
-            <p className="txt-2014">{nbcommande[0]?.total_commandes}</p> 
-            <p className="txt-2040">Total</p>
-        </div>
-        </div>
-
-  
-</div>
-
-
-
-
-</div>
-
-
-
-</div>
-
-</div>
-
-
-<div className="blq3-Tb">
-<div className="row3-tb">
-<div>
-    <p className="txt9-tb">Nombre de commandes</p>
-</div>
-<div>
-<Select value={selectedValue} onChange={handleSelectChange} className='txt-select'style={{ marginTop:"-2%",width: "202.57px", height: " 40px", borderRadius: "8px" }} >
-                   
-                      {op.map((option) => (
-                <MenuItem  key={option} value={option} className='txt-select'>Les {option} derniers jours</MenuItem>
-
-                     ))}
-                </Select>
-</div>
-</div>
-<Bar data={dat}  options={optionss}  width={800} height={200} />
-</div>
-
-
-<div className="blq4-Tb">
-    <div><p className="txt9-tb">Dernières commandes</p></div>
-<table>
-<tr>
-
-<th>#</th>
-<th>Client</th>
-<th>Montant</th>
-<th>Nbr d’articles</th>
-<th>Date de création</th>
-<th>Mise à jour</th>
-
-</tr>
-
-{filteredData?.map((obj,index) => (
-
-<tr className={obj?.etatVender==="Nouveau"?"backnovo-c":"backnovo-c0"} >
-
-<td className='tdwidth'>{obj?.id}</td>
-<td className='tdwidth02'> <div className="row-c">
-          
-            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj?.user?.avatar}style={{borderRadius:"50%"}} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
-=======
           <div className="scroll">
             {prodplusvende?.map((obj) => (
               <div className="col1-tb">
@@ -306,7 +162,6 @@ const TableauDuBord = (props) => {
                     </p>
                   </div>
                 </div>
->>>>>>> f484fdb1e8031a8a7e8b3ba71ecd62dc5b2baf2c
               </div>
             ))}
           </div>
@@ -322,7 +177,7 @@ const TableauDuBord = (props) => {
 
           <div className="col1-tb">
             {
-              produit_mieux_note.map((e)=>(
+              produit_mieux_note?.map((e)=>(
                 <div className="row2-Tb">
                 <Rating
                   name="read-only"

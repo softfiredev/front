@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './AdminPartners.css'
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Avatar from '@mui/material/Avatar';
+import { toast } from "react-toastify";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { findCommandeBylibrairie } from "../../../Store/Service/findCommandeBylibrairie";
 import Pagination from "@mui/material/Pagination";
 import { demondePar } from "../../../Store/Service/demondePar";
+import { AddFournisseur, AddLibrairie } from "../../../Store/Service/Addpartnier";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
    
@@ -54,6 +55,7 @@ const Listecommandes = (props) => {
       (state) => state.demondePar.status
     );
     const [all, setAll] = React.useState(librairieData);
+    const [demende, setdemende] = React.useState();
     const [all2, setAll2] = React.useState(librairieData);
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -113,17 +115,45 @@ const Listecommandes = (props) => {
       const filteredetat5= filteredAssociation?.filter((item) => {
         return item?.etat?.includes("en_cours");
       });
-      console.log(filteredetat3.length)
+      console.log(demende)
+     const confirm=()=>{
+      if(demende )
+      {
+        if(demende.Role=="Librairie")
+        {
+          const data={
+            email: demende.email,
+            fullname: demende.fullname,
+            }
+                  AddLibrairie(data).then((res)=>{
+                    toast.success("c'est demande Role Librairie a ete accepté success", { autoClose: 1000,})
+                    setAnchorEl(null);
+        })
+      }
+        if(demende.Role=="Fournisseur")
+        {
+          const data={
+            email: demende.email,
+            fullname: demende.fullname,
+            }
+                  AddFournisseur(data).then((res)=>{
+                    toast.success("c'est demande Role Fournisseur a ete accepté avec  success", { autoClose: 1000,})
+                    setAnchorEl(null);
+                  })
+        }
+      }   
+     }
+
       const dispatch=useDispatch()
       useEffect(() => {
         dispatch(demondePar());
-        if(all?.length===0 && librairieState!="failed") 
+        if(all?.length===0 && librairieState!=="failed" &&(librairieData.length!=0 && librairieState!=="success")) 
         {
-          navigate(0)
+    navigat(0)
         }
       }, []);
 
-
+console.log(librairieState)
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de demande</p></div>
@@ -186,7 +216,7 @@ const Listecommandes = (props) => {
     {obj?.pack}
   </td>
   <td >
-  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}  style={{marginLeft:"50%",marginTop:"15%"}}><ReceiptSearch size="22" color="#222" style={{marginLeft:"-10%",marginTop:"15%"}}/></Link>
   </td>
 
   <td className="more-avis">
@@ -197,7 +227,7 @@ const Listecommandes = (props) => {
                       aria-controls={open ? "basic-menu" : undefined}
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
-                      onClick={handleClick}
+                      onClick={(e)=>{ setAnchorEl(e.currentTarget);setdemende(obj)}}
                       />
             </div>
   </td>
@@ -265,7 +295,7 @@ const Listecommandes = (props) => {
                       aria-controls={open ? "basic-menu" : undefined}
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
-                      onClick={handleClick}
+                      onClick={()=>{handleClick(obj)}}
                       />
             </div>
   </td>
@@ -631,7 +661,7 @@ const Listecommandes = (props) => {
               }}
             >
       
-              <MenuItem className="menuitem-avis" onClick={handleClicke}>
+              <MenuItem className="menuitem-avis" onClick={confirm}>
               <TickCircle size="22" color="#626262"/>
                 <span>
                   <p className="txtmenu-avis">Confirmer</p>

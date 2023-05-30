@@ -13,6 +13,7 @@ const Card_become = (props) => {
   setBronze("card-becom2")
   setSilver("card-becom")
   setGold("card-becom")
+
 }
 if(event=='Gold')
 {
@@ -20,6 +21,7 @@ if(event=='Gold')
   setBronze("card-becom")
   setSilver("card-becom")
   setGold("card-becom2")
+
 }
 if(event=='Silver')
 {
@@ -35,14 +37,12 @@ if(event=='Silver')
     document.getElementById("R3").checked = true;
   },[])
 
-
-
   return (
     <div >
 
       <div className='cardt-bec' >
 
-        <div className= {Bronze} onClick={()=>{handleChange1("Bronze")}}style={{width:props.width,height:props.height}}>
+        <div className= {Bronze} onClick={()=>{handleChange1("Bronze");props.ondata('Bronze')}}style={{width:props?.width,height:props?.height}}>
           <div>
 
             <div >
@@ -129,7 +129,7 @@ if(event=='Silver')
 
         </div>
 
-        <div className={Silver} onClick={()=>{handleChange1("Silver")}}style={{width:props.width,height:props.height}}>
+        <div className={Silver} onClick={()=>{handleChange1("Silver");props.ondata('Silver')}}style={{width:props.width,height:props.height}}>
           <div>
 
             <div >
@@ -213,7 +213,7 @@ if(event=='Silver')
         </div>
 
 
-        <div className= {Gold} onClick={()=>{handleChange1("Gold")}}style={{width:props.width,height:props.height}}>
+        <div className= {Gold} onClick={()=>{handleChange1("Gold");  props.ondata('Gold')}}style={{width:props.width,height:props.height}}>
           <div>
 
             <div>

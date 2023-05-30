@@ -8,7 +8,7 @@ import Liste from "../../components/listefq/liste";
 import { Link } from 'react-router-dom';
 import { becamePartner } from "../../Store/Service/becamePartner";
 import { toast } from "react-toastify";
-import { TickCircle} from "iconsax-react";
+import { TickCircle,InfoCircle} from "iconsax-react";
 const Become_a_Partner = () => {
   const [file,setfile]=useState()
   const [sizeimg,setSizeimg]=useState(false)
@@ -23,26 +23,33 @@ const Become_a_Partner = () => {
   const [nameWork,setnameWork]=useState()
   const [link,setlink]=useState()
   const [detail,setdetail]=useState()
-  const [pack,setpack]=useState("gold")
+  const [pack,setpack]=useState("Silver")
  
 const EnvoyerDemende=()=>{
-  const forma = new FormData() ; 
- forma.append("fullname",fullname)
- forma.append("email",email)
- forma.append("phone",phone)
- forma.append("Role",Role)
- forma.append("name_work",nameWork)
- forma.append("file",file)
- forma.append("links",link)
- forma.append("detail",detail)
- forma.append("pack",pack)
- forma.append("etat","Nouveau")
- forma.append("AdminId",2)
-  becamePartner(forma).then((response)=>{
-      if(response.success===true){
-          toast.success("votre demende Envoyer")
-      }
-  })
+  if(sizeimg!==true && fullname)
+  {
+    const forma = new FormData() ; 
+    forma.append("fullname",fullname)
+    forma.append("email",email)
+    forma.append("phone",phone)
+    forma.append("Role",Role)
+    forma.append("name_work",nameWork)
+    forma.append("file",file)
+    forma.append("links",link)
+    forma.append("detail",detail)
+    forma.append("pack",pack)
+    forma.append("etat","Nouveau")
+    forma.append("AdminId",2)
+     becamePartner(forma).then((response)=>{
+         if(response.success===true){
+             toast.success("votre demende Envoyer",{autoClose: 1000})
+         }
+     })
+  }else{ toast.error("taille des fichier passe limite change PDF Svp !!",{autoClose: 1000});setImage(undefined)}
+ 
+}
+const handelpack=(data)=>{
+  setpack(data)
 }
   const onImageChange = (e) => {
       if (e.target.files && e.target.files[0]) {
@@ -57,7 +64,6 @@ const EnvoyerDemende=()=>{
           setImgmane(name.slice(0,11));
       }
     }
-
   return (
    <div className="partner">
  
@@ -367,10 +373,20 @@ const EnvoyerDemende=()=>{
      />
      <div><p className="tele-become"> Télécharger un fichier</p></div>   
    </div>
-   :     <div >    
-  <TickCircle size="32" color="#57AE5B" variant="Bold"/>
-   <div><p className="tele-become"> fichier :  {imgname} </p></div>   
- </div>
+   : sizeimg?
+   <>
+   <InfoCircle
+ size="32"
+ color="#D64545"
+ variant="Bold"
+/>
+<p>taille des fichier passe limite !!</p>
+   </>
+   :
+ <div >    
+ <TickCircle size="32" color="#57AE5B" variant="Bold"/>
+  <div><p className="tele-become"> fichier :  {imgname} </p></div>   
+</div>
                  }
              
                   </label>
@@ -448,7 +464,7 @@ const EnvoyerDemende=()=>{
                         <div className="txt80-become">Votre choix de pack*</div>
                       </Grid>
                       <Grid item className="Cardbecome">
-                        <Cardbecome /> 
+                        <Cardbecome ondata={handelpack} /> 
                       </Grid>
                     </Grid>
                   </Grid>
@@ -489,7 +505,7 @@ const EnvoyerDemende=()=>{
               <p className="Coordonnées"> Coordonnées et assistance</p>
               <div>
               
-                <Cartcontact />
+                <Cartcontact  />
               </div>
               <p>
               <Link to="/Contact">

@@ -57,4 +57,6 @@ export const Path ={
     demondeP:"becomePartner/findAll",
     AddLibrairie:"labrairie/add",
     AddFournisseur:"fournisseur/add",
+    produit_mieux_note:"produitLabrairie/produit_mieux_notes/"
+
 }

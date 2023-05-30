@@ -206,7 +206,7 @@ console.log(librairieState)
 <td >
 {obj.etat==="Compléter"?
 <><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>Payer</p></button></>
-:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p></button>:
+:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p> </button>:
 <>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
 </>}
 

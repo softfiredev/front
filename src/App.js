@@ -148,7 +148,7 @@ function App() {
     avatar:decoded?.avatar
   };
 
-
+console.log(user)
   return (
 
    
@@ -190,8 +190,9 @@ function App() {
               </Route>
           
             </Route>
-            <Route path="/" element={<Navigate to={user.auth==false || user.role==="client" ?"/Home":"/Vender/TableauDuBord"} />} />
-            <Route path="/Home" element={user.auth==false || user.role==="client"?<Home />:<Protection user={user}><Vender /></Protection>}  />
+            <Route path="/" element={<Navigate to="/Home"/>} />
+            <Route path="/Home" element={<Home />}  />
+
             <Route
               path="/reset-password/:id/:token"
               element={<Resetpassword />}
@@ -239,8 +240,10 @@ function App() {
             </Route>
             
              <Route path="/Faire_une_commande" element={<FaireComonde user={user}/>}/>
-             <Route path="/Admin" element={<Admin user={user}/>}>
-             <Route path="/Admin/Liste_de_demande" element={<AdminPartners user={user}/>}/>
+         
+         
+             <Route path="/Admin" element={<Protection user={user}><Admin user={user}/></Protection>}>
+             <Route path="/Admin/Liste_de_demande" element={<Protection user={user}><AdminPartners user={user}/></Protection>}/>
              </Route>
 
             <Route path="*" element={<> page not !!!</>} />

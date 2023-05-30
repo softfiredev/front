@@ -35,6 +35,18 @@ if((location.pathname==="/Profile/Monidentite" || location.pathname==="/Profile"
 else{return <Navigate to="/" />}
 }
 
+console.log(user.role )
+if(user.role==="Admin" &&user.auth==true )
+{
+  
+if((location.pathname==="/Admin/Liste_de_demande" || location.pathname==="/Admin" ))
+{
+  return children
+}
+else{return <Navigate to="/" />}
+}
+
+
 if(user.auth===false )
 {
  return <Navigate to="/" />

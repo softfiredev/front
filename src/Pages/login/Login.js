@@ -62,11 +62,14 @@ const [profile, setProfile] = useState();
             {
               nav("/shop")
             }
-            if(user.role==="labrairie")
+            else  if(user.role==="labrairie")
             {
-              nav("/vender")
+              nav("/Vender/TableauDuBord")
             }
-     
+            else   if(user.role==="Admin")
+            {
+              nav("/Admin")
+            }
          
           if (response.payload.message === 'password is not correct') {
             toast.error("le mot de passe n'est pas correct !!",{autoClose: 1000})
@@ -127,20 +130,22 @@ useEffect(()=>{
         var decoded = jwt_decode(response.payload?.accessToken);
         const user = {
           role:decoded?.role,
- 
         };
         if(user.role==="client")
         {
           nav("/shop")
         }
-        if(user.role==="labrairie")
+       else if(user.role==="labrairie")
         {
           nav("/Vender/TableauDuBord")
         }
-    
+        else   if(user.role==="Admin")
+        {
+          nav("/Admin")
+        }
       })
     }
-
+console.log(user.role)
 
 
   }

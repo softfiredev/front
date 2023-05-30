@@ -11,7 +11,6 @@ import Filterbar from '../../filterbar/Filterbar';
 import {Sort,More, TickCircle, Trash,CloseCircle,ReceiptSearch } from "iconsax-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { findCommandeBylibrairie } from "../../../Store/Service/findCommandeBylibrairie";
 import Pagination from "@mui/material/Pagination";
 import { demondePar } from "../../../Store/Service/demondePar";
 import { AddFournisseur, AddLibrairie } from "../../../Store/Service/Addpartnier";
@@ -62,7 +61,7 @@ const Listecommandes = (props) => {
     };
 
     const navigat=(id)=>{
-        navigate(`/Vender/Details_de_commande/${id}`)
+        navigate(`/Admin`)
         navigate(0)
     }
 
@@ -95,7 +94,7 @@ const Listecommandes = (props) => {
       const NbPage=Math.ceil(all?.length/items);
       const startIndex=(current -1)*items;
       const endIndex=startIndex+items;
-      const DataPerPage=all?.slice(startIndex,endIndex)
+      const DataPerPage = all ? all.slice(startIndex, endIndex) : [];
       function handlePagination (event,page) {
         setCurrent(page)
       }     
@@ -115,7 +114,7 @@ const Listecommandes = (props) => {
       const filteredetat5= filteredAssociation?.filter((item) => {
         return item?.etat?.includes("en_cours");
       });
-      console.log(demende)
+ 
      const confirm=()=>{
       if(demende )
       {
@@ -142,18 +141,15 @@ const Listecommandes = (props) => {
                   })
         }
       }   
-     }
-
+     }      
+  
       const dispatch=useDispatch()
       useEffect(() => {
         dispatch(demondePar());
-        if(all?.length===0 && librairieState!=="failed" &&(librairieData.length!=0 && librairieState!=="success")) 
-        {
-    navigat(0)
-        }
+
       }, []);
 
-console.log(librairieState)
+
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de demande</p></div>

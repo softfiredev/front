@@ -4,6 +4,7 @@ import { OutlinedInput, Grid } from "@mui/material";
 import Cardbecome from "../../components/card-become/card-become";
 import Cartcontact from "../../components/cart-contact/cart_contact";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Liste from "../../components/listefq/liste";
 import { Link } from 'react-router-dom';
 import { becamePartner } from "../../Store/Service/becamePartner";
@@ -24,7 +25,8 @@ const Become_a_Partner = () => {
   const [link,setlink]=useState()
   const [detail,setdetail]=useState()
   const [pack,setpack]=useState("Silver")
- 
+  const navigate = useNavigate();
+
 const EnvoyerDemende=()=>{
   if(sizeimg!==true && fullname)
   {
@@ -43,7 +45,8 @@ const EnvoyerDemende=()=>{
      becamePartner(forma).then((response)=>{
          if(response.success===true){
              toast.success("votre demende Envoyer",{autoClose: 1000})
-         }
+        
+         }     navigate(0)
      })
   }else{ toast.error("taille des fichier passe limite change PDF Svp !!",{autoClose: 1000});setImage(undefined)}
  
@@ -51,7 +54,7 @@ const EnvoyerDemende=()=>{
 const handelpack=(data)=>{
   setpack(data)
 }
-  const onImageChange = (e) => {
+const onImageChange = (e) => {
       if (e.target.files && e.target.files[0]) {
           setImage(URL.createObjectURL(e.target.files[0]));
           setfile(e.target.files[0])
@@ -63,7 +66,8 @@ const handelpack=(data)=>{
           const name=e.target.files[0].name
           setImgmane(name.slice(0,11));
       }
-    }
+}
+
   return (
    <div className="partner">
  

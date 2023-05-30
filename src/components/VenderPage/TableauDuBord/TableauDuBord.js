@@ -12,6 +12,7 @@ import { findCommandeBylibrairie } from "../../../Store/Service/findCommandeByli
 import { prodplusvendus } from "../../../Store/Service/prodplusvendus";
 import moment from 'moment';
 import { nb_commande } from "../../../Store/Service/nb_commande";
+import { produitmieuxnotes } from "../../../Store/Service/produitmieuxnotes";
 
 
 
@@ -30,6 +31,13 @@ const handleSelectChange = (event) => {
       );
       const prodplusvende = useSelector(
         (state) => state.prodplusvende.produit )
+
+        const prodmieuxnotes = useSelector(
+          (state) => state.produitmieuxnotes.produit )
+  
+  
+
+
         const nbcommande= useSelector( (state) => state.nb_commande.produit);
         const nbcommandeparjour= useSelector( (state) => state.nbcommandeparjoure.produit);
     const dispatch=useDispatch()
@@ -38,15 +46,16 @@ const handleSelectChange = (event) => {
       dispatch(prodplusvendus(props?.user.id));
       dispatch(nb_commande_par_jour(props?.user.id));
       dispatch(nb_commande(props?.user.id));
+      dispatch(produitmieuxnotes(props?.user.id));
+
     }, []);
-      
+    console.log(prodmieuxnotes)
     const currentDate = moment().format('YYYY-MM-DD');
     const filteredData = librairieData.filter(item => {
       const parsedDate = moment(item.createdAt, 'YYYY-MM-DD');
       const threeDaysAgo = moment().subtract(10, 'days');
       return parsedDate.isBetween(threeDaysAgo, currentDate, null, '[]');
     });
-console.log(nbcommande)
       const data = {
         labels: [`Compléter  (${nbcommande[0]?.completes})`, `en_cours  (${nbcommande[0]?.en_cours})`,`rejetees  (${nbcommande[0]?.rejetees})`,`nouvelles  (${nbcommande[0]?.nouvelles})`],
         datasets: [
@@ -134,8 +143,6 @@ console.log(nbcommande)
 
 <div className="scroll">
 
-
-
   {
     
     prodplusvende?.map((obj) => (
@@ -163,6 +170,10 @@ console.log(nbcommande)
 
 <div className="bloq1-tb">
 <div><p className="txt3-Tb">Les mieux notés<span className="txt4-Tb"> (30 derniers jours)</span></p></div>
+<div className="scroll">
+
+  {
+    prodmieuxnotes?.map((obj) => (
 
 <div className="col1-tb">
 <div className="row2-Tb">
@@ -182,6 +193,13 @@ console.log(nbcommande)
 
 
 
+</div>
+
+
+    ))
+  
+  
+  }
 </div>
 
 

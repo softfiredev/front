@@ -39,7 +39,7 @@ const Admin = () => {
       linkto :"/Admin/Produits"
     },
     {
-      linkname:<div className="row-admin"><div>Liste de demande </div><div className="circule"><p style={{color:" #222222",fontSize:"10px",fontFamily:"Inter",fontWeight:"600"}}>+4</p></div></div>,
+      linkname:<div className="row-admin">Liste de demande </div>,
       icon: <Shop size="32" color="#7E7E7E" variant="Bulk" />,
       linkto :"/Admin/Liste_de_demande"
     },

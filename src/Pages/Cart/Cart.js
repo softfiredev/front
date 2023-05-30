@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const Cart = (props) => {
   const panier=useSelector(state=> state.Panier.panier)
-  console.log(panier)
+
   return (
     <>
        <div className="Cart">

@@ -146,7 +146,6 @@ const Listecommandes = (props) => {
       const dispatch=useDispatch()
       useEffect(() => {
         dispatch(demondePar());
-
       }, []);
 
 

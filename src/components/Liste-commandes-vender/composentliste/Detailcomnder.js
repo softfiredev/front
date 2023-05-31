@@ -59,7 +59,7 @@ const Detailcomnder = (props) => {
      })
   }
 
- console.log(DetailcomondeClient[0].produitlabrairies  )
+
   return (
     <div className="Detailcomnder">
       <div
@@ -232,7 +232,7 @@ DetailcomondeClient[0]?.Data_rejetée!=null &&Anuuler?
             </div>
             <div className="scroll-div2">
             <table className="tab-prd">
-              {DetailcomondeClient[0]?.produitlabrairies.map((obj, index) => (
+              {DetailcomondeClient[0]?.produitlabrairies?.map((obj, index) => (
                 <tr>
                   <td className="widthtd-dc">
                     <div className="row2box4-dc">

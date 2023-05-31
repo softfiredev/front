@@ -12,6 +12,7 @@ const Points = (props) => {
   const [change, setchange] = React.useState("Transformer_points");
   const [idp, setidp]=React.useState();
   const [point, setpoint]=React.useState(); 
+  
   const handleData = (data) => {
     setidp(data);
   }
@@ -24,6 +25,7 @@ const Points = (props) => {
             onClick={() => {
               setchange("Transformer_points1");
             }}
+       setpoint={(data)=>{setpoint(data)}}
           />
         );
       case "Transformer_points1":
@@ -36,6 +38,7 @@ const Points = (props) => {
               setchange("Transformer_points2");
             }}
             handldataipd={handleData}
+         
           />
         );
       case "Transformer_points2":
@@ -54,6 +57,7 @@ const Points = (props) => {
             }}
             idp={idp}
             user={props.user}
+            point={point}
           />
         );
       case "Transformer_points3":
@@ -65,7 +69,7 @@ const Points = (props) => {
             onClick={() => {
               setchange("Transformer_points");
             }}
-            point={point}
+     
           />
         );
       default:

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Transformer_points2.css";
 import { SearchNormal1, ArrowCircleLeft } from "iconsax-react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
+import { toast } from 'react-toastify';
 
 const Transformer_points2 = (props) => {
   const data = [
@@ -27,7 +28,7 @@ const Transformer_points2 = (props) => {
     partenaireId:props.idp,
     nbpoint:nbPoint,
   }
-
+  
   return (
     <div className="Tf1">
       <div
@@ -83,7 +84,11 @@ const Transformer_points2 = (props) => {
         <button
           className="bnt4-Tf1"
           onClick={() => {
-            props.onClick(datae);
+            if(nbPoint<=props.point && props.point!=0)
+            {
+              props.onClick(datae);
+            }
+          else{toast.error("verifier voter point  !!!",{autoClose: 1000})}
           }}
         >
           Valider

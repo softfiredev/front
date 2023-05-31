@@ -1,10 +1,10 @@
 import React from 'react'
 import './Transformer_points3.css'
-import { SearchNormal1,ArrowCircleLeft} from "iconsax-react";
+import { ArrowCircleLeft} from "iconsax-react";
 import { useSelector } from 'react-redux';
 const Transformer_points3 = (props) => {
   const bondAchate = useSelector((state)=> state.addBondachateSlice.bondachate)
-  console.log(bondAchate)
+
   return (
     <div className='Tf1'>
     <div className='row-Tf1' onClick={()=>{props.onRetourner()}}>

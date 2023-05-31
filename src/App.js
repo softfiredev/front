@@ -145,7 +145,8 @@ function App() {
         : googleServiceData.isLogin,
     fullname:decoded?.fullname,
     role:decoded?.role,
-    avatar:decoded?.avatar
+    avatar:decoded?.avatar,
+   
   };
 
 console.log(user)

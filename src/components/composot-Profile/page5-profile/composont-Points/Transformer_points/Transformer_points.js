@@ -7,6 +7,7 @@ const Transformer_points = (props) => {
   const client = useSelector(
     (state) => state.IdentiteClient.identiteClient
   );
+  props.setpoint(client.point)
   const bonDachates = useSelector(
     (state) => state.AllbonDachateByuser.bondachates
   );
@@ -14,9 +15,9 @@ const Transformer_points = (props) => {
   const dispatch = useDispatch()
   useEffect(()=>{
       dispatch(AllbonDachateByuser(client.id))
-  },[])
+  },[client?.point])
 
-
+console.log(client)
   return (
     <div className="points">
       <div className="row-points">
@@ -42,7 +43,7 @@ const Transformer_points = (props) => {
           <th>Statut</th>
         </tr>
 
-        {bonDachates.map((obj, index) => (
+        {bonDachates?.map((obj, index) => (
           <tr>
             <td className="tdwidth1-points">
               <p>{obj.createdAt}</p>

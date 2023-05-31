@@ -46,7 +46,7 @@ const TableauDuBord = (props) => {
     const threeDaysAgo = moment().subtract(10, "days");
     return parsedDate.isBetween(threeDaysAgo, currentDate, null, "[]");
   });
-  console.log(nbcommande);
+
   const data = {
     labels: [
       `Compléter  (${nbcommande[0]?.completes})`,
@@ -84,6 +84,7 @@ const TableauDuBord = (props) => {
   const filteredData2 = nbcommandeparjour.filter((item) => {
     const parsedDate = moment(item.createdAt, "YYYY-MM-DD");
     const threeDaysAgo = moment().subtract(selectedValue, "days");
+   
     return parsedDate.isBetween(threeDaysAgo, currentDate, null, "[]");
   });
   dat.labels.push(filteredData2.createdAt);
@@ -92,7 +93,7 @@ const TableauDuBord = (props) => {
     dat.labels.push(value.createdAt);
     dat.datasets[0].data.push(value.nombre_commandes);
   });
-
+ 
   const options = {
     percentageInnerCutout: 0,
     plugins: {
@@ -122,7 +123,7 @@ const TableauDuBord = (props) => {
       },
     },
   };
-  console.log("listprodt",produit_mieux_note)
+
 
   return (
     <div className="Tb">
@@ -174,7 +175,7 @@ const TableauDuBord = (props) => {
               <span className="txt4-Tb"> (30 derniers jours)</span>
             </p>
           </div>
-
+          <div className="scroll">
           <div className="col1-tb">
             {
               produit_mieux_note?.map((e)=>(
@@ -199,7 +200,7 @@ const TableauDuBord = (props) => {
            
           </div>
         </div>
-
+        </div>
         <div className="bloq10-tb">
           <div>
             <p className="txt3-Tb">
@@ -293,7 +294,7 @@ const TableauDuBord = (props) => {
             >
               <td className="tdwidth">{obj?.id}</td>
               <td className="tdwidth02">
-                {" "}
+         
                 <div className="row-c">
                   <Avatar
                     src={"http://127.0.0.1:8080/uploads/" + obj?.user?.avatar}

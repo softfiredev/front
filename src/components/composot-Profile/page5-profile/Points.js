@@ -12,7 +12,8 @@ const Points = (props) => {
   const [change, setchange] = React.useState("Transformer_points");
   const [idp, setidp]=React.useState();
   const [point, setpoint]=React.useState(); 
-  
+  const [partnaire, setpartnaire]=React.useState(); 
+
   const handleData = (data) => {
     setidp(data);
   }
@@ -25,7 +26,8 @@ const Points = (props) => {
             onClick={() => {
               setchange("Transformer_points1");
             }}
-       setpoint={(data)=>{setpoint(data)}}
+            setpoint={(data)=>{setpoint(data)}}
+
           />
         );
       case "Transformer_points1":
@@ -38,7 +40,7 @@ const Points = (props) => {
               setchange("Transformer_points2");
             }}
             handldataipd={handleData}
-         
+           setpartnaire={setpartnaire}
           />
         );
       case "Transformer_points2":
@@ -69,7 +71,9 @@ const Points = (props) => {
             onClick={() => {
               setchange("Transformer_points");
             }}
-     
+            point={point}
+            partnaire={partnaire}
+
           />
         );
       default:

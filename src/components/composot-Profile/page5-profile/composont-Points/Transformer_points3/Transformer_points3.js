@@ -17,7 +17,7 @@ const Transformer_points3 = (props) => {
     <div><p className='txt-Tf1'>Transformer mes points</p></div>
    <div className='prag-Tf3'>
     <p>
-     Vous avez transféré <span className='txth-Tf3'>{props.point}pts</span> ({bondAchate.solde} dinars).
+     Vous avez transféré <span className='txth-Tf3'>{props.point}pts</span> ({bondAchate.solde} dinars),avec  <span className='txth-Tf3'>{props.partnaire}</span>.
      Votre code est le <span className='txth-Tf3'>{bondAchate.code}</span>.
      Il sera enregistré dans votre espace "mes points".
      Une fois validé, ce code ne fonctionnera plus.

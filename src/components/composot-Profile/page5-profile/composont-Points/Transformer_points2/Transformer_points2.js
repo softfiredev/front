@@ -10,25 +10,23 @@ const Transformer_points2 = (props) => {
     { nom: "200pts (40 dinars)",value:40 , nbp:200 },
     { nom: "500 (100 dinars)",value:100 , nbp:500},
     { nom: "1000 (200 dinars)",value:200, nbp:1000 },
-    { nom: "Auter :", value:0 },
+    { nom: "Auter :"},
   ];
   const [nbPoint ,setnbPoint]=useState()
+  const [ok ,setok]=useState(false)
   const [solde ,setsolde]=useState()
   const handelCalculeSolde=(nbp)=>{
     setnbPoint(nbp)
     setsolde(Number(nbPoint)/0.5/1)
   }
-  const handleData=(solde,nbp)=>{
-    setnbPoint(nbp)
-    setsolde(solde)
-  }
+
   const datae={
     solde:solde , 
     userId:props.user.id,
     partenaireId:props.idp,
     nbpoint:nbPoint,
   }
-  
+
   return (
     <div className="Tf1">
       <div
@@ -64,20 +62,48 @@ const Transformer_points2 = (props) => {
       <div className="colini-Tf2">
         {data.map((obj, index) => (
           <div className="rowmini-Tf1">
-            <input type="Radio" className="radio-Tf1" name="r0"  value={obj.value} onChange={(e)=>{handleData(e.target.value,obj.nbp)}}/>
+            <input
+      type="radio"
+      className="radio-Tf1"
+      name="r0"
+      value={obj.value}
+
+      onChange={(e) => {
+        if (setsolde === obj.value) {
+          setsolde('');
+        } else {
+          setnbPoint(obj.nbp)
+          setsolde(e.target.value)
+
+          if(obj.nom=="Auter :")
+          {
+            setok(true)
+          }else{  setok(false)}
+
+        }
+      }}
+    />
+           
+           
+           
             <div>
               <p className="txt7-Tf1">{obj.nom} </p>
             </div>
           </div>
         ))}
       </div>
-      <div className="rowinput-Tf2">
-        <OutlinedInput className="s-Tf2" placeholder={"(Minimum 50pts)"}  onChange={(e)=>handelCalculeSolde(e.target.value)}/>
-        <div>
-          <p className="txt25-Tf2">=</p>
-        </div>
-        <OutlinedInput className="s-Tf2" value={solde} />
-      </div>
+
+      {ok?
+     <div className="rowinput-Tf2">
+     <OutlinedInput className="s-Tf2" placeholder={"(Minimum 50pts)"}  onChange={(e)=>handelCalculeSolde(e.target.value)}/>
+     <div>
+       <p className="txt25-Tf2">=</p>
+     </div>
+     <OutlinedInput className="s-Tf2" value={solde} />
+   </div>
+   :<></>
+      }
+ 
       <div className="minirow-Tf1">
         <button className="bnt3-Tf1">Annuler</button>
 
@@ -87,6 +113,7 @@ const Transformer_points2 = (props) => {
             if(nbPoint<=props.point && props.point!=0)
             {
               props.onClick(datae);
+              props.setpoint(nbPoint)
             }
           else{toast.error("verifier voter point  !!!",{autoClose: 1000})}
           }}

@@ -46,7 +46,7 @@ const Detailcomnder = (props) => {
 
   }
   const Annuler=()=>{
-    AnnulerCommande(idcomonde.id).then((response)=>{
+        AnnulerCommande(idcomonde.id).then((response)=>{
         if(response.success==true){
          toast.error("commande Annuler",{autoClose: 1000})
          setref(true)

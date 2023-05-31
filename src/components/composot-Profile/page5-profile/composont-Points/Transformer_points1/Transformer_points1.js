@@ -4,14 +4,17 @@ import { SearchNormal1, ArrowCircleLeft } from "iconsax-react";
 import { InputAdornment, OutlinedInput } from "@mui/material";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPartanire } from "../../../../../Store/Service/Allpartnaire";
+import { toast } from 'react-toastify';
 
 const Transformer_points1 = (props) => {
+  const [nbPoint ,setnbPoint]=useState(false)
 
   const dispatch=useDispatch()
   const allPartnaire = useSelector((state)=>state.Allpartnaire.partnaire)
   useEffect(()=>{
     dispatch(getAllPartanire())
   },[])
+
   return (
     <div className="Tf1">
       <div
@@ -47,7 +50,7 @@ const Transformer_points1 = (props) => {
       <div className="colini-Tf1">
         {allPartnaire.map((obj, index) => (
           <div className="rowmini-Tf1">
-            <input type="Radio" className="radio-Tf1" name="r0" value={obj.id} onChange={(e)=>props.handldataipd(e.target.value)}  />
+            <input type="Radio" className="radio-Tf1" name="r0" value={obj.id} onChange={(e)=>{props.handldataipd(e.target.value);setnbPoint(true);props.setpartnaire(obj.user.fullname)}}  />
 
             <div>
               <p className="txt7-Tf1">{obj.user?.fullname} </p>
@@ -61,7 +64,11 @@ const Transformer_points1 = (props) => {
         <button
           className="bnt4-Tf1"
           onClick={() => {
-            props.onClick();
+            if(nbPoint){
+              props.onClick();
+
+            }else{toast.error("choisir voter partnaire!!!",{autoClose: 1000})}
+    
           }}
         >
           Valider

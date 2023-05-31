@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import "./Transformer_points.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AllbonDachateByuser } from "../../../../../Store/Service/AllbonDachateByuser";
+import { getIdentiteClientt } from "../../../../../Store/Service/identiteClient";
 
 const Transformer_points = (props) => {
   const client = useSelector(
     (state) => state.IdentiteClient.identiteClient
   );
   props.setpoint(client.point)
+  
   const bonDachates = useSelector(
     (state) => state.AllbonDachateByuser.bondachates
   );
@@ -15,6 +17,7 @@ const Transformer_points = (props) => {
   const dispatch = useDispatch()
   useEffect(()=>{
       dispatch(AllbonDachateByuser(client.id))
+      dispatch(getIdentiteClientt(client.id))
   },[client?.point])
 
 console.log(client)

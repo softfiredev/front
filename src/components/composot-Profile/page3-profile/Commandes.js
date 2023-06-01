@@ -73,6 +73,7 @@ const Commandes = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const [titre, settitre] = useState();
+  const [produit_c_Detail,setproduit_c_Detail] = useState();
 
   const stylee = {
     position: "absolute",
@@ -151,16 +152,31 @@ const Commandes = (props) => {
   const handleClick = (com) => {
     setidCommande(com?.id);
     setAnchorEl(true);
+    const tab=[]
+   
     setprodcom(com?.produitlabrairies)
+    for(let i=0;i<com?.produitlabrairies.length;i++)
+    {
+      tab.push({"id":com?.produitlabrairies[i].produit_c_Detail.produitlabrairieId,"Qte":com?.produitlabrairies[i].produit_c_Detail.Qte })
+    }
+setproduit_c_Detail({"produit":tab})
+
   };
+  console.log(produit_c_Detail)
   const Annuler = () => {
-    AnnulerCommande(idCommande).then((response) => {
+    
+    
+    const data=produit_c_Detail
+
+    AnnulerCommande(idCommande,data).then((response) => {
       if (response.success == true) {
         toast.success("commande a ete Annuler", { autoClose: 1000 });
         setop2(false);
       }
     });
   };
+
+
   const deleteArticle=(idp,idc)=>{
       deleteProduitCommande(idp,idc).then((response)=>{
         if (response.success === true) {

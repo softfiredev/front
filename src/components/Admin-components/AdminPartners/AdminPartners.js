@@ -47,15 +47,10 @@ const Listecommandes = (props) => {
     const open = Boolean(anchorEl);
     const [op, setop] = React.useState(false);
     const [op2, setop2] = React.useState(false);
-    const librairieData = useSelector(
-      (state) => state.demondePar.demendes
-    );
-    const librairieState = useSelector(
-      (state) => state.demondePar.status
-    );
-    const [all, setAll] = React.useState(librairieData);
+    const [librairieData, setlibrairieData] = React.useState();
+
+    const [all, setAll] = React.useState();
     const [demende, setdemende] = React.useState();
-    const [all2, setAll2] = React.useState(librairieData);
     const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
     };
@@ -118,35 +113,37 @@ const Listecommandes = (props) => {
      const confirm=()=>{
       if(demende )
       {
-        if(demende.Role=="Librairie")
-        {
+ 
           const data={
             email: demende.email,
-            fullname: demende.fullname,
+            Role:demende.Role,
+            username: demende.fullname,
+          
             }
+
+       
                   AddLibrairie(data).then((res)=>{
-                    toast.success("c'est demande Role Librairie a ete accepté success", { autoClose: 1000,})
-                    setAnchorEl(null);
-        })
-      }
-        if(demende.Role=="Fournisseur")
-        {
-          const data={
-            email: demende.email,
-            fullname: demende.fullname,
-            }
-                  AddFournisseur(data).then((res)=>{
-                    toast.success("c'est demande Role Fournisseur a ete accepté avec  success", { autoClose: 1000,})
-                    setAnchorEl(null);
-                  })
-        }
+                    console.log(res)
+                    if(res.message!=="email exist ")
+                    {
+                      toast.success("c'est demande Role Librairie a ete accepté success", { autoClose: 1000,})
+                      setAnchorEl(null);
+                    }else{
+                      toast.error("deja accepted", { autoClose: 1000,})
+                      setAnchorEl(null);
+                    }
+             
+              
+           })
+
       }   
      }      
-  
-      const dispatch=useDispatch()
       useEffect(() => {
-        dispatch(demondePar());
-      }, []);
+           demondePar().then((res)=>{
+            setlibrairieData(res.demende)
+            setAll(res.demende)
+           })
+      }, [demondePar]);
 
 
   return (

@@ -4,8 +4,8 @@ export const AccepterCommande = async (id) => {
   const response = await axios.put(Base_url + Path.AccepteCommande+id);
   return response.data;
 };
-export const AnnulerCommande = async (id) => {
-  const response = await axios.put(Base_url + Path.AnnulerCommande+id);
+export const AnnulerCommande = async (id,data) => {
+  const response = await axios.put(Base_url + Path.AnnulerCommande+id,data);
   return response.data;
 };
 export const LivreCommande = async (id) => {

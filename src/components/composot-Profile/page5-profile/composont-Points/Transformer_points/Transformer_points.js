@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Transformer_points.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AllbonDachateByuser } from "../../../../../Store/Service/AllbonDachateByuser";
 import { getIdentiteClientt } from "../../../../../Store/Service/identiteClient";
+import Pagination from "@mui/material/Pagination";
 
 const Transformer_points = (props) => {
   const client = useSelector(
@@ -20,7 +21,15 @@ const Transformer_points = (props) => {
       dispatch(getIdentiteClientt(client.id))
   },[client?.point])
 
-console.log(client)
+  const items =5;
+  const [current,setCurrent]=useState(1)
+  const NbPage=Math.ceil(bonDachates?.length/items);
+  const startIndex=(current -1)*items;
+  const endIndex=startIndex+items;
+  const DataPerPage=bonDachates?.slice(startIndex,endIndex)
+  function handlePagination (event,page) {
+    setCurrent(page)
+  }
   return (
     <div className="points">
       <div className="row-points">
@@ -46,7 +55,7 @@ console.log(client)
           <th>Statut</th>
         </tr>
 
-        {bonDachates?.map((obj, index) => (
+        {DataPerPage?.map((obj, index) => (
           <tr>
             <td className="tdwidth1-points">
               <p>{obj.createdAt}</p>
@@ -72,6 +81,17 @@ console.log(client)
           </tr>
         ))}
       </table>
+      <div className='page-c'>  
+
+<Pagination
+              count={NbPage}
+              shape="rounded"
+              className="pagination-shop"
+              page={current}
+              onChange={handlePagination}
+    />
+    
+    </div>
     </div>
   );
 };

@@ -8,6 +8,10 @@
     flex-direction:column;
     gap:2em;
     }
+    .page-c{
+        display: flex;
+        justify-content: center;
+    }
     .row-points{
         display: flex;
         gap:12.2em;

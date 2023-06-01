@@ -55,7 +55,8 @@ export const Path ={
     nb_commande_par:"commandeDetail/nb_commande_par_jour/",
     nbcommande:"commandeDetail/nb_commande/",
     demondeP:"becomePartner/findAll",
-    AddLibrairie:"becomePartner/accepter",
+    AddLibrairie:"becomePartner/accepter/",
+    AnnulerDemende:"becomePartner/Annuler/",
     AddFournisseur:"fournisseur/add",
     produit_mieux_note:"produitLabrairie/produit_mieux_notes/"
 

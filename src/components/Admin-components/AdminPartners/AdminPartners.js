@@ -13,7 +13,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Pagination from "@mui/material/Pagination";
 import { demondePar } from "../../../Store/Service/demondePar";
-import { AddFournisseur, AddLibrairie } from "../../../Store/Service/Addpartnier";
+import { AddFournisseur, AddLibrairie, AnnulerDemende } from "../../../Store/Service/Addpartnier";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
    
@@ -48,7 +48,7 @@ const Listecommandes = (props) => {
     const [op, setop] = React.useState(false);
     const [op2, setop2] = React.useState(false);
     const [librairieData, setlibrairieData] = React.useState();
-
+    const [etat, setetat] = React.useState();
     const [all, setAll] = React.useState();
     const [demende, setdemende] = React.useState();
     const handleClick = (event) => {
@@ -109,9 +109,8 @@ const Listecommandes = (props) => {
       const filteredetat5= filteredAssociation?.filter((item) => {
         return item?.etat?.includes("en_cours");
       });
- 
      const confirm=()=>{
-      if(demende )
+      if(demende.etat!=="accepte" )
       {
  
           const data={
@@ -121,29 +120,48 @@ const Listecommandes = (props) => {
           
             }
 
-       
-                  AddLibrairie(data).then((res)=>{
-                    console.log(res)
+                  AddLibrairie(demende.id,data).then((res)=>{
+           
                     if(res.message!=="email exist ")
                     {
-                      toast.success("c'est demande Role Librairie a ete accepté success", { autoClose: 1000,})
+                      toast.success("c'est demande a ete accepté success", { autoClose: 1000,})
                       setAnchorEl(null);
+                      setetat(demende.etat)
                     }else{
-                      toast.error("deja accepted", { autoClose: 1000,})
+                      toast.error("email exist", { autoClose: 1000,})
                       setAnchorEl(null);
                     }
              
               
            })
 
-      }   
+      }else{ toast.error("demende deja accepted", { autoClose: 1000,})}
      }      
+
+const Annuler=()=>{
+  if(demende.etat!=="Annuler")
+  {
+    AnnulerDemende(demende.id).then((res)=>{
+      if(res.success===true)
+      {
+       toast.success("c'esta ete Refuse  success", { autoClose: 1000,})
+       setAnchorEl(null);
+       setetat(demende.etat)
+      }else(  toast.error(res.message, { autoClose: 1000,})
+      )
+   })
+  }else{(  toast.error("deja Refuse !!", { autoClose: 1000,}))}
+
+}
+
+
       useEffect(() => {
            demondePar().then((res)=>{
             setlibrairieData(res.demende)
             setAll(res.demende)
            })
-      }, [demondePar]);
+      }, [demondePar,etat]);
+
 
 
   return (
@@ -196,9 +214,9 @@ const Listecommandes = (props) => {
 <td ><div className="txt02-s">{obj?.Role}</div></td>
 <td >{obj?.name_work}</td>
 <td >
-{obj.etat==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>Payer</p></button></>
-:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p> </button>:
+{obj.etat==="accepte"?
+<><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>{obj.etat}</p></button></>
+:<>{obj.etat==="Annuler"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Annuler</p> </button>:
 <>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
 </>}
 
@@ -661,26 +679,14 @@ const Listecommandes = (props) => {
               </MenuItem>
               <MenuItem
                 className="menuitem-avis"
-                onClick={() => {
-                  setop2(true);
-                }}
+                onClick={Annuler}
               >          
-               <CloseCircle size="22" color="#626262" />
+               <CloseCircle size="22" color="#D64545" />
                 <span>
-                  <p className="txtmenu-avis" >Refuser</p>
+                <p className="txtmenu-avis" style={{color:"#D64545"}}>Refuser</p>
                 </span>
               </MenuItem>
-              <MenuItem
-                className="menuitem-avis"
-                onClick={() => {
-                  setop2(true);
-                }}
-              >
-                <Trash size="22"color="#D64545" />
-                <span>
-                  <p className="txtmenu-avis" style={{color:"#D64545"}}>Bloquer</p>
-                </span>
-              </MenuItem>
+
             </Menu>
     <div className='page-c'>  
 <div className="pagination1-c">

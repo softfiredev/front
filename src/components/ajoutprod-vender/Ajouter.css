@@ -8,6 +8,23 @@
     border-radius: 8px;
     padding: 4%;
 }
+.txt-int{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 48px;
+color: #222222;
+}
+.inpu-a{
+    width: 500px;
+height: 48px;
+
+background: #FFFFFF;
+
+border: 1px solid #E1E1E1;
+border-radius: 8px;
+}
 .txtuplod02-ajoute{
 width: 150%;
 font-family: 'Inter';

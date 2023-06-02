@@ -128,7 +128,7 @@ const TableauDuBord = (props) => {
   return (
     <div className="Tb">
       <div>
-        <p className="txt1-Tb">Salut, Seif! 👋</p>
+        <p className="txt1-Tb">Salut, {props.user.fullname} 👋</p>
         <p className="txt2-Tb">Consultez votre tableau de bord aujourd'hui</p>
       </div>
 

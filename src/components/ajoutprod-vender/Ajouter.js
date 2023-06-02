@@ -82,14 +82,14 @@ const Ajouter = (props) => {
       data.append("categorieId", produit.categorieId);
       data.append("image", prodimg);
       data.append("labrairieId", props?.id);
-
       if (realimgsize > 1024 * 1024) {
         {
           toast.error("taill image !!! ", { autoClose: 1000 });
         }
       } else {
-        console.log(prodimg);
+        
         Ajoutproduit(data).then((response) => {
+          console.log(response);
           if (response.success === true) {
             toast.success("votre produit a ete Ajoute avec success", {
               autoClose: 1000,
@@ -174,112 +174,129 @@ const Ajouter = (props) => {
         </div>
 
         <div className="col2-ajout">
-          <div className="downlod-ajout">
-            {img === undefined ? (
-              <label htmlFor="file-input" className="down-ajoutmin">
-                <div className="downlod2-ajout">
-                  <Import size="30" color="#222222" variant="Outline" />
-                </div>
-                <p className="txt3-ajout">Télécharger un ou plusieurs photos</p>
-              </label>
-            ) : realimgsize > 1024 * 1024 ? (
-              <div className="globalboxuplod-ajout">
-                <div className="rowuplod01-ajout">
-                  <div className="rol01-ajout">
-                    <div>
-                      <InfoCircle
-                        size="15"
-                        color="#D64545"
-                        variant="Bold"
-                        style={{ marginTop: "30%" }}
-                      />
-                    </div>
-                    <div>
-                      <img src={img} className="mguplod-ajout" />
-                    </div>
-                    <div>
-                      <p
-                        className="txtuplod02-ajoute"
-                        style={{ color: "#D64545" }}
-                      >
-                        {imgname}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="rol01-ajout">
-                    <div>
-                      <p
-                        className="txtuplod03-ajoute"
-                        style={{ color: "#D64545" }}
-                      >
-                        Réessayer
-                      </p>
-                    </div>
-                    <div>
-                      <CloseCircle
-                        size="18"
-                        color="#222"
-                        style={{ cursor: "pointer", marginTop: "20%" }}
-                        onClick={() => {
-                          setImage(undefined);
-                          setprodimg(undefined);
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="globalboxuplod-ajout">
-                <div className="rowuplod01-ajout">
-                  <div className="rol01-ajout">
-                    <div>
-                      <TickCircle
-                        size="15"
-                        color="#57AE5B"
-                        variant="Bold"
-                        style={{ marginTop: "30%" }}
-                        onClick={() => {
-                          setImage(undefined);
-                          setprodimg(undefined);
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <img src={img} className="mguplod-ajout" />
-                    </div>
-                    <div>
-                      <p className="txtuplod02-ajoute">
-                        {imgname
-                          ? imgname
-                          : produit?.imagelibrairies[0]?.name_Image}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="rol01-ajout">
-                    <div>
-                      <p className="txtuplod03-ajoute">
-                        {imgsize ? imgsize : "0.1"}Mo
-                      </p>
-                    </div>
-                    <div>
-                      <Trash
-                        size="15"
-                        color="#222"
-                        style={{ cursor: "pointer" }}
-                        onClick={() => {
-                          setImage(undefined);
-                          setprodimg(undefined);
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+        {props?.titre !== "Modify produit"?
+          <>
+             <div className="downlod-ajout">
+             {img === undefined ? (
+               <label htmlFor="file-input" className="down-ajoutmin">
+                 <div className="downlod2-ajout">
+                   <Import size="30" color="#222222" variant="Outline" />
+                 </div>
+                 <p className="txt3-ajout">Télécharger un ou plusieurs photos</p>
+               </label>
+             ) : realimgsize > 1024 * 1024 ? (
+               <div className="globalboxuplod-ajout">
+                 <div className="rowuplod01-ajout">
+                   <div className="rol01-ajout">
+                     <div>
+                       <InfoCircle
+                         size="15"
+                         color="#D64545"
+                         variant="Bold"
+                         style={{ marginTop: "30%" }}
+                       />
+                     </div>
+                     <div>
+                       <img src={img} className="mguplod-ajout" />
+                     </div>
+                     <div>
+                       <p
+                         className="txtuplod02-ajoute"
+                         style={{ color: "#D64545" }}
+                       >
+                         {imgname}
+                       </p>
+                     </div>
+                   </div>
+ 
+                   <div className="rol01-ajout">
+                     <div>
+                       <p
+                         className="txtuplod03-ajoute"
+                         style={{ color: "#D64545" }}
+                       >
+                         Réessayer
+                       </p>
+                     </div>
+                     <div>
+                       <CloseCircle
+                         size="18"
+                         color="#222"
+                         style={{ cursor: "pointer", marginTop: "20%" }}
+                         onClick={() => {
+                           setImage(undefined);
+                           setprodimg(undefined);
+                         }}
+                       />
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             ) : (
+               <div className="globalboxuplod-ajout">
+                 <div className="rowuplod01-ajout">
+                   <div className="rol01-ajout">
+                     <div>
+                       <TickCircle
+                         size="15"
+                         color="#57AE5B"
+                         variant="Bold"
+                         style={{ marginTop: "30%" }}
+                         onClick={() => {
+                           setImage(undefined);
+                           setprodimg(undefined);
+                         }}
+                       />
+                     </div>
+                     <div>
+                       <img src={img} className="mguplod-ajout" />
+                     </div>
+                     <div>
+                       <p className="txtuplod02-ajoute">
+                         {imgname
+                           ? imgname
+                           : produit?.imagelibrairies[0]?.name_Image}
+                       </p>
+                     </div>
+                   </div>
+ 
+                   <div className="rol01-ajout">
+                     <div>
+                       <p className="txtuplod03-ajoute">
+                         {imgsize ? imgsize : "0.1"}Mo
+                       </p>
+                     </div>
+                     <div>
+                       <Trash
+                         size="15"
+                         color="#222"
+                         style={{ cursor: "pointer" }}
+                         onClick={() => {
+                           setImage(undefined);
+                           setprodimg(undefined);
+                         }}
+                       />
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             )}
+           </div>
+             <div className="col3-ajout">
+             <div>
+               <p className="txt4-ajout">Nom de produit</p>
+             </div>
+             <OutlinedInput
+               placeholder="Nome"
+               onChange={handleInputChange("titre")}
+               value={produit.titre}
+             />
+           </div>
+          </>
+           :<></>
+      }
+       
+     
           <input
             type="file"
             className="uplod"
@@ -288,16 +305,9 @@ const Ajouter = (props) => {
             onChange={onImageChange}
           />
 
-          <div className="col3-ajout">
-            <div>
-              <p className="txt4-ajout">Nom de produit</p>
-            </div>
-            <OutlinedInput
-              placeholder="Nome"
-              onChange={handleInputChange("titre")}
-              value={produit.titre}
-            />
-          </div>
+        
+          {props?.titre === "Modify produit" ? (
+            <>
           <div className="col3-ajout">
             <div>
               <p className="txt4-ajout">Prix</p>
@@ -306,11 +316,10 @@ const Ajouter = (props) => {
               placeholder="Prix"
               onChange={handleInputChange("prix")}
               value={produit.prix}
+              className='inpu-a'
             />
           </div>
-          {props?.titre === "Modify produit" ? (
-            <>
-              {" "}
+
               <div className="col3-ajout">
                 <div>
                   <p className="txt4-ajout">prix_en_Solde</p>
@@ -319,6 +328,7 @@ const Ajouter = (props) => {
                   disabled
                   placeholder="prix_en_Solde"
                   value={prix_solde}
+           
                 />
               </div>
               <div className="col3-ajout">
@@ -330,23 +340,27 @@ const Ajouter = (props) => {
                   onChange={handleInputChange("remise")}
                   value={produit.remise}
                 />
-              </div>
+              </div> 
               <div className="col3-ajout">
-                <div>
-                  <p className="txt4-ajout">description</p>
-                </div>
-                <OutlinedInput
-                  placeholder="description"
-                  onChange={handleInputChange("description")}
-                  value={produit.description}
-                />
-              </div>
+            <div>
+              <p className="txt4-ajout">Quantité</p>
+            </div>
+            <OutlinedInput
+              placeholder="Quantité"
+              onChange={handleInputChange("qte")}
+              value={produit.qte}
+            />
+          </div>
+           
+           
+           
             </>
           ) : (
             <></>
           )}
-
-          <div className="col3-ajout">
+   {props?.titre !== "Modify produit" ?
+   <>
+        <div className="col3-ajout">
             <div>
               <p className="txt4-ajout">Catégorie</p>
             </div>
@@ -372,16 +386,48 @@ const Ajouter = (props) => {
               ))}
             </Select>
           </div>
+    
           <div className="col3-ajout">
             <div>
-              <p className="txt4-ajout">Quantité</p>
+              <p className="txt4-ajout">Sous-catégorie</p>
             </div>
-            <OutlinedInput
-              placeholder="Quantité"
-              onChange={handleInputChange("qte")}
-              value={produit.qte}
-            />
+            <Select
+              className="txt-select"
+              defaultValue={
+                props?.titre === "Modify produit" ? produit.categorieId : 0
+              }
+              style={{ width: "500px", height: " 48px", borderRadius: "8px" }}
+              onChange={handleInputChange("categorieId")}
+            >
+              <MenuItem
+                value={
+                  props?.titre === "Modify produit" ? produit.categorieId : 0
+                }
+              >
+                <em className="txt-select-ajout">choisir une catégorie </em>
+              </MenuItem>
+              {categorie.map((obj) => (
+                <MenuItem value={obj.id} className="txt-select">
+                  {obj.name}
+                </MenuItem>
+              ))}
+            </Select>
           </div>
+
+          <div className="col3-ajout">
+            <div>
+              <p className="txt4-ajout">Description</p>
+            </div>
+
+          <OutlinedInput className='inpu-con2' placeholder="Parlez-nous de ce article" multiline rows={5} maxRows={80}  /> 
+          </div>
+
+   </>
+  :
+  <></>
+  }
+     
+
 
           <div className="rowbnt-ajout">
             <button className="bnt01-ajout" onClick={Anuler}>

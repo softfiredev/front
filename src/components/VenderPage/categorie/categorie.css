@@ -1,8 +1,13 @@
 .header-page-categorie{
     display: flex;
     flex-direction: row;
+    gap:46.5em ;
 
-    
+}
+.col5487-lst{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 .header-page-categorie .title-page-categorie{
 font-family: 'Inter';
@@ -11,7 +16,36 @@ font-weight: 600;
 font-size: 32px;
 line-height: 48px;
 color: #222222;
-margin: 28px 0 0 28px ;
+
+}
+.css-1160xiw-MuiPaper-root-MuiDrawer-paper{
+width: 400px;
+padding: 1%;
+}
+.txtliste-lit{
+width: 267px;
+height: 24px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+color: #222222;
+
+}
+.imglist-lst2{
+width: 250px;
+Height:250px;
+}
+.txtliste-lit2{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+color: #7C5E10;
+
 }
 .header-page-categorie .btn-suggestion{
 width: 180px;
@@ -24,9 +58,19 @@ font-weight: 500;
 font-size: 14px;
 line-height: 20px;
 color: #FFFFFF;
-margin-left: 698px ;
-margin-top: 28px;
+
 cursor: pointer;
+}
+.txtliste-lit3{
+    Width:250px;
+Height:60px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 140%;
+color: #626262;
+
 }
 .txt7-cv{
     font-family: 'Inter';
@@ -35,6 +79,13 @@ font-weight: 600;
 font-size: 24px;
 line-height: 32px;
 color: #222222;
+}
+.center-cat{
+    display: flex;
+    justify-content: center;
+    margin-left: 25%;
+    margin-top: 25%;
+    cursor: pointer;
 }
 .txt1-cv{
     
@@ -141,16 +192,23 @@ gap: 1em;
     display: flex;
     justify-content: center;
 }
-.box1-categorie{
-box-sizing: border-box;
-width: 1047px;
-height: auto;
-background: #FFFFFF;
-border: 1px solid #EEEDF2;
-border-radius: 8px;
-margin: 28px 0 0 30px;
-padding-bottom: 2%;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 1em; 
+  }
+  
+  .grid-item {
+
+    padding: 10px;
+  }
+.pages-container1{
+    display: flex;
+    flex-direction: column;
+    gap:3em;
+    padding: 3%;
 }
+
 .header-box1{
     display: flex;
     flex-direction: row;
@@ -162,12 +220,39 @@ height: 50px;
 background: #FFFFFF;
 border: 1px solid #E1E1E1;
 border-radius: 8px;
-margin: 30px 0 0 30px;
+
+}
+.rowlisteprod{
+    display: flex;
+    flex-direction: row; 
+    gap:1em
+}
+.txtbox-int{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #222222;
+    
+    }
+    .rowbox-int{
+    display: flex;
+    flex-direction: row;
+    gap:1em;
+}
+.box2-int{
+    padding-top: 1.5%;
+    padding-left: 3%;
+
+    display: flex;
+    flex-direction: column;
+    gap:2em;
 }
 .pagination-VenderCategorie{
     display: flex;
     flex-direction: row; 
-    margin-left: 253px;
+    margin-left: 100px;
     margin-top: 30px;
 }
 .text-1-0{
@@ -181,12 +266,13 @@ color: #222222;
 }
 .select-1-0{
 box-sizing: border-box;
-width: 52px;
-height: 32px;
+width: 138px;
+height: 50px;
 background: #F7F7F7;
 border: 1px solid #CFCFCF;
 border-radius: 8px;
-margin: 10px 11px 0 16px;
+padding-left: 1%;
+margin-top: -10%;
 }
 th {
     text-align: left;

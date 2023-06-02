@@ -33,7 +33,7 @@ const Vender = () => {
       linkto :"/Vender/TableauDuBord"
     },
     {
-      linkname: "Catégories",
+      linkname: "Liste de produits",
       icon: <Element4 size="32" color="#7E7E7E" variant="Bulk" />,
       linkto :"/Vender/categorie"
     },

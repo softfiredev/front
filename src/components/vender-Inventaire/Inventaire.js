@@ -76,7 +76,7 @@ const Inventaire = (props) => {
               </div>
               <div>
                 <button className="bnt01-int" onClick={changepage}>
-                  <p className="txt1-int">Nouveau produit</p>
+                  <p className="txt1-int">Faire une suggestion</p>
                 </button>
               </div>
             </div>
@@ -121,7 +121,7 @@ const Inventaire = (props) => {
             </div>
           </div>
           {produit.op? <Ajouter titre="Modify produit" prod={produit} />
-                 :  <Ajouter titre="Ajoute produit" id={props.user?.id}/>
+                 :  <Ajouter titre="Faire une suggestion" id={props.user?.id}/>
           }
     
         

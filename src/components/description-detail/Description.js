@@ -174,11 +174,11 @@ if(!sizeimg)
         <p className="txt4-detail">{props.prix} DT</p>
       </div>
       
-        {props?.discription?.length!=0 && props?.discription!==undefined?
+        {props?.description?.length!=0 && props?.description!==undefined?
         <div>
               <p className="txt5-detail">Description:</p>
         <p className="txt6-detail">
-         {props.discription}
+         {props.description}
         </p>
       </div>
       :""

@@ -116,19 +116,13 @@ const Avis = lazy(() =>
   import("./components/composot-Profile/page4-profile/Avis")
 );
 const Vender = lazy(() => import("./Pages/vender/vender"));
-function ScrollToTop() {
-  const location = useLocation();
-
+const ScrollToTop = ({ children }) => {
+  const { pathname } = useLocation();
   useEffect(() => {
-    const scrollToTop = () => {
-      window.scrollTo(0,0);
-    };
-
-    scrollToTop();
-  }, [location]);
-
-  return null;
-}
+    window.scrollTo({ top: 0, left: 1000, behavior: "auto" });
+  }, [pathname]);
+  return children;
+};
 function App() {
   const LoginServiceData = useSelector((state) => state.loginservice);
   const googleServiceData = useSelector((state) => state.Googleservice);
@@ -149,13 +143,12 @@ function App() {
    
   };
 
-console.log(user)
   return (
 
    
 
       <Router>
-       <ScrollToTop />
+       <ScrollToTop >
    
          <NavBar user={user} />
          <Suspense fallback={<Spinier />}>
@@ -252,7 +245,8 @@ console.log(user)
         </Suspense>
         <Toast />
         <Footer />
-    
+        </ScrollToTop>
+
         </Router>
 
 

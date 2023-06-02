@@ -10,6 +10,22 @@ import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 
+
+const Listpro = lazy(() =>
+  import("./components/Admin-components/listeprod/listpro")
+);
+
+
+const Modify = lazy(() =>
+  import("./components/Admin-components/Modify-prod/Modify-prod")
+);
+
+
+const Ajouteprod = lazy(() =>
+  import("./components/Admin-components/Ajouteprod/Ajouteprod")
+);
+
+
 const AdminPartners = lazy(() =>
   import("./components/Admin-components/AdminPartners/AdminPartners")
 );
@@ -238,6 +254,11 @@ function App() {
          
              <Route path="/Admin" element={<Protection user={user}><Admin user={user}/></Protection>}>
              <Route path="/Admin/Liste_de_demande" element={<Protection user={user}><AdminPartners user={user}/></Protection>}/>
+             <Route path="/Admin/Produits" element={<Protection user={user}><Listpro user={user}/></Protection>}/>
+             <Route path="/Admin/Modifier_produit/:id" element={<Protection user={user}><Modify user={user}/></Protection>}/>
+             <Route path="/Admin/Ajouter_un_produit" element={<Protection user={user}><Ajouteprod user={user}/></Protection>}/>
+
+         
              </Route>
 
             <Route path="*" element={<> page not !!!</>} />

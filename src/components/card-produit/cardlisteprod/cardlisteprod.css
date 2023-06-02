@@ -11,11 +11,22 @@ padding: 7%;
 cursor: pointer;
 }
 .img-lst{
+ 
     Width:172px;
 Height:144px;
-    background-blend-mode: multiply, normal;
+ background-blend-mode: multiply, normal;
 border-radius: 2px;
+
 }
+.img-lst2{
+ 
+    Width:172px;
+Height:144px;
+ background-blend-mode: multiply, normal;
+border-radius: 2px;
+margin-top: -20%;
+}
+
 .txt-lst{
 font-family: 'Inter';
 font-style: normal;
@@ -34,4 +45,22 @@ font-weight: 400;
 font-size: 14px;
 line-height: 20px;
 color: #222222;
+}
+.Eye{
+    position: relative;
+    left: 85%;
+ width: 30px;
+height: 30px;
+background: #C1EAC5;
+border-radius: 36px;
+padding: 2%;
+}
+.Eye2{
+    position: relative;
+    left: 85%;
+ width: 30px;
+height: 30px;
+background: #FACDCD;
+border-radius: 36px;
+padding: 2%;
 }

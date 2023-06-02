@@ -1,7 +1,9 @@
-import { Navigate,useLocation } from "react-router-dom"; 
+import { Navigate,useLocation,useParams} from "react-router-dom"; 
+
 
 const Protection = ({children,user}) => {
 const location = useLocation();
+const { param1 } = useParams();
 
 if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.pathname==="/New_password"))
 {
@@ -34,12 +36,13 @@ if((location.pathname==="/Profile/Monidentite" || location.pathname==="/Profile"
 }
 else{return <Navigate to="/" />}
 }
+const s1=location.pathname.substring(location.pathname.length,location.pathname.indexOf("t/")+2)
 
-console.log(user.role )
+
 if(user.role==="Admin" &&user.auth==true )
 {
   
-if((location.pathname==="/Admin/Liste_de_demande" || location.pathname==="/Admin" ))
+if((location.pathname==="/Admin/Liste_de_demande" || location.pathname==="/Admin"|| location.pathname==="/Admin/Produits"|| location.pathname==="/Admin/Modifier_produit/"+s1|| location.pathname==="/Admin/Ajouter_un_produit"))
 {
   return children
 }

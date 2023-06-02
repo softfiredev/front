@@ -7,7 +7,7 @@ border-radius: 4px;
 display: flex;
 flex-direction: column;
 gap:1em;
-padding: 2%;
+padding: 7%;
 cursor: pointer;
 }
 .img-lst{

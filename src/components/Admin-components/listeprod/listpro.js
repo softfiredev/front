@@ -199,6 +199,8 @@ blanc, gris, noir, violet, bleu, bleu-ciel, vert, vert foncé, orange, rose, rou
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>  
+      
+      <div className="row-1542liste">
       <div className="box1-categorie">
         <div className="header-box1">
           <OutlinedInput
@@ -259,6 +261,11 @@ blanc, gris, noir, violet, bleu, bleu-ciel, vert, vert foncé, orange, rose, rou
                 onChange={handlePagination}
               />
       </div>
+
+
+
+      </div>
+    
       </TabPanel>
 
       <TabPanel value={value} index={1}>  
@@ -272,11 +279,11 @@ blanc, gris, noir, violet, bleu, bleu-ciel, vert, vert foncé, orange, rose, rou
             />
           </th>
           <th>#</th>
-          <th>Nom</th>
-          <th>Prix</th>
+          <th>Produit</th>
           <th>Catégorie</th>
-          <th>Qté</th>
-          <th>Mise à jour</th>
+          <th>Sous-catégorie</th>
+          <th>Par</th>
+          <th>Date</th>
         </tr>
       
 

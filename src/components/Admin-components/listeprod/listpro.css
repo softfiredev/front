@@ -10,6 +10,11 @@
     gap: 2em;
     align-items: flex-start;
 }
+.row-1542liste{
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
 .header-page-categorie .title-page-categorie{
 font-family: 'Inter';
 font-style: normal;

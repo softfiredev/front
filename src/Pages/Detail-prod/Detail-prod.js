@@ -478,6 +478,7 @@ const [value, setValue] = useState(0);
                               imgp={obj.imagelibrairies?.[0]?.name_Image}
                               etat={obj?.etat}
                               prix_en_Solde={obj?.prix_en_Solde}
+                              remise={obj?.remise}
                             />
                            
                       </Grid>

@@ -161,8 +161,9 @@ const Categorie = (props) => {
     };
   };
 
+
   const addProduit=()=>{
-    if(prod.prix.length!==0 &&prod.qte.length!==0)
+    if(prod.prix.length!==0 &&prod.qte.length!==0 &&!isNaN(prod.prix) &&!isNaN(prod.qte))
     {
       const data={
         titre:Oneproduit.titre,
@@ -178,14 +179,15 @@ const Categorie = (props) => {
         if(response.success===true){
           toast.success("produit bien ajoute", { autoClose: 1000 })
           setprod({prix:"",qte:""})
-         toggleDrawer("right", false) 
+  
+         setState({ ...state, ["right"]: false })
         }
       })
-    }else{ toast.error("remplir votre chomp Svp !!", { autoClose: 1000 })}
+    }else{ toast.error("remplir votre chomp OR verify  votre chomp  Svp !!", { autoClose: 1000 })}
 
   }
 
-  return (
+return (
     <>
       {nextpage ? (
         <div className="pages-container1">

@@ -13,9 +13,7 @@ import Cardlisteprod from "../../card-produit/cardlisteprod/cardlisteprod";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import { Swiper, SwiperSlide } from "swiper/react";
-import prod4 from "../../../assets/prod4.png";
 import { getAllProduitCataloge } from "../../../Store/Service/allProduitCataloge";
 import { getOneProdCataloge } from "../../../Store/Service/OneProdCataloge";
 import { isPlainObject } from "@reduxjs/toolkit";
@@ -37,73 +35,10 @@ const data = [
   { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
 ];
 const Categorie = (props) => {
-  const dispatch=useDispatch();
-  const produit = useSelector(
-    (state) => state.prodCataloge.produCataloge
-  );
-  const Oneproduit = useSelector(
-    (state) => state.OneProdCataloge.Oneprod
-  );
-
-  useEffect(()=>{
-    dispatch(getAllProduitCataloge())
-  },[])
-  console.log(produit)
-  const theme = useTheme();
-  const [state, setState] = React.useState({
-    right: false,
-  });
-  const [nextpage, setnextpage] = useState(true);
-  const produitbycategorie = useSelector(
-    (state) => state.NbproduitLib.Nbproduit
-  );
-  useEffect(() => {
-    dispatch(getNbProduitlibBycategorie(props.user?.id));
-  }, []);
-  const items = 8;
-  const [current, setCurrent] = useState(1);
-  const NbPage = Math.ceil(produitbycategorie.length / items);
-  const startIndex = (current - 1) * items;
-  const endIndex = startIndex + items;
-  const DataPerPage = produitbycategorie.slice(startIndex, endIndex);
-  function handlePagination(event, page) {
-    setCurrent(page);
-  }
-
-  const toggleDrawer = (anchor, open,id) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-    console.log(id,"id")
-    dispatch(getOneProdCataloge(id))
-  
-  };
-  const addProduit=()=>{
-    const data={
-      titre:Oneproduit.titre,
-      description:Oneproduit.description,
-      image:Oneproduit.imageCataloges,
-      prix:Oneproduit.prix,
-      categorieId:Oneproduit.categorieId,
-      labrairieId:props.user?.id
-    }
-    Addprod(data).then((response)=>{
-      console.log(response)
-      if(response.success===true){
-        toast.success("produit bien ajoute")
-      }
-    })
-  }
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
       role="presentation"
-      onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
         <ListItem>
@@ -138,7 +73,26 @@ const Categorie = (props) => {
                {Oneproduit.description}
               </p>
             </div>
-            <br />
+
+            <div>
+
+            <OutlinedInput
+                className="input-listecat"
+                placeholder={"Ajoute Prix produit"}
+                onChange={handleInputChange("prix")}
+                value={prod.prix}
+              />
+            </div>
+            <div>
+
+<OutlinedInput
+    className="input-listecat"
+    placeholder={"Ajoute Qte produit"}
+    onChange={handleInputChange("qte")}
+    value={prod.qte}
+  />
+</div>
+
             <div className="center-cat">
               <div>
                 <AddCircle size="42" color="#222" variant="Bold" onClick={addProduit} />
@@ -149,6 +103,87 @@ const Categorie = (props) => {
       </List>
     </Box>
   );
+
+  const dispatch=useDispatch();
+  const produit = useSelector(
+    (state) => state.prodCataloge.produCataloge
+  );
+  const Oneproduit = useSelector(
+    (state) => state.OneProdCataloge.Oneprod
+  );
+
+  useEffect(()=>{
+    dispatch(getAllProduitCataloge())
+  },[])
+
+  const theme = useTheme();
+  const [state, setState] = React.useState({
+    right: false,
+  });
+  const [nextpage, setnextpage] = useState(true);
+  const [prod, setprod] = useState({prix:"",qte:""});
+
+
+  const produitbycategorie = useSelector(
+    (state) => state.NbproduitLib.Nbproduit
+  );
+  useEffect(() => {
+    dispatch(getNbProduitlibBycategorie(props.user?.id));
+  }, []);
+  const items = 8;
+  const [current, setCurrent] = useState(1);
+  const NbPage = Math.ceil(produitbycategorie.length / items);
+  const startIndex = (current - 1) * items;
+  const endIndex = startIndex + items;
+  const DataPerPage = produitbycategorie.slice(startIndex, endIndex);
+  function handlePagination(event, page) {
+    setCurrent(page);
+  }
+
+  const toggleDrawer = (anchor, open,id) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+    dispatch(getOneProdCataloge(id))
+  
+  };
+  const handleInputChange = (field) => {
+    return (e) => {
+      setprod((prev) => ({
+        ...prev,
+        [field]: e.target.value,
+      }));
+    };
+  };
+
+  const addProduit=()=>{
+    if(prod.prix.length!==0 &&prod.qte.length!==0)
+    {
+      const data={
+        titre:Oneproduit.titre,
+        description:Oneproduit.description,
+        image:Oneproduit.imageCataloges,
+        prix:prod.prix,
+        qte:prod.qte,
+        categorieId:Oneproduit.categorieId,
+        labrairieId:props.user?.id
+  
+      }
+      Addprod(data).then((response)=>{
+        if(response.success===true){
+          toast.success("produit bien ajoute", { autoClose: 1000 })
+          setprod({prix:"",qte:""})
+         toggleDrawer("right", false) 
+        }
+      })
+    }else{ toast.error("remplir votre chomp Svp !!", { autoClose: 1000 })}
+
+  }
 
   return (
     <>

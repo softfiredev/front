@@ -19,7 +19,7 @@ color: #222222;
 
 }
 .css-1160xiw-MuiPaper-root-MuiDrawer-paper{
-width: 400px;
+width: 348px;
 padding: 1%;
 }
 .txtliste-lit{
@@ -79,12 +79,13 @@ font-weight: 600;
 font-size: 24px;
 line-height: 32px;
 color: #222222;
+
 }
 .center-cat{
     display: flex;
     justify-content: center;
-    margin-left: 50%;
-    margin-top: 25%;
+
+    margin-top: 5%;
     cursor: pointer;
 }
 .txt1-cv{
@@ -95,6 +96,14 @@ font-weight: 400;
 font-size: 14px;
 line-height: 20px;
 color: #9E9E9E;
+}
+.input-listecat{
+
+    width: 256px;
+
+    background: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    border-radius: 8px;
 }
 .col4-cv{
     display: flex;

@@ -19,13 +19,13 @@ import { getAllGategorie } from "../../Store/Service/getAllGategorie";
 
 const Ajouter = (props) => {
   const [img, setImage] = useState(
-    props?.titre === "Modify produit"
+    props?.titre === "Modifier produit"
       ? "http://127.0.0.1:8080/uploads/" +
           props?.prod?.imagelibrairies[0].name_Image
       : undefined
   );
   const [produit, setproduit] = useState(
-    props?.titre === "Modify produit"
+    props?.titre === "Modifier produit"
       ? props?.prod
       : {
           titre: "",
@@ -174,7 +174,7 @@ const Ajouter = (props) => {
         </div>
 
         <div className="col2-ajout">
-        {props?.titre !== "Modify produit"?
+        {props?.titre !== "Modifier produit"?
           <>
              <div className="downlod-ajout">
              {img === undefined ? (
@@ -306,7 +306,7 @@ const Ajouter = (props) => {
           />
 
         
-          {props?.titre === "Modify produit" ? (
+          {props?.titre === "Modifier produit" ? (
             <>
           <div className="col3-ajout">
             <div>
@@ -358,7 +358,7 @@ const Ajouter = (props) => {
           ) : (
             <></>
           )}
-   {props?.titre !== "Modify produit" ?
+   {props?.titre !== "Modifier produit" ?
    <>
         <div className="col3-ajout">
             <div>
@@ -367,14 +367,14 @@ const Ajouter = (props) => {
             <Select
               className="txt-select"
               defaultValue={
-                props?.titre === "Modify produit" ? produit.categorieId : 0
+                props?.titre === "Modifier produit" ? produit.categorieId : 0
               }
               style={{ width: "500px", height: " 48px", borderRadius: "8px" }}
               onChange={handleInputChange("categorieId")}
             >
               <MenuItem
                 value={
-                  props?.titre === "Modify produit" ? produit.categorieId : 0
+                  props?.titre === "Modifier produit" ? produit.categorieId : 0
                 }
               >
                 <em className="txt-select-ajout">choisir une catégorie </em>
@@ -394,14 +394,14 @@ const Ajouter = (props) => {
             <Select
               className="txt-select"
               defaultValue={
-                props?.titre === "Modify produit" ? produit.categorieId : 0
+                props?.titre === "Modifier produit" ? produit.categorieId : 0
               }
               style={{ width: "500px", height: " 48px", borderRadius: "8px" }}
               onChange={handleInputChange("categorieId")}
             >
               <MenuItem
                 value={
-                  props?.titre === "Modify produit" ? produit.categorieId : 0
+                  props?.titre === "Modifier produit" ? produit.categorieId : 0
                 }
               >
                 <em className="txt-select-ajout">choisir une catégorie </em>
@@ -433,7 +433,7 @@ const Ajouter = (props) => {
             <button className="bnt01-ajout" onClick={Anuler}>
               <p className="txtbnt01-ajout">Annuler</p>
             </button>
-            {props.titre === "Modify produit" ? (
+            {props.titre === "Modifier produit" ? (
               <button onClick={Modifyprod} className="bnt02-ajout">
                 <p className="txtbnt02-ajout">Modify</p>
               </button>

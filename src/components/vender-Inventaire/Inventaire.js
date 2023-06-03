@@ -74,11 +74,6 @@ const Inventaire = (props) => {
                 <ExportCircle size="24" color="#515151" />
                 <p className="txt20-int">Exporter</p>
               </div>
-              <div>
-                <button className="bnt01-int" onClick={changepage}>
-                  <p className="txt1-int">Faire une suggestion</p>
-                </button>
-              </div>
             </div>
           </div>
           <div className="box-int">
@@ -120,7 +115,7 @@ const Inventaire = (props) => {
               <p className="txtbox-int">Retourner</p>
             </div>
           </div>
-          {produit.op? <Ajouter titre="Modify produit" prod={produit} />
+          {produit.op? <Ajouter titre="Modifier produit" prod={produit} />
                  :  <Ajouter titre="Faire une suggestion" id={props.user?.id}/>
           }
     

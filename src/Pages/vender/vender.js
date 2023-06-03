@@ -35,7 +35,7 @@ const Vender = () => {
     {
       linkname: "Liste de produits",
       icon: <Element4 size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Vender/categorie"
+      linkto :"/Vender/Liste_de_produits"
     },
     {
       linkname: "Inventaire",

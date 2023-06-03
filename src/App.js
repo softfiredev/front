@@ -210,7 +210,7 @@ function App() {
             
             <Route path="/Vender" element={ <Protection user={user}><Vender /></Protection>}>
               <Route path="/Vender/TableauDuBord" element={<TableauDuBord user={user} />} />
-              <Route path="/Vender/categorie" element={ <Protection user={user}><Categorie user={user} /></Protection>} />
+              <Route path="/Vender/Liste_de_produits" element={ <Protection user={user}><Categorie user={user} /></Protection>} />
               <Route path="/Vender/Inventaire" element={<Protection user={user}><Inventaire user={user}/></Protection>} />
               <Route
                 path="/Vender/Liste_de_commandes"

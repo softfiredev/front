@@ -13,7 +13,8 @@
 .row-1542liste{
     display: flex;
     flex-direction: column;
-    gap: 3em;
+    gap: 3em; 
+    
 }
 .header-page-categorie .title-page-categorie{
 font-family: 'Inter';

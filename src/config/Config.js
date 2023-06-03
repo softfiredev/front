@@ -58,6 +58,9 @@ export const Path ={
     AddLibrairie:"becomePartner/accepter/",
     AnnulerDemende:"becomePartner/Annuler/",
     AddFournisseur:"fournisseur/add",
-    produit_mieux_note:"produitLabrairie/produit_mieux_notes/"
+    produit_mieux_note:"produitLabrairie/produit_mieux_notes/",
+    allProduitcataloge:"cataloge/findAll",
+    oneProdCataloge :"cataloge/findOne/",
+    addprod:"produitLabrairie/addProdCataloge"
 
 }

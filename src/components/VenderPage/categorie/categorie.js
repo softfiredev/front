@@ -92,11 +92,11 @@ const Categorie = (props) => {
     value={prod.qte}
   />
 </div>
+<div className="center-cat">
+<button className="bnt02-ajout" onClick={addProduit}>
+            <p className="txtbnt02-ajout">Ajoute Produit</p>
+          </button>
 
-            <div className="center-cat">
-              <div>
-                <AddCircle size="42" color="#222" variant="Bold" onClick={addProduit} />
-              </div>
             </div>
           </div>
         </ListItem>
@@ -111,6 +111,7 @@ const Categorie = (props) => {
   const Oneproduit = useSelector(
     (state) => state.OneProdCataloge.Oneprod
   );
+  const filtered = produit.filter(item => item.etat === 'visible');
 
   useEffect(()=>{
     dispatch(getAllProduitCataloge())
@@ -186,7 +187,7 @@ const Categorie = (props) => {
     }else{ toast.error("remplir votre chomp OR verify  votre chomp  Svp !!", { autoClose: 1000 })}
 
   }
-
+console.log(produit)
 return (
     <>
       {nextpage ? (
@@ -231,7 +232,7 @@ return (
           </div>
 
           <div class="grid-container">
-            {produit?.map((obj) => (
+            {filtered?.map((obj) => (
               <div class="grid-item" onClick={toggleDrawer("right", true,obj.id)}>
                 <Cardlisteprod id={obj.id} titre={obj.titre} img={obj.imageCataloges?.[0]?.name_Image}/>
               </div>

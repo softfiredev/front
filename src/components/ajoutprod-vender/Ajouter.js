@@ -105,7 +105,6 @@ const Ajouter = (props) => {
       }
     }
   };
-
   const Modifyprod = () => {
     const data = new FormData();
     data.append("titre", produit.titre);
@@ -419,7 +418,8 @@ const Ajouter = (props) => {
               <p className="txt4-ajout">Description</p>
             </div>
 
-          <OutlinedInput className='inpu-con2' placeholder="Parlez-nous de ce article" multiline rows={5} maxRows={80}  /> 
+          <OutlinedInput className='inpu-con2'         onChange={handleInputChange("description")}
+               value={produit.description}placeholder="Parlez-nous de ce article" multiline rows={5} maxRows={80}  /> 
           </div>
 
    </>

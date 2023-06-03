@@ -11,7 +11,8 @@
           "backdrop-filter",
           "user-select",
           "hyphens",
-          "position: sticky"
+          "position: sticky",
+          "scrollbar-width"
         ]
       }
     ]

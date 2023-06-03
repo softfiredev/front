@@ -21,6 +21,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { TickSquare, More, FilterAdd, ArrowCircleRight2, Edit } from "iconsax-react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { getAllProduitCataloge } from "../../../Store/Service/allProduitCataloge";
+import { getOneProdCataloge } from "../../../Store/Service/OneProdCataloge";
+import { deleteProdCataloge } from "../../../Store/Service/deleteProdCataloge";
+import { toast } from "react-toastify";
 
 const data=[
   {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
@@ -98,20 +102,35 @@ const [Visible, setVisible] =useState(true);
   function handlePagination (event,page) {
     setCurrent(page)
   }
+  const toggleDrawer = (anchor, open,id) => (event) => {
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
 
     setState({ ...state, [anchor]: open });
+    dispatch(getOneProdCataloge(id))
+  
   };
+  const Oneproduit = useSelector(
+    (state) => state.OneProdCataloge.Oneprod
+  );
+const deleteprod=(id)=>{
 
+  deleteProdCataloge(id).then((res)=>{
+    dispatch(getAllProduitCataloge())
+    toast.success("votre produit a ete supprimé", { autoClose: 1000 })
+   setState({ ...state, ["right"]: false })
+  })
+
+}
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
- 
       onKeyDown={toggleDrawer(anchor, false)}
     >
 
@@ -129,13 +148,13 @@ const [Visible, setVisible] =useState(true);
           </div>  
 
 <div style={{display:"flex",gap:"1em"}}>
-<button className="bntlist-pro">
+<button className="bntlist-pro" onClick={()=>{deleteprod(Oneproduit?.id)}}>
 <Trash
  size="22"
  color="#222"
 />
 </button>
-<button className="bntlist-pro2" onClick={()=>{navigate('/Admin/Modifier_produit/2')}}>
+<button className="bntlist-pro2" onClick={()=>{navigate('/Admin/Modifier_produit/'+Oneproduit?.id)}}>
 Modifier
 </button>
 </div>
@@ -143,8 +162,8 @@ Modifier
 
         </div>
 
-          <div><p className="txtliste-lit">COMPAS AVEC CRAYON 2506 INV</p></div>
-          <div><p className="txtliste-lit2">#0123456</p></div>
+          <div><p className="txtliste-lit">{Oneproduit?.titre}</p></div>
+          <div><p className="txtliste-lit2">#{Oneproduit?.id}</p></div>
 <div>
 
 <Swiper
@@ -153,16 +172,13 @@ Modifier
 
     >
 
-<img src={prod4}  className="imglist-lst2"/>
+<img src={"http://127.0.0.1:8080/uploads/"+Oneproduit?.imageCataloges?.[0].name_Image}  className="imglist-lst2"/>
 
     </Swiper>
     <br/>
 </div>
 <div><p className="txtliste-lit">Description:</p></div>
-<div><p className="txtliste-lit3">Ce produit est livré avec 24 couleurs :
-blanc, gris, noir, violet, bleu, bleu-ciel, vert, vert foncé, orange, rose, rouge, jaune....</p></div>
-<br/>
-
+<div><p className="txtliste-lit3">{Oneproduit?.description}</p>   </div>
              
              
               </div>
@@ -176,6 +192,14 @@ blanc, gris, noir, violet, bleu, bleu-ciel, vert, vert foncé, orange, rose, rou
       </List>
     </Box>
   );
+
+  const produit = useSelector(
+    (state) => state.prodCataloge.produCataloge
+  );
+  useEffect(()=>{
+    dispatch(getAllProduitCataloge())
+  },[])
+
   return (
     <>
 
@@ -232,8 +256,10 @@ blanc, gris, noir, violet, bleu, bleu-ciel, vert, vert foncé, orange, rose, rou
       </div>
 
  <div class="grid-container">
-{data?.map((obj) => (
-  <div class="grid-item"  ><Cardlisteprod setVisible={(data)=>{setVisible(data)}} toggleDrawer={toggleDrawer} id={obj.id} titre={obj.nom} Role={'admin'}/>  </div>
+{produit?.map((obj) => (
+
+
+  <div class="grid-item"  ><Cardlisteprod setVisible={(data)=>{setVisible(data)}} toggleDrawer={toggleDrawer} id={obj.id} titre={obj.titre} img={obj?.imageCataloges?.[0].name_Image} Role={'admin'}/>  </div>
 
 ))}
 

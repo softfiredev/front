@@ -13,25 +13,39 @@ import {
   import Select from "@mui/material/Select";
   import { toast } from "react-toastify";
   import MenuItem from "@mui/material/MenuItem";
-  const Ajouteprod = () => {
+import { getAllGategorie } from "../../../Store/Service/getAllGategorie";
+import { useDispatch,useSelector } from "react-redux";
+import { addProdCataloge } from "../../../Store/Service/addProdCataloge";
+  const Ajouteprod = (props) => {
+    const dispatch = useDispatch();
+
+    const data = [
+      { nom: "Visible (Tout le monde peut le voir)",value:"visible" },
+      { nom: "Invisible (Afficher uniquement pour les administrateurs)" ,value:"Invisible" },
+    ];
     const [img, setImage] = useState( );
     const [imgsize, setImgsize] = useState();
     const [realimgsize, setRealimgsize] = useState();
     const [imgname, setImgmane] = useState();
     const [prodimg, setprodimg] = useState();
     const [sizeimg, setsizeimg] = useState();
-    const [prix_solde, setprix_solde] = useState(0);
+    const [Visible, setVisible] = useState("");
     const [produit, setproduit] = useState(
         {
               titre: "",
-              prix: "",
-              qte: "",
               categorieId: "",
-              prix_en_Solde: "",
-              remise: "",
+              Souscatégorie: "",
               description: "",
             }
       );
+      const categorie = useSelector((state) => state.AllCategorie.Gategorie);
+
+      const handleChange = (event) => {
+        const newValue = event.target.value;
+        setVisible(prevValue => (prevValue === newValue ? null : newValue));
+
+      };
+
       const handleInputChange = (field) => {
         return (e) => {
           setproduit((prev) => ({
@@ -54,6 +68,39 @@ import {
         }
       };
     
+
+  const Addproduit =()=>{
+    
+    const data = new FormData();
+    data.append("titre", produit.titre);
+    data.append("description", produit.description);
+    data.append("prix",0);
+    data.append("etat", Visible);
+    data.append("AdminId", props?.user?.id);
+    data.append("categorieId",produit.categorieId);
+    data.append("image", prodimg);
+    addProdCataloge(data).then((response) => {
+
+      if (response.success === true) {
+        toast.success("votre produit a ete Ajoute avec success", {
+          autoClose: 1000,
+        });
+        setproduit({  titre: "",
+        categorieId: "",
+        Souscatégorie: "",
+        description: "",});
+        setImage(undefined);
+      }
+    });
+
+
+
+
+  }
+  useEffect(() => {
+    dispatch(getAllGategorie());
+  }, []);
+console.log(Visible)
   return (
     <div className="rowglob">
        <div>
@@ -219,18 +266,18 @@ import {
             </div>
             <Select
               className="txt-select"
-              defaultValue={"sqd"}
+              defaultValue={0}
               style={{ width: "500px", height: " 48px", borderRadius: "8px" }}
               onChange={handleInputChange("categorieId")}
             >
-              <MenuItem
-                value={"qsd"}       >
+              <MenuItem  value={0}>
                 <em className="txt-select-ajout">choisir une catégorie </em>
               </MenuItem>
-        
-                <MenuItem value={"obj.id"} className="txt-select">
-              
+              {categorie.map((obj) => (
+                <MenuItem value={obj.id} className="txt-select">
+                  {obj.name}
                 </MenuItem>
+              ))}
             
             </Select>
           </div>
@@ -241,14 +288,14 @@ import {
             </div>
             <Select
               className="txt-select"
-              defaultValue={""}
+              defaultValue={0}
               style={{ width: "500px", height: " 48px", borderRadius: "8px" }}
-              onChange={handleInputChange("categorieId")}
+              onChange={handleInputChange("Souscatégorie")}
             >
               <MenuItem
-                value="dsq"
+                value="0"
               >
-                <em className="txt-select-ajout">choisir une catégorie </em>
+                <em className="txt-select-ajout">choisir une Sous-catégorie</em>
               </MenuItem>
    
                 <MenuItem value={"obj.id"} className="txt-select">
@@ -263,22 +310,23 @@ import {
               <p className="txt4-ajout">Description</p>
             </div>
 
-          <OutlinedInput className='inpu-con2' placeholder="Parlez-nous de ce article" multiline rows={5} maxRows={80}  /> 
+          <OutlinedInput className='inpu-con2' placeholder="Parlez-nous de ce article" onChange={handleInputChange("description")}
+           value={produit.description} multiline rows={5} maxRows={80}  /> 
           </div>
           <div className="col3-ajout">
         <div>
           <p className="txt4-ajout">Status</p>
         </div>
-   <div style={{display:"flex"}}>
-   <input type="Radio" className="radio-Tf1" name="r0" value={1} />
-  <div> <p className="txt2-mody">Visible (Tout le monde peut le voir).</p></div>
-   </div>
-   <div style={{display:"flex"}}>
-   <input type="Radio" className="radio-Tf1" name="r0" value={1} />
-  <div> <p className="txt2-mody">Invisible (Afficher uniquement pour les administrateurs)</p></div>
-   </div>
 
 
+   {data.map((obj, index) => (
+           <div style={{display:"flex"}}>
+           <input type="Radio" className="radio-Tf1" name="r0"     checked={Visible === obj.value} value={obj.value} onChange={handleChange} />
+          <div> <p className="txt2-mody">{obj.nom}</p></div>
+           </div>
+       
+                
+        ))}
 
 
       </div>
@@ -294,8 +342,8 @@ import {
           <p className="txtbnt01-ajout">Annuler</p>
         </button>
   
-          <button className="bnt02-ajout">
-            <p className="txtbnt02-ajout">Modify</p>
+          <button className="bnt02-ajout" onClick={Addproduit}>
+            <p className="txtbnt02-ajout">Ajoute</p>
           </button>
     
       

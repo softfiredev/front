@@ -61,6 +61,8 @@ export const Path ={
     produit_mieux_note:"produitLabrairie/produit_mieux_notes/",
     allProduitcataloge:"cataloge/findAll",
     oneProdCataloge :"cataloge/findOne/",
-    addprod:"produitLabrairie/addProdCataloge"
+    addprod:"produitLabrairie/addProdCataloge",
+    addProdCataloge :"cataloge/add",
+    deleteProdCataloge :"cataloge/delete/",
 
 }

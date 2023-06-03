@@ -24,12 +24,10 @@ const Cardlisteprod = (props) => {
       }
     
       {props?.Role=="admin"?
-         <img src={prod4} className='img-lst2' onClick={props.toggleDrawer('right', true)} />
+         <img src={"http://127.0.0.1:8080/uploads/"+props.img} className='img-lst2' onClick={props.toggleDrawer('right', true,props.id)} />
       :
       <img src={"http://127.0.0.1:8080/uploads/"+props.img} className='img-lst' />
       }
-    
-   
       <div>
         <p className='txt-lst'>#{props.id}</p>
         </div>

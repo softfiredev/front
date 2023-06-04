@@ -21,7 +21,7 @@ import { addProdCataloge } from "../../../Store/Service/addProdCataloge";
 
     const data = [
       { nom: "Visible (Tout le monde peut le voir)",value:"visible" },
-      { nom: "Invisible (Afficher uniquement pour les administrateurs)" ,value:"Invisible" },
+      { nom: "Invisible (Afficher uniquement pour les administrateurs)" ,value:"invisible" },
     ];
     const [img, setImage] = useState( );
     const [imgsize, setImgsize] = useState();
@@ -79,6 +79,7 @@ import { addProdCataloge } from "../../../Store/Service/addProdCataloge";
     data.append("AdminId", props?.user?.id);
     data.append("categorieId",produit.categorieId);
     data.append("image", prodimg);
+  
     addProdCataloge(data).then((response) => {
 
       if (response.success === true) {

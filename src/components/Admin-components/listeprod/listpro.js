@@ -16,7 +16,6 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import prod4 from '../../../assets/prod4.png'
 import { Link, useNavigate } from "react-router-dom";
 import { TickSquare, More, FilterAdd, ArrowCircleRight2, Edit } from "iconsax-react";
 import Menu from "@mui/material/Menu";
@@ -26,20 +25,6 @@ import { getOneProdCataloge } from "../../../Store/Service/OneProdCataloge";
 import { deleteProdCataloge } from "../../../Store/Service/deleteProdCataloge";
 import { toast } from "react-toastify";
 
-const data=[
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-  {id:"#0123456",nom:"COMPAS AVEC CRAYON 2506 INV"},
-]
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -88,7 +73,7 @@ const Listpro = (props) => {
     (state) => state.NbproduitLib.Nbproduit
   );
 
-const [Visible, setVisible] =useState(true);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNbProduitlibBycategorie(props.user?.id));
@@ -200,6 +185,7 @@ Modifier
     dispatch(getAllProduitCataloge())
   },[])
 
+
   return (
     <>
 
@@ -259,7 +245,7 @@ Modifier
 {produit?.map((obj) => (
 
 
-  <div class="grid-item"  ><Cardlisteprod setVisible={(data)=>{setVisible(data)}} toggleDrawer={toggleDrawer} id={obj.id} titre={obj.titre} img={obj?.imageCataloges?.[0].name_Image} Role={'admin'}/>  </div>
+  <div class="grid-item"  ><Cardlisteprod Visibetat={obj?.etat} toggleDrawer={toggleDrawer} id={obj.id} titre={obj.titre} img={obj?.imageCataloges?.[0].name_Image} Role={'admin'}/>  </div>
 
 ))}
 

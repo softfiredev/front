@@ -41,7 +41,7 @@ const EnvoyerDemende=()=>{
     forma.append("detail",detail)
     forma.append("pack",pack)
     forma.append("etat","Nouveau")
-    forma.append("AdminId",1)
+    forma.append("AdminId",2)
      becamePartner(forma).then((response)=>{
          if(response.success===true){
              toast.success("votre demende Envoyer",{autoClose: 1000})

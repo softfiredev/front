@@ -64,5 +64,5 @@ export const Path ={
     addprod:"produitLabrairie/addProdCataloge",
     addProdCataloge :"cataloge/add",
     deleteProdCataloge :"cataloge/delete/",
-
+    Visible:"cataloge/changeVisibilite/"
 }

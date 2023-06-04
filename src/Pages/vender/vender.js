@@ -119,8 +119,9 @@ const Vender = () => {
           <p className="outText">Se déconnecter</p>
         </div>
       </div>
-      <Outlet/>
-      
+  
+  <Outlet /> 
+    
     </div>
   );
 };

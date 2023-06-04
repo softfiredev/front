@@ -68,12 +68,12 @@ const Categorie = (props) => {
             <div>
               <p className="txtliste-lit">Description:</p>
             </div>
-            <div className="txtliste-li3t3">
+            <div>
               <p className="txtliste-lit3">
                {Oneproduit.description}
               </p>
             </div>
-         <br/>
+
             <div>
 
             <OutlinedInput
@@ -111,10 +111,11 @@ const Categorie = (props) => {
   const Oneproduit = useSelector(
     (state) => state.OneProdCataloge.Oneprod
   );
+  const filtered = produit.filter(item => item.etat === 'visible');
 
   useEffect(()=>{
     dispatch(getAllProduitCataloge())
-  },[])
+  },[produit])
 
   const theme = useTheme();
   const [state, setState] = React.useState({
@@ -122,28 +123,20 @@ const Categorie = (props) => {
   });
   const [nextpage, setnextpage] = useState(true);
   const [prod, setprod] = useState({prix:"",qte:""});
-  const [searchTerm, setSearchTerm] = useState("");
-  const [fil, setfil] = useState();
 
 
-
-  const handleChangee = (event) => {
-    const searchTerm = event.target.value;
-    setSearchTerm(searchTerm);
-    const filteredProduct = produit.filter(product => 
-      product.titre.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setfil(filteredProduct)
-  };
+  const produitbycategorie = useSelector(
+    (state) => state.NbproduitLib.Nbproduit
+  );
   useEffect(() => {
     dispatch(getNbProduitlibBycategorie(props.user?.id));
   }, []);
-  const items = 20;
+  const items = 8;
   const [current, setCurrent] = useState(1);
-  const NbPage = Math.ceil(fil?.length / items);
+  const NbPage = Math.ceil(produitbycategorie.length / items);
   const startIndex = (current - 1) * items;
   const endIndex = startIndex + items;
-  const DataPerPage = fil?.slice(startIndex, endIndex);
+  const DataPerPage = produitbycategorie.slice(startIndex, endIndex);
   function handlePagination(event, page) {
     setCurrent(page);
   }
@@ -194,9 +187,6 @@ const Categorie = (props) => {
     }else{ toast.error("remplir votre chomp OR verify  votre chomp  Svp !!", { autoClose: 1000 })}
 
   }
-  const filtered = DataPerPage.filter(item => item.etat === 'visible');
-
-console.log()
 
 return (
     <>
@@ -225,7 +215,7 @@ return (
                   <InputAdornment position="end">
                     <SearchNormal1 size="19" color="#B1B1B1" />
                   </InputAdornment>
-                }   searchTerm={searchTerm} onChange={handleChangee}
+                }
               />
               <div className="pagination-VenderCategorie">
                 <div className="rowlisteprod">

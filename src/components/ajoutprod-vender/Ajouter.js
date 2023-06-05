@@ -54,6 +54,7 @@ const Ajouter = (props) => {
     }
    
   },[produit.remise])
+  console.log(prix_solde)
   useEffect(() => {
     dispatch(getAllGategorie());
   }, []);
@@ -111,9 +112,9 @@ const Ajouter = (props) => {
     data.append("description", produit.description);
     data.append("prix", produit.prix);
     data.append("qte", produit.qte);
+    data.append("categorieId", produit.categorieId);
     data.append("prix_en_Solde",prix_solde );
     data.append("remise", produit.remise);
-    data.append("categorieId", produit.categorieId);
     data.append("image", prodimg);
     Modifierprod(produit.idprod, data).then((response) => {
       if (response.success === true) {

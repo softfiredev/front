@@ -24,7 +24,9 @@ const Card = (props) => {
   const day = String(date.getDate()).padStart(2, '0');
   const formattedDate = `${year}-${month}-${day}`;
  const datenow=formattedDate==props.dateG
-  return (
+
+console.log(props?.prix_en_Solde+"/"+props.titre)
+ return (
     <div className="card">
        
       <div className="cont">

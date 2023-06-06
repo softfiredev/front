@@ -5,7 +5,7 @@ const Protection = ({children,user}) => {
 const location = useLocation();
 const { param1 } = useParams();
 
-if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.pathname==="/New_password" ))
+if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.pathname==="/New_password"&&user.etatCompte==="active"  ))
 {
   
   if( user.auth===false)
@@ -26,8 +26,8 @@ if(user.auth==true &&user.role==="labrairie")
 else{return <Navigate to="/" />}
 }
 
-console.log(user)
-if(user.role==="client" &&user.auth==true  )
+console.log()
+if(user.role==="client" &&user.auth==true &&user.etatCompte==="active" )
 {
   
 if((location.pathname==="/Profile/Monidentite" || location.pathname==="/Profile"|| location.pathname==="/Profile/MesPoints" || location.pathname==="/Profile/Avis" || location.pathname==="/Profile/Commandes" || location.pathname==="/Profile/Favoris"))
@@ -39,7 +39,7 @@ else{return <Navigate to="/" />}
 const s1=location.pathname.substring(location.pathname.length,location.pathname.indexOf("t/")+2)
 
 
-if(user.role==="Admin" &&user.auth==true )
+if(user.role==="Admin" &&user.auth==true &&user.etatCompte==="active" )
 {
   
 if((location.pathname==="/Admin/Liste_de_demande" || location.pathname==="/Admin"|| location.pathname==="/Admin/Produits"|| location.pathname==="/Admin/Modifier_produit/"+s1|| location.pathname==="/Admin/Ajouter_un_produit" || location.pathname==="/Admin/ListeClients" ||  location.pathname==="/Admin/ListeFournisseurs"||  location.pathname==="/Admin/ListeVendeurs"||  location.pathname==="/Admin/ListePartenaires"))

@@ -84,7 +84,6 @@ const TableauDuBord = (props) => {
   const filteredData2 = nbcommandeparjour.filter((item) => {
     const parsedDate = moment(item.createdAt, "YYYY-MM-DD");
     const threeDaysAgo = moment().subtract(selectedValue, "days");
-   
     return parsedDate.isBetween(threeDaysAgo, currentDate, null, "[]");
   });
   dat.labels.push(filteredData2.createdAt);

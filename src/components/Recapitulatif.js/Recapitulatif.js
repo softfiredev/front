@@ -26,37 +26,44 @@ const Recapitulatif = (props) => {
   }, [commande]);
 
 
-
+console.log(props)
 const valide=()=>{
-  if(commande.length!=0)
-  {
-    let arry=[]
-    let qt=true
-    for(let i=0;i<props.panier.length;i++)
-    {
-      
-    if(props.panier[i].Allqte<props.panier[i].qte)
-    {
-      arry.push(props.panier[i].titre+"  les Qnt en stoke :"+props.panier[i].Allqte)
-      qt=false
-    }
- 
-    }
-    if(qt)
-    {
-      nav("/Faire_une_commande")
-    }else{
-      toast.error("les Qnt de  produit :"+arry,{autoClose:2000})
+  if(props?.etatcompt==="active" ){
 
-    }
-
-  }
-  else{
-    toast.error("ne pasdes produit dans votre card !!",{autoClose: 1000})
-  }
+    if(commande.length!=0)
+    {
+      let arry=[]
+      let qt=true
+      for(let i=0;i<props.panier.length;i++)
+      {
+        
+      if(props.panier[i].Allqte<props.panier[i].qte)
+      {
+        arry.push(props.panier[i].titre+"  les Qnt en stoke :"+props.panier[i].Allqte)
+        qt=false
+      }
+   
+      }
+      if(qt)
+      {
+        nav("/Faire_une_commande")
+      }else{
+        toast.error("les Qnt de  produit :"+arry,{autoClose:2000})
   
+      }
+  
+    }
+    else{
+      toast.error("ne pasdes produit dans votre card !!",{autoClose: 1000})
+    }
+    
+    }
+   
+  
+  else{
+    toast.error("your computer is blocked contact admin  !!",{autoClose: 1000})
   }
- 
+} 
 
   return (
     <div className="resume">

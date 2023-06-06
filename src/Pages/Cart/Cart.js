@@ -40,7 +40,7 @@ const Cart = (props) => {
             {panier?.map((e,key)=>(<Box_produit_Card titre={e.titre} prix={e.prix} qte={e.qte} imgp={e.imgp} index={key} idl={e.idl} idp={e.idp} Allqte={e.Allqte}/>))}
           </div>
         </div>
-        <Recapitulatif iduser={props.user.id} auth={props.user.auth} panier={panier}/>
+        <Recapitulatif iduser={props.user.id} auth={props.user.auth} panier={panier} etatcompt={props.user.etatCompte}/>
       </Grid>
       <div className="Continuer">
         <ArrowBackIosNewIcon className="icon1" />

@@ -132,7 +132,7 @@ const Commandes = (props) => {
     return item?.etatClient?.includes("en cours");
   });
   const [ProduitCommande,setCommande]=useState()
-
+  console.log(commandes)
   const addProd = (Qte, produitlabrairieId, commandeEnDetailId, prix) => {
     const data = {
       Qte: Qte,
@@ -162,7 +162,7 @@ const Commandes = (props) => {
 setproduit_c_Detail({"produit":tab})
 
   };
-  console.log(produit_c_Detail)
+
   const Annuler = () => {
     
     

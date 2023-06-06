@@ -38,6 +38,9 @@ import  SliceAlldemondep  from './Admin/SliceAlldemondep';
 import SliceProduitMieuxNote from './venderApi/SliceProduitMieuxNote';
 import SliceAllProduitCataloge from './vender/SliceAllProduitCataloge';
 import SliceOneProdCataloge from './vender/SliceOneProdCataloge';
+import slicegetonesousGategorie from './ClientApi/slicegetonesousGategorie';
+import Slicegetsuggestion from './Admin/Slicegetsuggestion';
+import SlicegetAlluser from './Admin/SlicegetAlluser';
 
 const persistConfig = {
     key: 'root',
@@ -78,7 +81,10 @@ const rootReducer = combineReducers({
     demondePar:SliceAlldemondep,
     ProduitMieuxNote:SliceProduitMieuxNote,
     prodCataloge:SliceAllProduitCataloge,
-    OneProdCataloge:SliceOneProdCataloge
+    OneProdCataloge:SliceOneProdCataloge,
+    Onecategorie:slicegetonesousGategorie,
+    getsuggestion:Slicegetsuggestion,
+    getAlluser:SlicegetAlluser
   });
   const persistedReducer = persistReducer(persistConfig, rootReducer);
   

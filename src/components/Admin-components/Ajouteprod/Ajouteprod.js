@@ -16,6 +16,7 @@ import {
 import { getAllGategorie } from "../../../Store/Service/getAllGategorie";
 import { useDispatch,useSelector } from "react-redux";
 import { addProdCataloge } from "../../../Store/Service/addProdCataloge";
+import { sousGategorie } from "../../../Store/Service/sousGategorie";
   const Ajouteprod = (props) => {
     const dispatch = useDispatch();
 
@@ -34,11 +35,22 @@ import { addProdCataloge } from "../../../Store/Service/addProdCataloge";
         {
               titre: "",
               categorieId: "",
-              Souscatégorie: "",
               description: "",
             }
       );
+      const [categorieId, setcategorieId] = useState("");
+      const [souscategorieId, setsouscategorieId] = useState("");
+      const handleSelectChange = (event) => {
+        setcategorieId(event.target.value);
+        dispatch(sousGategorie(event.target.value));
+      };
+    
+    
+      const handleSelectChangesous = (event) => {
+        setsouscategorieId(event.target.value);
+      };
       const categorie = useSelector((state) => state.AllCategorie.Gategorie);
+      const souscategorie = useSelector((state) => state.Onecategorie.categorie);
 
       const handleChange = (event) => {
         const newValue = event.target.value;
@@ -74,12 +86,11 @@ import { addProdCataloge } from "../../../Store/Service/addProdCataloge";
     const data = new FormData();
     data.append("titre", produit.titre);
     data.append("description", produit.description);
-    data.append("prix",0);
     data.append("etat", Visible);
     data.append("AdminId", props?.user?.id);
-    data.append("categorieId",produit.categorieId);
+    data.append("categorieId",categorieId);
+    data.append("SouscategorieId",souscategorieId);
     data.append("image", prodimg);
-  
     addProdCataloge(data).then((response) => {
 
       if (response.success === true) {
@@ -101,7 +112,7 @@ import { addProdCataloge } from "../../../Store/Service/addProdCataloge";
   useEffect(() => {
     dispatch(getAllGategorie());
   }, []);
-console.log(Visible)
+
   return (
     <div className="rowglob">
        <div>
@@ -269,7 +280,7 @@ console.log(Visible)
               className="txt-select"
               defaultValue={0}
               style={{ width: "500px", height: " 48px", borderRadius: "8px" }}
-              onChange={handleInputChange("categorieId")}
+              onChange={handleSelectChange}
             >
               <MenuItem  value={0}>
                 <em className="txt-select-ajout">choisir une catégorie </em>
@@ -291,18 +302,17 @@ console.log(Visible)
               className="txt-select"
               defaultValue={0}
               style={{ width: "500px", height: " 48px", borderRadius: "8px" }}
-              onChange={handleInputChange("Souscatégorie")}
+              onChange={handleSelectChangesous}
             >
-              <MenuItem
-                value="0"
-              >
-                <em className="txt-select-ajout">choisir une Sous-catégorie</em>
+              <MenuItem  value={0}>
+                <em className="txt-select-ajout">choisir un Sous-catégorie </em>
               </MenuItem>
-   
-                <MenuItem value={"obj.id"} className="txt-select">
-                 ssdsd
+              {souscategorie?.map((obj) => (
+                <MenuItem value={obj.id} className="txt-select">
+                  {obj.name}
                 </MenuItem>
-       
+              ))}
+            
             </Select>
           </div>
 

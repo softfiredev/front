@@ -44,6 +44,7 @@ export const Path ={
     nbProduitLibBycategorie:"categorie/NbproduitlibBycategorie/",
     getAllProduitFornisseur:"produit/findAll",
     Gategorie:"categorie/findCategorie",
+    sousGategorie:"sousCategorie/findBycategorie/",
     addProduitCommande:"commandeDetail/addArticle",
     becomePartner:"BecomePartner/add",
     deleteProduitCommande :"commandeDetail/deleteArticle/",
@@ -64,5 +65,10 @@ export const Path ={
     addprod:"produitLabrairie/addProdCataloge",
     addProdCataloge :"cataloge/add",
     deleteProdCataloge :"cataloge/delete/",
-    Visible:"cataloge/changeVisibilite/"
+    Visible:"cataloge/changeVisibilite/",
+    suggestionProduitadd:"suggestionProduit/add",
+    getsuggestion:"suggestionProduit/findAll",
+    getAlluser:"user/findAll",
+
+    bloqueuser:"user/bloque/"
 }

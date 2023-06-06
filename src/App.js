@@ -9,6 +9,10 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
+import Clients from "./components/Admin-components/Liste d’utilisateurs/Clients/Clients";
+import Fournisseursadmin from "./components/Admin-components/Liste d’utilisateurs/Fournisseurs/Fournisseursadmin";
+import Vendeursadmin from "./components/Admin-components/Liste d’utilisateurs/Vendeurs/Vendeursadmin";
+import Partenairesadmin from "./components/Admin-components/Liste d’utilisateurs/Partenaires/Partenairesadmin ";
 
 
 const Listpro = lazy(() =>
@@ -156,7 +160,7 @@ function App() {
     fullname:decoded?.fullname,
     role:decoded?.role,
     avatar:decoded?.avatar,
-   
+    etatCompte:decoded?.etatCompte,
   };
 
   return (
@@ -257,6 +261,10 @@ function App() {
              <Route path="/Admin/Produits" element={<Protection user={user}><Listpro user={user}/></Protection>}/>
              <Route path="/Admin/Modifier_produit/:id" element={<Protection user={user}><Modify user={user}/></Protection>}/>
              <Route path="/Admin/Ajouter_un_produit" element={<Protection user={user}><Ajouteprod user={user}/></Protection>}/>
+             <Route path="/Admin/ListeClients" element={<Protection user={user}><Clients user={user}/></Protection>}/>
+             <Route path="/Admin/ListePartenaires" element={<Protection user={user}><Partenairesadmin  user={user}/></Protection>}/>
+             <Route path="/Admin/ListeVendeurs" element={<Protection user={user}><Vendeursadmin user={user}/></Protection>}/>
+             <Route path="/Admin/ListeFournisseurs" element={<Protection user={user}><Fournisseursadmin user={user}/></Protection>}/>
 
          
              </Route>

@@ -12,26 +12,30 @@ import {
 
   import Select from "@mui/material/Select";
   import { toast } from "react-toastify";
+  import { useParams } from 'react-router-dom';
   import MenuItem from "@mui/material/MenuItem";
+import { getOneProdCataloge } from "../../../Store/Service/OneProdCataloge";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllGategorie } from "../../../Store/Service/getAllGategorie";
   const Modify = () => {
+    const {id} = useParams();
+    const dispatch = useDispatch();
     const [img, setImage] = useState( );
     const [imgsize, setImgsize] = useState();
     const [realimgsize, setRealimgsize] = useState();
     const [imgname, setImgmane] = useState();
     const [prodimg, setprodimg] = useState();
     const [sizeimg, setsizeimg] = useState();
-    const [prix_solde, setprix_solde] = useState(0);
     const [produit, setproduit] = useState(
-        {
-              titre: "",
-              prix: "",
-              qte: "",
-              categorieId: "",
-              prix_en_Solde: "",
-              remise: "",
-              description: "",
-            }
-      );
+      {
+            titre: "",
+            categorieId: "",
+            Souscatégorie: "",
+            description: "",
+          }
+    );
+    const categorie = useSelector((state) => state.AllCategorie.Gategorie);
+
       const handleInputChange = (field) => {
         return (e) => {
           setproduit((prev) => ({
@@ -53,7 +57,14 @@ import {
           setsizeimg(realimgsize > 1024 * 1024);
         }
       };
-    
+      const Oneproduit = useSelector(
+        (state) => state.OneProdCataloge.Oneprod
+      );
+      useEffect(()=>{
+        dispatch(getAllGategorie());
+        dispatch(getOneProdCataloge(id))
+      },[])
+    console.log(Oneproduit)
   return (
     <div className="rowglob">
        <div>
@@ -196,9 +207,8 @@ import {
            <p className="txt4-ajout">Nom de produit</p>
          </div>
          <OutlinedInput
-           placeholder="Nome"
            onChange={handleInputChange("titre")}
-           value={produit.titre}
+           value={Oneproduit.titre}
          />
        </div>
    
@@ -219,18 +229,18 @@ import {
             </div>
             <Select
               className="txt-select"
-              defaultValue={"sqd"}
+              defaultValue={Oneproduit.categorieId }
               style={{ width: "500px", height: " 48px", borderRadius: "8px" }}
               onChange={handleInputChange("categorieId")}
             >
-              <MenuItem
-                value={"qsd"}       >
+              <MenuItem  value={0}>
                 <em className="txt-select-ajout">choisir une catégorie </em>
               </MenuItem>
-        
-                <MenuItem value={"obj.id"} className="txt-select">
-              
+              {categorie.map((obj) => (
+                <MenuItem value={obj.id} className="txt-select">
+                  {obj.name}
                 </MenuItem>
+              ))}
             
             </Select>
           </div>
@@ -263,18 +273,18 @@ import {
               <p className="txt4-ajout">Description</p>
             </div>
 
-          <OutlinedInput className='inpu-con2' placeholder="Parlez-nous de ce article" multiline rows={5} maxRows={80}  /> 
+          <OutlinedInput className='inpu-con2' value={Oneproduit.description} placeholder="Parlez-nous de ce article" multiline rows={5} maxRows={80}  /> 
           </div>
           <div className="col3-ajout">
         <div>
           <p className="txt4-ajout">Status</p>
         </div>
    <div style={{display:"flex"}}>
-   <input type="Radio" className="radio-Tf1" name="r0" value={1} />
+   <input type="Radio" className="radio-Tf1" name="r0" value={Oneproduit.etat} />
   <div> <p className="txt2-mody">Visible (Tout le monde peut le voir).</p></div>
    </div>
    <div style={{display:"flex"}}>
-   <input type="Radio" className="radio-Tf1" name="r0" value={1} />
+   <input type="Radio" className="radio-Tf1" name="r0" value={Oneproduit.etat} />
   <div> <p className="txt2-mody">Invisible (Afficher uniquement pour les administrateurs)</p></div>
    </div>
 

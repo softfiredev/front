@@ -16,6 +16,9 @@ import MenuItem from "@mui/material/MenuItem";
 import { Modifierprod } from "../../Store/Service/Modifierprod";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllGategorie } from "../../Store/Service/getAllGategorie";
+import { sousGategorie } from "../../Store/Service/sousGategorie";
+import { suggestion } from "../../Store/Service/suggestion";
+import { useNavigate } from "react-router-dom";
 
 const Ajouter = (props) => {
   const [img, setImage] = useState(
@@ -24,20 +27,26 @@ const Ajouter = (props) => {
           props?.prod?.imagelibrairies[0].name_Image
       : undefined
   );
+  const nav=useNavigate()
   const [produit, setproduit] = useState(
     props?.titre === "Modifier produit"
       ? props?.prod
       : {
           titre: "",
-          prix: "",
-          qte: "",
-          categorieId: "",
-          prix_en_Solde: "",
-          remise: "",
           description: "",
         }
   );
+  const [categorieId, setcategorieId] = useState("");
+  const [souscategorieId, setsouscategorieId] = useState("");
+  const handleSelectChange = (event) => {
+    setcategorieId(event.target.value);
+    dispatch(sousGategorie(event.target.value));
+  };
 
+
+  const handleSelectChangesous = (event) => {
+    setsouscategorieId(event.target.value);
+  };
   const [imgsize, setImgsize] = useState();
   const [realimgsize, setRealimgsize] = useState();
   const [imgname, setImgmane] = useState();
@@ -46,6 +55,8 @@ const Ajouter = (props) => {
   const [prix_solde, setprix_solde] = useState(0);
   const dispatch = useDispatch();
   const categorie = useSelector((state) => state.AllCategorie.Gategorie);
+  const souscategorie = useSelector((state) => state.Onecategorie.categorie);
+
   useEffect(()=>{
     if(produit.remise!==undefined){
       var remise = produit.prix * (produit.remise / 100);
@@ -54,10 +65,11 @@ const Ajouter = (props) => {
     }
    
   },[produit.remise])
-  console.log(prix_solde)
+
   useEffect(() => {
     dispatch(getAllGategorie());
   }, []);
+
   const handleInputChange = (field) => {
     return (e) => {
       setproduit((prev) => ({
@@ -69,34 +81,32 @@ const Ajouter = (props) => {
 
   const Ajoutprod = () => {
     if (
-      produit.categorieId != 0 &&
+      categorieId != 0 &&
       produit.titre.length != 0 &&
-      produit.prix.length != 0 &&
-      produit.qte.length != 0 &&
       prodimg != undefined
     ) {
       const data = new FormData();
-      data.append("titre", produit.titre);
-      data.append("description", produit.description);
-      data.append("prix", produit.prix);
-      data.append("qte", produit.qte);
-      data.append("categorieId", produit.categorieId);
+  
+
+      data.append("Titre", produit.titre);
+      data.append("Description", produit.description);
+      data.append("categorieId",categorieId);
+      data.append("SouscategorieId", souscategorieId);
       data.append("image", prodimg);
-      data.append("labrairieId", props?.id);
+      data.append("userId", props?.id);
       if (realimgsize > 1024 * 1024) {
         {
           toast.error("taill image !!! ", { autoClose: 1000 });
         }
       } else {
         
-        Ajoutproduit(data).then((response) => {
-          console.log(response);
+        suggestion(data).then((response) => {
+      
           if (response.success === true) {
             toast.success("votre produit a ete Ajoute avec success", {
               autoClose: 1000,
             });
-            setproduit({ titre: "", prix: "", qte: "", categorieId: "0" });
-            setImage(undefined);
+            nav(0)
           }
         });
       }
@@ -112,7 +122,7 @@ const Ajouter = (props) => {
     data.append("description", produit.description);
     data.append("prix", produit.prix);
     data.append("qte", produit.qte);
-    data.append("categorieId", produit.categorieId);
+    data.append("categorieId", categorieId);
     data.append("prix_en_Solde",prix_solde );
     data.append("remise", produit.remise);
     data.append("image", prodimg);
@@ -366,17 +376,11 @@ const Ajouter = (props) => {
             </div>
             <Select
               className="txt-select"
-              defaultValue={
-                props?.titre === "Modifier produit" ? produit.categorieId : 0
-              }
+              defaultValue={0}
               style={{ width: "500px", height: " 48px", borderRadius: "8px" }}
-              onChange={handleInputChange("categorieId")}
+              onChange={handleSelectChange}
             >
-              <MenuItem
-                value={
-                  props?.titre === "Modifier produit" ? produit.categorieId : 0
-                }
-              >
+              <MenuItem  value={0}>
                 <em className="txt-select-ajout">choisir une catégorie </em>
               </MenuItem>
               {categorie.map((obj) => (
@@ -384,6 +388,7 @@ const Ajouter = (props) => {
                   {obj.name}
                 </MenuItem>
               ))}
+            
             </Select>
           </div>
     
@@ -393,24 +398,19 @@ const Ajouter = (props) => {
             </div>
             <Select
               className="txt-select"
-              defaultValue={
-                props?.titre === "Modifier produit" ? produit.categorieId : 0
-              }
+              defaultValue={0}
               style={{ width: "500px", height: " 48px", borderRadius: "8px" }}
-              onChange={handleInputChange("categorieId")}
+              onChange={handleSelectChangesous}
             >
-              <MenuItem
-                value={
-                  props?.titre === "Modifier produit" ? produit.categorieId : 0
-                }
-              >
-                <em className="txt-select-ajout">choisir une catégorie </em>
+              <MenuItem  value={0}>
+                <em className="txt-select-ajout">choisir un Sous-catégorie </em>
               </MenuItem>
-              {categorie.map((obj) => (
+              {souscategorie?.map((obj) => (
                 <MenuItem value={obj.id} className="txt-select">
                   {obj.name}
                 </MenuItem>
               ))}
+            
             </Select>
           </div>
 

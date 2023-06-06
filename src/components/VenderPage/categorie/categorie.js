@@ -19,21 +19,9 @@ import { getOneProdCataloge } from "../../../Store/Service/OneProdCataloge";
 import { isPlainObject } from "@reduxjs/toolkit";
 import { Addprod } from "../../../Store/Service/addProd";
 import { toast } from "react-toastify";
+import { debounce } from 'lodash';
 
-const data = [
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-  { id: "#0123456", nom: "COMPAS AVEC CRAYON 2506 INV" },
-];
+
 const Categorie = (props) => {
   const list = (anchor) => (
     <Box
@@ -113,9 +101,17 @@ const Categorie = (props) => {
   );
   const filtered = produit.filter(item => item.etat === 'visible');
 
-  useEffect(()=>{
-    dispatch(getAllProduitCataloge())
-  },[produit])
+  const delayedDispatch = debounce(() => {
+    dispatch(getAllProduitCataloge());
+  }, 500); // Délai de 500 ms
+  
+  useEffect(() => {
+    delayedDispatch();
+  
+    return () => {
+      delayedDispatch.cancel();
+    };
+  }, []);
 
   const theme = useTheme();
   const [state, setState] = React.useState({
@@ -173,6 +169,7 @@ const Categorie = (props) => {
         prix:prod.prix,
         qte:prod.qte,
         categorieId:Oneproduit.categorieId,
+        SouscategorieId:Oneproduit.SouscategorieId,
         labrairieId:props.user?.id
   
       }
@@ -187,6 +184,7 @@ const Categorie = (props) => {
     }else{ toast.error("remplir votre chomp OR verify  votre chomp  Svp !!", { autoClose: 1000 })}
 
   }
+
 
 return (
     <>

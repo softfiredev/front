@@ -1,7 +1,8 @@
 import React, { useEffect,useState } from "react";
-import { InputAdornment, OutlinedInput} from "@mui/material";
-import { ArrowCircleLeft,Trash} from "iconsax-react";
 import "./listpro.css";
+import { Avatar, InputAdornment, OutlinedInput} from "@mui/material";
+import { ArrowCircleLeft,Trash} from "iconsax-react";
+
 import {  useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
@@ -24,6 +25,8 @@ import { getAllProduitCataloge } from "../../../Store/Service/allProduitCataloge
 import { getOneProdCataloge } from "../../../Store/Service/OneProdCataloge";
 import { deleteProdCataloge } from "../../../Store/Service/deleteProdCataloge";
 import { toast } from "react-toastify";
+import { getsuggestion } from "../../../Store/Service/getsuggestion";
+import Checkbox from "@mui/material/Checkbox";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -98,11 +101,13 @@ const Listpro = (props) => {
 
     setState({ ...state, [anchor]: open });
     dispatch(getOneProdCataloge(id))
-  
+    console.log(id)
   };
   const Oneproduit = useSelector(
     (state) => state.OneProdCataloge.Oneprod
   );
+  
+
 const deleteprod=(id)=>{
 
   deleteProdCataloge(id).then((res)=>{
@@ -112,6 +117,7 @@ const deleteprod=(id)=>{
   })
 
 }
+
   const list = (anchor) => (
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
@@ -181,8 +187,12 @@ Modifier
   const produit = useSelector(
     (state) => state.prodCataloge.produCataloge
   );
+  const suggestion = useSelector(
+    (state) => state.getsuggestion.suggestion
+  );
   useEffect(()=>{
     dispatch(getAllProduitCataloge())
+    dispatch(getsuggestion())
   },[])
 
 
@@ -192,7 +202,7 @@ Modifier
       <div className="pages-container1">
 
       <div className="header-page-categorie">
-     <div>   <h1 className="title-page-categorie">Liste de produits</h1></div>
+      <div>   <p className='txt-c'>Liste de demande</p></div>
         <button className="btn-suggestion" onClick={()=>navigate("/Admin/Ajouter_un_produit")}>
           Ajouter produit
         </button>
@@ -297,7 +307,63 @@ Modifier
           <th>Par</th>
           <th>Date</th>
         </tr>
+   {
+ suggestion.map((obj, index) => (
+  <tr>
+    <td className="">
+      <Checkbox style={{ color: " #E9B949" }} key={index} 
+       value={obj.id}
       
+       onChange={props.handleCheckboxChange}
+  />
+    </td>
+    <td className="tdwidth-c">{obj.id}</td>
+    <td className="tdwidth02-c">
+      <div className="row-int01">
+
+        <img src={"http://127.0.0.1:8080/uploads/"+obj?.image} className="img1-int" />
+       <div style={{ marginTop: "3%" }}>
+          <p className="txt01-int">{obj.Titre}</p>
+        </div>
+      </div>
+    </td>
+    <td className="tdwidth1-c">
+      <p className="txt02--c">{obj?.categorie?.name}</p>
+    </td>
+    <td className="tdwidth1-c">{obj?.Souscategorie?.name}</td>
+    <td className="tdwidth101-c">
+    <div className="row-int01-c">
+
+<Avatar src={"http://127.0.0.1:8080/uploads/"+obj?.user?.avatar} className="img512-int" />
+<div style={{ marginTop: "3%" }}>
+  <p className="txt011-int">{obj?.user?.fullname}</p>
+</div>
+
+
+</div>
+      
+      
+      
+      </td>
+    <td className="tdwidth1">{obj?.createdAt}</td>
+    <td>
+
+      <div className="more-int">
+ 
+      <More
+      size="22"
+      color="#222222"
+      aria-controls={open ? "basic-menu" : undefined}
+      aria-haspopup="true"
+      aria-expanded={open ? "true" : undefined}
+    />
+   
+  
+      </div>
+    </td>
+  </tr>
+))
+   }
 
 
      

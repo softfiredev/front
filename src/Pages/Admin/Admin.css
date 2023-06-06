@@ -2,6 +2,31 @@
     display: flex;
     flex-direction: row;
     background-color: #F7F7F7;
+   
+}
+.xtet{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 20px;
+margin-left: 14%;
+margin-top: 12%;
+text-transform: uppercase;
+
+color: #515151;
+}
+.rowadm{
+    display: flex;
+    gap: 1em;
+}
+.circleadmin{
+
+    width: 12px;
+    height: 12px;
+margin-top: 50%;
+    background: #E9B949;
+    border-radius: 100%;
 }
 .header{
    display: none;
@@ -64,7 +89,7 @@ Height:20px;
     border: 1px solid #FFEEEE;
     border-radius: 8px;
     margin-left: -3%;
-    margin-top: 288px;
+    margin-top: 28px;
     cursor: pointer;
 }
 .deconnecter-box .iconOut{
@@ -94,6 +119,28 @@ font-weight: 400;
 font-size: 14px;
 line-height: 20px;
 color: #7E7E7E;
+}
+.scroll{
+    height: auto;
+    overflow: auto;
+    text-align: justify;
+    padding: 20px;
+    width: 100%;
+    height: 800px;
+    overflow-x: hidden;
+}
+.scroll::-webkit-scrollbar {
+width: 12px;
+}
+.scroll2{
+    height: auto;
+    overflow: auto;
+    text-align: justify;
+    height: 680px;
+    overflow-x: hidden;
+}
+.scroll2::-webkit-scrollbar {
+width: 1px;
 }
 .profile-container1{
     display: flex;

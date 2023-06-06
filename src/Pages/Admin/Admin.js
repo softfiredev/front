@@ -53,28 +53,39 @@ const Admin = () => {
       icon: <TruckFast size="32" color="#7E7E7E" variant="Bulk" />,
       linkto :"/Admin/Liste_de_livraisons"
     },
+
     {
-      linkname: "Approvisionner",
-      icon: <ShoppingCart size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Admin/Approvisionner"
-    },
-    {
-      linkname: "Gestion de points",
-      icon: <Graph size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Admin/Gestion_de_points"
-    },
-    {
-      linkname: "Factorisation",
-      icon: <Receipt1 size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Admin/Factorisation"
-    },
- 
+      min: <p >Liste d’utilisateurs</p>
+     },
+     {
+        linkname:"Clients",
+      icon:<div className="circleadmin"></div>,
+      linkto :"/Admin/ListeClients"
+     },
+     {
+      linkname:"Partenaires",
+    icon:<div className="circleadmin" style={{background:"#E67635"}}></div>,
+    linkto :"/Admin/ListePartenaires"
+   },
+   {
+    linkname:"Vendeurs",
+  icon:<div className="circleadmin"style={{background:"#57AE5B"}}></div>,
+  linkto :"/Admin/ListeVendeurs"
+ },
+ {
+  linkname:"Fournisseurs",
+icon:<div className="circleadmin" style={{background:"#4098D7"}}></div>,
+linkto :"/Admin/ListeFournisseurs"
+},
     {
       linkname: "Profile",
       icon: <img src={img} alt="profil" className="profil" />,
       linkto :"/Admin/Profile"
     },
   ];
+
+
+
   const dispatch=useDispatch()
   const Globalvariablee=useSelector(state=> state.Globalvariable.Global2)
   const [linkStyle, setLinkStyle] = useState(true);
@@ -88,9 +99,11 @@ const Admin = () => {
  
   return (
     <div className="Admin">
+        <div className="scroll2">
       <div className="side-bar">
     <img src={logo} alt="maktba" className="logo-side" />
         <div className="link-side-bar">
+          <p className="xtet">Menu principal</p>
           {linkarray.map((e, key) => (
             <Link to={e.linkto} > 
                     <div   onClick={() => handleChangeStyleLink(key)}
@@ -103,13 +116,19 @@ const Admin = () => {
               }
             >
             <div>      {e.icon}  </div>
-         <div>     <p className="txt0214">{e.linkname}</p>  </div>
+         <div>     <p className="txt0214">{e.linkname}{e?.min}</p>  </div>
             </div>
             </Link>
            
           ))}
         </div>
-      
+       
+
+        <div className="link-side-bar">
+  
+  
+        </div>
+
         <div className="deconnecter-box" onClick={Logout}>
           <LogoutCurve
             size="22"
@@ -120,9 +139,15 @@ const Admin = () => {
           <p className="outText">Se déconnecter</p>
         </div>
       </div>
-      <Outlet/>
+
       
     </div>
+    <div className="scroll">
+    <Outlet/>
+    </div>
+
+    </div>
+
   );
 };
 export default Admin;

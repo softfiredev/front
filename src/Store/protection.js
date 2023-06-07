@@ -4,7 +4,7 @@ import { Navigate,useLocation,useParams} from "react-router-dom";
 const Protection = ({children,user}) => {
 const location = useLocation();
 const { param1 } = useParams();
-
+console.log(user.etatCompte)
 if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.pathname==="/New_password"&&user.etatCompte==="active"  ))
 {
   
@@ -14,7 +14,8 @@ if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.path
   }
   else{return <Navigate to="/" />}
 }
-if(user.auth==true &&user.role==="labrairie")
+
+if(user.auth==true &&user.role==="labrairie"&&user.etatCompte==="active" )
 {
   const s=location.pathname.substring(location.pathname.length,location.pathname.indexOf("n/")+2)
   const c=location.pathname.substring(location.pathname.length,location.pathname.indexOf("e/")+2)
@@ -26,7 +27,7 @@ if(user.auth==true &&user.role==="labrairie")
 else{return <Navigate to="/" />}
 }
 
-console.log()
+
 if(user.role==="client" &&user.auth==true &&user.etatCompte==="active" )
 {
   
@@ -50,7 +51,7 @@ else{return <Navigate to="/" />}
 }
 
 
-if(user.auth===false )
+if(user.auth===false &&user.etatCompte==="bloque")
 {
  return <Navigate to="/" />
 }

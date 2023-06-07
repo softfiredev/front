@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from "react";
 import './Gestion_points.css'
-import {ReceiptText,ShoppingCart} from "iconsax-react";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import {  More } from "iconsax-react";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -14,10 +16,16 @@ import img2 from "../../assets/Ellipse 503.png"
 
 const Gestion_points = () => {
     const [value, setValue] = React.useState(0);
-  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
     const handleChange = (event, newValue) => {
         setValue(newValue);
       };
+      const [op2, setop2] = React.useState(false);
+
     function TabPanel(props) {
         const { children, value, index, ...other } = props;
       
@@ -120,10 +128,52 @@ const Gestion_points = () => {
 
 
   </td>
-<td className='tdwidth1-Appr'>s</td>
+<td className='tdwidth1-Appr'>
+
+<div className="more-int">
+ 
+ <More
+ size="22"
+ color="#222222"
+ aria-controls={open ? "basic-menu" : undefined}
+ aria-haspopup="true"
+ aria-expanded={open ? "true" : undefined}
+/>
+
+
+ </div>
+</td>
 </tr>
 
 ))}
+  
+  <Menu
+              id="basic-menu"
+              className="menu-listev"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+ 
+              <MenuItem className="menuitem-listev">
+                <span>
+                  <p className="txtmenu-avis">Modifier</p>
+                </span>
+              </MenuItem>
+              <MenuItem
+                className="menuitem-listev"
+                onClick={() => {
+                  setop2(true);
+                }}
+              >
+                <span>
+                  <p className="txtmenu-avis">Supprimer</p>
+                </span>
+              </MenuItem>
+            </Menu>
 
 
 </table>

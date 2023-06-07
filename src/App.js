@@ -162,7 +162,6 @@ function App() {
     avatar:decoded?.avatar,
     etatCompte:decoded?.etatCompte,
   };
-
   return (
 
    
@@ -222,11 +221,11 @@ function App() {
               />
               <Route
                 path="/Vender/Details_de_commande/:id"
-                element={<Protection user={user}><Detailcomnder /></Protection>}
+                element={<Protection user={user}><Detailcomnder  user={user}/></Protection>}
               />
               <Route
                 path="/Vender/Details_de_livraison/:id"
-                element={<Protection user={user}><DetailLivr /></Protection>}
+                element={<Protection user={user}><DetailLivr  user={user} /></Protection>}
               />
               <Route path="/Vender/Profile" element={<Protection user={user}><VenderProfile user={user}/></Protection>} />
               <Route

@@ -8,6 +8,7 @@ import { Detailcomonde } from "../../../Store/Service/Detailcomonde";
 import { AccepterCommande } from "../../../Store/Service/AccepterCommandeDetail";
 import { toast } from "react-toastify";
 import { AnnulerCommande } from "../../../Store/Service/AccepterCommandeDetail";
+import { findCommandeBylibrairie } from "../../../Store/Service/findCommandeBylibrairie";
 
 const Detailcomnder = (props) => {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const Detailcomnder = (props) => {
     AccepterCommande(idcomonde.id).then((response)=>{
        if(response.success==true){
         toast.success("commande Accepter",{autoClose: 1000})
+        dispatch(findCommandeBylibrairie(props?.user.id));
         setref(true)
        }
     })
@@ -45,10 +47,13 @@ const Detailcomnder = (props) => {
     setref(false)
 
   }
+
+
   const Annuler=()=>{
         AnnulerCommande(idcomonde.id).then((response)=>{
         if(response.success==true){
          toast.error("commande Annuler",{autoClose: 1000})
+         dispatch(findCommandeBylibrairie(props?.user.id));
          setref(true)
 
         }

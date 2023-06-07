@@ -2,7 +2,6 @@ import React, { useEffect,useState } from "react";
 import "./listpro.css";
 import { Avatar, InputAdornment, OutlinedInput} from "@mui/material";
 import { ArrowCircleLeft,Trash} from "iconsax-react";
-
 import {  useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
@@ -16,7 +15,7 @@ import Cardlisteprod from "../../card-produit/cardlisteprod/cardlisteprod";
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper } from 'swiper/react';
 import { Link, useNavigate } from "react-router-dom";
 import { TickSquare, More, FilterAdd, ArrowCircleRight2, Edit } from "iconsax-react";
 import Menu from "@mui/material/Menu";
@@ -65,7 +64,7 @@ const Listpro = (props) => {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
-    const [op, setop] = React.useState(false);
+    const [op, setop] = React.useState(true);
     const [op2, setop2] = React.useState(false);
   const navigate = useNavigate();
   const theme = useTheme();
@@ -203,9 +202,18 @@ Modifier
 
       <div className="header-page-categorie">
       <div>   <p className='txt-c'>Liste de demande</p></div>
-        <button className="btn-suggestion" onClick={()=>navigate("/Admin/Ajouter_un_produit")}>
+        
+        {op?
+          <button className="btn-suggestion" onClick={()=>navigate("/Admin/Ajouter_un_produit")}>
           Ajouter produit
         </button>
+        :<div style={{ cursor: "pointer" }} >
+      
+        <Trash size="24" color="#E66A6A" />
+        <p className="txt3-int">Supprimer</p>
+      </div>
+        }
+        
 
   
       </div>
@@ -214,8 +222,8 @@ Modifier
       <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#222" } }}>
-         <Tab label={<p className="txttabs-c">Liste de produits</p>} {...a11yProps(0)} />
-          <Tab label={<p className="txttabs-c">Suggestions</p>} {...a11yProps(1)} />
+         <Tab label={<p className="txttabs-c" onClick={()=>{setop(true)}}>Liste de produits</p>} {...a11yProps(0)} />
+          <Tab label={<p className="txttabs-c" onClick={()=>{setop(false)}}>Suggestions</p>} {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>  

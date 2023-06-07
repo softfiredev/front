@@ -132,7 +132,7 @@ const Commandes = (props) => {
     return item?.etatClient?.includes("en cours");
   });
   const [ProduitCommande,setCommande]=useState()
-  console.log(commandes)
+
   const addProd = (Qte, produitlabrairieId, commandeEnDetailId, prix) => {
     const data = {
       Qte: Qte,
@@ -171,6 +171,7 @@ setproduit_c_Detail({"produit":tab})
     AnnulerCommande(idCommande,data).then((response) => {
       if (response.success == true) {
         toast.success("commande a ete Annuler", { autoClose: 1000 });
+        setrefresh(refresh + 1);
         setop2(false);
       }
     });

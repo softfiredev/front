@@ -66,7 +66,7 @@ const Inventaire = (props) => {
             </div>
             <div className="row4-int">
               <div style={{ cursor: "pointer" }} onClick={supall}>
-                {" "}
+      
                 <Trash size="24" color="#E66A6A" />
                 <p className="txt3-int">Supprimer</p>
               </div>

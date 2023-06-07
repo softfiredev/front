@@ -374,6 +374,15 @@ border-radius: 50%;
 .tdwidth02-c{
     width: 19%;
 }
+.txt3-int{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    color: #E66A6A;
+     margin-left: -22%;
+    }
 .tdwidth02{
     width: 25%;
 }

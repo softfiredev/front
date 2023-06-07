@@ -92,7 +92,7 @@ const CLINET = Alluser.filter(product =>
     <div className="pages-container1">
 
     <div className="header-page-categorie">
-   <div>   <h1 className="title-page-categorie">Liste de produits</h1></div>
+   <div>   <h1 className="title-page-categorie">Liste de Clients</h1></div>
     
 
 

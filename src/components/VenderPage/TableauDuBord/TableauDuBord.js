@@ -123,7 +123,7 @@ const TableauDuBord = (props) => {
     },
   };
 
-
+console.log(produit_mieux_note)
   return (
     <div className="Tb">
       <div>

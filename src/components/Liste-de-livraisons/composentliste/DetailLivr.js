@@ -7,8 +7,9 @@ import { toast } from "react-toastify";
 import { Detailcomonde } from "../../../Store/Service/Detailcomonde";
 import { useDispatch, useSelector } from "react-redux";
 import { LivreCommande } from "../../../Store/Service/AccepterCommandeDetail";
+import { findCommandeBylibrairie } from "../../../Store/Service/findCommandeBylibrairie";
 
-const DetailLivr= () => {
+const DetailLivr= (props) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -26,8 +27,8 @@ const DetailLivr= () => {
         LivreCommande(idcomonde.id).then((response)=>{
            if(response.success==true){
             toast.success("commande Livrer",{autoClose: 1000})
+            dispatch(findCommandeBylibrairie(props?.user.id));
             setref(true)
-   
            }
         })
         setopen(false);

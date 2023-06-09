@@ -154,6 +154,7 @@ if(!sizeimg)
 }
 
   }
+  console.log(props?.prix_en_Solde)
     return (
     <div className="col-detail">
       <div>
@@ -171,7 +172,7 @@ if(!sizeimg)
           <p className="txt12-detail">({props.totalAvis===undefined?0:props.totalAvis})</p>
         </div>
         <br />
-        <p className="txt4-detail">{props.prix} DT</p>
+        <p className="txt4-detail">{props?.prix_en_Solde!==null && props?.prix_en_Solde!==0?props?.prix_en_Solde:props.prix} DT</p>
       </div>
       
         {props?.description?.length!=0 && props?.description!==undefined?
@@ -205,7 +206,7 @@ if(!sizeimg)
             />
           </div>
         </div>
-        <button className="bnt1-detail" onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,qnt,props.idl,props.qte)}>
+        <button className="bnt1-detail" onClick={()=>Addtopanier(props.idp,props.imgp,props?.prix_en_Solde!==null && props?.prix_en_Solde!==0?props?.prix_en_Solde:props.prix,props.titre,qnt,props.idl,props.qte)}>
           <div className="bag-detail">
             <Bag size="22" color="#FFFFFF" />
           </div>

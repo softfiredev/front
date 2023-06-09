@@ -4,8 +4,8 @@ import { Navigate,useLocation,useParams} from "react-router-dom";
 const Protection = ({children,user}) => {
 const location = useLocation();
 const { param1 } = useParams();
-console.log(user.etatCompte)
-if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.pathname==="/New_password"&&user.etatCompte==="active"  ))
+console.log(location.pathname)
+if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.pathname==="/New_password"))
 {
   
   if( user.auth===false)

@@ -63,7 +63,7 @@ const Detailcomnder = (props) => {
 
      })
   }
-
+console.log(DetailcomondeClient?.[0].produitlabrairies?.[0].prix_en_Solde)
 
   return (
     <div className="Detailcomnder">
@@ -255,7 +255,7 @@ DetailcomondeClient[0]?.Data_rejetée!=null &&Anuuler?
                         </div>
                         <div>
                           {" "}
-                          <p className="txt4box4-dc">{obj.prix}dt</p>
+                          <p className="txt4box4-dc">{obj?.prix_en_Solde!==null && obj?.prix_en_Solde!==0?obj?.prix_en_Solde:obj.prix}dt</p>
                         </div>
                       </div>
                     </div>
@@ -265,7 +265,7 @@ DetailcomondeClient[0]?.Data_rejetée!=null &&Anuuler?
                   </td>
                   <td>
                     <p className="txttab-dc">
-                      {obj.prix * obj.produit_c_Detail.Qte}
+                      {obj?.prix_en_Solde!==null && obj?.prix_en_Solde!==0?obj?.prix_en_Solde:obj.prix * obj.produit_c_Detail.Qte}
                     </p>
                   </td>
                 </tr>

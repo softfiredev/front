@@ -26,9 +26,9 @@ const Recapitulatif = (props) => {
   }, [commande]);
 
 
-console.log(props)
+console.log(commande)
 const valide=()=>{
-  if(props?.etatcompt==="active" ){
+  if(props?.etatcompt==="active" ||props?.authuser===false ||props?.authuser===true ){
 
     if(commande.length!=0)
     {

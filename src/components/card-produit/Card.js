@@ -88,7 +88,7 @@ console.log(props?.prix_en_Solde+"/"+props.titre)
           <div><p className="txt-card2">{props?.prix_en_Solde?.toFixed(2)}dt</p></div>
           <p className="txt2xard2">{props?.prix?.toFixed(2)}dt</p>
           <div className="bnt-card">
-            <div className="ShoppingCart-card"  onClick={()=>Addtopanier(props.idp,props.imgp,props.prix,props.titre,1,props.idl,props.qte)}>
+            <div className="ShoppingCart-card"  onClick={()=>Addtopanier(props.idp,props.imgp,props?.prix_en_Solde!==null && props?.prix_en_Solde!==0?props?.prix_en_Solde:props.prix,props.titre,1,props.idl,props.qte)}>
               <ShoppingCart size="22" color="#FFffff" variant="Bold" />
             </div>
           </div>

@@ -128,6 +128,7 @@ const [value, setValue] = useState(0);
     setrefresh(false)
     setOpen(false)
   }
+
   return (
     <>
       <div className="detail">
@@ -217,7 +218,8 @@ const [value, setValue] = useState(0);
                   imgp={imagesProduit?.[0]?.name_Image}
                   idp={id}
                   qte={produitDetail?.qte}
-                  user={props.user}
+                  user={props?.user}
+                 prix_en_Solde={produitDetail?.prix_en_Solde}
                 />
               </div>
             </div>

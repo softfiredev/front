@@ -14,7 +14,6 @@ const Shop = () => {
   const handleDataFromChild = (data) => {
     setDataFromChild(data);
   };
-  console.log(dataFromChild)
 
   const dispatch=useDispatch()
   const produitShope=useSelector(state=> state.AllProduitShope.produitShope)

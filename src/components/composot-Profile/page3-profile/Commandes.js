@@ -875,12 +875,12 @@ setproduit_c_Detail({"produit":tab})
                           }
                         />
                         <p className="titre-model-box"> {e.titre}</p>
-                        <p> {e.prix} Dt</p>
+                        <p> {e?.prix_en_Solde!==null && e?.prix_en_Solde!==0?e?.prix_en_Solde:e.prix} Dt</p>
                         <AddCircle
                           size="22"
                           color="#222222"
                           style={{ marginTop: "14px", cursor: "pointer" }}
-                          onClick={() => addProd(1, e.id, idCommande, e.prix)}
+                          onClick={() => addProd(1, e.id, idCommande, e?.prix_en_Solde!==null && e?.prix_en_Solde!==0?e?.prix_en_Solde:e.prix)}
                         />
                       </div>
                     ))}

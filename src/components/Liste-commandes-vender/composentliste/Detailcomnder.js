@@ -63,7 +63,6 @@ const Detailcomnder = (props) => {
 
      })
   }
-console.log(DetailcomondeClient?.[0].produitlabrairies?.[0].prix_en_Solde)
 
   return (
     <div className="Detailcomnder">

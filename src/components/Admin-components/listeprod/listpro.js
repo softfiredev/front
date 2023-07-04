@@ -259,7 +259,7 @@ Modifier
     
       </div>
 
- <div class="grid-container">
+ <div class="grid-container01">
 {produit?.map((obj) => (
 
 

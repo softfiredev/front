@@ -13,10 +13,15 @@ import Clients from "./components/Admin-components/Liste d’utilisateurs/Client
 import Fournisseursadmin from "./components/Admin-components/Liste d’utilisateurs/Fournisseurs/Fournisseursadmin";
 import Vendeursadmin from "./components/Admin-components/Liste d’utilisateurs/Vendeurs/Vendeursadmin";
 import Partenairesadmin from "./components/Admin-components/Liste d’utilisateurs/Partenaires/Partenairesadmin ";
+import Commandespartenaire from "./components/partenairecomponet/Mes_commandes/Commandes";
 
 
 const Listpro = lazy(() =>
   import("./components/Admin-components/listeprod/listpro")
+);
+
+const Partenaire = lazy(() =>
+  import("./Pages/partenaire/Partenaire")
 );
 
 
@@ -264,9 +269,16 @@ function App() {
              <Route path="/Admin/ListePartenaires" element={<Protection user={user}><Partenairesadmin  user={user}/></Protection>}/>
              <Route path="/Admin/ListeVendeurs" element={<Protection user={user}><Vendeursadmin user={user}/></Protection>}/>
              <Route path="/Admin/ListeFournisseurs" element={<Protection user={user}><Fournisseursadmin user={user}/></Protection>}/>
-
-         
              </Route>
+
+             <Route path="/partenaire" element={<Protection user={user}><Partenaire user={user}/></Protection>}>
+      
+             <Route path="/partenaire/commandes" element={<Commandespartenaire user={user}/>}/>
+          
+             </Route>
+
+
+
 
             <Route path="*" element={<> page not !!!</>} />
           </Routes>

@@ -1,7 +1,7 @@
-.row1-int{
+.row1-fil{
     display: flex;
-    flex-direction: row;
-    gap: 6.5em;
+    gap: 8em;
+    justify-content: space-between;
 }
 .row2-int{
     display: flex;

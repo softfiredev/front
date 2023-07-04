@@ -226,9 +226,9 @@ gap: 1em;
     display: flex;
     justify-content: center;
 }
-.grid-container {
+.grid-container01 {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
     gap: 1em; 
   }
   

@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: row;
     background-color: #F7F7F7;
-   
 }
 .xtet{
     font-family: 'Inter';
@@ -126,17 +125,18 @@ color: #7E7E7E;
     text-align: justify;
     padding: 20px;
     width: 100%;
-    height: 800px;
+    height: 900px;
     overflow-x: hidden;
 }
 .scroll::-webkit-scrollbar {
 width: 12px;
 }
 .scroll2{
-    height: auto;
+
     overflow: auto;
     text-align: justify;
-    height: 680px;
+    height: 900px;
+    width: 362px;
     overflow-x: hidden;
 }
 .scroll2::-webkit-scrollbar {

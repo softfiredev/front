@@ -230,6 +230,8 @@ gap: 1em;
     flex-direction: column;
     gap:3em;
     padding: 3%;
+    border-radius: 1%;
+    background-color: #fff;
 }
 
 .header-box1{

@@ -8,9 +8,6 @@ import {
   Shop,
   Box,
   TruckFast,
-  ShoppingCart,
-  Graph,
-  Receipt1,
   LogoutCurve,
 } from "iconsax-react";
 

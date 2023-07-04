@@ -15,8 +15,9 @@ const Filterbar = (props) => {
 
 
   return (
-    <div className='row1-int'>
-    <div className='row2-int'> 
+    <div className='row1-fil'>
+<div>
+<div className='row2-int'> 
     <OutlinedInput
           className="input-int"
           placeholder={"Rechercher..."}
@@ -39,14 +40,17 @@ const Filterbar = (props) => {
     </>}
 
     </div>
-
-    <div className='row2-int'> 
+</div>
+<div>
+  
+<div className='row2-int'> 
     <p>Affichage</p>
     <select className="select-int">
             <option value={10}> 10</option>
           </select>
           <p className='txt2-int'>résultats sur 50</p>
     </div>
+</div>
 
  </div>
   )

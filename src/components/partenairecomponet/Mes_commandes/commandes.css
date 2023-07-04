@@ -1,0 +1,163 @@
+.cp{
+   
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+.cp2{
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 8px;
+    padding: 2%;
+    background: #FFF;
+}
+.livre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3F9142;
+text-align: center;
+font-size: 14px;
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+    width: 128px;
+height: 32px;
+flex-shrink: 0;
+border-radius: 8px;
+border: 1px solid #57AE5B;
+background: #E3F9E5;
+
+}
+.annule{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #BA2525;
+text-align: center;
+font-size: 14px;
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+    width: 128px;
+height: 32px;
+flex-shrink: 0;
+border-radius: 8px;
+border: 1px solid #D64545;
+background: #FEE;
+}
+.sous-line-array{
+    width: auto ;
+    border: 1px solid #EDEDED;
+    margin-left: 48px;
+    }
+    .row214-comn{
+    
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+    .select-lable{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: right;
+        color: #222222;
+        margin: 17px 28px 0 0;
+        }
+        .Select-comn{
+            box-sizing: border-box;
+            width: 85px;
+            height: 52px;
+            background: #FFFFFF;
+            border: 1px solid #E2E5EA;
+            border-radius: 8px;
+            margin-right: 0px;
+            padding: 3%;
+            }
+    .nombre-page{
+        width: 100%;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #222222;
+        }
+        .select-page{
+            display: flex;
+            gap:1em;
+        }
+.txtcollapsedRows{
+    color: #626262;
+font-size: 12px;
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+line-height: 24px;
+width: 100%;
+}
+.imgcollapsedRows{
+    width: 24px;
+height: 24px;
+flex-shrink: 0;
+border-radius: 4px;
+}
+.img-com{
+    width: 20px;
+height: 20px;
+flex-shrink: 0;
+border-radius: 20px;
+}
+.vend-com{
+    display: flex;
+gap: 1em;
+}
+.Statut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 128px;
+height: 32px;
+flex-shrink: 0;
+border-radius: 8px;
+border: 1px solid #4098D7;
+background: #DCEEFB;
+color: #2680C2;
+text-align: center;
+font-size: 14px;
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+}
+.txt1-cp{
+    color: var(--neutral-0, #222);
+font-size: 32px;
+font-family: Inter;
+font-style: normal;
+font-weight: 600;
+line-height: 48px;
+}
+.search-inputec{
+    width: 500px;
+height: 48px;
+flex-shrink: 0;
+border-radius: 8px;
+border: 1px solid var(--neutral-800, #E1E1E1);
+background: #FFF;
+}
+.row-c3{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}

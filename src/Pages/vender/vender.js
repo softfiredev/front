@@ -103,7 +103,7 @@ const Vender = () => {
               }
             >
             <div>      {e.icon}  </div>
-         <div>     <p className="txt0214">{e.linkname}</p>  </div>
+         <div >     <p className="txt0214">{e.linkname}</p>  </div>
             </div>
             </Link>
            
@@ -120,8 +120,8 @@ const Vender = () => {
           <p className="outText">Se déconnecter</p>
         </div>
       </div>
-  
-  <Outlet /> 
+<div className="oub">  
+  <Outlet /> </div>
     
     </div>
   );

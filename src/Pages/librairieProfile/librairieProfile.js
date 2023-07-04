@@ -48,19 +48,19 @@ const LibrairieProfile = () => {
           className="Profile_Librairie-info"
           style={{ "margin": "135px 0 0 126px","background":"#F7F7F7"," border-radius": "16px"," height": "294px", "width": "1170px"}}
         >
-          <img src={"http://127.0.0.1:8080/uploads/"+infolib.imageStore} className="imageProfile" />
+          <img src={"http://127.0.0.1:8080/uploads/"+infolib?.imageStore} className="imageProfile" />
           <Grid
             direction="column"
             justifyContent="flex-start"
             alignItems="flex-start"
             className="profileInfo"
           >
-            <h1 className="nomLibrairie">{infolib.nameLibrairie}</h1>
+            <h1 className="nomLibrairie">{infolib?.nameLibrairie}</h1>
             <p className="addresse">
-              {infolib.adresse}
+              {infolib?.adresse}
             </p>
-            <p className="telephone">+216 {infolib.telephone}</p>
-            <p className="email">{infolib.emailLib}</p>
+            <p className="telephone">+216 {infolib?.telephone}</p>
+            <p className="email">{infolib?.emailLib}</p>
             <Box
               sx={{
                 display: "flex",
@@ -76,7 +76,7 @@ const LibrairieProfile = () => {
                 alignItems="center"
                 className="facebook"
               >
-                <Link to={"https://"+infolib.facebook} className="LinkText">
+                <Link to={infolib?.facebook?"https://"+infolib?.facebook:""} className="LinkText">
                   Facebook
                 </Link>
                 <OpenInNewIcon className="iconLink" />
@@ -88,7 +88,7 @@ const LibrairieProfile = () => {
                 alignItems="center"
                 className="facebook"
               >
-                <Link to={"https://"+infolib.instagram}  className="LinkText">
+                <Link to={infolib?.instagram?"https://"+infolib?.instagram:""}  className="LinkText">
                   Instagram
                 </Link>
                 <OpenInNewIcon className="iconLink" />
@@ -106,7 +106,7 @@ const LibrairieProfile = () => {
             </div>
             <div className="section_Produit">
               <div className="triFilter">
-              <Trifilter total={produit.length}/>
+              <Trifilter total={produit?.length}/>
               </div>
               <Grid
                 container
@@ -115,7 +115,7 @@ const LibrairieProfile = () => {
                 alignItems="center"
                 className="produitsLab"
               >
-                {DataPerPage.map((obj) => (
+                {DataPerPage?.map((obj) => (
                   <div className="container">
                     <Card
                        prix={obj.prix}
@@ -127,6 +127,12 @@ const LibrairieProfile = () => {
                        idp={obj.id}
                        logoL={obj?.labrairie?.imageStore}
                        imgp={obj.imagelibrairies?.[0]?.name_Image}
+                       prix_en_Solde={obj?.prix_en_Solde}
+                      
+                       remise={obj?.remise}
+
+
+
                     />
                   </div>
                 ))}

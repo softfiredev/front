@@ -1,0 +1,14 @@
+.header{
+    display: none;
+    visibility: hidden;
+ }
+ .footer{
+     display: none;
+ }
+ .txt-part{
+    text-align: right;
+ }
+ .pro-sidebar .pro-menu {
+
+    height: 732px;
+}

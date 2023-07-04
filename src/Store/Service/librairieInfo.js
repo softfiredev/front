@@ -5,6 +5,7 @@ export const getinfolibrairie = createAsyncThunk(
     'getinfolibrairie',
     async (id)=>{
       const response = await axios.get(Base_url+Path.getinfolibrairie+id)
+      console.log(response.data)
       return response.data
     }
   )

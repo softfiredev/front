@@ -86,7 +86,7 @@ color: #1A110A;
   background: #222222;
   position: fixed;
 	top: 0;
-	width: 98.98%;
+	width:100%;
 	z-index: 9999; /* ensure the nav is above other elements */
 }
 .cartchop{

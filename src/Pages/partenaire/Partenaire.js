@@ -6,6 +6,7 @@ import'./partenaire.css'
 import minilogo from '../../assets/Ellipse 150.png'
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import {
+  Avatar,
   Box,
   Button,
   IconButton,
@@ -216,7 +217,7 @@ const Partenaire = () => {
                   <Item
                   title="Profile"
                   to="/partenaire/Profile"
-                  icon={<img src={minilogo} style={{width: "24px", height: "24px",borderRadius:"24px"}}/>}
+                  icon={<Avatar src="" style={{width: "24px", height: "24px",borderRadius:"24px"}}/>}
                   selected={selected}
                   setSelected={setSelected}
                 />

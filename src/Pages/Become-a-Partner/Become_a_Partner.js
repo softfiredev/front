@@ -43,11 +43,15 @@ const EnvoyerDemende=()=>{
     forma.append("etat","Nouveau")
     forma.append("AdminId",1)
      becamePartner(forma).then((response)=>{
-         if(response.success===true){
-             toast.success("votre demende Envoyer",{autoClose: 1000})
+      if (response.success === true) {
+        toast.success("Votre demande envoyée", { autoClose: 1000 });
         
-         }     navigate(0)
+        setTimeout(function() {
+          navigate(0);
+        }, 2000);
+      }
      })
+
   }else{ toast.error("taille des fichier passe limite change PDF Svp !!",{autoClose: 1000});setImage(undefined)}
  
 }

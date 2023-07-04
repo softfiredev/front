@@ -30,7 +30,7 @@ import {
    Heart,
 } from "iconsax-react";
 
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
@@ -78,6 +78,12 @@ const Item = ({ title, to, icon, selected, setSelected,box }) => {
 };
 
 const Partenaire = () => {
+  const navigate = useNavigate();
+  const Logout = () => {
+    localStorage.removeItem("persist:root");
+    navigate("/login");
+    navigate(0);
+  };
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -221,7 +227,7 @@ const Partenaire = () => {
                 >
                    {isCollapsed ?
          <Logout size="22"variant="Bulk"  style={{width:"116px",marginTop:"20%",cursor:"pointer"}}/>
-        :  <Button style={{background:"#FFFFFF",borderRadius:"8px",color:"#E0574E",width:"216px",marginTop:"65%",marginLeft:"7%"}}>
+        :  <Button style={{background:"#FFFFFF",borderRadius:"8px",color:"#E0574E",width:"216px",marginTop:"65%",marginLeft:"7%"}} onClick={Logout}>
                 Se déconnecter
                 </Button> }
               

@@ -188,7 +188,7 @@ const Partenaire = () => {
                 />
             <Item
                   title="Mes points"
-                  to="/partenaire"
+                  to="/partenaire/Mes_points"
                   icon={<MedalStar
                     size="22"
                     variant="Bulk"
@@ -199,7 +199,7 @@ const Partenaire = () => {
                 
                 <Item
                 title="Mes Favoris"
-                to="/partenaire/Favoris"
+                to="/partenaire/Mes_Favoris"
                 icon={<Heart
                     size="22"
                    variant="Bulk"
@@ -209,7 +209,7 @@ const Partenaire = () => {
               />
                   <Item
                   title="Profile"
-                  to="/Mon_compt"
+                  to="/partenaire/Profile"
                   icon={<img src={minilogo} style={{width: "24px", height: "24px",borderRadius:"24px"}}/>}
                   selected={selected}
                   setSelected={setSelected}

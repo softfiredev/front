@@ -15,7 +15,15 @@ import Vendeursadmin from "./components/Admin-components/Liste d’utilisateurs/
 import Partenairesadmin from "./components/Admin-components/Liste d’utilisateurs/Partenaires/Partenairesadmin ";
 import Commandespartenaire from "./components/partenairecomponet/Mes_commandes/Commandes";
 
-
+const Profilp = lazy(() =>
+  import("./components/partenairecomponet/profilp/Profilp")
+);
+const Favorisp = lazy(() =>
+  import("./components/partenairecomponet/Favoris/Favorisp")
+);
+const Pointsp = lazy(() =>
+  import("./components/partenairecomponet/Points/Points")
+);
 const Listpro = lazy(() =>
   import("./components/Admin-components/listeprod/listpro")
 );
@@ -274,7 +282,9 @@ function App() {
              <Route path="/partenaire" element={<Protection user={user}><Partenaire user={user}/></Protection>}>
       
              <Route path="/partenaire/commandes" element={<Commandespartenaire user={user}/>}/>
-          
+             <Route path="/partenaire/Mes_points" element={<Pointsp user={user}/>}/>
+             <Route path="/partenaire/Mes_Favoris" element={<Favorisp user={user}/>}/>
+             <Route path="/partenaire/Profile" element={<Profilp user={user}/>}/>
              </Route>
 
 

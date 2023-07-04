@@ -1,0 +1,28 @@
+.txt1-cp20{
+    color: #222;
+font-size: 22px;
+font-family: Inter;
+font-style: normal;
+font-weight: 600;
+line-height: 40px;
+
+}
+.input-pp{
+    width: 519px;
+height: 52px;
+flex-shrink: 0;
+border-radius: 8px;
+border: 1px solid #E1E1E1;
+border: none;
+}
+.pp2{
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    padding: 3%;
+    width: auto;
+height: auto;
+flex-shrink: 0;
+border-radius: 8px;
+background: #FFF;
+}

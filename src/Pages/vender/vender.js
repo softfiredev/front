@@ -44,12 +44,12 @@ const Vender = () => {
       linkto :"/Vender/Inventaire"
     },
     {
-      linkname: "Liste de commandes",
+      linkname: "Liste commandes",
       icon: <Box size="32" color="#7E7E7E" variant="Bulk"  />,
       linkto :"/Vender/Liste_de_commandes"
     },
     {
-      linkname: "Liste de livraisons",
+      linkname: "Liste livraisons",
       icon: <TruckFast size="32" color="#7E7E7E" variant="Bulk" />,
       linkto :"/Vender/Liste_de_livraisons"
     },

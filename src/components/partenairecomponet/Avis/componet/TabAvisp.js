@@ -49,7 +49,8 @@ const TabAvisp = () => {
     const styles = {
         tableCell: {
             color: '#7B8794',
-            borderTop:"none",
+       
+            
         },
     };
     return (

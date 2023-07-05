@@ -41,16 +41,23 @@ const Filterbar = (props) => {
 
     </div>
 </div>
+
+{props.titre=="TabAvisp"?
+""
+:
 <div>
   
-<div className='row2-int'> 
-    <p>Affichage</p>
-    <select className="select-int">
-            <option value={10}> 10</option>
-          </select>
-          <p className='txt2-int'>résultats sur 50</p>
-    </div>
-</div>
+  <div className='row2-int'> 
+      <p>Affichage</p>
+      <select className="select-int">
+              <option value={10}> 10</option>
+            </select>
+            <p className='txt2-int'>résultats sur 50</p>
+      </div>
+  </div>
+  
+}
+
 
  </div>
   )

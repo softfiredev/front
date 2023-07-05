@@ -56,7 +56,7 @@ else{return <Navigate to="/" />}
 if(user.role==="partenaire" &&user.auth==true &&user.etatCompte==="active" )
 {
   
-if((location.pathname==="/partenaire"|| location.pathname==="/partenaire/commandes"|| location.pathname==="/partenaire/Mes_points"|| location.pathname==="/partenaire/Mes_Favoris"|| location.pathname==="/partenaire/Profile" ))
+if((location.pathname==="/partenaire"|| location.pathname==="/partenaire/commandes"|| location.pathname==="/partenaire/Mes_points"|| location.pathname==="/partenaire/Mes_Favoris"|| location.pathname==="/partenaire/Profile" || location.pathname==="/partenaire/Avis"))
 {
   return children
 }

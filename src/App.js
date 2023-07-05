@@ -14,6 +14,7 @@ import Fournisseursadmin from "./components/Admin-components/Liste d’utilisate
 import Vendeursadmin from "./components/Admin-components/Liste d’utilisateurs/Vendeurs/Vendeursadmin";
 import Partenairesadmin from "./components/Admin-components/Liste d’utilisateurs/Partenaires/Partenairesadmin ";
 import Commandespartenaire from "./components/partenairecomponet/Mes_commandes/Commandes";
+import Avisp from "./components/partenairecomponet/Avis/Avisp";
 
 const Profilp = lazy(() =>
   import("./components/partenairecomponet/profilp/Profilp")
@@ -285,6 +286,8 @@ function App() {
              <Route path="/partenaire/Mes_points" element={<Pointsp user={user}/>}/>
              <Route path="/partenaire/Mes_Favoris" element={<Favorisp user={user}/>}/>
              <Route path="/partenaire/Profile" element={<Profilp user={user}/>}/>
+             <Route path="/partenaire/Avis" element={<Avisp user={user}/>}/>
+
              </Route>
 
 

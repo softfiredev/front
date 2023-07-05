@@ -188,7 +188,7 @@ const Partenaire = () => {
            </Item>
                 <Item
                   title="Avis/Commentaires"
-                  to="/partenaire"
+                  to="/partenaire/Avis"
                   icon={<MessageText1 size="22" variant="Bold"   />}
                   selected={selected}
                   setSelected={setSelected}

@@ -12,3 +12,7 @@
 
     height: 732px;
 }
+.pro-sidebar.collapsed {
+    width: 78px;
+    min-width: 22px !important;
+}

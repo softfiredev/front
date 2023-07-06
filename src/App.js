@@ -13,9 +13,13 @@ import Clients from "./components/Admin-components/Liste d’utilisateurs/Client
 import Fournisseursadmin from "./components/Admin-components/Liste d’utilisateurs/Fournisseurs/Fournisseursadmin";
 import Vendeursadmin from "./components/Admin-components/Liste d’utilisateurs/Vendeurs/Vendeursadmin";
 import Partenairesadmin from "./components/Admin-components/Liste d’utilisateurs/Partenaires/Partenairesadmin ";
-import Commandespartenaire from "./components/partenairecomponet/Mes_commandes/Commandes";
-import Avisp from "./components/partenairecomponet/Avis/Avisp";
 
+const Commandespartenaire = lazy(() =>
+  import("./components/partenairecomponet/Mes_commandes/Commandes")
+);
+const Avisp = lazy(() =>
+  import("./components/partenairecomponet/Avis/Avisp")
+);
 const Profilp = lazy(() =>
   import("./components/partenairecomponet/profilp/Profilp")
 );

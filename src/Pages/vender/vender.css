@@ -10,9 +10,21 @@
 .footer{
     display: none;
 }
+.contentee {
+    height: 1030px;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y:visible ;
+    padding-right: 2%;
+  }
+  
+  
+  ::-webkit-scrollbar {
+    width: 1px;
+  }
 .side-bar{
-width: 256px;
-height: 1992px;
+width: 310px;
+height: auto;
 background: #FFFFFF;
 border-right: 1px solid #EEEDF2;
 }
@@ -47,7 +59,7 @@ gap: 1em;
     border: 1px solid #FFEEEE;
     border-radius: 8px;
     margin-left: -3%;
-    margin-top: 288px;
+    margin-top: 108px;
     cursor: pointer;
 }
 .deconnecter-box .iconOut{

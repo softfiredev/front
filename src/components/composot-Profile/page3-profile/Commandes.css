@@ -11,7 +11,6 @@
     .select-page{
         display: flex;
         gap:1em;
-    
         margin-left: 10%;
     }
     .com1{
@@ -122,9 +121,7 @@
         margin-left: 48px;
         display: flex;
         flex-direction: row;
-    
         margin-top: 1%;
-    
     }
     .commande-data{
         display: flex;
@@ -161,61 +158,9 @@
     .vendeur-data{
         margin-left: 42px;
         margin-top: 1%;
+        width: 10%;
     }
-    .Statut{
-        cursor: pointer;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 20px;    
-        text-align: center;
-        color: #2680C2; 
-        background: #DCEEFB;
-        border: 1px solid #4098D7;
-        border-radius: 8px;
-        width: 128px;
-    height: 32px;
-        padding: 6px 0px 0px 0px;
-        margin-left: 30px;
-    }
-    .annule{
-        cursor: pointer;
-    
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 20px;    
-        text-align: center;
-        color: #BA2525; 
-        background: #FFEEEE;
-        border: 1px solid #D64545;
-        border-radius: 8px;
-        width: 128px;
-    height: 32px;
-        padding: 6px 0px 0px 0px;
-        margin-left: 30px;
-    }
-    
-    .livre{
-        cursor: pointer;
-    
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 20px;    
-        text-align: center;
-        color: #3F9142; 
-        background: #E3F9E5;
-        border: 1px solid #57AE5B;
-        border-radius: 8px;
-        width: 128px;
-    height: 32px;
-        padding: 6px 0px 0px 0px;
-        margin-left: 30px;
-    }
+   
     .Tarification{
         padding-left: 35px;
         width: 15%;
@@ -225,6 +170,61 @@
     flex-direction: row;
     justify-content: center;
     gap: 1em;
+    }
+    .livre{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #3F9142;
+    text-align: center;
+    font-size: 14px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+        width: 128px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #57AE5B;
+    background: #E3F9E5;
+    
+    }
+    .annule{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #BA2525;
+    text-align: center;
+    font-size: 14px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+        width: 128px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #D64545;
+    background: #FEE;
+    }
+    .Statut{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 128px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #4098D7;
+    background: #DCEEFB;
+    color: #2680C2;
+    text-align: center;
+    font-size: 14px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
     }
     .pagination-com{margin-top: -7%;}
     .row214-comn{

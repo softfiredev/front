@@ -120,8 +120,9 @@ const Vender = () => {
           <p className="outText">Se déconnecter</p>
         </div>
       </div>
-<div className="oub">  
-  <Outlet /> </div>
+      <main className="contentee"> 
+  <Outlet /> 
+  </main>
     
     </div>
   );

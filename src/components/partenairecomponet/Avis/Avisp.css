@@ -181,7 +181,7 @@ line-height: 24px;
 }
 .menuitem-avis{
    display: flex;
-   justify-content: center;
+
    align-items: center;
    gap: 0.5em;
 }

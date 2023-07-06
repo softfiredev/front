@@ -80,7 +80,7 @@ const Item = ({ title, to, icon, selected, setSelected,box }) => {
 
 const Partenaire = () => {
   const navigate = useNavigate();
-  const Logout = () => {
+  const Lsogout = () => {
     localStorage.removeItem("persist:root");
     navigate("/login");
     navigate(0);
@@ -228,7 +228,7 @@ const Partenaire = () => {
                 >
                    {isCollapsed ?
          <Logout size="22"variant="Bulk"  style={{width:"116px",marginTop:"20%",cursor:"pointer"}}/>
-        :  <Button style={{background:"#FFFFFF",borderRadius:"8px",color:"#E0574E",width:"216px",marginTop:"65%",marginLeft:"7%"}} onClick={Logout}>
+        :  <Button style={{background:"#FFFFFF",borderRadius:"8px",color:"#E0574E",width:"216px",marginTop:"65%",marginLeft:"7%"}} onClick={Lsogout}>
                 Se déconnecter
                 </Button> }
               

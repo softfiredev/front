@@ -136,7 +136,6 @@ const styles = {
     </Table>
 </TableContainer>
 
-<hr className="sous-line-array" />
                 <br />
                 <div>
                   <div className="row214-comn">

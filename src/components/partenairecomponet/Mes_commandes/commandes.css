@@ -161,3 +161,10 @@ background: #FFF;
     flex-direction: column;
     gap: 1em;
 }
+.articles{
+    margin-left: 48px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+
+}

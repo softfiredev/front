@@ -296,7 +296,7 @@ setproduit_c_Detail({"produit":tab})
                               {e?.labrairie?.nameLibrairie}{" "}
                             </p>
                           </div>
-                          <p className="Tarification"> {e.total_ttc} DT</p>
+                          <p className="Tarification"> {(e.total_ttc).toFixed(3)} DT</p>
                           <p
                             className={
                               e.etatClient === "en cours"
@@ -315,7 +315,11 @@ setproduit_c_Detail({"produit":tab})
                               aria-controls={open ? "basic-menu" : undefined}
                               aria-haspopup="true"
                               aria-expanded={open ? "true" : undefined}
-                              onClick={() => handleClick(e)}
+                              onClick={() => {
+                                if (e.etatClient === "en cours") {
+                                  handleClick(e);
+                                }
+                              }}
                             />
                           </div>
                         </div>

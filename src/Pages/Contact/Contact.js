@@ -111,7 +111,9 @@ else{
                     <Grid item><OutlinedInput className='inpu-con' placeholder="Votre nom" onChange={handleInputChange("name")} value={user.name} /> </Grid>
                     <Grid item><OutlinedInput className='inpu-con' placeholder="Email" onChange={handleInputChange("email")} value={user.email} /> </Grid>
                     <Grid item><OutlinedInput className='inpu-con' placeholder="Sujet" onChange={handleInputChange("sujet")} value={user.sujet} /> </Grid><br />
-                    <Grid item><OutlinedInput className='inpu-con2' placeholder="Message" multiline rows={5} maxRows={80} onChange={handleInputChange("message")} value={user.message} /> </Grid>
+                    <Grid item>
+                      <OutlinedInput className='inpu-con2' placeholder="Message" multiline rows={5} maxRows={80} onChange={handleInputChange("message")} value={user.message} />
+                       </Grid>
                     <Grid item><button className='bnt-con2' onClick={Submit}>
                       <div className='textbnt-con2'>Envoyer</div></button>
                     </Grid>

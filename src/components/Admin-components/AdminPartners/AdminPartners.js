@@ -225,9 +225,11 @@ const Annuler=()=>{
   <td >
     {obj?.pack}
   </td>
+  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}  style={{marginTop:"40%"}}>
   <td >
-  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}  style={{marginLeft:"50%",marginTop:"15%"}}><ReceiptSearch size="22" color="#222" style={{marginLeft:"-10%",marginTop:"15%"}}/></Link>
+ <ReceiptSearch size="22" color="#222" style={{marginLeft:"-10%",marginTop:"50%"}}/>
   </td>
+  </Link>
 
   <td className="more-avis">
                    <div  className="more-avis2">
@@ -282,9 +284,9 @@ const Annuler=()=>{
 <td ><div className="txt02-s">{obj?.Role}</div></td>
 <td >{obj?.name_work}</td>
 <td >
-{obj.etat==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>Payer</p></button></>
-:<>{obj.etat==="Rejeter"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Retard</p></button>:
+{obj.etat==="accepte"?
+<><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>{obj.etat}</p></button></>
+:<>{obj.etat==="Annuler"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Annuler</p> </button>:
 <>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
 </>}
 
@@ -293,9 +295,11 @@ const Annuler=()=>{
   <td >
     {obj?.pack}
   </td>
+  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}  style={{marginTop:"40%"}}>
   <td >
-  <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+ <ReceiptSearch size="22" color="#222" style={{marginLeft:"-10%",marginTop:"50%"}}/>
   </td>
+  </Link>
 
   <td className="more-avis">
                    <div  className="more-avis2">
@@ -305,14 +309,13 @@ const Annuler=()=>{
                       aria-controls={open ? "basic-menu" : undefined}
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
-                      onClick={()=>{handleClick(obj)}}
+                      onClick={(e)=>{ setAnchorEl(e.currentTarget);setdemende(obj)}}
                       />
             </div>
   </td>
 </tr>
 
 ))}
-
 
 </table>
 </div>

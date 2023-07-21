@@ -54,7 +54,7 @@ function a11yProps(index) {
 }
 
 const Listpro = (props) => {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
       setValue(newValue);
     };
@@ -62,13 +62,13 @@ const Listpro = (props) => {
       setAnchorEl(null);
     };
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
-    const [op, setop] = React.useState(true);
-    const [op2, setop2] = React.useState(false);
+    const [op, setop] = useState(true);
+    const [op2, setop2] = useState(false);
   const navigate = useNavigate();
   const theme = useTheme();
-  const [state, setState] = React.useState({
+  const [state, setState] =useState({
     right: false,
   });  const [nextpage, setnextpage] =useState(true);
   const produitbycategorie = useSelector(
@@ -222,8 +222,8 @@ Modifier
       <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#222" } }}>
-         <Tab label={<p className="txttabs-c" onClick={()=>{setop(true)}}>Liste de produits</p>} {...a11yProps(0)} />
-          <Tab label={<p className="txttabs-c" onClick={()=>{setop(false)}}>Suggestions</p>} {...a11yProps(1)} />
+         <Tab onClick={()=>{setop(true)}}label={<p className="txttabs-c" >Liste de produits</p>} {...a11yProps(0)} />
+          <Tab  onClick={()=>{setop(false)}} label={<p className="txttabs-c">Suggestions</p>} {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>  

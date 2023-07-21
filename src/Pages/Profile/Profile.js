@@ -16,7 +16,7 @@ const Profilee = (props) => {
   const clientData = useSelector(
     (state) => state.IdentiteClient.identiteClient
   );
-  
+
   const [name, setname] = useState("page1");
   const [bnt1, setbnt1] = useState("bnt-pro");
   const [bnt2, setbnt2] = useState("bnt-pro2");
@@ -85,7 +85,6 @@ const Profilee = (props) => {
     navigate("/login");
     navigate(0);
   };
-
 
   return (
     <>

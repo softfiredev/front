@@ -203,6 +203,9 @@ const updateadr=()=>{
     setrefreshpage(false)
 
 }
+const emaillog = useSelector(
+  (state) => state.Googleservice
+);
 
 const [image, setImage] = useState(null);
 const onImageChange = (event) => {
@@ -257,7 +260,7 @@ const onImageChange = (event) => {
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Email</div>
-            <input type="text" disabled={inputDisable} className="input-pro" defaultValue={clientData?.email} onChange={(e)=>{setemail( e.target.value)}}/>
+            <input type="text" disabled={inputDisable &&emaillog.isLogin} className="input-pro" defaultValue={clientData?.email} onChange={(e)=>{setemail( e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Numéro de téléphone</div>

@@ -146,7 +146,7 @@ const Avis = (props) => {
               <tr className="tr-avis">
                 <td>
                   <div className="row-avis">
-                <img src={"http://127.0.0.1:8080/uploads/"+obj.produitlabrairie?.imagelibrairies?.[0]?.name_Image} className="img1-avis" />
+                <img src={"http://fly.sonix.tn:8080/uploads/"+obj.produitlabrairie?.imagelibrairies?.[0]?.name_Image} className="img1-avis" />
                   <div style={{marginTop:"4%"}}>{obj.produitlabrairie?.titre}</div>
                   </div></td>
                 <td><div>{obj.createdAt}</div></td>

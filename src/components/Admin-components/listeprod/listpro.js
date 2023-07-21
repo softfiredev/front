@@ -162,7 +162,7 @@ Modifier
 
     >
 
-<img src={"http://127.0.0.1:8080/uploads/"+Oneproduit?.imageCataloges?.[0].name_Image}  className="imglist-lst2"/>
+<img src={"http://fly.sonix.tn:8080/uploads/"+Oneproduit?.imageCataloges?.[0].name_Image}  className="imglist-lst2"/>
 
     </Swiper>
     <br/>
@@ -329,7 +329,7 @@ Modifier
     <td className="tdwidth02-c">
       <div className="row-int01">
 
-        <img src={"http://127.0.0.1:8080/uploads/"+obj?.image} className="img1-int" />
+        <img src={"http://fly.sonix.tn:8080/uploads/"+obj?.image} className="img1-int" />
        <div style={{ marginTop: "3%" }}>
           <p className="txt01-int">{obj.Titre}</p>
         </div>
@@ -342,7 +342,7 @@ Modifier
     <td className="tdwidth101-c">
     <div className="row-int01-c">
 
-<Avatar src={"http://127.0.0.1:8080/uploads/"+obj?.user?.avatar} className="img512-int" />
+<Avatar src={"http://fly.sonix.tn:8080/uploads/"+obj?.user?.avatar} className="img512-int" />
 <div style={{ marginTop: "3%" }}>
   <p className="txt011-int">{obj?.user?.fullname}</p>
 </div>

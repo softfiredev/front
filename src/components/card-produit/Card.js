@@ -43,7 +43,7 @@ console.log(props?.prix_en_Solde+"/"+props.titre)
       :<></>
     }
 
-        <div  onClick={link}><img src={"http://127.0.0.1:8080/uploads/"+props.imgp} className="img-cardprod"/></div>
+        <div  onClick={link}><img src={"http://fly.sonix.tn:8080/uploads/"+props.imgp} className="img-cardprod"/></div>
         
         <div>
           <div><p  className="txt-card1">{props.titre}</p> </div>
@@ -51,7 +51,7 @@ console.log(props?.prix_en_Solde+"/"+props.titre)
             <div className="grb-card22">
               <div>
                 
-                <img src={"http://127.0.0.1:8080/uploads/"+props.logoL} className="logolib"/>
+                <img src={"http://fly.sonix.tn:8080/uploads/"+props.logoL} className="logolib"/>
               </div>
               <div>
               

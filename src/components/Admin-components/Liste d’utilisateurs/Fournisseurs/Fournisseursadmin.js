@@ -124,7 +124,7 @@ CLINET.map((obj, index) => (
   <td className="tdwidth02">
     <div className="row-int01">
 
-    <Avatar src={"http://127.0.0.1:8080/uploads/"+obj?.avatar} className="img512-ad" />
+    <Avatar src={"http://fly.sonix.tn:8080/uploads/"+obj?.avatar} className="img512-ad" />
      <div style={{ marginTop: "3%" }}>
         <p className="txt01-int">{obj.fullname}</p>
       </div>
@@ -185,7 +185,7 @@ Activ.map((obj, index) => (
   <td className="tdwidth02">
     <div className="row-int01">
 
-    <Avatar src={"http://127.0.0.1:8080/uploads/"+obj?.avatar} className="img512-ad" />
+    <Avatar src={"http://fly.sonix.tn:8080/uploads/"+obj?.avatar} className="img512-ad" />
      <div style={{ marginTop: "3%" }}>
         <p className="txt01-int">{obj.fullname}</p>
       </div>
@@ -242,7 +242,7 @@ blog.map((obj, index) => (
   <td className="tdwidth02">
     <div className="row-int01">
 
-    <Avatar src={"http://127.0.0.1:8080/uploads/"+obj?.avatar} className="img512-ad" />
+    <Avatar src={"http://fly.sonix.tn:8080/uploads/"+obj?.avatar} className="img512-ad" />
      <div style={{ marginTop: "3%" }}>
         <p className="txt01-int">{obj.fullname}</p>
       </div>

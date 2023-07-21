@@ -128,7 +128,7 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj?.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar src={"http://127.0.0.1:8080/uploads/"+obj?.user?.avatar}style={{borderRadius:"50%"}} className="img1-c" />
+            <Avatar src={"http://fly.sonix.tn:8080/uploads/"+obj?.user?.avatar}style={{borderRadius:"50%"}} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
@@ -181,7 +181,7 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+            <Avatar style={{borderRadius:"50%"}} src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
@@ -231,7 +231,7 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+            <Avatar style={{borderRadius:"50%"}} src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
@@ -282,7 +282,7 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+            <Avatar style={{borderRadius:"50%"}} src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
@@ -333,7 +333,7 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar  style={{borderRadius:"50%"}} src={"http://127.0.0.1:8080/uploads/"+obj.user.avatar} className="img1-c" />
+            <Avatar  style={{borderRadius:"50%"}} src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>

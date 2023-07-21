@@ -34,7 +34,7 @@ const Box_FavoirsProduit_Card = (props) => {
         <div className="row2-favo">
       
           <div>
-            <img src={"http://127.0.0.1:8080/uploads/"+props.imgp}className="img1-favo" />
+            <img src={"http://fly.sonix.tn:8080/uploads/"+props.imgp}className="img1-favo" />
           </div>
           <div className="col2-favo">
             <div className="txt3-favo">
@@ -42,7 +42,7 @@ const Box_FavoirsProduit_Card = (props) => {
             </div>
             <div className="row4-favo">
               <div className="logolib">
-                <img src={"http://127.0.0.1:8080/uploads/"+props.imgl}  style={{width:"20px" , height:"20px"}} />
+                <img src={"http://fly.sonix.tn:8080/uploads/"+props.imgl}  style={{width:"20px" , height:"20px"}} />
               </div>
               <div>
                 <Link to={`/librairieProfile/${props.idl}`}>

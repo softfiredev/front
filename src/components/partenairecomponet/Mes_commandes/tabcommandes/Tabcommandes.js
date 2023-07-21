@@ -97,7 +97,7 @@ onClick={() => toggleCollapse(rowIndex)} style={{ cursor: 'pointer' }}
                           </div>
                           <img
                             src={
-                              "http://127.0.0.1:8080/uploads/" +
+                              "http://fly.sonix.tn:8080/uploads/" +
                               e.imagelibrairies?.[0]?.name_Image
                             }
                             alt="nameImage"
@@ -120,7 +120,7 @@ onClick={() => toggleCollapse(rowIndex)} style={{ cursor: 'pointer' }}
               </TableCell>                   
                <TableCell component="th" scope="row">
                <div className='vend-com'>
-               <img     src={"http://127.0.0.1:8080/uploads/" +row?.labrairie?.imageStore                             } className='img-com'/>
+               <img     src={"http://fly.sonix.tn:8080/uploads/" +row?.labrairie?.imageStore                             } className='img-com'/>
               <div><p className='tb-tp'> {row?.labrairie?.nameLibrairie}  </p> </div>
                </div>
              

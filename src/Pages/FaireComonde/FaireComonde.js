@@ -529,7 +529,7 @@ React.useEffect(() => {
               <p>{e.qte}x</p>
             </div>
             <div>
-              <img src={"http://127.0.0.1:8080/uploads/"+e.imgp} style={{ width: "40px", height: "40px" }}/>
+              <img src={"http://fly.sonix.tn:8080/uploads/"+e.imgp} style={{ width: "40px", height: "40px" }}/>
             </div>
             <div>
               <p className="txt214-Fc">{e.titre}</p>

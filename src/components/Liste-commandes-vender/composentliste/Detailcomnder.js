@@ -116,7 +116,7 @@ const Detailcomnder = (props) => {
             <div className="minirow-dc">
               <Avatar
                 src={
-                  "http://127.0.0.1:8080/uploads/" +
+                  "http://fly.sonix.tn:8080/uploads/" +
                   DetailcomondeClient[0]?.user?.avatar
                 }
                 className="img-dc"
@@ -242,7 +242,7 @@ DetailcomondeClient[0]?.Data_rejetée!=null &&Anuuler?
                     <div className="row2box4-dc">
                       <img
                         src={
-                          "http://127.0.0.1:8080/uploads/" +
+                          "http://fly.sonix.tn:8080/uploads/" +
                           obj.imagelibrairies[0].name_Image
                         }
                         className="imgbox4-dc"

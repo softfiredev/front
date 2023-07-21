@@ -151,7 +151,7 @@ const TableauDuBord = (props) => {
                   </div>
                   <img
                     src={
-                      "http://127.0.0.1:8080/uploads/" +
+                      "http://fly.sonix.tn:8080/uploads/" +
                       obj?.produitlabrairies[0]?.imagelibrairies[0].name_Image
                     }
                     className="img-Tb"
@@ -187,7 +187,7 @@ const TableauDuBord = (props) => {
                 />
                 <span className="span-tb">({e.avisProduitlibraires?.[0]?.total_stars})</span>
                 <div>
-                  <img src={ "http://127.0.0.1:8080/uploads/"+e.imagelibrairies?.[0]?.name_Image} className="img-Tb" />
+                  <img src={ "http://fly.sonix.tn:8080/uploads/"+e.imagelibrairies?.[0]?.name_Image} className="img-Tb" />
                 </div>
   
                 <div>
@@ -296,7 +296,7 @@ const TableauDuBord = (props) => {
          
                 <div className="row-c">
                   <Avatar
-                    src={"http://127.0.0.1:8080/uploads/" + obj?.user?.avatar}
+                    src={"http://fly.sonix.tn:8080/uploads/" + obj?.user?.avatar}
                     style={{ borderRadius: "50%" }}
                     className="img1-c"
                   />

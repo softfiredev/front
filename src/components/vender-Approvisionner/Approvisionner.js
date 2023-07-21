@@ -96,7 +96,7 @@ const Approvisionner = () => {
 <td className='tdwidth02-Appr'> 
          
 <div className="row-Appr01">
-            <img src={"http://127.0.0.1:8080/uploads/"+obj.image} className="img2-Appr" />
+            <img src={"http://fly.sonix.tn:8080/uploads/"+obj.image} className="img2-Appr" />
               <div style={{marginTop:"3%"}}><p className='txt010-Appr'>{obj.titre}</p></div>
               </div>
       
@@ -106,7 +106,7 @@ const Approvisionner = () => {
 <td className='tdwidth1-Appr'>{obj.Qte}</td>
 <td className='tdwidth02-Appr'>
 <div className="row-Appr01">
-            <img src={"http://127.0.0.1:8080/uploads/"+obj.fournisseur?.user?.avatar} className="img3-Appr" />
+            <img src={"http://fly.sonix.tn:8080/uploads/"+obj.fournisseur?.user?.avatar} className="img3-Appr" />
               <div style={{marginTop:"3%"}}><p className='txt010-Appr'>{obj.fournisseur?.user?.fullname}</p></div>
               </div></td>
 <td className='tdwidth101-Appr'>{obj.fournisseur?.telephone}</td>

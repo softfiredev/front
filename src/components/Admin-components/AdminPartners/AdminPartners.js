@@ -227,7 +227,7 @@ const Annuler=()=>{
   </td>
   <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}  style={{marginTop:"40%"}}>
   <td >
- <ReceiptSearch size="22" color="#222" style={{marginLeft:"-10%",marginTop:"50%"}}/>
+ <ReceiptSearch size="22" color="#222" style={{marginLeft:"10px",marginTop:"50%"}}/>
   </td>
   </Link>
 
@@ -297,7 +297,7 @@ const Annuler=()=>{
   </td>
   <Link to={"http://127.0.0.1:8080/uploads/"+obj?.file}  style={{marginTop:"40%"}}>
   <td >
- <ReceiptSearch size="22" color="#222" style={{marginLeft:"-10%",marginTop:"50%"}}/>
+ <ReceiptSearch size="22" color="#222" style={{marginLeft:"10px",marginTop:"50%"}}/>
   </td>
   </Link>
 

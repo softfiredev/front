@@ -97,22 +97,6 @@ const Signup = () => {
                 <Grid item >
                   <h1 className='Sinscrire'>S'inscrire</h1>
                 </Grid >
-                <Grid item >
-                  <p className='content' >Continue avec</p>
-                </Grid>
-                <Grid item >
-                  <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start"
-                  >
-                    <Grid item xs={4.7}>
-                      <button className="btn default"><div className='icong'><i className="fab fa-google fa-1x" ></i></div><p className="textgml">Gmail</p></button>
-                    </Grid>
-                    <div className='esp'></div>
-                    <Grid item>
-                      <button className="btn default"><div className='iconf'><Facebook style={{ width: "20px", height: "20px" }} /></div> <div className='textfbk'>Facebook</div></button>
-                    </Grid>
-
-                  </Grid>
-                </Grid>
                 <Grid item>
                   <p className='adr'>Ou avec votre adresse e-mail</p>
                 </Grid>

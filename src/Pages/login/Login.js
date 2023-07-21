@@ -150,7 +150,7 @@ useEffect(()=>{
         }
         else   if(user.role==="partenaire")
         {
-          nav("/partenaire")
+          nav("partenaire")
         }
      
       })

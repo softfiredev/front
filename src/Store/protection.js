@@ -4,7 +4,7 @@ import { Navigate,useLocation,useParams} from "react-router-dom";
 const Protection = ({children,user}) => {
 const location = useLocation();
 const { param1 } = useParams();
-console.log(location.pathname)
+console.log(user.etatCompte)
 if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.pathname==="/New_password"))
 {
   
@@ -53,7 +53,7 @@ else{return <Navigate to="/" />}
 
 
 
-if(user.role==="partenaire" &&user.auth==true &&user.etatCompte==="active" )
+if(user.role==="partenaire" &&user.auth==true &&(user.etatCompte==="active"||user.etatCompte===null) )
 {
   
 if((location.pathname==="/partenaire"|| location.pathname==="/partenaire/commandes"|| location.pathname==="/partenaire/Mes_points"|| location.pathname==="/partenaire/Mes_Favoris"|| location.pathname==="/partenaire/Profile" || location.pathname==="/partenaire/Avis"))

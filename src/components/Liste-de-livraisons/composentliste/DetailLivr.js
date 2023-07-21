@@ -21,7 +21,7 @@ const DetailLivr= (props) => {
       const [open, setopen] = useState(true);
     const navigat=()=>{
         navigate(`/Vender/Liste_de_livraisons`)
-        navigate(0)
+       
     }
     const Livrer=()=>{
         LivreCommande(idcomonde.id).then((response)=>{
@@ -37,9 +37,9 @@ const DetailLivr= (props) => {
       }
 
     useEffect(() => {
-        dispatch(Detailcomonde(idcomonde.id));
+        dispatch(Detailcomonde(idcomonde?.id));
       }, [ref]);
-      console.log(DetailcomondeClient[0])
+
 
   return (
     <div className='Detailcomnder'>
@@ -64,10 +64,10 @@ const DetailLivr= (props) => {
 <div className='box1-dc'>
     <div className='border-dc'> </div>
     <div className='colbox1-dc'>
-    <div><p className='txtbox1-ddc'> {DetailcomondeClient[0].id}</p></div>
+    <div><p className='txtbox1-ddc'> {DetailcomondeClient?.[0]?.id}</p></div>
     <div>
         <ul className='ul-dc'>
-            <li><p className='txtli-dc'>Montant Totale: <span className='txtspanli-dc'> {DetailcomondeClient[0].total_ttc.toFixed(2)}</span></p></li>
+            <li><p className='txtli-dc'>Montant Totale: <span className='txtspanli-dc'> {DetailcomondeClient[0]?.total_ttc?.toFixed(3)}</span></p></li>
             <br/>
             <li>Nbr d’article(s): <span className='txtspanli-dc'> {DetailcomondeClient[0]?.produitlabrairies?.length}</span></li>
         </ul>

@@ -285,7 +285,10 @@ function App() {
              </Route>
 
              <Route path="/partenaire" element={<Protection user={user}><Partenaire user={user}/></Protection>}>
-      
+             <Route
+                  path="/partenaire"
+                  element={<Navigate to="/partenaire/commandes" />}
+                />
              <Route path="/partenaire/commandes" element={<Commandespartenaire user={user}/>}/>
              <Route path="/partenaire/Mes_points" element={<Pointsp user={user}/>}/>
              <Route path="/partenaire/Mes_Favoris" element={<Favorisp user={user}/>}/>

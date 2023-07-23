@@ -8,6 +8,13 @@
     }
     
 }
+.header {
+    display: flex !important;
+    visibility: visible !important;
+}
+.footer {
+    display: block !important;
+}
 .group-home{
     display: flex;
     justify-content: center;

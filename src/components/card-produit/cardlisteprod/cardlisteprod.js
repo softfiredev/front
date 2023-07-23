@@ -37,9 +37,9 @@ const Cardlisteprod = (props) => {
       }
     
       {props?.Role=="admin"?
-         <img src={"http://fly.sonix.tn:8080/uploads/"+props.img} className='img-lst2' onClick={props.toggleDrawer('right', true,props.id)} />
+         <img src={"http://localhost:8080/uploads/"+props.img} className='img-lst2' onClick={props.toggleDrawer('right', true,props.id)} />
       :
-      <img src={"http://fly.sonix.tn:8080/uploads/"+props.img} className='img-lst' />
+      <img src={"http://localhost:8080/uploads/"+props.img} className='img-lst' />
       }
       <div>
         <p className='txt-lst'>#{props.id}</p>

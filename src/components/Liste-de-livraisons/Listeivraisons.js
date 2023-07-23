@@ -124,7 +124,7 @@ const dispatch=useDispatch()
 <td className='tdwidth-lv'>{obj.id}</td>
 <td className='tdwidth02-lv'> <div className="row-c">
           
-            <Avatar src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar} className="img1-c"style={{borderRadius:"50%"}} />
+            <Avatar src={"http://localhost:8080/uploads/"+obj.user.avatar} className="img1-c"style={{borderRadius:"50%"}} />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
@@ -173,7 +173,7 @@ const dispatch=useDispatch()
 <td className='tdwidth-lv'>{obj.id}</td>
 <td className='tdwidth02-lv'> <div className="row-c">
           
-            <Avatar src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar} style={{borderRadius:"50%"}} className="img1-c" />
+            <Avatar src={"http://localhost:8080/uploads/"+obj.user.avatar} style={{borderRadius:"50%"}} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>
@@ -219,7 +219,7 @@ const dispatch=useDispatch()
 <td className='tdwidth-lv'>{obj.id}</td>
 <td className='tdwidth02-lv'> <div className="row-c">
           
-            <Avatar src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar}  style={{borderRadius:"50%"}} className="img1-c" />
+            <Avatar src={"http://localhost:8080/uploads/"+obj.user.avatar}  style={{borderRadius:"50%"}} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
               </div>
               </td>

@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { findCommandeBylibrairie } from "../../Store/Service/findCommandeBylibrairie";
 import Pagination from "@mui/material/Pagination";
+import { Base_url, Path } from "../../config/Config";
+import axios from "axios";
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
    
@@ -40,13 +42,9 @@ function a11yProps(index) {
 const Listecommandes = (props) => {
     const navigate = useNavigate();
     const [value, setValue] = React.useState(0);
-    const librairieData = useSelector(
-      (state) => state.findCommandeBylibrairie.commandeslibrairie
-    );
-    const librairieState = useSelector(
-      (state) => state.findCommandeBylibrairie.status
-    );
-    const [all, setAll] = React.useState(librairieData);
+    const [librairieData, setlibrairieData] = React.useState([]);
+
+    const [all, setAll] = React.useState([]);
 
     const navigat=(id)=>{
         navigate(`/Vender/Details_de_commande/${id}`)
@@ -79,16 +77,18 @@ const Listecommandes = (props) => {
       function handlePagination (event,page) {
         setCurrent(page)
       }     
-
-      const dispatch=useDispatch()
-      useEffect(() => {
-        dispatch(findCommandeBylibrairie(props?.user.id));
-        if(all?.length===0 && librairieState!="failed") 
-        {
-          navigate(0)
+      const Allcomnde = async () => {
+        try {
+          const response = await axios.get(Base_url + Path.findCommandeBylibrairie + props?.user.id);
+          setlibrairieData(response?.data?.commandes);
+          setAll(response?.data?.commandes);
+        } catch (error) {
+          console.error("Error fetching data:", error);
         }
+      };
+      useEffect(() => {
+        Allcomnde()
       }, []);
-
 
   return (
     <div className='liste-c'>
@@ -128,7 +128,7 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj?.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar src={"http://fly.sonix.tn:8080/uploads/"+obj?.user?.avatar}style={{borderRadius:"50%"}} className="img1-c" />
+            <Avatar src={"http://localhost:8080/uploads/"+obj?.user?.avatar}style={{borderRadius:"50%"}} className="img1-c" />
               <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
@@ -181,13 +181,13 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar style={{borderRadius:"50%"}} src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+            <Avatar style={{borderRadius:"50%"}} src={"http://localhost:8080/uploads/"+obj?.user?.avatar} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
+<td className='tdwidth1'><p className='txt02-c'>{obj?.total_ttc.toFixed(2)}</p></td>
+<td className='tdwidth1'>{obj?.produitlabrairies[0]?.nb_Article}</td>
+<td className='tdwidth1'>{obj?.createdAt}</td>
 
 <td className='tdwidth1'>
 {obj.etatVender==="Compléter"?
@@ -231,23 +231,23 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar style={{borderRadius:"50%"}} src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+            <Avatar style={{borderRadius:"50%"}} src={"http://localhost:8080/uploads/"+obj?.user?.avatar} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
+<td className='tdwidth1'><p className='txt02-c'>{obj?.total_ttc.toFixed(2)}</p></td>
+<td className='tdwidth1'>{obj?.produitlabrairies[0]?.nb_Article}</td>
+<td className='tdwidth1'>{obj?.createdAt}</td>
 
 <td className='tdwidth1'>
 {obj.etatVender==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj?.etatVender}</p></button></>
 :
 <>
-{obj.etatVender==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
-:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
-<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
+{obj?.etatVender==="En cours"?
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj?.etatVender}</p></button>
+:<>{obj?.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj?.etatVender}</p></button>:
+<>{obj?.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj?.etatVender}</p></button>:<></>}</>}</>}</>}
 
   
   </td>
@@ -282,8 +282,8 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar style={{borderRadius:"50%"}} src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+            <Avatar style={{borderRadius:"50%"}} src={"http://localhost:8080/uploads/"+obj?.user?.avatar} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user?.fullname}</p></div>
               </div>
               </td>
 <td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
@@ -333,23 +333,23 @@ const Listecommandes = (props) => {
 <td className='tdwidth'>{obj.id}</td>
 <td className='tdwidth02'> <div className="row-c">
           
-            <Avatar  style={{borderRadius:"50%"}} src={"http://fly.sonix.tn:8080/uploads/"+obj.user.avatar} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+            <Avatar  style={{borderRadius:"50%"}} src={"http://localhost:8080/uploads/"+obj?.user?.avatar} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1'>{obj.createdAt}</td>
+<td className='tdwidth1'><p className='txt02-c'>{obj?.total_ttc?.toFixed(2)}</p></td>
+<td className='tdwidth1'>{obj?.produitlabrairies[0]?.nb_Article}</td>
+<td className='tdwidth1'>{obj?.createdAt}</td>
 
 <td className='tdwidth1'>
 {obj.etatVender==="Compléter"?
-<><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
+<><button className='bnt01-c'><p className='txtbnt01-c'>{obj?.etatVender}</p></button></>
 :
 <>
 {obj?.etatVender==="En cours"?
-<button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
-:<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
-<>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}
+<button className='bnt02-c'><p className='txtbnt02-c'>{obj?.etatVender}</p></button>
+:<>{obj?.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj?.etatVender}</p></button>:
+<>{obj?.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj?.etatVender}</p></button>:<></>}</>}</>}</>}
 
   
   </td>

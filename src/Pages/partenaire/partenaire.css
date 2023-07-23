@@ -1,9 +1,9 @@
 .header{
-    display: none;
-    visibility: hidden;
+    display: none !important;
+    visibility: hidden !important;
  }
  .footer{
-     display: none;
+     display: none !important;
  }
  .txt-part{
     text-align: right;

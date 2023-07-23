@@ -164,14 +164,14 @@ const [value, setValue] = useState(0);
                         <>
                           <img
                             src={
-                              "http://fly.sonix.tn:8080/uploads/" + obj.name_Image
+                              "http://localhost:8080/uploads/" + obj.name_Image
                             }
                           />
                         </>
                       ) : (
                         <>
                           <img
-                            src={"http://fly.sonix.tn:8080/uploads/" + imgclick}
+                            src={"http://localhost:8080/uploads/" + imgclick}
                           />
                         </>
                       )}
@@ -194,7 +194,7 @@ const [value, setValue] = useState(0);
                       <SwiperSlide>
                         <img
                           src={
-                            "http://fly.sonix.tn:8080/uploads/" + obj.name_Image
+                            "http://localhost:8080/uploads/" + obj.name_Image
                           }
                           onClick={() => {
                             setimgclick(obj.name_Image);
@@ -423,7 +423,7 @@ const [value, setValue] = useState(0);
                   <div className="row6-detail">
                     <div>
                     <Stack direction="row" spacing={2}>
-                      <Avatar    style={{ height: "18px", width: "18px" }}  src={"http://fly.sonix.tn:8080/uploads/" + obj.client?.user?.avatar} />
+                      <Avatar    style={{ height: "18px", width: "18px" }}  src={"http://localhost:8080/uploads/" + obj.client?.user?.avatar} />
                       </Stack>
                     </div>
                     <div className="fullnameAvis">{obj.client?.user.fullname} </div>

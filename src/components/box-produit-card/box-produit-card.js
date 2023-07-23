@@ -30,7 +30,7 @@ const Box_produit_Card = (props)=>{
               alignItems="center"
             >
              <div className="prod-container">
-                    <img src={"http://fly.sonix.tn:8080/uploads/"+props.imgp} className="image" />
+                    <img src={"http://localhost:8080/uploads/"+props.imgp} className="image" />
                     <div className="prod-description">
                 <div>        <p className="titreProd"> {props.titre}</p></div>
                 <div>   <p className="prix">{props.prix} dt</p></div>

@@ -1,4 +1,4 @@
-export  const Base_url="http://fly.sonix.tn:8080/"
+export  const Base_url="http://localhost:8080/"
 export const Path ={
     LoginApi:"user/login",
     SignupApi:"user/register",
@@ -20,6 +20,7 @@ export const Path ={
     identiteClient:"client/findOne/",
     modifierIdentiteClient:"user/updateIdentite/",
     addAdrr:"adresses/add",
+    addbypartnier:"adresses/addbypartnier",
     deleteAdrr:"adresses/delete",
     ModifAdrr:"adresses/update/",
     getproduitFavorie:"produitFavorie/findAllbyclient/",
@@ -30,6 +31,7 @@ export const Path ={
     ModifierAvis:"avisProduitlibraire/update/",
     findCommandeBylibrairie:"commandeDetail/findCommandeBylibrairie/",
     Detailcomonde:'commandeDetail/findOneCommande/',
+    findOneCommandeBypartnier:'commandeDetail/findOneCommandeBypartnier/',
     AccepteCommande:'commandeDetail/Accepter/',
     AnnulerCommande:'commandeDetail/Annuler/',
     LivreCommande:"commandeDetail/livre/",
@@ -69,6 +71,9 @@ export const Path ={
     suggestionProduitadd:"suggestionProduit/add",
     getsuggestion:"suggestionProduit/findAll",
     getAlluser:"user/findAll",
-
-    bloqueuser:"user/bloque/"
+    findBypartenaire:"bonAchat/findByuser/",
+    bloqueuser:"user/bloque/",
+    findOnePartnaire:"partenaire/findOnePartnaire/" ,
+    updateProfile:"partenaire/updateProfile/",
+    updateProfileimge:"partenaire/updateProfileimge/"
 }

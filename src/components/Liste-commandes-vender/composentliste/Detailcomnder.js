@@ -14,9 +14,7 @@ const Detailcomnder = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const idcomonde = useParams(":id");
- 
   const [ref, setref] = useState();
-
   const [Anuuler, setAnuuler] = useState(true);
   const navigat = () => {
     navigate("/Vender/Liste_de_commandes");
@@ -25,12 +23,12 @@ const Detailcomnder = (props) => {
   const DetailcomondeClient = useSelector(
     (state) => state.Detailcomonde.Detailcomonde
   );
-
   useEffect(() => {
     dispatch(Detailcomonde(idcomonde.id));
-  
   }, [ref]);
   const filteredData = DetailcomondeClient[0]?.user?.client?.adresses?.filter(item => item?.id === DetailcomondeClient[0]?.Adresse);
+  const filteredData2 = DetailcomondeClient[0]?.user?.partenaire?.adresses?.filter(item => item?.id === DetailcomondeClient[0]?.Adresse);
+
 
 
   const [open, setopen] = useState("Nouveau");
@@ -116,7 +114,7 @@ const Detailcomnder = (props) => {
             <div className="minirow-dc">
               <Avatar
                 src={
-                  "http://fly.sonix.tn:8080/uploads/" +
+                  "http://localhost:8080/uploads/" +
                   DetailcomondeClient[0]?.user?.avatar
                 }
                 className="img-dc"
@@ -147,10 +145,22 @@ const Detailcomnder = (props) => {
               <Location size="24" color="#9E9E9E" variant="Bold" />
               <div>
                 <p className="txt1box3-dc">
-                {filteredData?.[0]?.Nom_de_adresse}, 
-                {filteredData?.[0]?.Code_postal}
-                {filteredData?.[0]?.Gouvernorat} 
-                {filteredData?.[0]?.Ville}
+                {filteredData !== undefined ? (
+  <>
+    {filteredData?.[0]?.Nom_de_adresse}
+   {filteredData?.[0]?.Code_postal}
+   {filteredData?.[0]?.Gouvernorat}
+    {filteredData?.[0]?.Ville}
+  </>
+) : (
+  <>
+    {filteredData2?.[0]?.Nom_de_adresse}
+    {filteredData2?.[0]?.Code_postal}
+    {filteredData2?.[0]?.Gouvernorat}
+    {filteredData2?.[0]?.Ville}
+  </>
+)}
+             
                 </p>
               </div>
             </div>
@@ -242,7 +252,7 @@ DetailcomondeClient[0]?.Data_rejetée!=null &&Anuuler?
                     <div className="row2box4-dc">
                       <img
                         src={
-                          "http://fly.sonix.tn:8080/uploads/" +
+                          "http://localhost:8080/uploads/" +
                           obj.imagelibrairies[0].name_Image
                         }
                         className="imgbox4-dc"

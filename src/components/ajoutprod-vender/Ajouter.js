@@ -23,7 +23,7 @@ import { useNavigate } from "react-router-dom";
 const Ajouter = (props) => {
   const [img, setImage] = useState(
     props?.titre === "Modifier produit"
-      ? "http://fly.sonix.tn:8080/uploads/" +
+      ? "http://localhost:8080/uploads/" +
           props?.prod?.imagelibrairies[0].name_Image
       : undefined
   );

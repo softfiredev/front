@@ -285,7 +285,7 @@ setproduit_c_Detail({"produit":tab})
                           <div className="vendeur-data">
                             <img
                               src={
-                                "http://fly.sonix.tn:8080/uploads/" +
+                                "http://localhost:8080/uploads/" +
                                 e?.labrairie?.imageStore
                               }
                               alt="maktba rahma"
@@ -342,7 +342,7 @@ setproduit_c_Detail({"produit":tab})
                                 </div>
                                 <img
                                   src={
-                                    "http://fly.sonix.tn:8080/uploads/" +
+                                    "http://localhost:8080/uploads/" +
                                     e.imagelibrairies?.[0]?.name_Image
                                   }
                                   alt="nameImage"
@@ -493,7 +493,7 @@ setproduit_c_Detail({"produit":tab})
                           <div className="vendeur-data">
                             <img
                               src={
-                                "http://fly.sonix.tn:8080/uploads/" +
+                                "http://localhost:8080/uploads/" +
                                 e?.labrairie?.imageStore
                               }
                               alt="maktba rahma"
@@ -627,7 +627,7 @@ setproduit_c_Detail({"produit":tab})
                           <div className="vendeur-data">
                             <img
                               src={
-                                "http://fly.sonix.tn:8080/uploads/" +
+                                "http://localhost:8080/uploads/" +
                                 e?.labrairie?.imageStore
                               }
                               alt="maktba rahma"
@@ -761,7 +761,7 @@ setproduit_c_Detail({"produit":tab})
                           <div className="vendeur-data">
                             <img
                               src={
-                                "http://fly.sonix.tn:8080/uploads/" +
+                                "http://localhost:8080/uploads/" +
                                 e?.labrairie?.imageStore
                               }
                               alt="maktba rahma"
@@ -874,7 +874,7 @@ setproduit_c_Detail({"produit":tab})
                       <div className="prod">
                         <img
                           src={
-                            "http://fly.sonix.tn:8080/uploads/" +
+                            "http://localhost:8080/uploads/" +
                             e.imagelibrairies?.[0]?.name_Image
                           }
                         />
@@ -895,7 +895,7 @@ setproduit_c_Detail({"produit":tab})
                       <div className="prod">
                         <img
                           src={
-                            "http://fly.sonix.tn:8080/uploads/" +
+                            "http://localhost:8080/uploads/" +
                             e.imagelibrairies?.[0]?.name_Image
                           }
                         />

@@ -26,7 +26,6 @@ const Shop = () => {
   function handlePagination (event,page) {
     setCurrent(page)
   }
-
   
   useEffect(()=>{
     dispatch(getAllProduitlibrairie())

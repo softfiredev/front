@@ -225,7 +225,7 @@ const Annuler=()=>{
   <td >
     {obj?.pack}
   </td>
-  <Link to={"http://fly.sonix.tn:8080/uploads/"+obj?.file}  style={{marginTop:"40%"}}>
+  <Link to={"http://localhost:8080/uploads/"+obj?.file}  style={{marginTop:"40%"}}>
   <td >
  <ReceiptSearch size="22" color="#222" style={{marginLeft:"10px",marginTop:"50%"}}/>
   </td>
@@ -295,7 +295,7 @@ const Annuler=()=>{
   <td >
     {obj?.pack}
   </td>
-  <Link to={"http://fly.sonix.tn:8080/uploads/"+obj?.file}  style={{marginTop:"40%"}}>
+  <Link to={"http://localhost:8080/uploads/"+obj?.file}  style={{marginTop:"40%"}}>
   <td >
  <ReceiptSearch size="22" color="#222" style={{marginLeft:"10px",marginTop:"50%"}}/>
   </td>
@@ -365,7 +365,7 @@ const Annuler=()=>{
     {obj?.pack}
   </td>
   <td >
-  <Link to={"http://fly.sonix.tn:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  <Link to={"http://localhost:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
   </td>
 
   <td className="more-avis">
@@ -434,7 +434,7 @@ const Annuler=()=>{
     {obj?.pack}
   </td>
   <td >
-  <Link to={"http://fly.sonix.tn:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  <Link to={"http://localhost:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
   </td>
 
   <td className="more-avis">
@@ -502,7 +502,7 @@ const Annuler=()=>{
     {obj?.pack}
   </td>
   <td >
-  <Link to={"http://fly.sonix.tn:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  <Link to={"http://localhost:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
   </td>
 
   <td className="more-avis">
@@ -570,7 +570,7 @@ const Annuler=()=>{
     {obj?.pack}
   </td>
   <td >
-  <Link to={"http://fly.sonix.tn:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  <Link to={"http://localhost:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
   </td>
 
   <td className="more-avis">
@@ -638,7 +638,7 @@ const Annuler=()=>{
     {obj?.pack}
   </td>
   <td >
-  <Link to={"http://fly.sonix.tn:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
+  <Link to={"http://localhost:8080/uploads/"+obj?.file}><ReceiptSearch size="22" color="#222" style={{marginLeft:"50%",marginTop:"15%"}}/></Link>
   </td>
 
   <td className="more-avis">

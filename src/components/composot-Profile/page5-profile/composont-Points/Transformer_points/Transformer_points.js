@@ -30,6 +30,7 @@ const Transformer_points = (props) => {
   function handlePagination (event,page) {
     setCurrent(page)
   }
+  console.log(bonDachates)
   return (
     <div className="points">
       <div className="row-points">

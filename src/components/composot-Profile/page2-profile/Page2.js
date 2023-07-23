@@ -8,13 +8,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProduitFavorie } from "../../../Store/Service/AllProduitFavorieByclient";
 const Page2 = (props) => {
   const dispatch = useDispatch();
-  const [dataFromChild, setDataFromChild] = useState([]);
   const produiFavorieClient = useSelector((state) => state.produiFavorie.produiFavorieClient);
   const [refresh, setrefresh] = useState(0);
   const refreshPage = ()=>{
     setrefresh(refresh+1)
   }
-  console.log(refresh)
+
   useEffect(() => {
     dispatch(getAllProduitFavorie(props.user?.id));
   },[refresh]);

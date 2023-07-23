@@ -48,7 +48,7 @@ const LibrairieProfile = () => {
           className="Profile_Librairie-info"
           style={{ "margin": "135px 0 0 126px","background":"#F7F7F7"," border-radius": "16px"," height": "294px", "width": "1170px"}}
         >
-          <img src={"http://fly.sonix.tn:8080/uploads/"+infolib?.imageStore} className="imageProfile" />
+          <img src={"http://localhost:8080/uploads/"+infolib?.imageStore} className="imageProfile" />
           <Grid
             direction="column"
             justifyContent="flex-start"

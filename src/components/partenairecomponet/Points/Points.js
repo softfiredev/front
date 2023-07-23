@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import './points.css'
 import Paper from '@mui/material/Paper';
 import TableHead from '@mui/material/TableHead';
@@ -6,9 +6,35 @@ import { InputAdornment, OutlinedInput, TableBody, TableCell, TableContainer, Ta
 import { SearchNormal1 } from 'iconsax-react';
 
 import { Table } from 'react-bootstrap';
+import axios from 'axios';
+import { Base_url, Path } from '../../../config/Config';
 
-const Pointsp = () => {
+const Pointsp = (props) => {
+  const [all, setAll] = React.useState([]);
+  const [point, setpoint] = React.useState([]);
 
+  const Pointsp = async () => {
+    try {
+      const response = await axios.get(Base_url + Path.findBypartenaire + props?.user.id);
+      setAll(response?.data.bonAchat );
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const getIdentiteClientt=async()=>{
+    try {
+      const response = await axios.get(Base_url + Path.identiteClient + props?.user.id);
+      setpoint(response?.data?.client?.point);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+  useEffect(() => {
+    Pointsp()
+    getIdentiteClientt()
+  }, []);
+  console.log((all))
 
 const rows = [
   {
@@ -60,7 +86,7 @@ const styles = {
       <div  className='cp'>
     <div>  <p className='txt1-cp'>Mes points</p></div>
       <div  className='pp2'>
-      <div>  <p className='txt1-cp20'>Total de points: 1700 pts</p></div>
+      <div>  <p className='txt1-cp20'>Total de points: {point}pts</p></div>
    
           <div className='row-c3'>
           <OutlinedInput
@@ -94,28 +120,28 @@ const styles = {
         </TableHead>
         <TableBody >
             
-            {rows.map((row,rowIndex) => (
+            {all.map((row,rowIndex) => (
               
 
                 <TableRow
-                    key={row.id}
+                    key={rowIndex}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
                     <TableCell component="th" scope="row">
-                    <p className='tb-tp'> {row.id}  </p>  
+                    <p className='tb-tp'> {row?.code}  </p>  
                     </TableCell>
                   
                              
                        <TableCell component="th" scope="row">
-                    <p className='tb-tp'> {row.Dateajout}  </p>  
+                    <p className='tb-tp'> {row?.partenaire?.user?.fullname}   </p>  
                     </TableCell>                   
                      <TableCell component="th" scope="row">
  
-                    <div><p className='tb-tp'> {row.Vendeur}  </p> </div>
+                    <div><p className='tb-tp'>   {row?.solde} </p> </div>
                   
                    
                     </TableCell>
- <TableCell component="th" scope="row"style={{borderRight: "none" }}> {row.Tarification} </TableCell>
+ <TableCell component="th" scope="row"style={{borderRight: "none" }}> {row?.createdAt} </TableCell>
  <TableCell component="th" scope="row"style={{borderRight: "none" }}> 
  <div
                             className={
@@ -124,7 +150,7 @@ const styles = {
                                 : "livre"
                             }
                           >
-                            {row.Statut}
+                            {row?.etat}
                           </div>
  </TableCell>
                   

@@ -226,7 +226,7 @@ const onImageChange = (event) => {
 
               <div className="avatar-container">
 
-                <Avatar  style={{ height: "150px", width: "150px" }}  src={image!==null?image:"http://fly.sonix.tn:8080/uploads/"+clientData?.avatar} className="avrt-page" />
+                <Avatar  style={{ height: "150px", width: "150px" }}  src={image!==null?image:"http://localhost:8080/uploads/"+clientData?.avatar} className="avrt-page" />
 
                 <div className="icon-container" >
                   <ExportCurve

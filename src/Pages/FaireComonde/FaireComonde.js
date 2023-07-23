@@ -12,8 +12,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getIdentiteClientt } from "../../Store/Service/identiteClient";
 import { AjouteCommande } from "../../Store/Service/AjouteCommande";
 import { toast } from "react-toastify";
-import { AddAdrClient } from "../../Store/Service/AdrClient/AddAdrClient";
+import { AddAdrClient, AddAdrpartnier } from "../../Store/Service/AdrClient/AddAdrClient";
 import { addPoint } from "../../Store/Service/addPoint";
+import { Base_url, Path } from "../../config/Config";
+import axios from "axios";
 const FaireComonde = (props) => {
   const navigate = useNavigate();
   const [addresse, setAddresse] = useState({nom: "", addr: "",Ville:"",codepostal:"",clientId:"" });
@@ -75,28 +77,57 @@ const FaireComonde = (props) => {
   };
 
   const Ajoutadr=()=>{
-    let data = {
-      Nom_de_adresse: addresse.nom,
-      Adresse: addresse.addr,
-      Gouvernorat: Gouvernorat,
-      Ville: addresse.Ville,
-      Code_postal: addresse.codepostal,
-      clientId: props.user.id,
+    if(props.user.role==="partenaire")
+    {
+      console.log(props.user.role==="partenaire")
+      let data = {
+        Nom_de_adresse: addresse.nom,
+        Adresse: addresse.addr,
+        Gouvernorat: Gouvernorat,
+        Ville: addresse.Ville,
+        Code_postal: addresse.codepostal,
+        partenaireId: props.user.id,
+      }
+      if(Gouvernorat.length!==0 && addresse.addr.length!==0 && addresse.Ville.length!==0&& addresse.codepostal.length!==0 ){
+        AddAdrpartnier(data).then((response)=>{
+          if(response.success===true){
+              toast.success("votre Adresse  Ajoute  avec success",{autoClose: 1000})
+              setrefreshpage(true)
+          }
+        })
+        setOpenFormAdr(false)
+        setrefreshpage(false)
+        setstep2(true)
+    }
+    else{ toast.error("remplir votre champ  svp !",{autoClose: 1000})}
+    }
+    else
+    {
+      let data = {
+        Nom_de_adresse: addresse.nom,
+        Adresse: addresse.addr,
+        Gouvernorat: Gouvernorat,
+        Ville: addresse.Ville,
+        Code_postal: addresse.codepostal,
+        clientId: props.user.id,
+      }
+      if(Gouvernorat.length!==0 && addresse.addr.length!==0 && addresse.Ville.length!==0&& addresse.codepostal.length!==0 ){
+        AddAdrClient(data).then((response)=>{
+          if(response.success===true){
+              toast.success("votre Adresse  Ajoute  avec success",{autoClose: 1000})
+              setrefreshpage(true)
+          }
+        })
+        setOpenFormAdr(false)
+        setrefreshpage(false)
+        setstep2(true)
+    }
+    else{ toast.error("remplir votre champ  svp !",{autoClose: 1000})}
     }
   
-    if(Gouvernorat.length!==0 && addresse.addr.length!==0 && addresse.Ville.length!==0&& addresse.codepostal.length!==0 ){
-      AddAdrClient(data).then((response)=>{
-        if(response.success===true){
-            toast.success("votre Adresse  Ajoute  avec success",{autoClose: 1000})
-            setrefreshpage(true)
-        }
-      })
-      setOpenFormAdr(false)
-      setrefreshpage(false)
-      setstep2(true)
-  }
-  else{ toast.error("remplir votre champ  svp !",{autoClose: 1000})}
-  }
+    }
+
+  
   const checkedboxfilter = (event) => {
     setCheck(event.target.checked);
   };
@@ -119,6 +150,7 @@ const FaireComonde = (props) => {
   const commande = useSelector((state) => state.Commande.commande);
   const [totalHT, settotalHT] = React.useState(0);
   const [play, setplay] = React.useState(true);
+  const [Profilp2, setProfilp2] = useState([]);
 
   const calculTotalHT = () => {
     let total = 0;
@@ -136,9 +168,24 @@ const FaireComonde = (props) => {
   const clientData = useSelector(
     (state) => state.IdentiteClient.identiteClient
   );
+  const  partner=async ()=>{
+    try {
+      const response = await axios.get(Base_url + Path.findOnePartnaire+ props?.user.id);
+      setProfilp2(response?.data.partenaire.partenaire?.adresses);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
   const dispatch=useDispatch()
   useEffect(()=>{
-        dispatch(getIdentiteClientt(props.user.id));
+    if(props.user.role==="partenaire")
+    {
+      partner()
+    }
+     else
+     {
+      dispatch(getIdentiteClientt(props.user.id));
+     }  
   },[refreshpage])
 
   const valide=()=>{
@@ -172,7 +219,13 @@ const FaireComonde = (props) => {
     
     }
 
-  const addresses=clientData?.client?.adresses
+    
+  
+  const  addresses2=Profilp2
+   const addresses=clientData?.client?.adresses
+     
+
+  console.log(addresses)
   const passeCommande = () => {
   if(ModePay!==undefined)
   {
@@ -200,8 +253,6 @@ const FaireComonde = (props) => {
       dispatch(AjouteCommande(data)).then((response)=>{
         if(response.payload.success===true){
           toast.success("commande a été passée avec succès",{autoClose: 1000})
-
-        
           addPoint(props.user.id,{point:Point}).then((response)=>{
             console.log(response)
           })
@@ -291,20 +342,60 @@ React.useEffect(() => {
               <p className="txt3-Fc">Mes adresses:</p>
             </div>
 
-            {addresses?.map((obj, index) => (
-              <div className="rowmini-Fc">
-                <input type="Radio" className="radio-Fc" name="r0" value={obj.id} onClick={()=>{setidA(obj.id);setOpenFormAdr(false)}}/>
-                <div className="colini-Fc">
-                  <div>
-                    <p className="txt4-Fc">{obj.Nom_de_adresse}</p>
-                  </div>
-                  <div>
-                    <p className="txt5-Fc">{obj.Adresse},{obj.Gouvernorat},{obj.Ville},{obj.Code_postal}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {
+  props.user.role === "partenaire"
+    ? 
+    addresses2?.map((obj, index) => (
+      <div className="rowmini-Fc" key={obj.id}>
+        <input
+          type="radio"
+          className="radio-Fc"
+          name="r0"
+          value={obj.id}
+          onClick={() => {
+            setidA(obj.id);
+            setOpenFormAdr(false);
+          }}
+        />
+        <div className="colini-Fc">
+          <div>
+            <p className="txt4-Fc">{obj.Nom_de_adresse}</p>
+          </div>
+          <div>
+            <p className="txt5-Fc">
+              {obj.Adresse}, {obj.Gouvernorat}, {obj.Ville}, {obj.Code_postal}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))
 
+    :
+     addresses?.map((obj, index) => (
+        <div className="rowmini-Fc" key={obj.id}>
+          <input
+            type="radio"
+            className="radio-Fc"
+            name="r0"
+            value={obj.id}
+            onClick={() => {
+              setidA(obj.id);
+              setOpenFormAdr(false);
+            }}
+          />
+          <div className="colini-Fc">
+            <div>
+              <p className="txt4-Fc">{obj.Nom_de_adresse}</p>
+            </div>
+            <div>
+              <p className="txt5-Fc">
+                {obj.Adresse}, {obj.Gouvernorat}, {obj.Ville}, {obj.Code_postal}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))
+}
             <div className="rowmini-Fc">
               <input type="Radio" className="radio-Fc" name="r0"   onClick={()=>{setOpenFormAdr((true));setidA(undefined)}} />
               <div>
@@ -529,7 +620,7 @@ React.useEffect(() => {
               <p>{e.qte}x</p>
             </div>
             <div>
-              <img src={"http://fly.sonix.tn:8080/uploads/"+e.imgp} style={{ width: "40px", height: "40px" }}/>
+              <img src={"http://localhost:8080/uploads/"+e.imgp} style={{ width: "40px", height: "40px" }}/>
             </div>
             <div>
               <p className="txt214-Fc">{e.titre}</p>

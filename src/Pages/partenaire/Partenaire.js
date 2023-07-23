@@ -29,6 +29,7 @@ import {
    MessageText1,
    MedalStar,
    Heart,
+   HomeHashtag,
 } from "iconsax-react";
 
 import { Link, Outlet, useNavigate } from "react-router-dom";
@@ -73,7 +74,7 @@ const Item = ({ title, to, icon, selected, setSelected,box }) => {
   }   
   </div>      
         </Typography>
-      <Link to={to} />
+      <a  href={to} />
     </MenuItem>
   );
 };
@@ -218,6 +219,13 @@ const Partenaire = () => {
                   title="Profile"
                   to="/partenaire/Profile"
                   icon={<Avatar src="" style={{width: "24px", height: "24px",borderRadius:"24px"}}/>}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+                      <Item
+                  title="Home"
+                  to="/Home"
+                  icon={<HomeHashtag size="22"  variant="Bulk" />}
                   selected={selected}
                   setSelected={setSelected}
                 />

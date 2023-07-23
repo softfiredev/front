@@ -50,7 +50,7 @@ const Categorie = (props) => {
             </div>
             <div>
               <Swiper spaceBetween={50} slidesPerView={3}>
-                <img src={"http://fly.sonix.tn:8080/uploads/"+Oneproduit.imageCataloges?.[0].name_Image} className="imglist-lst2" />
+                <img src={"http://localhost:8080/uploads/"+Oneproduit.imageCataloges?.[0].name_Image} className="imglist-lst2" />
               </Swiper>
             </div>
             <div>
@@ -160,6 +160,7 @@ const Categorie = (props) => {
 
 
   const addProduit=()=>{
+   
     if(prod.prix.length!==0 &&prod.qte.length!==0 &&!isNaN(prod.prix) &&!isNaN(prod.qte))
     {
       const data={
@@ -173,15 +174,17 @@ const Categorie = (props) => {
         labrairieId:props.user?.id
   
       }
+     
       Addprod(data).then((response)=>{
         if(response.success===true){
+          console.log(response)
           toast.success("produit bien ajoute", { autoClose: 1000 })
           setprod({prix:"",qte:""})
   
          setState({ ...state, ["right"]: false })
         }
       })
-    }else{ toast.error("remplir votre chomp OR verify  votre chomp  Svp !!", { autoClose: 1000 })}
+    }else{ toast.error("remplir votre chomp Ou verify  votre chomp  Svp !!", { autoClose: 1000 })}
 
   }
 

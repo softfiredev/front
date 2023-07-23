@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import'./Favorisp.css'
 import { InputAdornment, OutlinedInput } from '@mui/material'
 import { SearchNormal1 } from 'iconsax-react'
 import Cardlisteprod from '../../card-produit/cardlisteprod/cardlisteprod'
-const produit=[{id:"5142",titre:"COMPAS AVEC CRAYON 2506 INV"},{id:"5142",titre:"COMPAS AVEC CRAYON 2506 INV"},{id:"5142",titre:"COMPAS AVEC CRAYON 2506 INV"},{id:"5142",titre:"COMPAS AVEC CRAYON 2506 INV"},]
-const Favorisp = () => {
-  return (
+import axios from 'axios'
+import { Base_url, Path } from '../../../config/Config'
+const Favorisp = (props) => {
+  const [all, setAll] = React.useState([]);
+  const AllFavorisp = async () => {
+    try {
+      const response = await axios.get(Base_url + Path.getproduitFavorie + props?.user.id);
+      setAll(response?.data?.produitFavorie);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  useEffect(() => {
+    AllFavorisp()
+  }, []);
+
+ 
+ return (
     <div className='Favorisp'>
      <div><p className='txt1-Favorisp'>Mes Favoris</p></div>
      <div className='bloq-Favorisp'>
@@ -29,10 +44,10 @@ const Favorisp = () => {
         </div>
 
         <div className='grid-container01 '>
-        {produit?.map((obj) => (
+        {all?.map((obj) => (
 
 
-<div class="grid-item"  ><Cardlisteprod id={obj.id} titre={obj.titre} img={obj?.imageCataloges?.[0].name_Image} Role={'partiner'}/>  </div>
+<div class="grid-item"  ><Cardlisteprod id={obj?.id} titre={obj?.produitlabrairie?.titre} img={obj?.produitlabrairie?.imagelibrairies?.[0].name_Image} Role={'partiner'}/>  </div>
 
 ))}
         </div>

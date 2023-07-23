@@ -82,7 +82,7 @@ import { sousGategorie } from "../../../Store/Service/sousGategorie";
     
 
   const Addproduit =()=>{
-    
+  
     const data = new FormData();
     data.append("titre", produit.titre);
     data.append("description", produit.description);
@@ -91,6 +91,7 @@ import { sousGategorie } from "../../../Store/Service/sousGategorie";
     data.append("categorieId",categorieId);
     data.append("SouscategorieId",souscategorieId);
     data.append("image", prodimg);
+    console.log(souscategorieId)
     addProdCataloge(data).then((response) => {
 
       if (response.success === true) {

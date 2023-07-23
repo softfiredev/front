@@ -185,7 +185,7 @@ useEffect(()=>{
                 <Grid item xs={4.7}>
 
                 <LoginSocialGoogle
-          client_id='337011466004-2tupsm9l5lq9k6pfujgvd83b1om684i6.apps.googleusercontent.com'
+          client_id='256630657171-9rsuph0d9qp2pvq7davodo8t13eerl9q.apps.googleusercontent.com'
           scope="openid profile email"
           discoveryDocs="claims_supported"
           access_type="offline"

@@ -212,7 +212,7 @@ const onImageChange2 = (event) => {
 <>
 <label htmlFor="file-input" className="labelup">
    <div className='circle-vp'>
-   <Avatar  style={{ height: "150px", width: "150px" }}  src={image!==null?image:"http://fly.sonix.tn:8080/uploads/"+clientData?.avatar}  />
+   <Avatar  style={{ height: "150px", width: "150px" }}  src={image!==null?image:"http://localhost:8080/uploads/"+clientData?.avatar}  />
     </div>
     </label>
     <input type="file" className="uplod" id="file-input"accept=".jpg,.png" onChange={onImageChange}/>
@@ -221,7 +221,7 @@ const onImageChange2 = (event) => {
 
 <>
 <div className='circle2-vp'>
-    <Avatar  style={{ height: "48px", width: "48px" }}  src={image!==null?image:"http://fly.sonix.tn:8080/uploads/"+clientData?.avatar} className="avrt2-page" />
+    <Avatar  style={{ height: "48px", width: "48px" }}  src={image!==null?image:"http://localhost:8080/uploads/"+clientData?.avatar} className="avrt2-page" />
     <div><p className="txtavatar1-vp">300x300 - Max 2 MB</p></div>
     <div className="rowbntavatr-vp">
       <button className="bnt10-avatar-vp" onClick={()=>{setopen(true);  setok(false);}}><Export size="22" color="#222" variant="Bold" style={{marginTop:"3%"}}/><div className="txt102av-vp">Télécharger photo</div></button>
@@ -302,7 +302,7 @@ const onImageChange2 = (event) => {
 <div className="boxgrprof-vp">    <Shop size="84" color="#515151" variant="Bold"style={{marginTop:"20%",marginLeft:"22%"}}/> 
 </div>
 :
-<img  style={{ height: "150px", width: "150px",borderRadius:"50%" }}  src={image2!==null?image2:"http://fly.sonix.tn:8080/uploads/"+venderData?.imageStore} className="avrt-page" />
+<img  style={{ height: "150px", width: "150px",borderRadius:"50%" }}  src={image2!==null?image2:"http://localhost:8080/uploads/"+venderData?.imageStore} className="avrt-page" />
 
     }
     </div>
@@ -313,7 +313,7 @@ const onImageChange2 = (event) => {
 
 <>
 <div className='circle2-vp'>
-    <Avatar  style={{ height: "48px", width: "48px" }}  src={image2!==null?image2:"http://fly.sonix.tn:8080/uploads/"+clientData?.avatar} className="avrt2-page" />
+    <Avatar  style={{ height: "48px", width: "48px" }}  src={image2!==null?image2:"http://localhost:8080/uploads/"+clientData?.avatar} className="avrt2-page" />
     <div><p className="txtavatar1-vp">300x300 - Max 2 MB</p></div>
     <div className="rowbntavatr-vp">
       <button className="bnt10-avatar-vp" onClick={()=>{setopen2(true);setok2(false)}}><Export size="22" color="#222" variant="Bold" style={{marginTop:"3%"}}/><div className="txt102av-vp">Télécharger photo</div></button>

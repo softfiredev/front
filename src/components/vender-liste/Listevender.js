@@ -166,7 +166,7 @@ DataPerPage.map((obj, index) => (
     <td className="tdwidth02">
       <div className="row-int01">
 
-        <img src={"http://fly.sonix.tn:8080/uploads/"+obj.imagelibrairies?.[0]?.name_Image} className="img1-int" />
+        <img src={"http://localhost:8080/uploads/"+obj.imagelibrairies?.[0]?.name_Image} className="img1-int" />
    
        
        <div style={{ marginTop: "3%" }}>

@@ -68,7 +68,7 @@ function handlePagination (event,page) {
 <tr>
 
 <td className='tdwidth2-aviss'> <div className="row-int01">
-            <img src={"http://fly.sonix.tn:8080/uploads/"+obj.produitlabrairie?.imagelibrairies?.[0]?.name_Image} className="img1-int" />
+            <img src={"http://localhost:8080/uploads/"+obj.produitlabrairie?.imagelibrairies?.[0]?.name_Image} className="img1-int" />
               <div style={{marginTop:"3%"}}><p className='txt01-int'>{obj.produitlabrairie?.titre}</p></div>
               </div>
             </td>
@@ -81,7 +81,7 @@ function handlePagination (event,page) {
               </td>
 <td className='tdwidth10-aviss'>
     <div className='tdwidth3-aviss'>
-    <div> <img src={"http://fly.sonix.tn:8080/uploads/"+obj?.client?.user?.avatar} alt="maktba"  className="img-aviss"/></div>
+    <div> <img src={"http://localhost:8080/uploads/"+obj?.client?.user?.avatar} alt="maktba"  className="img-aviss"/></div>
 <div><p className='txt0014-aviss'>{obj.client?.user?.fullname}</p></div>
     </div>
 

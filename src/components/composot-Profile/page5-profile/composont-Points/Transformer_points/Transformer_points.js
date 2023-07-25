@@ -73,8 +73,8 @@ const Transformer_points = (props) => {
             </td>
 
             <td className="tdwidth1-points">
-              {obj.etat === "Non validé" ? (
-                <button className="bn010-points">Non validé</button>
+              {obj.etat === "Non Valide" ? (
+                <button className="bn010-points">Non valide</button>
               ) : (
                 <button className="bn0101-points">{obj.etat}</button>
               )}

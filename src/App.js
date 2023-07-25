@@ -261,13 +261,13 @@ function App() {
 
 
 
-            <Route path="/Fornisseuer" element={<Fournisseurs />}>
-            <Route path="/Fornisseuer/Liste_de_livraisons" element={<ListelivraisonsFornisseuer />} />
-            <Route path="/Fornisseuer/Détails_de_livraison/:id" element={<DetailLivrFornisseuer />}             />
-            <Route path="/Fornisseuer/Liste_de_commandes" element={<ListecommandesFornisseuer />}             />
-            <Route path="/Fornisseuer/Détails_de_commandes/:id" element={<DetailcomnderFornisseuer />}             />
-            <Route path="/Fornisseuer/Factorisation" element={<FactorisationFornisseuer />}             />
-            <Route path="/Fornisseuer/Profile" element={<FornisseuerProfile />}/>
+            <Route path="/fournisseur" element={<Protection user={user}><Fournisseurs /></Protection>}>
+            <Route path="/fournisseur/Liste_de_livraisons" element={<Protection user={user}><ListelivraisonsFornisseuer /></Protection>} />
+            <Route path="/fournisseur/Détails_de_livraison/:id" element={<Protection user={user}><DetailLivrFornisseuer /></Protection>}             />
+            <Route path="/fournisseur/Liste_de_commandes" element={<Protection user={user}><ListecommandesFornisseuer /></Protection>}             />
+            <Route path="/fournisseur/Détails_de_commandes/:id" element={<Protection user={user}><DetailcomnderFornisseuer /></Protection>}             />
+            <Route path="/fournisseur/Factorisation" element={<Protection user={user}><FactorisationFornisseuer /></Protection>}             />
+            <Route path="/fournisseur/Profile" element={<Protection user={user}><FornisseuerProfile /></Protection>}/>
             </Route>
             
              <Route path="/Faire_une_commande" element={<FaireComonde user={user}/>}/>

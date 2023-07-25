@@ -75,5 +75,9 @@ export const Path ={
     bloqueuser:"user/bloque/",
     findOnePartnaire:"partenaire/findOnePartnaire/" ,
     updateProfile:"partenaire/updateProfile/",
-    updateProfileimge:"partenaire/updateProfileimge/"
+    updateProfileimge:"partenaire/updateProfileimge/",
+    bonAchatfindBypartenaire:"bonAchat/findBypartenaire/",
+    bonAchatupdateBypartenaire:"bonAchat/update/",
+    bonAchatdelectBypartenaire:"bonAchat/delete/",
+
 }

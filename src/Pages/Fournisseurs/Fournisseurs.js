@@ -14,55 +14,62 @@ import {
   LogoutCurve,
 } from "iconsax-react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { Globalvariable } from "../../Store/Service/Globalvariable";
 const Fournisseurs = () => {
+  const navigate = useNavigate();
+
+  const Lsogout = () => {
+    localStorage.removeItem("persist:root");
+    navigate("/login");
+    navigate(0);
+  };
   const linkarray = [
     {
       linkname: "Tableau du bord",
       icon: <Chart2 size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Fournisseurs"
+      linkto :"//fournisseur"
     },
     {
       linkname: "Catégories",
       icon: <Element4 size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Fornisseuer/categorie"
+      linkto :"/fournisseur/categorie"
     },
     {
       linkname: "Inventaire",
       icon: <Shop size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Fornisseuer/Inventaire"
+      linkto :"/fournisseur/Inventaire"
     },
     {
       linkname: "Liste de commandes",
       icon: <Box size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Fornisseuer/Liste_de_commandes"
+      linkto :"/fournisseur/Liste_de_commandes"
     },
     {
       linkname: "Liste de livraisons",
       icon: <TruckFast size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Fornisseuer/Liste_de_livraisons"
+      linkto :"/fournisseur/Liste_de_livraisons"
     },
     {
       linkname: "Approvisionner",
       icon: <ShoppingCart size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Fornisseuer/Approvisionner"
+      linkto :"/fournisseur/Approvisionner"
     },
     {
       linkname: "Gestion de points",
       icon: <Graph size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Fornisseuer/Gestion_de_points"
+      linkto :"/fournisseur/Gestion_de_points"
     },
     {
       linkname: "Factorisation",
       icon: <Receipt1 size="32" color="#7E7E7E" variant="Bulk" />,
-      linkto :"/Fornisseuer/Factorisation"
+      linkto :"/fournisseur/Factorisation"
     },
  
     {
       linkname: "Profile",
       icon: <img src={img} alt="profil" className="profil" />,
-      linkto :"/Fornisseuer/Profile"
+      linkto :"/fournisseur/Profile"
     },
   ];
   const dispatch=useDispatch()
@@ -100,7 +107,7 @@ const Fournisseurs = () => {
           ))}
         </div>
       
-        <div className="deconnecterbox-Fournisseurs">
+        <div className="deconnecterbox-Fournisseurs" onClick={Lsogout}>
           <LogoutCurve
             size="22"
             color="#E66A6A"

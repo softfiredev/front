@@ -28,11 +28,11 @@ margin-top: 50%;
     border-radius: 100%;
 }
 .header{
-   display: none;
-   visibility: hidden;
+   display: none !important;
+   visibility: hidden !important;
 }
 .footer{
-    display: none;
+    display: none !important;
 }
 .side-bar{
 width: 256px;

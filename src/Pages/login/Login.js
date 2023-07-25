@@ -74,7 +74,10 @@ const [profile, setProfile] = useState();
             {
               nav("/partenaire")
             }
-         
+            else   if(user.role==="fournisseur")
+            {
+              nav("/fournisseur")
+            }
          
           if (response.payload.message === 'password is not correct') {
             toast.error("le mot de passe n'est pas correct !!",{autoClose: 1000})
@@ -152,7 +155,10 @@ useEffect(()=>{
         {
           nav("partenaire")
         }
-     
+        else   if(user.role==="fournisseur")
+        {
+          nav("/fournisseur")
+        }
       })
     }
 

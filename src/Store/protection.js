@@ -3,7 +3,7 @@ import { Navigate,useLocation,useParams} from "react-router-dom";
 
 const Protection = ({children,user}) => {
 const location = useLocation();
-const { param1 } = useParams();
+const { id } = useParams();
 console.log(user.etatCompte)
 if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.pathname==="/New_password"))
 {
@@ -50,7 +50,15 @@ if((location.pathname==="/Admin/Liste_de_demande" || location.pathname==="/Admin
 else{return <Navigate to="/" />}
 }
 
+if(user.role==="fournisseur" &&user.auth==true &&user.etatCompte==="active" )
+{
 
+if((location.pathname==="/fournisseur" || location.pathname==="/fournisseur/Liste_de_livraisons"|| location.pathname==="/fournisseur/Détails_de_livraison/"+id || location.pathname==="/fournisseur/Liste_de_commandes" || location.pathname==="/fournisseur/Détails_de_commandes/"+id || location.pathname==="/fournisseur/Factorisation"|| location.pathname==="/fournisseur/Profile"))
+{
+  return children
+}
+else{return <Navigate to="/" />}
+}
 
 
 if(user.role==="partenaire" &&user.auth==true &&(user.etatCompte==="active"||user.etatCompte===null) )

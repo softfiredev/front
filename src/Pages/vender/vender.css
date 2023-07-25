@@ -2,7 +2,13 @@
     display: flex;
     background-color: #F7F7F7;
 }
-
+.header{
+    display: none !important;
+    visibility: hidden !important;
+ }
+ .footer{
+     display: none !important;
+ }
 .header{
    display: none;
    visibility: hidden;

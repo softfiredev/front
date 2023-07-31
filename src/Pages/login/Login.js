@@ -52,31 +52,36 @@ const [profile, setProfile] = useState();
       dispatch(Loginuser(data)).then(response => {
         try
         {
-         
-            var decoded = jwt_decode(response.payload.accessToken);
+          if(response.payload.error!=="bloque")
+          {
+            var decoded = jwt_decode(response?.payload?.accessToken);
             const user = {
               role:decoded?.role,
-     
+              etatCompte:decoded?.etatCompte,
             };
-            if(user.role==="client")
+            if(user.role==="client" &&user.etatCompte!=="bloque")
             {
               nav("/shop")
             }
-            else  if(user.role==="labrairie")
+            else  if(user.role==="labrairie"&&user.etatCompte!=="bloque")
             {
               nav("/Vender/TableauDuBord")
             }
-            else   if(user.role==="Admin")
+            else   if(user.role==="Admin"&&user.etatCompte!=="bloque")
             {
               nav("/Admin")
             }
-            else   if(user.role==="partenaire")
+            else   if(user.role==="partenaire"&&user.etatCompte!=="bloque")
             {
               nav("/partenaire")
             }
-            else   if(user.role==="fournisseur")
+            else   if(user.role==="fournisseur"&&user.etatCompte!=="bloque")
             {
               nav("/fournisseur")
+            }
+            else   if(user.etatCompte==="bloque")
+            {
+              nav("/bloke")
             }
          
           if (response.payload.message === 'password is not correct') {
@@ -88,8 +93,18 @@ const [profile, setProfile] = useState();
      
             globalState.loding=false
           }         
+
+
+
+          }
+          else{
+            toast.error(" votre e-mail a bloqué le contact Admin!!",{autoClose: 1000})
+
+          }
+      
         }
         catch(error){
+          console.log(error)
           toast.error(" your email is not excited or password is not correct !!",{autoClose: 1000})
           globalState.loding=false
         }

@@ -131,12 +131,15 @@ const changeIdentite=()=>{
       if(response.success===true){
           toast.success("votre identite  modifier avec success",{autoClose: 1000})
           setrefreshpage(true)
+          setinputDisable(true)
+          setrefreshpage(false) 
+    setOpen1(true);  
       }
     })
    }
 
-    setrefreshpage(false) 
-    setOpen1(true);  setinputDisable(true)
+    
+   
 }
 const handleInputChange = (field) => {
   return (e) => {
@@ -264,7 +267,7 @@ const onImageChange = (event) => {
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Numéro de téléphone</div>
-            <input type="text" disabled={inputDisable} className="input-pro" defaultValue={clientData?.telephone} onChange={(e)=>{settelephone(e.target.value)}}/>
+            <input type="number" disabled={inputDisable} className="input-pro" defaultValue={clientData?.telephone} onChange={(e)=>{settelephone(e.target.value)}}/>
           </div>
           <div className="col2-profile">
             <div className="txt-profile3">Date de naissance</div>

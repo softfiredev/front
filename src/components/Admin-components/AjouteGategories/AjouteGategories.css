@@ -1,0 +1,135 @@
+.AjouteG{
+
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+}
+.col-AjouteG{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.bnt-AjouteG{
+    cursor: pointer;
+    width: 180px;
+height: 48px;
+flex-shrink: 0;
+border-radius: 8px;
+background: var(--neutral-0, #222);
+color: #FFF;
+text-align: center;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+}
+.txt-AjouteG{
+    color: var(--neutral-0, #222);
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 48px;
+
+}
+.txt3-AjouteG{
+    color: var(--neutral-0, #222);
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px;
+}
+.row1-AjouteG{
+    display: flex;
+    justify-content: space-between;
+}
+.box2-AjouteG{
+    cursor: pointer;
+    width: 40px;
+height: 40px;
+background-color:  var(--red-800, #FACDCD);
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.box-catégorie{
+    width: 81px;
+height: 40px;
+cursor: pointer;
+border-radius: 4px;
+background: var(--yellow-800, #FCEFC7);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.colmini-AjouteG{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.input-AjouteG2{
+    width: 598px;
+height: 112px;
+flex-shrink: 0;
+border-radius: 8px;
+border: 1px solid #CBD2D9;
+background: #FFF;
+}
+.input-AjouteG{
+    padding-left: 2%;
+    width: 598px;
+height: 56px;
+flex-shrink: 0;
+border-radius: 8px;
+border: 1px solid #CBD2D9;
+background: #FFF;
+}
+.txt1-AjouteG{
+    color: var(--neutral-0, #222);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%
+}
+.txt6-AjouteG{
+    color: var(--neutral-0, #222);
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.txt2-AjouteG{
+    width: 224px;
+color: var(--neutral-300, #626262);
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 160%;
+}
+.txt5-AjouteG{
+width: 220px;
+color: var(--neutral-300, #626262);
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px;
+}
+.table-container {
+    max-height: 500px; 
+    overflow-y: auto; 
+  }
+  
+  .table-container::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background-color: #888; 
+  }

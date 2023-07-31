@@ -224,7 +224,7 @@ if(!sizeimg)
         <p className="txt9-detail">Information du vendeur:</p>
         <br />
         <div className="row3-detail">
-          <img src={"http://fly.sonix.tn:8080/uploads/"+props.imgl} className="img-detail2" />
+          <img src={"http://localhost:8080/uploads//"+props.imgl} className="img-detail2" />
           <div className="col3-deatil">
             <p className="txt10-detail">{props.noml}</p>
             <Link to={`/librairieProfile/${props.idl}`}>

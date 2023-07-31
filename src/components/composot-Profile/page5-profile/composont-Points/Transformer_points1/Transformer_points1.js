@@ -14,7 +14,7 @@ const Transformer_points1 = (props) => {
   useEffect(()=>{
     dispatch(getAllPartanire())
   },[])
-
+console.log(allPartnaire.nameetablissement)
   return (
     <div className="Tf1">
       <div
@@ -49,11 +49,14 @@ const Transformer_points1 = (props) => {
       </div>
       <div className="colini-Tf1">
         {allPartnaire.map((obj, index) => (
-          <div className="rowmini-Tf1">
-            <input type="Radio" className="radio-Tf1" name="r0" value={obj.id} onChange={(e)=>{props.handldataipd(e.target.value);setnbPoint(true);props.setpartnaire(obj.user.fullname)}}  />
+          <div className="rowmini-Tf1" key={index}>
+            {obj?.nameetablissement?
+                          <input type="Radio" className="radio-Tf1" name="r0" value={obj.id} onChange={(e)=>{props.handldataipd(e.target.value);setnbPoint(true);props.setpartnaire(obj.user.fullname)}}  />
+:null
+            }
 
             <div>
-              <p className="txt7-Tf1">{obj.user?.fullname} </p>
+              <p className="txt7-Tf1">{obj?.nameetablissement} </p>
             </div>
           </div>
         ))}

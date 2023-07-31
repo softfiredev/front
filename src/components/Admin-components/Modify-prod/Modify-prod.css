@@ -44,10 +44,10 @@ color: #222222;
 .globalboxuplod-ajout{
     padding: 5%;
 }
-.rowuplod01-ajout{
+.rowuplod01-modf{
     display: flex;
     flex-direction: row;
-    gap:10em;
+   justify-content: space-between;
 }
 .labelup{cursor: pointer;}
 .txtuplod03-ajoute{

@@ -170,13 +170,7 @@ Modifier
 <div><p className="txtliste-lit">Description:</p></div>
 <div><p className="txtliste-lit3">{Oneproduit?.description}</p>   </div>
              
-             
               </div>
-
-
-         
-          
-     
           </ListItem>
     
       </List>

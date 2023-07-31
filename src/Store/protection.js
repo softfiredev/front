@@ -1,10 +1,11 @@
 import { Navigate,useLocation,useParams} from "react-router-dom"; 
+import Notfound from "../Pages/not-found/Not-found";
 
 
 const Protection = ({children,user}) => {
 const location = useLocation();
 const { id } = useParams();
-console.log(user.etatCompte)
+
 if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.pathname==="/New_password"))
 {
   
@@ -12,7 +13,7 @@ if((location.pathname==="/login"|| location.pathname==="/Signup" ||location.path
   {
     return children
   }
-  else{return <Navigate to="/" />}
+  else{return <Navigate to={"/"}/>}
 }
 
 if(user.auth==true &&user.role==="labrairie"&&user.etatCompte==="active" )
@@ -24,7 +25,7 @@ if(user.auth==true &&user.role==="labrairie"&&user.etatCompte==="active" )
   {
     return children
   }
-else{return <Navigate to="/" />}
+else{return <Notfound url={"/Vender/TableauDuBord"}/>}
 }
 
 
@@ -35,7 +36,7 @@ if((location.pathname==="/Profile/Monidentite" || location.pathname==="/Profile"
 {
   return children
 }
-else{return <Navigate to="/" />}
+else{return <Notfound url={"/Profile/Monidentite"}/>}
 }
 const s1=location.pathname.substring(location.pathname.length,location.pathname.indexOf("t/")+2)
 
@@ -43,13 +44,12 @@ const s1=location.pathname.substring(location.pathname.length,location.pathname.
 if(user.role==="Admin" &&user.auth==true &&user.etatCompte==="active" )
 {
   
-if((location.pathname==="/Admin/Liste_de_demande" || location.pathname==="/Admin"|| location.pathname==="/Admin/Produits"|| location.pathname==="/Admin/Modifier_produit/"+s1|| location.pathname==="/Admin/Ajouter_un_produit" || location.pathname==="/Admin/ListeClients" ||  location.pathname==="/Admin/ListeFournisseurs"||  location.pathname==="/Admin/ListeVendeurs"||  location.pathname==="/Admin/ListePartenaires"))
+if((location.pathname==="/Admin/AjouteGategories" ||location.pathname==="/Admin/TableauDuBord" ||location.pathname==="/Admin/Categories" ||location.pathname==="/Admin/Liste_de_demande" || location.pathname==="/Admin"|| location.pathname==="/admin"|| location.pathname==="/Admin/Produits"|| location.pathname==="/Admin/Modifier_produit/"+s1|| location.pathname==="/Admin/Ajouter_un_produit" || location.pathname==="/Admin/ListeClients" ||  location.pathname==="/Admin/ListeFournisseurs"||  location.pathname==="/Admin/ListeVendeurs"||  location.pathname==="/Admin/ListePartenaires"))
 {
   return children
 }
-else{return <Navigate to="/" />}
+else{return <Notfound url={"/Admin/Liste_de_demande"}/>}
 }
-
 if(user.role==="fournisseur" &&user.auth==true &&user.etatCompte==="active" )
 {
 
@@ -57,7 +57,7 @@ if((location.pathname==="/fournisseur" || location.pathname==="/fournisseur/List
 {
   return children
 }
-else{return <Navigate to="/" />}
+else{return <Notfound url={"/Admin/Liste_de_demande"}/>}
 }
 
 
@@ -68,15 +68,15 @@ if((location.pathname==="/partenaire"|| location.pathname==="/partenaire/command
 {
   return children
 }
-else{return <Navigate to="/" />}
+else{return <Notfound url={"/partenaire"}/>}
 }
 
 
 
 
-if(user.auth===false &&user.etatCompte==="bloque")
+if(user.auth===false || user.etatCompte==="bloque")
 {
- return <Navigate to="/" />
+ return <Notfound url={"/login"}/>
 }
 
 

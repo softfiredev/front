@@ -34,16 +34,6 @@
     mix-blend-mode: normal;
     border-radius: 8px;
     }
-    .txt3box4-dc{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 20px;
-        color: #626262;
-        width: 100%;
-    
-        }
         .widthtd-dc{
             width: 42.5%;
         }
@@ -358,9 +348,22 @@ border: 1px solid #EDEDED;
     display: flex;
     flex-direction: row;
     gap: 1em;
+    align-items: center;
 }
 
-
+.txt3box4-dc{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #626262;
+    width: 150%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100px;
+    max-height: 120px;
+    }
     .box5-dc{
 width: 738px;
 height: 164px;

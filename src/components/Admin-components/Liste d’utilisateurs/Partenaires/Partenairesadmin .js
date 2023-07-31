@@ -9,8 +9,6 @@ import Pagination from "@mui/material/Pagination";
 import Typography from '@mui/material/Typography';
 import { Trash,CloseCircle} from "iconsax-react";
 import { useDispatch, useSelector } from "react-redux";
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -77,7 +75,7 @@ const bloquecl=()=>{
     })
 }
 const CLINET = Alluser.filter(product => 
-    product?.role?.toLowerCase()?.includes("Partenaires")
+    product?.role?.toLowerCase()?.includes("partenaire")
   );
 
   const Activ = CLINET.filter(product => 
@@ -86,7 +84,6 @@ const CLINET = Alluser.filter(product =>
   const blog = CLINET.filter(product => 
     product?.etatCompte?.toLowerCase()?.includes("bloque")
   );
-
 
   return (
     <div className="pages-container1">
@@ -156,8 +153,6 @@ CLINET.map((obj, index) => (
  className="more-ad"
  onClick={(e)=>{setAnchorEl(e.currentTarget);setIduser(obj.id)}}
 />
-
-
  </div>
 </td>
 </tr>
@@ -165,8 +160,6 @@ CLINET.map((obj, index) => (
  }
 
     </table>
-
-   
     </TabPanel>
     </Box>
 
@@ -217,14 +210,11 @@ Activ.map((obj, index) => (
  className="more-ad"
  onClick={(e)=>{setAnchorEl(e.currentTarget);setIduser(obj.id)}}
 />
-
-
  </div>
 </td>
 </tr>
 ))
  }
-
     </table>
  </TabPanel>
  <TabPanel value={value} index={2}>  

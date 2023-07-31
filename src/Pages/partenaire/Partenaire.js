@@ -93,10 +93,6 @@ const Partenaire = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [selectedSmall, setSelectedSmall] = useState("home");
 
-  const handleIconClick = (event, id) => {
-    setSelected(id);
-  };
-
   return (
     <Box>
       {!isSmallScreen ? (

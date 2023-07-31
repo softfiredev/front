@@ -22,6 +22,8 @@ import Checkbox from "@mui/material/Checkbox";
 import { getsuggestion } from "../../../../Store/Service/getsuggestion.js";
 import { getAlluser } from "../../../../Store/Service/getAlluser.js";
 import { bloqueuser } from "../../../../Store/Service/actionuser.js";
+import { Base_url, Path } from "../../../../config/Config.js";
+import axios from "axios";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -73,9 +75,20 @@ const bloquecl=()=>{
     bloqueuser(iduser).then((res)=>{
         dispatch(getAlluser())
         setAnchorEl(null);
+        dispatch(getAlluser())
         toast.success("c'est client a bloque avec success", {autoClose: 1000, });
     })
 }
+const sup = async () => {
+  try {
+    const response = await axios.delete(Base_url + Path.deleteuser+ iduser);
+    toast.success("c'est client a suppriem avec success", {autoClose: 1000, });
+    setAnchorEl(null);
+    dispatch(getAlluser())
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
 const CLINET = Alluser.filter(product => 
     product?.role?.toLowerCase()?.includes("client")
   );
@@ -303,8 +316,8 @@ blog.map((obj, index) => (
   
               <MenuItem
                 className="menuitem-avis"
-                onClick={() => {
-                  setop2(true);
+                onClick={() => {             
+                  sup()
                 }}
               >
                 <Trash size="22" color="#D64545" />

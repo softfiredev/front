@@ -169,8 +169,8 @@ DataPerPage.map((obj, index) => (
         <img src={"http://localhost:8080/uploads/"+obj.imagelibrairies?.[0]?.name_Image} className="img1-int" />
    
        
-       <div style={{ marginTop: "3%" }}>
-          <p className="txt01-int">{obj.titre}</p>
+       <div style={{ marginTop: "3%"}}>
+          <p className="txt01-prodd">{obj.titre}</p>
         </div>
       </div>
     </td>

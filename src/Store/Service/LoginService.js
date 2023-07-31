@@ -6,6 +6,7 @@ export const Loginuser = createAsyncThunk(
   'loginservice',
   async (postData) => {
     const response = await axios.post(Base_url+ Path.LoginApi, postData)
+    
     return response.data
   }
 )

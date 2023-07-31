@@ -6,22 +6,32 @@ export const userSlice=createSlice({
   initialState:{
     accessToken:"",
     refreshToken:"",
-    isLogin:false
+    isLogin:false,
+    data:{}
   },
   reducers: {},
   extraReducers:{
     [Loginuser.pending]:(state,)=>{
       state.isLogin=false;
     },
-    [Loginuser.fulfilled]:(state,{payload:{accessToken,refreshToken}})=>{
-    
+    [Loginuser.fulfilled]:(state,{payload:{accessToken,refreshToken,error}})=>{
+      if(error!=="bloque")
+     {
       state.isLogin=true;
       state.accessToken=accessToken;
       state.refreshToken=refreshToken;
+     }
+     else{
+   
+      state.isLogin=false;
+      state.accessToken=error;
+     }
+
       
     },
-    [Loginuser.rejected]:(state,action)=>{
+    [Loginuser.rejected]:(state)=>{
       state.isLogin=false
+
       
     },
   }  

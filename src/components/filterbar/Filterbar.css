@@ -7,6 +7,8 @@
     display: flex;
     flex-direction: row;
     gap: 1em;
+    justify-content: center;
+    align-items: center;
 }
 .bnt0-int{
     display: flex;

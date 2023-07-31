@@ -25,7 +25,7 @@ const Card = (props) => {
   const formattedDate = `${year}-${month}-${day}`;
  const datenow=formattedDate==props.dateG
 
-console.log(props?.prix_en_Solde+"/"+props.titre)
+console.log(props.remise+"/"+props.titre)
  return (
     <div className="card">
        
@@ -39,7 +39,7 @@ console.log(props?.prix_en_Solde+"/"+props.titre)
 :<></>
       }  
     {
-      (parseInt(props?.totalavis)>=25 )&&props.remise===0?  <div className='background-cardRes'style={{background:"#E67635"}}><p className='back-text2' >Meilleures vente</p></div>
+      (parseInt(props?.totalavis)>=25 )&&(props.remise===0||props.remise==null||props.remise==undefined)?  <div className='background-cardRes'style={{background:"#E67635"}}><p className='back-text2' >Meilleures vente</p></div>
       :<></>
     }
 

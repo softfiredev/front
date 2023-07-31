@@ -124,20 +124,20 @@ const dispatch=useDispatch()
 <td className='tdwidth-lv'>{obj.id}</td>
 <td className='tdwidth02-lv'> <div className="row-c">
           
-            <Avatar src={"http://localhost:8080/uploads/"+obj.user.avatar} className="img1-c"style={{borderRadius:"50%"}} />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+            <Avatar src={"http://localhost:8080/uploads/"+obj?.user?.avatar} className="img1-c"style={{borderRadius:"50%"}} />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1-lv'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1-lv'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1-lv'>{obj.createdAt}</td>
+<td className='tdwidth1-lv'><p className='txt02-c'>{obj?.total_ttc?.toFixed(2)}</p></td>
+<td className='tdwidth1-lv'>{obj?.produitlabrairies?.[0]?.nb_Article}</td>
+<td className='tdwidth1-lv'>{obj?.createdAt}</td>
 
 <td className='tdwidth1-lv'>
-{obj.etatVender==="Compléter"?
-<><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj.etatVender}</p></button></>
+{obj?.etatVender==="Compléter"?
+<><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj?.etatVender}</p></button></>
 :
 <>
-<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etatVender}</p></button>
+<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj?.etatVender}</p></button>
 </>
 }
   </td>
@@ -173,18 +173,18 @@ const dispatch=useDispatch()
 <td className='tdwidth-lv'>{obj.id}</td>
 <td className='tdwidth02-lv'> <div className="row-c">
           
-            <Avatar src={"http://localhost:8080/uploads/"+obj.user.avatar} style={{borderRadius:"50%"}} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+            <Avatar src={"http://localhost:8080/uploads/"+obj?.user?.avatar} style={{borderRadius:"50%"}} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1-lv'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
+<td className='tdwidth1-lv'><p className='txt02-c'>{obj?.total_ttc.toFixed(2)}</p></td>
 <td className='tdwidth1-lv'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1-lv'>{obj.createdAt}</td>
+<td className='tdwidth1-lv'>{obj?.createdAt}</td>
 
 <td className='tdwidth1-lv'>
 
 
-<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etatVender}</p></button>
+<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj?.etatVender}</p></button>
 
   
   </td>
@@ -219,20 +219,20 @@ const dispatch=useDispatch()
 <td className='tdwidth-lv'>{obj.id}</td>
 <td className='tdwidth02-lv'> <div className="row-c">
           
-            <Avatar src={"http://localhost:8080/uploads/"+obj.user.avatar}  style={{borderRadius:"50%"}} className="img1-c" />
-              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj.user.fullname}</p></div>
+            <Avatar src={"http://localhost:8080/uploads/"+obj?.user?.avatar}  style={{borderRadius:"50%"}} className="img1-c" />
+              <div style={{marginTop:"3%"}}><p className='txt01-c'>{obj?.user?.fullname}</p></div>
               </div>
               </td>
-<td className='tdwidth1-lv'><p className='txt02-c'>{obj.total_ttc.toFixed(2)}</p></td>
-<td className='tdwidth1-lv'>{obj.produitlabrairies[0]?.nb_Article}</td>
-<td className='tdwidth1-lv'>{obj.createdAt}</td>
+<td className='tdwidth1-lv'><p className='txt02-c'>{obj?.total_ttc.toFixed(2)}</p></td>
+<td className='tdwidth1-lv'>{obj?.produitlabrairies[0]?.nb_Article}</td>
+<td className='tdwidth1-lv'>{obj?.createdAt}</td>
 
 <td className='tdwidth1-lv'>
 {obj.etatVender==="Compléter"?
-<><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj.etatVender}</p></button></>
+<><button className='bnt01-lc'><p className='txtbnt01-lc'>{obj?.etatVender}</p></button></>
 :
 <>
-<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj.etatVender}</p></button>
+<button className='bnt02-lc'><p className='txtbnt02-lc'>{obj?.etatVender}</p></button>
 </>
 }
   </td>

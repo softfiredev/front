@@ -27,10 +27,17 @@ const Filterbar = (props) => {
             </InputAdornment>
           }
         />
-    <button className='bnt0-int' onClick={()=>{setDataFromChild(true);}}>
-    {props.icon}
-    <div><p  className='txt0-int'>{props.nom}</p></div>
-    </button>
+        {
+          props.icon=="none"?""
+          :
+          <button className='bnt0-int' onClick={()=>{setDataFromChild(true);}}>
+          {props.icon}
+          <div><p  className='txt0-int'>{props.nom}</p></div>
+          </button>
+        }
+ 
+
+
     {props.nom==="Ajouter filtre"?
     <>
        <Filtrer_produits onData={handleDataFromChild} isopen={dataFromChild}/>

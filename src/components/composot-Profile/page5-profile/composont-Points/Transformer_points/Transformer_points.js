@@ -62,7 +62,7 @@ const Transformer_points = (props) => {
               <p>{obj.createdAt}</p>
             </td>
             <td className="tdwidth1-points">
-              <p>{obj.partenaire?.user?.fullname}</p>
+              <p>{obj.partenaire?.nameetablissement}</p>
             </td>
             <td className="tdwidth1-points">
               <p>{obj.solde} DT</p>

@@ -283,6 +283,7 @@ border: 1px solid #EDEDED;
     display: flex;
     flex-direction: row;
     gap: 1em;
+    align-items: center;
 }
 .imgbox4-dc{
 Width:76px;
@@ -297,8 +298,11 @@ border-radius: 8px;
     font-size: 16px;
     line-height: 20px;
     color: #626262;
-    width: 100%;
-
+    width: 150%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100px;
+    max-height: 120px;
     }
     .widthtd-dc{
         width: 42.5%;

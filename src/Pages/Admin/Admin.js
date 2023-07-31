@@ -9,6 +9,7 @@ import {
   Box,
   TruckFast,
   LogoutCurve,
+  ClipboardText,
 } from "iconsax-react";
 
 import "./Admin.css";
@@ -30,15 +31,22 @@ const Admin = () => {
       icon: <Chart2 size="32" color="#7E7E7E" variant="Bulk" />,
       linkto :"/Admin/TableauDuBord"
     },
-    
+      
+    {
+      linkname: "Catégories",
+      icon: <Element4 size="32" color="#7E7E7E" variant="Bulk" />,
+      linkto :"/Admin/Categories"
+    },
     {
       linkname: "Produits",
-      icon: <Element4 size="32" color="#7E7E7E" variant="Bulk" />,
+      icon: <Shop size="32" color="#7E7E7E" variant="Bulk" />,
       linkto :"/Admin/Produits"
     },
     {
       linkname:<div className="row-admin">Liste de demande </div>,
-      icon: <Shop size="32" color="#7E7E7E" variant="Bulk" />,
+      icon:
+      <ClipboardText   size="32"  color="#7E7E7E"  variant="Bulk"
+     />,
       linkto :"/Admin/Liste_de_demande"
     },
     {

@@ -13,7 +13,19 @@ import Clients from "./components/Admin-components/Liste d’utilisateurs/Client
 import Fournisseursadmin from "./components/Admin-components/Liste d’utilisateurs/Fournisseurs/Fournisseursadmin";
 import Vendeursadmin from "./components/Admin-components/Liste d’utilisateurs/Vendeurs/Vendeursadmin";
 import Partenairesadmin from "./components/Admin-components/Liste d’utilisateurs/Partenaires/Partenairesadmin ";
+import Notfound from "./Pages/not-found/Not-found";
+import Bloked from "./Pages/blok/Bloked";
 
+const AjouteGategories = lazy(() =>
+  import("./components/Admin-components/AjouteGategories/AjouteGategories")
+);
+const TableauDuBordAdmin = lazy(() =>
+  import("./components/Admin-components/Tableborde/TableauDuBord")
+);
+
+const Catégories = lazy(() =>
+  import("./components/Admin-components/Catégories/Catégories")
+);
 const Commandespartenaire = lazy(() =>
   import("./components/partenairecomponet/Mes_commandes/Commandes")
 );
@@ -282,6 +294,10 @@ function App() {
              <Route path="/Admin/ListePartenaires" element={<Protection user={user}><Partenairesadmin  user={user}/></Protection>}/>
              <Route path="/Admin/ListeVendeurs" element={<Protection user={user}><Vendeursadmin user={user}/></Protection>}/>
              <Route path="/Admin/ListeFournisseurs" element={<Protection user={user}><Fournisseursadmin user={user}/></Protection>}/>
+             <Route path="/Admin/Categories" element={<Protection user={user}><Catégories user={user}/></Protection>}/>
+             <Route path="/Admin/TableauDuBord" element={<Protection user={user}><TableauDuBordAdmin user={user}/></Protection>}/>
+             <Route path="/Admin/AjouteGategories" element={<Protection user={user}><AjouteGategories user={user}/></Protection>}/>
+
              </Route>
 
              <Route path="/partenaire" element={<Protection user={user}><Partenaire user={user}/></Protection>}>
@@ -299,8 +315,8 @@ function App() {
 
 
 
-
-            <Route path="*" element={<> page not !!!</>} />
+             <Route path="/bloke" element={<Bloked/>} />
+            <Route path="*" element={<Notfound/>} />
           </Routes>
         </Suspense>
         <Toast />

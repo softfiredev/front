@@ -91,9 +91,7 @@ import { sousGategorie } from "../../../Store/Service/sousGategorie";
     data.append("categorieId",categorieId);
     data.append("SouscategorieId",souscategorieId);
     data.append("image", prodimg);
-    console.log(souscategorieId)
     addProdCataloge(data).then((response) => {
-
       if (response.success === true) {
         toast.success("votre produit a ete Ajoute avec success", {
           autoClose: 1000,
@@ -336,7 +334,6 @@ import { sousGategorie } from "../../../Store/Service/sousGategorie";
            <input type="Radio" className="radio-Tf1" name="r0"     checked={Visible === obj.value} value={obj.value} onChange={handleChange} />
           <div> <p className="txt2-mody">{obj.nom}</p></div>
            </div>
-       
                 
         ))}
 

@@ -9,6 +9,19 @@
 .divcommtxt-avis{
     width: 224px;
 }
+.txt2-avisp{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #626262;
+    width: 150%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 130px;
+    max-height: 40px;
+}
 .commtxt-avis{
 
     margin-top: -4px;

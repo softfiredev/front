@@ -8,10 +8,12 @@ import { More, SearchNormal1, Trash } from 'iconsax-react';
 import { Table } from 'react-bootstrap';
 import axios from 'axios';
 import { Base_url, Path } from '../../../config/Config';
+import { toast } from 'react-toastify';
 
 const Pointsp = (props) => {
   const [all, setAll] = React.useState([]);
   const [id, setid] = React.useState();
+  const [status, setstatus] = React.useState();
 
   const [point, setpoint] = React.useState([]);
   const handleClick = (e) => {
@@ -30,53 +32,10 @@ const Pointsp = (props) => {
       console.error("Error fetching data:", error);
     }
   };
-  const getIdentiteClientt=async()=>{
-    try {
-      const response = await axios.get(Base_url + Path.identiteClient + props?.user.id);
-      setpoint(response?.data?.client?.point);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
   useEffect(() => {
     Pointsp()
   }, []);
-const rows = [
-  {
-      id: "#100194",
-      Articles: "2",
-      Dateajout: "06/02/2022",
-      Vendeur: "Errahma Library",
-      Tarification: "120 dt",
-      Statut: "Non valide",
-  
-  },
-  {
-    id: "#100194",
-    Articles: "2",
-    Dateajout: "06/02/2022",
-    Vendeur: "Errahma Library",
-    Tarification: "120 dt",
-    Statut: "Non valide",
 
-},  {
-  id: "#100194",
-  Articles: "2",
-  Dateajout: "06/02/2022",
-  Vendeur: "Errahma Library",
-  Tarification: "120 dt",
-  Statut: "valide",
-
-},  {
-  id: "#100194",
-  Articles: "2",
-  Dateajout: "06/02/2022",
-  Vendeur: "Errahma Library",
-  Tarification: "120 dt",
-  Statut: "valide",
-
-},
-];
 const styles = {
   tableCell: {
     fontSize: "16px",
@@ -97,9 +56,10 @@ const delect=async()=>{
 const update=async ()=>{
   try {
     const response = await axios.put(Base_url+Path.bonAchatupdateBypartenaire+ id);
-    Pointsp()
+      toast.success("status changer avec succès",{autoClose: 1000})
+      Pointsp()
   } catch (error) {
-    console.error("Error fetching data:", error);
+    toast.error("verifie votre status",{autoClose: 1000})
   }
 
 }
@@ -168,7 +128,7 @@ color="#222222"
 aria-controls={open ? "basic-menu" : undefined}
 aria-haspopup="true"
 aria-expanded={open ? "true" : undefined}
-onClick={(e) => {handleClick(e);setid(row?.id) }}
+onClick={(e) => {handleClick(e);setid(row?.id);setstatus(row?.etat) }}
 className="more-avis"
 />
  
@@ -211,9 +171,13 @@ MenuListProps={{
     "aria-labelledby": "basic-button",
 }}
 >
-<MenuItem className="menuitem-avis" onClick={()=>{update(); setAnchorEl(null)}}>
+  {status!=="Valide"?
+  <MenuItem className="menuitem-avis" onClick={()=>{update(); setAnchorEl(null)}}>
 <div>Valide</div>
 </MenuItem>
+:null
+  }
+
 <MenuItem className="menuitem-avis" onClick={()=>{delect(); setAnchorEl(null)}}>
 <div>
 <p style={{color:"red"}}>

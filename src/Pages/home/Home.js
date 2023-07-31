@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import "./Home.css";
-import { Grid } from "@mui/material";
+import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import {
   Headphone,
   TruckFast,
@@ -105,9 +105,13 @@ const Home = () => {
   useEffect(()=>{
     dispatch(getAllProduitlibrairie())
 },[])
+const theme = useTheme();
+const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+console.log(isSmallScreen)
   return (
-    <div>
- 
+    <>
+        {!isSmallScreen ? (
+
       <div className="group-home ">
     <div>
     <Grid
@@ -479,8 +483,17 @@ const Home = () => {
         </Grid>
     </div>
       </div>
-  
-    </div>
+
+    )
+    :
+    (
+
+<div></div>
+      
+    )
+    }
+    </>
+
   );
 };
 

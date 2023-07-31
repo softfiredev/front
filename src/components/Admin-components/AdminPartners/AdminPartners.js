@@ -127,8 +127,9 @@ const Listecommandes = (props) => {
                       toast.success("c'est demande a ete accepté success", { autoClose: 1000,})
                       setAnchorEl(null);
                       setetat(demende.etat)
+                      demondePar()
                     }else{
-                      toast.error("email exist", { autoClose: 1000,})
+                      toast.error("email exist", { autoClose: 1000})
                       setAnchorEl(null);
                     }
              
@@ -216,8 +217,8 @@ const Annuler=()=>{
 <td >
 {obj.etat==="accepte"?
 <><button className='bnt01-c'><p className='txtbnt01-c'style={{color:"#05400A"}}>{obj.etat}</p></button></>
-:<>{obj.etat==="Annuler"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>Annuler</p> </button>:
-<>{obj.etat==="en_cours"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>en attente</p></button>:<></>}</>}
+:<>{obj.etat==="Annuler"?<button className='bnt02-c' style={{background:"#E66A6A"}}><p className='txtbnt02-c'style={{color:"#fff"}}>{obj.etat}</p> </button>:
+<>{obj.etat==="en attente"?<button className='bnt02-c' style={{background:"#DCEEFB"}}><p className='txtbnt02-c'style={{color:"#05400A"}}>{obj.etat}</p></button>:<></>}</>}
 </>}
 
   
@@ -663,34 +664,39 @@ const Annuler=()=>{
         </TabPanel>
     </Box>
     </div>
-    <Menu
-              id="basic-menu"
-              className="menu-avis"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-              }}
-            >
-      
-              <MenuItem className="menuitem-avis" onClick={confirm}>
-              <TickCircle size="22" color="#626262"/>
-                <span>
-                  <p className="txtmenu-avis">Confirmer</p>
-                </span>
-              </MenuItem>
-              <MenuItem
-                className="menuitem-avis"
-                onClick={Annuler}
-              >          
-               <CloseCircle size="22" color="#D64545" />
-                <span>
-                <p className="txtmenu-avis" style={{color:"#D64545"}}>Refuser</p>
-                </span>
-              </MenuItem>
+    {demende?.etat!=="accepte"?
+      <Menu
+      id="basic-menu"
+      className="menu-avis"
+      anchorEl={anchorEl}
+      open={open}
+      onClose={handleClose}
+      MenuListProps={{
+        "aria-labelledby": "basic-button",
+      }}
+    >
 
-            </Menu>
+      <MenuItem className="menuitem-avis" onClick={confirm}>
+      <TickCircle size="22" color="#626262"/>
+        <span>
+          <p className="txtmenu-avis">Confirmer</p>
+        </span>
+      </MenuItem>
+      <MenuItem
+        className="menuitem-avis"
+        onClick={Annuler}
+      >          
+       <CloseCircle size="22" color="#D64545" />
+        <span>
+        <p className="txtmenu-avis" style={{color:"#D64545"}}>Refuser</p>
+        </span>
+      </MenuItem>
+
+    </Menu>
+    :null
+
+    }
+  
     <div className='page-c'>  
 <div className="pagination1-c">
 

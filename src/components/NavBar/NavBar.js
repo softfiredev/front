@@ -1,8 +1,8 @@
 import React from 'react'
 import './navbar.css'
 import Imge from "../../assets/logo.png"
-import { Link } from 'react-router-dom';
-import { ShoppingCart,ArrowDown2, ProfileCircle } from 'iconsax-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ShoppingCart,ArrowDown2, ProfileCircle, Logout } from 'iconsax-react';
 import Menuicon from '../menu-icon/minu';
 import { useSelector } from 'react-redux';
 import Avatar from '@mui/material/Avatar';
@@ -10,7 +10,14 @@ function NavBar(props) {
   const clientData = useSelector(
     (state) => state.IdentiteClient.identiteClient
   );
+  const navigate = useNavigate();
+  const Lsogout = () => {
+    localStorage.removeItem("persist:root");
+    navigate("/login");
+    navigate(0);
+  };
   const nbprod=useSelector(state=> state.Panier.nbprod)
+
   return (
 
       <header className="header">
@@ -34,7 +41,7 @@ function NavBar(props) {
           <div className="cartchop">
 
           <span>
-            <a href="/cart" className='iconcolor'>
+            <a href={props?.user?.etatCompte==="bloque"?null:"/cart"} className='iconcolor'>
               <ShoppingCart
                 size="32"
                 color="#FFFFFF"
@@ -45,12 +52,25 @@ function NavBar(props) {
           </div>
          <div>
          <Link to="/login" className={props.user.auth?"butto-NAV-link-none":"butto-NAV-link"} > <button className='butto-NAV' ><p className='conx'>Connexion</p></button></Link>
-          <Link to={props.user.role==="client"?"Profile/Monidentite":props.user.role==="labrairie"?"/Vender/TableauDuBord":props.user.role==="Admin"?"/Admin":props.user.role==="partenaire"?"/partenaire":props.user.role==="fournisseur"?"/fournisseur":""} >
-          <div className={props.user.auth?"section_user":"section_user-none"}>
-                  <p className='username'> {clientData?.fullname===undefined?props.user?.fullname:clientData?.fullname}</p>
-                  <Avatar  style={{ height: "26px", width: "26px" }}  src={clientData?.avatar!==undefined?"http://localhost:8080/uploads/"+clientData?.avatar:"http://localhost:8080/uploads/"+props.user.avatar} className="avrt-pagenave" />
-          </div>
-          </Link>
+          {props?.user?.etatCompte==="bloque" &&props.user.auth?
+<div style={{cursor:"pointer",display:"flex",justifyContent:"center",alignItems:"center",gap:"1em"}} onClick={Lsogout}>
+<Logout
+ size="32"
+ color="#fff"
+ variant="Bold"
+/>
+<div><p style={{color:"#fff"}}>LogOut</p></div>
+</div>
+:
+<Link to={props.user.role==="client"?"Profile/Monidentite":props.user.role==="labrairie"?"/Vender/TableauDuBord":props.user.role==="Admin"?"/Admin":props.user.role==="partenaire"?"/partenaire":props.user.role==="fournisseur"?"/fournisseur":""} >
+<div className={props.user.auth?"section_user":"section_user-none"}>
+        <p className='username'> {clientData?.fullname===undefined?props.user?.fullname:clientData?.fullname}</p>
+        <Avatar  style={{ height: "26px", width: "26px" }}  src={clientData?.avatar!==undefined?"http://localhost:8080/uploads/"+clientData?.avatar:"http://localhost:8080/uploads/"+props.user.avatar} className="avrt-pagenave" />
+</div>
+</Link>
+          }
+          
+  
           </div>
     
         </div>

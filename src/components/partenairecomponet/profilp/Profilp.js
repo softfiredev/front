@@ -4,6 +4,7 @@ import { Edit, Export, Shop, Trash } from 'iconsax-react';
 import { Avatar } from '@mui/material';
 import axios from 'axios';
 import { Base_url, Path } from '../../../config/Config';
+import { toast } from 'react-toastify';
 const Profilp = (props) => {
     const [ok2,setok2]=useState(false)
     const [Profilp2, setProfilp2] = useState([]);
@@ -55,6 +56,7 @@ const  partner=async ()=>{
     {
       setImage2("http://localhost:8080/uploads/"+response.data?.partenaire?.partenaire?.image)
     }
+
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -76,6 +78,7 @@ const update=async ()=>{
   }
   try {
   const response = await axios.put(Base_url + Path.updateProfile+ props?.user.id,data);
+  toast.success("votre Profile Modifier avec success",{autoClose: 1000})
 
   }catch(error)
   {

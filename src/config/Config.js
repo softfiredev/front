@@ -47,6 +47,7 @@ export const Path ={
     getAllProduitFornisseur:"produit/findAll",
     Gategorie:"categorie/findCategorie",
     sousGategorie:"sousCategorie/findBycategorie/",
+    ALLsousGategorie:"sousCategorie/findAll",
     addProduitCommande:"commandeDetail/addArticle",
     becomePartner:"BecomePartner/add",
     deleteProduitCommande :"commandeDetail/deleteArticle/",
@@ -63,6 +64,7 @@ export const Path ={
     AddFournisseur:"fournisseur/add",
     produit_mieux_note:"produitLabrairie/produit_mieux_notes/",
     allProduitcataloge:"cataloge/findAll",
+    updatecataloge:"cataloge/update/",
     oneProdCataloge :"cataloge/findOne/",
     addprod:"produitLabrairie/addProdCataloge",
     addProdCataloge :"cataloge/add",
@@ -73,11 +75,14 @@ export const Path ={
     getAlluser:"user/findAll",
     findBypartenaire:"bonAchat/findByuser/",
     bloqueuser:"user/bloque/",
+    deleteuser:"user/delete/",
     findOnePartnaire:"partenaire/findOnePartnaire/" ,
     updateProfile:"partenaire/updateProfile/",
     updateProfileimge:"partenaire/updateProfileimge/",
     bonAchatfindBypartenaire:"bonAchat/findBypartenaire/",
     bonAchatupdateBypartenaire:"bonAchat/update/",
     bonAchatdelectBypartenaire:"bonAchat/delete/",
-
+    findCategorie:"categorie/findCategorie",
+    deleteCategorie:"categorie/deleteCategorie/",
+    AddCategorie:"categorie/add/"
 }

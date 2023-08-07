@@ -9,7 +9,7 @@ import Filterbar from '../filterbar/Filterbar';
 import {Sort} from "iconsax-react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { findCommandeBylibrairie } from "../../Store/Service/findCommandeBylibrairie";
+import addNotification from 'react-push-notification';
 import Pagination from "@mui/material/Pagination";
 import { Base_url, Path } from "../../config/Config";
 import axios from "axios";
@@ -90,6 +90,7 @@ const Listecommandes = (props) => {
         Allcomnde()
       }, []);
 
+ 
   return (
     <div className='liste-c'>
   <div>   <p className='txt-c'>Liste de commandes</p></div>
@@ -194,7 +195,8 @@ const Listecommandes = (props) => {
 <><button className='bnt01-c'><p className='txtbnt01-c'>{obj.etatVender}</p></button></>
 :
 <>
-{obj?.etatVender==="En cours"?
+{
+obj?.etatVender==="En cours"?
 <button className='bnt02-c'><p className='txtbnt02-c'>{obj.etatVender}</p></button>
 :<>{obj.etatVender==="Rejeter"?<button className='bnt02-c' style={{background:"#FACDCD"}}><p className='txtbnt02-c'>{obj.etatVender}</p></button>:
 <>{obj.etatVender==="Nouveau"?<button className='bnt02-c' style={{background:"#FCEFC7"}}><p className='txtbnt02-c'style={{color:"#513C06"}}>{obj.etatVender}</p></button>:<></>}</>}</>}</>}

@@ -25,8 +25,6 @@ const Recapitulatif = (props) => {
     calculTotalHT();
   }, [commande]);
 
-
-console.log(commande)
 const valide=()=>{
   if(props?.etatcompt==="active" ||props?.authuser===false ||props?.authuser===true ){
 
@@ -77,7 +75,7 @@ const valide=()=>{
           <p>Tax</p>
         </div>
         <div className="itemchiffer">
-          <p>{totalHT.toFixed(2)} dt</p>
+          <p>{totalHT.toFixed(3)} dt</p>
           <p>{0} dt</p>
           <p>-{0} dt</p>
           <p>{7}%</p>
@@ -108,7 +106,7 @@ const valide=()=>{
         spacing={0.5}
       >
         <p className="totalTTC">Total TTC</p>
-        <p className="totalMontant">{(totalHT * 1.07).toFixed(2)} dt</p>
+        <p className="totalMontant">{(totalHT * 1.07).toFixed(3)} dt</p>
       </Grid>
       
 

@@ -6,6 +6,23 @@
     display: none !important;
     visibility: hidden !important;
  }
+ .boxpatg{
+    position: relative;
+    left: 5%;
+
+    background-color: #f5cb69;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #222;
+ }
+ .boxListe{
+    display: flex;
+    justify-content: space-between;
+ }
  .footer{
      display: none !important;
  }

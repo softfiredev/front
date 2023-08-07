@@ -5,8 +5,6 @@ export const SlicePanier=createSlice({
   reducers:{
     add:(state,action)=>{
         const ProduitExist =state.panier.find((obj)=>obj.idp===action.payload.idp)?true:false
-        console.log(state.panier,"panier")
-        console.log(ProduitExist,"etate idp");
         if(ProduitExist){
           state.panier.forEach((obj)=>{
             if (obj.idp === action.payload.idp) {
@@ -25,6 +23,7 @@ export const SlicePanier=createSlice({
       state.panier.splice(action.payload,1);
       state.nbprod = state.panier?.length;
       state.status="success"
+      console.log(action)
     },
     update:(state,action)=>{
       const ProduitExist =state.panier.find((obj)=>obj.idp===action.payload.idp)?true:false
@@ -36,10 +35,14 @@ export const SlicePanier=createSlice({
         })        
       }
   },
-  
+  removeAll:(state,action)=>{
+    state.panier=[];
+    state.nbprod =0;
+    state.status="success"
+  },
     
   },
 
 })
-export const{add,remove,update}=SlicePanier.actions
+export const{add,remove,update,removeAll}=SlicePanier.actions
 export default SlicePanier.reducer;

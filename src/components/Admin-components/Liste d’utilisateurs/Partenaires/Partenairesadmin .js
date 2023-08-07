@@ -11,16 +11,11 @@ import { Trash,CloseCircle} from "iconsax-react";
 import { useDispatch, useSelector } from "react-redux";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Link, useNavigate } from "react-router-dom";
-import { TickSquare, More, FilterAdd, ArrowCircleRight2, Edit } from "iconsax-react";
-
+import { useNavigate } from "react-router-dom";
+import {  More } from "iconsax-react";
 import { toast } from "react-toastify";
-
-import { getsuggestion } from "../../../../Store/Service/getsuggestion.js";
 import { getAlluser } from "../../../../Store/Service/getAlluser.js";
 import { bloqueuser } from "../../../../Store/Service/actionuser.js";
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -56,9 +51,9 @@ const Partenairesadmin  = (props) => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
       };
-      const [anchorEl, setAnchorEl] = React.useState(null);
-      const open = Boolean(anchorEl);
-      const Alluser = useSelector(
+const [anchorEl, setAnchorEl] = React.useState(null);
+const open = Boolean(anchorEl);
+const Alluser = useSelector(
         (state) => state.getAlluser.users
       );
       const handleClose = () => {
@@ -77,25 +72,17 @@ const bloquecl=()=>{
 const CLINET = Alluser.filter(product => 
     product?.role?.toLowerCase()?.includes("partenaire")
   );
-
   const Activ = CLINET.filter(product => 
     product?.etatCompte?.toLowerCase()?.includes("active")
   );
   const blog = CLINET.filter(product => 
     product?.etatCompte?.toLowerCase()?.includes("bloque")
   );
-
   return (
     <div className="pages-container1">
-
     <div className="header-page-categorie">
-   <div>   <h1 className="title-page-categorie">Liste de Partenaires</h1></div>
-    
-
-
+   <div><h1 className="title-page-categorie">Liste de Partenaires</h1></div>
     </div>
-
-
     <Box sx={{ width: '100%' }}>
     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#222" } }}>
@@ -104,8 +91,6 @@ const CLINET = Alluser.filter(product =>
         <Tab label={<p className="txttabs-c">Bloquée</p>} {...a11yProps(2)} />
       </Tabs>
     </Box>
- 
-
     <TabPanel value={value} index={0}>  
     <table>
       <tr>
@@ -115,15 +100,13 @@ const CLINET = Alluser.filter(product =>
         <th>Email adresse</th>
         <th>Derniére Activité</th>
         <th>Staut</th>
-
       </tr>
  {
 CLINET.map((obj, index) => (
-<tr>
+<tr style={{cursor:"pointer"}}onClick={()=>{navigate("/Admin/details_Partenaires/"+obj.id)}}>
   <td className="tdwidth">{obj.id}</td>
   <td className="tdwidth02">
     <div className="row-int01">
-
     <Avatar src={"http://localhost:8080/uploads/"+obj?.avatar} className="img512-ad" />
      <div style={{ marginTop: "3%" }}>
         <p className="txt01-int">{obj.fullname}</p>
@@ -131,10 +114,9 @@ CLINET.map((obj, index) => (
     </div>
   </td>
   <td className="tdwidth1">
-    <p className="txt02-int">{obj?.telephone}</p>
+    <p className="txt02-int">{obj?.telephone?obj?.telephone:"-"}</p>
   </td>
   <td className="tdwidth10">{obj?.email}</td>
-
   <td className="tdwidth1">{obj?.createdAt}</td>
   <td className="tdwidth1">{ obj?.etatCompte==="active"?
   <div className="stats-admin1">{obj?.etatCompte }</div> 
@@ -162,7 +144,6 @@ CLINET.map((obj, index) => (
     </table>
     </TabPanel>
     </Box>
-
     <TabPanel value={value} index={1}>  
     <table>
       <tr>
@@ -176,7 +157,7 @@ CLINET.map((obj, index) => (
       </tr>
  {
 Activ.map((obj, index) => (
-<tr>
+<tr style={{cursor:"pointer"}}onClick={()=>{navigate("/Admin/details_Partenaires/"+obj.id)}}>
   <td className="tdwidth">{obj.id}</td>
   <td className="tdwidth02">
     <div className="row-int01">
@@ -188,7 +169,7 @@ Activ.map((obj, index) => (
     </div>
   </td>
   <td className="tdwidth1">
-    <p className="txt02-int">{obj?.telephone}</p>
+    <p className="txt02-int">{obj?.telephone?obj?.telephone:"-"}</p>
   </td>
   <td className="tdwidth10">{obj?.email}</td>
 
@@ -219,7 +200,7 @@ Activ.map((obj, index) => (
  </TabPanel>
  <TabPanel value={value} index={2}>  
     <table>
-      <tr>
+      <tr >
         <th>#</th>
         <th>Nom</th>
         <th>Téléphone</th>
@@ -230,7 +211,7 @@ Activ.map((obj, index) => (
       </tr>
  {
 blog.map((obj, index) => (
-<tr>
+<tr  style={{cursor:"pointer"}} onClick={()=>{navigate("/Admin/details_Partenaires/"+obj.id)}}>
   <td className="tdwidth">{obj.id}</td>
   <td className="tdwidth02">
     <div className="row-int01">
@@ -242,7 +223,7 @@ blog.map((obj, index) => (
     </div>
   </td>
   <td className="tdwidth1">
-    <p className="txt02-int">{obj?.telephone}</p>
+    <p className="txt02-int">{obj?.telephone?obj?.telephone:"-"}</p>
   </td>
   <td className="tdwidth10">{obj?.email}</td>
 
@@ -302,7 +283,7 @@ blog.map((obj, index) => (
                   <p className="spn-ad2">Suprimer</p>
                 </span>
               </MenuItem>
-            </Menu>
+         </Menu>
   </div>
 
   )

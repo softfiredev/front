@@ -1,0 +1,119 @@
+.Liste_commandes{
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    margin-top: 4%;
+}
+.row-Liste_commandes{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 40%;
+}
+.box1-Liste_commandes{
+    width: 138px;
+height: 48px;
+flex-shrink: 0;
+border-radius: 48px;
+background: var(--neutral-0, #222);
+color: #FFF;
+text-align: center;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.box2-Liste_commandes{
+    width: 138px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 48px;
+    border: 1px solid var(--neutral-400, #7E7E7E);
+    background: #FFF;
+    color: var(--neutral-400, #7E7E7E);
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.img-tab{
+    width: 32px;
+height: 32px;
+flex-shrink: 0;
+border-radius: 32px;
+}
+.row-tab{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.Montant-tab{
+    color: var(--yellow-100, #7C5E10);
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+}
+.Nbr_articles-tab{
+    color: var(--neutral-0, #222);
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px;
+}
+
+.bnt01-c{
+    width: 88px;
+    height: 32px;
+    background: #C1EAC5;
+    border-radius: 36px;
+    border: none;
+    
+    }
+    .txtbnt01-c{
+        font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    margin-top: -1%;
+    color: #05400A;
+    }
+    .txtbnt02-c{
+        font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    margin-top: -1%;
+    color: #003E6B;
+    }
+    .tableCell{
+        color: var(--neutral-0, #222);
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px;
+    }
+    .bnt02-c{
+        width: 88px;
+        height: 32px;
+        background: #B6E0FE;
+        border-radius: 36px;
+        border: none;
+        }    

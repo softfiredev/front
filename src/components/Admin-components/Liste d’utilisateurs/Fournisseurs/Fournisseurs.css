@@ -4,6 +4,15 @@
     gap:43.5em ;
 
 }
+.txttabs-c{
+    color: var(--neutral-0, #222);
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px; 
+}
 .col5487-lst{
     display: flex;
     flex-direction: column;

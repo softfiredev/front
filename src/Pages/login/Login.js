@@ -69,7 +69,7 @@ const [profile, setProfile] = useState();
             }
             else   if(user.role==="Admin"&&user.etatCompte!=="bloque")
             {
-              nav("/Admin")
+              nav("/Admin/TableauDuBord")
             }
             else   if(user.role==="partenaire"&&user.etatCompte!=="bloque")
             {
@@ -101,7 +101,6 @@ const [profile, setProfile] = useState();
             toast.error(" votre e-mail a bloqué le contact Admin!!",{autoClose: 1000})
 
           }
-      
         }
         catch(error){
           console.log(error)
@@ -127,16 +126,11 @@ const [profile, setProfile] = useState();
  }
  else{
   toast.error("checked !!",{autoClose: 1000})
-
  }
-
- 
   }
   const checkedboxfilter=(event)=>{
     setCheck(event.target.checked) 
    }
-
-
 useEffect(()=>{
   AuthGmail()
 },[profile])

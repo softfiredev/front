@@ -1,0 +1,60 @@
+.ListecomondeAdmin{
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+.txt-ListecomondeAdmin{
+    color: var(--neutral-0, #222);
+font-family: Inter;
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+line-height: 48px;
+}
+.ListelivraisonsAdmin{
+    display: flex;
+    justify-content: space-between;
+}
+.box-ListelivAdmin{
+    width: 357px;
+    height: 100px;
+flex-shrink: 0;
+border-radius: 8px;
+border: 1px solid #EEEDF2;
+background: #FFF;
+padding: 1.5%;
+display: flex;
+flex-direction: column;
+gap: 0.5em;
+}
+.txt2-ListecomondeAdmin{
+    color: var(--neutral-0, #222);
+font-family: Inter;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 36px;
+}
+.txt3-ListecomondeAdmin{
+    color: var(--neutral-400, #7E7E7E);
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+}
+.minirow-ListelivAdmin{
+    display: flex;
+gap: 1em;
+}
+.box2-ListecomondeAdmin{
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: auto;
+height: auto;
+flex-shrink: 0;
+border-radius: 8px;
+background: #FFF;
+}

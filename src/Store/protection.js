@@ -40,15 +40,14 @@ else{return <Notfound url={"/Profile/Monidentite"}/>}
 }
 const s1=location.pathname.substring(location.pathname.length,location.pathname.indexOf("t/")+2)
 
-
 if(user.role==="Admin" &&user.auth==true &&user.etatCompte==="active" )
 {
   
-if((location.pathname==="/Admin/AjouteGategories" ||location.pathname==="/Admin/TableauDuBord" ||location.pathname==="/Admin/Categories" ||location.pathname==="/Admin/Liste_de_demande" || location.pathname==="/Admin"|| location.pathname==="/admin"|| location.pathname==="/Admin/Produits"|| location.pathname==="/Admin/Modifier_produit/"+s1|| location.pathname==="/Admin/Ajouter_un_produit" || location.pathname==="/Admin/ListeClients" ||  location.pathname==="/Admin/ListeFournisseurs"||  location.pathname==="/Admin/ListeVendeurs"||  location.pathname==="/Admin/ListePartenaires"))
+if((location.pathname==="/Admin/details_Partenaires/"+id ||location.pathname==="/Admin/details_client/"+id ||location.pathname==="/Admin/Details_de_livraisons/"+id ||location.pathname==="/Admin/Details_de_commande/"+id ||location.pathname==="/Admin/Liste_de_livraisons" ||location.pathname==="/Admin/Liste_de_commandes" ||location.pathname==="/Admin/AjouteGategories" ||location.pathname==="/Admin/TableauDuBord" ||location.pathname==="/Admin/Categories" ||location.pathname==="/Admin/Liste_de_demande" || location.pathname==="/Admin"|| location.pathname==="/admin"|| location.pathname==="/Admin/Produits"|| location.pathname==="/Admin/Modifier_produit/"+s1|| location.pathname==="/Admin/Ajouter_un_produit" || location.pathname==="/Admin/ListeClients" ||  location.pathname==="/Admin/ListeFournisseurs"||  location.pathname==="/Admin/ListeVendeurs"||  location.pathname==="/Admin/ListePartenaires"))
 {
   return children
 }
-else{return <Notfound url={"/Admin/Liste_de_demande"}/>}
+else{return <Notfound url={"/Admin/TableauDuBord"}/>}
 }
 if(user.role==="fournisseur" &&user.auth==true &&user.etatCompte==="active" )
 {
@@ -57,7 +56,7 @@ if((location.pathname==="/fournisseur" || location.pathname==="/fournisseur/List
 {
   return children
 }
-else{return <Notfound url={"/Admin/Liste_de_demande"}/>}
+else{return <Notfound url={"/fournisseur"}/>}
 }
 
 

@@ -25,6 +25,8 @@ const AjouteGategories = () => {
 const nav=useNavigate()
   const [onesouscategorie, setonesouscategorie] =useState([]);
   const [categorie, setcategorie] =useState({name:"",Description:""});
+  const [souscategorie, setsouscategorie] =useState({name:""});
+
   const handleInputChange = (field) => {
     return (e) => {
       setcategorie((prev) => ({
@@ -33,12 +35,18 @@ const nav=useNavigate()
       }));
     };
   };
-
+  const handleInputChange2 = (field) => {
+    return (e) => {
+      setsouscategorie((prev) => ({
+        ...prev,
+        [field]: e.target.value,
+      }));
+    };
+  };
   const getsouscategorie = async () => {
 
     try {
       const response = await axios.get(Base_url + Path.ALLsousGategorie);
-      setAll(response?.data?.categorie);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -57,7 +65,6 @@ const nav=useNavigate()
   toast.success("votre Catégorie a ete Ajoute avec success", {
     autoClose: 1000,
   });
-  
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -70,7 +77,19 @@ const nav=useNavigate()
     }
 
   }
+  const ajouteliste=()=>{
+    const currentDate = new Date();
+const month = currentDate.getMonth() + 1; // Adding 1 because months are zero-based
+const day = currentDate.getDate();
+const year = currentDate.getFullYear();
 
+const formattedDate = `${month}-${day}-${year}`;
+    setAll([...all, {titre:souscategorie.name,createdAt:formattedDate}]);
+  }
+  const handleRemoveItem = (index) => {
+    const updatedAll = all.filter((item, i) => i !== index);
+    setAll(updatedAll);
+  };
   return (
     <div className='AjouteG'>
     <div className='row1-AjouteG'>
@@ -104,40 +123,6 @@ const nav=useNavigate()
 
             </div>
          </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
          <div className='row1-AjouteG'>
             <div className='col-AjouteG'>
              <div>   <p className='txt1-AjouteG'>Liste de sous-catégories:</p></div>
@@ -150,10 +135,11 @@ const nav=useNavigate()
           placeholder={"Sous-catégorie"}
           endAdornment={
             <InputAdornment position="end">
-             <div className='box-catégorie' onClick={()=>{console.log('mrgla')}}><p className='txt6-catégorie'>Ajouter</p></div>
+             <div className='box-catégorie' onClick={ajouteliste}><p className='txt6-catégorie'>Ajouter</p></div>
             </InputAdornment>
           }
-          value={onesouscategorie.name}
+          onChange={handleInputChange2("name")}
+          value={souscategorie.name}
         />
             </div>
             <div className="table-container">
@@ -161,7 +147,8 @@ const nav=useNavigate()
     boxShadow: "none", borderWidth: " 1px 0px",
     borderStyle: "solid",
     borderColor: "#EEEDF2",
-    overflow: "hidden"
+    overflow: "hidden",
+    width: "100% "
 }}>
     <Table style={{ width: "100%" }} aria-label="simple table" >
         <TableHead >
@@ -173,16 +160,16 @@ const nav=useNavigate()
         <TableBody >
    
                
-        {all.map((row) => (
+        {all.map((row,id) => (
   <TableRow style={{cursor:"pointer"}} onClick={() => setonesouscategorie(row)} key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
     <TableCell component="th" scope="row" style={{ borderRight: "none" }}>
-      {row.name}
+      {row?.titre}
     </TableCell>
     <TableCell component="th" scope="row" style={{ borderRight: "none" }}>
-      {row.createdAt}
+      {row?.createdAt}
     </TableCell>
     <TableCell component="th" scope="row" style={{ borderRight: "none" }}>
-      <div className='box2-AjouteG'>
+      <div className='box2-AjouteG' onClick={()=>{handleRemoveItem(id)}}>
         <Trash size="24" color='#E0574E' variant="Bold" />
       </div>
     </TableCell>

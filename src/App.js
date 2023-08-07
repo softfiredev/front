@@ -15,7 +15,22 @@ import Vendeursadmin from "./components/Admin-components/Liste d’utilisateurs/
 import Partenairesadmin from "./components/Admin-components/Liste d’utilisateurs/Partenaires/Partenairesadmin ";
 import Notfound from "./Pages/not-found/Not-found";
 import Bloked from "./Pages/blok/Bloked";
+import Details_Partenaires from "./components/Details_Partenaires/Details_Partenaires";
 
+const DetaillivraisonsAdmin = lazy(() =>
+  import("./components/Admin-components/ListelivrisionAdmin copy/composentliste/Detailcomnder"));
+const Details_client = lazy(() =>
+  import("./components/Admin-components/details_client/details_client")
+);
+const ListelivraisonsAdmin = lazy(() =>
+  import("./components/Admin-components/ListelivrisionAdmin copy/ListelivrisionAdmin")
+);
+const DetailcomnderAdmin = lazy(() =>
+  import("./components/Admin-components/ListecomondeAdmin/composentliste/Detailcomnder")
+);
+const ListecomondeAdmin = lazy(() =>
+  import("./components/Admin-components/ListecomondeAdmin/ListecomondeAdmin")
+);
 const AjouteGategories = lazy(() =>
   import("./components/Admin-components/AjouteGategories/AjouteGategories")
 );
@@ -192,6 +207,7 @@ function App() {
     avatar:decoded?.avatar,
     etatCompte:decoded?.etatCompte,
   };
+  console.log(user)
   return (
 
    
@@ -241,7 +257,7 @@ function App() {
               element={<Resetpassword />}
             />
             
-            <Route path="/Vender" element={ <Protection user={user}><Vender /></Protection>}>
+            <Route path="/Vender" element={ <Protection user={user}><Vender  user={user}/></Protection>}>
               <Route path="/Vender/TableauDuBord" element={<TableauDuBord user={user} />} />
               <Route path="/Vender/Liste_de_produits" element={ <Protection user={user}><Categorie user={user} /></Protection>} />
               <Route path="/Vender/Inventaire" element={<Protection user={user}><Inventaire user={user}/></Protection>} />
@@ -268,11 +284,7 @@ function App() {
               />
               <Route path="/Vender/Factorisation" element={<Protection user={user}><Factorisation /></Protection>} />
               <Route path="/Vender/Gestion_de_points" element={<Protection user={user}><Gestion_points /></Protection>} />
-
             </Route>
-
-
-
             <Route path="/fournisseur" element={<Protection user={user}><Fournisseurs /></Protection>}>
             <Route path="/fournisseur/Liste_de_livraisons" element={<Protection user={user}><ListelivraisonsFornisseuer /></Protection>} />
             <Route path="/fournisseur/Détails_de_livraison/:id" element={<Protection user={user}><DetailLivrFornisseuer /></Protection>}             />
@@ -281,10 +293,7 @@ function App() {
             <Route path="/fournisseur/Factorisation" element={<Protection user={user}><FactorisationFornisseuer /></Protection>}             />
             <Route path="/fournisseur/Profile" element={<Protection user={user}><FornisseuerProfile /></Protection>}/>
             </Route>
-            
              <Route path="/Faire_une_commande" element={<FaireComonde user={user}/>}/>
-         
-         
              <Route path="/Admin" element={<Protection user={user}><Admin user={user}/></Protection>}>
              <Route path="/Admin/Liste_de_demande" element={<Protection user={user}><AdminPartners user={user}/></Protection>}/>
              <Route path="/Admin/Produits" element={<Protection user={user}><Listpro user={user}/></Protection>}/>
@@ -297,6 +306,13 @@ function App() {
              <Route path="/Admin/Categories" element={<Protection user={user}><Catégories user={user}/></Protection>}/>
              <Route path="/Admin/TableauDuBord" element={<Protection user={user}><TableauDuBordAdmin user={user}/></Protection>}/>
              <Route path="/Admin/AjouteGategories" element={<Protection user={user}><AjouteGategories user={user}/></Protection>}/>
+             <Route path="/Admin/Liste_de_commandes" element={<Protection user={user}><ListecomondeAdmin user={user}/></Protection>}/>
+             <Route path="/Admin/Liste_de_livraisons" element={<Protection user={user}><ListelivraisonsAdmin user={user}/></Protection>}/>
+             <Route path="/Admin/Details_de_commande/:id" element={<Protection user={user}><DetailcomnderAdmin user={user}/></Protection>}/>
+             <Route path="/Admin/Details_de_livraisons/:id" element={<Protection user={user}><DetaillivraisonsAdmin user={user}/></Protection>}/>
+             <Route path="/Admin/details_client/:id" element={<Protection user={user}><Details_client user={user}/></Protection>}/>
+             <Route path="/Admin/details_Partenaires/:id" element={<Protection user={user}><Details_Partenaires user={user}/></Protection>}/>
+
 
              </Route>
 

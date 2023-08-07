@@ -17,7 +17,7 @@ function NavBar(props) {
     navigate(0);
   };
   const nbprod=useSelector(state=> state.Panier.nbprod)
-
+console.log(props.user)
   return (
 
       <header className="header">
@@ -62,10 +62,10 @@ function NavBar(props) {
 <div><p style={{color:"#fff"}}>LogOut</p></div>
 </div>
 :
-<Link to={props.user.role==="client"?"Profile/Monidentite":props.user.role==="labrairie"?"/Vender/TableauDuBord":props.user.role==="Admin"?"/Admin":props.user.role==="partenaire"?"/partenaire":props.user.role==="fournisseur"?"/fournisseur":""} >
+<Link to={props.user.role==="client"?"Profile/Monidentite":props.user.role==="labrairie"?"/Vender/TableauDuBord":props.user.role==="Admin"?"/Admin/TableauDuBord":props.user.role==="partenaire"?"/partenaire":props.user.role==="fournisseur"?"/fournisseur":""} >
 <div className={props.user.auth?"section_user":"section_user-none"}>
-        <p className='username'> {clientData?.fullname===undefined?props.user?.fullname:clientData?.fullname}</p>
-        <Avatar  style={{ height: "26px", width: "26px" }}  src={clientData?.avatar!==undefined?"http://localhost:8080/uploads/"+clientData?.avatar:"http://localhost:8080/uploads/"+props.user.avatar} className="avrt-pagenave" />
+        <p className='username'> {props.user?.fullname}</p>
+        <Avatar  style={{ height: "26px", width: "26px" }}  src={"http://localhost:8080/uploads/"+props.user.avatar} className="avrt-pagenave" />
 </div>
 </Link>
           }

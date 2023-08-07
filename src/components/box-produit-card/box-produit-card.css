@@ -1,10 +1,8 @@
 .image{
     border-radius: 8px;
-    Width :112px ; 
-    height: 112px;
+    Width :100px ; 
+    height: 100px;
     margin-bottom: 25px;
-    margin-left: 5px;
-    margin-right: 24px;
 }
 .titreProd{
 font-family: 'Inter';
@@ -13,11 +11,10 @@ font-weight: 500;
 font-size: 13.5px;
 line-height: 21px;
 color: #222222;
-text-overflow: ellipsis;
-overflow: hidden;
-max-width: 132px;
-max-height: 20px;
-margin-bottom: 10px;
+width: 180px; 
+overflow: hidden; 
+text-overflow: ellipsis; 
+white-space: nowrap;
 
 }
 .prix{
@@ -37,7 +34,7 @@ height: 52px;
 background: #FFFFFF;
 border: 1px solid #C4CBCD;
 border-radius: 8px;
-margin-left: 66px;
+margin-left: 133px;
 margin-right: 83px;
 text-align: center;
 margin-top: -29px;
@@ -50,7 +47,7 @@ margin-top: -29px;
     line-height: 22px;
     text-align: right;
     color: #222222;
-   margin-left: 65px;
+   margin-left: 38px;
    margin-top: 40px;
    }
 .Supprimer{

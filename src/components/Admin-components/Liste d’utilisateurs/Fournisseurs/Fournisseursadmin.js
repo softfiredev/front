@@ -83,7 +83,7 @@ const CLINET = Alluser.filter(product =>
   const blog = CLINET.filter(product => 
     product?.etatCompte?.toLowerCase()?.includes("bloque")
   );
-
+console.log(CLINET?.telephone)
 
   return (
     <div className="pages-container1">
@@ -131,7 +131,7 @@ CLINET.map((obj, index) => (
     </div>
   </td>
   <td className="tdwidth1">
-    <p className="txt02-int">{obj?.telephone}</p>
+    <p className="txt02-int">{obj?.telephone?obj?.telephone:"-"}</p>
   </td>
   <td className="tdwidth10">{obj?.email}</td>
 
@@ -192,7 +192,7 @@ Activ.map((obj, index) => (
     </div>
   </td>
   <td className="tdwidth1">
-    <p className="txt02-int">{obj?.telephone}</p>
+    <p className="txt02-int">{obj?.telephone?obj?.telephone:"-"}</p>
   </td>
   <td className="tdwidth10">{obj?.email}</td>
 
@@ -249,7 +249,7 @@ blog.map((obj, index) => (
     </div>
   </td>
   <td className="tdwidth1">
-    <p className="txt02-int">{obj?.telephone}</p>
+    <p className="txt02-int">{obj?.telephone?obj?.telephone:"-"}</p>
   </td>
   <td className="tdwidth10">{obj?.email}</td>
 

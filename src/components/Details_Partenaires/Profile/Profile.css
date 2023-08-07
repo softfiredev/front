@@ -1,0 +1,131 @@
+.Profile{
+display: flex;
+flex-direction: column;
+gap: 3em;
+}
+.inpt-Profil2{
+    width: 400px;
+height: 144px;
+flex-shrink: 0;
+border-radius: 8px;
+border: 1px solid #E1E1E1;
+background: #FFF;
+}
+.soustxt-Profil{
+    color: var(--neutral-0, #222);
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px;
+padding-bottom: 2%;
+}
+.col2-Profil{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: 628px;
+}
+.bnt1-Profil{
+    width: 126px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #4098D7;
+    background: #DCEEFB;
+    color: #2680C2;
+text-align: center;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+}
+.bnt2-Profil{
+    width: 126px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #57AE5B;
+    background: #E3F9E5;
+    color: #3F9142;
+text-align: center;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+}
+.col-Profil{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+.img-Profil{
+
+flex-shrink: 0;
+border-radius: 120px;
+border: 2px solid #FFF;
+box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+}
+.mcol-Profil{
+    display: flex;
+    margin-top: 3%;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.txt-Profil{
+    color: var(--neutral-0, #222);
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 16px; 
+}
+.row-Profil{
+    display: flex;
+    justify-content: space-between;
+}
+.row-Profil2{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 12%;
+}
+.radio-Tf1{
+    width: 24px;
+  height: 24px;
+  }
+  
+  input[name="r0"]:checked {
+    width: 24px;
+    height: 24px;
+    border: 5px solid #F7D070 !important;
+    appearance: none;
+    border-radius:50%;
+  }
+.inpt-Profil{
+    width: 400px;
+height: 48px;
+flex-shrink: 0;
+border-radius: 8px;
+border: 1px solid #E1E1E1;
+background: #FFF;
+}
+.box1-Profile{
+    width: 40px;
+height: 40px;
+flex-shrink: 0;
+border-radius: 5px;
+background: var(--yellow-800, #FCEFC7);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.rowinput-Profil{
+    display: flex;
+align-items: center;
+gap: 0.25em;
+}

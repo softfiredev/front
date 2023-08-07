@@ -16,6 +16,7 @@ import { AddAdrClient, AddAdrpartnier } from "../../Store/Service/AdrClient/AddA
 import { addPoint } from "../../Store/Service/addPoint";
 import { Base_url, Path } from "../../config/Config";
 import axios from "axios";
+import { removeAll } from "../../Store/panier/panierSlice";
 const FaireComonde = (props) => {
   const navigate = useNavigate();
   const [addresse, setAddresse] = useState({nom: "", addr: "",Ville:"",codepostal:"",clientId:"" });
@@ -225,7 +226,6 @@ const FaireComonde = (props) => {
    const addresses=clientData?.client?.adresses
      
 
-  console.log(addresses)
   const passeCommande = () => {
   if(ModePay!==undefined)
   {
@@ -256,6 +256,7 @@ const FaireComonde = (props) => {
           addPoint(props.user.id,{point:Point}).then((response)=>{
             console.log(response)
           })
+          dispatch(removeAll())
           navigate("/Shop");
         }
       })

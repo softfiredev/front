@@ -9,19 +9,14 @@ import { useSelector } from "react-redux";
 
 const Cart = (props) => {
   const panier=useSelector(state=> state.Panier.panier)
-
+  console.log(panier)
   return (
     <>
        <div className="Cart">
       <Grid item>
         <h1 className="titre">Panier</h1>
       </Grid>
-      <Grid
-        container
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="center"
-      >
+      <div className="row-cart" >
         <div className="produit">
           <Grid container direction="row" className="items">
             <div item className="item Article">
@@ -41,7 +36,7 @@ const Cart = (props) => {
           </div>
         </div>
         <Recapitulatif iduser={props.user.id} auth={props.user.auth} panier={panier} etatcompt={props.user.etatCompte} authuser={props.user.auth}/>
-      </Grid>
+      </div>
       <div className="Continuer">
         <ArrowBackIosNewIcon className="icon1" />
         <Link to="/Shop"> Continuer vos achats</Link>

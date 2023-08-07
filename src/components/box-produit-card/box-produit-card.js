@@ -20,7 +20,7 @@ const Box_produit_Card = (props)=>{
     setqte(e.target.value)
     dispatch(changeQte({"idp":props.idp,"imgp":props.imgp,"prix":props.prix,"titre":props.titre,"qte":Number( e.target.value),"idl":props.idl}))
   }
-  console.log(props)
+
         return (
         <>
              <Grid
@@ -37,7 +37,7 @@ const Box_produit_Card = (props)=>{
                     </div>
              </div>
               <input type="number" width="20px" className="qte" min={1} max={props.Allqte} onChange={(e)=>changeQtee(e)}  defaultValue={qte}/>
-              <p className="total">{total.toFixed(2)} dt</p>
+              <p className="total">{total.toFixed(3)} dt</p>
               <div className="Supprimer" onClick={()=>removeProduit(props.index)}> Supprimer </div>
             </Grid>
             <hr className="underline"></hr>

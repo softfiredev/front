@@ -49,8 +49,13 @@ line-height: 22px;
 color: #222222;
 margin-top: 15px;
 }
+.row-cart{
+    display: flex;
+    justify-content: space-between;
+}
 .Cart{
     height: auto;
+    padding-right: 5%;
 }
 .box3 p {
     font-family: 'Inter';
@@ -91,15 +96,4 @@ margin-top: 15px;
 }
 .box3{
     margin-top: 16px;
-}
-@media (max-width: 876px) {
-    .Continuer{
-        margin-left: 68px;
-    }
-    .resume{
-        margin-left: 44px;
-    }
-    .produit{
-        display: none;
-    }
 }

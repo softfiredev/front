@@ -29,8 +29,6 @@ const Detailcomnder = (props) => {
   const filteredData = DetailcomondeClient[0]?.user?.client?.adresses?.filter(item => item?.id === DetailcomondeClient[0]?.Adresse);
   const filteredData2 = DetailcomondeClient[0]?.user?.partenaire?.adresses?.filter(item => item?.id === DetailcomondeClient[0]?.Adresse);
 
-
-
   const [open, setopen] = useState("Nouveau");
 
   const Accepter=()=>{
@@ -38,6 +36,8 @@ const Detailcomnder = (props) => {
        if(response.success==true){
         toast.success("commande Accepter",{autoClose: 1000})
         dispatch(findCommandeBylibrairie(props?.user.id));
+        navigate("/Vender/Liste_de_commandes");
+        navigate(0)
         setref(true)
        }
     })
@@ -61,7 +61,6 @@ const Detailcomnder = (props) => {
 
      })
   }
-
   return (
     <div className="Detailcomnder">
       <div

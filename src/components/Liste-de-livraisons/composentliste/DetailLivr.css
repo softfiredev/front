@@ -84,7 +84,7 @@ color: #05400A;
 .colbox4-dc{
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 0.5em;
 }
 .txt1-dc{
     
@@ -113,7 +113,7 @@ color: #222222;
 .row1-dc{
     display: flex;
     flex-direction: row;
-    gap: 1em;
+   justify-content: space-between;
 }
 .col1-dc{
     display: flex;
@@ -134,7 +134,7 @@ border-radius: 8px 0px 0px 8px;
     margin-top: 4%;
 }
 .box1-dc{
-width: 362px;
+width: 349px;
 height: 132px;
 background: #FFFFFF;
 border-radius: 8px;
@@ -189,14 +189,13 @@ padding-bottom: 5%;
 }
 .box2-dc{
 width: 348px;
-height: 252px;
+height: auto;
 background: #FFFFFF;
 border-radius: 8px;
 display: flex;
 flex-direction: column;
 gap: 1.7em;
-padding-left: 4%;
-padding-top: 5%;
+padding: 3.5%;
 }
 .cirl-dc{
     position: relative;
@@ -319,7 +318,7 @@ margin-top: 3%;
 flex-direction: column;
 gap: 1.7em;
 width: 728px;
-height: 570px;
+height: 699px;
 background: #FFFFFF;
 border-radius: 8px;
 padding-top: 1.5%;
@@ -352,17 +351,17 @@ border: 1px solid #EDEDED;
 }
 
 .txt3box4-dc{
-    font-family: 'Inter';
+    color: var(--black-maktaba, #222);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 12px;
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    color: #626262;
-    width: 150%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-width: 100px;
-    max-height: 120px;
+    font-weight: 500;
+    line-height: 21px; 
+    width: 162px; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
     }
     .box5-dc{
 width: 738px;

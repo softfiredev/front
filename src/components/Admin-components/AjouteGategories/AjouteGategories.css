@@ -124,6 +124,8 @@ line-height: 20px;
 .table-container {
     max-height: 500px; 
     overflow-y: auto; 
+    width: 597px;
+
   }
   
   .table-container::-webkit-scrollbar {

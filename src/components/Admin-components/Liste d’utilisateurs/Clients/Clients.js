@@ -92,26 +92,17 @@ const sup = async () => {
 const CLINET = Alluser.filter(product => 
     product?.role?.toLowerCase()?.includes("client")
   );
-
   const Activ = CLINET.filter(product => 
     product?.etatCompte?.toLowerCase()?.includes("active")
   );
   const blog = CLINET.filter(product => 
     product?.etatCompte?.toLowerCase()?.includes("bloque")
   );
-
-
   return (
     <div className="pages-container1">
-
     <div className="header-page-categorie">
    <div>   <h1 className="title-page-categorie">Liste de Clients</h1></div>
-    
-
-
     </div>
-
-
     <Box sx={{ width: '100%' }}>
     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Tabs value={value} onChange={handleChange} TabIndicatorProps={{ style: { background: "#222" } }}>
@@ -120,8 +111,6 @@ const CLINET = Alluser.filter(product =>
         <Tab label={<p className="txttabs-c">Bloquée</p>} {...a11yProps(2)} />
       </Tabs>
     </Box>
- 
-
     <TabPanel value={value} index={0}>  
     <table>
       <tr>
@@ -135,24 +124,23 @@ const CLINET = Alluser.filter(product =>
       </tr>
  {
 CLINET.map((obj, index) => (
-<tr>
-  <td className="tdwidth">{obj.id}</td>
-  <td className="tdwidth02">
-    <div className="row-int01">
-
+<tr style={{cursor:"pointer"}} >
+  <td className="tdwidth"onClick={()=>{navigate("/Admin/details_client/"+obj.id)}}>{obj.id}</td>
+  <td className="tdwidth02"onClick={()=>{navigate("/Admin/details_client/"+obj.id)}}>
+    <div className="row-int01"onClick={()=>{navigate("/Admin/details_client/"+obj.id)}}>
     <Avatar src={"http://localhost:8080/uploads/"+obj?.avatar} className="img512-ad" />
      <div style={{ marginTop: "3%" }}>
         <p className="txt01-int">{obj.fullname}</p>
       </div>
     </div>
   </td>
-  <td className="tdwidth1">
-    <p className="txt02-int">{obj?.telephone}</p>
+  <td className="tdwidth1"onClick={()=>{navigate("/Admin/details_client/"+obj.id)}}>
+    <p className="txt02-int">{obj?.telephone?obj?.telephone:"-"}</p>
   </td>
-  <td className="tdwidth10">{obj?.email}</td>
+  <td className="tdwidth10"onClick={()=>{navigate("/Admin/details_client/"+obj.id)}}>{obj?.email}</td>
 
-  <td className="tdwidth1">{obj?.createdAt}</td>
-  <td className="tdwidth1">{ obj?.etatCompte==="active"?
+  <td className="tdwidth1"onClick={()=>{navigate("/Admin/details_client/"+obj.id)}}>{obj?.createdAt}</td>
+  <td className="tdwidth1"onClick={()=>{navigate("/Admin/details_client/"+obj.id)}}>{ obj?.etatCompte==="active"?
   <div className="stats-admin1">{obj?.etatCompte }</div> 
   :
   <div className="stats-admin2"><p>{obj?.etatCompte}</p></div> 
@@ -169,8 +157,6 @@ CLINET.map((obj, index) => (
  className="more-ad"
  onClick={(e)=>{setAnchorEl(e.currentTarget);setIduser(obj.id)}}
 />
-
-
  </div>
 </td>
 </tr>
@@ -196,7 +182,7 @@ CLINET.map((obj, index) => (
       </tr>
  {
 Activ.map((obj, index) => (
-<tr>
+<tr style={{cursor:"pointer"}} onClick={()=>{navigate("/Admin/details_client/"+obj.id)}}>
   <td className="tdwidth">{obj.id}</td>
   <td className="tdwidth02">
     <div className="row-int01">
@@ -253,7 +239,7 @@ Activ.map((obj, index) => (
       </tr>
  {
 blog.map((obj, index) => (
-<tr>
+<tr style={{cursor:"pointer"}} onClick={()=>{navigate("/Admin/details_client/"+obj.id)}}>
   <td className="tdwidth">{obj.id}</td>
   <td className="tdwidth02">
     <div className="row-int01">

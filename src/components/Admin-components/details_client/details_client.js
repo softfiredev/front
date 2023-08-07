@@ -1,7 +1,7 @@
 import { Avatar } from '@material-ui/core';
 import { ArrowCircleLeft } from 'iconsax-react'
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
 import "./details_client.css"
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -10,6 +10,8 @@ import Tab from '@mui/material/Tab';
 import Profil from './Profile/Profile';
 import Liste_commandes from './Liste_commandes/Liste_commandes';
 import Commentaires from './Commentaires/Commentaires';
+import { useDispatch, useSelector } from 'react-redux';
+import { getIdentiteClientt } from '../../../Store/Service/identiteClient';
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
    
@@ -48,7 +50,16 @@ const Details_client = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
       }
+      const { id } = useParams();
+      const dispatch=useDispatch()
+      const clientData = useSelector(
+        (state) => state.IdentiteClient.identiteClient
+      );
 
+      useEffect(() => {
+        dispatch(getIdentiteClientt(id));
+      },[]);
+    
   return (
     <div className='Details_client'>
  <div className='mcol-Details_client'>
@@ -65,8 +76,8 @@ const Details_client = () => {
       </div>
 
       <div className='mrow-Details_client'>
-        <Avatar src={img} className='avtar-Details_client'/>
-        <div><p className='txt-Details_client'>{name}</p></div>
+        <Avatar src={"http://localhost:8080/uploads/"+clientData?.avatar} className='avtar-Details_client'/>
+        <div><p className='txt-Details_client'>{clientData?.fullname}</p></div>
       </div>
  </div>
 

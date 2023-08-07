@@ -25,7 +25,7 @@ const bonDachates = useSelector(
 useEffect(() => {
   dispatch(getIdentiteClientt(id));
   dispatch(AllbonDachateByuser(id))
-  props.handelchang("http://localhost:8080/uploads/"+clientData?.avatar,clientData?.fullname)
+
 },[]);
 
 

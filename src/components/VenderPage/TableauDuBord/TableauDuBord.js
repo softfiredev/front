@@ -39,7 +39,7 @@ const TableauDuBord = (props) => {
     dispatch(nb_commande(props?.user.id));
     dispatch(ProduitMieuxNote(props?.user.id))
   }, []);
-
+console.log(nbcommandeparjour)
   const currentDate = moment().format("YYYY-MM-DD");
   const filteredData = librairieData.filter((item) => {
     const parsedDate = moment(item.createdAt, "YYYY-MM-DD");

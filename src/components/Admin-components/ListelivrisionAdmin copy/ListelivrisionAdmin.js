@@ -130,15 +130,15 @@ const ListelivraisonsAdmin = () => {
               ))}
           </Tabs>
         </Box>
-
-      </div>
-      {
+        {
         tabPanelData.map((index) => (
           <TabPanel key={index} value={value} index={index}>
             <Tablee data={filteredData} />
           </TabPanel>
         ))
       }
+      </div>
+   
     </div>
   )
 }

@@ -144,7 +144,7 @@ const formattedDate = `${month}-${day}-${year}`;
             </div>
             <div className="table-container">
             <TableContainer component={Paper} style={{
-    boxShadow: "none", borderWidth: " 1px 0px",
+    boxShadow: "none",
     borderStyle: "solid",
     borderColor: "#EEEDF2",
     overflow: "hidden",

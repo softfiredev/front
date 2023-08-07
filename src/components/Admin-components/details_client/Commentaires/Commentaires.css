@@ -102,9 +102,22 @@ background: #FFF;
     height: 1px;
     background: #F7F7F7;
  }
+
+
+
  .TabAvisp{
     padding-left: 4%;
+    width: 800px;
+    height: 150px;
+    overflow: auto;
+    text-align: justify;
+    padding: 20px;
+    height: 680px;
+
  }
+ .TabAvisp::-webkit-scrollbar {
+   width: 12px;
+   }
  .input-TabAvisp{
     width: 519px;
 height: 48px;
@@ -148,8 +161,6 @@ line-height: 16px;
  }
  .txt210-TabAvisp{
    width: 160px;
-
-
 color: #222;
 font-size: 16px;
 font-family: Inter;

@@ -23,6 +23,7 @@ const TabAvisp = (props) => {
             
         },
     };
+    console.log(props?.Avis)
     return (
         <div className='TabAvisp'>
             <Filterbar icon={<Sort size="22" color="#222222" />} nom="Trier par" titre="TabAvisp" />
